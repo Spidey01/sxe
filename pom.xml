@@ -1,0 +1,19 @@
+<project xmlns="http:/maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.spidey01.sxe</groupId>
+  <artifactId>sxe</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <modules>
+    <!-- SxE Core Engine -->
+    <module>core</module>
+    <!-- Platform code for PC systems -->
+    <module>pc</module>
+    <!-- A simple demo of a seminal 2D game -->
+    <module>snakegame</module>
+  </modules>
+</project>
