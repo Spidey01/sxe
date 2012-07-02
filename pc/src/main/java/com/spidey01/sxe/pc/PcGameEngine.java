@@ -34,5 +34,20 @@ public class PcGameEngine extends GameEngine {
 
         return true;
     }
+
+    @Override
+    public void stop() {
+        super.stop();
+		Display.destroy();
+
+        System.out.println("PcGameEngine.stop() done");
+    }
+
+    public void mainLoop() {
+		while (!Display.isCloseRequested()) {
+			Display.update();
+		}
+    }
+
 }
 

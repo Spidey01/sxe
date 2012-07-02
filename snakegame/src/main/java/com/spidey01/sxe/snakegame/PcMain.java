@@ -8,6 +8,8 @@ class PcMain {
     public static void main(String[] args) {
         GameEngine g = new PcGameEngine(new SnakeGame());
         g.start();
+        g.mainLoop();
+        g.stop();
     }
 
 }

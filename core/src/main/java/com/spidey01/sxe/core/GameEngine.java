@@ -15,5 +15,15 @@ public abstract class GameEngine {
         return true;
     }
 
+    public void stop() {
+        System.out.println("GameEngine.stop() called");
+
+        mApp.stop();
+    }
+
+    /** Convenience method that can serve as a simple main loop.
+     */
+    public void mainLoop() {
+    }
 }
 

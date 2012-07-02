@@ -6,5 +6,10 @@ public class Game {
         System.out.println("Game.start() called");
         return true;
     }
+
+    public void stop() {
+        System.out.println("Game.stop() called");
+    }
+
 }
 

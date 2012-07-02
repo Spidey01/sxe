@@ -11,5 +11,11 @@ class SnakeGame extends Game {
         System.out.println("Snake Game is starting!");
         return true;
     }
+
+    @Override
+    public void stop() {
+        System.out.println("Snake Game is stopping!");
+        super.stop();
+    }
 }
 
