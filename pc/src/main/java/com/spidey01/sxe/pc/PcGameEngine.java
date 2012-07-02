@@ -23,6 +23,8 @@ public class PcGameEngine extends GameEngine {
     public boolean start() {
         System.out.println("PcGameEngine.start() called");
 
+        mInput = new PcInputManager();
+
         try {
             Display.setDisplayMode(new DisplayMode(640, 480));
             Display.create();
@@ -45,6 +47,7 @@ public class PcGameEngine extends GameEngine {
 
     public void mainLoop() {
 		while (!Display.isCloseRequested()) {
+            getInput().poll();
 			Display.update();
 		}
     }
