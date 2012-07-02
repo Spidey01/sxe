@@ -1,5 +1,9 @@
 package com.spidey01.sxe.pc;
 
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.DisplayMode;
+
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 
@@ -18,6 +22,14 @@ public class PcGameEngine extends GameEngine {
     @Override
     public boolean start() {
         System.out.println("PcGameEngine.start() called");
+
+        try {
+            Display.setDisplayMode(new DisplayMode(640, 480));
+            Display.create();
+        } catch (LWJGLException e) {
+            e.printStackTrace();
+            return false;
+        }
         super.start();
 
         return true;
