@@ -1,5 +1,10 @@
 package com.spidey01.sxe.core;
 
-public abstract class Game{
+public class Game {
+
+    public boolean start() {
+        System.out.println("Game.start() called");
+        return true;
+    }
 }
 

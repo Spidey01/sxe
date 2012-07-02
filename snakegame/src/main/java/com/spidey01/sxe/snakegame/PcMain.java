@@ -7,7 +7,7 @@ class PcMain {
 
     public static void main(String[] args) {
         GameEngine g = new PcGameEngine(new SnakeGame());
-        System.out.println("OKAY!");
+        g.start();
     }
 
 }
