@@ -22,7 +22,7 @@ public class PcGameEngine extends GameEngine {
 
     @Override
     public boolean start() {
-        System.out.println("PcGameEngine.start() called");
+        System.out.println("PcGameEngine.start() in thread "+Thread.currentThread().getId());
 
         mInput = new PcInputManager();
 
@@ -43,13 +43,21 @@ public class PcGameEngine extends GameEngine {
         super.stop();
 		Display.destroy();
 
-        System.out.println("PcGameEngine.stop() done");
+        System.out.println("PcGameEngine.stop() done in thread "+Thread.currentThread().getId());
     }
 
     public void mainLoop() {
 		while (!mGame.stopRequested() && !Display.isCloseRequested()) {
             getInput().poll();
 			Display.update();
+
+            System.out.println("GameEngine.mainLoop() spun in thread "+Thread.currentThread().getId());
+            try {
+                Thread.currentThread().sleep(100);
+            } catch (InterruptedException iex) {
+                System.out.println("GameEngine.mainLoop() interrupted in thread "+Thread.currentThread().getId());
+                stop();
+            }
 		}
     }
 
