@@ -2,7 +2,7 @@ package com.spidey01.sxe.core;
 
 /** Class implementing the game engine for PC/Mac hardware. */
 public abstract class GameEngine {
-    protected Game mApp;
+    protected Game mGame;
     protected InputManager mInput;
 
     /** Start up the game
@@ -12,14 +12,13 @@ public abstract class GameEngine {
      */
     public boolean start() {
         System.out.println("GameEngine.start() called");
-        mApp.start(this);
+        mGame.start(this);
         return true;
     }
 
     public void stop() {
-        System.out.println("GameEngine.stop() called");
-
-        mApp.stop();
+        mGame.stop();
+        System.out.println("GameEngine.stop() done");
     }
 
     /** Convenience method that can serve as a simple main loop.

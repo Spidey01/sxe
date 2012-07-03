@@ -10,11 +10,12 @@ import com.spidey01.sxe.core.GameEngine;
 /** Class implementing the game engine for PC/Mac hardware. */
 public class PcGameEngine extends GameEngine {
 
+
     public PcGameEngine(Game app) {
         super();
 
-        mApp = app;
-        if (mApp == null) {
+        mGame = app;
+        if (mGame == null) {
             throw new IllegalArgumentException("app can't be null!");
         }
     }
@@ -46,7 +47,7 @@ public class PcGameEngine extends GameEngine {
     }
 
     public void mainLoop() {
-		while (!Display.isCloseRequested()) {
+		while (!mGame.stopRequested() && !Display.isCloseRequested()) {
             getInput().poll();
 			Display.update();
 		}
