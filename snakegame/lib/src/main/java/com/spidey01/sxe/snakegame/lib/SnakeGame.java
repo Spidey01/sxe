@@ -7,7 +7,7 @@ import com.spidey01.sxe.core.GameEngine;
 public class SnakeGame extends Game {
 
     @Override
-    public boolean start(GameEngine ge) {
+    public boolean start(final GameEngine ge) {
         super.start(ge);
 
         System.out.println("Snake Game is starting via thread "+Thread.currentThread().getId()+"!");
@@ -16,27 +16,27 @@ public class SnakeGame extends Game {
 
         ge.getInput().bindKey("W", new Action() {
             @Override public void execute() {
-                System.out.println("Move Up via thread "+Thread.currentThread().getId()+"!");
+                ge.debug("Move Up");
             }
         });
         ge.getInput().bindKey("S", new Action() {
             @Override public void execute() {
-                System.out.println("Move Down via thread "+Thread.currentThread().getId()+"!");
+                ge.debug("Move Down");
             }
         });
         ge.getInput().bindKey("A", new Action() {
             @Override public void execute() {
-                System.out.println("Move Left via thread "+Thread.currentThread().getId()+"!");
+                ge.debug("Move Left");
             }
         });
         ge.getInput().bindKey("D", new Action() {
             @Override public void execute() {
-                System.out.println("Move Right via thread "+Thread.currentThread().getId()+"!");
+                ge.debug("Move Right");
             }
         });
         ge.getInput().bindKey("ESCAPE", new Action() {
             @Override public void execute() {
-                System.out.println("Quit via thread "+Thread.currentThread().getId()+"!");
+                ge.debug("Quit");
                 requestStop();
             }
         });
@@ -46,7 +46,7 @@ public class SnakeGame extends Game {
 
     @Override
     public void stop() {
-        System.out.println("Snake Game is stopping via thread "+Thread.currentThread().getId()+"!");
+        ge.debug("Snake Game is stopping");
         super.stop();
     }
 }

@@ -61,5 +61,9 @@ public class GameEngine {
     public InputManager getInput() {
         return mInput;
     }
+
+    public void debug(String message) {
+        System.out.println(message+" from thread "+Thread.currentThread().getId());
+    }
 }
 
