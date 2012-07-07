@@ -35,4 +35,10 @@ IF "%thismvnprofile%" == "pc" (
 IF "%thismvnprofile%" == "android" (
 	ECHO "Copying Android files to dist"
 	COPY /Y snakegame\android\target\snakegame-android-0.0.1-SNAPSHOT.apk dist\
+
+	REM faster way to get the app onto whatever device for testing
+	IF EXIST "%UserProfile%\Dropbox" (
+		ECHO "Copying APK file to Dropbox"
+		COPY /Y dist\snakegame-android-0.0.1-SNAPSHOT.apk "%UserProfile%\Dropbox\"
+	)
 )
