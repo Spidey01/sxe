@@ -1,10 +1,10 @@
-package com.spidey01.sxe.snakegame;
+package com.spidey01.sxe.snakegame.lib;
 
 import com.spidey01.sxe.core.Action;
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 
-class SnakeGame extends Game {
+public class SnakeGame extends Game {
 
     @Override
     public boolean start(GameEngine ge) {
