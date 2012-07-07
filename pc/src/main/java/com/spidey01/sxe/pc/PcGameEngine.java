@@ -1,23 +1,17 @@
 package com.spidey01.sxe.pc;
 
+import com.spidey01.sxe.core.Game;
+import com.spidey01.sxe.core.GameEngine;
+
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
-import com.spidey01.sxe.core.Game;
-import com.spidey01.sxe.core.GameEngine;
-
 /** Class implementing the game engine for PC/Mac hardware. */
 public class PcGameEngine extends GameEngine {
 
-
-    public PcGameEngine(Game app) {
-        super();
-
-        mGame = app;
-        if (mGame == null) {
-            throw new IllegalArgumentException("app can't be null!");
-        }
+    public PcGameEngine(com.spidey01.sxe.core.Display display, Game app) {
+        super(display, app);
     }
 
     @Override
@@ -26,13 +20,6 @@ public class PcGameEngine extends GameEngine {
 
         mInput = new PcInputManager();
 
-        try {
-            Display.setDisplayMode(new DisplayMode(640, 480));
-            Display.create();
-        } catch (LWJGLException e) {
-            e.printStackTrace();
-            return false;
-        }
         super.start();
 
         return true;
@@ -41,13 +28,16 @@ public class PcGameEngine extends GameEngine {
     @Override
     public void stop() {
         super.stop();
-		Display.destroy();
 
         System.out.println("PcGameEngine.stop() done in thread "+Thread.currentThread().getId());
     }
 
+    /**
+     * An implementation of GameEngine.mainLoop() suitable for PC/Mac systems.
+     */
+    @Override
     public void mainLoop() {
-		while (!mGame.stopRequested() && !Display.isCloseRequested()) {
+		while (!mGame.stopRequested() && !mDisplay.isCloseRequested()) {
             getInput().poll();
 			Display.update();
 
