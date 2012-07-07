@@ -8,12 +8,44 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <modules>
+  <profiles>
+    <profile>
+      <!-- For no specific platform. Mostly just for testing core. -->
+      <id>core</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>core</module>
+      </modules>
+    </profile>
+    <profile>
+      <!-- For x86/x86_64 based PC -->
+      <id>pc</id>
+      <modules>
+        <module>core</module>
+        <module>pc</module>
+        <module>snakegame</module>
+      </modules>
+    </profile>
+    <profile>
+      <!-- For Android projects -->
+      <id>android</id>
+      <modules>
+        <module>core</module>
+        <module>android</module>
+      </modules>
+    </profile>
+  </profiles>
+  <!-- what was used before profiles crap -->
+  <!-- <modules> -->
     <!-- SxE Core Engine -->
-    <module>core</module>
+    <!-- <module>core</module> -->
     <!-- Platform code for PC systems -->
-    <module>pc</module>
+    <!-- <module>pc</module> -->
+    <!-- Platform code for Android systems -->
+    <!-- <module>android</module> -->
     <!-- A simple demo of a seminal 2D game -->
-    <module>snakegame</module>
-  </modules>
+    <!-- <module>snakegame</module> -->
+  <!-- </modules> -->
 </project>
