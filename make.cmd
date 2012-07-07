@@ -2,7 +2,7 @@
 
 IF NOT "%1" == "" (SET thismvnprofile=%1) ELSE (SET thismvnprofile=pc)
 
-SET thismvnflags=-P %thismvnprofile% -Dmaven.test.skip=true package
+SET thismvnflags=-P %thismvnprofile% -Dmaven.test.skip=true -q package
 
 ECHO mvn %thismvnflags%
 REM We're calling mvn by a batch file that will exit us :(
@@ -30,4 +30,9 @@ IF "%thismvnprofile%" == "pc" (
 		snakegame\lib\target\snakegame-lib-0.0.1-SNAPSHOT.jar
 		snakegame\pc\target\snakegame-pc-0.0.1-SNAPSHOT.jar
 	) DO COPY /Y "%%f" dist\
+)
+
+IF "%thismvnprofile%" == "android" (
+	ECHO "Copying Android files to dist"
+	COPY /Y snakegame\android\target\snakegame-android-0.0.1-SNAPSHOT.apk dist\
 )
