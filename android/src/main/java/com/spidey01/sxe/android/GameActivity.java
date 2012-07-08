@@ -16,13 +16,18 @@ public class GameActivity extends Activity {
 
     /** Called when the activity is first created. */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // setContentView(R.layout.main);
 
         mDisplay = new AndroidDisplay(this);
         mInput = new AndroidInputManager(mDisplay);
+    }
+
+    protected void onDestroy() {
+        // not sure if this will really make a difference yet.
+        mEngine.stop();
     }
 }
 
