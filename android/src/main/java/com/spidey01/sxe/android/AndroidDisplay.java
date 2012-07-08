@@ -12,13 +12,18 @@ public class AndroidDisplay
 {
     public AndroidDisplay(Context context) {
         super(context);
+
+        // required so OnKey works.
+        setFocusable(true);
+
+        // setup for OpenGL ES 2
         setEGLContextClientVersion(2);
         setRenderer(new OpenGles2Renderer());
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
     }
 
     public boolean create() {
-        return true;
+        return requestFocus();
     }
 
     public void destroy() {

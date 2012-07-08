@@ -10,7 +10,7 @@ public class SnakeGame extends Game {
     public boolean start(final GameEngine ge) {
         super.start(ge);
 
-        System.out.println("Snake Game is starting via thread "+Thread.currentThread().getId()+"!");
+        ge.debug("Snake Game is starting via thread "+Thread.currentThread().getId()+"!");
 
         /* setup controls, these could just as easily be from a file */
 
@@ -35,6 +35,12 @@ public class SnakeGame extends Game {
             }
         });
         ge.getInput().bindKey("ESCAPE", new Action() {
+            @Override public void execute() {
+                ge.debug("Quit");
+                requestStop();
+            }
+        });
+        ge.getInput().bindKey("BACK", new Action() {
             @Override public void execute() {
                 ge.debug("Quit");
                 requestStop();

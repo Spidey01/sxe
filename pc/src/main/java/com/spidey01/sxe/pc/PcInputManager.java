@@ -18,7 +18,7 @@ public class PcInputManager extends InputManager {
             String k = Keyboard.getKeyName(Keyboard.getEventKey());
             System.out.println("Key event = "+k+" from thread "+Thread.currentThread().getId());
 
-            Action a = keyBindings.get(k);
+            Action a = mKeyBindings.get(k);
             if (a != null) {
                 a.execute();
             }

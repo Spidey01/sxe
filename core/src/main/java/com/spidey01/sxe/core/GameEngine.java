@@ -27,7 +27,7 @@ public class GameEngine {
      * start() method of your Game accordingly.
      */
     public boolean start() {
-        System.out.println("GameEngine.start() in thread "+Thread.currentThread().getId());
+        debug("GameEngine.start() in thread "+Thread.currentThread().getId());
 
         if (!mDisplay.create()) {
             return false;
@@ -47,7 +47,7 @@ public class GameEngine {
         // mGame.stop();
         mGameThread.interrupt();
 		mDisplay.destroy();
-        System.out.println("GameEngine.stop() done in thread "+Thread.currentThread().getId());
+        debug("GameEngine.stop() done in thread "+Thread.currentThread().getId());
     }
 
     /** Convenience method that can serve as a simple main loop.
