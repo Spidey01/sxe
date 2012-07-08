@@ -28,6 +28,9 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
     public void destroy() {
 		Display.destroy();
     }
+    public void update() {
+            Display.update();
+    }
 
     public boolean isCloseRequested() {
         return Display.isCloseRequested();

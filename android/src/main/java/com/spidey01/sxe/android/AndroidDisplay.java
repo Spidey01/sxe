@@ -29,6 +29,13 @@ public class AndroidDisplay
     public void destroy() {
     }
 
+    public void update() {
+        // except for the input polling, this ought to mimic the LWJGL
+        // Display.update() well enough.
+        invalidate();
+        requestRender();
+    }
+
     public boolean isCloseRequested() {
         // This is probably correct given that we expect to be created from an
         // Activity 97.9+% of the time.  But I'm not sure I want this to be

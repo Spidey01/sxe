@@ -7,16 +7,23 @@ public class GameEngine {
     protected Display mDisplay;
     protected InputManager mInput;
 
-    public GameEngine(Display display, Game app) {
-
-        mGame = app;
-        if (mGame == null) {
-            throw new IllegalArgumentException("app can't be null!");
-        }
+    public GameEngine(Display display, InputManager input, Game game) {
+        final String p;
 
         mDisplay = display;
-        if (mDisplay == null) {
-            throw new IllegalArgumentException("display can't be null!");
+        mInput = input;
+        mGame = game;
+
+        // ternary abuse, yeah.
+        p = mDisplay == null ?
+            "display" :
+                (mInput == null ?
+                    "input" :
+                        (mGame == null ?
+                            "game" : null));
+ 
+        if (p != null) {
+            throw new IllegalArgumentException(p+" can't be null!");
         }
 
     }
@@ -58,11 +65,15 @@ public class GameEngine {
         throw new UnsupportedOperationException("GameEngine.mainLoop() doesn't  have a default implementation. Use a platform specific one.");
     }
 
+    public Display getDisplay() {
+        return mDisplay;
+    }
+
     public InputManager getInput() {
         return mInput;
     }
 
-    public void debug(String message) {
+    public void debug(final String message) {
         System.out.println(message+" from thread "+Thread.currentThread().getId());
     }
 }

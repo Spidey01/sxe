@@ -2,6 +2,7 @@ package com.spidey01.sxe.android;
 
 import com.spidey01.sxe.android.AndroidDisplay;
 import com.spidey01.sxe.android.AndroidGameEngine;
+import com.spidey01.sxe.android.AndroidInputManager;
 import com.spidey01.sxe.core.Display;
 
 import android.app.Activity;
@@ -11,6 +12,7 @@ public class GameActivity extends Activity {
 
     protected AndroidDisplay mDisplay;
     protected AndroidGameEngine mEngine;
+    protected AndroidInputManager mInput;
 
     /** Called when the activity is first created. */
     @Override
@@ -18,6 +20,9 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         // setContentView(R.layout.main);
+
         mDisplay = new AndroidDisplay(this);
+        mInput = new AndroidInputManager(mDisplay);
     }
 }
+

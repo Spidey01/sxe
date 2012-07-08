@@ -1,6 +1,7 @@
 package com.spidey01.sxe.android;
 
 import com.spidey01.sxe.core.Display;
+import com.spidey01.sxe.core.InputManager;
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 
@@ -12,14 +13,14 @@ import android.widget.Toast;
 public class AndroidGameEngine extends GameEngine {
 
 
-    public AndroidGameEngine(Display display, Game app) {
-        super(display, app);
+    public AndroidGameEngine(Display display, InputManager input, Game game) {
+        super(display, input, game);
     }
 
     public boolean start() {
         debug("AndroidGameEngine.start()");
 
-        mInput = new AndroidInputManager((AndroidDisplay)mDisplay);
+        // mInput = new AndroidInputManager((AndroidDisplay)mDisplay);
         super.start();
         return true;
     }

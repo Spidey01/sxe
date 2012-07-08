@@ -1,24 +1,22 @@
 package com.spidey01.sxe.pc;
 
+import com.spidey01.sxe.core.Display;
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
-
-import org.lwjgl.LWJGLException;
-import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
+import com.spidey01.sxe.core.InputManager;
 
 /** Class implementing the game engine for PC/Mac hardware. */
 public class PcGameEngine extends GameEngine {
 
-    public PcGameEngine(com.spidey01.sxe.core.Display display, Game app) {
-        super(display, app);
+    public PcGameEngine(Display display, InputManager input, Game game) {
+        super(display, input, game);
     }
 
     @Override
     public boolean start() {
         debug("PcGameEngine.start()");
 
-        mInput = new PcInputManager();
+        // mInput = new PcInputManager();
 
         super.start();
 
@@ -37,9 +35,9 @@ public class PcGameEngine extends GameEngine {
      */
     @Override
     public void mainLoop() {
-		while (!mGame.stopRequested() && !mDisplay.isCloseRequested()) {
+		while (!mGame.stopRequested() && !getDisplay().isCloseRequested()) {
             getInput().poll();
-			Display.update();
+			getDisplay().update();
 
             // debug("GameEngine.mainLoop() spun");
             try {
