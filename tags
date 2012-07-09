@@ -5,51 +5,123 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 Action	core/src/main/java/com/spidey01/sxe/core/Action.java	/^public abstract class Action {$/;"	c
+AndroidDisplay	android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    public AndroidDisplay(Context context) {$/;"	m	class:AndroidDisplay
+AndroidDisplay	android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^public class AndroidDisplay $/;"	c
+AndroidGameEngine	android/src/main/java/com/spidey01/sxe/android/AndroidGameEngine.java	/^    public AndroidGameEngine(Display display, InputManager input, Game game) {$/;"	m	class:AndroidGameEngine
+AndroidGameEngine	android/src/main/java/com/spidey01/sxe/android/AndroidGameEngine.java	/^public class AndroidGameEngine extends GameEngine {$/;"	c
+AndroidInputManager	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    public AndroidInputManager(AndroidDisplay display) {$/;"	m	class:AndroidInputManager
+AndroidInputManager	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^public class AndroidInputManager extends InputManager {$/;"	c
+Display	core/src/main/java/com/spidey01/sxe/core/Display.java	/^public interface Display {$/;"	i
 Game	core/src/main/java/com/spidey01/sxe/core/Game.java	/^public class Game {$/;"	c
-GameEngine	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^public abstract class GameEngine {$/;"	c
+GameActivity	android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^public class GameActivity extends Activity {$/;"	c
+GameEngine	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public GameEngine(Display display, InputManager input, Game game) {$/;"	m	class:GameEngine
+GameEngine	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^public class GameEngine {$/;"	c
 GameThread	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    public GameThread(GameEngine e, Game g) {$/;"	m	class:GameThread
 GameThread	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^public class GameThread extends Thread {$/;"	c
 InputManager	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^public abstract class InputManager {$/;"	c
-PcGameEngine	pc/src/main/java/com/spidey01/sxe/pc/PcGameEngine.java	/^    public PcGameEngine(Game app) {$/;"	m	class:PcGameEngine
-PcGameEngine	pc/src/main/java/com/spidey01/sxe/pc/PcGameEngine.java	/^public class PcGameEngine extends GameEngine {$/;"	c
+Main	snakegame/pc/src/main/java/com/spidey01/sxe/snakegame/pc/Main.java	/^class Main {$/;"	c
+OpenGles2Renderer	android/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^public class OpenGles2Renderer implements GLSurfaceView.Renderer {$/;"	c
+PcDisplay	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public PcDisplay() {$/;"	m	class:PcDisplay
+PcDisplay	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public PcDisplay(String desired) {$/;"	m	class:PcDisplay
+PcDisplay	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^public class PcDisplay implements com.spidey01.sxe.core.Display {$/;"	c
 PcInputManager	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    public PcInputManager() {$/;"	m	class:PcInputManager
 PcInputManager	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^public class PcInputManager extends InputManager {$/;"	c
-PcMain	snakegame/src/main/java/com/spidey01/sxe/snakegame/PcMain.java	/^class PcMain {$/;"	c
-SnakeGame	snakegame/src/main/java/com/spidey01/sxe/snakegame/SnakeGame.java	/^class SnakeGame extends Game {$/;"	c
+RateCounter	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public RateCounter(String name) {$/;"	m	class:RateCounter
+RateCounter	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public RateCounter(String name, boolean debug) {$/;"	m	class:RateCounter
+RateCounter	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^public class RateCounter {$/;"	c
+SnakeGame	snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeGame.java	/^public class SnakeGame extends Game {$/;"	c
+SnakeGameActivity	snakegame/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^public class SnakeGameActivity extends GameActivity {$/;"	c
+androidKeyCodeToString	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    private String androidKeyCodeToString(int keyCode) {$/;"	m	class:AndroidInputManager	file:
 bindKey	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public Action bindKey(String keyName, Action newAction) {$/;"	m	class:InputManager
+com.spidey01.sxe.android	android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^package com.spidey01.sxe.android;$/;"	p
+com.spidey01.sxe.android	android/src/main/java/com/spidey01/sxe/android/AndroidGameEngine.java	/^package com.spidey01.sxe.android;$/;"	p
+com.spidey01.sxe.android	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^package com.spidey01.sxe.android;$/;"	p
+com.spidey01.sxe.android	android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^package com.spidey01.sxe.android;$/;"	p
+com.spidey01.sxe.android	android/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Action.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Display.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Game.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.pc	pc/src/main/java/com/spidey01/sxe/pc/PcGameEngine.java	/^package com.spidey01.sxe.pc;$/;"	p
+com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.pc	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^package com.spidey01.sxe.pc;$/;"	p
 com.spidey01.sxe.pc	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^package com.spidey01.sxe.pc;$/;"	p
-com.spidey01.sxe.snakegame	snakegame/src/main/java/com/spidey01/sxe/snakegame/PcMain.java	/^package com.spidey01.sxe.snakegame;$/;"	p
-com.spidey01.sxe.snakegame	snakegame/src/main/java/com/spidey01/sxe/snakegame/SnakeGame.java	/^package com.spidey01.sxe.snakegame;$/;"	p
+com.spidey01.sxe.snakegame.android	snakegame/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
+com.spidey01.sxe.snakegame.lib	snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeGame.java	/^package com.spidey01.sxe.snakegame.lib;$/;"	p
+com.spidey01.sxe.snakegame.pc	snakegame/pc/src/main/java/com/spidey01/sxe/snakegame/pc/Main.java	/^package com.spidey01.sxe.snakegame.pc;$/;"	p
+create	android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    public boolean create() {$/;"	m	class:AndroidDisplay
+create	core/src/main/java/com/spidey01/sxe/core/Display.java	/^    public boolean create();$/;"	m	interface:Display
+create	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public boolean create() {$/;"	m	class:PcDisplay
+debug	android/src/main/java/com/spidey01/sxe/android/AndroidGameEngine.java	/^    public void debug(final String message) {$/;"	m	class:AndroidGameEngine
+debug	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void debug(final String message) {$/;"	m	class:GameEngine
+destroy	android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    public void destroy() {$/;"	m	class:AndroidDisplay
+destroy	core/src/main/java/com/spidey01/sxe/core/Display.java	/^    public void destroy();$/;"	m	interface:Display
+destroy	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void destroy() {$/;"	m	class:PcDisplay
+disableDebugging	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void disableDebugging() {$/;"	m	class:RateCounter
+enableDebugging	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void enableDebugging() {$/;"	m	class:RateCounter
 execute	core/src/main/java/com/spidey01/sxe/core/Action.java	/^    public void execute() {$/;"	m	class:Action
 ge	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    protected GameEngine ge;$/;"	f	class:Game
+getDisplay	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public Display getDisplay() {$/;"	m	class:GameEngine
 getInput	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public InputManager getInput() {$/;"	m	class:GameEngine
-keyBindings	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    protected Map<String, Action> keyBindings = new HashMap<String, Action>();$/;"	f	class:InputManager
+getMaxFpsRate	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public int getMaxFpsRate() {$/;"	m	class:Game
+getMaxTickRate	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public int getMaxTickRate() {$/;"	m	class:Game
+getName	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public String getName() {$/;"	m	class:RateCounter
+getTickRate	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public int getTickRate() {$/;"	m	class:Game
+getTickRate	snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeGame.java	/^    public int getTickRate() {$/;"	m	class:SnakeGame
+isCloseRequested	android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    public boolean isCloseRequested() {$/;"	m	class:AndroidDisplay
+isCloseRequested	core/src/main/java/com/spidey01/sxe/core/Display.java	/^    public boolean isCloseRequested();$/;"	m	interface:Display
+isCloseRequested	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public boolean isCloseRequested() {$/;"	m	class:PcDisplay
+isDebuggingEnabled	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public boolean isDebuggingEnabled() {$/;"	m	class:RateCounter
+mDebuggingEnabled	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private boolean mDebuggingEnabled;$/;"	f	class:RateCounter	file:
+mDisplay	android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^    protected AndroidDisplay mDisplay;$/;"	f	class:GameActivity
+mDisplay	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    protected Display mDisplay;$/;"	f	class:GameEngine
+mEngine	android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^    protected AndroidGameEngine mEngine;$/;"	f	class:GameActivity
 mEngine	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    protected GameEngine mEngine;$/;"	f	class:GameThread
+mFrameCounter	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private RateCounter mFrameCounter = new RateCounter("Frames");$/;"	f	class:PcDisplay	file:
 mGame	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    protected Game mGame;$/;"	f	class:GameEngine
 mGame	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    protected Game mGame;$/;"	f	class:GameThread
 mGameThread	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    protected GameThread mGameThread;$/;"	f	class:GameEngine
+mInput	android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^    protected AndroidInputManager mInput;$/;"	f	class:GameActivity
 mInput	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    protected InputManager mInput;$/;"	f	class:GameEngine
+mKeyBindings	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    protected Map<String, Action> mKeyBindings = new HashMap<String, Action>();$/;"	f	class:InputManager
+mMaxTickRate	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private static final int mMaxTickRate = 250;$/;"	f	class:Game	file:
+mName	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private String mName;$/;"	f	class:RateCounter	file:
+mPerSecond	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private long mPerSecond;$/;"	f	class:RateCounter	file:
 mStopRequested	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    protected volatile boolean mStopRequested;$/;"	f	class:Game
-main	snakegame/src/main/java/com/spidey01/sxe/snakegame/PcMain.java	/^    public static void main(String[] args) {$/;"	m	class:PcMain
+mTickCounter	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private RateCounter mTickCounter = new RateCounter("Ticks");$/;"	f	class:Game	file:
+mWidget	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    private AndroidDisplay mWidget;$/;"	f	class:AndroidInputManager	file:
+main	snakegame/pc/src/main/java/com/spidey01/sxe/snakegame/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
 mainLoop	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void mainLoop() {$/;"	m	class:GameEngine
-mainLoop	pc/src/main/java/com/spidey01/sxe/pc/PcGameEngine.java	/^    public void mainLoop() {$/;"	m	class:PcGameEngine
+ms	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private long ms;$/;"	f	class:RateCounter	file:
+onCreate	android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:GameActivity
+onCreate	snakegame/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:SnakeGameActivity
+onDestroy	android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^    protected void onDestroy() {$/;"	m	class:GameActivity
+onDrawFrame	android/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^    public void onDrawFrame(GL10 unused) {$/;"	m	class:OpenGles2Renderer
+onSurfaceChanged	android/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^    public void onSurfaceChanged(GL10 unused, int width, int height) {$/;"	m	class:OpenGles2Renderer
+onSurfaceCreated	android/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^    public void onSurfaceCreated(GL10 unused, EGLConfig config) {$/;"	m	class:OpenGles2Renderer
+pcdeps	Makefile	/^pcdeps = $(sxedeps) \\$/;"	m
+poll	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    public void poll() {$/;"	m	class:AndroidInputManager
 poll	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void poll() {$/;"	m	class:InputManager
 poll	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    public void poll() {$/;"	m	class:PcInputManager
+rand	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private static Random rand = new Random();$/;"	f	class:Game	file:
 requestStop	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public void requestStop() {$/;"	m	class:Game
 run	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    public void run() {$/;"	m	class:GameThread
+snakegamedeps	Makefile	/^snakegamedeps = dist\/snakegame-lib-0.0.1-SNAPSHOT.jar \\$/;"	m
+start	android/src/main/java/com/spidey01/sxe/android/AndroidGameEngine.java	/^    public boolean start() {$/;"	m	class:AndroidGameEngine
 start	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean start(GameEngine ge) {$/;"	m	class:Game
 start	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public boolean start() {$/;"	m	class:GameEngine
-start	pc/src/main/java/com/spidey01/sxe/pc/PcGameEngine.java	/^    public boolean start() {$/;"	m	class:PcGameEngine
-start	snakegame/src/main/java/com/spidey01/sxe/snakegame/SnakeGame.java	/^    public boolean start(GameEngine ge) {$/;"	m	class:SnakeGame
+start	snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeGame.java	/^    public boolean start(final GameEngine ge) {$/;"	m	class:SnakeGame
 stop	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public void stop() {$/;"	m	class:Game
 stop	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void stop() {$/;"	m	class:GameEngine
-stop	pc/src/main/java/com/spidey01/sxe/pc/PcGameEngine.java	/^    public void stop() {$/;"	m	class:PcGameEngine
-stop	snakegame/src/main/java/com/spidey01/sxe/snakegame/SnakeGame.java	/^    public void stop() {$/;"	m	class:SnakeGame
+stop	snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeGame.java	/^    public void stop() {$/;"	m	class:SnakeGame
 stopRequested	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean stopRequested() {$/;"	m	class:Game
+sxedeps	Makefile	/^sxedeps = dist\/core-0.0.1-SNAPSHOT.jar$/;"	m
+thismvnflags	Makefile	/^thismvnflags = -Dmaven.test.skip=true -q $/;"	m
 tick	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public void tick() {$/;"	m	class:Game
+translateKeyName	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    protected String translateKeyName(String keyName) {$/;"	m	class:AndroidInputManager
+translateKeyName	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    protected String translateKeyName(int keyCode) {$/;"	m	class:AndroidInputManager
+update	android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    public void update() {$/;"	m	class:AndroidDisplay
+update	core/src/main/java/com/spidey01/sxe/core/Display.java	/^    public void update();$/;"	m	interface:Display
+update	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void update() {$/;"	m	class:RateCounter
+update	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void update() {$/;"	m	class:PcDisplay
