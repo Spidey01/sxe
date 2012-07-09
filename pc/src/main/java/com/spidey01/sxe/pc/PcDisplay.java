@@ -6,8 +6,6 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
-import java.util.Arrays;
-
 public class PcDisplay implements com.spidey01.sxe.core.Display {
 
     private RateCounter mFrameCounter = new RateCounter("Frames");

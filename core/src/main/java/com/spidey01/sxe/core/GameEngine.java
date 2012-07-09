@@ -62,7 +62,10 @@ public class GameEngine {
      * The default implementation throws an UnsupportedOperationException.
      */
     public void mainLoop() {
-        throw new UnsupportedOperationException("GameEngine.mainLoop() doesn't  have a default implementation. Use a platform specific one.");
+		while (!mGame.stopRequested() && !mDisplay.isCloseRequested()) {
+            mInput.poll();
+            mDisplay.update();
+		}
     }
 
     public Display getDisplay() {

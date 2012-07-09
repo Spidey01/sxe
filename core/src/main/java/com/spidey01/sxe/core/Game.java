@@ -10,6 +10,7 @@ public class Game {
     protected volatile boolean mStopRequested;
 
     private static final int mMaxTickRate = 250;
+    private RateCounter mTickCounter = new RateCounter("Ticks");
 
     public boolean start(GameEngine ge) {
         ge.debug("Game.start() called in thread "+Thread.currentThread().getId());
@@ -46,8 +47,6 @@ public class Game {
         // it's the client codes job to set this more appropriately.
         return mMaxTickRate;
     }
-
-    private static RateCounter mTickCounter = new RateCounter("Ticks");
 
     private static Random rand = new Random();
     public void tick() {
