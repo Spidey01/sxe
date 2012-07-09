@@ -2,10 +2,14 @@ package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.GameEngine;
 
+import java.util.Random;
+
 public class Game {
 
     protected GameEngine ge;
     protected volatile boolean mStopRequested;
+
+    private static final int mMaxTickRate = 250;
 
     public boolean start(GameEngine ge) {
         ge.debug("Game.start() called in thread "+Thread.currentThread().getId());
@@ -29,15 +33,34 @@ public class Game {
         mStopRequested = true;
     }
 
+    public int getMaxFpsRate() {
+        return mMaxTickRate;
+    }
+
+    /** Maximum tick rate.  */
+    public int getMaxTickRate() {
+        return mMaxTickRate;
+    }
+
+    public int getTickRate() {
+        // it's the client codes job to set this more appropriately.
+        return mMaxTickRate;
+    }
+
+    private static RateCounter mTickCounter = new RateCounter("Ticks");
+
+    private static Random rand = new Random();
     public void tick() {
+        mTickCounter.update();
+
         try {
-            // disable this for now on Android
-            // ge.debug("Game.tick() called in thread "+Thread.currentThread().getId());
-            Thread.currentThread().sleep(250);
+            // simulate taking a while to complete a tick.
+            Thread.currentThread().sleep(rand.nextInt(25));
         } catch (InterruptedException iex) {
             ge.debug("Game.tick() interrupted in thread "+Thread.currentThread().getId());
             stop();
         }
+
     }
 }
 

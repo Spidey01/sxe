@@ -55,5 +55,10 @@ public class SnakeGame extends Game {
         ge.debug("Snake Game is stopping");
         super.stop();
     }
+
+    @Override
+    public int getTickRate() {
+        return 40; // ticks per second
+    }
 }
 
