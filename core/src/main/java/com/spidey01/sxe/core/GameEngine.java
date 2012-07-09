@@ -6,10 +6,12 @@ public class GameEngine {
     protected GameThread mGameThread;
     protected Display mDisplay;
     protected InputManager mInput;
+    private static final String TAG = "GameEngine";
 
     public GameEngine(Display display, InputManager input, Game game) {
         final String p;
 
+        Logger.setLevel(TAG, Logger.VERBOSE);
         mDisplay = display;
         mInput = input;
         mGame = game;
@@ -77,7 +79,8 @@ public class GameEngine {
     }
 
     public void debug(final String message) {
-        System.out.println(message+" from thread "+Thread.currentThread().getId());
+        // System.out.println(message+" from thread "+Thread.currentThread().getId());
+        Logger.debug("GameEngine client",  message);
     }
 }
 
