@@ -11,9 +11,10 @@ public class Game {
 
     private static final int mMaxTickRate = 250;
     private RateCounter mTickCounter = new RateCounter("Ticks");
+    private static final String TAG = "Game";
 
     public boolean start(GameEngine ge) {
-        ge.debug("Game.start() called in thread "+Thread.currentThread().getId());
+        Log.v(TAG, "start() called");
 
         this.ge = ge;
 
@@ -22,7 +23,7 @@ public class Game {
 
     public void stop() {
         requestStop();
-        ge.debug("Game.stop() called in thread "+Thread.currentThread().getId());
+        Logger.verbose(TAG, "stop() done");
     }
 
     public boolean stopRequested() {
@@ -30,7 +31,7 @@ public class Game {
     }
 
     public void requestStop() {
-        ge.debug("Game.requestStop() called in thread "+Thread.currentThread().getId());
+        Log.v(TAG, "requestStop() called");
         mStopRequested = true;
     }
 
@@ -56,7 +57,7 @@ public class Game {
             // simulate taking a while to complete a tick.
             Thread.currentThread().sleep(rand.nextInt(25));
         } catch (InterruptedException iex) {
-            ge.debug("Game.tick() interrupted in thread "+Thread.currentThread().getId());
+            Log.d(TAG, "tick() interrupted");
             stop();
         }
 

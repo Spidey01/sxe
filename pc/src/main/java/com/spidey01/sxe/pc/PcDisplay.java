@@ -1,6 +1,7 @@
 package com.spidey01.sxe.pc;
 
 import com.spidey01.sxe.core.RateCounter;
+import com.spidey01.sxe.core.Log;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
@@ -9,6 +10,7 @@ import org.lwjgl.opengl.DisplayMode;
 public class PcDisplay implements com.spidey01.sxe.core.Display {
 
     private RateCounter mFrameCounter = new RateCounter("Frames");
+    private static final String TAG = "PcDisplay";
 
     public PcDisplay(String desired) {
         // default to VGA if desired not found
@@ -28,7 +30,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
             Display.setDisplayMode(wanted);
 
         } catch (LWJGLException e) {
-            System.out.println("PcDisplay.PcDisplay() couldn't set display mode for LWJGL!");
+            Log.e(TAG, "PcDisplay() couldn't set display mode for LWJGL!");
             e.printStackTrace();
         }
  
@@ -42,7 +44,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
         try {
             Display.create();
         } catch (LWJGLException e) {
-            System.out.println("PcDisplay.create() can't create LWJGL display :'(");
+            Log.e(TAG, "create() can't create LWJGL display :'(");
             e.printStackTrace();
             return false;
         }

@@ -11,7 +11,6 @@ public class GameEngine {
     public GameEngine(Display display, InputManager input, Game game) {
         final String p;
 
-        Logger.setLevel(TAG, Logger.VERBOSE);
         mDisplay = display;
         mInput = input;
         mGame = game;
@@ -36,7 +35,7 @@ public class GameEngine {
      * start() method of your Game accordingly.
      */
     public boolean start() {
-        debug("GameEngine.start() in thread "+Thread.currentThread().getId());
+        Log.v(TAG, "start()");
 
         if (!mDisplay.create()) {
             return false;
@@ -56,7 +55,7 @@ public class GameEngine {
         // mGame.stop();
         mGameThread.interrupt();
 		mDisplay.destroy();
-        debug("GameEngine.stop() done in thread "+Thread.currentThread().getId());
+        Log.v(TAG, "stop() done");
     }
 
     /** Convenience method that can serve as a simple main loop.
@@ -78,9 +77,9 @@ public class GameEngine {
         return mInput;
     }
 
+    // Delete me when android stuff updated
     public void debug(final String message) {
         // System.out.println(message+" from thread "+Thread.currentThread().getId());
-        Logger.debug("GameEngine client",  message);
     }
 }
 

@@ -1,11 +1,13 @@
 package com.spidey01.sxe.core;
 
+// TODO: use Log.
 public class RateCounter {
     private long mPerSecond;
     private long ms;
 
     private String mName;
     private boolean mDebuggingEnabled;
+    private static final String TAG = "RateCounter";
 
     public RateCounter(String name, boolean debug) {
         mName = name;

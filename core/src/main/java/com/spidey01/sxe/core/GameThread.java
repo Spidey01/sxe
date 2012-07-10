@@ -4,6 +4,7 @@ package com.spidey01.sxe.core;
 public class GameThread extends Thread {
     protected GameEngine mEngine;
     protected Game mGame;
+    private static final String TAG = "GameThread";
 
     public GameThread(GameEngine e, Game g) {
         mEngine = e;
@@ -25,11 +26,10 @@ public class GameThread extends Thread {
             }
 
             try {
-                // mEngine.debug("one tick took "+endTime+" ms"+" and sleep for "+sleepTime+" ms");
+                // Log.d("one tick took "+endTime+" ms"+" and sleep for "+sleepTime+" ms");
                 Thread.currentThread().sleep(sleepTime);
             } catch (InterruptedException iex) {
-                mEngine.debug("GameThread.run() interrupted in thread " +
-                    Thread.currentThread().getId());
+                Log.d(TAG, "run() interrupted");
                 stop();
             }
         }

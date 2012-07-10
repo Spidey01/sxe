@@ -5,6 +5,11 @@ import com.spidey01.sxe.pc.PcDisplay;
 import com.spidey01.sxe.pc.PcInputManager;
 import com.spidey01.sxe.snakegame.lib.SnakeGame;
 
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 class Main {
 
     public static void main(String[] args) {
@@ -17,6 +22,5 @@ class Main {
         g.mainLoop();
         g.stop();
     }
-
 }
 
