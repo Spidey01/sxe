@@ -2,8 +2,6 @@ package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.GameEngine;
 
-import java.util.Random;
-
 public class Game {
 
     protected GameEngine ge;
@@ -49,18 +47,8 @@ public class Game {
         return mMaxTickRate;
     }
 
-    private static Random rand = new Random();
     public void tick() {
         mTickCounter.update();
-
-        try {
-            // simulate taking a while to complete a tick.
-            Thread.currentThread().sleep(rand.nextInt(25));
-        } catch (InterruptedException iex) {
-            Log.d(TAG, "tick() interrupted");
-            stop();
-        }
-
     }
 }
 
