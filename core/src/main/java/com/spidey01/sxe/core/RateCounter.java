@@ -38,7 +38,7 @@ public class RateCounter {
 
         if (now > (ms+1000)) {
             if (isDebuggingEnabled()) {
-                System.out.println(getName()+": "+(mPerSecond-1)+" per second");
+                Log.v(mName+" "+TAG, getName()+": "+(mPerSecond-1)+" per second");
             }
             ms = now;
             mPerSecond = 0;

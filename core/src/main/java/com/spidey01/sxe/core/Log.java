@@ -56,7 +56,7 @@ public class Log {
     public static void e(String tag, String message) {
         logit(ERROR, tag, message);
     }
-    public static void info(String tag, String message) {
+    public static void i(String tag, String message) {
         logit(INFO, tag, message);
     }
     public static void v(String tag, String message) {

@@ -23,7 +23,7 @@ public class Game {
 
     public void stop() {
         requestStop();
-        Logger.verbose(TAG, "stop() done");
+        Log.v(TAG, "stop() done");
     }
 
     public boolean stopRequested() {
