@@ -4,17 +4,17 @@ import com.spidey01.sxe.core.GameEngine;
 
 public class Game {
 
-    protected GameEngine ge;
+    protected GameEngine mGameEngine;
     protected volatile boolean mStopRequested;
 
     private static final int mMaxTickRate = 250;
     private RateCounter mTickCounter = new RateCounter("Ticks");
     private static final String TAG = "Game";
 
-    public boolean start(GameEngine ge) {
+    public boolean start(GameEngine engine) {
         Log.v(TAG, "start() called");
 
-        this.ge = ge;
+        mGameEngine = engine;
 
         return true;
     }
