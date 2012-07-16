@@ -2,10 +2,17 @@ package com.spidey01.sxe.pc;
 
 import com.spidey01.sxe.core.RateCounter;
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.OpenGl;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+
+import org.lwjgl.BufferUtils;
+import java.nio.FloatBuffer;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL15;
+import org.lwjgl.opengl.GL20;
 
 public class PcDisplay implements com.spidey01.sxe.core.Display {
 
@@ -55,12 +62,68 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
 		Display.destroy();
     }
     public void update() {
-            Display.update();
-            mFrameCounter.update();
+        debuggy();
+        Display.update();
+        mFrameCounter.update();
     }
 
     public boolean isCloseRequested() {
         return Display.isCloseRequested();
+    }
+
+    private static final float[] vertexPositions = {
+        0.75f, 0.75f, 0.0f, 1.0f,
+        0.75f, -0.75f, 0.0f, 1.0f,
+        -0.75f, -0.75f, 0.0f, 1.0f,
+    };
+    private static final int mNumberOfVertices = 4;
+    private static int positionBufferObject;
+    private static boolean mDoneSetup = false;
+
+    private static OpenGl mGL = new LwjglOpenGl();
+
+    private void debuggy() { // place to test shit
+        if (!mDoneSetup) {
+            FloatBuffer verticesBuffer = BufferUtils.createFloatBuffer(vertexPositions.length);
+            verticesBuffer.put(vertexPositions);
+            verticesBuffer.flip();
+
+            positionBufferObject = GL15.glGenBuffers();
+            GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, positionBufferObject);
+            GL15.glBufferData(GL15.GL_ARRAY_BUFFER, verticesBuffer, GL15.GL_STATIC_DRAW);
+            GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
+            mDoneSetup = true;
+
+            /*
+glGenBuffers(1, &positionBufferObject);
+
+glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject);
+glBufferData(GL_ARRAY_BUFFER, sizeof(vertexPositions), vertexPositions, GL_STATIC_DRAW);
+glBindBuffer(GL_ARRAY_BUFFER, 0);
+            */
+        }
+        mGL.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
+        mGL.glClear(mGL.GL_COLOR_BUFFER_BIT);
+
+        mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, positionBufferObject);
+        mGL.glEnableVertexAttribArray(0);
+        mGL.glVertexAttribPointer(0, 4/*because vertexPositions is made up of groups of 4*/ , mGL.GL_FLOAT, false, 0, 0);
+
+        mGL.glDrawArrays(mGL.GL_TRIANGLES, 0, mNumberOfVertices);
+
+        mGL.glDisableVertexAttribArray(0);
+        /*
+glUseProgram(theProgram);
+
+glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject);
+glEnableVertexAttribArray(0);
+glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
+
+glDrawArrays(GL_TRIANGLES, 0, 3);
+
+glDisableVertexAttribArray(0);
+glUseProgram(0);
+        */
     }
 }
 

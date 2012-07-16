@@ -7,16 +7,19 @@ Right now there are two threads:
 
 Each thread goes about doing it's own business.
 
-Action's bound to keys in the game thread (B) currently run in the main thread (A). This is not desired.
+Action's bound to keys in the game thread (B) currently run in the main thread
+(A). This is not desired.
 
 	Option A.)
-		Binding Actions tells InputManager/GameEngine to look for these events.
-		When they occur, push them into an event queue for game thread (B) to consume by executing the associated actions.
+		Binding Actions tells InputManager/GameEngine to look for these
+		events.  When they occur, push them into an event queue for
+		game thread (B) to consume by executing the associated actions.
 
 	Option B.)
 		Move the input stuff into game thread (B).
 
-Option B would probably be less code, simpler, and faster.
+Option B would probably be less code, simpler, and faster. It would also
+complicate or break Android, which needs to run GUI in the main thread.
 
 Option A would yield code of value. There will have to be a queue for the game
 threads to communicate. I.e. Game thread (B) needs to update the position of an

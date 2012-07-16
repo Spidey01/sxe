@@ -46,5 +46,7 @@ dist/lwjgl_util-2.8.4.jar: ${HOME}/.m2/repository/org/lwjgl/lwjgl/lwjgl_util/2.8
 dist/lwjgl-platform-2.8.4-natives-linux.jar: ${HOME}/.m2/repository/org/lwjgl/lwjgl/lwjgl-platform/2.8.4/lwjgl-platform-2.8.4-natives-linux.jar
 	cp "$<" "$@"
 
+tags:
+	find . -name \*.java | xargs ctags
 
-.PHONY: dist pc android all
+.PHONY: dist pc android all tags
