@@ -20,7 +20,6 @@ public class AndroidGameEngine extends GameEngine {
     public boolean start() {
         debug("AndroidGameEngine.start()");
 
-        // mInput = new AndroidInputManager((AndroidDisplay)mDisplay);
         super.start();
         return true;
     }
@@ -34,7 +33,7 @@ public class AndroidGameEngine extends GameEngine {
      * this from e.g. the Game Thread or slow down testing for logcat's.
      */
     public void debug(final String message) {
-        final AndroidDisplay d = (AndroidDisplay)mDisplay;
+        final AndroidDisplay d = (AndroidDisplay)getDisplay();
 
         d.post(new Runnable() {
             public void run() {

@@ -1,11 +1,22 @@
 package com.spidey01.sxe.core;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 /** Class implementing the game engine for PC/Mac hardware. */
 public class GameEngine {
+
     protected Game mGame;
     protected GameThread mGameThread;
     protected Display mDisplay;
     protected InputManager mInput;
+    protected ResourceManager mResources;
+
     private static final String TAG = "GameEngine";
 
     public GameEngine(Display display, InputManager input, Game game) {
@@ -13,6 +24,7 @@ public class GameEngine {
 
         mDisplay = display;
         mInput = input;
+        mResources = new ResourceManager();
         mGame = game;
 
         // ternary abuse, yeah.
@@ -75,6 +87,10 @@ public class GameEngine {
 
     public InputManager getInput() {
         return mInput;
+    }
+
+    public ResourceManager getResources() {
+        return mResources;
     }
 
     // Delete me when android stuff updated
