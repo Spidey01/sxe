@@ -47,26 +47,50 @@ public class Log {
     }
 
     public static void wtf(String tag, String message) {
-        logit(ASSERT, tag, message);
+        wtf(tag, message, null);
+    }
+    public static void wtf(String tag, String message, Throwable tr) {
+        logit(ASSERT, tag, message, tr);
         assert false : "What a Terrible Failure Report we has here";
     }
+
     public static void d(String tag, String message) {
-        logit(DEBUG, tag, message);
+        d(tag, message, null);
     }
+    public static void d(String tag, String message, Throwable tr) {
+        logit(DEBUG, tag, message, tr);
+    }
+
     public static void e(String tag, String message) {
-        logit(ERROR, tag, message);
+        e(tag, message, null);
     }
+    public static void e(String tag, String message, Throwable tr) {
+        logit(ERROR, tag, message, tr);
+    }
+
     public static void i(String tag, String message) {
-        logit(INFO, tag, message);
+        i(tag, message, null);
     }
+    public static void i(String tag, String message, Throwable tr) {
+        logit(INFO, tag, message, tr);
+    }
+
     public static void v(String tag, String message) {
-        logit(VERBOSE, tag, message);
+        v(tag, message, null);
     }
+    public static void v(String tag, String message, Throwable tr) {
+        logit(VERBOSE, tag, message, tr);
+    }
+
     public static void w(String tag, String message) {
-        logit(WARN, tag, message);
+        w(tag, message, null);
+    }
+    public static void w(String tag, String message, Throwable tr) {
+        logit(WARN, tag, message, tr);
     }
  
-    private static void logit(int level, String tag, String message) {
+
+    private static void logit(int level, String tag, String message, Throwable tr) {
         // frag it, I'd rather use this on PC and worry about android later, than read java.util.logging
         PrintStream o = level <= ERROR ? System.err : System.out;
         Calendar c = Calendar.getInstance();
@@ -77,7 +101,7 @@ public class Log {
             translate(level)+"/"+tag
             +"( tid="+Thread.currentThread().getId()
             +" )"
-            +": "+message);
+            +": "+(tr == null ? message : message+": "+tr));
     }
 
     private static String translate(int level) {
