@@ -1,5 +1,7 @@
 
+goals ?= package
 thismvnflags = -Dmaven.test.skip=true -q 
+
 sxedeps = dist/core-0.0.1-SNAPSHOT.jar
 pcdeps = $(sxedeps) \
 		 dist/lwjgl-2.8.4.jar \
@@ -9,19 +11,21 @@ pcdeps = $(sxedeps) \
 snakegamedeps = dist/snakegame-lib-0.0.1-SNAPSHOT.jar \
 				dist/snakegame-pc-0.0.1-SNAPSHOT.jar
 
-pc: $(pcdeps)
-	mvn -P $@ $(thismvnflags) package
+pc:
+	mvn -P $@ $(thismvnflags) $(goals) | tee mvn.log
 	
 # the natives folder needs to be a part of dist, in the end.
-run-snakegame-pc: dist $(sxedeps) $(pcdeps) $(snakegamedeps)
-	(cd dist && java -Djava.library.path=../pc/target/natives -jar snakegame-pc-0.0.1-SNAPSHOT.jar "640x480")
+run-snakegame-pc: run-pc $(snakegamedeps)
+	(cd dist && java -Djava.library.path=../pc/target/natives -jar snakegame-pc-0.0.1-SNAPSHOT.jar "640x480") | tee snakegame.log
 
 android:
-	mvn -P $@ $(thismvnflags) package
+	mvn -P $@ $(thismvnflags) $(goals) | tee mvn.log
 	cp snakegame/android/target/snakegame-android-0.0.1-SNAPSHOT.apk dist/
 	cp dist/snakegame-android-0.0.1-SNAPSHOT.apk ~/Dropbox/snakegame-android-0.0.1-SNAPSHOT.apk	
 
 all: pc android
+
+run-pc: dist $(sxedeps) $(pcdeps) 
 
 dist:
 	-mkdir dist
