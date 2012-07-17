@@ -80,29 +80,44 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
         0.75f, -0.75f, 0.0f, 1.0f,
         -0.75f, -0.75f, 0.0f, 1.0f,
     };
-    private static final int mNumberOfVertices = 4;
+    private static final float[] vertexColors = {
+        1.0f, 0.0f, 0.0f,
+        0.0f, 1.0f, 0.0f,
+        0.0f, 0.0f, 1.1f,
+    };
+    private static final int mNumberOfVertices = 3;
     // private static int positionBufferObject;
     private static IntBuffer positionBufferObject;
+    private static IntBuffer colorBufferObject;
     private static boolean mDoneSetup = false;
 
     private static OpenGl mGL = new LwjglOpenGl();
 
     private void debuggy() { // place to test shit
         if (mDoneSetup == false) {
-            FloatBuffer verticesBuffer;
-
-            verticesBuffer = mGL.createFloatBuffer(vertexPositions.length);
-
+            FloatBuffer verticesBuffer = mGL.createFloatBuffer(vertexPositions.length);
             verticesBuffer.put(vertexPositions);
             verticesBuffer.flip();
 
             positionBufferObject = mGL.createIntBuffer(1);
             mGL.glGenBuffers(positionBufferObject);
 
-
             mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, 1);
             mGL.glBufferData(mGL.GL_ARRAY_BUFFER, verticesBuffer, mGL.GL_STATIC_DRAW);
             mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, 0);
+
+
+
+            FloatBuffer colorBuffer = mGL.createFloatBuffer(vertexColors.length);
+            colorBuffer.put(vertexColors);
+            colorBuffer.flip();
+
+            colorBufferObject = mGL.createIntBuffer(1);
+            mGL.glGenBuffers(colorBufferObject);
+            mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, 1);
+            mGL.glBufferData(mGL.GL_ARRAY_BUFFER, colorBuffer, mGL.GL_STATIC_DRAW);
+            mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, 0);
+
             mDoneSetup = true;
 
             /*

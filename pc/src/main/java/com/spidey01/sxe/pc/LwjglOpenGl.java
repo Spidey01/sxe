@@ -49,26 +49,26 @@ public class LwjglOpenGl implements OpenGl {
         
     @Override
     public void glBufferData(int target, ByteBuffer data, int usage) {
-        GL15.glBufferData(target, data, usage);
+        GL15.glBufferData(t(target), data, t(usage));
     }
 
     @Override
     public void glBufferData(int target, DoubleBuffer data, int usage) {
-        GL15.glBufferData(target, data, usage);
+        GL15.glBufferData(t(target), data, t(usage));
     }
 
     @Override
     public void glBufferData(int target, FloatBuffer data, int usage) {
-        GL15.glBufferData(target, data, usage);
+        GL15.glBufferData(t(target), data, t(usage));
     }
 
     @Override
     public void glBufferData(int target, IntBuffer data, int usage) {
         /* for android:
             final int size = data.capacity() * {type of Buffer, e.g. Float.SIZE};
-            glBufferData(t(target), size, data, usage);
+            glBufferData(t(target), size, data, t(usage));
         */
-        GL15.glBufferData(target, data, usage);
+        GL15.glBufferData(t(target), data, t(usage));
     }
 
     @Override
