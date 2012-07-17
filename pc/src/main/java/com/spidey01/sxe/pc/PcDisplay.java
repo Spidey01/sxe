@@ -8,47 +8,48 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
-import org.lwjgl.BufferUtils;
+// for testing stuff
 import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
-import java.nio.DoubleBuffer;
-import java.nio.ByteOrder;
+import org.lwjgl.BufferUtils;
+import org.lwjgl.opengl.ContextAttribs;
+import org.lwjgl.opengl.ContextCapabilities;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
+import org.lwjgl.opengl.GLContext;
+import org.lwjgl.opengl.PixelFormat;
+
 
 public class PcDisplay implements com.spidey01.sxe.core.Display {
 
     private RateCounter mFrameCounter = new RateCounter("Frames");
+    /** default to VGA */
+    private DisplayMode mDisplayMode = new DisplayMode(640, 480);
     private static final String TAG = "PcDisplay";
 
+    /** Create the display based on the desired parameters.
+     *
+     * @param desired A string like that used with setMode().
+     */
     public PcDisplay(String desired) {
-        // default to VGA if desired not found
-        DisplayMode wanted = new DisplayMode(640, 480);
-
-        try {
-            DisplayMode[] modes = Display.getAvailableDisplayModes();
-
-            for (int i=0; i < modes.length; i++) {
-                DisplayMode c = modes[i];
-                if (c.isFullscreenCapable() && c.toString().startsWith(desired)) {
-                    wanted = c;
-                    break;
-                }
-            }
-
-            Display.setDisplayMode(wanted);
-
-        } catch (LWJGLException e) {
-            Log.e(TAG, "PcDisplay() couldn't set display mode for LWJGL!");
-            e.printStackTrace();
+        if (!setMode(desired)) {
+            throw new RuntimeException("Can't set displaymode to "+desired);
         }
- 
     }
 
+    /** Create the Display based on the desktops current DisplayMode.
+     *
+     * This should generally get you a full screen Display instance that
+     * matches the users desktop environment. E.g. 1080p@60hz.
+     */
     public PcDisplay() {
-        this("640 x 480 x 16 @60");
+        if (!setMode(Display.getDesktopDisplayMode())) {
+            throw new RuntimeException("Can't set displaymode to match desktop");
+        }
     }
 
     public boolean create() {
@@ -59,6 +60,8 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
             e.printStackTrace();
             return false;
         }
+
+        Log.i(TAG, "Display supports OpenGL "+getOpenGlVersion());
         return true;
     }
 
@@ -74,6 +77,73 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
     public boolean isCloseRequested() {
         return Display.isCloseRequested();
     }
+
+    /** Set display mode
+     *
+     *
+     * @param mode A string in the format "width x height x bpp @refresh". E.g.
+     * "640 x 480 x 16 @60". Omitted parts will be undefined.
+     *
+     * @return true if successful; false otherwise.
+     */
+    public boolean setMode(String mode) {
+        DisplayMode p = null;
+        DisplayMode[] modes = null;
+
+        try {
+            modes = Display.getAvailableDisplayModes();
+        } catch (LWJGLException e) {
+            return false;
+        }
+
+        for (int i=0; i < modes.length; i++) {
+            DisplayMode c = modes[i];
+            if (c.isFullscreenCapable() && c.toString().startsWith(mode)) {
+                p = c;
+                break;
+            }
+        }
+
+        if (p != null) {
+            return setMode(mDisplayMode);
+        }
+        return false;
+    }
+
+    private boolean setMode(DisplayMode mode) {
+        try {
+            mDisplayMode = mode;
+            Display.setDisplayMode(mDisplayMode);
+        } catch (LWJGLException e) {
+            Log.e(TAG, "Couldn't set display mode for LWJGL!", e);
+            return false;
+        }
+        return true;
+    }
+
+    public String getOpenGlVersion() {
+        ContextCapabilities ctx = GLContext.getCapabilities();
+        // Yes, this is excessive.
+        return (ctx.OpenGL42 ? "4.2"
+                   : (ctx.OpenGL41 ? "4.1"
+                       : (ctx.OpenGL40 ? "4.0"
+                           : (ctx.OpenGL33 ? "3.3"
+                               : (ctx.OpenGL32 ? "3.2"
+                                   : (ctx.OpenGL31 ? "3.1"
+                                       : (ctx.OpenGL30 ? "3.0"
+                                           : (ctx.OpenGL21 ? "2.1"
+                                               : (ctx.OpenGL20 ? "2.0"
+                                                   : (ctx.OpenGL15 ? "1.5"
+                                                       : (ctx.OpenGL14 ? "1.4"
+                                                           : (ctx.OpenGL13 ? "1.3"
+                                                               : (ctx.OpenGL12 ? "1.2"
+                                                                   : (ctx.OpenGL11 ? "1.1"
+                                                                        : "wtf"))))))))))))));
+    }
+
+///////////////////////////////////////////////////////////////////////////////
+// Testing stuff
+///////////////////////////////////////////////////////////////////////////////
 
     private static final float[] vertexPositions = {
         0.75f, 0.75f, 0.0f, 1.0f,

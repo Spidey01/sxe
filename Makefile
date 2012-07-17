@@ -11,11 +11,11 @@ pcdeps = $(sxedeps) \
 snakegamedeps = dist/snakegame-lib-0.0.1-SNAPSHOT.jar \
 				dist/snakegame-pc-0.0.1-SNAPSHOT.jar
 
-pc:
+pc: $(pcdeps) 
 	mvn -P $@ $(thismvnflags) $(goals) | tee mvn.log
 	
 # the natives folder needs to be a part of dist, in the end.
-run-snakegame-pc: run-pc $(snakegamedeps)
+run-snakegame-pc: $(pcdeps) $(snakegamedeps)
 	(cd dist && java -Djava.library.path=../pc/target/natives -jar snakegame-pc-0.0.1-SNAPSHOT.jar "640x480") | tee snakegame.log
 
 android:
@@ -24,8 +24,6 @@ android:
 	cp dist/snakegame-android-0.0.1-SNAPSHOT.apk ~/Dropbox/snakegame-android-0.0.1-SNAPSHOT.apk	
 
 all: pc android
-
-run-pc: dist $(sxedeps) $(pcdeps) 
 
 dist:
 	-mkdir dist

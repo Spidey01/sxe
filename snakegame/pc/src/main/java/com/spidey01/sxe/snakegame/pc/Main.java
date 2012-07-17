@@ -14,7 +14,7 @@ class Main {
 
     public static void main(String[] args) {
         GameEngine g = new GameEngine(
-                new PcDisplay(),
+                new PcDisplay("640 x 480"),
                 new PcInputManager(),
                 new SnakeGame());
 

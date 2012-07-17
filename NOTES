@@ -30,3 +30,15 @@ The shutdown sequence is not quite kosher. When GameEngine.stop() gets called
 it interupts the Game Thread (B) and wraps up. Instead it should likely
 mGame.requestStop() and then wait for a notify[All]() in Game.stop().
 
+
+LWJGL lets us use whatever OpenGL version is supported when the display is
+created. Can't seem to get more details before hand. Joy. Code like this:
+
+        ContextAttribs ca = new ContextAttribs(2, 0).withProfileES(true).withForwardCompatible(false);
+
+Will create something we can use for Display.create(). The only thing is we
+can't get a higher version and the ES profile, then whatever the associated
+version is. So either we can have a steady ES profile for PC or rely on
+whatever we find.
+
+
