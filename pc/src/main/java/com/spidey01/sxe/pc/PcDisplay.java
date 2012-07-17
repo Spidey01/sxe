@@ -9,7 +9,11 @@ import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
 import org.lwjgl.BufferUtils;
+import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+import java.nio.DoubleBuffer;
+import java.nio.ByteOrder;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
@@ -77,21 +81,28 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
         -0.75f, -0.75f, 0.0f, 1.0f,
     };
     private static final int mNumberOfVertices = 4;
-    private static int positionBufferObject;
+    // private static int positionBufferObject;
+    private static IntBuffer positionBufferObject;
     private static boolean mDoneSetup = false;
 
     private static OpenGl mGL = new LwjglOpenGl();
 
     private void debuggy() { // place to test shit
-        if (!mDoneSetup) {
-            FloatBuffer verticesBuffer = BufferUtils.createFloatBuffer(vertexPositions.length);
+        if (mDoneSetup == false) {
+            FloatBuffer verticesBuffer;
+
+            verticesBuffer = mGL.createFloatBuffer(vertexPositions.length);
+
             verticesBuffer.put(vertexPositions);
             verticesBuffer.flip();
 
-            positionBufferObject = GL15.glGenBuffers();
-            GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, positionBufferObject);
-            GL15.glBufferData(GL15.GL_ARRAY_BUFFER, verticesBuffer, GL15.GL_STATIC_DRAW);
-            GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
+            positionBufferObject = mGL.createIntBuffer(1);
+            mGL.glGenBuffers(positionBufferObject);
+
+
+            mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, 1);
+            mGL.glBufferData(mGL.GL_ARRAY_BUFFER, verticesBuffer, mGL.GL_STATIC_DRAW);
+            mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, 0);
             mDoneSetup = true;
 
             /*
@@ -105,7 +116,7 @@ glBindBuffer(GL_ARRAY_BUFFER, 0);
         mGL.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
         mGL.glClear(mGL.GL_COLOR_BUFFER_BIT);
 
-        mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, positionBufferObject);
+        mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, 1);
         mGL.glEnableVertexAttribArray(0);
         mGL.glVertexAttribPointer(0, 4/*because vertexPositions is made up of groups of 4*/ , mGL.GL_FLOAT, false, 0, 0);
 
@@ -113,8 +124,6 @@ glBindBuffer(GL_ARRAY_BUFFER, 0);
 
         mGL.glDisableVertexAttribArray(0);
         /*
-glUseProgram(theProgram);
-
 glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject);
 glEnableVertexAttribArray(0);
 glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
@@ -122,7 +131,6 @@ glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
 glDrawArrays(GL_TRIANGLES, 0, 3);
 
 glDisableVertexAttribArray(0);
-glUseProgram(0);
         */
     }
 }
