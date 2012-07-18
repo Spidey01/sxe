@@ -19,12 +19,35 @@ public class GameEngine {
 
     private static final String TAG = "GameEngine";
 
-    public GameEngine(Display display, InputManager input, Game game) {
+    /** Initializes itself from configuration stored in com.spidey01.sxe.core.C.
+     *
+     * The following fields in C are manditory:
+     *
+     *      - display
+     *      - game
+     *      - input
+     *      - resources
+     *
+     * @see com.spidey01.sxe.pc.PcConfiguration
+     * @see com.spidey01.sxe.android.AndroidConfiguration
+     */
+    public GameEngine() {
+        this(C.getDisplay(), C.getInput(), C.getResources(), C.getGame());
+    }
+
+    /** Initializes the engine for use.
+     *
+     * If you have little interest in providing more than "Game" yourself. You
+     * can use your platforms configuration class to setup
+     * com.spidey01.sxe.core.C, or just fill out the documented fields as
+     * necessary.
+     */
+    public GameEngine(Display display, InputManager input, ResourceManager res, Game game) {
         final String p;
 
         mDisplay = display;
         mInput = input;
-        mResources = new ResourceManager();
+        mResources = res;
         mGame = game;
 
         // ternary abuse, yeah.
@@ -38,7 +61,6 @@ public class GameEngine {
         if (p != null) {
             throw new IllegalArgumentException(p+" can't be null!");
         }
-
     }
 
     /** Start up the game
