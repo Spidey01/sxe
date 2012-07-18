@@ -7,6 +7,12 @@ import java.util.LinkedList;
 
 // TODO maybe make key listeners be Map<String, List<KeyListener>>
 public abstract class InputManager {
+    
+    /** List of listeners who wish to receive a broad cast of any key event */
+    protected List<KeyListener> mKeyBroadcastReceivers =
+        new LinkedList<KeyListener>();
+
+    /** Map of keys to listeners for bound keys */
     protected Map<String, List<KeyListener>> mKeyListeners =
         new HashMap<String, List<KeyListener>>();
 
@@ -28,6 +34,26 @@ public abstract class InputManager {
         return old;
     }
 
+    /** Add a KeyListener for key events.
+     *
+     * This will register a KeyListener that will be called whenever a key event occurs.
+     */
+    public void addKeyListener(KeyListener listener) {
+        mKeyBroadcastReceivers.add(listener);
+    }
+
+    /** Add a KeyListener for a specified key.
+     *
+     * This provides a way to register a key listener for a specific key. A key
+     * may have many listeners. They will be called in the order the were
+     * added, until a KeyListener returns true.
+     *
+     * You can use this to implement keybinds for game play.
+     *
+     * @param keyName what key to listen for.
+     * @param listener the KeyListener.
+     * @see KeyEvent
+     */
     public void addKeyListener(String keyName, KeyListener listener) {
         List<KeyListener> bindings = mKeyListeners.get(keyName);
         if (bindings == null) {
@@ -41,6 +67,13 @@ public abstract class InputManager {
     }
 
     public void notifyKeyListeners(KeyEvent event) {
+        // broadcast receivers get first dibs on any event.
+        for (KeyListener listener : mKeyBroadcastReceivers) {
+            if (listener.onKey(event)) {
+                return;
+            }
+        }
+
         List<KeyListener> bindings = mKeyListeners.get(event.getKeyName());
         if (bindings == null) {
             return;
