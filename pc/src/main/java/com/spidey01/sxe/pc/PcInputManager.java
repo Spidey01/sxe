@@ -1,6 +1,8 @@
 package com.spidey01.sxe.pc;
 
 import com.spidey01.sxe.core.Action;
+import com.spidey01.sxe.core.KeyListener;
+import com.spidey01.sxe.core.KeyEvent;
 import com.spidey01.sxe.core.InputManager;
 import com.spidey01.sxe.core.Log;
 
@@ -18,13 +20,17 @@ public class PcInputManager extends InputManager {
         /* pump the keyboard buffer */
         while (Keyboard.next()) {
             // char k = Keyboard.getEventCharacter();
-            String k = Keyboard.getKeyName(Keyboard.getEventKey());
-            Log.v(TAG, "Key event = "+k);
+            int code = Keyboard.getEventKey();
+            String k = Keyboard.getKeyName(code);
+            boolean down = Keyboard.isKeyDown(code);
 
             Action a = mKeyBindings.get(k);
             if (a != null) {
                 a.execute();
             }
+
+            KeyEvent e = new KeyEvent(this, null, code, k, down);
+            notifyKeyListeners(e);
         }
     }
 

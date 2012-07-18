@@ -3,12 +3,17 @@ package com.spidey01.sxe.snakegame.lib;
 import com.spidey01.sxe.core.Action;
 import com.spidey01.sxe.core.Console;
 import com.spidey01.sxe.core.Game;
-import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.KeyEvent;
+import com.spidey01.sxe.core.KeyListener;
 
 import java.util.Random;
 
-public class SnakeGame extends Game {
+public class SnakeGame
+    extends Game
+    implements KeyListener
+{
     private static final String TAG = "SnakeGame";
     private Console mConsole;
 
@@ -52,39 +57,56 @@ public class SnakeGame extends Game {
     public void setupControls() {
         /* setup controls, these could just as easily be from a file */
 
-        mGameEngine.getInput().bindKey("W", new Action() {
-            @Override public void execute() {
-                Log.d(TAG, "Move Up");
-            }
-        });
-        mGameEngine.getInput().bindKey("S", new Action() {
-            @Override public void execute() {
-                Log.d(TAG, "Move Down");
-            }
-        });
-        mGameEngine.getInput().bindKey("A", new Action() {
-            @Override public void execute() {
-                Log.d(TAG, "Move Left");
-            }
-        });
-        mGameEngine.getInput().bindKey("D", new Action() {
-            @Override public void execute() {
-                Log.d(TAG, "Move Right");
-            }
-        });
-        mGameEngine.getInput().bindKey("ESCAPE", new Action() {
-            @Override public void execute() {
-                Log.d(TAG, "Quit");
-                requestStop();
-            }
-        });
-        mGameEngine.getInput().bindKey("BACK", new Action() {
-            @Override public void execute() {
-                Log.d(TAG, "Quit");
-                requestStop();
-            }
-        });
+        String[] keys = new String[]{
+            "ESCAPE", "BACK",
+            "W", "A", "S", "D",
+        };
+        for (String k : keys) {
+            mGameEngine.getInput().addKeyListener(k, this);
+        }
+    }
 
+    // Very simple way of doing some key binds
+    public boolean onKey(KeyEvent event) {
+        // if (Log.isLoggable(TAG, Log.VERBOSE)) {
+            // Log.v(TAG, "onKey() called for event "+event);
+        // }
+
+        if (!event.isKeyDown()) {
+
+            // quit game
+            if ((event.getKeyName().equals("ESCAPE")
+                || event.getKeyName().equals("BACK")))
+            {
+                Log.d(TAG, "Quit");
+                requestStop();
+                return true;
+            }
+        } else {
+
+            // movement keys
+            if (event.getKeyName().equals("W")) {
+                Log.d(TAG, "Move Up");
+                return true;
+            }
+
+            if (event.getKeyName().equals("S")) {
+                Log.d(TAG, "Move Down");
+                return true;
+            }
+            
+            if (event.getKeyName().equals("A")) {
+                Log.d(TAG, "Move Left");
+                return true;
+            }
+            
+            if (event.getKeyName().equals("D")) {
+                Log.d(TAG, "Move Right");
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 
