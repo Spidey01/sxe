@@ -60,7 +60,6 @@ public class SnakeGame
         String[] keys = new String[]{
             "ESCAPE", "BACK",
             "W", "A", "S", "D",
-            "GRAVE",
         };
         for (String k : keys) {
             mGameEngine.getInput().addKeyListener(k, this);
@@ -84,12 +83,6 @@ public class SnakeGame
             {
                 Log.d(TAG, "Quit");
                 requestStop();
-                return true;
-            }
-
-            // toggle console sp that it catches input
-            if (event.getKeyName().equals("GRAVE")) {
-                mConsole.setVisable(!mConsole.isVisable());
                 return true;
             }
         } else {

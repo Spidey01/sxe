@@ -42,3 +42,7 @@ version is. So either we can have a steady ES profile for PC or rely on
 whatever we find.
 
 
+The input manager implementations should provide a way of getting the more
+detailed text for an event. E.g. a way to get '`' or 'a' instead of only
+'GRAVE' or 'A', respectively.
+
