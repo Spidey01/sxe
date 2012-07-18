@@ -24,11 +24,6 @@ public class PcInputManager extends InputManager {
             String k = Keyboard.getKeyName(code);
             boolean down = Keyboard.isKeyDown(code);
 
-            Action a = mKeyBindings.get(k);
-            if (a != null) {
-                a.execute();
-            }
-
             KeyEvent e = new KeyEvent(this, null, code, k, down);
             notifyKeyListeners(e);
         }

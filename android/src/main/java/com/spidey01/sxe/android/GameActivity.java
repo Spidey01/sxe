@@ -23,7 +23,6 @@ public class GameActivity extends Activity {
 
         mDisplay = new AndroidDisplay(this);
         mInput = new AndroidInputManager(mDisplay);
-        mEngine.getResources().setLoader("assets", new AssetLoader(getAssets()));
     }
 
     protected void onDestroy() {

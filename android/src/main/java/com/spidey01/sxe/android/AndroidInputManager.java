@@ -4,6 +4,7 @@ import com.spidey01.sxe.android.AndroidDisplay;
 import com.spidey01.sxe.core.Action;
 import com.spidey01.sxe.core.Display;
 import com.spidey01.sxe.core.InputManager;
+import com.spidey01.sxe.core.KeyListener;
 
 import android.view.KeyEvent;
 import android.view.View.OnKeyListener;
@@ -34,12 +35,22 @@ public class AndroidInputManager extends InputManager {
                     // return true;
                 }
 
+                com.spidey01.sxe.core.KeyEvent e =
+                    new com.spidey01.sxe.core.KeyEvent(
+                        AndroidInputManager.this,   // cool trick!
+                        event,
+                        keyCode,
+                        keyName,
+                        (event.getAction() == KeyEvent.ACTION_DOWN));
+                notifyKeyListeners(e);
+
                 // Context context = ((AndroidDisplay)mWidget).getContext();
                 // String m = keyName+" was pressed from thread "+Thread.currentThread().getId();
                 // int duration = Toast.LENGTH_LONG;
 
                 // Toast toast = Toast.makeText(context, m, duration);
                 // toast.show();
+
                 return true;
             }
         });
@@ -59,6 +70,8 @@ public class AndroidInputManager extends InputManager {
     }
 
     public void poll() {
+        // is there something we can do to poke the GUI to do this, just in case?
+        throw new UnsupportedOperationException("poll() not implemented on Android");
     }
 
     // public Action bindKey(String keyName, Action newAction) {

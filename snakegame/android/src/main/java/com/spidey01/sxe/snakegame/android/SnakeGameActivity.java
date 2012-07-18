@@ -13,6 +13,7 @@ public class SnakeGameActivity extends GameActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mEngine = new AndroidGameEngine(mDisplay, mInput, new SnakeGame());
         setContentView(mDisplay);
         mEngine.start();
