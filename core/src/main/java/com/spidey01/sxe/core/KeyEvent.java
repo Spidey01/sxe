@@ -42,6 +42,10 @@ public class KeyEvent {
         return mIsDown;
     }
 
+    public final boolean isKeyUp() {
+        return !mIsDown;
+    }
+
     /** Returns the native event object.
      *
      * It's your job to figure out what to cast it to.
@@ -51,9 +55,21 @@ public class KeyEvent {
         return mNative;
     }
 
+    @Override
     public String toString() {
         return "KeyEvent Input="+mSource+" Code="+mKeyCode+
                " Name="+mKeyName+" Down="+mIsDown+" Native="+mNative;
+    }
+
+    /** Compare KeyEvent's.
+     *
+     * Two KeyEvent are considered equal if the key code, name, and status match.
+     * The input source and native event may differ however.
+     */
+    public boolean equals(KeyEvent other) {
+        return mKeyCode == other.getKeyCode()
+            && mKeyName == other.getKeyName()
+            && mIsDown == other.isKeyDown();
     }
 }
 
