@@ -16,22 +16,9 @@ public abstract class InputManager {
     protected Map<String, List<KeyListener>> mKeyListeners =
         new HashMap<String, List<KeyListener>>();
 
-    protected Map<String, Action> mKeyBindings = new HashMap<String, Action>();
-
     private static final String TAG = "InputManager";
 
     public void poll() {
-    }
-
-    /**
-     * @param keyName The name of the key to bind.
-     * @param newAction The action to be executed()'d on keyName.
-     * @returns The old Action bound to keyName, or null.
-     */
-    public Action bindKey(String keyName, Action newAction) {
-        Action old = mKeyBindings.get(keyName);
-        mKeyBindings.put(keyName, newAction);
-        return old;
     }
 
     /** Add a KeyListener for key events.

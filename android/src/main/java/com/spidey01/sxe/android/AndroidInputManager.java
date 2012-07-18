@@ -29,11 +29,6 @@ public class AndroidInputManager extends InputManager {
                 // }
 
                 String keyName = translateKeyName(keyCode);
-                Action a = mKeyBindings.get(keyName);
-                if (a != null) {
-                    a.execute();
-                    // return true;
-                }
 
                 com.spidey01.sxe.core.KeyEvent e =
                     new com.spidey01.sxe.core.KeyEvent(

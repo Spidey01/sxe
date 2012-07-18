@@ -60,10 +60,14 @@ public class SnakeGame
         String[] keys = new String[]{
             "ESCAPE", "BACK",
             "W", "A", "S", "D",
+            "GRAVE",
         };
         for (String k : keys) {
             mGameEngine.getInput().addKeyListener(k, this);
         }
+
+        // the console will only steal key events when it is visable.
+        mGameEngine.getInput().addKeyListener(mConsole);
     }
 
     // Very simple way of doing some key binds
@@ -80,6 +84,12 @@ public class SnakeGame
             {
                 Log.d(TAG, "Quit");
                 requestStop();
+                return true;
+            }
+
+            // toggle console sp that it catches input
+            if (event.getKeyName().equals("GRAVE")) {
+                mConsole.setVisable(!mConsole.isVisable());
                 return true;
             }
         } else {
