@@ -60,6 +60,7 @@ public class SnakeGame
         String[] keys = new String[]{
             "ESCAPE", "BACK",
             "W", "A", "S", "D",
+            "P", // used to toggle repeating mode on the console for testing.
         };
         for (String k : keys) {
             mGameEngine.getInput().addKeyListener(k, this);
@@ -75,7 +76,7 @@ public class SnakeGame
             // Log.v(TAG, "onKey() called for event "+event);
         // }
 
-        if (!event.isKeyDown()) {
+        if (event.isKeyUp()) {
 
             // quit game
             if ((event.getKeyName().equals("ESCAPE")
@@ -83,6 +84,12 @@ public class SnakeGame
             {
                 Log.d(TAG, "Quit");
                 requestStop();
+                return true;
+            }
+
+            if (event.getKeyName().equals("P")) {
+                Log.v(TAG, "P command fired by "+TAG);
+                mConsole.allowRepeating(!mConsole.repeatingAllowed());
                 return true;
             }
         } else {
