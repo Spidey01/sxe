@@ -4,10 +4,12 @@ package com.spidey01.sxe.core;
  *
  * This can be used for example, to execute code when a key is pressed.
  */
-public abstract class Action {
+public interface Action {
 
-    public void execute() {
-    }
+    void execute();
+
+    /** Get the name of this action. */
+    String getName();
 
 }
 

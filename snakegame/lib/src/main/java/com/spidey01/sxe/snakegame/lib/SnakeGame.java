@@ -2,6 +2,7 @@ package com.spidey01.sxe.snakegame.lib;
 
 import com.spidey01.sxe.core.Action;
 import com.spidey01.sxe.core.Console;
+import com.spidey01.sxe.core.ConsoleCommand;
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
@@ -24,6 +25,7 @@ public class SnakeGame
         Log.v(TAG, "Snake Game is starting.");
 
         mConsole = new Console(/* args we may need from mEngine */);
+        setupConsoleCommands();
         setupControls();
 
         return true;
@@ -52,6 +54,18 @@ public class SnakeGame
             Log.d(TAG, "tick() interrupted");
             stop();
         }
+    }
+
+    public void setupConsoleCommands() {
+        mConsole.addCommand(new ConsoleCommand(){
+            public void execute() {
+                super.execute();
+                requestStop();
+            }
+            public String getName() {
+                return "EXIT";
+            }
+        });
     }
 
     public void setupControls() {

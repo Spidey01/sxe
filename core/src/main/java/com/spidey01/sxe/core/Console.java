@@ -1,5 +1,10 @@
 package com.spidey01.sxe.core;
 
+import java.util.Map;
+import java.util.HashMap;
+
+// TODO: clear mBuffer when console is hidden. IDK if this will need to be
+//       kept until the rendering phase thought so for right now it's retained.
 public class Console implements KeyListener {
 
     public static final int DEFAULT_REPEAT_DELAY = 2;
@@ -20,6 +25,7 @@ public class Console implements KeyListener {
     private boolean mVisable = false;
 
     private StringBuilder mBuffer = new StringBuilder(INITIAL_BUFFER_SIZE);
+    private Map<String,ConsoleCommand> mCommands = new HashMap<String,ConsoleCommand>();
 
     private static final String TAG = "Console";
 
@@ -74,7 +80,7 @@ public class Console implements KeyListener {
             if (event.getKeyName().equals("ENTER")
                 || event.getKeyName().equals("RETURN"))
             {
-                Log.d(TAG, "Execute console command: "+mBuffer);
+                execute(mBuffer.toString());
                 /*
                  * food for thought: what's worse on a mobile phone: letting the
                  * buffer remain at whatever length it has /become/ and clearing
@@ -127,6 +133,42 @@ public class Console implements KeyListener {
             mBuffer.append(event.getKeyName());
         }
         return true; // consume even if not added to buffer, because the console is OPEN.
+    }
+
+    public void execute(String line) {
+        Log.d(TAG, "Execute console command: "+line);
+
+        int split = line.indexOf(" ");
+        String args = null;
+
+        if (split == -1) {
+            split = line.length();
+        } else {
+            args = line.substring(split).trim();
+        }
+
+        ConsoleCommand c = mCommands.get(line.substring(0, split));
+        if (c != null) {
+            c.execute();
+        }
+    }
+
+    public void addCommand(ConsoleCommand command) {
+        if (command == null
+            || command.getName() == null
+            || command.getName().equals(""))
+        {
+            throw new IllegalArgumentException("Console doesn't allow null or empty command names");
+        }
+        mCommands.put(command.getName(), command);
+    }
+
+    public void removeCommand(ConsoleCommand command) {
+        removeCommand(command.getName());
+    }
+
+    public void removeCommand(String command) {
+        mCommands.remove(command);
     }
 }
 
