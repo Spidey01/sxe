@@ -1,14 +1,14 @@
-package com.spidey01.sxe.pc;
+package com.spidey01.sxe.android;
 
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.GlslProgram;
+import com.spidey01.sxe.core.GlslShader;
 
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.ARBFragmentShader;
-import org.lwjgl.opengl.ARBShaderObjects;
-import org.lwjgl.opengl.ARBVertexShader;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.Util;
+import android.opengl.GLES20;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Collections;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -16,12 +16,12 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
-public class LwjglGlslShader {
+public class AndroidGlslShader implements GlslShader {
 
     private int mShaderId;
-    private static final String TAG = "LwjglGlslShader";
+    private static final String TAG = "AndroidGlslShader";
 
-    LwjglGlslShader(String filename) {
+    AndroidGlslShader(String filename) {
     }
 
     public int getShader() {
@@ -29,18 +29,17 @@ public class LwjglGlslShader {
     }
 
     protected boolean compile(String fileName) {
-
         int type = -1;
 
         if (fileName.endsWith(".vert")) {
-            type = ARBVertexShader.GL_VERTEX_SHADER_ARB;
+            type = GLES20.GL_VERTEX_SHADER;
         } else if (fileName.endsWith(".frag")) {
-            type = ARBFragmentShader.GL_FRAGMENT_SHADER_ARB;
+            type = GLES20.GL_FRAGMENT_SHADER;
         } else {
             throw new RuntimeException("Unknown shader type for "+fileName);
         }
 
-        mShaderId = ARBShaderObjects.glCreateShaderObjectARB(type);
+        mShaderId = GLES20.glCreateShader(type);
         if (mShaderId == 0) {
             return false;
         }
@@ -57,16 +56,17 @@ public class LwjglGlslShader {
             return false;
         }
 
-        ARBShaderObjects.glShaderSourceARB(mShaderId, code);
-        ARBShaderObjects.glCompileShaderARB(mShaderId);
-        if (ARBShaderObjects.glGetObjectParameteriARB(mShaderId,
-            ARBShaderObjects.GL_OBJECT_COMPILE_STATUS_ARB) == GL11.GL_FALSE)
-        {
-            mShaderId = 0;
+        GLES20.glShaderSource(mShaderId, code);
+        GLES20.glCompileShader(mShaderId);
+        int[] compiled = new int[1];
+        GLES20.glGetShaderiv(mShaderId, GLES20.GL_COMPILE_STATUS, compiled, 0);
+        if (compiled[0] == GLES20.GL_FALSE) {
+            GLES20.glDeleteShader(mShaderId);
             return false;
         }
 
         return true;
     }
 }
+
 
