@@ -17,7 +17,14 @@ public class GameThread extends Thread {
 
         while (!mGame.stopRequested()) {
             long startTime = System.currentTimeMillis();
-            mGame.tick();
+            // Trap the exception so that we can shutdown. Maybe do same at
+            // game start, or move this into interrupt()?
+            try {
+                mGame.tick();
+            } catch(Exception e) {
+                Log.wtf(TAG, "Game thread has died!", e);
+                mEngine.stop();
+            }
             long endTime = System.currentTimeMillis() - startTime;
             long sleepTime = (1000L / mGame.getTickRate()) - endTime;
             if (sleepTime <= 0) {

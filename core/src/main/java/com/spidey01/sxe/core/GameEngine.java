@@ -86,8 +86,8 @@ public class GameEngine {
      * Will ensure Game.stop() is called. Shuts down the display, etc.
      */
     public void stop() {
-        // mGame.stop();
-        mGameThread.interrupt();
+        mGame.stop();
+        mGameThread.interrupt(); // should this be overriden to do Game.stop()?
 		mDisplay.destroy();
         Log.v(TAG, "stop() done");
     }
