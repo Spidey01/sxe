@@ -8,6 +8,7 @@ public class KeyEvent {
     private final String mKeyName;
     private final boolean mIsDown;
     private Object mNative;
+    private static final String TAG = "KeyEvent";
 
     public KeyEvent(InputManager source, int keyCode,
         String keyName, boolean keyDown)

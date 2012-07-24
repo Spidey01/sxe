@@ -7,6 +7,8 @@ import java.io.IOException;
 
 public class Utils {
 
+    private final static String TAG = "Utils";
+
     /** InputStream to something with .readLine() :-).
      *
      * Often I need to deal with InputStream but of course, all I reallly want

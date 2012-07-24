@@ -33,6 +33,7 @@ import java.util.HashMap;
  */
 public class C {
     private static HashMap<String, Object> mProps = new HashMap<String, Object>();
+    private static final String TAG = "C";
 
     public static Object get(String what) {
         return mProps.get(what);

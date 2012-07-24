@@ -26,7 +26,7 @@ public class Log {
 
     private static boolean mUseThreadId = true;
     private static HashMap<String, Integer> mFilters = new HashMap<String, Integer>();
-    private static final String TAG = "LOG";
+    private static final String TAG = "Log";
 
     /** Controls whether the thread ID will be included in a log statement
      *
