@@ -42,7 +42,9 @@ public class GameEngine {
      * com.spidey01.sxe.core.C, or just fill out the documented fields as
      * necessary.
      */
-    public GameEngine(Display display, InputManager input, ResourceManager res, Game game) {
+    public GameEngine(Display display, InputManager input,
+            ResourceManager res, Game game)
+    {
         final String p;
 
         mDisplay = display;

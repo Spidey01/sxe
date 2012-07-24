@@ -1,20 +1,27 @@
 package com.spidey01.sxe.android;
 
+import com.spidey01.sxe.core.C;
 import com.spidey01.sxe.core.Display;
-import com.spidey01.sxe.core.InputManager;
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.InputManager;
+import com.spidey01.sxe.core.ResourceManager;
 
-import android.view.View;
 import android.content.Context;
+import android.view.View;
 import android.widget.Toast;
 
 /** Class implementing the game engine for PC/Mac hardware. */
 public class AndroidGameEngine extends GameEngine {
 
+    public AndroidGameEngine() {
+        this(C.getDisplay(), C.getInput(), C.getResources(), C.getGame());
+    }
 
-    public AndroidGameEngine(Display display, InputManager input, Game game) {
-        super(display, input, game);
+    public AndroidGameEngine(Display display, InputManager input,
+            ResourceManager res, Game game)
+    {
+        super(display, input, res, game);
     }
 
     public boolean start() {
