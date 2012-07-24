@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 /** Class implementing the game engine for PC/Mac hardware. */
 public class AndroidGameEngine extends GameEngine {
+    private static final String TAG = "AndroidGameEngine";
 
     public AndroidGameEngine() {
         this(C.getDisplay(), C.getInput(), C.getResources(), C.getGame());

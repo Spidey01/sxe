@@ -17,6 +17,8 @@ import android.content.Context;
  */
 public class AndroidConfiguration {
 
+    private static final String TAG = "AndroidConfiguration";
+
     /** The defaults */
     public static GameEngine setup(Game game, Context context) {
         C.put("console", null); // no default

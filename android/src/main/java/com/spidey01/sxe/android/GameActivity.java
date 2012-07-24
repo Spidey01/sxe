@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 public abstract class GameActivity extends Activity {
+    private static final String TAG = "GameActivity";
 
     /** Called when the activity is first created. */
     @Override

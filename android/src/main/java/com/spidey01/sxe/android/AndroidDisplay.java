@@ -10,6 +10,8 @@ public class AndroidDisplay
     extends GLSurfaceView
     implements Display
 {
+    private static final String TAG = "AndroidDisplay";
+
     public AndroidDisplay(Context context) {
         super(context);
 

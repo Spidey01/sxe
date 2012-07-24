@@ -16,6 +16,7 @@ import android.view.MotionEvent;
 public class AndroidInputManager extends InputManager {
 
     private AndroidDisplay mWidget;
+    private static final String TAG = "AndroidInputManager";
 
     public AndroidInputManager(AndroidDisplay display) {
         super();
