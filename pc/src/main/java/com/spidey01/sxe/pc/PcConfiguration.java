@@ -10,6 +10,7 @@ import com.spidey01.sxe.core.ResourceManager;
  * Simply call any method and vola. C should be ready for use on PC.
  */
 public class PcConfiguration {
+    private static final String TAG = "PcConfiguration";
 
     /** The defaults */
     public static GameEngine setup(Game game) {

@@ -15,6 +15,7 @@ import org.lwjgl.opengl.GL20;
 
 
 public class LwjglOpenGl implements OpenGl {
+    private static final String TAG = "LwjglopenGl";
 
     /* Utility functions */
 
