@@ -55,6 +55,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
     public boolean create() {
         try {
             Display.create();
+            debuggy_init();
         } catch (LWJGLException e) {
             Log.e(TAG, "create() can't create LWJGL display :'(");
             e.printStackTrace();
@@ -69,7 +70,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
 		Display.destroy();
     }
     public void update() {
-        debuggy();
+        debuggy_draw();
         Display.update();
         mFrameCounter.update();
     }
@@ -145,78 +146,112 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
 // Testing stuff
 ///////////////////////////////////////////////////////////////////////////////
 
-    private static final float[] vertexPositions = {
-        0.75f, 0.75f, 0.0f, 1.0f,
-        0.75f, -0.75f, 0.0f, 1.0f,
-        -0.75f, -0.75f, 0.0f, 1.0f,
-    };
-    private static final float[] vertexColors = {
-        1.0f, 0.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
-        0.0f, 0.0f, 1.1f,
-    };
-    private static final int mNumberOfVertices = 3;
-    // private static int positionBufferObject;
-    private static IntBuffer positionBufferObject;
-    private static IntBuffer colorBufferObject;
-    private static boolean mDoneSetup = false;
-
     private static OpenGl mGL = new LwjglOpenGl();
 
-    private void debuggy() { // place to test shit
-        if (mDoneSetup == false) {
-            FloatBuffer verticesBuffer = mGL.createFloatBuffer(vertexPositions.length);
-            verticesBuffer.put(vertexPositions);
-            verticesBuffer.flip();
+    private static IntBuffer m_geometryBuffer;
+    private static IntBuffer m_colorBuffer;
+    private static LwjglGlslProgram m_program;
+    private static LwjglGlslShader m_vertShader;
+    private static LwjglGlslShader m_fragShader;
+    private static int m_positionLocation;
+    private static int m_colorLocation;
 
-            positionBufferObject = mGL.createIntBuffer(1);
-            mGL.glGenBuffers(positionBufferObject);
+    private void debuggy_init() { // place to test shit
 
-            mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, 1);
-            mGL.glBufferData(mGL.GL_ARRAY_BUFFER, verticesBuffer, mGL.GL_STATIC_DRAW);
-            mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, 0);
+        // 128,0,128 -> for my Firefly.
+        GL11.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
+
+        mGL.glEnable(OpenGl.GL_CULL_FACE);
+        mGL.glEnable(OpenGl.GL_DEPTH_TEST);
+
+        //---------------------------------------------------
+        //create a triangle
+        float[] geometryData = {
+            -0.5f, -0.5f, 0.0f, 1.0f, //4 floats define one vertex (x, y, z and w), first one is lower left
+            0.5f,  -0.5f, 0.0f, 1.0f, //we go counter clockwise, so lower right vertex next
+            0.0f,  0.5f,  0.0f, 1.0f  //top vertex is last
+        };
+        FloatBuffer buffer = mGL.createFloatBuffer(geometryData.length);
+        buffer.put(geometryData);
+        buffer.flip();
+
+        //generate an ID for our geometry buffer in the video memory and make it the active one
+        m_geometryBuffer = mGL.createIntBuffer(1);
+        mGL.glGenBuffers(m_geometryBuffer);
+        mGL.glBindBuffer(OpenGl.GL_ARRAY_BUFFER, m_geometryBuffer.get(0));
+
+        //send the data to the video memory
+        mGL.glBufferData(OpenGl.GL_ARRAY_BUFFER, buffer, OpenGl.GL_STATIC_DRAW);
 
 
+        //create a color buffer, to make our triangle look pretty
+        float[] colorData = {
+            //3 floats define one color value (red, green and blue) with 0 no intensity and 1 full intensity
+            //each color triplet is assigned to the vertex at the same position in the buffer, so first color -> first vertex
+            1.0f, 0.0f, 0.0f, //first vertex is red
+            0.0f, 1.0f, 0.0f, //lower right vertex is green
+            0.0f, 0.0f, 1.0f, //top vertex is blue
+        };
+        buffer = mGL.createFloatBuffer(colorData.length);
+        buffer.put(colorData);
+        buffer.flip();
 
-            FloatBuffer colorBuffer = mGL.createFloatBuffer(vertexColors.length);
-            colorBuffer.put(vertexColors);
-            colorBuffer.flip();
+        //generate an ID for the color buffer in the video memory and make it the active one
+        m_colorBuffer = mGL.createIntBuffer(1);
+        mGL.glGenBuffers(m_colorBuffer);
+        mGL.glBindBuffer(OpenGl.GL_ARRAY_BUFFER, m_colorBuffer.get(0));
 
-            colorBufferObject = mGL.createIntBuffer(1);
-            mGL.glGenBuffers(colorBufferObject);
-            mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, 1);
-            mGL.glBufferData(mGL.GL_ARRAY_BUFFER, colorBuffer, mGL.GL_STATIC_DRAW);
-            mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, 0);
+        //send the data to the video memory
+        mGL.glBufferData(OpenGl.GL_ARRAY_BUFFER, buffer, OpenGl.GL_STATIC_DRAW);
 
-            mDoneSetup = true;
-
-            /*
-glGenBuffers(1, &positionBufferObject);
-
-glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject);
-glBufferData(GL_ARRAY_BUFFER, sizeof(vertexPositions), vertexPositions, GL_STATIC_DRAW);
-glBindBuffer(GL_ARRAY_BUFFER, 0);
-            */
+        //---------------------------------------------------
+        //load our shaders
+        m_vertShader = new LwjglGlslShader("shaders/shader.vert");
+        m_fragShader = new LwjglGlslShader("shaders/shader.frag");
+        m_program = new LwjglGlslProgram();
+        m_program.addShader(m_vertShader);
+        m_program.addShader(m_fragShader);
+        if (!m_program.link()) {
+            // throw new RuntimeException("couldn't compile m_program: "+m_program.getInfoLog());
         }
-        mGL.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
-        mGL.glClear(mGL.GL_COLOR_BUFFER_BIT);
+        if (!m_program.validate()) {
+            throw new RuntimeException("couldn't validate m_program: "+m_program.getInfoLog());
+        }
 
-        mGL.glBindBuffer(mGL.GL_ARRAY_BUFFER, 1);
-        mGL.glEnableVertexAttribArray(0);
-        mGL.glVertexAttribPointer(0, 4/*because vertexPositions is made up of groups of 4*/ , mGL.GL_FLOAT, false, 0, 0);
+        //tell OpenGL to use this shader for all coming rendering
+        mGL.glUseProgram(m_program.getProgram());
 
-        mGL.glDrawArrays(mGL.GL_TRIANGLES, 0, mNumberOfVertices);
+        //get the attachment points for the attributes position and color
+        m_positionLocation = mGL.glGetAttribLocation(m_program.getProgram(), "position");
+        m_colorLocation = mGL.glGetAttribLocation(m_program.getProgram(), "color");
 
-        mGL.glDisableVertexAttribArray(0);
-        /*
-glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject);
-glEnableVertexAttribArray(0);
-glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
+        //check that the locations are valid, negative value means invalid
+        if(m_positionLocation < 0 || m_colorLocation < 0) {
+            Log.w(TAG, "Could not query attribute locations");
+        }
 
-glDrawArrays(GL_TRIANGLES, 0, 3);
+        //enable these attributes
+        mGL.glEnableVertexAttribArray(m_positionLocation);
+        mGL.glEnableVertexAttribArray(m_colorLocation);
 
-glDisableVertexAttribArray(0);
-        */
+    }
+
+    private void debuggy_draw() { // place to test shit
+        //clear the color buffer
+        mGL.glClear(OpenGl.GL_COLOR_BUFFER_BIT);
+
+        //bind the geometry VBO
+        mGL.glBindBuffer(OpenGl.GL_ARRAY_BUFFER, m_geometryBuffer.get(0));
+        //point the position attribute to this buffer, being tuples of 4 floats for each vertex
+        mGL.glVertexAttribPointer(m_positionLocation, 4 , mGL.GL_FLOAT, false, 0, 0);
+
+        //bint the color VBO
+        mGL.glBindBuffer(OpenGl.GL_ARRAY_BUFFER, m_colorBuffer.get(0));
+        //this attribute is only 3 floats per vertex
+        mGL.glVertexAttribPointer(m_colorLocation, 3 , mGL.GL_FLOAT, false, 0, 0);
+
+        //initiate the drawing process, we want a triangle, start at index 0 and draw 3 vertices
+        mGL.glDrawArrays(mGL.GL_TRIANGLES, 0, 3);
     }
 }
 
