@@ -63,20 +63,8 @@ public class LwjglGlslProgram implements GlslProgram {
     }
 
     public String getInfoLog() {
-        IntBuffer v = BufferUtils.createIntBuffer(1);
-        ARBShaderObjects.glGetObjectParameterARB(mProgram, ARBShaderObjects.GL_OBJECT_INFO_LOG_LENGTH_ARB, v);
-
-        int length = v.get();
-        if (length > 1) {
-            // We have some info we need to output.
-            ByteBuffer log = BufferUtils.createByteBuffer(length);
-            v.flip();
-            ARBShaderObjects.glGetInfoLogARB(mProgram, v, log);
-            byte[] info = new byte[length];
-            log.get(info);
-            return new String(info);
-        }
-        return "";
+        int length = GL20.glGetProgram(mProgram, GL20.GL_INFO_LOG_LENGTH);
+        return GL20.glGetProgramInfoLog(mProgram, length);
     }
 }
 

@@ -1,6 +1,7 @@
 package com.spidey01.sxe.pc;
 
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.GlslShader;
 
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.ARBFragmentShader;
@@ -16,12 +17,15 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
-public class LwjglGlslShader {
+public class LwjglGlslShader implements GlslShader {
 
     private int mShaderId;
     private static final String TAG = "LwjglGlslShader";
 
-    LwjglGlslShader(String filename) {
+    LwjglGlslShader(String fileName) {
+        if (!compile(fileName)) {
+            throw new RuntimeException(getInfoLog());
+        }
     }
 
     public int getShader() {
@@ -67,6 +71,12 @@ public class LwjglGlslShader {
         }
 
         return true;
+    }
+
+    @Override
+    public String getInfoLog() {
+        int length = GL20.glGetShader(mShaderId, GL20.GL_INFO_LOG_LENGTH);
+        return GL20.glGetShaderInfoLog(mShaderId, length);
     }
 }
 

@@ -83,6 +83,12 @@ public class LwjglOpenGl implements OpenGl {
     }
 
     @Override
+    public void glDisable(int cap) {
+        // android: GLES20.glDisable(t(cap));
+        GL11.glDisable(t(cap));
+    }
+
+    @Override
     public void glDisableVertexAttribArray(int index) {
         GL20.glEnableVertexAttribArray(index);
     }
@@ -90,6 +96,12 @@ public class LwjglOpenGl implements OpenGl {
     @Override
     public void glDrawArrays(int mode, int first, int count) {
         GL11.glDrawArrays(t(mode), first, count);
+    }
+
+    @Override
+    public void glEnable(int cap) {
+        // android: GLES20.glEnable(t(cap));
+        GL11.glEnable(t(cap));
     }
 
     @Override
@@ -103,6 +115,17 @@ public class LwjglOpenGl implements OpenGl {
         GL15.glGenBuffers(buffers);
     }
 
+    @Override
+    public int glGetAttribLocation(int program, String name) {
+        // android: GLES20.glGetAttribLocation(program, name);
+        return GL20.glGetAttribLocation(program, name);
+    }
+
+    @Override
+    public void glUseProgram(int program) {
+        // android: GLES20.glUseProgram(program);
+        GL20.glUseProgram(program);
+    }
 
     // this isn't in the interface b/c of this issue
     //@Override
@@ -132,6 +155,12 @@ public class LwjglOpenGl implements OpenGl {
         GL20.glVertexAttribPointer(index, size, t(type), normalized, stride, offset);
     }
 
+    @Override
+    public void glViewport(int x, int y, int width, int height) {
+        // android: GLES20.glViewport(x, y, width, height);
+        GL11.glViewport(x, y, width, height);
+    }
+
     /* Internal functions */
 
     private static int t(int konst) {
@@ -142,6 +171,15 @@ public class LwjglOpenGl implements OpenGl {
 
             case OpenGl.GL_COLOR_BUFFER_BIT:
                 return GL11.GL_COLOR_BUFFER_BIT;
+
+            case OpenGl.GL_CULL_FACE:
+                return GL11.GL_CULL_FACE;
+
+            case OpenGl.GL_CULL_FACE_MODE:
+                return GL11.GL_CULL_FACE_MODE;
+
+            case OpenGl.GL_DEPTH_TEST:
+                return GL11.GL_DEPTH_TEST;
 
             case OpenGl.GL_FALSE:
                 return GL11.GL_FALSE;
