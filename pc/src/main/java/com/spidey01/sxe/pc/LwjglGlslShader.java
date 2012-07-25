@@ -20,11 +20,8 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
-public class LwjglGlslShader implements GlslShader {
+public class LwjglGlslShader extends GlslShader {
 
-    private Type mType;
-    private int mShader = -1;
-    private String mFileName = null;
     private static final String TAG = "LwjglGlslShader";
 
     /** For delayed compilation.
@@ -32,27 +29,19 @@ public class LwjglGlslShader implements GlslShader {
      * You must call compile() with the shader source before using the shader.
      */
     public LwjglGlslShader() {
+        super();
     }
 
     public LwjglGlslShader(String fileName) {
-        if (!compile(fileName)) {
-            throw new RuntimeException(getInfoLog());
-        }
+        super(fileName);
     }
 
     public LwjglGlslShader(Type type, InputStream is) {
-        this(type, is, "/dev/null");
+        super(type, is);
     }
 
     public LwjglGlslShader(Type type, InputStream is, String name) {
-        mFileName = name;
-        if (!compile(type, is)) {
-            throw new RuntimeException(getInfoLog());
-        }
-    }
-
-    public int getShader() {
-        return mShader;
+        super(type, is, "/dev/null");
     }
 
     @Override
@@ -69,13 +58,7 @@ public class LwjglGlslShader implements GlslShader {
 
     @Override
     public boolean compile(String fileName) {
-        if (fileName.endsWith(".vert")) {
-            mType = Type.VERTEX;
-        } else if (fileName.endsWith(".frag")) {
-            mType = Type.FRAGMENT;
-        } else {
-            throw new RuntimeException("Unknown shader type for "+fileName);
-        }
+        mType = GlslShader.getType(fileName);
 
         try {
             return doCompile(
@@ -90,24 +73,6 @@ public class LwjglGlslShader implements GlslShader {
     public String getInfoLog() {
         int length = GL20.glGetShader(mShader, GL20.GL_INFO_LOG_LENGTH);
         return GL20.glGetShaderInfoLog(mShader, length);
-    }
-
-    public Type getType() {
-        assert mType instanceof Type;
-        return mType;
-    }
-
-    protected final String getSource(BufferedReader reader)
-        throws IOException
-    {
-        String code = "";
-        String line;
-
-        while ((line = reader.readLine()) != null) {
-            code += line + "\n";
-        }
-
-        return code;
     }
 
     private boolean doCompile(String code) {

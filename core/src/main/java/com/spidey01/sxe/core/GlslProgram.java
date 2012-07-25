@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface GlslProgram {
     int getProgram();
-    List<GlslShader> getShaders();
-    void addShader(GlslShader shader);
+    List<Shader> getShaders();
+    void addShader(Shader shader);
     boolean link();
     boolean validate();
     String getInfoLog();

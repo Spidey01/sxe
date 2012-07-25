@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,91 +66,107 @@ public class ResourceManager {
         }
     }
 
-    /** Like load() but setups up a Shader.
+    /** Loads a shader from path.
      *
-     * @param path Same as per load() but must end with a suitable file
-     *             extension for a shader.
-     * @param shaderImplClass TheGlSlShaderImpl.class to use. It must implement
-     *                        a public constructor taking a GlslShader.Type,
-     *                        InputStream, and path.
-     * @return Resource with it's Object field set to a GlslShader.
+     * You would call this like:
+     *
+     * <code>
+     *  try {
+     *      rm.loadShader("foo.zip:/shaders/myshader.vert", MyShader.class);
+     *  } catch (IOException e) {
+     *      // ...
+     *  }
+     *  </code>
+     *
+     * @param path Resource path that must end with a suitable file extension
+     *             for a shader.
+     * @param shaderImplClass TheShaderImpl.class to use. It must implement a
+     *                        public constructor matching the argument
+     *                        signature of ResourceFactory.make().
+     * @return Resource with it's Object field set to a GlslShader. null on failure.
+     * @throws IOException
      */
-    // XXX a interface for a factory method could work too
-    public Resource loadShader(String path,
-        Class<? extends GlslShader> shaderImplClass)
+    public Resource load(String path, Class<? extends Shader> shaderImplClass)
+        throws IOException, InvocationTargetException
     {
-        GlslShader.Type shaderType;
-
-        if (path.endsWith(".vert")) {
-            shaderType = GlslShader.Type.VERTEX;
-        } else if (path.endsWith(".frag")) {
-            shaderType = GlslShader.Type.FRAGMENT;
-        } else {
-            throw new IllegalArgumentException(path+" doesn't appear to be a shader");
-        }
-
         Log.i(TAG, "loadShader("+path+")");
 
+        Shader.Type shaderType = GlslShader.getType(path);
         ResourceLoader loader = getLoader(path);
 
         try {
             Constructor ctor = shaderImplClass.getDeclaredConstructor(
-                GlslShader.Type.class,
+                Shader.Type.class,
                 InputStream.class,
                 String.class);
+            ctor.setAccessible(true);
 
             InputStream is = loader.getInputStream(path);
 
-            GlslShader shader = (GlslShader)ctor.newInstance(
-                GlslShader.Type.VERTEX,
-                (InputStream)is,
-                path);
+            Shader shader = (Shader)ctor.newInstance(
+                shaderType, (InputStream)is, path);
 
             Resource r = new Resource(Resource.Type.VERTEX_SHADER, path, is, shader);
 
             mResources.put(r, is);
 
             return r;
-        } catch(Exception fml) {
-            Log.w(TAG, "Can't find a suitable ctor for "+shaderImplClass, fml);
-            return null;
+        } catch(NoSuchMethodException e) {
+            Log.e(TAG, "Can't find a suitable ctor for "+shaderImplClass, e);
+        } catch(InstantiationException e) {
+            Log.w(TAG, "Couldn't instantiate a "+shaderImplClass, e);
+            /* ^ Shouldn't be reached if setAccessible(true) above ^ */
+        } catch(IllegalAccessException e) {
+            Log.e(TAG, "Ctor for "+shaderImplClass+"Is not accessible here.", e);
         }
+
+        return null;
     }
 
-    public Resource loadShader(String path,
-        ResourceFactory<? extends GlslShader> factory)
+    /** Loads a shader from path.
+     *
+     * You would call this like:
+     *
+     * <code>
+     *  try {
+     *      rm.loadShader("foo.zip:/shaders/myshader.vert", new ResourceFactory<MyShader>(){
+     *          public Shader make(Shader.Type type, InputStream is, final String path) {
+     *              // ...
+     *          }
+     *      });
+     *  } catch (IOException e) {
+     *      // ...
+     *  }
+     *  </code>
+     *
+     * @param path Resource path that must end with a suitable file extension
+     *             for a shader.
+     * @param factory A ResourceFactory for make()'ing a suitable Shader.
+     * @return Resource with it's Object field set to a GlslShader. null on failure.
+     * @throws IOException
+     */
+    public Resource load(String path, ResourceFactory<? extends Shader> factory)
+        throws IOException
     {
-        GlslShader.Type shaderType;
-
-        if (path.endsWith(".vert")) {
-            shaderType = GlslShader.Type.VERTEX;
-        } else if (path.endsWith(".frag")) {
-            shaderType = GlslShader.Type.FRAGMENT;
-        } else {
-            throw new IllegalArgumentException(path+" doesn't appear to be a shader");
-        }
-
         Log.i(TAG, "loadShader("+path+")");
 
+        Shader.Type shaderType = GlslShader.getType(path);
         ResourceLoader loader = getLoader(path);
 
-        try {
+        // try {
             InputStream is = loader.getInputStream(path);
 
-            GlslShader shader = factory.make(
-                GlslShader.Type.VERTEX,
-                (InputStream)is,
-                path);
+            Shader shader = factory.make(shaderType, (InputStream)is, path);
 
             Resource r = new Resource(Resource.Type.VERTEX_SHADER, path, is, shader);
 
             mResources.put(r, is);
 
             return r;
-        } catch(Exception fml) {
-            Log.w(TAG, "Couldn't loadShader", fml);
-            return null;
-        }
+        // } catch(Exception fml) {
+            // Log.w(TAG, "Couldn't loadShader", fml);
+            // return null;
+        // }
 
     }
 

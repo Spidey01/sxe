@@ -212,7 +212,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
         m_program.addShader(m_vertShader);
         m_program.addShader(m_fragShader);
         if (!m_program.link()) {
-            // throw new RuntimeException("couldn't compile m_program: "+m_program.getInfoLog());
+            throw new RuntimeException("couldn't compile m_program: "+m_program.getInfoLog());
         }
         if (!m_program.validate()) {
             throw new RuntimeException("couldn't validate m_program: "+m_program.getInfoLog());

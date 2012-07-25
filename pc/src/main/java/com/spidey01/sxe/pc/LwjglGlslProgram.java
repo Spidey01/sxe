@@ -1,7 +1,7 @@
 package com.spidey01.sxe.pc;
 
 import com.spidey01.sxe.core.GlslProgram;
-import com.spidey01.sxe.core.GlslShader;
+import com.spidey01.sxe.core.Shader;
 
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.ARBShaderObjects;
@@ -16,7 +16,7 @@ import java.util.Collections;
 
 public class LwjglGlslProgram implements GlslProgram {
 
-    private List<GlslShader> mShaders = new LinkedList();
+    private List<Shader> mShaders = new LinkedList();
     private int mProgram;
     private static final String TAG = "LwjglGlslProgram";
 
@@ -32,11 +32,11 @@ public class LwjglGlslProgram implements GlslProgram {
         return mProgram;
     }
 
-    public List<GlslShader> getShaders() {
+    public List<Shader> getShaders() {
         return Collections.unmodifiableList(mShaders);
     }
 
-    public void addShader(GlslShader shader) {
+    public void addShader(Shader shader) {
         GL20.glAttachShader(mProgram, shader.getShader());
         mShaders.add(shader);
     }
