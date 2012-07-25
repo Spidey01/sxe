@@ -1,0 +1,28 @@
+Porting requires implementing a module with code necessary for that platform/etc. While using Maven is not strictly required, it is likely to be mandated if you want your module to be merged upstream.
+
+Not a Maven genius? Either am I. Between the existing modules, the Maven documentation, and Google, you should be fine. Odds are if your stuff uses Java already, there is probably something in a maven repository somewhere! Please avoid system dependencies and anything else that makes a build more complicated then 'mvn -P ${platform} package'. When it isn't possible to do so, please make it fairly easy to stick the right version in the right spot!
+
+How much work porting is, rather depends on what you are porting to. At a minimal you will basically have to do code necessary for setting up an OpenGL context, compiling shaders, input handling, etc.
+
+The 'pc' and 'android' modules are examples of platforms. pc could rightfully be called lwjgl instead but it is the official implementation for PC platforms.
+
+An implementation of the Display interface is required. This is how GameEngine expects to obtain a "Display" on which to do drawing.
+Like wise an implementation of InputManager is required. The base class provides most of the interface to other code, you just have to provide a way of obtaining and firing input events.
+
+Graphics is considered part of the `platform` module. So expect to be implementing things like the Shader interface. In some cases you may have an abstract base class available to ease this work.
+
+You should also implement a YourPlatformConfiguration class to make things easy. Take a look at PcConfiguration and AndroidConfiguration for examples.
+
+Requiring oddities like forcing client code to subclass YourPlatformGameEngine should be avoided if possible but may be acceptible for debug/test stuff, that released client code won't need.
+
+If your platform has any standard issue formats for storing resources, you should implement a ResourceLoader for it. The core module provides more generic ones such as Zip and Path resource loaders.
+
+
+So in short:
+
+	0.) Make a new Maven module for the platform.
+	1.) Setup your Display implementation.
+	2.) Setup your InputManager implementation.
+	3.) Implement required graphics interfaces.
+	4.) Optionally implement additional ResourceLoader's.
+
