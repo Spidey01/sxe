@@ -116,6 +116,43 @@ public class ResourceManager {
         }
     }
 
+    public Resource loadShader(String path,
+        ResourceFactory<? extends GlslShader> factory)
+    {
+        GlslShader.Type shaderType;
+
+        if (path.endsWith(".vert")) {
+            shaderType = GlslShader.Type.VERTEX;
+        } else if (path.endsWith(".frag")) {
+            shaderType = GlslShader.Type.FRAGMENT;
+        } else {
+            throw new IllegalArgumentException(path+" doesn't appear to be a shader");
+        }
+
+        Log.i(TAG, "loadShader("+path+")");
+
+        ResourceLoader loader = getLoader(path);
+
+        try {
+            InputStream is = loader.getInputStream(path);
+
+            GlslShader shader = factory.make(
+                GlslShader.Type.VERTEX,
+                (InputStream)is,
+                path);
+
+            Resource r = new Resource(Resource.Type.VERTEX_SHADER, path, is, shader);
+
+            mResources.put(r, is);
+
+            return r;
+        } catch(Exception fml) {
+            Log.w(TAG, "Couldn't loadShader", fml);
+            return null;
+        }
+
+    }
+
     /** Get an InputStream for a loaded Resource */
     public InputStream get(Resource r) throws IOException {
         return mResources.get(r);
