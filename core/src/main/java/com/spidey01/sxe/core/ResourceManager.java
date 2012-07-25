@@ -89,7 +89,7 @@ public class ResourceManager {
     public Resource load(String path, Class<? extends Shader> shaderImplClass)
         throws IOException, InvocationTargetException
     {
-        Log.i(TAG, "loadShader("+path+")");
+        Log.i(TAG, "load("+path+", "+shaderImplClass+")");
 
         Shader.Type shaderType = GlslShader.getType(path);
         ResourceLoader loader = getLoader(path);
@@ -148,7 +148,7 @@ public class ResourceManager {
     public Resource load(String path, ResourceFactory<? extends Shader> factory)
         throws IOException
     {
-        Log.i(TAG, "loadShader("+path+")");
+        Log.i(TAG, "load("+path+", "+factory+")");
 
         Shader.Type shaderType = GlslShader.getType(path);
         ResourceLoader loader = getLoader(path);
