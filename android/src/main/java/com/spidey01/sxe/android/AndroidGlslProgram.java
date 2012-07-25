@@ -1,7 +1,7 @@
 package com.spidey01.sxe.android;
 
 import com.spidey01.sxe.core.GlslProgram;
-import com.spidey01.sxe.core.GlslShader;
+import com.spidey01.sxe.core.Shader;
 
 import android.opengl.GLES20;
 
@@ -11,7 +11,7 @@ import java.util.Collections;
 
 public class AndroidGlslProgram implements GlslProgram {
 
-    private List<GlslShader> mShaders = new LinkedList();
+    private List<Shader> mShaders = new LinkedList();
     private int mProgram;
     private static final String TAG = "AndroidGlslProgram";
 
@@ -27,11 +27,11 @@ public class AndroidGlslProgram implements GlslProgram {
         return mProgram;
     }
 
-    public List<GlslShader> getShaders() {
+    public List<Shader> getShaders() {
         return Collections.unmodifiableList(mShaders);
     }
 
-    public void addShader(GlslShader shader) {
+    public void addShader(Shader shader) {
         GLES20.glAttachShader(mProgram, shader.getShader());
         mShaders.add(shader);
     }
