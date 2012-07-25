@@ -38,15 +38,36 @@
       </modules>
     </profile>
   </profiles>
-  <!-- what was used before profiles crap -->
-  <!-- <modules> -->
-    <!-- SxE Core Engine -->
-    <!-- <module>core</module> -->
-    <!-- Platform code for PC systems -->
-    <!-- <module>pc</module> -->
-    <!-- Platform code for Android systems -->
-    <!-- <module>android</module> -->
-    <!-- A simple demo of a seminal 2D game -->
-    <!-- <module>snakegame</module> -->
-  <!-- </modules> -->
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.8.1</version>
+        <configuration>
+          <!-- Default configuration for all reports -->
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <id>non-aggregate</id>
+            <configuration>
+              <!-- Specific configuration for the non aggregate report -->
+            </configuration>
+            <reports>
+              <report>javadoc</report>
+            </reports>
+          </reportSet>
+          <reportSet>
+            <id>aggregate</id>
+            <configuration>
+              <!-- Specific configuration for the aggregate report -->
+            </configuration>
+            <reports>
+              <report>aggregate</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>

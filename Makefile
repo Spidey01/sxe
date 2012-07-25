@@ -23,7 +23,10 @@ android:
 	cp snakegame/android/target/snakegame-android-0.0.1-SNAPSHOT.apk dist/
 	cp dist/snakegame-android-0.0.1-SNAPSHOT.apk ~/Dropbox/snakegame-android-0.0.1-SNAPSHOT.apk	
 
-all: pc android
+docs:
+	mvn -P $@ $(thismvnflags) javadoc:aggregate | tee mvn.log
+
+all: pc android docs
 
 dist:
 	-mkdir dist
