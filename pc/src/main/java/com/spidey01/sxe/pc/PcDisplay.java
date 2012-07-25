@@ -22,6 +22,9 @@ import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.opengl.PixelFormat;
+import com.spidey01.sxe.core.C;
+import com.spidey01.sxe.core.Resource;
+import com.spidey01.sxe.core.ResourceManager;
 
 
 public class PcDisplay implements com.spidey01.sxe.core.Display {
@@ -206,8 +209,14 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
 
         //---------------------------------------------------
         //load our shaders
-        m_vertShader = new LwjglGlslShader("shaders/shader.vert");
-        m_fragShader = new LwjglGlslShader("shaders/shader.frag");
+        try {
+            m_vertShader = (LwjglGlslShader)C.getResources().load("shaders/shader.vert", LwjglGlslShader.class).getObject();
+            m_fragShader = (LwjglGlslShader)C.getResources().load("shaders/shader.frag", LwjglGlslShader.class).getObject();
+        } catch(Exception fml) {
+            Log.wtf(TAG, "Failed loading shaders", fml);
+        }
+
+
         m_program = new LwjglGlslProgram();
         m_program.addShader(m_vertShader);
         m_program.addShader(m_fragShader);
