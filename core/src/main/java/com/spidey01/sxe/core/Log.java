@@ -1,49 +1,55 @@
 package com.spidey01.sxe.core;
 
-import java.io.PrintStream;
-import java.util.Date;
-import java.util.Calendar;
-import java.util.HashMap;
+import java.util.List;
+import java.util.LinkedList;
 
 /** Logging support for SxE.
  *
  * The goal here is to generally do the right thing.
  *
- * When possible the API resemblies the Android logging system or the Java
- * logging API.
+ * When possible the API resemblies the Android logging system. It is however
+ * paired up with a notion of "Sinks" that process the log data. Log sinks have
+ * a per 'tag' log level that controls whether or not the will statement will
+ * be logged. So it is entirely possible to send log data to multiple sources
+ * and to configure each source based on tag/level.
  *
- * Modifying state in this class is not thread safe.
+ * By default there are no log sinks, which causes all log data to be silenced.
  */
 public class Log {
     
-    // Android mimicery
-    public static final int ASSERT = 0;
-    public static final int DEBUG = 1;
-    public static final int ERROR = 2;
-    public static final int INFO = 3;
-    public static final int VERBOSE = 4;
-    public static final int WARN = 5;
+    // Android mimicery: least to most: ERROR, WARN, INFO, DEBUG, VERBOSE.
+    public static final int ASSERT  = 0;
+    public static final int ERROR   = 1;
+    public static final int WARN    = 2;
+    public static final int INFO    = 3;
+    public static final int DEBUG   = 4;
+    public static final int VERBOSE = 5;
 
-    private static boolean mUseThreadId = true;
-    private static HashMap<String, Integer> mFilters = new HashMap<String, Integer>();
+    private static List<LogSink> mSinks = new LinkedList<LogSink>();
     private static final String TAG = "Log";
 
-    /** Controls whether the thread ID will be included in a log statement
-     *
-     * Warning this dicks with everything >_<
-     */
-    public static void useThreadId(boolean flag) {
-        mUseThreadId = flag;
+    public static void add(LogSink sink) {
+        mSinks.add(sink);
+    }
+    public static void remove(LogSink sink) {
+        mSinks.remove(sink);
     }
 
     public static boolean isLoggable(String tag, int level) {
-        return level == mFilters.get(tag);
+        for (LogSink sink : mSinks) {
+            if (sink.isLoggable(tag, level)) {
+                return true;
+            }
+        }
+
+        return false;
     }
-    public static int getLevel(String tag) {
-        return mFilters.get(tag);
-    }
+
+    /** Convenience method that sets the level of tag for every sink. */
     public static void setLevel(String tag, int level) {
-        mFilters.put(tag, level);
+        for (LogSink sink : mSinks) {
+            sink.setLevel(tag, level);
+        }
     }
 
     public static void wtf(String tag, String message) {
@@ -91,35 +97,10 @@ public class Log {
  
 
     private static void logit(int level, String tag, String message, Throwable tr) {
-        // frag it, I'd rather use this on PC and worry about android later, than read java.util.logging
-        PrintStream o = level <= ERROR ? System.err : System.out;
-        Calendar c = Calendar.getInstance();
-        o.println(
-            // c.get(Calendar.YEAR)+"-"+c.get(Calendar.MONTH)+"-"+c.get(Calendar.DAY_OF_MONTH)+"T"
-            // +c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE)+":"+c.get(Calendar.SECOND)
-            // +" "+c.get(Calendar.ZONE_OFFSET)
-            translate(level)+"/"+tag
-            +"( tid="+Thread.currentThread().getId()
-            +" )"
-            +": "+(tr == null ? message : message+": "+tr));
+        for (LogSink sink : mSinks) {
+            sink.log(level, tag, message, tr);
+        }
     }
 
-    private static String translate(int level) {
-        switch (level) {
-            case ASSERT:
-                return "ASSERT";
-            case DEBUG:
-                return "d";
-            case ERROR:
-                return "e";
-            case INFO:
-                return "i";
-            case VERBOSE:
-                return "v";
-            case WARN:
-                return "w";
-        }
-        return "WTF";
-    }
 }
 
