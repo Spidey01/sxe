@@ -11,7 +11,7 @@ pcdeps = $(sxedeps) \
 snakegamedeps = dist/snakegame-lib-0.0.1-SNAPSHOT.jar \
 				dist/snakegame-pc-0.0.1-SNAPSHOT.jar
 
-pc: $(pcdeps) 
+pc:
 	mvn -P $@ $(thismvnflags) $(goals) | tee mvn.log
 	
 # the natives folder needs to be a part of dist, in the end.
