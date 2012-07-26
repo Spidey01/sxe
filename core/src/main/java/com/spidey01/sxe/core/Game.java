@@ -2,7 +2,7 @@ package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.GameEngine;
 
-public class Game {
+public abstract class Game {
 
     protected GameEngine mGameEngine;
     protected volatile boolean mStopRequested;
@@ -10,6 +10,8 @@ public class Game {
     private static final int mMaxTickRate = 250;
     private RateCounter mTickCounter = new RateCounter("Ticks");
     private static final String TAG = "Game";
+
+    public abstract String getName();
 
     public boolean start(GameEngine engine) {
         Log.v(TAG, "start() called");

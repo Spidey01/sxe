@@ -19,6 +19,11 @@ public class SnakeGame
     private Console mConsole;
 
     @Override
+    public String getName() {
+        return TAG;
+    }
+
+    @Override
     public boolean start(final GameEngine engine) {
         super.start(engine);
 
