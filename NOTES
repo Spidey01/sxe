@@ -25,6 +25,7 @@ Option A would yield code of value. There will have to be a queue for the game
 threads to communicate. I.e. Game thread (B) needs to update the position of an
 entity and main thread (A) needs to render the movement.
 
+LWJGL won't allow some operations from another thread (at least without sync). E.g. making a shader in SnakeGame blows up :/.
 
 The shutdown sequence is not quite kosher. When GameEngine.stop() gets called
 it interupts the Game Thread (B) and wraps up. Instead it should likely
@@ -164,3 +165,57 @@ this code was stuffed into PcDisplay for some testing stuff:
         //initiate the drawing process, we want a triangle, start at index 0 and draw 3 vertices
         mGL.glDrawArrays(mGL.GL_TRIANGLES, 0, 3);
     }
+
+
+This is from the LWJGL wiki entry on VBO's
+
+	Generating a VBO id and buffering
+
+	It is relatively easy to generate a VBO id, much like a Texture id:
+
+		public static int createVBOID() {
+			if (GLContext.getCapabilities().GL_ARB_vertex_buffer_object) {
+				IntBuffer buffer = BufferUtils.createIntBuffer(1);
+				ARBVertexBufferObject.glGenBuffersARB(buffer);
+				return buffer.get(0);
+			}
+			return 0;
+		}
+
+	That ID is important, your going to need it when rendering (again, much like a texture id). To buffer the data to VRAM (or whatever your driver feels approperiate), you do this:
+
+	public static void bufferData(int id, FloatBuffer buffer) {
+		if (GLContext.getCapabilities().GL_ARB_vertex_buffer_object) {
+			ARBVertexBufferObject.glBindBufferARB(ARBVertexBufferObject.GL_ARRAY_BUFFER_ARB, id);
+			ARBVertexBufferObject.glBufferDataARB(ARBVertexBufferObject.GL_ARRAY_BUFFER_ARB, buffer, ARBVertexBufferObject.GL_STATIC_DRAW_ARB);
+		}
+	}
+
+	public static void bufferElementData(int id, IntBuffer buffer) {
+		if (GLContext.getCapabilities().GL_ARB_vertex_buffer_object) {
+			ARBVertexBufferObject.glBindBufferARB(ARBVertexBufferObject.GL_ELEMENT_ARRAY_BUFFER_ARB, id);
+			ARBVertexBufferObject.glBufferDataARB(ARBVertexBufferObject.GL_ELEMENT_ARRAY_BUFFER_ARB, buffer, ARBVertexBufferObject.GL_STATIC_DRAW_ARB);
+		}
+	}
+
+	There are two GLEnums that are new up there, GL_ARRAY_BUFFER_ARB and GL_STATIC_DRAW_ARB. The first is a buffer type to store vertex information, normals, colours and texture coordinates. There is another type which stores indices and thats GL_ELEMENT_ARRAY_BUFFER_ARB, use both to get the optimum speed from VBOs. Also, consider making your data interleaved and using the strides and offsets to get maximum VBO speed as interleaved data only needs 1 VBO id and thus can be managed easier by the GL driver.
+
+	The second GLEnum: GL_STATIC_DRAW_ARB has a couple of other relatives, the important ones are GL_DYNAMIC_DRAW_ARB and GL_STREAM_DRAW_ARB, both of which are outside the scope of this tutorial.
+
+	Rendering
+
+	Now that you have generated and and stored the VBO id, you can render:
+	view sourceprint?
+	public static void render() {
+		GL11.glEnableClientState(GL11.GL_VERTEX_ARRAY);
+		ARBVertexBufferObject.glBindBufferARB(ARBVertexBufferObject.GL_ARRAY_BUFFER_ARB, vertexBufferID);
+		GL11.glVertexPointer(3, GL11.GL_FLOAT, 0, 0);
+	 
+		GL11.glEnableClientState(GL11.GL_COLOR_ARRAY);
+		ARBVertexBufferObject.glBindBufferARB(ARBVertexBufferObject.GL_ARRAY_BUFFER_ARB, colourBufferID);
+		GL11.glColorPointer(4, GL11.GL_FLOAT, 0, 0);
+	 
+		ARBVertexBufferObject.glBindBufferARB(ARBVertexBufferObject.GL_ELEMENT_ARRAY_BUFFER_ARB, indexBufferID);
+		GL12.glDrawRangeElements(GL11.GL_TRIANGLES, 0, maxIndex, indexBufferSize,
+		GL11.GL_UNSIGNED_INT, 0);
+	}
