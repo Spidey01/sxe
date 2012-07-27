@@ -72,7 +72,7 @@ public class ResourceManager {
      *
      * <code>
      *  try {
-     *      rm.loadShader("foo.zip:/shaders/myshader.vert", MyShader.class);
+     *      rm.load("foo.zip:/shaders/myshader.vert", MyShader.class);
      *  } catch (IOException e) {
      *      // ...
      *  }
@@ -129,7 +129,7 @@ public class ResourceManager {
      *
      * <code>
      *  try {
-     *      rm.loadShader("foo.zip:/shaders/myshader.vert", new ResourceFactory<MyShader>(){
+     *      rm.load("foo.zip:/shaders/myshader.vert", new ResourceFactory<MyShader>(){
      *          public Shader make(Shader.Type type, InputStream is, final String path) {
      *              // ...
      *          }
