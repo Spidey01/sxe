@@ -90,7 +90,7 @@ public class LwjglOpenGl implements OpenGl {
 
     @Override
     public void glDisableVertexAttribArray(int index) {
-        GL20.glEnableVertexAttribArray(index);
+        GL20.glDisableVertexAttribArray(index);
     }
 
     @Override
@@ -106,7 +106,7 @@ public class LwjglOpenGl implements OpenGl {
 
     @Override
     public void glEnableVertexAttribArray(int index) {
-        GL20.glDisableVertexAttribArray(index);
+        GL20.glEnableVertexAttribArray(index);
     }
 
     @Override
