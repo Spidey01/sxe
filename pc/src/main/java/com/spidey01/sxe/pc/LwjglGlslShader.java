@@ -29,7 +29,7 @@ public class LwjglGlslShader extends GlslShader {
     }
 
     public LwjglGlslShader(Type type, InputStream is, String name) {
-        super(type, is, "/dev/null");
+        super(type, is, name);
     }
 
     @Override
