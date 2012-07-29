@@ -44,7 +44,7 @@ public interface OpenGl {
     void glEnableVertexAttribArray(int index);
     void glGenBuffers(IntBuffer buffers);
     int glGetAttribLocation(int program, String name);
-    void glUseProgram(GlslProgram);
+    void glUseProgram(GlslProgram program);
     void glUseProgram(int program);
     void glVertexAttribPointer(int indx, int size, int type, boolean normalized, int stride, int offset);
     void glViewport(int x, int y, int width, int height);
