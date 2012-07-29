@@ -12,17 +12,19 @@ snakegamedeps = dist/snakegame-lib-0.0.1-SNAPSHOT.jar \
 				dist/snakegame-pc-0.0.1-SNAPSHOT.jar
 
 pc:
-	mvn -P $@ $(thismvnflags) $(goals) | tee mvn.log
+	mvn -P $@ $(thismvnflags) $(goals)
 	
 # the natives folder needs to be a part of dist, in the end.
 run-snakegame-pc: $(pcdeps) $(snakegamedeps)
-	(cd dist && java -Djava.library.path=../pc/target/natives -jar snakegame-pc-0.0.1-SNAPSHOT.jar "640x480") | tee snakegame.log
+	(cd dist && java -Djava.library.path=../pc/target/natives -jar snakegame-pc-0.0.1-SNAPSHOT.jar "640x480")
 
 android:
-	mvn -P $@ $(thismvnflags) $(goals) | tee mvn.log
+	mvn -P $@ $(thismvnflags) $(goals)
 	cp snakegame/android/target/snakegame-android-0.0.1-SNAPSHOT.apk dist/
 	cp dist/snakegame-android-0.0.1-SNAPSHOT.apk ~/Dropbox/snakegame-android-0.0.1-SNAPSHOT.apk	
 
+# Use tee here because we rarely care about the exit status of this target so
+# much as the corpious output.
 docs:
 	mvn -P $@ $(thismvnflags) javadoc:aggregate | tee mvn.log
 
