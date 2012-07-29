@@ -122,6 +122,11 @@ public class LwjglOpenGl implements OpenGl {
     }
 
     @Override
+    public void glUseProgram(GlslProgram program) {
+        GL20.glUseProgram(program.getProgram());
+    }
+
+    @Override
     public void glUseProgram(int program) {
         // android: GLES20.glUseProgram(program);
         GL20.glUseProgram(program);
