@@ -68,7 +68,7 @@ distclean:
 pristine: clean distclean
 	-rmdir "$(DESTDIR)"
 	-rm -rf target
-	[ -f .git ] && git reset --hard HEAD
+	if [ -d .git ]; then git reset --hard HEAD; else true; fi
 
 all: pc android docs
 
