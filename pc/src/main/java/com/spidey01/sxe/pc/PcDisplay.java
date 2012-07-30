@@ -1,12 +1,18 @@
 package com.spidey01.sxe.pc;
 
-import com.spidey01.sxe.core.RateCounter;
+import com.spidey01.sxe.core.FrameEndedListener;
+import com.spidey01.sxe.core.FrameListener;
+import com.spidey01.sxe.core.FrameStartedListener;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.OpenGl;
+import com.spidey01.sxe.core.RateCounter;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+
+import java.util.List;
+import java.util.ArrayList;
 
 // for testing stuff
 import java.nio.ByteBuffer;
@@ -32,6 +38,8 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
     private RateCounter mFrameCounter = new RateCounter("Frames");
     /** default to VGA */
     private DisplayMode mDisplayMode = new DisplayMode(640, 480);
+    private List<FrameStartedListener> mFrameStartedListeners = new ArrayList<FrameStartedListener>();
+    private List<FrameEndedListener> mFrameEndedListeners = new ArrayList<FrameEndedListener>();
     private static final String TAG = "PcDisplay";
 
     /** Create the display based on the desired parameters.
@@ -72,10 +80,19 @@ setupTriangle();
     public void destroy() {
 		Display.destroy();
     }
+
     public void update() {
+        for (FrameStartedListener o : mFrameStartedListeners) {
+            o.frameStarted();
+        }
+
         draw_triangle();
         Display.update();
         mFrameCounter.update();
+
+        for (FrameEndedListener o : mFrameEndedListeners) {
+            o.frameEnded();
+        }
     }
 
     public boolean isCloseRequested() {
@@ -125,6 +142,19 @@ setupTriangle();
         return true;
     }
 
+    public void addFrameListener(FrameListener listener) {
+        mFrameStartedListeners.add(listener);
+        mFrameEndedListeners.add(listener);
+    }
+
+    public void addFrameStartedListener(FrameStartedListener listener) {
+        mFrameStartedListeners.add(listener);
+    }
+
+    public void addFrameEndedListener(FrameEndedListener listener) {
+        mFrameEndedListeners.add(listener);
+    }
+
     public String getOpenGlVersion() {
         ContextCapabilities ctx = GLContext.getCapabilities();
         // Yes, this is excessive.
@@ -150,6 +180,8 @@ setupTriangle();
 ///////////////////////////////////////////////////////////////////////////////
 
 /* triangle.vert:
+
+// shader for the Triangle rendering test code in SnakeGame
 attribute vec2 coord2d;
 void main(void) {
   gl_Position = vec4(coord2d, 0.0, 1.0);

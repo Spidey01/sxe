@@ -1,7 +1,10 @@
 package com.spidey01.sxe.android;
 
-import com.spidey01.sxe.core.Display;
 import com.spidey01.sxe.android.OpenGles2Renderer;
+import com.spidey01.sxe.core.Display;
+import com.spidey01.sxe.core.FrameEndedListener;
+import com.spidey01.sxe.core.FrameListener;
+import com.spidey01.sxe.core.FrameStartedListener;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
@@ -10,6 +13,7 @@ public class AndroidDisplay
     extends GLSurfaceView
     implements Display
 {
+    private OpenGles2Renderer mRenderer = new OpenGles2Renderer();
     private static final String TAG = "AndroidDisplay";
 
     public AndroidDisplay(Context context) {
@@ -20,7 +24,7 @@ public class AndroidDisplay
 
         // setup for OpenGL ES 2
         setEGLContextClientVersion(2);
-        setRenderer(new OpenGles2Renderer());
+        setRenderer(mRenderer);
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
     }
 
@@ -51,5 +55,16 @@ public class AndroidDisplay
         return false;
     }
 
+    public void addFrameListener(FrameListener listener) {
+        mRenderer.addFrameListener(listener);
+    }
+
+    public void addFrameStartedListener(FrameStartedListener listener) {
+        mRenderer.addFrameStartedListener(listener);
+    }
+
+    public void addFrameEndedListener(FrameEndedListener listener) {
+        mRenderer.addFrameEndedListener(listener);
+    }
 }
 

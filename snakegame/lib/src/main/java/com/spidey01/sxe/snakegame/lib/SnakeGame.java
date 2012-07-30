@@ -30,6 +30,7 @@ public class SnakeGame
         Log.v(TAG, "Snake Game is starting.");
 
         mConsole = new Console(/* args we may need from mEngine */);
+        mGameEngine.getDisplay().addFrameStartedListener(mConsole);
         setupConsoleCommands();
         setupControls();
 

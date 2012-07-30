@@ -5,7 +5,9 @@ import java.util.HashMap;
 
 // TODO: clear mBuffer when console is hidden. IDK if this will need to be
 //       kept until the rendering phase thought so for right now it's retained.
-public class Console implements KeyListener {
+public class Console
+    implements KeyListener, FrameListener
+{
 
     public static final int DEFAULT_REPEAT_DELAY = 2;
     public static final String DEFAULT_TOGGLE_KEY = "GRAVE";
@@ -169,6 +171,15 @@ public class Console implements KeyListener {
 
     public void removeCommand(String command) {
         mCommands.remove(command);
+    }
+
+    public void frameStarted() {
+        if (!isVisable()) {
+            return;
+        }
+    }
+
+    public void frameEnded() {
     }
 }
 
