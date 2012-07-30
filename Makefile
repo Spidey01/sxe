@@ -1,37 +1,48 @@
 
 goals ?= package
+DESTDIR ?= $(CURDIR)/dist
 thismvnflags = -Dmaven.test.skip=true -q 
 
-sxedeps = dist/core-0.0.1-SNAPSHOT.jar
+sxedeps = "$(DESTDIR)/core-0.0.1-SNAPSHOT.jar"
 pcdeps = $(sxedeps) \
-		 dist/lwjgl-2.8.4.jar \
-		 dist/lwjgl_util-2.8.4.jar \
-		 dist/lwjgl-platform-2.8.4-natives-linux.jar \
-		 dist/pc-0.0.1-SNAPSHOT.jar
-snakegamedeps = dist/snakegame-lib-0.0.1-SNAPSHOT.jar \
-				dist/snakegame-pc-0.0.1-SNAPSHOT.jar
+		 "$(DESTDIR)/lwjgl-2.8.4.jar" \
+		 "$(DESTDIR)/lwjgl_util-2.8.4.jar" \
+		 "$(DESTDIR)/lwjgl-platform-2.8.4-natives-linux.jar" \
+		 "$(DESTDIR)/pc-0.0.1-SNAPSHOT.jar"
+snakegamedeps = "$(DESTDIR)/snakegame-lib-0.0.1-SNAPSHOT.jar" \
+				"$(DESTDIR)/snakegame-pc-0.0.1-SNAPSHOT.jar"
 
 pc:
 	mvn -P $@ $(thismvnflags) $(goals)
 	
 dist-pc: dist $(pcdeps)
 
+clean-pc:
+	mvn -P pc $(thismvnflags) clean
+
 dist-snakegame-pc: dist-pc $(snakegamedeps)
 
-# the natives folder needs to be a part of dist-pc, in the end.
+
+# The natives folder needs to be a part of dist-pc. This is done because I
+# don't want the extra disk writes of copying the extra files to $DESTDIR on
+# every test run.
 run-snakegame-pc: dist-pc
-	(cd dist && java -Djava.library.path=../pc/target/natives -jar snakegame-pc-0.0.1-SNAPSHOT.jar "640x480")
+	(cd "$(DESTDIR)" && java -Djava.library.path="$(CURDIR)/../pc/target/natives" -jar snakegame-pc-0.0.1-SNAPSHOT.jar "640x480")
 
 android:
 	mvn -P $@ $(thismvnflags) $(goals)
 
 dist-snakegame-android: dist
-	cp snakegame/android/target/snakegame-android-0.0.1-SNAPSHOT.apk dist/
+	cp snakegame/android/target/snakegame-android-0.0.1-SNAPSHOT.apk "$(DESTDIR)/"
 
 dropbox-dist-snamegame-android: dist-snakegame-android
-	cp dist/snakegame-android-0.0.1-SNAPSHOT.apk ~/Dropbox/snakegame-android-0.0.1-SNAPSHOT.apk	
+	cp "$(DESTDIR)/snakegame-android-0.0.1-SNAPSHOT.apk" ~/Dropbox/snakegame-android-0.0.1-SNAPSHOT.apk	
 
-# N.B. doesn't work when you're doing the build on the device itself.
+clean-android:
+	mvn -P android $(thismvnflags) clean
+
+# N.B. doesn't work when you're doing the build on the device itself, instead
+# of using PC->USB.
 run-snakegame-android: android
 	adb install snakegame/android/target/snakegame-android-0.0.1-SNAPSHOT.apk
 
@@ -40,32 +51,53 @@ run-snakegame-android: android
 docs:
 	mvn -P $@ $(thismvnflags) javadoc:aggregate | tee mvn.log
 
-all: pc android docs
-
-dist:
-	-mkdir dist
-
-# engine 
-dist/core-0.0.1-SNAPSHOT.jar: core/target/core-0.0.1-SNAPSHOT.jar dist
-	cp "$<" "$@"
-dist/pc-0.0.1-SNAPSHOT.jar: pc/target/pc-0.0.1-SNAPSHOT.jar dist
-	cp "$<" "$@"
-
-# demo
-dist/snakegame-lib-0.0.1-SNAPSHOT.jar: snakegame/lib/target/snakegame-lib-0.0.1-SNAPSHOT.jar dist
-	cp "$<" "$@"
-dist/snakegame-pc-0.0.1-SNAPSHOT.jar: snakegame/pc/target/snakegame-pc-0.0.1-SNAPSHOT.jar dist
-	cp "$<" "$@"
-
-# lwjgl dependency
-dist/lwjgl-2.8.4.jar: ${HOME}/.m2/repository/org/lwjgl/lwjgl/lwjgl/2.8.4/lwjgl-2.8.4.jar dist
-	cp "$<" "$@"
-dist/lwjgl_util-2.8.4.jar: ${HOME}/.m2/repository/org/lwjgl/lwjgl/lwjgl_util/2.8.4/lwjgl_util-2.8.4.jar dist
-	cp "$<" "$@"
-dist/lwjgl-platform-2.8.4-natives-linux.jar: ${HOME}/.m2/repository/org/lwjgl/lwjgl/lwjgl-platform/2.8.4/lwjgl-platform-2.8.4-natives-linux.jar dist
-	cp "$<" "$@"
+clean-docs:
+	rm -rf target/site/apidocs
 
 tags:
 	find . -name \*.java | xargs ctags
 
-.PHONY: dist pc android all tags docs
+dist: $(DESTDIR)
+
+clean: clean-pc clean-android clean-docs
+
+distclean:
+	rm -rf "$(DESTDIR)"/*
+
+# destructively make this a pristine environment
+pristine: clean distclean
+	-rmdir "$(DESTDIR)"
+	-rm -rf target
+	[ -f .git ] && git reset --hard HEAD
+
+all: pc android docs
+
+
+###                                                      ###
+### Targets below here are either "Concrete" or "Magic". ###
+###                                                      ###
+
+$(DESTDIR):
+	[ ! -d "$(DESTDIR)" ] && mkdir "$(DESTDIR)"
+
+# engine 
+"$(DESTDIR)/core-0.0.1-SNAPSHOT.jar": core/target/core-0.0.1-SNAPSHOT.jar dist
+	cp "$<" "$@"
+"$(DESTDIR)/pc-0.0.1-SNAPSHOT.jar": pc/target/pc-0.0.1-SNAPSHOT.jar dist
+	cp "$<" "$@"
+
+# demo
+"$(DESTDIR)/snakegame-lib-0.0.1-SNAPSHOT.jar": snakegame/lib/target/snakegame-lib-0.0.1-SNAPSHOT.jar dist
+	cp "$<" "$@"
+"$(DESTDIR)/snakegame-pc-0.0.1-SNAPSHOT.jar": snakegame/pc/target/snakegame-pc-0.0.1-SNAPSHOT.jar dist
+	cp "$<" "$@"
+
+# lwjgl dependency
+"$(DESTDIR)/lwjgl-2.8.4.jar": ${HOME}/.m2/repository/org/lwjgl/lwjgl/lwjgl/2.8.4/lwjgl-2.8.4.jar dist
+	cp "$<" "$@"
+"$(DESTDIR)/lwjgl_util-2.8.4.jar": ${HOME}/.m2/repository/org/lwjgl/lwjgl/lwjgl_util/2.8.4/lwjgl_util-2.8.4.jar dist
+	cp "$<" "$@"
+"$(DESTDIR)/lwjgl-platform-2.8.4-natives-linux.jar": ${HOME}/.m2/repository/org/lwjgl/lwjgl/lwjgl-platform/2.8.4/lwjgl-platform-2.8.4-natives-linux.jar dist
+	cp "$<" "$@"
+
+.PHONY: all pc android tags docs clean clean clean-pc clean-android clean-docs distclean pristine
