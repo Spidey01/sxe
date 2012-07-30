@@ -1,6 +1,7 @@
 package com.spidey01.sxe.pc;
 
 import  com.spidey01.sxe.core.OpenGl;
+import  com.spidey01.sxe.core.GlslProgram;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
