@@ -24,6 +24,7 @@
 package com.spidey01.sxe.core;
 
 import java.io.InputStream;
+import java.io.IOException;
 
 /** A resource bucket.
  *
@@ -34,7 +35,8 @@ import java.io.InputStream;
  *  file namer in the conventional sense, i.e. it's what ResourceManager.load()
  *  uses not what the file system necessarily uses.
  */
-public class Resource {
+public interface Resource {
+
     public enum Type {
         UNKNOWN,
         TEXT_FILE,
@@ -42,45 +44,18 @@ public class Resource {
         FRAGMENT_SHADER
     };
 
-    private final Type mType;
-    private final String mFileName;
-    private final InputStream mInputStream;
-    private final Object mObject;
-    private static final String TAG = "Resource";
-
-    /** Initializes a resource.
-     *
-     * Note that only one of is or obj may be null.
-     *
-     * @param type What kindof Resource.Type this is.
-     * @param fileName the file name of this resource, as suitable for ResourceManager.load().
-     * @param is An InputStream representing this. May be null.
-     * @param obj Object representing this resource. May be null.
-     *
-     * @see ResourceManager
+    /** Performs the actual load of the resource from Loader.
      */
-    Resource(Type type, String fileName, InputStream is, Object obj) {
+    boolean load();
 
-        if (is == null && obj == null) {
-            throw new IllegalArgumentException("Both is and obj cannot be null!");
-        }
+    /** Unloads the resource. */
+    boolean unload();
 
-        mType = type;
-        mFileName = fileName;
-        mInputStream = is;
-        mObject = obj;
-    }
+    boolean isLoaded();
 
-    public String getFileName() {
-        return mFileName;
-    }
-
-    public InputStream getInputStream() {
-        return mInputStream;
-    }
-
-    public Object getObject() {
-        return mObject;
-    }
+    String getFileName();
+    InputStream getInputStream();
+    Object getObject();
+    ResourceLoader getLoader();
 }
 

@@ -77,6 +77,8 @@ public class ResourceManager {
     public Resource load(String path) {
         Log.i(TAG, "load("+path+")");
 
+        return null;
+        /*
         ResourceLoader loader = getLoader(path);
         try {
             InputStream is = loader.getInputStream(path);
@@ -87,6 +89,22 @@ public class ResourceManager {
             Log.wtf(TAG, "load("+path+") failed", e);
             return null;
         }
+        */
+    }
+
+    public Resource load(Resource.Type type, String path) {
+        Resource r = null;
+
+        switch (type) {
+            case TEXT_FILE:
+                r = new FileResource(type, path, getLoader(path));
+            case VERTEX_SHADER:
+            case FRAGMENT_SHADER:
+                // r = new ShaderResource(type, path, getLoader(path);
+                r = null;
+        }
+
+        return r;
     }
 
     /** Loads a shader from path.
@@ -114,6 +132,8 @@ public class ResourceManager {
     {
         Log.i(TAG, "load("+path+", "+shaderImplClass+")");
 
+        return null;
+/*
         Shader.Type shaderType = GlslShader.getType(path);
         ResourceLoader loader = getLoader(path);
 
@@ -138,12 +158,15 @@ public class ResourceManager {
             Log.e(TAG, "Can't find a suitable ctor for "+shaderImplClass, e);
         } catch(InstantiationException e) {
             Log.w(TAG, "Couldn't instantiate a "+shaderImplClass, e);
+*/
             /* ^ Shouldn't be reached if setAccessible(true) above ^ */
+/*
         } catch(IllegalAccessException e) {
             Log.e(TAG, "Ctor for "+shaderImplClass+"Is not accessible here.", e);
         }
 
         return null;
+*/
     }
 
     /** Loads a shader from path.
@@ -173,6 +196,8 @@ public class ResourceManager {
     {
         Log.i(TAG, "load("+path+", "+factory+")");
 
+        return null;
+/*
         Shader.Type shaderType = GlslShader.getType(path);
         ResourceLoader loader = getLoader(path);
 
@@ -190,7 +215,7 @@ public class ResourceManager {
             // Log.w(TAG, "Couldn't loadShader", fml);
             // return null;
         // }
-
+*/
     }
 
     /** Get a handle to an already loaded resource.
