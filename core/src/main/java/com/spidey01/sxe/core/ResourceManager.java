@@ -40,7 +40,7 @@ public class ResourceManager {
     /** Map of loaders to container types, e.g. .zip */
     private Map<String, ResourceLoader> mLoaders = new HashMap<String, ResourceLoader>();
     /** Map of resources loaded */
-    private Map<Resource, InputStream> mResources = new HashMap<Resource, InputStream>();
+    private Map<String, Resource> mResources = new HashMap<String, Resource>();
 
     /** Loader used when there isn't a container */
     private ResourceLoader mDefaultLoader;
@@ -81,7 +81,7 @@ public class ResourceManager {
         try {
             InputStream is = loader.getInputStream(path);
             Resource r = new Resource(Resource.Type.UNKNOWN, path, is, null);
-            mResources.put(r, is);
+            mResources.put(path, r);
             return r;
         } catch (IOException e) {
             Log.wtf(TAG, "load("+path+") failed", e);
@@ -131,7 +131,7 @@ public class ResourceManager {
 
             Resource r = new Resource(Resource.Type.VERTEX_SHADER, path, is, shader);
 
-            mResources.put(r, is);
+            mResources.put(path, r);
 
             return r;
         } catch(NoSuchMethodException e) {
@@ -183,7 +183,7 @@ public class ResourceManager {
 
             Resource r = new Resource(Resource.Type.VERTEX_SHADER, path, is, shader);
 
-            mResources.put(r, is);
+            mResources.put(path, r);
 
             return r;
         // } catch(Exception fml) {
@@ -193,9 +193,13 @@ public class ResourceManager {
 
     }
 
-    /** Get an InputStream for a loaded Resource */
-    public InputStream get(Resource r) throws IOException {
-        return mResources.get(r);
+    /** Get a handle to an already loaded resource.
+     *
+     * @param path the path previously loaded
+     * @return Resource previously loaded for path, or null if  not found.
+     */
+    public Resource get(String path) {
+        return mResources.get(path);
     }
 
     public ResourceLoader getLoader(String path) {
