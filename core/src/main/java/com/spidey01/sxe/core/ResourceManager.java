@@ -83,23 +83,6 @@ public class ResourceManager {
         return r;
     }
 
-    public Resource load(Resource.Type type, String path) {
-        Resource r = null;
-
-        switch (type) {
-            case TEXT_FILE:
-                r = new FileResource(type, path, getLoader(path));
-            case VERTEX_SHADER:
-            case FRAGMENT_SHADER:
-                // r = new ShaderResource(type, path, getLoader(path);
-                r = null;
-        }
-
-        mResources.put(path, r);
-        r.load();
-        return r;
-    }
-
     /** Loads a shader from path.
      *
      * You would call this like:
