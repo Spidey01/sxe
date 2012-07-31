@@ -72,6 +72,14 @@ pristine: clean distclean
 
 all: pc android docs
 
+# Cool helper to make a new class.
+#
+new-class: core/src/main/resources/templates/NewClass.java
+	( if [ -z "$(CLASSNAME)" ]; then printf "Class name: "; read CLASSNAME; else CLASSNAME="$(CLASSNAME)" ; fi ; \
+	  if [ -z "$(MODULE)" ]; then printf "Module: "; read MODULE; else MODULE="$(MODULE)" ; fi ; \
+		cp -i COPYING "$$MODULE/src/main/java/com/spidey01/sxe/$$MODULE/$${CLASSNAME}.java" ; \
+		sed "s/CLASSTEMPLATE/$${CLASSNAME}/g; s/MODULETEMPLATE/`echo $$MODULE | sed -e 's/\//./g'`/g" "$<">> "$$MODULE/src/main/java/com/spidey01/sxe/$$MODULE/$${CLASSNAME}.java")
+
 
 ###                                                      ###
 ### Targets below here are either "Concrete" or "Magic". ###
