@@ -41,5 +41,14 @@ public class Utils {
         return new BufferedReader(new InputStreamReader(in));
     }
 
+    public static Shader.Type resourceTypeToShaderType(Resource.Type type) {
+        return type == Resource.Type.VERTEX_SHADER ? Shader.Type.VERTEX
+            : Shader.Type.FRAGMENT;
+    }
+
+    public static Resource.Type shaderTypeToResourceType(Shader.Type type) {
+        return type == Shader.Type.VERTEX ? Resource.Type.VERTEX_SHADER
+            : Resource.Type.FRAGMENT_SHADER;
+    }
 }
 
