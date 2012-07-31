@@ -70,4 +70,20 @@
       </plugin>
     </plugins>
   </reporting>
+  <developers>
+    <developer>
+      <id>Spidey01</id>
+      <name>Terry M. Poulin</name>
+      <email>BigBoss1964@gmail.com</email>
+      <url>https://plus.google.com/100811170724158927013/</url>
+      <roles>
+        <role>Founder</role>
+        <role>Programmer</role>
+        <role>Crazy Enough</role>
+      </roles>
+      <properties>
+        <github>https://github.com:Spidey01/sxe.git</github>
+      </properties>
+    </developer>
+  </developers>
 </project>
