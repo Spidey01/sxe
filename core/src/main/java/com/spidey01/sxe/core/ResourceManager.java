@@ -77,19 +77,10 @@ public class ResourceManager {
     public Resource load(String path) {
         Log.i(TAG, "load("+path+")");
 
-        return null;
-        /*
-        ResourceLoader loader = getLoader(path);
-        try {
-            InputStream is = loader.getInputStream(path);
-            Resource r = new Resource(Resource.Type.UNKNOWN, path, is, null);
-            mResources.put(path, r);
-            return r;
-        } catch (IOException e) {
-            Log.wtf(TAG, "load("+path+") failed", e);
-            return null;
-        }
-        */
+        Resource r = new FileResource(Resource.Type.TEXT_FILE, path, getLoader(path));
+        r.load();
+        mResources.put(path, r);
+        return r;
     }
 
     public Resource load(Resource.Type type, String path) {
@@ -104,6 +95,8 @@ public class ResourceManager {
                 r = null;
         }
 
+        mResources.put(path, r);
+        r.load();
         return r;
     }
 
@@ -132,41 +125,10 @@ public class ResourceManager {
     {
         Log.i(TAG, "load("+path+", "+shaderImplClass+")");
 
-        return null;
-/*
-        Shader.Type shaderType = GlslShader.getType(path);
-        ResourceLoader loader = getLoader(path);
-
-        try {
-            Constructor ctor = shaderImplClass.getDeclaredConstructor(
-                Shader.Type.class,
-                InputStream.class,
-                String.class);
-            ctor.setAccessible(true);
-
-            InputStream is = loader.getInputStream(path);
-
-            Shader shader = (Shader)ctor.newInstance(
-                shaderType, (InputStream)is, path);
-
-            Resource r = new Resource(Resource.Type.VERTEX_SHADER, path, is, shader);
-
-            mResources.put(path, r);
-
-            return r;
-        } catch(NoSuchMethodException e) {
-            Log.e(TAG, "Can't find a suitable ctor for "+shaderImplClass, e);
-        } catch(InstantiationException e) {
-            Log.w(TAG, "Couldn't instantiate a "+shaderImplClass, e);
-*/
-            /* ^ Shouldn't be reached if setAccessible(true) above ^ */
-/*
-        } catch(IllegalAccessException e) {
-            Log.e(TAG, "Ctor for "+shaderImplClass+"Is not accessible here.", e);
-        }
-
-        return null;
-*/
+        Resource r = new ShaderResource(Resource.Type.VERTEX_SHADER, path, getLoader(path), shaderImplClass);
+        r.load();
+        mResources.put(path, r);
+        return r;
     }
 
     /** Loads a shader from path.
@@ -196,26 +158,10 @@ public class ResourceManager {
     {
         Log.i(TAG, "load("+path+", "+factory+")");
 
-        return null;
-/*
-        Shader.Type shaderType = GlslShader.getType(path);
-        ResourceLoader loader = getLoader(path);
-
-        // try {
-            InputStream is = loader.getInputStream(path);
-
-            Shader shader = factory.make(shaderType, (InputStream)is, path);
-
-            Resource r = new Resource(Resource.Type.VERTEX_SHADER, path, is, shader);
-
-            mResources.put(path, r);
-
-            return r;
-        // } catch(Exception fml) {
-            // Log.w(TAG, "Couldn't loadShader", fml);
-            // return null;
-        // }
-*/
+        Resource r = new ShaderResource(Resource.Type.VERTEX_SHADER, path, getLoader(path), factory);
+        r.load();
+        mResources.put(path, r);
+        return r;
     }
 
     /** Get a handle to an already loaded resource.

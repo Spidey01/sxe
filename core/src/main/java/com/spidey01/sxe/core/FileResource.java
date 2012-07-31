@@ -28,10 +28,10 @@ import java.io.IOException;
 
 public class FileResource implements Resource {
 
-    private final Type mType;
-    private final String mFileName;
-    private InputStream mInputStream;
-    private final ResourceLoader mLoader;
+    protected final Type mType;
+    protected final String mFileName;
+    protected InputStream mInputStream;
+    protected final ResourceLoader mLoader;
     private final static String TAG = "FileResource";
 
     /** Resource from a plane file.
