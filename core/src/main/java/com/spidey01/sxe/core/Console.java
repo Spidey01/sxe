@@ -196,7 +196,7 @@ public class Console
         mCommands.remove(command);
     }
 
-    public void frameStarted() {
+    public void frameStarted(OpenGl GL20) {
         if (!isVisable()) {
             return;
         }

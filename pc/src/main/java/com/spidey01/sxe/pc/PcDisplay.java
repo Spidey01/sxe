@@ -63,6 +63,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
     private DisplayMode mDisplayMode = new DisplayMode(640, 480);
     private List<FrameStartedListener> mFrameStartedListeners = new ArrayList<FrameStartedListener>();
     private List<FrameEndedListener> mFrameEndedListeners = new ArrayList<FrameEndedListener>();
+    private OpenGl mOpenGl;
     private static final String TAG = "PcDisplay";
 
     /** Create the display based on the desired parameters.
@@ -89,7 +90,8 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
     public boolean create() {
         try {
             Display.create();
-setupTriangle();
+            mOpenGl = new LwjglOpenGl();
+            setupTriangle();
         } catch (LWJGLException e) {
             Log.e(TAG, "create() can't create LWJGL display :'(");
             e.printStackTrace();
@@ -106,7 +108,7 @@ setupTriangle();
 
     public void update() {
         for (FrameStartedListener o : mFrameStartedListeners) {
-            o.frameStarted();
+            o.frameStarted(mOpenGl);
         }
 
         draw_triangle();
