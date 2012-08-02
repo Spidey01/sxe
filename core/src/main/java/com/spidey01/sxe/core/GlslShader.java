@@ -41,7 +41,7 @@ import java.io.IOException;
  * It would be nice to implement the same constructor signatures as well. You
  * can just call <code>super(...)</code>.
  */
-public abstract class GlslShader implements Shader {
+public class GlslShader implements Shader {
 
     /** Type of shader. */
     protected Type mType;
@@ -52,6 +52,8 @@ public abstract class GlslShader implements Shader {
     /** File name associated with this stream. */
     protected String mFileName = null;
 
+    protected OpenGl mGl;
+
     private static final String TAG = "GlslShader";
 
     /** For delayed compilation.
@@ -59,8 +61,8 @@ public abstract class GlslShader implements Shader {
      * You must later call compile() with the shader source before using the
      * shader. You probably don't want this ctor.
      */
-    public GlslShader() {
-        super();
+    public GlslShader(OpenGl gl) {
+        mGl = gl;
     }
 
     /** Compile shader from fileName.
@@ -68,7 +70,8 @@ public abstract class GlslShader implements Shader {
      * @param fileName the path to load the GLSL code from.
      * @throws RuntimeException if compilation failed.
      */
-    public GlslShader(String fileName) {
+    public GlslShader(OpenGl gl, String fileName) {
+        mGl = gl;
         if (!compile(fileName)) {
             throw new RuntimeException(getInfoLog());
         }
@@ -82,8 +85,8 @@ public abstract class GlslShader implements Shader {
      * @param type The Type of shader to compile.
      * @throws RuntimeException if compilation failed.
      */
-    public GlslShader(Type type, InputStream is) {
-        this(type, is, "/dev/null");
+    public GlslShader(OpenGl gl, Type type, InputStream is) {
+        this(gl, type, is, "/dev/null");
     }
 
     /** Compile shader from input stream with a name.
@@ -92,7 +95,8 @@ public abstract class GlslShader implements Shader {
      * @param name Value for getFileName().
      * @throws RuntimeException if compilation failed.
      */
-    public GlslShader(Type type, InputStream is, String name) {
+    public GlslShader(OpenGl gl, Type type, InputStream is, String name) {
+        mGl = gl;
         mFileName = name;
         if (!compile(type, is)) {
             throw new RuntimeException(getInfoLog());
@@ -140,7 +144,9 @@ public abstract class GlslShader implements Shader {
         return mFileName;
     }
 
-    public abstract String getInfoLog();
+    public String getInfoLog() {
+        return mGl.glGetShaderInfoLog(mShader);
+    }
     
     public static Type getType(String path) {
         if (path.endsWith(".vert")) {
@@ -168,8 +174,32 @@ public abstract class GlslShader implements Shader {
         return code;
     }
 
-    /** You must implement this for compile() to work.
-     */
-    protected abstract boolean doCompile(String code);
+    protected boolean doCompile(String code) {
+        int type = -1;
+
+        if (mType == Type.VERTEX) {
+            type = OpenGl.GL_VERTEX_SHADER;
+        } else if (mType == Type.FRAGMENT) {
+            type = OpenGl.GL_FRAGMENT_SHADER;
+        } else {
+            throw new IllegalStateException("Unknown shader type: "+mType);
+        }
+
+        mShader = mGl.glCreateShader(type);
+        if (mShader == 0) {
+            return false;
+        }
+
+        mGl.glShaderSource(mShader, code);
+        mGl.glCompileShader(mShader);
+        if (mGl.glGetShaderiv(mShader, OpenGl.GL_COMPILE_STATUS)
+            == OpenGl.GL_FALSE)
+        {
+            mGl.glDeleteShader(mShader);
+            return false;
+        }
+
+        return true;
+    }
 }
 

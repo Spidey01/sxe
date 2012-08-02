@@ -23,20 +23,21 @@
 
 package com.spidey01.sxe.snakegame.lib;
 
-import com.spidey01.sxe.core.Action;
 import com.spidey01.sxe.core.Console;
 import com.spidey01.sxe.core.ConsoleCommand;
+import com.spidey01.sxe.core.FrameListener;
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.KeyEvent;
 import com.spidey01.sxe.core.KeyListener;
+import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.OpenGl;
 
 import java.util.Random;
 
 public class SnakeGame
     extends Game
-    implements KeyListener
+    implements KeyListener, FrameListener
 {
     private static final String TAG = "SnakeGame";
     private Console mConsole;
@@ -160,6 +161,12 @@ public class SnakeGame
         }
 
         return false;
+    }
+
+    public void frameStarted(OpenGl GL20) {
+    }
+
+    public void frameEnded() {
     }
 }
 

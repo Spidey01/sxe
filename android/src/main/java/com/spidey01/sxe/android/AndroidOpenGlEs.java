@@ -107,6 +107,21 @@ public class AndroidOpenGlEs implements OpenGl {
     }
 
     @Override
+    public void glCompileShader(int shader) {
+        GLES20.glCompileShader(shader);
+    }
+
+    @Override
+    public int glCreateShader(int type) {
+        GL20.glCreateShader(t(type));
+    }
+
+    @Override
+    public void glDeleteShader(int shader) {
+        GLES20.glDeleteShader(shader);
+    }
+
+    @Override
     public void glDisable(int cap) {
         GLES20.glDisable(t(cap));
     }
@@ -139,6 +154,22 @@ public class AndroidOpenGlEs implements OpenGl {
     @Override
     public int glGetAttribLocation(int program, String name) {
         return GLES20.glGetAttribLocation(program, name);
+    }
+
+    public String glGetShaderInfoLog(int shader) {
+        return GLES20.glGetShaderInfoLog(shader);
+    }
+
+    @Override
+    public int glGetShaderiv(int shader, int pname) {
+        int[] compiled = new int[1];
+        GLES20.glGetShaderiv(shader, t(pname), compiled, 0);
+        return compiled[0];
+    }
+
+    @Override
+    public void glShaderSource(int shader, String source) {
+        GLES20.glShaderSource(shader, source);
     }
 
     @Override
@@ -175,6 +206,9 @@ public class AndroidOpenGlEs implements OpenGl {
             case OpenGl.GL_COLOR_BUFFER_BIT:
                 return GLES20.GL_COLOR_BUFFER_BIT;
 
+            case OpenGl.GL_COMPILE_STATUS:
+                return GLES20.GL_COMPILE_STATUS;
+
             case OpenGl.GL_CULL_FACE:
                 return GLES20.GL_CULL_FACE;
 
@@ -190,11 +224,17 @@ public class AndroidOpenGlEs implements OpenGl {
             case OpenGl.GL_FLOAT:
                 return GLES20.GL_FLOAT;
 
+            case OpenGl.GL_FRAGMENT_SHADER:
+                return GLES20.GL_FRAGMENT_SHADER;
+
             case OpenGl.GL_STATIC_DRAW:
                 return GLES20.GL_STATIC_DRAW;
 
             case OpenGl.GL_TRIANGLES:
                 return GLES20.GL_TRIANGLES;
+
+            case OpenGl.GL_VERTEX_SHADER:
+                return GLES20.GL_VERTEX_SHADER;
 
             default:
                 throw new IllegalArgumentException(

@@ -23,8 +23,9 @@
 
 package com.spidey01.sxe.android;
 
-import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.GlslShader;
+import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.OpenGl;
 
 import android.opengl.GLES20;
 
@@ -34,20 +35,20 @@ public class AndroidGlslShader extends GlslShader {
 
     private static final String TAG = "AndroidGlslShader";
 
-    public AndroidGlslShader() {
-        super();
+    public AndroidGlslShader(OpenGl gl) {
+        super(gl);
     }
 
-    public AndroidGlslShader(String fileName) {
-        super(fileName);
+    public AndroidGlslShader(OpenGl gl, String fileName) {
+        super(gl, fileName);
     }
 
-    public AndroidGlslShader(Type type, InputStream is) {
-        super(type, is);
+    public AndroidGlslShader(OpenGl gl, Type type, InputStream is) {
+        super(gl, type, is);
     }
 
-    public AndroidGlslShader(Type type, InputStream is, String name) {
-        super(type, is, "/dev/null");
+    public AndroidGlslShader(OpenGl gl, Type type, InputStream is, String name) {
+        super(gl, type, is, "/dev/null");
     }
 
     @Override

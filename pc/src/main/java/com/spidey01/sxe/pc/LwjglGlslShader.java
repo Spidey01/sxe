@@ -25,6 +25,7 @@ package com.spidey01.sxe.pc;
 
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.GlslShader;
+import com.spidey01.sxe.core.OpenGl;
 
 import org.lwjgl.opengl.ARBFragmentShader;
 import org.lwjgl.opengl.ARBShaderObjects;
@@ -39,20 +40,20 @@ public class LwjglGlslShader extends GlslShader {
 
     private static final String TAG = "LwjglGlslShader";
 
-    public LwjglGlslShader() {
-        super();
+    public LwjglGlslShader(OpenGl gl) {
+        super(gl);
     }
 
-    public LwjglGlslShader(String fileName) {
-        super(fileName);
+    public LwjglGlslShader(OpenGl gl, String fileName) {
+        super(gl, fileName);
     }
 
-    public LwjglGlslShader(Type type, InputStream is) {
-        super(type, is);
+    public LwjglGlslShader(OpenGl gl, Type type, InputStream is) {
+        super(gl, type, is);
     }
 
-    public LwjglGlslShader(Type type, InputStream is, String name) {
-        super(type, is, name);
+    public LwjglGlslShader(OpenGl gl, Type type, InputStream is, String name) {
+        super(gl, type, is, name);
     }
 
     @Override

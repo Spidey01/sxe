@@ -30,6 +30,10 @@ public interface Display {
     public void update();
     public boolean isCloseRequested();
 
+    /** Get an Instance of OpenGl suitable for running GL commands.
+     */
+    public OpenGl getOpenGl();
+
     /** Add a FrameListener for frame events.
      *
      * This will register a FrameListener that will be notified on rendering evenets.

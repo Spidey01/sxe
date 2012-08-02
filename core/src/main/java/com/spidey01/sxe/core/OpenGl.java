@@ -35,13 +35,17 @@ public interface OpenGl {
 
     static final int GL_ARRAY_BUFFER = 0x8892;
     static final int GL_COLOR_BUFFER_BIT = 0x00004000;
+    static final int GL_COMPILE_STATUS = 0x8B81;
     static final int GL_CULL_FACE = 0x0B44;
     static final int GL_CULL_FACE_MODE = 0x0B45;
     static final int GL_DEPTH_TEST = 0x0B71;
     static final int GL_FALSE = 0x0;
     static final int GL_FLOAT = 0x1406;
+    static final int GL_FRAGMENT_SHADER = 0x8B30;
     static final int GL_STATIC_DRAW = 0x88E4;
     static final int GL_TRIANGLES = 0x0004;
+    static final int GL_VERTEX_SHADER = 0x8B31;
+
 
     /* Utility functions */
 
@@ -60,6 +64,9 @@ public interface OpenGl {
     void glBufferData(int target, IntBuffer data, int usage);
     void glClear(int mask);
     void glClearColor(float red, float green, float blue, float alpha);
+    void glCompileShader(int shader);
+    int glCreateShader(int type);
+    void glDeleteShader(int shader);
     void glDisable(int cap);
     void glDisableVertexAttribArray(int index);
     void glDrawArrays(int mode, int first, int count);
@@ -67,6 +74,9 @@ public interface OpenGl {
     void glEnableVertexAttribArray(int index);
     void glGenBuffers(IntBuffer buffers);
     int glGetAttribLocation(int program, String name);
+    String glGetShaderInfoLog(int shader);
+    int glGetShaderiv(int shader, int pname);
+    void glShaderSource(int shader, String source);
     void glUseProgram(GlslProgram program);
     void glUseProgram(int program);
     void glVertexAttribPointer(int indx, int size, int type, boolean normalized, int stride, int offset);

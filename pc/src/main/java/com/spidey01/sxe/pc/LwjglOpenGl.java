@@ -102,6 +102,21 @@ public class LwjglOpenGl implements OpenGl {
     }
 
     @Override
+    public void glCompileShader(int shader) {
+        GL20.glCompileShader(shader);
+    }
+
+    @Override
+    public int glCreateShader(int type) {
+        return GL20.glCreateShader(t(type));
+    }
+
+    @Override
+    public void glDeleteShader(int shader) {
+        GL20.glDeleteShader(shader);
+    }
+
+    @Override
     public void glDisable(int cap) {
         GL11.glDisable(t(cap));
     }
@@ -137,6 +152,22 @@ public class LwjglOpenGl implements OpenGl {
     }
 
     @Override
+    public String glGetShaderInfoLog(int shader) {
+        int length = GL20.glGetShader(shader, GL20.GL_INFO_LOG_LENGTH);
+        return GL20.glGetShaderInfoLog(shader, length);
+    }
+
+    @Override
+    public int glGetShaderiv(int shader, int pname) {
+        return GL20.glGetShader(shader, pname);
+    }
+
+    @Override
+    public void glShaderSource(int shader, String source) {
+        GL20.glShaderSource(shader, source);
+    }
+
+    @Override
     public void glUseProgram(GlslProgram program) {
         GL20.glUseProgram(program.getProgram());
     }
@@ -167,6 +198,9 @@ public class LwjglOpenGl implements OpenGl {
             case OpenGl.GL_COLOR_BUFFER_BIT:
                 return GL11.GL_COLOR_BUFFER_BIT;
 
+            case OpenGl.GL_COMPILE_STATUS:
+                return GL20.GL_COMPILE_STATUS;
+
             case OpenGl.GL_CULL_FACE:
                 return GL11.GL_CULL_FACE;
 
@@ -182,11 +216,17 @@ public class LwjglOpenGl implements OpenGl {
             case OpenGl.GL_FLOAT:
                 return GL11.GL_FLOAT;
 
+            case OpenGl.GL_FRAGMENT_SHADER:
+                return GL20.GL_FRAGMENT_SHADER;
+
             case OpenGl.GL_STATIC_DRAW:
                 return GL15.GL_STATIC_DRAW;
 
             case OpenGl.GL_TRIANGLES:
                 return GL11.GL_TRIANGLES;
+
+            case OpenGl.GL_VERTEX_SHADER:
+                return GL20.GL_VERTEX_SHADER;
 
             default:
                 throw new IllegalArgumentException("Don't know how to remap "+konst+" to a LWJGL OpenGL constant");

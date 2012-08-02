@@ -180,6 +180,10 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
         mFrameEndedListeners.add(listener);
     }
 
+    public OpenGl getOpenGl() {
+        return mOpenGl;
+    }
+
     public String getOpenGlVersion() {
         ContextCapabilities ctx = GLContext.getCapabilities();
         // Yes, this is excessive.
