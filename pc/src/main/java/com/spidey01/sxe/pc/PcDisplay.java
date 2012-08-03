@@ -43,7 +43,7 @@ import com.spidey01.sxe.core.GlslProgram;
 import com.spidey01.sxe.core.GlslShader;
 import com.spidey01.sxe.core.GpuProgram;
 import com.spidey01.sxe.core.Resource;
-import com.spidey01.sxe.core.ResourceFactory;
+import com.spidey01.sxe.core.ShaderFactory;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.Shader;
 import java.io.InputStream;
@@ -242,7 +242,7 @@ void main(void) {
         GlslShader vert = null;
         GlslShader frag = null;
         try {
-            ResourceFactory<GlslShader> factory = new ResourceFactory<GlslShader>(){
+            ShaderFactory<GlslShader> factory = new ShaderFactory<GlslShader>(){
                 public Shader make(Shader.Type type, InputStream is, final String path) {
                     return new GlslShader(mOpenGl, type, is, path);
                 }

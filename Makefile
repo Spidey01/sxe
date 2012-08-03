@@ -1,7 +1,7 @@
 
 goals ?= package
 DESTDIR ?= $(CURDIR)/dist
-thismvnflags = -Dmaven.test.skip=true -q 
+thismvnflags = -B -Dmaven.test.skip=true -q 
 
 sxedeps = $(DESTDIR)/core-0.0.1-SNAPSHOT.jar
 pcdeps = $(sxedeps) \

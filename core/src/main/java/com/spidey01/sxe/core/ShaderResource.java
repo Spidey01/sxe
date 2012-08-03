@@ -33,15 +33,17 @@ import java.util.Map;
 
 public class ShaderResource extends FileResource {
     private Shader mShader;
-    private final ResourceFactory<? extends Shader> mShaderFactory;
+    private final OpenGl mOpenGl;
+    private final ShaderFactory<? extends Shader> mShaderFactory;
     private final Class<? extends Shader> mShaderClass;
     private final static String TAG = "ShaderResource";
 
     public ShaderResource(Type type, String fileName, ResourceLoader loader,
-        ResourceFactory<? extends Shader> factory)
+        ShaderFactory<? extends Shader> factory)
     {
         super(type, fileName, loader);
         mShaderFactory = factory;
+        mOpenGl = null;
         mShaderClass = null;
 
         assert Utils.shaderTypeToResourceType(GlslShader.getType(mFileName)) == mType
@@ -49,10 +51,11 @@ public class ShaderResource extends FileResource {
     }
 
     public ShaderResource(Type type, String fileName, ResourceLoader loader,
-        Class<? extends Shader> shaderImplClass)
+        OpenGl gl, Class<? extends Shader> shaderImplClass)
     {
         super(type, fileName, loader);
         mShaderFactory = null;
+        mOpenGl = gl;
         mShaderClass = shaderImplClass;
     }
 
@@ -103,11 +106,11 @@ public class ShaderResource extends FileResource {
         Shader.Type shaderType = GlslShader.getType(mFileName);
 
         Constructor ctor =
-            shaderClass.getDeclaredConstructor(Shader.Type.class,
-                InputStream.class, String.class);
+            shaderClass.getDeclaredConstructor(OpenGl.class,
+                Shader.Type.class, InputStream.class, String.class);
         ctor.setAccessible(true);
 
-        return (Shader)ctor.newInstance(shaderType, mInputStream, mFileName);
+        return (Shader)ctor.newInstance(mOpenGl, shaderType, mInputStream, mFileName);
     }
 }
 

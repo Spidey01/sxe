@@ -97,18 +97,20 @@ public class ResourceManager {
      *
      * @param path Resource path that must end with a suitable file extension
      *             for a shader.
+     * @param gl an OpenGl implementation to use with the shader.
      * @param shaderImplClass TheShaderImpl.class to use. It must implement a
      *                        public constructor matching the argument
-     *                        signature of ResourceFactory.make().
+     *                        signature of (OpenGl, Resource.Type, String,
+     *                            ResourceLoader, ShaderClass)
      * @return Resource with it's Object field set to a GlslShader. null on failure.
      * @throws IOException
      */
-    public Resource load(String path, Class<? extends Shader> shaderImplClass)
+    public Resource load(String path, OpenGl gl, Class<? extends Shader> shaderImplClass)
         throws IOException, InvocationTargetException
     {
         Log.i(TAG, "load("+path+", "+shaderImplClass+")");
 
-        Resource r = new ShaderResource(Resource.Type.VERTEX_SHADER, path, getLoader(path), shaderImplClass);
+        Resource r = new ShaderResource(Resource.Type.VERTEX_SHADER, path, getLoader(path), gl, shaderImplClass);
         r.load();
         mResources.put(path, r);
         return r;
@@ -120,7 +122,7 @@ public class ResourceManager {
      *
      * <code>
      *  try {
-     *      rm.load("foo.zip:/shaders/myshader.vert", new ResourceFactory<MyShader>(){
+     *      rm.load("foo.zip:/shaders/myshader.vert", new ShaderFactory<MyShader>(){
      *          public Shader make(Shader.Type type, InputStream is, final String path) {
      *              // ...
      *          }
@@ -132,11 +134,11 @@ public class ResourceManager {
      *
      * @param path Resource path that must end with a suitable file extension
      *             for a shader.
-     * @param factory A ResourceFactory for make()'ing a suitable Shader.
+     * @param factory A ShaderFactory for make()'ing a suitable Shader.
      * @return Resource with it's Object field set to a GlslShader. null on failure.
      * @throws IOException
      */
-    public Resource load(String path, ResourceFactory<? extends Shader> factory)
+    public Resource load(String path, ShaderFactory<? extends Shader> factory)
         throws IOException
     {
         Log.i(TAG, "load("+path+", "+factory+")");
