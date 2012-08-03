@@ -38,6 +38,13 @@ import java.util.List;
 import java.util.ArrayList;
 
 // for testing stuff
+import com.spidey01.sxe.core.C;
+import com.spidey01.sxe.core.GlslShader;
+import com.spidey01.sxe.core.Resource;
+import com.spidey01.sxe.core.ResourceFactory;
+import com.spidey01.sxe.core.ResourceManager;
+import com.spidey01.sxe.core.Shader;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.DoubleBuffer;
@@ -51,9 +58,7 @@ import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.opengl.PixelFormat;
-import com.spidey01.sxe.core.C;
-import com.spidey01.sxe.core.Resource;
-import com.spidey01.sxe.core.ResourceManager;
+
 
 
 public class PcDisplay implements com.spidey01.sxe.core.Display {
@@ -232,12 +237,16 @@ void main(void) {
     private static IntBuffer mVBO;;
     private void setupTriangle() {
         // Setup shaders.
-        LwjglGlslShader vert = null;
-        LwjglGlslShader frag = null;
+        GlslShader vert = null;
+        GlslShader frag = null;
         try {
-            LwjglGlslShaderFactory factory = new LwjglGlslShaderFactory();
-            vert = (LwjglGlslShader)C.getResources().load("shaders/triangle.vert", factory).getObject();
-            frag = (LwjglGlslShader)C.getResources().load("shaders/triangle.frag", factory).getObject();
+            ResourceFactory<GlslShader> factory = new ResourceFactory<GlslShader>(){
+                public Shader make(Shader.Type type, InputStream is, final String path) {
+                    return new GlslShader(mOpenGl, type, is, path);
+                }
+            };
+            vert = (GlslShader)C.getResources().load("shaders/triangle.vert", factory).getObject();
+            frag = (GlslShader)C.getResources().load("shaders/triangle.frag", factory).getObject();
         } catch(Exception fml) {
             Log.wtf(TAG, "Failed loading shaders", fml);
             fml.printStackTrace();
