@@ -23,8 +23,9 @@
 
 package com.spidey01.sxe.pc;
 
+import  com.spidey01.sxe.core.GpuProgram;
 import  com.spidey01.sxe.core.OpenGl;
-import  com.spidey01.sxe.core.GlslProgram;
+import  com.spidey01.sxe.core.Shader;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -67,6 +68,16 @@ public class LwjglOpenGl implements OpenGl {
     /* OpenGL functions */
 
     @Override
+    public void glAttachShader(GpuProgram p, Shader s) {
+        glAttachShader(p.getProgram(), s.getShader());
+    }
+
+    @Override
+    public void glAttachShader(int program, int shader) {
+        GL20.glAttachShader(program, shader);
+    }
+
+    @Override
     public void glBindBuffer(int target, int buffer) {
         GL15.glBindBuffer(t(target), buffer);
     }
@@ -104,6 +115,11 @@ public class LwjglOpenGl implements OpenGl {
     @Override
     public void glCompileShader(int shader) {
         GL20.glCompileShader(shader);
+    }
+
+    @Override
+    public int glCreateProgram() {
+        return GL20.glCreateProgram();
     }
 
     @Override
@@ -152,6 +168,17 @@ public class LwjglOpenGl implements OpenGl {
     }
 
     @Override
+    public String glGetProgramInfoLog(int program) {
+        int length = GL20.glGetProgram(program, GL20.GL_INFO_LOG_LENGTH);
+        return GL20.glGetProgramInfoLog(program, length);
+    }
+
+    @Override
+    public int glGetProgramiv(int program, int pname) {
+        return GL20.glGetProgram(program, pname);
+    }
+
+    @Override
     public String glGetShaderInfoLog(int shader) {
         int length = GL20.glGetShader(shader, GL20.GL_INFO_LOG_LENGTH);
         return GL20.glGetShaderInfoLog(shader, length);
@@ -163,12 +190,22 @@ public class LwjglOpenGl implements OpenGl {
     }
 
     @Override
+    public void glLinkProgram(GpuProgram p) {
+        glLinkProgram(p.getProgram());
+    }
+
+    @Override
+    public void glLinkProgram(int program) {
+        GL20.glLinkProgram(program);
+    }
+
+    @Override
     public void glShaderSource(int shader, String source) {
         GL20.glShaderSource(shader, source);
     }
 
     @Override
-    public void glUseProgram(GlslProgram program) {
+    public void glUseProgram(GpuProgram program) {
         GL20.glUseProgram(program.getProgram());
     }
 
@@ -180,6 +217,16 @@ public class LwjglOpenGl implements OpenGl {
     @Override
     public void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int offset) {
         GL20.glVertexAttribPointer(index, size, t(type), normalized, stride, offset);
+    }
+
+    @Override
+    public void glValidateProgram(GpuProgram p) {
+        glValidateProgram(p.getProgram());
+    }
+
+    @Override
+    public void glValidateProgram(int program) {
+        GL20.glValidateProgram(program);
     }
 
     @Override
@@ -219,11 +266,17 @@ public class LwjglOpenGl implements OpenGl {
             case OpenGl.GL_FRAGMENT_SHADER:
                 return GL20.GL_FRAGMENT_SHADER;
 
+            case OpenGl.GL_LINK_STATUS:
+                return GL20.GL_LINK_STATUS;
+
             case OpenGl.GL_STATIC_DRAW:
                 return GL15.GL_STATIC_DRAW;
 
             case OpenGl.GL_TRIANGLES:
                 return GL11.GL_TRIANGLES;
+
+            case OpenGl.GL_VALIDATE_STATUS:
+                return GL20.GL_VALIDATE_STATUS;
 
             case OpenGl.GL_VERTEX_SHADER:
                 return GL20.GL_VERTEX_SHADER;

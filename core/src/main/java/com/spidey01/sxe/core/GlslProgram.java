@@ -25,12 +25,64 @@ package com.spidey01.sxe.core;
 
 import java.util.List;
 
-public interface GlslProgram {
-    int getProgram();
-    List<Shader> getShaders();
-    void addShader(Shader shader);
-    boolean link();
-    boolean validate();
-    String getInfoLog();
+import java.nio.ByteBuffer;
+import java.nio.IntBuffer;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Collections;
+
+public class GlslProgram implements GpuProgram {
+
+    private List<Shader> mShaders = new LinkedList();
+    private int mProgram;
+    private OpenGl mOpenGl;
+    private static final String TAG = "GlslProgram";
+
+    public GlslProgram(OpenGl gl) {
+        mOpenGl = gl;
+        mProgram = mOpenGl.glCreateProgram();
+
+        if (mProgram == 0) {
+            // can't make program
+        }
+    }
+
+    public int getProgram() {
+        return mProgram;
+    }
+
+    public List<Shader> getShaders() {
+        return Collections.unmodifiableList(mShaders);
+    }
+
+    public void addShader(Shader shader) {
+        mOpenGl.glAttachShader(mProgram, shader.getShader());
+        mShaders.add(shader);
+    }
+
+    public boolean link() {
+        mOpenGl.glLinkProgram(mProgram);
+
+        if (mOpenGl.glGetProgramiv(mProgram, OpenGl.GL_LINK_STATUS)
+            == OpenGl.GL_FALSE)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validate() {
+        mOpenGl.glValidateProgram(mProgram);
+        if (mOpenGl.glGetProgramiv(mProgram, OpenGl.GL_VALIDATE_STATUS)
+            == OpenGl.GL_FALSE)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public String getInfoLog() {
+        return mOpenGl.glGetProgramInfoLog(mProgram);
+    }
 }
 

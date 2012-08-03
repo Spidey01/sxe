@@ -18,15 +18,8 @@ AndroidGameEngine	./android/src/main/java/com/spidey01/sxe/android/AndroidGameEn
 AndroidGameEngine	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGameEngine.java	/^    public AndroidGameEngine() {$/;"	m	class:AndroidGameEngine
 AndroidGameEngine	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGameEngine.java	/^    public AndroidGameEngine(Display display, InputManager input,$/;"	m	class:AndroidGameEngine
 AndroidGameEngine	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGameEngine.java	/^public class AndroidGameEngine extends GameEngine {$/;"	c
-AndroidGlslProgram	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public AndroidGlslProgram() {$/;"	m	class:AndroidGlslProgram
-AndroidGlslProgram	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^public class AndroidGlslProgram implements GlslProgram {$/;"	c
 AndroidGlslProgram	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public AndroidGlslProgram() {$/;"	m	class:AndroidGlslProgram
 AndroidGlslProgram	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^public class AndroidGlslProgram implements GlslProgram {$/;"	c
-AndroidGlslShader	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^    public AndroidGlslShader() {$/;"	m	class:AndroidGlslShader
-AndroidGlslShader	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^    public AndroidGlslShader(String fileName) {$/;"	m	class:AndroidGlslShader
-AndroidGlslShader	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^    public AndroidGlslShader(Type type, InputStream is) {$/;"	m	class:AndroidGlslShader
-AndroidGlslShader	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^    public AndroidGlslShader(Type type, InputStream is, String name) {$/;"	m	class:AndroidGlslShader
-AndroidGlslShader	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^public class AndroidGlslShader extends GlslShader {$/;"	c
 AndroidGlslShader	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^    public AndroidGlslShader() {$/;"	m	class:AndroidGlslShader
 AndroidGlslShader	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^    public AndroidGlslShader(String fileName) {$/;"	m	class:AndroidGlslShader
 AndroidGlslShader	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^    public AndroidGlslShader(Type type, InputStream is) {$/;"	m	class:AndroidGlslShader
@@ -72,13 +65,18 @@ FrameListener	./core/src/main/java/com/spidey01/sxe/core/FrameListener.java	/^pu
 FrameStartedListener	./core/src/main/java/com/spidey01/sxe/core/FrameStartedListener.java	/^public interface FrameStartedListener {$/;"	i
 GL_ARRAY_BUFFER	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_ARRAY_BUFFER = 0x8892;$/;"	f	interface:OpenGl
 GL_COLOR_BUFFER_BIT	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_COLOR_BUFFER_BIT = 0x00004000;$/;"	f	interface:OpenGl
+GL_COMPILE_STATUS	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_COMPILE_STATUS = 0x8B81;$/;"	f	interface:OpenGl
 GL_CULL_FACE	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_CULL_FACE = 0x0B44;$/;"	f	interface:OpenGl
 GL_CULL_FACE_MODE	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_CULL_FACE_MODE = 0x0B45;$/;"	f	interface:OpenGl
 GL_DEPTH_TEST	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_DEPTH_TEST = 0x0B71;$/;"	f	interface:OpenGl
 GL_FALSE	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_FALSE = 0x0;$/;"	f	interface:OpenGl
 GL_FLOAT	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_FLOAT = 0x1406;$/;"	f	interface:OpenGl
+GL_FRAGMENT_SHADER	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_FRAGMENT_SHADER = 0x8B30;$/;"	f	interface:OpenGl
+GL_LINK_STATUS	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_LINK_STATUS = 0x8B82;$/;"	f	interface:OpenGl
 GL_STATIC_DRAW	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_STATIC_DRAW = 0x88E4;$/;"	f	interface:OpenGl
 GL_TRIANGLES	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_TRIANGLES = 0x0004;$/;"	f	interface:OpenGl
+GL_VALIDATE_STATUS	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_VALIDATE_STATUS = 0x8B83;$/;"	f	interface:OpenGl
+GL_VERTEX_SHADER	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    static final int GL_VERTEX_SHADER = 0x8B31;$/;"	f	interface:OpenGl
 Game	./core/src/main/java/com/spidey01/sxe/core/Game.java	/^public abstract class Game {$/;"	c
 GameActivity	./android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^public abstract class GameActivity extends Activity {$/;"	c
 GameActivity	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^public abstract class GameActivity extends Activity {$/;"	c
@@ -87,12 +85,14 @@ GameEngine	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    publ
 GameEngine	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^public class GameEngine {$/;"	c
 GameThread	./core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    public GameThread(GameEngine e, Game g) {$/;"	m	class:GameThread
 GameThread	./core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^public class GameThread extends Thread {$/;"	c
-GlslProgram	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^public interface GlslProgram {$/;"	i
-GlslShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public GlslShader() {$/;"	m	class:GlslShader
-GlslShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public GlslShader(String fileName) {$/;"	m	class:GlslShader
-GlslShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public GlslShader(Type type, InputStream is) {$/;"	m	class:GlslShader
-GlslShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public GlslShader(Type type, InputStream is, String name) {$/;"	m	class:GlslShader
-GlslShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^public abstract class GlslShader implements Shader {$/;"	c
+GlslProgram	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    public GlslProgram(OpenGl gl) {$/;"	m	class:GlslProgram
+GlslProgram	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^public class GlslProgram implements GpuProgram {$/;"	c
+GlslShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public GlslShader(OpenGl gl) {$/;"	m	class:GlslShader
+GlslShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public GlslShader(OpenGl gl, String fileName) {$/;"	m	class:GlslShader
+GlslShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public GlslShader(OpenGl gl, Type type, InputStream is) {$/;"	m	class:GlslShader
+GlslShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public GlslShader(OpenGl gl, Type type, InputStream is, String name) {$/;"	m	class:GlslShader
+GlslShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^public class GlslShader implements Shader {$/;"	c
+GpuProgram	./core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^public interface GpuProgram {$/;"	i
 INFO	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int INFO    = 3;$/;"	f	class:Log
 INITIAL_BUFFER_SIZE	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    protected static final int INITIAL_BUFFER_SIZE = 160; \/* works for 7-bit SMS *\/$/;"	f	class:Console
 InputManager	./core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^public abstract class InputManager {$/;"	c
@@ -106,14 +106,6 @@ LogSink	./core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public Log
 LogSink	./core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public LogSink(PrintStream s, int level) {$/;"	m	class:LogSink
 LogSink	./core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public LogSink(int level) {$/;"	m	class:LogSink
 LogSink	./core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^public class LogSink {$/;"	c
-LwjglGlslProgram	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslProgram.java	/^    public LwjglGlslProgram() {$/;"	m	class:LwjglGlslProgram
-LwjglGlslProgram	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslProgram.java	/^public class LwjglGlslProgram implements GlslProgram {$/;"	c
-LwjglGlslShader	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShader.java	/^    public LwjglGlslShader() {$/;"	m	class:LwjglGlslShader
-LwjglGlslShader	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShader.java	/^    public LwjglGlslShader(String fileName) {$/;"	m	class:LwjglGlslShader
-LwjglGlslShader	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShader.java	/^    public LwjglGlslShader(Type type, InputStream is) {$/;"	m	class:LwjglGlslShader
-LwjglGlslShader	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShader.java	/^    public LwjglGlslShader(Type type, InputStream is, String name) {$/;"	m	class:LwjglGlslShader
-LwjglGlslShader	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShader.java	/^public class LwjglGlslShader extends GlslShader {$/;"	c
-LwjglGlslShaderFactory	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShaderFactory.java	/^public class LwjglGlslShaderFactory$/;"	c
 LwjglOpenGl	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^public class LwjglOpenGl implements OpenGl {$/;"	c
 Main	./snakegame/pc/src/main/java/com/spidey01/sxe/snakegame/pc/Main.java	/^class Main {$/;"	c
 OpenGl	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^public interface OpenGl {$/;"	i
@@ -145,8 +137,6 @@ SnakeGameActivity	./snakegame/android/src/main/java/com/spidey01/sxe/snakegame/a
 TAG	./android/src/main/java/com/spidey01/sxe/android/AndroidConfiguration.java	/^    private static final String TAG = "AndroidConfiguration";$/;"	f	class:AndroidConfiguration	file:
 TAG	./android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    private static final String TAG = "AndroidDisplay";$/;"	f	class:AndroidDisplay	file:
 TAG	./android/src/main/java/com/spidey01/sxe/android/AndroidGameEngine.java	/^    private static final String TAG = "AndroidGameEngine";$/;"	f	class:AndroidGameEngine	file:
-TAG	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    private static final String TAG = "AndroidGlslProgram";$/;"	f	class:AndroidGlslProgram	file:
-TAG	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^    private static final String TAG = "AndroidGlslShader";$/;"	f	class:AndroidGlslShader	file:
 TAG	./android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    private static final String TAG = "AndroidInputManager";$/;"	f	class:AndroidInputManager	file:
 TAG	./android/src/main/java/com/spidey01/sxe/android/AndroidLogSink.java	/^    private static final String TAG = "AndroidLogSink";$/;"	f	class:AndroidLogSink	file:
 TAG	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    private static final String TAG = "AndroidOpenGlEs";$/;"	f	class:AndroidOpenGlEs	file:
@@ -160,6 +150,7 @@ TAG	./core/src/main/java/com/spidey01/sxe/core/FileResource.java	/^    private f
 TAG	./core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private static final String TAG = "Game";$/;"	f	class:Game	file:
 TAG	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private static final String TAG = "GameEngine";$/;"	f	class:GameEngine	file:
 TAG	./core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    private static final String TAG = "GameThread";$/;"	f	class:GameThread	file:
+TAG	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    private static final String TAG = "GlslProgram";$/;"	f	class:GlslProgram	file:
 TAG	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    private static final String TAG = "GlslShader";$/;"	f	class:GlslShader	file:
 TAG	./core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    private static final String TAG = "InputManager";$/;"	f	class:InputManager	file:
 TAG	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private static final String TAG = "KeyEvent";$/;"	f	class:KeyEvent	file:
@@ -174,9 +165,6 @@ TAG	./core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    private stati
 TAG	./core/src/main/java/com/spidey01/sxe/core/ZipResourceLoader.java	/^    private final static String TAG = "ZipResourceLoader";$/;"	f	class:ZipResourceLoader	file:
 TAG	./core/src/main/resources/templates/NewClass.java	/^    private final static String TAG = "CLASSTEMPLATE";$/;"	f	class:CLASSTEMPLATE	file:
 TAG	./core/target/classes/templates/NewClass.java	/^    private final static String TAG = "CLASSTEMPLATE";$/;"	f	class:CLASSTEMPLATE	file:
-TAG	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslProgram.java	/^    private static final String TAG = "LwjglGlslProgram";$/;"	f	class:LwjglGlslProgram	file:
-TAG	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShader.java	/^    private static final String TAG = "LwjglGlslShader";$/;"	f	class:LwjglGlslShader	file:
-TAG	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShaderFactory.java	/^    private static final String TAG = "LwjglGlslShaderFactory";$/;"	f	class:LwjglGlslShaderFactory	file:
 TAG	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    private static final String TAG = "LwjglopenGl";$/;"	f	class:LwjglOpenGl	file:
 TAG	./pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^    private static final String TAG = "PcConfiguration";$/;"	f	class:PcConfiguration	file:
 TAG	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private static final String TAG = "PcDisplay";$/;"	f	class:PcDisplay	file:
@@ -232,9 +220,8 @@ addFrameStartedListener	./snakegame/android/target/unpack/apklibs/com.spidey01.s
 addFrameStartedListener	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^    public void addFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:OpenGles2Renderer
 addKeyListener	./core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void addKeyListener(KeyListener listener) {$/;"	m	class:InputManager
 addKeyListener	./core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void addKeyListener(String keyName, KeyListener listener) {$/;"	m	class:InputManager
-addShader	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public void addShader(Shader shader) {$/;"	m	class:AndroidGlslProgram
-addShader	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    void addShader(Shader shader);$/;"	m	interface:GlslProgram
-addShader	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslProgram.java	/^    public void addShader(Shader shader) {$/;"	m	class:LwjglGlslProgram
+addShader	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    public void addShader(Shader shader) {$/;"	m	class:GlslProgram
+addShader	./core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    void addShader(Shader shader);$/;"	m	interface:GpuProgram
 addShader	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public void addShader(Shader shader) {$/;"	m	class:AndroidGlslProgram
 allowRepeating	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void allowRepeating(boolean repeating) {$/;"	m	class:Console
 androidKeyCodeToString	./android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    private String androidKeyCodeToString(int keyCode) {$/;"	m	class:AndroidInputManager	file:
@@ -251,8 +238,6 @@ com.spidey01.sxe.MODULETEMPLATE	./core/target/classes/templates/NewClass.java	/^
 com.spidey01.sxe.android	./android/src/main/java/com/spidey01/sxe/android/AndroidConfiguration.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.android	./android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.android	./android/src/main/java/com/spidey01/sxe/android/AndroidGameEngine.java	/^package com.spidey01.sxe.android;$/;"	p
-com.spidey01.sxe.android	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^package com.spidey01.sxe.android;$/;"	p
-com.spidey01.sxe.android	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.android	./android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.android	./android/src/main/java/com/spidey01/sxe/android/AndroidLogSink.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.android	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^package com.spidey01.sxe.android;$/;"	p
@@ -286,6 +271,7 @@ com.spidey01.sxe.core	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java
 com.spidey01.sxe.core	./core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.core	./core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	./core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	./core/src/main/java/com/spidey01/sxe/core/KeyListener.java	/^package com.spidey01.sxe.core;$/;"	p
@@ -303,9 +289,6 @@ com.spidey01.sxe.core	./core/src/main/java/com/spidey01/sxe/core/ShaderResource.
 com.spidey01.sxe.core	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	./core/src/main/java/com/spidey01/sxe/core/Variable.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	./core/src/main/java/com/spidey01/sxe/core/ZipResourceLoader.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.pc	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslProgram.java	/^package com.spidey01.sxe.pc;$/;"	p
-com.spidey01.sxe.pc	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShader.java	/^package com.spidey01.sxe.pc;$/;"	p
-com.spidey01.sxe.pc	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShaderFactory.java	/^package com.spidey01.sxe.pc;$/;"	p
 com.spidey01.sxe.pc	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^package com.spidey01.sxe.pc;$/;"	p
 com.spidey01.sxe.pc	./pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^package com.spidey01.sxe.pc;$/;"	p
 com.spidey01.sxe.pc	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^package com.spidey01.sxe.pc;$/;"	p
@@ -348,11 +331,9 @@ destroy	./core/src/main/java/com/spidey01/sxe/core/Display.java	/^    public voi
 destroy	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void destroy() {$/;"	m	class:PcDisplay
 destroy	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    public void destroy() {$/;"	m	class:AndroidDisplay
 disableDebugging	./core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void disableDebugging() {$/;"	m	class:RateCounter
-doCompile	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^    protected boolean doCompile(String code) {$/;"	m	class:AndroidGlslShader
-doCompile	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    protected abstract boolean doCompile(String code);$/;"	m	class:GlslShader
-doCompile	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShader.java	/^    protected boolean doCompile(String code) {$/;"	m	class:LwjglGlslShader
+doCompile	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    protected boolean doCompile(String code) {$/;"	m	class:GlslShader
 doCompile	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^    protected boolean doCompile(String code) {$/;"	m	class:AndroidGlslShader
-drawTriangle	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private void drawTriangle() {$/;"	m	class:PcDisplay	file:
+draw_triangle	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private void draw_triangle() {$/;"	m	class:PcDisplay	file:
 e	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void e(String tag, String message) {$/;"	m	class:Log
 e	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void e(String tag, String message, Throwable tr) {$/;"	m	class:Log
 enableDebugging	./core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void enableDebugging() {$/;"	m	class:RateCounter
@@ -364,8 +345,10 @@ execute	./core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    pub
 floatValue	./core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public float floatValue() {$/;"	m	class:Variable
 frameEnded	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void frameEnded() {$/;"	m	class:Console
 frameEnded	./core/src/main/java/com/spidey01/sxe/core/FrameEndedListener.java	/^    public void frameEnded();$/;"	m	interface:FrameEndedListener
-frameStarted	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void frameStarted() {$/;"	m	class:Console
-frameStarted	./core/src/main/java/com/spidey01/sxe/core/FrameStartedListener.java	/^    public void frameStarted();$/;"	m	interface:FrameStartedListener
+frameEnded	./snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeGame.java	/^    public void frameEnded() {$/;"	m	class:SnakeGame
+frameStarted	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void frameStarted(OpenGl GL20) {$/;"	m	class:Console
+frameStarted	./core/src/main/java/com/spidey01/sxe/core/FrameStartedListener.java	/^    public void frameStarted(OpenGl GL20);$/;"	m	interface:FrameStartedListener
+frameStarted	./snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeGame.java	/^    public void frameStarted(OpenGl GL20) {$/;"	m	class:SnakeGame
 get	./core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static Object get(String what) {$/;"	m	class:C
 get	./core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Resource get(String path) {$/;"	m	class:ResourceManager
 get	./core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public String get() {$/;"	m	class:Variable
@@ -381,13 +364,10 @@ getGame	./core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static Ga
 getGameEngine	./android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^    public abstract GameEngine getGameEngine();$/;"	m	class:GameActivity
 getGameEngine	./snakegame/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^    public GameEngine getGameEngine() {$/;"	m	class:SnakeGameActivity
 getGameEngine	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^    public abstract GameEngine getGameEngine();$/;"	m	class:GameActivity
-getInfoLog	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public String getInfoLog() {$/;"	m	class:AndroidGlslProgram
-getInfoLog	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^    public String getInfoLog() {$/;"	m	class:AndroidGlslShader
-getInfoLog	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    String getInfoLog();$/;"	m	interface:GlslProgram
-getInfoLog	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public abstract String getInfoLog();$/;"	m	class:GlslShader
+getInfoLog	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    public String getInfoLog() {$/;"	m	class:GlslProgram
+getInfoLog	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public String getInfoLog() {$/;"	m	class:GlslShader
+getInfoLog	./core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    String getInfoLog();$/;"	m	interface:GpuProgram
 getInfoLog	./core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    String getInfoLog();$/;"	m	interface:Shader
-getInfoLog	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslProgram.java	/^    public String getInfoLog() {$/;"	m	class:LwjglGlslProgram
-getInfoLog	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShader.java	/^    public String getInfoLog() {$/;"	m	class:LwjglGlslShader
 getInfoLog	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public String getInfoLog() {$/;"	m	class:AndroidGlslProgram
 getInfoLog	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslShader.java	/^    public String getInfoLog() {$/;"	m	class:AndroidGlslShader
 getInput	./core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static InputManager getInput() {$/;"	m	class:C
@@ -423,10 +403,11 @@ getNativeEvent	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    pu
 getObject	./core/src/main/java/com/spidey01/sxe/core/FileResource.java	/^    public Object getObject() {$/;"	m	class:FileResource
 getObject	./core/src/main/java/com/spidey01/sxe/core/Resource.java	/^    Object getObject();$/;"	m	interface:Resource
 getObject	./core/src/main/java/com/spidey01/sxe/core/ShaderResource.java	/^    public Object getObject() {$/;"	m	class:ShaderResource
+getOpenGl	./core/src/main/java/com/spidey01/sxe/core/Display.java	/^    public OpenGl getOpenGl();$/;"	m	interface:Display
+getOpenGl	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public OpenGl getOpenGl() {$/;"	m	class:PcDisplay
 getOpenGlVersion	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public String getOpenGlVersion() {$/;"	m	class:PcDisplay
-getProgram	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public int getProgram() {$/;"	m	class:AndroidGlslProgram
-getProgram	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    int getProgram();$/;"	m	interface:GlslProgram
-getProgram	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslProgram.java	/^    public int getProgram() {$/;"	m	class:LwjglGlslProgram
+getProgram	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    public int getProgram() {$/;"	m	class:GlslProgram
+getProgram	./core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    int getProgram();$/;"	m	interface:GpuProgram
 getProgram	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public int getProgram() {$/;"	m	class:AndroidGlslProgram
 getRepeatDelay	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public int getRepeatDelay() {$/;"	m	class:Console
 getResources	./core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static ResourceManager getResources() {$/;"	m	class:C
@@ -434,9 +415,8 @@ getResources	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    pu
 getShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public int getShader() {$/;"	m	class:GlslShader
 getShader	./core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    int getShader();$/;"	m	interface:Shader
 getShader	./core/src/main/java/com/spidey01/sxe/core/ShaderResource.java	/^    public Shader getShader() {$/;"	m	class:ShaderResource
-getShaders	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public List<Shader> getShaders() {$/;"	m	class:AndroidGlslProgram
-getShaders	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    List<Shader> getShaders();$/;"	m	interface:GlslProgram
-getShaders	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslProgram.java	/^    public List<Shader> getShaders() {$/;"	m	class:LwjglGlslProgram
+getShaders	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    public List<Shader> getShaders() {$/;"	m	class:GlslProgram
+getShaders	./core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    List<Shader> getShaders();$/;"	m	interface:GpuProgram
 getShaders	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public List<Shader> getShaders() {$/;"	m	class:AndroidGlslProgram
 getSource	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    protected final String getSource(BufferedReader reader)$/;"	m	class:GlslShader
 getSource	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public InputManager getSource() {$/;"	m	class:KeyEvent
@@ -445,6 +425,12 @@ getTickRate	./snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeGa
 getType	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public Type getType() {$/;"	m	class:GlslShader
 getType	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public static Type getType(String path) {$/;"	m	class:GlslShader
 getType	./core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    Type getType();$/;"	m	interface:Shader
+glAttachShader	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glAttachShader(GpuProgram p, Shader s) {$/;"	m	class:AndroidOpenGlEs
+glAttachShader	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glAttachShader(int program, int shader) {$/;"	m	class:AndroidOpenGlEs
+glAttachShader	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glAttachShader(GpuProgram p, Shader s);$/;"	m	interface:OpenGl
+glAttachShader	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glAttachShader(int program, int shader);$/;"	m	interface:OpenGl
+glAttachShader	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glAttachShader(GpuProgram p, Shader s) {$/;"	m	class:LwjglOpenGl
+glAttachShader	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glAttachShader(int program, int shader) {$/;"	m	class:LwjglOpenGl
 glBindBuffer	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glBindBuffer(int target, int buffer) {$/;"	m	class:AndroidOpenGlEs
 glBindBuffer	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glBindBuffer(int target, int buffer);$/;"	m	interface:OpenGl
 glBindBuffer	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glBindBuffer(int target, int buffer) {$/;"	m	class:LwjglOpenGl
@@ -473,6 +459,18 @@ glClearColor	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.ja
 glClearColor	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glClearColor(float red, float green, float blue, float alpha);$/;"	m	interface:OpenGl
 glClearColor	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glClearColor(float red, float green, float blue, float alpha) {$/;"	m	class:LwjglOpenGl
 glClearColor	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glClearColor(float red, float green, float blue, float alpha) {$/;"	m	class:AndroidOpenGlEs
+glCompileShader	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glCompileShader(int shader) {$/;"	m	class:AndroidOpenGlEs
+glCompileShader	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glCompileShader(int shader);$/;"	m	interface:OpenGl
+glCompileShader	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glCompileShader(int shader) {$/;"	m	class:LwjglOpenGl
+glCreateProgram	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public int glCreateProgram() {$/;"	m	class:AndroidOpenGlEs
+glCreateProgram	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    int glCreateProgram();$/;"	m	interface:OpenGl
+glCreateProgram	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public int glCreateProgram() {$/;"	m	class:LwjglOpenGl
+glCreateShader	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public int glCreateShader(int type) {$/;"	m	class:AndroidOpenGlEs
+glCreateShader	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    int glCreateShader(int type);$/;"	m	interface:OpenGl
+glCreateShader	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public int glCreateShader(int type) {$/;"	m	class:LwjglOpenGl
+glDeleteShader	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glDeleteShader(int shader) {$/;"	m	class:AndroidOpenGlEs
+glDeleteShader	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glDeleteShader(int shader);$/;"	m	interface:OpenGl
+glDeleteShader	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glDeleteShader(int shader) {$/;"	m	class:LwjglOpenGl
 glDisable	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glDisable(int cap) {$/;"	m	class:AndroidOpenGlEs
 glDisable	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glDisable(int cap);$/;"	m	interface:OpenGl
 glDisable	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glDisable(int cap) {$/;"	m	class:LwjglOpenGl
@@ -501,14 +499,41 @@ glGetAttribLocation	./android/src/main/java/com/spidey01/sxe/android/AndroidOpen
 glGetAttribLocation	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    int glGetAttribLocation(int program, String name);$/;"	m	interface:OpenGl
 glGetAttribLocation	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public int glGetAttribLocation(int program, String name) {$/;"	m	class:LwjglOpenGl
 glGetAttribLocation	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public int glGetAttribLocation(int program, String name) {$/;"	m	class:AndroidOpenGlEs
-glUseProgram	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glUseProgram(GlslProgram program) {$/;"	m	class:AndroidOpenGlEs
+glGetProgramInfoLog	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public String glGetProgramInfoLog(int program) {$/;"	m	class:AndroidOpenGlEs
+glGetProgramInfoLog	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    String glGetProgramInfoLog(int program);$/;"	m	interface:OpenGl
+glGetProgramInfoLog	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public String glGetProgramInfoLog(int program) {$/;"	m	class:LwjglOpenGl
+glGetProgramiv	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public int glGetProgramiv(int program, int pname) {$/;"	m	class:AndroidOpenGlEs
+glGetProgramiv	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    int glGetProgramiv(int program, int pname);$/;"	m	interface:OpenGl
+glGetProgramiv	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public int glGetProgramiv(int program, int pname) {$/;"	m	class:LwjglOpenGl
+glGetShaderInfoLog	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public String glGetShaderInfoLog(int shader) {$/;"	m	class:AndroidOpenGlEs
+glGetShaderInfoLog	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    String glGetShaderInfoLog(int shader);$/;"	m	interface:OpenGl
+glGetShaderInfoLog	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public String glGetShaderInfoLog(int shader) {$/;"	m	class:LwjglOpenGl
+glGetShaderiv	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public int glGetShaderiv(int shader, int pname) {$/;"	m	class:AndroidOpenGlEs
+glGetShaderiv	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    int glGetShaderiv(int shader, int pname);$/;"	m	interface:OpenGl
+glGetShaderiv	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public int glGetShaderiv(int shader, int pname) {$/;"	m	class:LwjglOpenGl
+glLinkProgram	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glLinkProgram(GpuProgram p) {$/;"	m	class:AndroidOpenGlEs
+glLinkProgram	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glLinkProgram(int program) {$/;"	m	class:AndroidOpenGlEs
+glLinkProgram	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glLinkProgram(GpuProgram p);$/;"	m	interface:OpenGl
+glLinkProgram	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glLinkProgram(int program);$/;"	m	interface:OpenGl
+glLinkProgram	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glLinkProgram(GpuProgram p) {$/;"	m	class:LwjglOpenGl
+glLinkProgram	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glLinkProgram(int program) {$/;"	m	class:LwjglOpenGl
+glShaderSource	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glShaderSource(int shader, String source) {$/;"	m	class:AndroidOpenGlEs
+glShaderSource	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glShaderSource(int shader, String source);$/;"	m	interface:OpenGl
+glShaderSource	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glShaderSource(int shader, String source) {$/;"	m	class:LwjglOpenGl
+glUseProgram	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glUseProgram(GpuProgram program) {$/;"	m	class:AndroidOpenGlEs
 glUseProgram	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glUseProgram(int program) {$/;"	m	class:AndroidOpenGlEs
-glUseProgram	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glUseProgram(GlslProgram program);$/;"	m	interface:OpenGl
+glUseProgram	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glUseProgram(GpuProgram program);$/;"	m	interface:OpenGl
 glUseProgram	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glUseProgram(int program);$/;"	m	interface:OpenGl
-glUseProgram	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glUseProgram(GlslProgram program) {$/;"	m	class:LwjglOpenGl
+glUseProgram	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glUseProgram(GpuProgram program) {$/;"	m	class:LwjglOpenGl
 glUseProgram	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glUseProgram(int program) {$/;"	m	class:LwjglOpenGl
 glUseProgram	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glUseProgram(GlslProgram program) {$/;"	m	class:AndroidOpenGlEs
 glUseProgram	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glUseProgram(int program) {$/;"	m	class:AndroidOpenGlEs
+glValidateProgram	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glValidateProgram(GpuProgram p) {$/;"	m	class:AndroidOpenGlEs
+glValidateProgram	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glValidateProgram(int program) {$/;"	m	class:AndroidOpenGlEs
+glValidateProgram	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glValidateProgram(GpuProgram p);$/;"	m	interface:OpenGl
+glValidateProgram	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glValidateProgram(int program);$/;"	m	interface:OpenGl
+glValidateProgram	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glValidateProgram(GpuProgram p) {$/;"	m	class:LwjglOpenGl
+glValidateProgram	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glValidateProgram(int program) {$/;"	m	class:LwjglOpenGl
 glVertexAttribPointer	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glVertexAttribPointer(int index, int size, int type,$/;"	m	class:AndroidOpenGlEs
 glVertexAttribPointer	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glVertexAttribPointer(int indx, int size, int type, boolean normalized, int stride, int offset);$/;"	m	interface:OpenGl
 glVertexAttribPointer	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int offset) {$/;"	m	class:LwjglOpenGl
@@ -538,14 +563,12 @@ isVisable	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public b
 layout	./android/target/generated-sources/r/com/spidey01/sxe/android/R.java	/^    public static final class layout {$/;"	c	class:R
 layout	./snakegame/android/target/generated-sources/r/com/spidey01/sxe/android/R.java	/^    public static final class layout {$/;"	c	class:R
 layout	./snakegame/android/target/generated-sources/r/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class layout {$/;"	c	class:R
-link	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public boolean link() {$/;"	m	class:AndroidGlslProgram
-link	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    boolean link();$/;"	m	interface:GlslProgram
-link	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslProgram.java	/^    public boolean link() {$/;"	m	class:LwjglGlslProgram
+link	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    public boolean link() {$/;"	m	class:GlslProgram
+link	./core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    boolean link();$/;"	m	interface:GpuProgram
 link	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public boolean link() {$/;"	m	class:AndroidGlslProgram
 load	./core/src/main/java/com/spidey01/sxe/core/FileResource.java	/^    public boolean load() {$/;"	m	class:FileResource
 load	./core/src/main/java/com/spidey01/sxe/core/Resource.java	/^    boolean load();$/;"	m	interface:Resource
 load	./core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Resource load(File path) {$/;"	m	class:ResourceManager
-load	./core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Resource load(Resource.Type type, String path) {$/;"	m	class:ResourceManager
 load	./core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Resource load(String path) {$/;"	m	class:ResourceManager
 load	./core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Resource load(String path, Class<? extends Shader> shaderImplClass)$/;"	m	class:ResourceManager
 load	./core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Resource load(String path, ResourceFactory<? extends Shader> factory)$/;"	m	class:ResourceManager
@@ -583,6 +606,7 @@ mGame	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    protected
 mGame	./core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    protected Game mGame;$/;"	f	class:GameThread
 mGameEngine	./core/src/main/java/com/spidey01/sxe/core/Game.java	/^    protected GameEngine mGameEngine;$/;"	f	class:Game
 mGameThread	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    protected GameThread mGameThread;$/;"	f	class:GameEngine
+mGl	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    protected OpenGl mGl;$/;"	f	class:GlslShader
 mHandleRepeat	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private boolean mHandleRepeat = true;$/;"	f	class:Console	file:
 mInput	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    protected InputManager mInput;$/;"	f	class:GameEngine
 mInputStream	./core/src/main/java/com/spidey01/sxe/core/FileResource.java	/^    protected InputStream mInputStream;$/;"	f	class:FileResource
@@ -599,11 +623,12 @@ mName	./core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    priva
 mName	./core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private String mName;$/;"	f	class:RateCounter	file:
 mName	./core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    private String mName;$/;"	f	class:Variable	file:
 mNative	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private Object mNative;$/;"	f	class:KeyEvent	file:
+mOpenGl	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    private OpenGl mOpenGl;$/;"	f	class:GlslProgram	file:
+mOpenGl	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private OpenGl mOpenGl;$/;"	f	class:PcDisplay	file:
 mOutput	./core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    private PrintStream mOutput;$/;"	f	class:LogSink	file:
 mPerSecond	./core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private long mPerSecond;$/;"	f	class:RateCounter	file:
-mProgram	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    private int mProgram;$/;"	f	class:AndroidGlslProgram	file:
-mProgram	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslProgram.java	/^    private int mProgram;$/;"	f	class:LwjglGlslProgram	file:
-mProgram	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private LwjglGlslProgram mProgram;$/;"	f	class:PcDisplay	file:
+mProgram	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    private int mProgram;$/;"	f	class:GlslProgram	file:
+mProgram	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private GlslProgram mProgram;$/;"	f	class:PcDisplay	file:
 mProgram	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    private int mProgram;$/;"	f	class:AndroidGlslProgram	file:
 mProps	./core/src/main/java/com/spidey01/sxe/core/C.java	/^    private static HashMap<String, Object> mProps = new HashMap<String, Object>();$/;"	f	class:C	file:
 mRenderer	./android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    private OpenGles2Renderer mRenderer = new OpenGles2Renderer();$/;"	f	class:AndroidDisplay	file:
@@ -616,8 +641,7 @@ mShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    protect
 mShader	./core/src/main/java/com/spidey01/sxe/core/ShaderResource.java	/^    private Shader mShader;$/;"	f	class:ShaderResource	file:
 mShaderClass	./core/src/main/java/com/spidey01/sxe/core/ShaderResource.java	/^    private final Class<? extends Shader> mShaderClass;$/;"	f	class:ShaderResource	file:
 mShaderFactory	./core/src/main/java/com/spidey01/sxe/core/ShaderResource.java	/^    private final ResourceFactory<? extends Shader> mShaderFactory;$/;"	f	class:ShaderResource	file:
-mShaders	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    private List<Shader> mShaders = new LinkedList();$/;"	f	class:AndroidGlslProgram	file:
-mShaders	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslProgram.java	/^    private List<Shader> mShaders = new LinkedList();$/;"	f	class:LwjglGlslProgram	file:
+mShaders	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    private List<Shader> mShaders = new LinkedList();$/;"	f	class:GlslProgram	file:
 mShaders	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    private List<Shader> mShaders = new LinkedList();$/;"	f	class:AndroidGlslProgram	file:
 mSinks	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    private static List<LogSink> mSinks = new LinkedList<LogSink>();$/;"	f	class:Log	file:
 mSource	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private InputManager mSource;$/;"	f	class:KeyEvent	file:
@@ -637,7 +661,6 @@ main	./snakegame/android/target/generated-sources/r/com/spidey01/sxe/snakegame/a
 main	./snakegame/pc/src/main/java/com/spidey01/sxe/snakegame/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
 mainLoop	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void mainLoop() {$/;"	m	class:GameEngine
 make	./core/src/main/java/com/spidey01/sxe/core/ResourceFactory.java	/^    public Shader make(Shader.Type type, InputStream is, final String path);$/;"	m	interface:ResourceFactory
-make	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslShaderFactory.java	/^    public Shader make(Shader.Type type, InputStream is, final String path) {$/;"	m	class:LwjglGlslShaderFactory
 makeBufferedReader	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static BufferedReader makeBufferedReader(InputStream in) {$/;"	m	class:Utils
 ms	./core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private long ms;$/;"	f	class:RateCounter	file:
 notifyKeyListeners	./core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void notifyKeyListeners(KeyEvent event) {$/;"	m	class:InputManager
@@ -723,9 +746,8 @@ update	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void u
 update	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    public void update() {$/;"	m	class:AndroidDisplay
 v	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void v(String tag, String message) {$/;"	m	class:Log
 v	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void v(String tag, String message, Throwable tr) {$/;"	m	class:Log
-validate	./android/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public boolean validate() {$/;"	m	class:AndroidGlslProgram
-validate	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    boolean validate();$/;"	m	interface:GlslProgram
-validate	./pc/src/main/java/com/spidey01/sxe/pc/LwjglGlslProgram.java	/^    public boolean validate() {$/;"	m	class:LwjglGlslProgram
+validate	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    public boolean validate() {$/;"	m	class:GlslProgram
+validate	./core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    boolean validate();$/;"	m	interface:GpuProgram
 validate	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGlslProgram.java	/^    public boolean validate() {$/;"	m	class:AndroidGlslProgram
 w	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void w(String tag, String message) {$/;"	m	class:Log
 w	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void w(String tag, String message, Throwable tr) {$/;"	m	class:Log

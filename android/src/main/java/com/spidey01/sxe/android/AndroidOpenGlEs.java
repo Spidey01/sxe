@@ -23,8 +23,9 @@
 
 package com.spidey01.sxe.android;
 
-import  com.spidey01.sxe.core.GlslProgram;
+import  com.spidey01.sxe.core.GpuProgram;
 import  com.spidey01.sxe.core.OpenGl;
+import  com.spidey01.sxe.core.Shader;
 
 import android.opengl.GLES20;
 
@@ -62,6 +63,16 @@ public class AndroidOpenGlEs implements OpenGl {
     }
 
     /* OpenGL functions */
+
+    @Override
+    public void glAttachShader(GpuProgram p, Shader s) {
+        glAttachShader(p.getProgram(), s.getShader());
+    }
+
+    @Override
+    public void glAttachShader(int program, int shader) {
+        GLES20.glAttachShader(program, shader);
+    }
 
     @Override
     public void glBindBuffer(int target, int buffer) {
@@ -112,6 +123,11 @@ public class AndroidOpenGlEs implements OpenGl {
     }
 
     @Override
+    public int glCreateProgram() {
+        return GLES20.glCreateProgram();
+    }
+
+    @Override
     public int glCreateShader(int type) {
         GL20.glCreateShader(t(type));
     }
@@ -156,6 +172,18 @@ public class AndroidOpenGlEs implements OpenGl {
         return GLES20.glGetAttribLocation(program, name);
     }
 
+    @Override
+    public String glGetProgramInfoLog(int program) {
+        return GLES20.glGetProgramInfoLog(program);
+    }
+
+    @Override
+    public int glGetProgramiv(int program, int pname) {
+        int[] status = new int[1];
+        GLES20.glGetProgramiv(mProgram, t(pname), status, 0);
+        return status[0];
+    }
+
     public String glGetShaderInfoLog(int shader) {
         return GLES20.glGetShaderInfoLog(shader);
     }
@@ -168,12 +196,22 @@ public class AndroidOpenGlEs implements OpenGl {
     }
 
     @Override
+    public void glLinkProgram(GpuProgram p) {
+        glLinkProgram(p.getProgram());
+    }
+
+    @Override
+    public void glLinkProgram(int program) {
+        GLES20.glLinkProgram(program);
+    }
+
+    @Override
     public void glShaderSource(int shader, String source) {
         GLES20.glShaderSource(shader, source);
     }
 
     @Override
-    public void glUseProgram(GlslProgram program) {
+    public void glUseProgram(GpuProgram program) {
         GLES20.glUseProgram(program.getProgram());
     }
 
@@ -188,6 +226,16 @@ public class AndroidOpenGlEs implements OpenGl {
     {
         GLES20.glVertexAttribPointer(index, size, t(type),
             normalized, stride, offset);
+    }
+
+    @Override
+    public void glValidateProgram(GpuProgram p) {
+        glValidateProgram(p.getProgram());
+    }
+
+    @Override
+    public void glValidateProgram(int program) {
+        GLES20.glValidateProgram(program);
     }
 
     @Override
@@ -227,11 +275,17 @@ public class AndroidOpenGlEs implements OpenGl {
             case OpenGl.GL_FRAGMENT_SHADER:
                 return GLES20.GL_FRAGMENT_SHADER;
 
+            case OpenGl.GL_LINK_STATUS:
+                return GLES20.GL_LINK_STATUS;
+
             case OpenGl.GL_STATIC_DRAW:
                 return GLES20.GL_STATIC_DRAW;
 
             case OpenGl.GL_TRIANGLES:
                 return GLES20.GL_TRIANGLES;
+
+            case OpenGl.GL_VALIDATE_STATUS:
+                return GLES20.GL_VALIDATE_STATUS;
 
             case OpenGl.GL_VERTEX_SHADER:
                 return GLES20.GL_VERTEX_SHADER;

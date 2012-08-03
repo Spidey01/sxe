@@ -39,7 +39,9 @@ import java.util.ArrayList;
 
 // for testing stuff
 import com.spidey01.sxe.core.C;
+import com.spidey01.sxe.core.GlslProgram;
 import com.spidey01.sxe.core.GlslShader;
+import com.spidey01.sxe.core.GpuProgram;
 import com.spidey01.sxe.core.Resource;
 import com.spidey01.sxe.core.ResourceFactory;
 import com.spidey01.sxe.core.ResourceManager;
@@ -233,7 +235,7 @@ void main(void) {
 
     // simple 2D triangle
     private int mCoord2d = -1;
-    private LwjglGlslProgram mProgram;
+    private GlslProgram mProgram;
     private static IntBuffer mVBO;;
     private void setupTriangle() {
         // Setup shaders.
@@ -253,7 +255,7 @@ void main(void) {
         }
 
         // Setup shader program.
-        mProgram = new LwjglGlslProgram();
+        mProgram = new GlslProgram(mOpenGl);
         mProgram.addShader(vert);
         mProgram.addShader(frag);
         if (!mProgram.link() || !mProgram.validate()) {

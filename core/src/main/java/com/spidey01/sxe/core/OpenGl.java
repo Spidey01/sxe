@@ -42,8 +42,10 @@ public interface OpenGl {
     static final int GL_FALSE = 0x0;
     static final int GL_FLOAT = 0x1406;
     static final int GL_FRAGMENT_SHADER = 0x8B30;
+    static final int GL_LINK_STATUS = 0x8B82;
     static final int GL_STATIC_DRAW = 0x88E4;
     static final int GL_TRIANGLES = 0x0004;
+    static final int GL_VALIDATE_STATUS = 0x8B83;
     static final int GL_VERTEX_SHADER = 0x8B31;
 
 
@@ -57,6 +59,8 @@ public interface OpenGl {
 
     /* OpenGL functions */
 
+    void glAttachShader(GpuProgram p, Shader s);
+    void glAttachShader(int program, int shader);
     void glBindBuffer(int target, int buffer);
     void glBufferData(int target, ByteBuffer data, int usage);
     void glBufferData(int target, DoubleBuffer data, int usage);
@@ -65,6 +69,7 @@ public interface OpenGl {
     void glClear(int mask);
     void glClearColor(float red, float green, float blue, float alpha);
     void glCompileShader(int shader);
+    int glCreateProgram();
     int glCreateShader(int type);
     void glDeleteShader(int shader);
     void glDisable(int cap);
@@ -74,11 +79,17 @@ public interface OpenGl {
     void glEnableVertexAttribArray(int index);
     void glGenBuffers(IntBuffer buffers);
     int glGetAttribLocation(int program, String name);
-    String glGetShaderInfoLog(int shader);
+    String glGetProgramInfoLog(int program);
+    int glGetProgramiv(int program, int pname);
     int glGetShaderiv(int shader, int pname);
+    String glGetShaderInfoLog(int shader);
+    void glLinkProgram(GpuProgram p);
+    void glLinkProgram(int program);
     void glShaderSource(int shader, String source);
-    void glUseProgram(GlslProgram program);
+    void glUseProgram(GpuProgram program);
     void glUseProgram(int program);
+    void glValidateProgram(GpuProgram p);
+    void glValidateProgram(int program);
     void glVertexAttribPointer(int indx, int size, int type, boolean normalized, int stride, int offset);
     void glViewport(int x, int y, int width, int height);
 }
