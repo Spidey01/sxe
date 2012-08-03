@@ -117,7 +117,7 @@ public class GlslShader implements Shader {
 
     @Override
     public boolean compile(String fileName) {
-        mType = GlslShader.getType(fileName);
+        mType = Utils.getShaderType(fileName);
 
         try {
             return doCompile(
@@ -148,15 +148,6 @@ public class GlslShader implements Shader {
         return mGl.glGetShaderInfoLog(mShader);
     }
     
-    public static Type getType(String path) {
-        if (path.endsWith(".vert")) {
-            return Type.VERTEX;
-        } else if (path.endsWith(".frag")) {
-            return Type.FRAGMENT;
-        }
-        throw new RuntimeException("Unknown shader type for "+path);
-    }
-
     /** Helper method for slurping.
      * 
      * This can be used for getting the source code of a shader program.

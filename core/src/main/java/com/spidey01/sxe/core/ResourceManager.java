@@ -110,7 +110,7 @@ public class ResourceManager {
     {
         Log.i(TAG, "load("+path+", "+shaderImplClass+")");
 
-        Resource r = new ShaderResource(Resource.Type.VERTEX_SHADER, path, getLoader(path), gl, shaderImplClass);
+        Resource r = new ShaderResource(Utils.getShaderResourceType(path), path, getLoader(path), gl, shaderImplClass);
         r.load();
         mResources.put(path, r);
         return r;
@@ -143,7 +143,7 @@ public class ResourceManager {
     {
         Log.i(TAG, "load("+path+", "+factory+")");
 
-        Resource r = new ShaderResource(Resource.Type.VERTEX_SHADER, path, getLoader(path), factory);
+        Resource r = new ShaderResource(Utils.getShaderResourceType(path), path, getLoader(path), factory);
         r.load();
         mResources.put(path, r);
         return r;

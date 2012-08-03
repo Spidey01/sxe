@@ -50,5 +50,23 @@ public class Utils {
         return type == Shader.Type.VERTEX ? Resource.Type.VERTEX_SHADER
             : Resource.Type.FRAGMENT_SHADER;
     }
+
+    public static Resource.Type getShaderResourceType(String fileName) {
+        if (fileName.endsWith(".vert")) {
+            return Resource.Type.VERTEX_SHADER;
+        } else if (fileName.endsWith(".frag")) {
+            return Resource.Type.FRAGMENT_SHADER;
+        }
+        throw new RuntimeException("Unknown shader type for "+fileName);
+    }
+
+    public static Shader.Type getShaderType(String fileName) {
+        if (fileName.endsWith(".vert")) {
+            return Shader.Type.VERTEX;
+        } else if (fileName.endsWith(".frag")) {
+            return Shader.Type.FRAGMENT;
+        }
+        throw new RuntimeException("Unknown shader type for "+fileName);
+    }
 }
 

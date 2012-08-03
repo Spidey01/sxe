@@ -46,8 +46,9 @@ public class ShaderResource extends FileResource {
         mOpenGl = null;
         mShaderClass = null;
 
-        assert Utils.shaderTypeToResourceType(GlslShader.getType(mFileName)) == mType
-            : "Shader/Resource type should match :'(";
+        if (!(Utils.getShaderResourceType(mFileName) == mType)) {
+            Log.w(TAG, "Shader/Resource type don't match :'(");
+        }
     }
 
     public ShaderResource(Type type, String fileName, ResourceLoader loader,
@@ -66,7 +67,7 @@ public class ShaderResource extends FileResource {
 
         if (mShaderFactory != null) {
             // user gave us a handy factory
-            mShader = mShaderFactory.make(GlslShader.getType(mFileName), mInputStream, mFileName);
+            mShader = mShaderFactory.make(Utils.getShaderType(mFileName), mInputStream, mFileName);
         } else if (mShaderClass != null) {
             // user gave us the bloody class!
             try {
@@ -103,7 +104,7 @@ public class ShaderResource extends FileResource {
     public Shader shaderFromClass(Class<? extends Shader> shaderClass)
         throws NoSuchMethodException, InstantiationException, InvocationTargetException, IllegalAccessException 
     {
-        Shader.Type shaderType = GlslShader.getType(mFileName);
+        Shader.Type shaderType = Utils.getShaderType(mFileName);
 
         Constructor ctor =
             shaderClass.getDeclaredConstructor(OpenGl.class,
