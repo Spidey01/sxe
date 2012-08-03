@@ -274,35 +274,35 @@ void main(void) {
 
         // Generate an ID for our VBO in the video memory and bind it.
         mVBO = BufferUtils.createIntBuffer(1);
-        GL15.glGenBuffers(mVBO);
-        GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, mVBO.get(0));
+        mOpenGl.glGenBuffers(mVBO);
+        mOpenGl.glBindBuffer(OpenGl.GL_ARRAY_BUFFER, mVBO.get(0));
 
         // Buffer it to the GPU.
-        GL15.glBufferData(GL15.GL_ARRAY_BUFFER, buffer, GL15.GL_STATIC_DRAW);
+        mOpenGl.glBufferData(OpenGl.GL_ARRAY_BUFFER, buffer, OpenGl.GL_STATIC_DRAW);
 
         // Create coord2d attribute for our fragment shader.
-        mCoord2d = GL20.glGetAttribLocation(mProgram.getProgram(), "coord2d");
+        mCoord2d = mOpenGl.glGetAttribLocation(mProgram.getProgram(), "coord2d");
         if (mCoord2d == -1) {
             Log.wtf(TAG, "Couldn't bind coord2d attribute!");
         }
     }
     private void draw_triangle() {
         // Clear the background.
-        GL11.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
-        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+        mOpenGl.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
+        mOpenGl.glClear(mOpenGl.GL_COLOR_BUFFER_BIT);
 
         // Ready the shader program.
-        GL20.glUseProgram(mProgram.getProgram());
+        mOpenGl.glUseProgram(mProgram.getProgram());
 
         // Lock and load the coord2d attribute for our fragment shader.
-        GL20.glEnableVertexAttribArray(mCoord2d);
-        GL20.glVertexAttribPointer(mCoord2d, 2, GL11.GL_FLOAT, false, 0, 0);
+        mOpenGl.glEnableVertexAttribArray(mCoord2d);
+        mOpenGl.glVertexAttribPointer(mCoord2d, 2, mOpenGl.GL_FLOAT, false, 0, 0);
  
         // feed it to our shader to draw.
-        GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, mVBO.get(0));
-        GL11.glDrawArrays(GL11.GL_TRIANGLES, 0, 3);
+        mOpenGl.glBindBuffer(mOpenGl.GL_ARRAY_BUFFER, mVBO.get(0));
+        mOpenGl.glDrawArrays(mOpenGl.GL_TRIANGLES, 0, 3);
 
-        GL20.glDisableVertexAttribArray(mCoord2d);
+        mOpenGl.glDisableVertexAttribArray(mCoord2d);
     }
 }
 
