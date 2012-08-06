@@ -31,35 +31,14 @@ import com.spidey01.sxe.core.OpenGl;
 import com.spidey01.sxe.core.RateCounter;
 
 import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.ContextCapabilities;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+import org.lwjgl.opengl.GLContext;
+import org.lwjgl.opengl.PixelFormat;
 
 import java.util.List;
 import java.util.ArrayList;
-
-// for testing stuff
-import com.spidey01.sxe.core.C;
-import com.spidey01.sxe.core.GlslProgram;
-import com.spidey01.sxe.core.GlslShader;
-import com.spidey01.sxe.core.GpuProgram;
-import com.spidey01.sxe.core.Resource;
-import com.spidey01.sxe.core.ShaderFactory;
-import com.spidey01.sxe.core.ResourceManager;
-import com.spidey01.sxe.core.Shader;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.DoubleBuffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.ContextAttribs;
-import org.lwjgl.opengl.ContextCapabilities;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GLContext;
-import org.lwjgl.opengl.PixelFormat;
 
 
 
@@ -98,7 +77,6 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
         try {
             Display.create();
             mOpenGl = new LwjglOpenGl();
-            setupTriangle();
         } catch (LWJGLException e) {
             Log.e(TAG, "create() can't create LWJGL display :'(");
             e.printStackTrace();
@@ -118,7 +96,6 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
             o.frameStarted(mOpenGl);
         }
 
-        draw_triangle();
         Display.update();
         mFrameCounter.update();
 
@@ -211,98 +188,5 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
                                                                         : "wtf"))))))))))))));
     }
 
-///////////////////////////////////////////////////////////////////////////////
-// Testing stuff
-///////////////////////////////////////////////////////////////////////////////
-
-/* triangle.vert:
-
-// shader for the Triangle rendering test code in SnakeGame
-attribute vec2 coord2d;
-void main(void) {
-  gl_Position = vec4(coord2d, 0.0, 1.0);
-}
- */
-/* triangle.frag:
-
-// shader for the Triangle rendering test code in SnakeGame
-void main(void) {
-  gl_FragColor[0] = 0.0;
-  gl_FragColor[1] = 1.0;
-  gl_FragColor[2] = 0.0;
-}
- */
-
-    // simple 2D triangle
-    private int mCoord2d = -1;
-    private GlslProgram mProgram;
-    private static IntBuffer mVBO;;
-    private void setupTriangle() {
-        // Setup shaders.
-        GlslShader vert = null;
-        GlslShader frag = null;
-        try {
-            ShaderFactory<GlslShader> factory = new ShaderFactory<GlslShader>(){
-                public Shader make(Shader.Type type, InputStream is, final String path) {
-                    return new GlslShader(mOpenGl, type, is, path);
-                }
-            };
-            vert = (GlslShader)C.getResources().load("shaders/triangle.vert", factory).getObject();
-            frag = (GlslShader)C.getResources().load("shaders/triangle.frag", factory).getObject();
-        } catch(Exception fml) {
-            Log.wtf(TAG, "Failed loading shaders", fml);
-            fml.printStackTrace();
-        }
-
-        // Setup shader program.
-        mProgram = new GlslProgram(mOpenGl);
-        mProgram.addShader(vert);
-        mProgram.addShader(frag);
-        if (!mProgram.link() || !mProgram.validate()) {
-            Log.wtf(TAG, "Shader failure: "+mProgram.getInfoLog());
-        }
-
-        // Setup vertex data to feed into a VBO.
-        float[] triangleVertices = {
-            0.0f,  0.8f,
-            -0.8f, -0.8f,
-            0.8f,  -0.8f,
-        };
-        FloatBuffer buffer = BufferUtils.createFloatBuffer(triangleVertices.length);
-        buffer.put(triangleVertices);
-        buffer.flip();
-
-        // Generate an ID for our VBO in the video memory and bind it.
-        mVBO = BufferUtils.createIntBuffer(1);
-        mOpenGl.glGenBuffers(mVBO);
-        mOpenGl.glBindBuffer(OpenGl.GL_ARRAY_BUFFER, mVBO.get(0));
-
-        // Buffer it to the GPU.
-        mOpenGl.glBufferData(OpenGl.GL_ARRAY_BUFFER, buffer, OpenGl.GL_STATIC_DRAW);
-
-        // Create coord2d attribute for our fragment shader.
-        mCoord2d = mOpenGl.glGetAttribLocation(mProgram.getProgram(), "coord2d");
-        if (mCoord2d == -1) {
-            Log.wtf(TAG, "Couldn't bind coord2d attribute!");
-        }
-    }
-    private void draw_triangle() {
-        // Clear the background.
-        mOpenGl.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
-        mOpenGl.glClear(mOpenGl.GL_COLOR_BUFFER_BIT);
-
-        // Ready the shader program.
-        mOpenGl.glUseProgram(mProgram.getProgram());
-
-        // Lock and load the coord2d attribute for our fragment shader.
-        mOpenGl.glEnableVertexAttribArray(mCoord2d);
-        mOpenGl.glVertexAttribPointer(mCoord2d, 2, mOpenGl.GL_FLOAT, false, 0, 0);
- 
-        // feed it to our shader to draw.
-        mOpenGl.glBindBuffer(mOpenGl.GL_ARRAY_BUFFER, mVBO.get(0));
-        mOpenGl.glDrawArrays(mOpenGl.GL_TRIANGLES, 0, 3);
-
-        mOpenGl.glDisableVertexAttribArray(mCoord2d);
-    }
 }
 

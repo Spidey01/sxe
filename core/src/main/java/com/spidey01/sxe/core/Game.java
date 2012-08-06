@@ -27,8 +27,15 @@ import com.spidey01.sxe.core.GameEngine;
 
 public abstract class Game {
 
+    public enum State {
+        STARTING,
+        RUNNING,
+        STOPPING,
+    }
+
     protected GameEngine mGameEngine;
     protected volatile boolean mStopRequested;
+    protected State mState;
 
     private static final int mMaxTickRate = 250;
     private RateCounter mTickCounter = new RateCounter("Ticks");
@@ -40,6 +47,7 @@ public abstract class Game {
         Log.v(TAG, "start() called");
 
         mGameEngine = engine;
+        mState = State.STARTING;
 
         return true;
     }
@@ -56,6 +64,7 @@ public abstract class Game {
     public void requestStop() {
         Log.v(TAG, "requestStop() called");
         mStopRequested = true;
+        mState = State.STOPPING;
     }
 
     public int getMaxFpsRate() {
@@ -74,6 +83,10 @@ public abstract class Game {
 
     public void tick() {
         mTickCounter.update();
+    }
+
+    public GameEngine getGameEngine() {
+        return mGameEngine;
     }
 }
 
