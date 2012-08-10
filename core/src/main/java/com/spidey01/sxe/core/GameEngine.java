@@ -122,7 +122,7 @@ public class GameEngine {
      * The default implementation throws an UnsupportedOperationException.
      */
     public void mainLoop() {
-		while (!mGame.stopRequested() && !mDisplay.isCloseRequested()) {
+		while (!mGame.isStopRequested() && !mDisplay.isCloseRequested()) {
             mInput.poll();
             mDisplay.update();
 		}

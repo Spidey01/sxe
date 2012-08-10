@@ -62,7 +62,7 @@ public class SnakeGame
     }
 
     @Override
-    public boolean start(final GameEngine engine) {
+    public boolean start(GameEngine engine) {
         super.start(engine);
 
         Log.v(TAG, "Snake Game is starting.");
@@ -78,8 +78,13 @@ public class SnakeGame
 
     @Override
     public void stop() {
-        Log.v(TAG, "Snake Game is stopping.");
         super.stop();
+        if (isStopped()) {
+            return;
+        }
+
+        Log.v(TAG, "Snake Game is stopping.");
+        mGameEngine.getDisplay().addFrameStartedListener(this);
     }
 
     @Override

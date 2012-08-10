@@ -41,5 +41,13 @@ public interface Display {
     public void addFrameListener(FrameListener listener);
     public void addFrameStartedListener(FrameStartedListener listener);
     public void addFrameEndedListener(FrameEndedListener listener);
+
+    /** remove a FrameListener for frame events.
+     *
+     * This will unregister a FrameListener that was previously registered.
+     */
+    public void removeFrameListener(FrameListener listener);
+    public void removeFrameStartedListener(FrameStartedListener listener);
+    public void removeFrameEndedListener(FrameEndedListener listener);
 }
 

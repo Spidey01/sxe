@@ -92,15 +92,20 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
     }
 
     public void update() {
-        for (FrameStartedListener o : mFrameStartedListeners) {
-            o.frameStarted(mOpenGl);
-        }
+        try {
+            for (FrameStartedListener o : mFrameStartedListeners) {
+                o.frameStarted(mOpenGl);
+            }
 
-        Display.update();
-        mFrameCounter.update();
+            Display.update();
+            mFrameCounter.update();
 
-        for (FrameEndedListener o : mFrameEndedListeners) {
-            o.frameEnded();
+            for (FrameEndedListener o : mFrameEndedListeners) {
+                o.frameEnded();
+            }
+        } catch(Exception e) {
+            Log.wtf(TAG, "Exception under Display.update(), halting.", e);
+            destroy();
         }
     }
 
@@ -162,6 +167,19 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
 
     public void addFrameEndedListener(FrameEndedListener listener) {
         mFrameEndedListeners.add(listener);
+    }
+
+    public void removeFrameListener(FrameListener listener) {
+        mFrameStartedListeners.remove(listener);
+        mFrameEndedListeners.remove(listener);
+    }
+
+    public void removeFrameStartedListener(FrameStartedListener listener) {
+        mFrameStartedListeners.remove(listener);
+    }
+
+    public void removeFrameEndedListener(FrameEndedListener listener) {
+        mFrameEndedListeners.remove(listener);
     }
 
     public OpenGl getOpenGl() {

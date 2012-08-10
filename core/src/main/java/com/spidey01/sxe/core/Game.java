@@ -34,7 +34,8 @@ public abstract class Game {
     }
 
     protected GameEngine mGameEngine;
-    protected volatile boolean mStopRequested;
+    private volatile boolean mStopRequested;
+    private boolean mStopDone = false;
     protected State mState;
 
     private static final int mMaxTickRate = 250;
@@ -53,13 +54,23 @@ public abstract class Game {
     }
 
     public void stop() {
+        if (mStopDone) {
+            Log.d(TAG, "Game was already stopped");
+            return;
+        }
         requestStop();
+        mStopDone = true;
         Log.v(TAG, "stop() done");
     }
 
-    public boolean stopRequested() {
+    public boolean isStopRequested() {
         return mStopRequested;
     }
+
+    public boolean isStopped() {
+        return mStopDone;
+    }
+
 
     public void requestStop() {
         Log.v(TAG, "requestStop() called");

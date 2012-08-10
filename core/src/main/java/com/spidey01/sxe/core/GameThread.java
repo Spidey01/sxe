@@ -36,9 +36,15 @@ public class GameThread extends Thread {
 
     public void run() {
 
-        mGame.start(mEngine);
+        try {
+            mGame.start(mEngine);
+        } catch (Exception e) {
+            Log.wtf(TAG, "Game startup has failed", e);
+            mEngine.stop();
+            return;
+        }
 
-        while (!mGame.stopRequested()) {
+        while (!mGame.isStopRequested()) {
             long startTime = System.currentTimeMillis();
             // Trap the exception so that we can shutdown. Maybe do same at
             // game start, or move this into interrupt()?
