@@ -24,7 +24,7 @@
 package com.spidey01.sxe.pc;
 import java.io.PrintStream;
 
-import com.spidey01.sxe.core.C;
+import com.spidey01.sxe.core.GameContext;
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
@@ -33,7 +33,7 @@ import com.spidey01.sxe.core.ResourceManager;
 
 import java.io.FileNotFoundException;
 
-/** Utility class to set C.java to the configuration for PC.
+/** Utility class to setup a GameContext to the configuration for PC.
  *
  * Simply call any method and vola. C should be ready for use on PC.
  */
@@ -62,15 +62,14 @@ public class PcConfiguration {
             System.err.println("Failed creating log file, *sad face*: "+e);
         }
 
-        C.put("console", null); // no default
-        if (C.get("display") == null) {
-            C.put("display", new PcDisplay(displayMode));
-        }
-        C.put("game", game);
-        C.put("input", new PcInputManager());
-        C.put("resources", new ResourceManager());
-        C.put("engine", new GameEngine()); // last so it uses the above.
-        return C.getEngine();
+        GameContext c = new GameContext()
+            .setConsole(null)
+            .setDisplay(new PcDisplay(displayMode))
+            .setGame(game)
+            .setInput(new PcInputManager())
+            .setResources(new ResourceManager());
+
+        return new GameEngine(c);
     }
 }
 

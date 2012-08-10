@@ -51,14 +51,16 @@ import java.io.*;
 import java.util.*;
 
 public class Mesh implements FrameStartedListener {
+    private GameContext mCtx;
     private GpuProgram mProgram;
     private IntBuffer mVBO;;
     private boolean mInitialized = false;
-    private int mCoord2d = -1;
     private float[] mVertices;
+    private int mCoord2d = -1;
     private static final String TAG = "Mesh";
 
-    public Mesh(float[] vertices) {
+    public Mesh(GameContext ctx, float[] vertices) {
+        mCtx = ctx;
         mVertices = vertices;
     }
 
@@ -95,8 +97,8 @@ public class Mesh implements FrameStartedListener {
                     return new GlslShader(GL20, type, is, path);
                 }
             };
-            vert = (GlslShader)C.getResources().load("shaders/triangle.vert", factory).getObject();
-            frag = (GlslShader)C.getResources().load("shaders/triangle.frag", factory).getObject();
+            vert = (GlslShader)mCtx.getResources().load("shaders/triangle.vert", factory).getObject();
+            frag = (GlslShader)mCtx.getResources().load("shaders/triangle.frag", factory).getObject();
         } catch(Exception fml) {
             Log.wtf(TAG, "Failed loading shaders", fml);
             fml.printStackTrace();

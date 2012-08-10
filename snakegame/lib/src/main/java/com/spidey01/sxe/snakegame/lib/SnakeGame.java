@@ -76,8 +76,8 @@ public class SnakeGame
         setupConsoleCommands();
         setupControls();
 
-        mTriangle = new Mesh(new float[]{
-                0.0f,  0.8f,
+        mTriangle = new Mesh(mGameEngine.getGameContext(), new float[]{
+              0.0f,  0.8f,
               -0.8f, -0.8f,
               0.8f,  -0.8f,
         });

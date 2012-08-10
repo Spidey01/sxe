@@ -34,12 +34,8 @@ import java.io.InputStreamReader;
 /** Class implementing the game engine for PC/Mac hardware. */
 public class GameEngine {
 
-    protected Game mGame;
+    protected GameContext mCtx;
     protected GameThread mGameThread;
-    protected Display mDisplay;
-    protected InputManager mInput;
-    protected ResourceManager mResources;
-
     private static final String TAG = "GameEngine";
 
     /** Initializes itself from configuration stored in com.spidey01.sxe.core.C.
@@ -53,9 +49,14 @@ public class GameEngine {
      *
      * @see com.spidey01.sxe.pc.PcConfiguration
      * @see com.spidey01.sxe.android.AndroidConfiguration
+     * @depreciated Replaced by {@link GameContext}
      */
     public GameEngine() {
-        this(C.getDisplay(), C.getInput(), C.getResources(), C.getGame());
+        this(new GameContext()
+            .setDisplay(C.getDisplay())
+            .setInput(C.getInput())
+            .setResources(C.getResources())
+            .setGame(C.getGame()));
     }
 
     /** Initializes the engine for use.
@@ -65,23 +66,15 @@ public class GameEngine {
      * com.spidey01.sxe.core.C, or just fill out the documented fields as
      * necessary.
      */
-    public GameEngine(Display display, InputManager input,
-            ResourceManager res, Game game)
-    {
-        final String p;
-
-        mDisplay = display;
-        mInput = input;
-        mResources = res;
-        mGame = game;
+    public GameEngine(GameContext context) {
+        mCtx = context;
 
         // ternary abuse, yeah.
-        p = mDisplay == null ?
+        final String p;
+        p = mCtx.getDisplay() == null ?
             "display" :
-                (mInput == null ?
-                    "input" :
-                        (mGame == null ?
-                            "game" : null));
+                (mCtx.getInput() == null ?
+                    "input" : null);
  
         if (p != null) {
             throw new IllegalArgumentException(p+" can't be null!");
@@ -96,11 +89,11 @@ public class GameEngine {
     public boolean start() {
         Log.v(TAG, "start()");
 
-        if (!mDisplay.create()) {
+        if (!mCtx.getDisplay().create()) {
             return false;
         }
 
-        mGameThread = new GameThread(this, mGame);
+        mGameThread = new GameThread(this, mCtx.getGame());
         mGameThread.start();
 
         return true;
@@ -111,9 +104,9 @@ public class GameEngine {
      * Will ensure Game.stop() is called. Shuts down the display, etc.
      */
     public void stop() {
-        mGame.stop();
+        mCtx.getGame().stop();
         mGameThread.interrupt(); // should this be overriden to do Game.stop()?
-		mDisplay.destroy();
+		mCtx.getDisplay().destroy();
         Log.v(TAG, "stop() done");
     }
 
@@ -122,25 +115,44 @@ public class GameEngine {
      * The default implementation throws an UnsupportedOperationException.
      */
     public void mainLoop() {
-		while (!mGame.isStopRequested() && !mDisplay.isCloseRequested()) {
-            mInput.poll();
-            mDisplay.update();
+		while (!mCtx.getGame().isStopRequested() && !mCtx.getDisplay().isCloseRequested()) {
+            mCtx.getInput().poll();
+            mCtx.getDisplay().update();
 		}
     }
 
+
+    public GameContext getGameContext() {
+        return mCtx;
+    }
+
+
+    /**
+     * @depreciated Use {@link #getGameContext()} instead.
+     */
     public Display getDisplay() {
-        return mDisplay;
+        return mCtx.getDisplay();
     }
 
+    /**
+     * @depreciated Use {@link #getGameContext()} instead.
+     */
     public InputManager getInput() {
-        return mInput;
+        return mCtx.getInput();
     }
 
+    /**
+     * @depreciated Use {@link #getGameContext()} instead.
+     */
     public ResourceManager getResources() {
-        return mResources;
+        return mCtx.getResources();
     }
 
-    // Delete me when android stuff updated
+    /**
+     * Delete me when android stuff updated.
+     *
+     * @depreciated Use {@link Log} instead.
+     */
     public void debug(final String message) {
         // System.out.println(message+" from thread "+Thread.currentThread().getId());
     }
