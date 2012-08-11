@@ -28,6 +28,7 @@ import com.spidey01.sxe.core.Display;
 import com.spidey01.sxe.core.FrameEndedListener;
 import com.spidey01.sxe.core.FrameListener;
 import com.spidey01.sxe.core.FrameStartedListener;
+import com.spidey01.sxe.core.OpenGl;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
@@ -37,10 +38,13 @@ public class AndroidDisplay
     implements Display
 {
     private OpenGles2Renderer mRenderer = new OpenGles2Renderer();
+    private OpenGl mOpenGl;
     private static final String TAG = "AndroidDisplay";
 
     public AndroidDisplay(Context context) {
         super(context);
+
+        mOpenGl = new AndroidOpenGlEs();
 
         // required so OnKey works.
         setFocusable(true);
@@ -78,6 +82,10 @@ public class AndroidDisplay
         return false;
     }
 
+    public OpenGl getOpenGl() {
+        return mOpenGl;
+    }
+
     public void addFrameListener(FrameListener listener) {
         mRenderer.addFrameListener(listener);
     }
@@ -88,6 +96,18 @@ public class AndroidDisplay
 
     public void addFrameEndedListener(FrameEndedListener listener) {
         mRenderer.addFrameEndedListener(listener);
+    }
+
+    public void removeFrameListener(FrameListener listener) {
+        mRenderer.removeFrameListener(listener);
+    }
+
+    public void removeFrameStartedListener(FrameStartedListener listener) {
+        mRenderer.removeFrameStartedListener(listener);
+    }
+
+    public void removeFrameEndedListener(FrameEndedListener listener) {
+        mRenderer.removeFrameEndedListener(listener);
     }
 }
 

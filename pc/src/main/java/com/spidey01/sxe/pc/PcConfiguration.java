@@ -24,8 +24,8 @@
 package com.spidey01.sxe.pc;
 import java.io.PrintStream;
 
-import com.spidey01.sxe.core.GameContext;
 import com.spidey01.sxe.core.Game;
+import com.spidey01.sxe.core.GameContext;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.LogSink;

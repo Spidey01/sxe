@@ -26,6 +26,7 @@ package com.spidey01.sxe.android;
 import com.spidey01.sxe.core.C;
 import com.spidey01.sxe.core.Display;
 import com.spidey01.sxe.core.Game;
+import com.spidey01.sxe.core.GameContext;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.InputManager;
 import com.spidey01.sxe.core.ResourceManager;
@@ -38,14 +39,19 @@ import android.widget.Toast;
 public class AndroidGameEngine extends GameEngine {
     private static final String TAG = "AndroidGameEngine";
 
+    /**
+     * @depreciated Replaced by {@link GameContext}.
+     */
     public AndroidGameEngine() {
-        this(C.getDisplay(), C.getInput(), C.getResources(), C.getGame());
+        this(new GameContext()
+            .setDisplay(C.getDisplay())
+            .setInput(C.getInput())
+            .setResources(C.getResources())
+            .setGame(C.getGame()));
     }
 
-    public AndroidGameEngine(Display display, InputManager input,
-            ResourceManager res, Game game)
-    {
-        super(display, input, res, game);
+    public AndroidGameEngine(GameContext context) {
+        super(context);
     }
 
     public boolean start() {

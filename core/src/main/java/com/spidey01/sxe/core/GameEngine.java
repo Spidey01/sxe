@@ -49,7 +49,7 @@ public class GameEngine {
      *
      * @see com.spidey01.sxe.pc.PcConfiguration
      * @see com.spidey01.sxe.android.AndroidConfiguration
-     * @depreciated Replaced by {@link GameContext}
+     * @depreciated Replaced by {@link GameContext}.
      */
     public GameEngine() {
         this(new GameContext()

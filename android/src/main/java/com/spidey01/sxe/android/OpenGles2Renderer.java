@@ -46,7 +46,7 @@ public class OpenGles2Renderer implements GLSurfaceView.Renderer {
 
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
         for (FrameStartedListener o : mFrameStartedListeners) {
-            o.frameStarted();
+            o.frameStarted(null/*fix me*/);
         }
 
         // 128,0,128 -> for my Firefly.
@@ -77,6 +77,19 @@ public class OpenGles2Renderer implements GLSurfaceView.Renderer {
 
     public void addFrameEndedListener(FrameEndedListener listener) {
         mFrameEndedListeners.add(listener);
+    }
+
+    public void removeFrameListener(FrameListener listener) {
+        mFrameStartedListeners.remove(listener);
+        mFrameEndedListeners.remove(listener);
+    }
+
+    public void removeFrameStartedListener(FrameStartedListener listener) {
+        mFrameStartedListeners.remove(listener);
+    }
+
+    public void removeFrameEndedListener(FrameEndedListener listener) {
+        mFrameEndedListeners.remove(listener);
     }
 }
 

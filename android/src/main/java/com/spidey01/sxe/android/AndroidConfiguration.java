@@ -23,8 +23,8 @@
 
 package com.spidey01.sxe.android;
 
-import com.spidey01.sxe.core.C;
 import com.spidey01.sxe.core.Game;
+import com.spidey01.sxe.core.GameContext;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.ResourceManager;
@@ -44,13 +44,15 @@ public class AndroidConfiguration {
         // TODO for release builds lower this to WARN or INFO.
         Log.add(new AndroidLogSink(Log.VERBOSE));
 
-        C.put("console", null); // no default
-        C.put("display", new AndroidDisplay(context));
-        C.put("game", game);
-        C.put("input", new AndroidInputManager((AndroidDisplay)C.getDisplay()));
-        C.put("resources", new ResourceManager());
-        C.put("engine", new AndroidGameEngine()); // last so it uses the above.
-        return C.getEngine();
+        AndroidDisplay d = new AndroidDisplay(context);
+        GameContext c = new GameContext()
+            .setConsole(null)
+            .setDisplay(d)
+            .setGame(game)
+            .setInput(new AndroidInputManager(d))
+            .setResources(new ResourceManager());
+
+        return new AndroidGameEngine(c);
     }
 }
 

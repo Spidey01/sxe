@@ -129,7 +129,7 @@ public class AndroidOpenGlEs implements OpenGl {
 
     @Override
     public int glCreateShader(int type) {
-        GL20.glCreateShader(t(type));
+        return GLES20.glCreateShader(t(type));
     }
 
     @Override
@@ -180,7 +180,7 @@ public class AndroidOpenGlEs implements OpenGl {
     @Override
     public int glGetProgramiv(int program, int pname) {
         int[] status = new int[1];
-        GLES20.glGetProgramiv(mProgram, t(pname), status, 0);
+        GLES20.glGetProgramiv(program, t(pname), status, 0);
         return status[0];
     }
 
