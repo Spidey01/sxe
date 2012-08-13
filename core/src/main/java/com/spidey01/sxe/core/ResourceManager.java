@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,6 +49,8 @@ public class ResourceManager {
     public ResourceManager() {
         // Setup standard resource loaders
         mDefaultLoader = new PathResourceLoader();
+        mLoaders.put("default", mDefaultLoader);
+        mLoaders.put("vfs", new VirtualFileSystemLoader("vfs", this));
         mLoaders.put(".zip", new ZipResourceLoader());
     }
 
@@ -156,6 +159,19 @@ public class ResourceManager {
      */
     public Resource get(String path) {
         return mResources.get(path);
+    }
+
+    /** Get a view of the resource loaders available.
+     *
+     * The key is the container as given to setLoader().
+     * The value is the corresponding ResourceLoader.
+     *
+     * You cannot modify the ResourceManagers understanding of loaders with
+     * this. Use {@link #setLoader} for that. You can however manipulate the
+     * loaders themselves.
+     */
+    public final Map<String, ResourceLoader> getLoaders() {
+        return Collections.unmodifiableMap(mLoaders);
     }
 
     public ResourceLoader getLoader(String path) {
