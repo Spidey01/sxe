@@ -37,7 +37,9 @@ public class GameThread extends Thread {
     public void run() {
 
         try {
-            mGame.start(mEngine);
+            if (!mGame.start(mEngine)) {
+                return;
+            }
         } catch (Exception e) {
             Log.wtf(TAG, "Game startup has failed", e);
             mEngine.stop();
