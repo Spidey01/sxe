@@ -23,6 +23,7 @@
 
 package com.spidey01.sxe.android;
 
+import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.ResourceLoader;
 
 import android.content.res.AssetManager;
@@ -51,11 +52,25 @@ public class AssetLoader implements ResourceLoader {
     public InputStream getInputStream(String path)
         throws IOException
     {
+        return getInputStream(path, AssetManager.ACCESS_UNKNOWN);
+    }
+
+    /**
+     * @param path Note that since the part after 'container:' is handed off to
+     *             AssetManager, the path on the right hand side of the colon
+     *             should be relative to the 'assets' folder in your APK. I.e.
+     *             if you want "/assets/foo.txt" inside "your-app.apk", you
+     *             want path to be "container:foo.txt". That's just how Android
+     *             works :/.
+     *
+     * @param mode The mode for AssetManager.open().
+     */
+    public InputStream getInputStream(String path, int mode)
+        throws IOException
+    {
         String assetPath = path.substring(path.indexOf(":")+1);
 
-        // wtf, AssetManager.open gives cannot find symbol!?
-        // return mAssetManager.open(assertPath, AssetManager.ACCESS_UNKNOWN);
-        return null;
+        return mAssetManager.open(assetPath, mode);
     }
 }
 
