@@ -34,8 +34,6 @@ import com.spidey01.sxe.core.ResourceManager;
 import java.io.FileNotFoundException;
 
 /** Utility class to setup a GameContext to the configuration for PC.
- *
- * Simply call any method and vola. C should be ready for use on PC.
  */
 public class PcConfiguration {
     private static final String TAG = "PcConfiguration";

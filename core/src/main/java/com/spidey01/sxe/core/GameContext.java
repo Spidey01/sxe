@@ -26,11 +26,21 @@ package com.spidey01.sxe.core;
 import java.util.Map;
 import java.util.HashMap;
 
-/** WRITE ME.
+/** A bundle of game context/instance data.
  *
  * This is here to make it easier to reduce the amount of passing things around
  * as part of SxE. It contains accessors for all the common components in a
  * configuration, as well as a map to incorporate your own at runtime.
+ *
+ * In most cases where you may think
+ * <code>SingletonClass.getInstance().whatever</code> kind of code, you can
+ * probably think of getting a handle on the instance of this class you
+ * constructed your GameEngine with, and calling <code>it.getWhatever()</code>
+ * or <code>(WhatType)it.getOpt("what")</code>.
+ *
+ * Some platforms may define additional fields that may be reached via
+ * getOpt(). @see {@link #getOpt} and the approriate modules documentation for
+ * details on those.
  *
  * @see com.spidey01.sxe.pc.PcConfiguration
  * @see com.spidey01.sxe.android.AndroidConfiguration
@@ -57,6 +67,7 @@ public class GameContext {
      * subsystems may need access to without  having to rely on a singleton.
      *
      * @param opts A Map to for the *Opt methods. If null, an empty HashMap will be used.
+     * @see {@link #getOpt}.
      */
     public GameContext(Console console, Display display, Game game,
         GameEngine engine, InputManager input, ResourceManager resources,
@@ -100,14 +111,40 @@ public class GameContext {
         return mResources;
     }
 
-    public Object getOptions() {
+    /** Raw access to internal options hash.
+     *
+     * This is provided to you a way to do lower level manipulation than a
+     * string of getOpt/setOpt calls. Don't muddle with changing the returned
+     * Map unless you want to change the results of those methods.
+     */
+    public Map<String, Object> getOptions() {
         return mOptions;
     }
 
+    /** Get an option by name.
+     *
+     * This allows easy access to additional context data, through the internal
+     * "Options" Map. You will almost certainly need to cast the return value
+     * to the correct type.
+     *
+     * Platform module specific fields, that are standard in SxE:
+     *
+     * <pre>
+     *      android
+     *
+     *      pc
+     *
+     * </pre>
+     */
     public Object getOpt(String name) {
         return mOptions.get(name);
     }
 
+    /** Set an option by name.
+     *
+     * This allows easy access to additional context data, through the internal
+     * "Options" Map.
+     */
     public void setOpt(String name, Object o) {
         mOptions.put(name, o);
     }

@@ -31,9 +31,7 @@ import com.spidey01.sxe.core.ResourceManager;
 
 import android.content.Context;
 
-/** Utility class to set C.java to the configuration for PC.
- *
- * Simply call any method and vola. C should be ready for use on PC.
+/** Utility class to setup a GameContext to the configuration for Android.
  */
 public class AndroidConfiguration {
 
