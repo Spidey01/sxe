@@ -1,0 +1,21 @@
+Resources are obtained through the ResourceManager. The ResourceManager owns the resource as far as client code is concerned.
+
+ResourceManager is implemented using a pluggable loader system, defining how to load the specified resource. Each ResourceLoader implementation is tasked with getting an InputStream from a path, within it's container. Standard issue is support for file paths and ZIP archives. Other stuff may be added.
+
+When invoking ResourceManager.load(), a path is expected to be in the format 'container:path'. Container tells what loader to use. The standard issue support for ZIP archives uses the ".zip" container. Path is relative to the root of container and the behaviour is defined by the later of the ResourceLoader implementation. If 'container:' is omitted, then 'default:' will be used. If there is no 'default' container registered, the path will be treated as a standard file path.
+
+There are two classes of "Container":
+
+	0.) The normal container is just an arbitrary name space used to select the ResourceLoader.
+	1.) The meta container is just a file extension. A container like '.zip'. That says if container given to load() ends with .zip, look in that .zip file and use the loader for .zip.
+
+
+Example paths with containers:
+
+	map0.zip:/images/loading.png
+	apk:textures/someTextureAsset.png
+	default:file.txt
+	file.txt
+
+
+To make your own loader, implement ResourceLoader, and install it for a container using ResourceManager.setLoader().

@@ -164,7 +164,8 @@ public class ResourceManager {
 
         if (colon == -1) {
             // assume regular path
-            return mDefaultLoader;
+            ResourceLoader l = mLoaders.get("default");
+            return l == null ? mDefaultLoader : l;
         } else if (dot == -1 || (dot > colon)) {
             // for containers that don't work like '.ext'
             String container = path.substring(0, colon);
