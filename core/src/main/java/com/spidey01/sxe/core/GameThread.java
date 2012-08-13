@@ -66,7 +66,7 @@ public class GameThread extends Thread {
                 Thread.currentThread().sleep(sleepTime);
             } catch (InterruptedException iex) {
                 Log.d(TAG, "run() interrupted");
-                stop();
+                return;
             }
         }
     }
