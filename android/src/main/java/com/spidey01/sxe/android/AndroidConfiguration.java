@@ -30,6 +30,7 @@ import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.ResourceManager;
 
 import android.content.Context;
+import android.os.Build;
 
 /** Utility class to setup a GameContext to the configuration for Android.
  */
@@ -48,7 +49,9 @@ public class AndroidConfiguration {
             .setDisplay(d)
             .setGame(game)
             .setInput(new AndroidInputManager(d))
-            .setResources(new ResourceManager());
+            .setResources(new ResourceManager())
+            .setPlatform("android")
+            .setPlatformVersion("android "+Build.VERSION.RELEASE);
 
         return new GameEngine(c);
     }

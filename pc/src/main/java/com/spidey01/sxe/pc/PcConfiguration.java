@@ -65,7 +65,8 @@ public class PcConfiguration {
             .setDisplay(new PcDisplay(displayMode))
             .setGame(game)
             .setInput(new PcInputManager())
-            .setResources(new ResourceManager());
+            .setResources(new ResourceManager())
+            .setPlatform("pc");
 
         return new GameEngine(c);
     }

@@ -69,6 +69,11 @@ public class GameEngine {
     public GameEngine(GameContext context) {
         mCtx = context;
 
+        Log.i(TAG,
+            "platform=\""+mCtx.getPlatform()+"\""
+            + " version=\""+mCtx.getPlatformVersion()+"\""
+            + " arch=\""+mCtx.getPlatformArch()+"\"");
+
         // ternary abuse, yeah.
         final String p;
         p = mCtx.getDisplay() == null ?

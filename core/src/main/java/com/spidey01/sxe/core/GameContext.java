@@ -56,6 +56,10 @@ public class GameContext {
     private ResourceManager mResources;
     private Map<String, Object> mOptions;
 
+    private String mPlatformName;
+    private String mPlatformArch = System.getProperty("os.arch");
+    private String mPlatformVersion = System.getProperty("os.name")+" "+System.getProperty("os.version");
+
     public GameContext() {
         mOptions = new HashMap<String, Object>();
     }
@@ -185,6 +189,33 @@ public class GameContext {
 
     public GameContext setOptions(Map<String, Object> value) {
         mOptions = value;
+        return this;
+    }
+
+    public String getPlatform() {
+        return mPlatformName;
+    }
+
+    public String getPlatformArch() {
+        return mPlatformArch;
+    }
+
+    public String getPlatformVersion() {
+        return mPlatformVersion;
+    }
+
+    public GameContext setPlatform(String value) {
+        mPlatformName = value;
+        return this;
+    }
+
+    public GameContext setPlatformArch(String value) {
+        mPlatformArch = value;
+        return this;
+    }
+
+    public GameContext setPlatformVersion(String value) {
+        mPlatformVersion = value;
         return this;
     }
 }
