@@ -50,7 +50,7 @@ public class AndroidConfiguration {
             .setInput(new AndroidInputManager(d))
             .setResources(new ResourceManager());
 
-        return new AndroidGameEngine(c);
+        return new GameEngine(c);
     }
 }
 

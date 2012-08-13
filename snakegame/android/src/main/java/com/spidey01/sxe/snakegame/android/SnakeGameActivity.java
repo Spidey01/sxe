@@ -28,7 +28,6 @@ import com.spidey01.sxe.core.GameEngine;
 
 import com.spidey01.sxe.android.AndroidConfiguration;
 import com.spidey01.sxe.android.AndroidDisplay;
-import com.spidey01.sxe.android.AndroidGameEngine;
 import com.spidey01.sxe.android.AssetLoader;
 import com.spidey01.sxe.android.GameActivity;
 
