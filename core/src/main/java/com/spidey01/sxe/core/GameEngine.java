@@ -147,14 +147,5 @@ public class GameEngine {
     public ResourceManager getResources() {
         return mCtx.getResources();
     }
-
-    /**
-     * Delete me when android stuff updated.
-     *
-     * @depreciated Use {@link Log} instead.
-     */
-    public void debug(final String message) {
-        // System.out.println(message+" from thread "+Thread.currentThread().getId());
-    }
 }
 
