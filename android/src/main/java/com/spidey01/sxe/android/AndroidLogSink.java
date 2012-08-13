@@ -69,16 +69,22 @@ public class AndroidLogSink extends LogSink {
         switch (level) {
             case com.spidey01.sxe.core.Log.ASSERT:
                 Log.wtf(tag, message, tr);
+                break;
             case com.spidey01.sxe.core.Log.DEBUG:
                 Log.d(tag, message, tr);
+                break;
             case com.spidey01.sxe.core.Log.ERROR:
                 Log.e(tag, message, tr);
+                break;
             case com.spidey01.sxe.core.Log.INFO:
                 Log.i(tag, message, tr);
+                break;
             case com.spidey01.sxe.core.Log.VERBOSE:
                 Log.v(tag, message, tr);
+                break;
             case com.spidey01.sxe.core.Log.WARN:
                 Log.w(tag, message, tr);
+                break;
         }
     }
 }
