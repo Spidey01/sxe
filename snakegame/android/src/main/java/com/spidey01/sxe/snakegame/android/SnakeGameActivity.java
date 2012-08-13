@@ -47,7 +47,7 @@ public class SnakeGameActivity extends GameActivity {
 
         mEngine = (AndroidGameEngine)AndroidConfiguration.setup(new SnakeGame(), this);
 
-        setContentView((AndroidDisplay)mEngine.getDisplay());
+        setContentView((AndroidDisplay)mEngine.getGameContext().getDisplay());
 
         mEngine.start();
     }
