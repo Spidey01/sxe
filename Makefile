@@ -43,8 +43,8 @@ clean-android:
 
 # N.B. doesn't work when you're doing the build on the device itself, instead
 # of using PC->USB.
-run-snakegame-android: android
-	adb install snakegame/android/target/snakegame-android-0.0.1-SNAPSHOT.apk
+run-snakegame-android: 
+	adb install -r snakegame/android/target/snakegame-android-0.0.1-SNAPSHOT.apk
 
 # Use tee here because we rarely care about the exit status of this target so
 # much as the corpious output.
