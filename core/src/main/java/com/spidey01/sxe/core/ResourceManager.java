@@ -50,7 +50,6 @@ public class ResourceManager {
         // Setup standard resource loaders
         mDefaultLoader = new PathResourceLoader();
         mLoaders.put("default", mDefaultLoader);
-        mLoaders.put("vfs", new VirtualFileSystemLoader("vfs", this));
         mLoaders.put(".zip", new ZipResourceLoader());
     }
 

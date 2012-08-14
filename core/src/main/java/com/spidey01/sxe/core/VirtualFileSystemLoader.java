@@ -36,36 +36,44 @@ import java.util.*;
  * <code>vfs:path</code> able to query multiple resources based on the
  * available loaders.
  *
+ * The resource path defines which sources are available to the VFS. These can
+ * be anything suitable for ResourceManager.load() and will be used as a prefix
+ * to path look ups in the Virtual File System. Assuming the necessary
+ * ResourceLoader's and data are present, if our search path is this:
+ *
+ *  <code>new String[]{ "debug", "pak0.zip:", "pak1.zip:" }</code>
+ *
+ *  Then trying to resolve "vfs:/weapons/textures/rocket.png" will look for the
+ *  following files: <ol>
+ *      <li>debug/weapons/textures/rocket.png</li>
+ *      <li>pak0.zip:/weapons/textures/rocket.png</li>
+ *      <li>pak1.zip:/weapons/textures/rocket.png</li>
+ *  </ol>
+ *  And the first one found will be returned by getInputStream().
+ *
+ *  The embedding of colons as needed, is because the search path is literally
+ *  uesd as a prefix for invoking the associated ResourceManager. No intimate
+ *  knowledge of the ResourceManager is needed, and it need not be the same
+ *  manager as VirtualFileSystemLoader the is registered with. Thus this
+ *  ResourceLoader does not know how to tell if an entry in the resource path
+ *  is a container or a directory/file name. This is both a feature and a bug,
+ *  in favour of Keeping It Simple Stupid.
  */
 public class VirtualFileSystemLoader implements ResourceLoader {
-    /*
-     * This list is kept sorted in the resolution order.
-     */
-    private LinkedList<String> mContainers = new LinkedList<String>();
-    /*
-     * This is a list of loaders to always ignore. Principally so trying to
-     * resolve a loader like us, doesn't go bongo.
-     */
-    private final LinkedList<String> mSkipList = new LinkedList<String>();
+    private String[] mResourcePath;
     private final ResourceManager mRes;
     private final static String TAG = "VirtualFileSystemLoader";
 
-    /**
+    /** Initialize a ResourceLoader for a virtual resource file system.
      *
-     * @param name The container name we are stored in boss as. Failure to set
-     *             this may lead to bad mojojo behaviour.
-     * @param boss the ResourceManager we are being used with.
+     * @param boss the ResourceManager used for loading. We need not be registered with it.
+     * @param resourcePath the sequence to look up resources in.
      */
-    public VirtualFileSystemLoader(String name, ResourceManager boss) {
+    public VirtualFileSystemLoader(ResourceManager boss, String[] resourcePath) {
         mRes = boss;
-        mSkipList.add(name);
+        mResourcePath = resourcePath;
     }
-
-    public VirtualFileSystemLoader(Collection<String> names, ResourceManager boss) {
-        mRes = boss;
-        mSkipList.addAll(names);
-    }
-
+    
     public InputStream getInputStream(File path)
         throws IOException
     {
@@ -75,42 +83,21 @@ public class VirtualFileSystemLoader implements ResourceLoader {
     public InputStream getInputStream(String path)
         throws IOException
     {
-        for (String key : mRes.getLoaders().keySet()) {
-            if (mSkipList.contains(key)|| mContainers.contains(key)) {
-                continue;
-            }
-
-            mContainers.add(key);
-            Log.i(TAG, key+" added to "+this);
-        }
-
-        String vfsPath = null;
-        ResourceLoader l = null;
+        // converts vfs:path to path.
+        String vpath = path.substring(path.indexOf(":")+1);
         InputStream is = null;
-        for (String key : mContainers) {
-            // try getting a hold of it.
-            vfsPath = path.substring(path.indexOf(":")+1);
-            Log.d(TAG, "Checking loader "+key+" for "+vfsPath);
-            l =  mRes.getLoaders().get(key);
-            is = l.getInputStream(vfsPath);
+
+        for (String p : mResourcePath) {
+            Log.v(TAG, "Trying \""+p+vpath+"\" for \""+path+"\"");
+            // where p is sth like "pak0.zip:" or "assets".
+            is = mRes.load(p + vpath).getInputStream();
             if (is != null) {
-                break;
+                return is;
             }
         }
 
-        return is;
-        // throw new IOException();
+        throw new IOException("\""+vpath+"\" not found in the vfs of "+this);
     }
-
-    private void defaultContainers() {
-        mContainers.add("default");
-        // mContainers.add(".zip");
-
-        // for android
-        mContainers.add("apk");
-    }
-
 }
-
 
 
