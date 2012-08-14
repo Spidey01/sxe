@@ -97,5 +97,132 @@ public class Utils {
 
         return sb.toString();
     }
+
+    /** Get the users personal directory.
+     *
+     * This is assumed to be HOME or USERPROFILE, which ever is found first.
+     */
+    public static String getUserDir() {
+        String e = System.getenv("HOME");
+        if (e == null) {
+            e = System.getenv("USERPROFILE");
+            if (e == null) {
+                throw new
+                    RuntimeException("Can't determine users home directory.");
+            }
+        }
+        return e;
+    }
+
+    /** Helper for XDG Base Directory Specification (version 0.7).
+     *
+     * Environment variables like XDG_WHAT_EVER will generally be gotten with
+     * <code>getWhatEver()</code>.  To find a file/spec located in one of these
+     * directories, you will usually want <code>getWhatEver("your/path")</code>.
+     */
+    public static class Xdg {
+
+        /** Get XDG_DATA_HOME. */
+        public static String getDataHome() {
+            String e = System.getenv("XDG_DATA_HOME");
+
+            if (e != null) {
+                return e;
+            }
+
+            return Utils.getUserDir()+"/.local/share";
+        }
+
+        /** Get XDG_CONFIG_HOME. */
+        public static String getConfigHome() {
+            String e = System.getenv("XDG_CONFIG_HOME");
+
+            if (e != null) {
+                return e;
+            }
+
+            return Utils.getUserDir()+"/.config";
+        }
+
+        /** Get XDG_CACHE_HOME. */
+        public static String getCacheDir() {
+            String e = System.getenv("XDG_CACHE_HOME");
+
+            if (e != null) {
+                return e;
+            }
+
+            return Utils.getUserDir()+"/.cache";
+        }
+
+        /** Get XDG_RUNTIME_DIR. */
+        public static String getRuntimeDir() {
+            String e = System.getenv("XDG_RUNTIME_DIR");
+
+            if (e != null) {
+                return e;
+            }
+
+            // We more or less would want File.createTempFile, but for a directory.
+            // The delete->mkdir trick is obviously a race condition.
+            //
+            throw new UnsupportedOperationException("No default");
+        }
+
+        /** Get XDG_DATA_DIRS. */
+        public static String[] getDataDirs() {
+            String e = System.getenv("XDG_DATA_DIRS");
+
+            if (e != null) {
+                return e.split(":");
+            }
+
+            return new String[]{
+                "/usr/local/share/",
+                    "/usr/share/"
+            };
+        }
+
+        /** Get XDG_CONFIG_DIRS. */
+        public static String[] getConfigDirs() {
+            String e = System.getenv("XDG_CONFIG_DIRS");
+
+            if (e != null) {
+                return e.split(":");
+            }
+
+            return new String[]{ "/etc/xdg" };
+        }
+
+        public static String getDataHomeDir(String relative) {
+            return getDataHome()+"/"+relative;
+        }
+
+        public static String getConfigHomeDir(String relative) {
+            return getConfigHome()+"/"+relative;
+        }
+
+        public static String getCacheDir(String relative) {
+            return getCacheDir()+"/"+relative;
+        }
+
+        public static String getDataDir(String relative) {
+            return Xdg.pick(getDataDirs(), relative);
+        }
+
+        public static String getConfigDir(String relative) {
+            return Xdg.pick(getConfigDirs(), relative);
+        }
+
+        private static String pick(String[] dirs, String relative) {
+            for (String d : dirs) {
+                File p = new File(d+"/"+relative);
+                if (p.isFile() || p.isDirectory()) {
+                    return p.getAbsolutePath();
+                }
+            }
+            return null;
+        }
+    }
 }
 

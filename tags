@@ -182,6 +182,7 @@ TAG	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_a
 TAG	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^    private static final String TAG = "OpenGles2Renderer";$/;"	f	class:OpenGles2Renderer	file:
 TAG	./snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeGame.java	/^    private static final String TAG = "SnakeGame";$/;"	f	class:SnakeGame	file:
 TEXT_FILE	./core/src/main/java/com/spidey01/sxe/core/Resource.java	/^        TEXT_FILE,$/;"	e	enum:Resource.Type	file:
+Test	./Test.java	/^public class Test {$/;"	c
 Type	./core/src/main/java/com/spidey01/sxe/core/Resource.java	/^    public enum Type {$/;"	g	interface:Resource
 Type	./core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    public enum Type {$/;"	g	interface:Shader
 UNKNOWN	./core/src/main/java/com/spidey01/sxe/core/Resource.java	/^        UNKNOWN,$/;"	e	enum:Resource.Type	file:
@@ -196,10 +197,10 @@ Variable	./core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public V
 Variable	./core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public Variable(String name, float value) {$/;"	m	class:Variable
 Variable	./core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public Variable(String name, int value) {$/;"	m	class:Variable
 Variable	./core/src/main/java/com/spidey01/sxe/core/Variable.java	/^public class Variable {$/;"	c
-VirtualFileSystemLoader	./core/src/main/java/com/spidey01/sxe/core/VirtualFileSystemLoader.java	/^    public VirtualFileSystemLoader(Collection<String> names, ResourceManager boss) {$/;"	m	class:VirtualFileSystemLoader
-VirtualFileSystemLoader	./core/src/main/java/com/spidey01/sxe/core/VirtualFileSystemLoader.java	/^    public VirtualFileSystemLoader(String name, ResourceManager boss) {$/;"	m	class:VirtualFileSystemLoader
+VirtualFileSystemLoader	./core/src/main/java/com/spidey01/sxe/core/VirtualFileSystemLoader.java	/^    public VirtualFileSystemLoader(ResourceManager boss, String[] resourcePath) {$/;"	m	class:VirtualFileSystemLoader
 VirtualFileSystemLoader	./core/src/main/java/com/spidey01/sxe/core/VirtualFileSystemLoader.java	/^public class VirtualFileSystemLoader implements ResourceLoader {$/;"	c
 WARN	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int WARN    = 2;$/;"	f	class:Log
+Xdg	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static class Xdg {$/;"	c	class:Utils
 ZipResourceLoader	./core/src/main/java/com/spidey01/sxe/core/ZipResourceLoader.java	/^public class ZipResourceLoader implements ResourceLoader {$/;"	c
 add	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void add(LogSink sink) {$/;"	m	class:Log
 addCommand	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void addCommand(ConsoleCommand command) {$/;"	m	class:Console
@@ -325,7 +326,6 @@ createIntBuffer	./pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    pu
 createIntBuffer	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public IntBuffer createIntBuffer(int size) {$/;"	m	class:AndroidOpenGlEs
 d	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void d(String tag, String message) {$/;"	m	class:Log
 d	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void d(String tag, String message, Throwable tr) {$/;"	m	class:Log
-defaultContainers	./core/src/main/java/com/spidey01/sxe/core/VirtualFileSystemLoader.java	/^    private void defaultContainers() {$/;"	m	class:VirtualFileSystemLoader	file:
 destroy	./android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    public void destroy() {$/;"	m	class:AndroidDisplay
 destroy	./core/src/main/java/com/spidey01/sxe/core/Display.java	/^    public void destroy();$/;"	m	interface:Display
 destroy	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void destroy() {$/;"	m	class:PcDisplay
@@ -351,8 +351,24 @@ frameStarted	./snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeG
 get	./core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static Object get(String what) {$/;"	m	class:C
 get	./core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Resource get(String path) {$/;"	m	class:ResourceManager
 get	./core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public String get() {$/;"	m	class:Variable
+getCacheDir	./Test.java	/^    public String getCacheDir() {$/;"	m	class:Test
+getCacheDir	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getCacheDir() {$/;"	m	class:Utils.Xdg
+getCacheDir	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getCacheDir(String relative) {$/;"	m	class:Utils.Xdg
+getConfigDir	./Test.java	/^        public String getConfigDir(String relative) {$/;"	m	class:Test
+getConfigDir	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getConfigDir(String relative) {$/;"	m	class:Utils.Xdg
+getConfigDirs	./Test.java	/^    public String[] getConfigDirs() {$/;"	m	class:Test
+getConfigDirs	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String[] getConfigDirs() {$/;"	m	class:Utils.Xdg
+getConfigHome	./Test.java	/^    public String getConfigHome() {$/;"	m	class:Test
+getConfigHome	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getConfigHome() {$/;"	m	class:Utils.Xdg
+getConfigHomeDir	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getConfigHomeDir(String relative) {$/;"	m	class:Utils.Xdg
 getConsole	./core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static Console getConsole() {$/;"	m	class:C
 getConsole	./core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Console getConsole() {$/;"	m	class:GameContext
+getDataDir	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getDataDir(String relative) {$/;"	m	class:Utils.Xdg
+getDataDirs	./Test.java	/^    public String[] getDataDirs() {$/;"	m	class:Test
+getDataDirs	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String[] getDataDirs() {$/;"	m	class:Utils.Xdg
+getDataHome	./Test.java	/^    public String getDataHome() {$/;"	m	class:Test
+getDataHome	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getDataHome() {$/;"	m	class:Utils.Xdg
+getDataHomeDir	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getDataHomeDir(String relative) {$/;"	m	class:Utils.Xdg
 getDisplay	./core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static Display getDisplay() {$/;"	m	class:C
 getDisplay	./core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Display getDisplay() {$/;"	m	class:GameContext
 getDisplay	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public Display getDisplay() {$/;"	m	class:GameEngine
@@ -392,15 +408,15 @@ getInputStream	./core/src/main/java/com/spidey01/sxe/core/ZipResourceLoader.java
 getInputStream	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AssetLoader.java	/^    public InputStream getInputStream(File path)$/;"	m	class:AssetLoader
 getInputStream	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AssetLoader.java	/^    public InputStream getInputStream(String path)$/;"	m	class:AssetLoader
 getInputStream	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AssetLoader.java	/^    public InputStream getInputStream(String path, int mode)$/;"	m	class:AssetLoader
-getKeyCode	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public final int getKeyCode() {$/;"	m	class:KeyEvent
-getKeyName	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public final String getKeyName() {$/;"	m	class:KeyEvent
+getKeyCode	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public int getKeyCode() {$/;"	m	class:KeyEvent
+getKeyName	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public String getKeyName() {$/;"	m	class:KeyEvent
 getLevel	./android/src/main/java/com/spidey01/sxe/android/AndroidLogSink.java	/^    public int getLevel(String tag) {$/;"	m	class:AndroidLogSink
 getLevel	./core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public int getLevel(String tag) {$/;"	m	class:LogSink
 getLevel	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidLogSink.java	/^    public int getLevel(String tag) {$/;"	m	class:AndroidLogSink
 getLoader	./core/src/main/java/com/spidey01/sxe/core/FileResource.java	/^    public ResourceLoader getLoader() {$/;"	m	class:FileResource
 getLoader	./core/src/main/java/com/spidey01/sxe/core/Resource.java	/^    ResourceLoader getLoader();$/;"	m	interface:Resource
 getLoader	./core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceLoader getLoader(String path) {$/;"	m	class:ResourceManager
-getLoaders	./core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public final Map<String, ResourceLoader> getLoaders() {$/;"	m	class:ResourceManager
+getLoaders	./core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Map<String, ResourceLoader> getLoaders() {$/;"	m	class:ResourceManager
 getMaxFpsRate	./core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public int getMaxFpsRate() {$/;"	m	class:Game
 getMaxTickRate	./core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public int getMaxTickRate() {$/;"	m	class:Game
 getName	./core/src/main/java/com/spidey01/sxe/core/Action.java	/^    String getName();$/;"	m	interface:Action
@@ -428,6 +444,8 @@ getRepeatDelay	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    pub
 getResources	./core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static ResourceManager getResources() {$/;"	m	class:C
 getResources	./core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public ResourceManager getResources() {$/;"	m	class:GameContext
 getResources	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public ResourceManager getResources() {$/;"	m	class:GameEngine
+getRuntimeDir	./Test.java	/^    public String getRuntimeDir() {$/;"	m	class:Test
+getRuntimeDir	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getRuntimeDir() {$/;"	m	class:Utils.Xdg
 getShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public int getShader() {$/;"	m	class:GlslShader
 getShader	./core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    int getShader();$/;"	m	interface:Shader
 getShader	./core/src/main/java/com/spidey01/sxe/core/ShaderResource.java	/^    public Shader getShader() {$/;"	m	class:ShaderResource
@@ -435,12 +453,13 @@ getShaderResourceType	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^  
 getShaderType	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static Shader.Type getShaderType(String fileName) {$/;"	m	class:Utils
 getShaders	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    public List<Shader> getShaders() {$/;"	m	class:GlslProgram
 getShaders	./core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    List<Shader> getShaders();$/;"	m	interface:GpuProgram
-getSource	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    protected final String getSource(BufferedReader reader)$/;"	m	class:GlslShader
 getSource	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public InputManager getSource() {$/;"	m	class:KeyEvent
 getTickRate	./core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public int getTickRate() {$/;"	m	class:Game
 getTickRate	./snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeGame.java	/^    public int getTickRate() {$/;"	m	class:SnakeGame
 getType	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    public Type getType() {$/;"	m	class:GlslShader
 getType	./core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    Type getType();$/;"	m	interface:Shader
+getUserDir	./Test.java	/^    public String getUserDir() {$/;"	m	class:Test
+getUserDir	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String getUserDir() {$/;"	m	class:Utils
 glAttachShader	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glAttachShader(GpuProgram p, Shader s) {$/;"	m	class:AndroidOpenGlEs
 glAttachShader	./android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glAttachShader(int program, int shader) {$/;"	m	class:AndroidOpenGlEs
 glAttachShader	./core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glAttachShader(GpuProgram p, Shader s);$/;"	m	interface:OpenGl
@@ -582,8 +601,8 @@ isCloseRequested	./core/src/main/java/com/spidey01/sxe/core/Display.java	/^    p
 isCloseRequested	./pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public boolean isCloseRequested() {$/;"	m	class:PcDisplay
 isCloseRequested	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    public boolean isCloseRequested() {$/;"	m	class:AndroidDisplay
 isDebuggingEnabled	./core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public boolean isDebuggingEnabled() {$/;"	m	class:RateCounter
-isKeyDown	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public final boolean isKeyDown() {$/;"	m	class:KeyEvent
-isKeyUp	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public final boolean isKeyUp() {$/;"	m	class:KeyEvent
+isKeyDown	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public boolean isKeyDown() {$/;"	m	class:KeyEvent
+isKeyUp	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public boolean isKeyUp() {$/;"	m	class:KeyEvent
 isLoaded	./core/src/main/java/com/spidey01/sxe/core/FileResource.java	/^    public boolean isLoaded() {$/;"	m	class:FileResource
 isLoaded	./core/src/main/java/com/spidey01/sxe/core/Resource.java	/^    boolean isLoaded();$/;"	m	interface:Resource
 isLoaded	./core/src/main/java/com/spidey01/sxe/core/ShaderResource.java	/^    public boolean isLoaded() {$/;"	m	class:ShaderResource
@@ -616,7 +635,6 @@ mBuffer	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private St
 mCommands	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private Map<String,ConsoleCommand> mCommands = new HashMap<String,ConsoleCommand>();$/;"	f	class:Console	file:
 mConsole	./core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private Console mConsole;$/;"	f	class:GameContext	file:
 mConsole	./snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeGame.java	/^    private Console mConsole;$/;"	f	class:SnakeGame	file:
-mContainers	./core/src/main/java/com/spidey01/sxe/core/VirtualFileSystemLoader.java	/^    private LinkedList<String> mContainers = new LinkedList<String>();$/;"	f	class:VirtualFileSystemLoader	file:
 mCoord2d	./core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    private int mCoord2d = -1;$/;"	f	class:Mesh	file:
 mCtx	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    protected GameContext mCtx;$/;"	f	class:GameEngine
 mCtx	./core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    private GameContext mCtx;$/;"	f	class:Mesh	file:
@@ -681,6 +699,7 @@ mRenderer	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_and
 mRepeatCount	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private long mRepeatCount = 0;$/;"	f	class:Console	file:
 mRepeatDelay	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private int mRepeatDelay = DEFAULT_REPEAT_DELAY;$/;"	f	class:Console	file:
 mRes	./core/src/main/java/com/spidey01/sxe/core/VirtualFileSystemLoader.java	/^    private final ResourceManager mRes;$/;"	f	class:VirtualFileSystemLoader	file:
+mResourcePath	./core/src/main/java/com/spidey01/sxe/core/VirtualFileSystemLoader.java	/^    private String[] mResourcePath;$/;"	f	class:VirtualFileSystemLoader	file:
 mResources	./core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private ResourceManager mResources;$/;"	f	class:GameContext	file:
 mResources	./core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    private Map<String, Resource> mResources = new HashMap<String, Resource>();$/;"	f	class:ResourceManager	file:
 mShader	./core/src/main/java/com/spidey01/sxe/core/GlslShader.java	/^    protected int mShader = -1;$/;"	f	class:GlslShader
@@ -689,7 +708,6 @@ mShaderClass	./core/src/main/java/com/spidey01/sxe/core/ShaderResource.java	/^  
 mShaderFactory	./core/src/main/java/com/spidey01/sxe/core/ShaderResource.java	/^    private final ShaderFactory<? extends Shader> mShaderFactory;$/;"	f	class:ShaderResource	file:
 mShaders	./core/src/main/java/com/spidey01/sxe/core/GlslProgram.java	/^    private List<Shader> mShaders = new LinkedList();$/;"	f	class:GlslProgram	file:
 mSinks	./core/src/main/java/com/spidey01/sxe/core/Log.java	/^    private static List<LogSink> mSinks = new LinkedList<LogSink>();$/;"	f	class:Log	file:
-mSkipList	./core/src/main/java/com/spidey01/sxe/core/VirtualFileSystemLoader.java	/^    private final LinkedList<String> mSkipList = new LinkedList<String>();$/;"	f	class:VirtualFileSystemLoader	file:
 mSource	./core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private InputManager mSource;$/;"	f	class:KeyEvent	file:
 mState	./core/src/main/java/com/spidey01/sxe/core/Game.java	/^    protected State mState;$/;"	f	class:Game
 mStopDone	./core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private boolean mStopDone = false;$/;"	f	class:Game	file:
@@ -705,6 +723,7 @@ mVertices	./core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    private flo
 mVisable	./core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private boolean mVisable = false;$/;"	f	class:Console	file:
 mWidget	./android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    private AndroidDisplay mWidget;$/;"	f	class:AndroidInputManager	file:
 mWidget	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    private AndroidDisplay mWidget;$/;"	f	class:AndroidInputManager	file:
+main	./Test.java	/^    public static void main(String[] unused) {$/;"	m	class:Test
 main	./android/target/generated-sources/r/com/spidey01/sxe/android/R.java	/^        public static final int main=0x7f020000;$/;"	f	class:R.layout
 main	./snakegame/android/target/generated-sources/r/com/spidey01/sxe/android/R.java	/^        public static final int main=0x7f020000;$/;"	f	class:R.layout
 main	./snakegame/android/target/generated-sources/r/com/spidey01/sxe/snakegame/android/R.java	/^        public static final int main=0x7f020000;$/;"	f	class:R.layout
@@ -728,6 +747,8 @@ onSurfaceChanged	./android/src/main/java/com/spidey01/sxe/android/OpenGles2Rende
 onSurfaceChanged	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^    public void onSurfaceChanged(GL10 unused, int width, int height) {$/;"	m	class:OpenGles2Renderer
 onSurfaceCreated	./android/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^    public void onSurfaceCreated(GL10 unused, EGLConfig config) {$/;"	m	class:OpenGles2Renderer
 onSurfaceCreated	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^    public void onSurfaceCreated(GL10 unused, EGLConfig config) {$/;"	m	class:OpenGles2Renderer
+pick	./Test.java	/^        private static String pick(String[] dirs, String relative) {$/;"	m	class:Test	file:
+pick	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        private static String pick(String[] dirs, String relative) {$/;"	m	class:Utils.Xdg	file:
 poll	./android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    public void poll() {$/;"	m	class:AndroidInputManager
 poll	./core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void poll() {$/;"	m	class:InputManager
 poll	./pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    public void poll() {$/;"	m	class:PcInputManager
@@ -792,6 +813,10 @@ setupConsoleCommands	./snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/li
 setupControls	./snakegame/lib/src/main/java/com/spidey01/sxe/snakegame/lib/SnakeGame.java	/^    public void setupControls() {$/;"	m	class:SnakeGame
 shaderFromClass	./core/src/main/java/com/spidey01/sxe/core/ShaderResource.java	/^    public Shader shaderFromClass(Class<? extends Shader> shaderClass)$/;"	m	class:ShaderResource
 shaderTypeToResourceType	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static Resource.Type shaderTypeToResourceType(Shader.Type type) {$/;"	m	class:Utils
+slurp	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(BufferedReader source) throws IOException {$/;"	m	class:Utils
+slurp	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(File source) throws IOException {$/;"	m	class:Utils
+slurp	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(InputStream source) throws IOException {$/;"	m	class:Utils
+slurp	./core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(String path) throws IOException {$/;"	m	class:Utils
 start	./core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:Game
 start	./core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public boolean start() {$/;"	m	class:GameEngine
 start	./snakegame/android/target/unpack/apklibs/com.spidey01.sxe.android_android_apklib_0.0.1-SNAPSHOT/src/main/java/com/spidey01/sxe/android/AndroidGameEngine.java	/^    public boolean start() {$/;"	m	class:AndroidGameEngine
