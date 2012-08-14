@@ -70,5 +70,31 @@ public class PcConfiguration {
 
         return new GameEngine(c);
     }
+
+    private static setupXdgVars() {
+        final String os = System.getProperty("os.name");
+
+        if (os.startsWith("Mac OS X")) {
+            // Set the XDG vars appropriate for Apple territory.
+        } else if (os.startsWith("Windows")) {
+            final String ver = System.getProperty("os.version");
+            final float fuzzyVer = Float.valueOf(ver);
+
+            if (fuzzyVer < 5.0) {
+                Log.w(TAG, "os.version reports a Windows version older than Windows 2000. The name/value was "+os+"/"+ver);
+                throw RuntimeException("Unsupported Windows version.");
+            }
+
+            if (ver.startsWith("5")) {
+                // use Application Data\Game name
+            } else {
+                // I assume Windows NT 6.0/Vista
+
+                // use AppData\Roaming\Game name
+            }
+        }
+
+        // Other wise it's assumed that the default (unix) values are okay.
+    }
 }
 
