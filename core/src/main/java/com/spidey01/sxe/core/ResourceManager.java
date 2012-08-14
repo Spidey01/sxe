@@ -169,7 +169,7 @@ public class ResourceManager {
      * this. Use {@link #setLoader} for that. You can however manipulate the
      * loaders themselves.
      */
-    public final Map<String, ResourceLoader> getLoaders() {
+    public Map<String, ResourceLoader> getLoaders() {
         return Collections.unmodifiableMap(mLoaders);
     }
 

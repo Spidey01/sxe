@@ -54,19 +54,19 @@ public class KeyEvent {
         return mSource;
     }
 
-    public final int getKeyCode() {
+    public int getKeyCode() {
         return mKeyCode;
     }
 
-    public final String getKeyName() {
+    public String getKeyName() {
         return mKeyName;
     }
 
-    public final boolean isKeyDown() {
+    public boolean isKeyDown() {
         return mIsDown;
     }
 
-    public final boolean isKeyUp() {
+    public boolean isKeyUp() {
         return !mIsDown;
     }
 
