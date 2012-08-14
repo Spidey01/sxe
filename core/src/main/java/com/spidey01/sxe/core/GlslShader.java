@@ -107,8 +107,7 @@ public class GlslShader implements Shader {
     public boolean compile(Type type, InputStream source) {
         mType = type;
         try {
-            return doCompile(
-                getSource(Utils.makeBufferedReader(source)));
+            return doCompile(Utils.slurp(source));
         } catch(IOException e) {
             Log.e(TAG, "Unable to load shader from input stream", e);
             return false;
@@ -120,8 +119,7 @@ public class GlslShader implements Shader {
         mType = Utils.getShaderType(fileName);
 
         try {
-            return doCompile(
-                getSource(new BufferedReader(new FileReader(fileName))));
+            return doCompile(Utils.slurp(fileName));
         } catch(IOException e) {
             Log.e(TAG, "Unable to load shader from "+fileName, e);
             return false;
@@ -148,23 +146,6 @@ public class GlslShader implements Shader {
         return mGl.glGetShaderInfoLog(mShader);
     }
     
-    /** Helper method for slurping.
-     * 
-     * This can be used for getting the source code of a shader program.
-     */
-    protected final String getSource(BufferedReader reader)
-        throws IOException
-    {
-        String code = "";
-        String line;
-
-        while ((line = reader.readLine()) != null) {
-            code += line + "\n";
-        }
-
-        return code;
-    }
-
     protected boolean doCompile(String code) {
         int type = -1;
 

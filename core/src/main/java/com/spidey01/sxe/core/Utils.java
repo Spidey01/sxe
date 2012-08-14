@@ -23,10 +23,12 @@
 
 package com.spidey01.sxe.core;
 
-import java.io.InputStream;
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class Utils {
 
@@ -67,6 +69,33 @@ public class Utils {
             return Shader.Type.FRAGMENT;
         }
         throw new RuntimeException("Unknown shader type for "+fileName);
+    }
+
+    /** Slurps a File into a String. */
+    public static String slurp(File source) throws IOException {
+        return Utils.slurp(new BufferedReader(new FileReader(source)));
+    }
+
+    /** Slurps a File into a String. */
+    public static String slurp(String path) throws IOException {
+        return Utils.slurp(new BufferedReader(new FileReader(path)));
+    }
+
+    /** Slurps a InputStream into a String. */
+    public static String slurp(InputStream source) throws IOException {
+        return Utils.slurp(Utils.makeBufferedReader(source));
+    }
+
+    /** Slurps a BufferedReader into a String. */
+    public static String slurp(BufferedReader source) throws IOException {
+        String line;
+        StringBuilder sb = new StringBuilder();
+
+        while ((line = source.readLine()) != null) {
+            sb.append(line + "\n");
+        }
+
+        return sb.toString();
     }
 }
 
