@@ -71,7 +71,21 @@ public class PcConfiguration {
         return new GameEngine(c);
     }
 
-    private static setupXdgVars() {
+    private static void setupXdgVars() {
+
+        // no-op if any are set
+        if (System.getenv("XDG_DATA_HOME") != null
+            || System.getenv("XDG_CONFIG_HOME") != null
+            || System.getenv("XDG_CACHE_DIR") != null
+            || System.getenv("XDG_RUNTIME_DIR") != null
+            || System.getenv("XDG_DATA_DIRS") != null
+            || System.getenv("XDG_CONFIG_DIRS") != null)
+        {
+            Log.i(TAG, "Some XDG vars already set; trusting enviornment.");
+            return;
+        }
+
+
         final String os = System.getProperty("os.name");
 
         if (os.startsWith("Mac OS X")) {
@@ -82,19 +96,20 @@ public class PcConfiguration {
 
             if (fuzzyVer < 5.0) {
                 Log.w(TAG, "os.version reports a Windows version older than Windows 2000. The name/value was "+os+"/"+ver);
-                throw RuntimeException("Unsupported Windows version.");
+                Log.w(TAG, "Unsupported Windows version: os.name="+os+" os.version="+ver);
             }
 
-            if (ver.startsWith("5")) {
-                // use Application Data\Game name
-            } else {
-                // I assume Windows NT 6.0/Vista
-
-                // use AppData\Roaming\Game name
+            final String localAppData = System.getenv("LocalAppData");
+            if (localAppData == null) {
+                Log.e(TAG, "This appears to be a Microsoft Windows OS but %LocalAppData% is not set!");
+                throw new
+                    RuntimeException("%LocalAppData% or %XDG_*% must be set on Windows.");
             }
+
         }
 
         // Other wise it's assumed that the default (unix) values are okay.
+        assert System.getenv("HOME") != null : "If HOME isn't set, b/p to cry!";
     }
 }
 
