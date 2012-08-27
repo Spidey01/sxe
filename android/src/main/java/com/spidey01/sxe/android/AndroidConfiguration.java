@@ -50,6 +50,7 @@ public class AndroidConfiguration {
             .setGame(game)
             .setInput(new AndroidInputManager(d))
             .setResources(new ResourceManager())
+            .setSettings(new AndroidSettings(context, game.getName()))
             .setPlatform("android")
             .setPlatformVersion("android "+Build.VERSION.RELEASE);
 

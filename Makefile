@@ -29,7 +29,7 @@ dist-snakegame-pc: dist-pc $(snakegamedeps)
 run-snakegame-pc: dist-snakegame-pc
 	(cd "$(DESTDIR)" && \
 		env \
-			XDG_CONFIG_HOME="/tmp/.config" "XDG_CONFIG_DIRS=/etc/xdg:$(DESTDIR)" \
+			XDG_CONFIG_HOME="/dist/" "XDG_CONFIG_DIRS=/etc/xdg:$(DESTDIR)" \
 			XDG_DATA_HOME="/tmp/.local/share" "XDG_DATA_DIRS=$(DESTDIR)" \
 		java -Djava.library.path="$(CURDIR)/pc/target/natives" -jar snakegame-pc-0.0.1-SNAPSHOT.jar "640x480")
 

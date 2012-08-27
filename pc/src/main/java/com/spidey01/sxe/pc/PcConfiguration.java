@@ -30,6 +30,8 @@ import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.LogSink;
 import com.spidey01.sxe.core.ResourceManager;
+import com.spidey01.sxe.core.Settings;
+import com.spidey01.sxe.core.SettingsFile;
 
 import java.io.FileNotFoundException;
 
@@ -66,9 +68,43 @@ public class PcConfiguration {
             .setGame(game)
             .setInput(new PcInputManager())
             .setResources(new ResourceManager())
+            .setSettings(PcConfiguration.settings(game))
             .setPlatform("pc");
 
         return new GameEngine(c);
+    }
+
+    public static Settings settings(Game game) {
+        final String os = System.getProperty("os.name");
+
+        if (os.startsWith("Windows")) {
+            final String ver = System.getProperty("os.version");
+            final float fuzzyVer = Float.valueOf(ver);
+
+            if (fuzzyVer < 5.0) {
+                Log.w(TAG, "os.version reports a Windows version older than Windows 2000. The name/value was "+os+"/"+ver);
+                Log.w(TAG, "Unsupported Windows version: os.name="+os+" os.version="+ver);
+            }
+
+            final String localAppData = System.getenv("LocalAppData");
+            if (localAppData == null) {
+                Log.e(TAG, "This appears to be a Microsoft Windows OS but %LocalAppData% is not set!");
+                throw new
+                    RuntimeException("%LocalAppData% or %XDG_*% must be set on Windows.");
+            }
+
+            return new SettingsFile(
+                localAppData+"/"
+                /*+game.getPublisher()+"/"*/
+                +game.getName()+".cfg");
+        }
+
+        // go with unix as default.
+        String dir = System.getenv("XDG_CONFIG_HOME");
+        if (dir == null) {
+            dir = System.getProperty("user.home")+"/.config";
+        }
+        return new SettingsFile(dir+"/"+game.getName()+".cfg");
     }
 }
 

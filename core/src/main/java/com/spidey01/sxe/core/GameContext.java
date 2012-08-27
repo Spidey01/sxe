@@ -54,6 +54,7 @@ public class GameContext {
     private GameEngine mEngine;
     private InputManager mInput;
     private ResourceManager mResources;
+    private Settings mSettings;
     private Map<String, Object> mOptions;
 
     private String mPlatformName;
@@ -75,7 +76,7 @@ public class GameContext {
      */
     public GameContext(Console console, Display display, Game game,
         GameEngine engine, InputManager input, ResourceManager resources,
-        Map<String, Object> opts)
+        Settings settings, Map<String, Object> opts)
     {
         mConsole = console;
         mDisplay = display;
@@ -83,6 +84,7 @@ public class GameContext {
         mEngine = engine;
         mInput = input;
         mResources = resources;
+        mSettings = settings;
 
         if (opts == null) {
             mOptions = opts;
@@ -113,6 +115,10 @@ public class GameContext {
 
     public ResourceManager getResources() {
         return mResources;
+    }
+
+    public Settings getSettings() {
+        return mSettings;
     }
 
     /** Raw access to internal options hash.
@@ -184,6 +190,11 @@ public class GameContext {
 
     public GameContext setResources(ResourceManager value) {
         mResources = value;
+        return this;
+    }
+
+    public GameContext setSettings(Settings value) {
+        mSettings = value;
         return this;
     }
 
