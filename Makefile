@@ -27,7 +27,11 @@ dist-snakegame-pc: dist-pc $(snakegamedeps)
 # don't want the extra disk writes of copying the extra files to $DESTDIR on
 # every test run.
 run-snakegame-pc: dist-snakegame-pc
-	(cd "$(DESTDIR)" && java -Djava.library.path="$(CURDIR)/pc/target/natives" -jar snakegame-pc-0.0.1-SNAPSHOT.jar "640x480")
+	(cd "$(DESTDIR)" && \
+		env \
+			XDG_CONFIG_HOME="/tmp/.config" "XDG_CONFIG_DIRS=/etc/xdg:$(DESTDIR)" \
+			XDG_DATA_HOME="/tmp/.local/share" "XDG_DATA_DIRS=$(DESTDIR)" \
+		java -Djava.library.path="$(CURDIR)/pc/target/natives" -jar snakegame-pc-0.0.1-SNAPSHOT.jar "640x480")
 
 android:
 	mvn -P $@ $(thismvnflags) $(goals)
