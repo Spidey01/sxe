@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.HashMap;
 
@@ -63,6 +65,19 @@ public class LogSink {
     public LogSink(PrintStream s, int level) {
         this(s);
         mDefaultLevel = level;
+    }
+
+    public LogSink(File file) throws FileNotFoundException {
+        this(new PrintStream(file));
+    }
+
+    /** Creates a LogSink for a File.
+     *
+     * @param file to sink to.
+     * @param level default log level.
+     */
+    public LogSink(File file, int level) throws FileNotFoundException {
+        this(new PrintStream(file), level);
     }
 
     public boolean isLoggable(String tag, int level) {

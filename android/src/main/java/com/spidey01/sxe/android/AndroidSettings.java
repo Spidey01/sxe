@@ -60,9 +60,6 @@ public class AndroidSettings implements Settings {
         mListeners.add(listener);
     }
 
-registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener)
-Registers a callback to be invoked when a change happens to a preference.
-abstract void	 unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener)
     public void removeChangeListener(OnChangedListener listener) {
         mListeners.remove(listener);
     }
@@ -73,8 +70,12 @@ abstract void	 unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSh
         }
     }
 
+    public String[] keys() {
+        return (String[])mPrefs.keySet().toArray();
+    }
+
     public boolean contains(String key) {
-        return mProps.containsKey(key);
+        return mPrefs.contains(key);
     }
 
     public Map<String, Object> getAll() {

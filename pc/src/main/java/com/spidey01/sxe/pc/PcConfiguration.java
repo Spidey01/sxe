@@ -22,18 +22,14 @@
  */
 
 package com.spidey01.sxe.pc;
-import java.io.PrintStream;
 
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameContext;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.LogSink;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.Settings;
 import com.spidey01.sxe.core.SettingsFile;
-
-import java.io.FileNotFoundException;
 
 /** Utility class to setup a GameContext to the configuration for PC.
  */
@@ -46,21 +42,6 @@ public class PcConfiguration {
     }
 
     public static GameEngine setup(Game game, String displayMode) {
-
-        /*
-         * default log setup
-         *
-         * This is bad default b/c the directory might not be writable, but
-         * this so happens to be for debug builds running out of ./dist, not a
-         * release build. Change this for a release, D'uh!
-         *
-         * like wise it should be for Log.INFO or higher, not for Log.VERBOSE.
-         */
-        try {
-            Log.add(new LogSink(new PrintStream(game.getName()+".log"), Log.VERBOSE));
-        } catch(FileNotFoundException e) {
-            System.err.println("Failed creating log file, *sad face*: "+e);
-        }
 
         GameContext c = new GameContext()
             .setConsole(null)

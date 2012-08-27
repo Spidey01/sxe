@@ -25,11 +25,13 @@ package com.spidey01.sxe.core;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 
 /** Class implementing the game engine for PC/Mac hardware. */
 public class GameEngine {
@@ -68,6 +70,8 @@ public class GameEngine {
      */
     public GameEngine(GameContext context) {
         mCtx = context;
+
+        setupLogging();
 
         Log.i(TAG,
             "platform=\""+mCtx.getPlatform()+"\""
@@ -123,8 +127,6 @@ public class GameEngine {
     }
 
     /** Convenience method that can serve as a simple main loop.
-     *
-     * The default implementation throws an UnsupportedOperationException.
      */
     public void mainLoop() {
 		while (!mCtx.getGame().isStopRequested() && !mCtx.getDisplay().isCloseRequested()) {
@@ -158,6 +160,58 @@ public class GameEngine {
      */
     public ResourceManager getResources() {
         return mCtx.getResources();
+    }
+
+    private void setupLogging() {
+        Settings s = mCtx.getSettings();
+
+        if (s.getBoolean("debug")) {
+            // Make sure that we have a log file.
+            if (!s.contains("debug.log_level"))
+                s.setInt("debug.log_level", Log.VERBOSE);
+            if (!s.contains("debug.log_type"))
+                s.setString("debug.log_type", "file");
+            if (!s.contains("debug.log_file"))
+                s.setString("debug.log_file", "debug.log");
+        }
+
+        // Setup log sinks for every matching config tree.
+        for (String key : s.keys()) {
+            int i = key.lastIndexOf(".log_type");
+            if (i != -1) {
+                makeLogSink(key.substring(0, i));
+            }
+        }
+    }
+
+    private void makeLogSink(String top) {
+        Settings s = mCtx.getSettings();
+        String type = s.getString(top+".log_type").toLowerCase();
+
+        if (type.isEmpty()) {
+            // not a log spec'
+            return;
+        }
+        else if (type.equals("file")) {
+            String fileName = s.getString(top+".log_file");
+
+            try {
+                // this will default to ASSERT(0)
+                int l = s.getInt(top+".log_level");
+                Log.add(new LogSink(new File(fileName), l));
+                Log.i(TAG, "logging for "+top+" is level="+l+" file="+fileName);
+            } catch(FileNotFoundException e) {
+                System.err.println("Failed creating default log file, *sad face*: "+e);
+                Log.e(TAG, "Failed creating log file: "+fileName, e);
+            }
+        }
+        else if (type.equals("stdout") || type.equals("stderr")) {
+            int l = s.getInt(top+".log_level");
+            Log.add(new LogSink(
+                type.equals("stdout") ? System.out : System.err, l));
+            Log.i(TAG, "logging for "+top+" is level="+l+" type="+type);
+        }
+        // null log type gets no LogSink.
     }
 }
 

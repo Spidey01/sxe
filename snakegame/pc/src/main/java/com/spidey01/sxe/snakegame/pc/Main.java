@@ -39,9 +39,6 @@ import java.io.*;
 class Main {
 
     public static void main(String[] args) {
-        // for debugging
-        Log.add(new LogSink(System.out, Log.DEBUG));
-
         GameEngine g = PcConfiguration.setup(new SnakeGame(), "640 x 480");
         g.start();
         g.mainLoop();

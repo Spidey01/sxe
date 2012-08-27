@@ -37,6 +37,9 @@ public interface Settings {
     void addChangeListener(OnChangedListener listener);
     void removeChangeListener(OnChangedListener listener);
 
+    /** Sequence of all keys that are set. */
+    String[] keys();
+
     /** Test if preference is set. */
     boolean contains(String key);
 
