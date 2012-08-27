@@ -49,6 +49,8 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.Random;
+import com.spidey01.sxe.core.Settings;
+import com.spidey01.sxe.core.SettingsFile;
 
 public class SnakeGame
     extends Game

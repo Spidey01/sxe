@@ -43,8 +43,6 @@ public class AndroidConfiguration {
         // TODO for release builds lower this to WARN or INFO.
         Log.add(new AndroidLogSink(Log.VERBOSE));
 
-        setupXdg(game, context);
-
         AndroidDisplay d = new AndroidDisplay(context);
         GameContext c = new GameContext()
             .setConsole(null)
