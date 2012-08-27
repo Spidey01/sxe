@@ -94,6 +94,13 @@ public class GameEngine {
     public boolean start() {
         Log.v(TAG, "start()");
 
+        Log.i(TAG, "XDG_DATA_HOME=\""+System.getenv("XDG_DATA_HOME")+"\"");
+        Log.i(TAG, "XDG_CONFIG_HOME=\""+System.getenv("XDG_CONFIG_HOME")+"\"");
+        Log.i(TAG, "XDG_CACHE_DIR=\""+System.getenv("XDG_CACHE_DIR")+"\"");
+        Log.i(TAG, "XDG_RUNTIME_DIR=\""+System.getenv("XDG_RUNTIME_DIR")+"\"");
+        Log.i(TAG, "XDG_DATA_DIRS=\""+System.getenv("XDG_DATA_DIRS")+"\"");
+        Log.i(TAG, "XDG_CONFIG_DIRS=\""+System.getenv("XDG_CONFIG_DIRS")+"\"");
+
         if (!mCtx.getDisplay().create()) {
             return false;
         }

@@ -57,29 +57,6 @@ public class AndroidConfiguration {
 
         return new GameEngine(c);
     }
-
-    public static void setupXdg(Game game, Context context) {
-        boolean mExternalReadable = false;
-        boolean mExternalWritable = false;
-
-        final String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            mExternalWritable = mExternalReadable = true;
-        } else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
-            mExternalReadable = true;
-        }
-
-        System.setenv("XDG_CACHE_HOME", context.getCacheDir());
-
-        // config and data home?
-
-        System.setenv("XDG_DATA_DIRS",
-            context.getFilesDir().toString()
-            + ":" + context.getExternalFilesDir(null).toString()
-            + ":" + context.getObbDir().toString());
-
-        // config dirs?
-    }
 }
 
 
