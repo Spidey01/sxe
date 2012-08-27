@@ -23,14 +23,22 @@
 
 package com.spidey01.sxe.core;
 
-import java.util.Map;
-
 /** Access to persistent settings.
  *
  * @see PcSettings
  * @see AndroidSettings
  */
 public interface Settings {
+
+    public interface OnChangedListener {
+        void onChanged(Settings settings, String key);
+    }
+    
+    void addChangeListener(OnChangedListener listener);
+    void removeChangeListener(OnChangedListener listener);
+
+    /** Test if preference is set. */
+    boolean contains(String key);
 
     /** Get key as a boolean value.
      *

@@ -27,14 +27,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.LinkedList;
 import java.util.Properties;
 
 public class SettingsFile implements Settings {
     private final static String TAG = "SettingsFile";
     private final String mName;
     private Properties mProps = new Properties();
+    private List<Settings.OnChangedListener> mListeners =
+        new LinkedList<Settings.OnChangedListener>();
 
     public SettingsFile(String name) {
         mName = name;
@@ -44,6 +46,24 @@ public class SettingsFile implements Settings {
             Log.e(TAG, "Couldn't load "+mName+". Using blank Properties.", e);
             mProps.clear();
         }
+    }
+
+    public void addChangeListener(OnChangedListener listener) {
+        mListeners.add(listener);
+    }
+
+    public void removeChangeListener(OnChangedListener listener) {
+        mListeners.remove(listener);
+    }
+
+    private void notifyListeners(String key) {
+        for (Settings.OnChangedListener l : mListeners) {
+            l.onChanged(this, key);
+        }
+    }
+
+    public boolean contains(String key) {
+        return mProps.containsKey(key);
     }
 
     public boolean getBoolean(String key) {
@@ -68,26 +88,31 @@ public class SettingsFile implements Settings {
 
 
     public Settings setBoolean(String key, boolean value) {
+        notifyListeners(key);
         mProps.setProperty(key, Boolean.toString(value));
         return this;
     }
 
     public Settings setFloat(String key, float value) {
+        notifyListeners(key);
         mProps.setProperty(key, Float.toString(value));
         return this;
     }
 
     public Settings setInt(String key, int value) {
+        notifyListeners(key);
         mProps.setProperty(key, Integer.toString(value));
         return this;
     }
 
     public Settings setLong(String key, long value) {
+        notifyListeners(key);
         mProps.setProperty(key, Long.toString(value));
         return this;
     }
 
     public Settings setString(String key, String value) {
+        notifyListeners(key);
         mProps.setProperty(key, value);
         return this;
     }

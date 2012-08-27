@@ -28,8 +28,8 @@ import core.spidey01.sxe.core.Settings;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import java.util.Map;
-import java.util.HashMap;
+import java.util.List;
+import java.util.LinkedList;
 
 /** Implementation of Settings using SharedPreferences.
  *
@@ -38,10 +38,43 @@ import java.util.HashMap;
 public class AndroidSettings implements Settings {
     private final static String TAG = "AndroidSettings";
     private final int DEFAULT_MODE = Context.MODE_PRIVATE;
+    private List<Settings.OnChangedListener> mListeners =
+        new LinkedList<Settings.OnChangedListener>();
     private SharedPreferences mPrefs = null;
 
     public AndroidSettings(Context context, String name) {
-        mprefs = context.getSharedPreferences(name, DEFAULT_MODE);
+        mPrefs = context.getSharedPreferences(name, DEFAULT_MODE);
+
+        final Settings s = this;
+
+        mPrefs.registerOnSharedPreferenceChangeListener(
+            new SharedPreferences.OnSharedPreferenceChangeListener() {
+                public void onSharedPreferenceChanged(SharedPreferences sp, String key) {
+                    s.notifyListeners(key);
+                }
+            }
+        );
+    }
+
+    public void addChangeListener(OnChangedListener listener) {
+        mListeners.add(listener);
+    }
+
+registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener)
+Registers a callback to be invoked when a change happens to a preference.
+abstract void	 unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener)
+    public void removeChangeListener(OnChangedListener listener) {
+        mListeners.remove(listener);
+    }
+
+    private void notifyListeners(String key) {
+        for (Settings.OnChangedListener l : mListeners) {
+            l.onChanged(this, key);
+        }
+    }
+
+    public boolean contains(String key) {
+        return mProps.containsKey(key);
     }
 
     public Map<String, Object> getAll() {
