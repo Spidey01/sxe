@@ -1,6 +1,7 @@
 
 apply plugin: 'java'
 group = 'com.spidey01.sxe.core'
+archivesBaseName = 'sxe-core'
 version = '0.0.1-SNAPSHOT'
 description = ''
 
