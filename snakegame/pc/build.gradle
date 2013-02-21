@@ -1,0 +1,20 @@
+
+apply plugin: 'java'
+group = 'com.spidey01.sxe.snakegame.pc'
+archivesBaseName = 'snakegame-pc'
+version = '0.0.1-SNAPSHOT'
+description = 'Snake game demo for x86-based PCs'
+
+// to find lwjgl
+repositories {
+    mavenLocal()
+    mavenCentral()
+    mavenRepo url: "http://repo.maven.apache.org/maven2"
+}
+
+dependencies {
+    compile project(':core')
+    compile project(':pc')
+    compile project(':snakegame:lib')
+}
+

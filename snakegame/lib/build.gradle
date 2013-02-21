@@ -1,0 +1,11 @@
+
+apply plugin: 'java'
+group = 'com.spidey01.sxe.snakegame.lib'
+archivesBaseName = 'snakegame-lib'
+version = '0.0.1-SNAPSHOT'
+description = 'Snake game demo implementation code'
+
+dependencies {
+    compile project(':core')
+}
+

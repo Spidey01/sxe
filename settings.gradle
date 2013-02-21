@@ -1,9 +1,6 @@
 rootProject.name = 'sxe'
 include ':core'
 include ':pc'
-// include ':snakegame'
-
-// project(':core').projectDir = "$rootDir/core" as File
-// project(':pc').projectDir = "$rootDir/pc" as File
-// project(':snakegame').projectDir = "$rootDir/snakegame" as File
+include ':snakegame:lib'
+include ':snakegame:pc'
 
