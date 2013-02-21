@@ -4,14 +4,9 @@ group = 'com.spidey01.sxe.pc'
 version = '0.0.1-SNAPSHOT'
 description = 'Platform library for x86-based PCs'
    
-repositories {
-    mavenLocal()
-    mavenCentral()
-    mavenRepo url: "http://repo.maven.apache.org/maven2"
-}
-
 dependencies {
     compile group: 'org.lwjgl.lwjgl', name: 'lwjgl', version:'2.8.4'
     compile group: 'org.lwjgl.lwjgl', name: 'lwjgl_util', version:'2.8.4'
     compile project(':core')
 }
+

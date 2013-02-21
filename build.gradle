@@ -1,1 +1,11 @@
 
+allprojects {
+
+    /** So all projects  have this in one place.
+     */
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
