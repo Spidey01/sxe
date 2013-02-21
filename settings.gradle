@@ -1,6 +1,32 @@
 rootProject.name = 'sxe'
-include ':core'
-include ':pc'
-include ':snakegame:lib'
-include ':snakegame:pc'
+
+/** Our way of deciding what to build for.
+ *
+ * Value        Description
+ *
+ * null         Just build core.
+ * pc           Code for x86 PCs.
+ * android      Code for Android devices.
+ */
+if (!hasProperty('sxeTarget')) {
+    sxeTarget = null
+}
+
+switch (sxeTarget) {
+    case [ 'x86', 'pc' ]:
+        include ':core'
+        include ':pc'
+        include ':snakegame:lib'
+        include ':snakegame:pc'
+        break
+    case [ 'android' ]:
+        include ':core'
+        include ':android'
+        include ':snakegame:lib'
+        include ':snakegame:android'
+        break
+    default:
+        include ':core'
+        break
+}
 
