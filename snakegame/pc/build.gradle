@@ -14,18 +14,51 @@ dependencies {
     compile project(':snakegame:lib')
 }
 
-/*
+/** Reprogram start scripts to set the correct java.library.path for LWJGL.
+ */
 startScripts {  
-    // works, for setting the var anyway
-    ext.jvmOpts = ""
-    inputs.property("jvmOpts", { ext.jvmOpts }) // for incremental build to work properly
-
     doLast {  
+        unixScript.text = unixScript.text.replace(
+            'exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" ' + mainClassName,
+            'exec "$JAVACMD" "${JVM_OPTS[@]}" -Djava.library.path=$APP_HOME/lib/natives -classpath "$CLASSPATH" ' + mainClassName
+        )
 
-        def optsEnvVar = "DEFAULT_JVM_OPTS"  
-        unixScript.text = unixScript.text.replace("$optsEnvVar=${'""'}", "$optsEnvVar=${'"'}-Djava.library.path=\${APP_HOME}/lib/natives${'"'}")  
-        windowsScript.text = windowsScript.text.replace("set $optsEnvVar=", "set $optsEnvVar=-Djava.library.path=%APP_HOME%\\lib\\natives")  
+        windowsScript.text = windowsScript.text.replace(
+            '"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %PC_OPTS%',
+            '"%JAVA_EXE%" -Djava.library.path=%APP_HOME%\\lib\\natives %DEFAULT_JVM_OPTS% %JAVA_OPTS% %PC_OPTS%'
+        )
     }  
 }
-*/
+
+/** Hook installApp, so that LWJGL natives are extracted at the tail.
+ */
+// project(":snakegame:pc").installApp
+installApp << {
+    println "Oh how I hate you!"
+
+    project.ext.nativesDir = new File("${destinationDir}${File.separator}lib${File.separator}natives")
+    if (!project.ext.nativesDir.mkdir()) {
+        throw new TaskExecutionException(installApp)
+    }
+
+
+    project.ext.nativeJarToUnpack = ''
+    configurations.compile.files.each {
+        def path = it.toString()
+        if (path.contains('-native') && path.endsWith('.jar')) {
+            path = path.replace('\\', '/') // for Winsucks.
+
+            def start = path.lastIndexOf('/')+1
+            def end = path.lastIndexOf('.jar')-1
+            def basename = path[ start .. end ]
+
+            project.ext.nativeJarToUnpack = path
+            // myUnjar.each{println "it => $it" }
+            copy {
+                from zipTree(project.ext.nativeJarToUnpack)
+                into project.ext.nativesDir
+            }
+        }
+    }
+}
 
