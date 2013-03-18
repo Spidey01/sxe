@@ -1,0 +1,13 @@
+This is an experiment in making a game engine. It's intended for real use but hacked in odd moments and occasionally odd purposes, so don't expect master to always be in a well engineered state.
+
+SxE is intended to be simple, modular, and able to deal with platforms. PC and Android are officially supported.
+
+To build the system you must set the sxeTarget property. Refer to settings.gradle for values. Generally, you want something like this:
+
+	gradle -q -PsxeTarget=pc build
+
+The installApp, distZip, and distTarget targets should generally work where applicable, e.g. for demo applications.
+
+
+Code is structured into subproject modules for the core system and platform dependencies. Demo apps do like wise.
+
