@@ -81,8 +81,8 @@ project.ext.filterStartScripts = { subproject ->
             )
 
             windowsScript.text = windowsScript.text.replace(
-                '"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %PC_OPTS%',
-                '"%JAVA_EXE%" -Djava.library.path=%APP_HOME%\\lib\\natives %DEFAULT_JVM_OPTS% %JAVA_OPTS% %PC_OPTS%'
+                '"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% ',
+                '"%JAVA_EXE%" -Djava.library.path=%APP_HOME%\\lib\\natives %DEFAULT_JVM_OPTS% %JAVA_OPTS% '
             )
         }  
     }
