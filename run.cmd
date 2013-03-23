@@ -1,5 +1,9 @@
 @ECHO OFF
-PUSHD dist
-REM the natives folder needs to be a part of dist, in the end.
-java -Djava.library.path=..\pc\target\natives -jar snakegame-pc-0.0.1-SNAPSHOT.jar "640x480"
-POPD
+IF "%1" == "" (
+	echo Select demo, e.g. .\%0 snakegame
+	goto :eof
+)
+
+IF "%XDG_CONFIG_HOME%" == "" (SET XDG_CONFIG_HOME=.)
+
+%1\pc\build\install\%1-pc\bin\%1-pc.bat %2 %3 %4 %5 %6 %7 %8 %9
