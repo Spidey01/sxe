@@ -40,27 +40,6 @@ public class GameEngine {
     protected GameThread mGameThread;
     private static final String TAG = "GameEngine";
 
-    /** Initializes itself from configuration stored in com.spidey01.sxe.core.C.
-     *
-     * The following fields in C are manditory:
-     *
-     *      - display
-     *      - game
-     *      - input
-     *      - resources
-     *
-     * @see com.spidey01.sxe.pc.PcConfiguration
-     * @see com.spidey01.sxe.android.AndroidConfiguration
-     * @depreciated Replaced by {@link GameContext}.
-     */
-    public GameEngine() {
-        this(new GameContext()
-            .setDisplay(C.getDisplay())
-            .setInput(C.getInput())
-            .setResources(C.getResources())
-            .setGame(C.getGame()));
-    }
-
     /** Initializes the engine for use.
      *
      * If you have little interest in providing more than "Game" yourself. You
@@ -138,28 +117,6 @@ public class GameEngine {
 
     public GameContext getGameContext() {
         return mCtx;
-    }
-
-
-    /**
-     * @depreciated Use {@link #getGameContext()} instead.
-     */
-    public Display getDisplay() {
-        return mCtx.getDisplay();
-    }
-
-    /**
-     * @depreciated Use {@link #getGameContext()} instead.
-     */
-    public InputManager getInput() {
-        return mCtx.getInput();
-    }
-
-    /**
-     * @depreciated Use {@link #getGameContext()} instead.
-     */
-    public ResourceManager getResources() {
-        return mCtx.getResources();
     }
 
     private void setupLogging() {
