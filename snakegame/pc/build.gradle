@@ -4,7 +4,7 @@ apply plugin:'application'
 
 group = 'com.spidey01.sxe.snakegame.pc'
 mainClassName = group + '.Main'
-archivesBaseName = 'snakegame-pc'
+applicationName = archivesBaseName = 'snakegame-pc'
 version = '0.0.1-SNAPSHOT'
 description = 'Snake game demo for x86-based PCs'
 
