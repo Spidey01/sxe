@@ -74,7 +74,7 @@ public class SnakeGame
         Log.v(TAG, "Snake Game is starting.");
 
         mConsole = new Console(/* args we may need from mEngine */);
-        mGameEngine.getDisplay().addFrameStartedListener(mConsole);
+        mGameEngine.getGameContext().getDisplay().addFrameStartedListener(mConsole);
         // mGameEngine.getDisplay().addFrameStartedListener(this);
         setupConsoleCommands();
         setupControls();
@@ -84,7 +84,7 @@ public class SnakeGame
               -0.8f, -0.8f,
               0.8f,  -0.8f,
         });
-        mGameEngine.getDisplay().addFrameStartedListener(mTriangle);
+        mGameEngine.getGameContext().getDisplay().addFrameStartedListener(mTriangle);
 
         {
             Log.v(TAG, "testing vfs: ");
@@ -121,7 +121,7 @@ public class SnakeGame
         }
 
         Log.v(TAG, "Snake Game is stopping.");
-        mGameEngine.getDisplay().addFrameStartedListener(this);
+        mGameEngine.getGameContext().getDisplay().addFrameStartedListener(this);
     }
 
     @Override
@@ -164,11 +164,11 @@ public class SnakeGame
             "P", // used to toggle repeating mode on the console for testing.
         };
         for (String k : keys) {
-            mGameEngine.getInput().addKeyListener(k, this);
+            mGameEngine.getGameContext().getInput().addKeyListener(k, this);
         }
 
         // the console will only steal key events when it is visable.
-        mGameEngine.getInput().addKeyListener(mConsole);
+        mGameEngine.getGameContext().getInput().addKeyListener(mConsole);
     }
 
     // Very simple way of doing some key binds
