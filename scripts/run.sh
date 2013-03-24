@@ -8,4 +8,4 @@ fi
 demo="$1"
 shift
 
-"../${demo}/pc/build/install/${demo}-pc/bin/${demo}-pc.bat" "$@"
+"${demo}/pc/build/install/${demo}-pc/bin/${demo}-pc.bat" "$@"
