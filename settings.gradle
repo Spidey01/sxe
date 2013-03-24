@@ -16,6 +16,10 @@ switch (sxeTarget) {
     case [ 'x86', 'pc' ]:
         include ':core'
         include ':pc'
+        include ':demos:helloworld:lib'
+        include ':demos:helloworld:pc'
+        include ':demos:pingpong:lib'
+        include ':demos:pingpong:pc'
         include ':demos:snake:lib'
         include ':demos:snake:pc'
         break

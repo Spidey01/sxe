@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin:'application'
+
+group = 'com.spidey01.sxe.pingpong.pc'
+mainClassName = group + '.Main'
+applicationName = archivesBaseName = 'pingpong-pc'
+version = '0.0.1-SNAPSHOT'
+description = 'Ping Pong game demo for x86-based PCs'
+
+dependencies {
+    compile project(':core')
+    compile project(':pc')
+    compile project(':demos:pingpong:lib')
+}
+
+/**
+ * InstallApp, distZip, and distTar need to be tweaked in order to handle the native libraries of LWJGL.
+ */
+project(":pc").ext.extractNatives(project)
+
+/**
+ * Makes the startup scripts pass -Djava.library.path argument for the above.
+ */
+project(":pc").ext.filterStartScripts(project)
+
+
