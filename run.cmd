@@ -6,4 +6,4 @@ IF "%1" == "" (
 
 IF "%XDG_CONFIG_HOME%" == "" (SET XDG_CONFIG_HOME=.)
 
-%1\pc\build\install\%1-pc\bin\%1-pc.bat %2 %3 %4 %5 %6 %7 %8 %9
+demos\%1\pc\build\install\%1-pc\bin\%1-pc.bat %2 %3 %4 %5 %6 %7 %8 %9

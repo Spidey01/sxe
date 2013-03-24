@@ -2,16 +2,16 @@
 apply plugin: 'java'
 apply plugin:'application'
 
-group = 'com.spidey01.sxe.snakegame.pc'
+group = 'com.spidey01.sxe.snake.pc'
 mainClassName = group + '.Main'
-applicationName = archivesBaseName = 'snakegame-pc'
+applicationName = archivesBaseName = 'snake-pc'
 version = '0.0.1-SNAPSHOT'
 description = 'Snake game demo for x86-based PCs'
 
 dependencies {
     compile project(':core')
     compile project(':pc')
-    compile project(':snakegame:lib')
+    compile project(':demos:snake:lib')
 }
 
 /**

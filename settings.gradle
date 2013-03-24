@@ -16,14 +16,12 @@ switch (sxeTarget) {
     case [ 'x86', 'pc' ]:
         include ':core'
         include ':pc'
-        include ':snakegame:lib'
-        include ':snakegame:pc'
+        include ':demos:snake:lib'
+        include ':demos:snake:pc'
         break
     case [ 'android' ]:
         include ':core'
         include ':android'
-        include ':snakegame:lib'
-        include ':snakegame:android'
         break
     default:
         include ':core'
