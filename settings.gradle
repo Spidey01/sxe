@@ -9,7 +9,7 @@ rootProject.name = 'sxe'
  * android      Code for Android devices.
  */
 if (!hasProperty('sxeTarget')) {
-    sxeTarget = ''
+    set('sxeTarget', '')
 }
 
 switch (sxeTarget) {
