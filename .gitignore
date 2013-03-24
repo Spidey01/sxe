@@ -1,4 +1,4 @@
 dist/*
+.gradle/*
 *.sw?
 *.log
-.gradle/*
