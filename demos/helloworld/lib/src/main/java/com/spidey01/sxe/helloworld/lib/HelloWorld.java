@@ -27,6 +27,8 @@ import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 
+/** Hello World demo.
+ */
 public class HelloWorld
     extends Game
 {

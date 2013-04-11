@@ -27,6 +27,8 @@ import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 
+/** A simple game demo inspired by Pong.
+ */
 public class PingPongGame
     extends Game
 {
@@ -54,6 +56,18 @@ public class PingPongGame
         }
 
         Log.v(TAG, "Ping Pong Game is stopping.");
+    }
+
+    @Override
+    public void tick() {
+        switch (mState) {
+            case State.STARTING: {
+            } break;
+            case State.RUNNING: {
+            } break;
+            case State.STOPPING: {
+            } break;
+        }
     }
 
 }
