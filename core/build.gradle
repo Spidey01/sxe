@@ -5,3 +5,7 @@ archivesBaseName = 'sxe-core'
 version = '0.0.1-SNAPSHOT'
 description = ''
 
+dependencies {
+    testCompile group: 'junit', name: 'junit', version:'4.11'
+}
+
