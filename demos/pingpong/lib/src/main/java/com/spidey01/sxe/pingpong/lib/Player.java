@@ -21,22 +21,15 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.helloworld.lib;
+package com.spidey01.sxe.pingpong.lib;
 
-import com.spidey01.sxe.core.Game;
-import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 
-/** Hello World demo.
- */
-public class HelloWorld
-    extends Game
-{
-    private static final String TAG = "HelloWorld";
+public class Player {
+    private static final String TAG = "Player";
 
-    @Override
-    public String getName() {
-        return TAG;
+    public Player() {
+        Log.i(TAG, "Player object created.");
     }
-}
 
+}

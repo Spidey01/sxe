@@ -39,6 +39,7 @@ FRAGMENT	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\s
 FRAGMENT_SHADER	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Resource.java	/^        FRAGMENT_SHADER$/;"	e	enum:Resource.Type	file:
 FileResource	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\FileResource.java	/^    public FileResource(Type type, String fileName, ResourceLoader loader)$/;"	m	class:FileResource
 FileResource	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\FileResource.java	/^public class FileResource implements Resource {$/;"	c
+FooTest	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\FooTest.java	/^public class FooTest {$/;"	c
 FrameEndedListener	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\FrameEndedListener.java	/^public interface FrameEndedListener {$/;"	i
 FrameListener	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\FrameListener.java	/^public interface FrameListener$/;"	i
 FrameStartedListener	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\FrameStartedListener.java	/^public interface FrameStartedListener {$/;"	i
@@ -98,6 +99,9 @@ Mesh	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\c
 OnChangedListener	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Settings.java	/^    public interface OnChangedListener {$/;"	i	interface:Settings
 OpenGl	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\OpenGl.java	/^public interface OpenGl {$/;"	i
 OpenGles2Renderer	C:\Users\terry\Programs\workspace\sxe\android\src\main\java\com\spidey01\sxe\android\OpenGles2Renderer.java	/^public class OpenGles2Renderer implements GLSurfaceView.Renderer {$/;"	c
+Opponent	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\Opponent.java	/^    public Opponent() {$/;"	m	class:Opponent
+Opponent	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\Opponent.java	/^public class Opponent {$/;"	c
+PathLoaderTest	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\PathLoaderTest.java	/^public class PathLoaderTest {$/;"	c
 PathResourceLoader	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\PathResourceLoader.java	/^public class PathResourceLoader implements ResourceLoader {$/;"	c
 PcConfiguration	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\PcConfiguration.java	/^public class PcConfiguration {$/;"	c
 PcDisplay	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\PcDisplay.java	/^    public PcDisplay() {$/;"	m	class:PcDisplay
@@ -106,6 +110,8 @@ PcDisplay	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sx
 PcInputManager	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\PcInputManager.java	/^    public PcInputManager() {$/;"	m	class:PcInputManager
 PcInputManager	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\PcInputManager.java	/^public class PcInputManager extends InputManager {$/;"	c
 PingPongGame	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\PingPongGame.java	/^public class PingPongGame$/;"	c
+Player	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\Player.java	/^    public Player() {$/;"	m	class:Player
+Player	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\Player.java	/^public class Player {$/;"	c
 RUNNING	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Game.java	/^        RUNNING,$/;"	e	enum:Game.State	file:
 RateCounter	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\RateCounter.java	/^    public RateCounter(String name) {$/;"	m	class:RateCounter
 RateCounter	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\RateCounter.java	/^    public RateCounter(String name, boolean debug) {$/;"	m	class:RateCounter
@@ -162,7 +168,9 @@ TAG	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\co
 TAG	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\ZipResourceLoader.java	/^    private final static String TAG = "ZipResourceLoader";$/;"	f	class:ZipResourceLoader	file:
 TAG	C:\Users\terry\Programs\workspace\sxe\core\src\main\resources\templates\NewClass.java	/^    private final static String TAG = "CLASSTEMPLATE";$/;"	f	class:CLASSTEMPLATE	file:
 TAG	C:\Users\terry\Programs\workspace\sxe\demos\helloworld\lib\src\main\java\com\spidey01\sxe\helloworld\lib\HelloWorld.java	/^    private static final String TAG = "HelloWorld";$/;"	f	class:HelloWorld	file:
+TAG	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\Opponent.java	/^    private static final String TAG = "Opponent";$/;"	f	class:Opponent	file:
 TAG	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\PingPongGame.java	/^    private static final String TAG = "PingPongGame";$/;"	f	class:PingPongGame	file:
+TAG	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\Player.java	/^    private static final String TAG = "Player";$/;"	f	class:Player	file:
 TAG	C:\Users\terry\Programs\workspace\sxe\demos\snake\android\src\main\java\com\spidey01\sxe\snakegame\android\SnakeGameActivity.java	/^    private static final String TAG = "SnakeGameActivity";$/;"	f	class:SnakeGameActivity	file:
 TAG	C:\Users\terry\Programs\workspace\sxe\demos\snake\lib\src\main\java\com\spidey01\sxe\snake\lib\SnakeGame.java	/^    private static final String TAG = "SnakeGame";$/;"	f	class:SnakeGame	file:
 TAG	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\LwjglOpenGl.java	/^    private static final String TAG = "LwjglopenGl";$/;"	f	class:LwjglOpenGl	file:
@@ -170,6 +178,7 @@ TAG	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\P
 TAG	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\PcDisplay.java	/^    private static final String TAG = "PcDisplay";$/;"	f	class:PcDisplay	file:
 TAG	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\PcInputManager.java	/^    private static final String TAG = "PcInputManager";$/;"	f	class:PcInputManager	file:
 TEXT_FILE	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Resource.java	/^        TEXT_FILE,$/;"	e	enum:Resource.Type	file:
+TestUtils	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\TestUtils.java	/^public class TestUtils {$/;"	c
 Type	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Resource.java	/^    public enum Type {$/;"	g	interface:Resource
 Type	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Shader.java	/^    public enum Type {$/;"	g	interface:Shader
 UNKNOWN	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Resource.java	/^        UNKNOWN,$/;"	e	enum:Resource.Type	file:
@@ -212,6 +221,9 @@ addShader	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\
 addShader	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\GpuProgram.java	/^    void addShader(Shader shader);$/;"	m	interface:GpuProgram
 allowRepeating	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Console.java	/^    public void allowRepeating(boolean repeating) {$/;"	m	class:Console
 androidKeyCodeToString	C:\Users\terry\Programs\workspace\sxe\android\src\main\java\com\spidey01\sxe\android\AndroidInputManager.java	/^    private String androidKeyCodeToString(int keyCode) {$/;"	m	class:AndroidInputManager	file:
+bar	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\FooTest.java	/^    public void bar() {$/;"	m	class:FooTest
+baseDir	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\FooTest.java	/^    private static File baseDir;$/;"	f	class:FooTest	file:
+baseDir	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\TestUtils.java	/^    public static File baseDir = new File(System.getProperty("user.dir"));$/;"	f	class:TestUtils
 booleanValue	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Variable.java	/^    public boolean booleanValue() {$/;"	m	class:Variable
 com.spidey01.sxe.MODULETEMPLATE	C:\Users\terry\Programs\workspace\sxe\core\build\resources\main\templates\NewClass.java	/^package com.spidey01.sxe.MODULETEMPLATE;$/;"	p
 com.spidey01.sxe.MODULETEMPLATE	C:\Users\terry\Programs\workspace\sxe\core\src\main\resources\templates\NewClass.java	/^package com.spidey01.sxe.MODULETEMPLATE;$/;"	p
@@ -261,13 +273,18 @@ com.spidey01.sxe.core	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\c
 com.spidey01.sxe.core	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Variable.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\VirtualFileSystemLoader.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\ZipResourceLoader.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.core	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\FooTest.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.core	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\PathLoaderTest.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.core	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\TestUtils.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.helloworld.lib	C:\Users\terry\Programs\workspace\sxe\demos\helloworld\lib\src\main\java\com\spidey01\sxe\helloworld\lib\HelloWorld.java	/^package com.spidey01.sxe.helloworld.lib;$/;"	p
 com.spidey01.sxe.helloworld.pc	C:\Users\terry\Programs\workspace\sxe\demos\helloworld\pc\src\main\java\com\spidey01\sxe\helloworld\pc\Main.java	/^package com.spidey01.sxe.helloworld.pc;$/;"	p
 com.spidey01.sxe.pc	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\LwjglOpenGl.java	/^package com.spidey01.sxe.pc;$/;"	p
 com.spidey01.sxe.pc	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\PcConfiguration.java	/^package com.spidey01.sxe.pc;$/;"	p
 com.spidey01.sxe.pc	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\PcDisplay.java	/^package com.spidey01.sxe.pc;$/;"	p
 com.spidey01.sxe.pc	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\PcInputManager.java	/^package com.spidey01.sxe.pc;$/;"	p
+com.spidey01.sxe.pingpong.lib	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\Opponent.java	/^package com.spidey01.sxe.pingpong.lib;$/;"	p
 com.spidey01.sxe.pingpong.lib	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\PingPongGame.java	/^package com.spidey01.sxe.pingpong.lib;$/;"	p
+com.spidey01.sxe.pingpong.lib	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\Player.java	/^package com.spidey01.sxe.pingpong.lib;$/;"	p
 com.spidey01.sxe.pingpong.pc	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\pc\src\main\java\com\spidey01\sxe\pingpong\pc\Main.java	/^package com.spidey01.sxe.pingpong.pc;$/;"	p
 com.spidey01.sxe.snake.lib	C:\Users\terry\Programs\workspace\sxe\demos\snake\lib\src\main\java\com\spidey01\sxe\snake\lib\SnakeGame.java	/^package com.spidey01.sxe.snake.lib;$/;"	p
 com.spidey01.sxe.snake.pc	C:\Users\terry\Programs\workspace\sxe\demos\snake\pc\src\main\java\com\spidey01\sxe\snake\pc\Main.java	/^package com.spidey01.sxe.snake.pc;$/;"	p
@@ -310,6 +327,7 @@ execute	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sx
 execute	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Console.java	/^    public void execute(String line) {$/;"	m	class:Console
 execute	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\ConsoleCommand.java	/^    public void execute() {$/;"	m	class:ConsoleCommand
 floatValue	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Variable.java	/^    public float floatValue() {$/;"	m	class:Variable
+foo	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\FooTest.java	/^    public void foo() {$/;"	m	class:FooTest
 frameEnded	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Console.java	/^    public void frameEnded() {$/;"	m	class:Console
 frameEnded	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\FrameEndedListener.java	/^    public void frameEnded();$/;"	m	interface:FrameEndedListener
 frameEnded	C:\Users\terry\Programs\workspace\sxe\demos\snake\lib\src\main\java\com\spidey01\sxe\snake\lib\SnakeGame.java	/^    public void frameEnded() {$/;"	m	class:SnakeGame
@@ -411,6 +429,7 @@ getPlatformVersion	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\
 getProgram	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\GlslProgram.java	/^    public int getProgram() {$/;"	m	class:GlslProgram
 getProgram	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\GpuProgram.java	/^    int getProgram();$/;"	m	interface:GpuProgram
 getRepeatDelay	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Console.java	/^    public int getRepeatDelay() {$/;"	m	class:Console
+getResource	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\TestUtils.java	/^    public static File getResource(String path) {$/;"	m	class:TestUtils
 getResources	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\C.java	/^    public static ResourceManager getResources() {$/;"	m	class:C
 getResources	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\GameContext.java	/^    public ResourceManager getResources() {$/;"	m	class:GameContext
 getRuntimeDir	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        public static String getRuntimeDir() {$/;"	m	class:Utils.Xdg
@@ -706,7 +725,10 @@ removeOpt	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\
 repeatingAllowed	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Console.java	/^    public boolean repeatingAllowed() {$/;"	m	class:Console
 requestStop	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Game.java	/^    public void requestStop() {$/;"	m	class:Game
 resourceTypeToShaderType	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Utils.java	/^    public static Shader.Type resourceTypeToShaderType(Resource.Type type) {$/;"	m	class:Utils
+resourcesDir	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\FooTest.java	/^    private static File resourcesDir;$/;"	f	class:FooTest	file:
+resourcesDir	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\TestUtils.java	/^    public static File resourcesDir = new File(baseDir,$/;"	f	class:TestUtils
 run	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\GameThread.java	/^    public void run() {$/;"	m	class:GameThread
+sResourceManager	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\PathLoaderTest.java	/^    private static ResourceManager sResourceManager;$/;"	f	class:PathLoaderTest	file:
 save	C:\Users\terry\Programs\workspace\sxe\android\src\main\java\com\spidey01\sxe\android\AndroidSettings.java	/^    boolean save() {$/;"	m	class:AndroidSettings
 save	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Settings.java	/^    boolean save();$/;"	m	interface:Settings
 save	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\SettingsFile.java	/^    public boolean save() {$/;"	m	class:SettingsFile
@@ -748,6 +770,8 @@ setSettings	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey0
 setString	C:\Users\terry\Programs\workspace\sxe\android\src\main\java\com\spidey01\sxe\android\AndroidSettings.java	/^    public Settings setString(String key, String value) {$/;"	m	class:AndroidSettings
 setString	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Settings.java	/^    Settings setString(String key, String value);$/;"	m	interface:Settings
 setString	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\SettingsFile.java	/^    public Settings setString(String key, String value) {$/;"	m	class:SettingsFile
+setUpClass	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\FooTest.java	/^    public static void setUpClass() {$/;"	m	class:FooTest
+setUpClass	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\PathLoaderTest.java	/^    public static void setUpClass() {$/;"	m	class:PathLoaderTest
 setVisable	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Console.java	/^    public void setVisable(boolean visable) {$/;"	m	class:Console
 settings	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\PcConfiguration.java	/^    public static Settings settings(Game game) {$/;"	m	class:PcConfiguration
 setup	C:\Users\terry\Programs\workspace\sxe\android\src\main\java\com\spidey01\sxe\android\AndroidConfiguration.java	/^    public static GameEngine setup(Game game, Context context) {$/;"	m	class:AndroidConfiguration
@@ -758,6 +782,7 @@ setupControls	C:\Users\terry\Programs\workspace\sxe\demos\snake\lib\src\main\jav
 setupLogging	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\GameEngine.java	/^    private void setupLogging() {$/;"	m	class:GameEngine	file:
 shaderFromClass	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\ShaderResource.java	/^    public Shader shaderFromClass(Class<? extends Shader> shaderClass)$/;"	m	class:ShaderResource
 shaderTypeToResourceType	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Utils.java	/^    public static Resource.Type shaderTypeToResourceType(Shader.Type type) {$/;"	m	class:Utils
+simplePathTest	C:\Users\terry\Programs\workspace\sxe\core\src\test\java\com\spidey01\sxe\core\PathLoaderTest.java	/^    public void simplePathTest() throws IOException {$/;"	m	class:PathLoaderTest
 slurp	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Utils.java	/^    public static String slurp(BufferedReader source) throws IOException {$/;"	m	class:Utils
 slurp	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Utils.java	/^    public static String slurp(File source) throws IOException {$/;"	m	class:Utils
 slurp	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Utils.java	/^    public static String slurp(InputStream source) throws IOException {$/;"	m	class:Utils
@@ -773,6 +798,7 @@ stop	C:\Users\terry\Programs\workspace\sxe\demos\snake\lib\src\main\java\com\spi
 t	C:\Users\terry\Programs\workspace\sxe\android\src\main\java\com\spidey01\sxe\android\AndroidOpenGlEs.java	/^    private static int t(int konst) {$/;"	m	class:AndroidOpenGlEs	file:
 t	C:\Users\terry\Programs\workspace\sxe\pc\src\main\java\com\spidey01\sxe\pc\LwjglOpenGl.java	/^    private static int t(int konst) {$/;"	m	class:LwjglOpenGl	file:
 tick	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Game.java	/^    public void tick() {$/;"	m	class:Game
+tick	C:\Users\terry\Programs\workspace\sxe\demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\PingPongGame.java	/^    public void tick() {$/;"	m	class:PingPongGame
 tick	C:\Users\terry\Programs\workspace\sxe\demos\snake\lib\src\main\java\com\spidey01\sxe\snake\lib\SnakeGame.java	/^    public void tick() {$/;"	m	class:SnakeGame
 toString	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\KeyEvent.java	/^    public String toString() {$/;"	m	class:KeyEvent
 toString	C:\Users\terry\Programs\workspace\sxe\core\src\main\java\com\spidey01\sxe\core\Variable.java	/^    public String toString() {$/;"	m	class:Variable

@@ -47,6 +47,8 @@ public class FileResource implements Resource {
     }
 
     public boolean load() {
+        assert mLoader != null;
+
         try {
             mInputStream = mLoader.getInputStream(mFileName);
             return true;

@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -21,22 +21,22 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.helloworld.lib;
+package com.spidey01.sxe.core;
 
-import com.spidey01.sxe.core.Game;
-import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.Log;
+import java.io.File;
 
-/** Hello World demo.
+/** Utilties for JUnit tests.
  */
-public class HelloWorld
-    extends Game
-{
-    private static final String TAG = "HelloWorld";
+public class TestUtils {
+    public static File baseDir = new File(System.getProperty("user.dir"));
+    public static File resourcesDir = new File(baseDir,
+        "src" + File.separator + "test" + File.separator + "resources");
 
-    @Override
-    public String getName() {
-        return TAG;
+    public static File getResource(String path) {
+
+        File f = new File(resourcesDir, path);
+        System.out.println("TestUtils.getResource(\"" + f.getPath() + "\")");
+        return f;
     }
 }
 
