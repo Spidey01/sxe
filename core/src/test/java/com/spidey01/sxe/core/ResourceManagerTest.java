@@ -62,5 +62,21 @@ public class ResourceManagerTest {
                           CoreMatchers.instanceOf(ZipResourceLoader.class));
     }
 
+    @Test
+    public void addLoader() {
+        final String prefix = "dummy:";
+        DummyResourceLoader dummy = new DummyResourceLoader();
+
+        Assert.assertNull("There shouldn't be a default ResourceLoader for dummies.",
+                          sResourceManager.setLoader(prefix, dummy));
+
+        Assert.assertThat(sResourceManager.getLoaders().get(prefix),
+                          CoreMatchers.instanceOf(DummyResourceLoader.class));
+
+        // FIXME
+        // Assert.assertThat(sResourceManager.getLoader(prefix+"/foo/bar/ham"),
+                          // CoreMatchers.instanceOf(DummyResourceLoader.class));
+    }
+
 }
 
