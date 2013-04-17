@@ -114,6 +114,25 @@ public class Utils {
         return e;
     }
 
+    /** Return the systems bit bucket as a File. */
+    public static File getBitBucketFile() {
+        String[] bitBuckets = { "/dev/null", "nul:" };
+
+        for (String p : bitBuckets) {
+            File device = new File(p);
+            if (!device.exists()) {
+                continue;
+            }
+            return device;
+        }
+        throw new RuntimeException("Can't find a bit bucket.");
+    }
+
+    /** Return the path to the systems bit bucket. */
+    public static String getBitBucketPath() {
+        return getBitBucketFile().getPath();
+    }
+
     /** Helper for XDG Base Directory Specification (version 0.7).
      *
      * Environment variables like XDG_WHAT_EVER will generally be gotten with

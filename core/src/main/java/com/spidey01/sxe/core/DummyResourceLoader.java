@@ -35,21 +35,13 @@ public class DummyResourceLoader  implements ResourceLoader {
     public InputStream getInputStream(File path)
         throws IOException
     {
-        return getInputStream(path.getPath());
+        return new FileInputStream(Utils.getBitBucketFile());
     }
 
     public InputStream getInputStream(String path)
         throws IOException
     {
-        try { // unix
-            return new FileInputStream("/dev/null");
-        } catch (FileNotFoundException e1) {
-            try { // dos
-                return new FileInputStream("nul:");
-            } catch (FileNotFoundException e2) {
-                throw new IOException(DummyResourceLoader.class + ": Unsupported OS.");
-            }
-        }
+        return new FileInputStream(Utils.getBitBucketPath());
     }
 }
 
