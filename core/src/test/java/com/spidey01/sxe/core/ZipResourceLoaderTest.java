@@ -59,15 +59,35 @@ public class ZipResourceLoaderTest {
     /** You can't load directories. */
     @Test(expected = IOException.class)
     public void loadDirectory() throws IOException {
-        test("blargle");
+        sLoader.getInputStream(getZip().getPath()+":/blargle");
+    }
+
+    @Test(expected = IOException.class)
+    public void garbageZipFile() throws IOException {
+        sLoader.getInputStream(Utils.getBitBucketPath() +":/foo");
+    }
+
+    @Test(expected = IOException.class)
+    public void nullFile() throws IOException {
+        sLoader.getInputStream((File)null);
+    }
+
+    @Test(expected = IOException.class)
+    public void nullString() throws IOException {
+        sLoader.getInputStream((String)null);
+    }
+
+    private File getZip() {
+        File zip = TestUtils.getResource("ZipResourceLoader.zip");
+        // desired side effect >_>.
+        Assume.assumeTrue(zip.exists());
+        return zip;
     }
 
     /** Tests that it works with and without a leading "/" in the path name. */
     private void test(String path) throws IOException {
-        File zip = TestUtils.getResource("ZipResourceLoader.zip");
-        Assume.assumeTrue(zip.exists());
-
         String s;
+        File zip = getZip();
 
         s = zip.getPath() + ":/" + path;
         Assert.assertEquals("With $zip:/$filename.", dummyText,
