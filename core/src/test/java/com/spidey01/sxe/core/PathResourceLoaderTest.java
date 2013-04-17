@@ -29,30 +29,24 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.spidey01.sxe.core.ResourceManager;
-import com.spidey01.sxe.core.Resource;
+import com.spidey01.sxe.core.ResourceLoader;
+import com.spidey01.sxe.core.PathResourceLoader;
 import com.spidey01.sxe.core.Utils;
 
 import java.io.File;
 import java.io.IOException;
 
-public class PathLoaderTest {
-    private static ResourceManager sResourceManager;
-
-    @BeforeClass
-    public static void setUpClass() {
-        sResourceManager = new ResourceManager();
-    }
+public class PathResourceLoaderTest {
+    private static PathResourceLoader sLoader = new PathResourceLoader();
 
     @Test
-    @Ignore // Still work in progress (NPE).
     public void simplePathTest() throws IOException {
-        File txt = TestUtils.getResource("PathLoader.txt");
+        File txt = TestUtils.getResource("PathResourceLoader.txt");
         Assume.assumeTrue(txt.exists());
 
-        String expected = "Test dummy for PathLoader.";
-        Resource test = sResourceManager.load(txt);
-        Assert.assertEquals("Simple text load.", expected, Utils.slurp(test.getInputStream()));
+        String expected = "Test dummy for PathResourceLoader.\n";
+        Assert.assertEquals("Loading a text file.", expected,
+                            Utils.slurp(sLoader.getInputStream(txt)));
     }
 
 }
