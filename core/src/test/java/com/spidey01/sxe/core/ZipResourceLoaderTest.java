@@ -51,6 +51,18 @@ public class ZipResourceLoaderTest {
         test("blargle/bar.txt");
     }
 
+    @Test(expected = IOException.class)
+    public void loadNonExistantFile() throws IOException {
+        test("guux.blarg");
+    }
+
+    /** You can't load directories. */
+    @Test(expected = IOException.class)
+    public void loadDirectory() throws IOException {
+        test("blargle");
+    }
+
+    /** Tests that it works with and without a leading "/" in the path name. */
     private void test(String path) throws IOException {
         File zip = TestUtils.getResource("ZipResourceLoader.zip");
         Assume.assumeTrue(zip.exists());
@@ -58,11 +70,11 @@ public class ZipResourceLoaderTest {
         String s;
 
         s = zip.getPath() + ":/" + path;
-        Assert.assertEquals("Should work with $zip:/$filename.", dummyText,
+        Assert.assertEquals("With $zip:/$filename.", dummyText,
                             Utils.slurp(sLoader.getInputStream(s)));
 
         s = zip.getPath() + ":" + path;
-        Assert.assertEquals("Should work with $zip:$filename.", dummyText,
+        Assert.assertEquals("With $zip:$filename.", dummyText,
                             Utils.slurp(sLoader.getInputStream(s)));
     }
 
