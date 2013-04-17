@@ -41,46 +41,27 @@ public class ZipResourceLoaderTest {
 
     private static final String dummyText = "Test dummy for ZipResourceLoader.\n";
 
-    /*
-    @Test
-    public void simplePathTest() throws IOException {
-        File txt = TestUtils.getResource("PathLoader.txt");
-        Assume.assumeTrue(txt.exists());
-
-        String expected = "Test dummy for PathLoader.\n";
-        Assert.assertEquals("Loading a text file.", expected,
-                            Utils.slurp(sLoader.getInputStream(txt)));
-    }
-    */
-
     @Test
     public void loadTopLevelFile() throws IOException {
-        File zip = TestUtils.getResource("ZipResourceLoader.zip");
-        Assume.assumeTrue(zip.exists());
-
-        String s;
-
-        s = zip.getPath() + ":/foo.txt";
-        Assert.assertEquals("Should work with $zip:/$filename.", dummyText,
-                            Utils.slurp(sLoader.getInputStream(s)));
-
-        s = zip.getPath() + ":foo.txt";
-        Assert.assertEquals("Should work with $zip:$filename.", dummyText,
-                            Utils.slurp(sLoader.getInputStream(s)));
+        test("foo.txt");
     }
 
     @Test
     public void loadFileInSubDir() throws IOException {
+        test("blargle/bar.txt");
+    }
+
+    private void test(String path) throws IOException {
         File zip = TestUtils.getResource("ZipResourceLoader.zip");
         Assume.assumeTrue(zip.exists());
 
         String s;
 
-        s = zip.getPath() + ":/blargle/bar.txt";
+        s = zip.getPath() + ":/" + path;
         Assert.assertEquals("Should work with $zip:/$filename.", dummyText,
                             Utils.slurp(sLoader.getInputStream(s)));
 
-        s = zip.getPath() + ":blargle/bar.txt";
+        s = zip.getPath() + ":" + path;
         Assert.assertEquals("Should work with $zip:$filename.", dummyText,
                             Utils.slurp(sLoader.getInputStream(s)));
     }
