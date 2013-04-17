@@ -46,14 +46,11 @@ public class ZipResourceLoader implements ResourceLoader {
     {
         String zipPath = path.substring(0, path.indexOf(":"));
         ZipFile zipFile = null;
-        String cause = null;
-        IOException ex = null;
         
         try {
             zipFile = new ZipFile(zipPath);
         } catch (IOException e) {
-            cause = "Failed to open "+zipPath;
-            ex = e;
+            throw new IOException("Failed to open "+zipPath, e);
         }
 
         String pathInZip = path.substring(path.indexOf(":")+1);
@@ -71,15 +68,7 @@ public class ZipResourceLoader implements ResourceLoader {
         try {
             is = zipFile.getInputStream(zipEntry);
         } catch (IOException e) {
-            cause = "Failed to load resource";
-            ex = e;
-        }
-
-        if (cause != null) {
-            Log.e(TAG, cause, ex);
-            if (ex != null) {
-                throw ex;
-            }
+            throw new IOException("Failed to load resource", e);
         }
 
         return is;
