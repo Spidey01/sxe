@@ -9,3 +9,21 @@ allprojects {
     }
 }
 
+/** Call this with your subproject to be included in the tags file. */
+ext.includeInTags = { project ->
+    if (!project.hasProperty('sourceSets')) {
+        return false
+    }
+
+    def files = []
+    project.sourceSets.each { ss ->
+        ss.allSource.each { f ->
+            files.add(f)
+        }
+    }
+    task tags(type: Exec) {
+        executable 'ctags'
+        args files
+    }
+}
+

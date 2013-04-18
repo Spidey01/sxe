@@ -13,6 +13,8 @@ dependencies {
     compile project(':demos:helloworld:lib')
 }
 
+project.getParent().ext.includeInTags(project)
+
 /**
  * InstallApp, distZip, and distTar need to be tweaked in order to handle the native libraries of LWJGL.
  */
