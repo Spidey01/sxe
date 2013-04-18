@@ -13,7 +13,7 @@ dependencies {
     compile project(':demos:pingpong:lib')
 }
 
-project.getParent().ext.includeInTags(project)
+project(':core').getParent().ext.includeInTags(project)
 
 /**
  * InstallApp, distZip, and distTar need to be tweaked in order to handle the native libraries of LWJGL.
