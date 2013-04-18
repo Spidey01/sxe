@@ -47,12 +47,15 @@ def getSxeTarget = {
             return 'pc'
         case [ 'android' ]:
             return 'android'
+        case 'core':
+            return 'core'
         default:
             throw new IllegalStateException('Bad sxeTarget: '+sxeTarget)
     }
 }
 
 sxeTargetConfigurations[getSxeTarget()].each { module ->
+println "include "+module
     include module
 }
 

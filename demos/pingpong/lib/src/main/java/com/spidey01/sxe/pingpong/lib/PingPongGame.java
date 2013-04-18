@@ -61,11 +61,11 @@ public class PingPongGame
     @Override
     public void tick() {
         switch (mState) {
-            case State.STARTING: {
+            case STARTING: {
             } break;
-            case State.RUNNING: {
+            case RUNNING: {
             } break;
-            case State.STOPPING: {
+            case STOPPING: {
             } break;
         }
     }
