@@ -12,23 +12,47 @@ if (!hasProperty('sxeTarget')) {
     set('sxeTarget', '')
 }
 
-switch (sxeTarget) {
-    case [ 'x86', 'pc' ]:
-        include ':core'
-        include ':pc'
-        include ':demos:helloworld:lib'
-        include ':demos:helloworld:pc'
-        include ':demos:pingpong:lib'
-        include ':demos:pingpong:pc'
-        include ':demos:snake:lib'
-        include ':demos:snake:pc'
-        break
-    case [ 'android' ]:
-        include ':core'
-        include ':android'
-        break
-    default:
-        include ':core'
-        break
+
+def sxeTargetConfigurations = [
+    'android' : [
+        ':core',
+        ':android',
+    ],
+    'core' : [
+        ':core',
+    ],
+    'pc' : [
+        /*
+        ':pc',
+        ':demos:helloworld:pc',
+        ':demos:pingpong:pc',
+        ':demos:snake:pc',
+        */
+
+        ':core',
+        ':pc',
+        ':demos:helloworld:lib',
+        ':demos:helloworld:pc',
+        ':demos:pingpong:lib',
+        ':demos:pingpong:pc',
+        ':demos:snake:lib',
+        ':demos:snake:pc',
+    ],
+]
+
+// Get the canonical value of sxeTarget property.
+def getSxeTarget = {
+    switch (sxeTarget) {
+        case [ 'x86', 'pc' ]:
+            return 'pc'
+        case [ 'android' ]:
+            return 'android'
+        default:
+            return 'core'
+    }
+}
+
+sxeTargetConfigurations[getSxeTarget()].each { module ->
+    include module
 }
 
