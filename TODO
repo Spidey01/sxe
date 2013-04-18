@@ -1,3 +1,4 @@
 [ ] Setup gradlewrapper.
 [ ] Update dockmentation, NOTES, etc.
 [ ] Fix sources of brain damage / not enough time to do it well.
+[ ] There should be a way for `gradle tags` to make ALL tags.
