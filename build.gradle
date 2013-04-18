@@ -9,9 +9,20 @@ allprojects {
     }
 }
 
-/** Call this with your subproject to be included in the tags file. */
-ext.includeInTags = { project ->
-    if (!project.hasProperty('sourceSets')) {
+
+/** Call this with your subproject to be included in the tags file.
+ *
+ * This cooperative method is used for two reasons:
+ *
+ *  0.) It's opt in.
+ *  1.) When using subprojects{}, none have a sourceSets property yet!
+ *
+ * Better solutions for gradle might be accepted as patches ;).
+ * Stuff marked
+ */
+project.ext.includeInTags = { project ->
+    if (!(project.hasProperty('sourceSets')
+          && project.hasProperty('tags'))) {
         return false
     }
 
@@ -21,6 +32,8 @@ ext.includeInTags = { project ->
             files.add(f)
         }
     }
+
+    // Defined here because it's purely opt-in by subprojects.
     task tags(type: Exec) {
         executable 'ctags'
         args files
