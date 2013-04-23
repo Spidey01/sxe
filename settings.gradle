@@ -22,13 +22,6 @@ def sxeTargetConfigurations = [
         ':core',
     ],
     'pc' : [
-        /*
-        ':pc',
-        ':demos:helloworld:pc',
-        ':demos:pingpong:pc',
-        ':demos:snake:pc',
-        */
-
         ':core',
         ':pc',
         ':demos:helloworld:lib',
@@ -55,7 +48,6 @@ def getSxeTarget = {
 }
 
 sxeTargetConfigurations[getSxeTarget()].each { module ->
-println "include "+module
     include module
 }
 
