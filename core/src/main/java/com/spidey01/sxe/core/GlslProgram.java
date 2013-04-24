@@ -33,7 +33,7 @@ import java.util.Collections;
 
 public class GlslProgram implements GpuProgram {
 
-    private List<Shader> mShaders = new LinkedList();
+    private List<Shader> mShaders = new LinkedList<Shader>();
     private int mProgram;
     private OpenGl mOpenGl;
     private static final String TAG = "GlslProgram";

@@ -65,9 +65,7 @@ public class SettingsFile implements Settings {
     }
 
     public String[] keys() {
-        // oi.
-        ArrayList<String> al = (ArrayList<String>)Collections.list(mProps.propertyNames());
-        return al.toArray(new String[al.size()]);
+        return mProps.stringPropertyNames().toArray(new String[0]);
     }
 
     public boolean contains(String key) {
