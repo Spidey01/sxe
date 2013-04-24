@@ -48,6 +48,9 @@ public class UnitTest {
         // gradle report will have all log statements sunk to 'Standard Output'
         Log.add(new LogSink(System.out, Log.VERBOSE));
 
+        // gradle output will have these sunk to 'Standard Error'
+        Log.add(new LogSink(System.err, Log.WARN));
+
         sIsLoggingReady = true;
     }
 }
