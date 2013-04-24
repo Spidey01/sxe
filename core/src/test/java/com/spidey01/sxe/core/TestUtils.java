@@ -35,7 +35,7 @@ public class TestUtils {
     public static File getResource(String path) {
 
         File f = new File(resourcesDir, path);
-        System.out.println("TestUtils.getResource(\"" + f.getPath() + "\")");
+        Log.v("TestUtils.getResource", f.getPath());
         return f;
     }
 }

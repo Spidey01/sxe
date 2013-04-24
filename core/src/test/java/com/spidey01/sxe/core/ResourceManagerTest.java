@@ -41,7 +41,7 @@ import java.io.InputStream;
 import java.io.IOException;
 import java.util.Map;
 
-public class ResourceManagerTest {
+public class ResourceManagerTest extends UnitTest {
     private static ResourceManager sResourceManager;
 
     @BeforeClass

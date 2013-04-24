@@ -32,11 +32,12 @@ import org.junit.Test;
 import com.spidey01.sxe.core.ResourceLoader;
 import com.spidey01.sxe.core.PathResourceLoader;
 import com.spidey01.sxe.core.Utils;
+import com.spidey01.sxe.core.Log;
 
 import java.io.File;
 import java.io.IOException;
 
-public class ZipResourceLoaderTest {
+public class ZipResourceLoaderTest extends UnitTest {
     private static ZipResourceLoader sLoader = new ZipResourceLoader();
 
     private static final String dummyText = "Test dummy for ZipResourceLoader.\n";

@@ -23,31 +23,21 @@
 
 package com.spidey01.sxe.core;
 
-import org.junit.Assert;
-import org.junit.Assume;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.*;
 
-import com.spidey01.sxe.core.ResourceLoader;
-import com.spidey01.sxe.core.PathResourceLoader;
 import com.spidey01.sxe.core.Utils;
+import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.LogSink;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
-public class PathResourceLoaderTest extends UnitTest {
-    private static PathResourceLoader sLoader = new PathResourceLoader();
+public class UnitTest {
 
-    @Test
-    public void simplePathTest() throws IOException {
-        File txt = TestUtils.getResource("PathResourceLoader.txt");
-        Assume.assumeTrue(txt.exists());
-
-        String expected = "Test dummy for PathResourceLoader.\n";
-        Assert.assertEquals("Loading a text file.", expected,
-                            Utils.slurp(sLoader.getInputStream(txt)));
+    /** Initialize logging for unit tests. */
+    @BeforeClass
+    public static void logging() {
+        Log.add(new LogSink(Log.VERBOSE));
     }
-
 }
+
 
