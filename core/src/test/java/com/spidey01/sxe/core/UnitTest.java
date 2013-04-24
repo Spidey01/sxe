@@ -33,11 +33,22 @@ import java.io.*;
 
 public class UnitTest {
 
-    /** Initialize logging for unit tests. */
+    private static boolean sIsLoggingReady = false;
+
+    /** Initialize logging for unit tests.
+     *
+     * stdout will get all messages.
+     * stderr will get up to warning messages.
+     */
     @BeforeClass
     public static void logging() {
-        Log.add(new LogSink(Log.VERBOSE));
+        if (!sIsLoggingReady) {
+            return;
+        }
+        // gradle report will have all log statements sunk to 'Standard Output'
+        Log.add(new LogSink(System.out, Log.VERBOSE));
+
+        sIsLoggingReady = true;
     }
 }
-
 
