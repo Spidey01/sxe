@@ -37,6 +37,7 @@ import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.ZipResourceLoader;
 
 import java.io.File;
+import java.io.InputStream;
 import java.io.IOException;
 import java.util.Map;
 
@@ -78,5 +79,26 @@ public class ResourceManagerTest {
                           // CoreMatchers.instanceOf(DummyResourceLoader.class));
     }
 
+    @Test
+    public void load() {
+        // long rid = sResourceManager.load("dummy:/foo/bar");
+        long rid = sResourceManager.load("core/src/test/resources/ZipResourceLoader.zip:/blargle/bar.txt");
+        Assert.assertTrue("Resource ID -1 is reserved for failure.", rid > -1);
+
+        InputStream data = sResourceManager.get(rid);
+        Assert.assertNotNull("Never leak a null here.", data);
+
+        // all fine unless we throw exceptions.
+        try {
+            data.read();
+        } catch(IOException e) {
+            Assert.fail(e.toString());
+        }
+
+        Assert.assertSame("Getting same rid == same resource",
+                          data, sResourceManager.get(rid));
+
+        sResourceManager.unload(rid);
+    }
 }
 
