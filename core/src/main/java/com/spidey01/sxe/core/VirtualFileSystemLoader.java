@@ -90,7 +90,7 @@ public class VirtualFileSystemLoader implements ResourceLoader {
         for (String p : mResourcePath) {
             Log.v(TAG, "Trying \""+p+vpath+"\" for \""+path+"\"");
             // where p is sth like "pak0.zip:" or "assets".
-            is = mRes.get(mRes.load(p + vpath));
+            // is = mRes.get(mRes.load(p + vpath));
             if (is != null) {
                 return is;
             }
