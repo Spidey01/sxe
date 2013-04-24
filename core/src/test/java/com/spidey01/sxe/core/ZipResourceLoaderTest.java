@@ -67,12 +67,12 @@ public class ZipResourceLoaderTest {
         sLoader.getInputStream(Utils.getBitBucketPath() +":/foo");
     }
 
-    @Test(expected = IOException.class)
+    @Test(expected = NullPointerException.class)
     public void nullFile() throws IOException {
         sLoader.getInputStream((File)null);
     }
 
-    @Test(expected = IOException.class)
+    @Test(expected = NullPointerException.class)
     public void nullString() throws IOException {
         sLoader.getInputStream((String)null);
     }
