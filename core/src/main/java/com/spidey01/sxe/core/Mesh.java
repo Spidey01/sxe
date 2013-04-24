@@ -97,8 +97,10 @@ public class Mesh implements FrameStartedListener {
                     return new GlslShader(GL20, type, is, path);
                 }
             };
-            vert = (GlslShader)mCtx.getResources().load("shaders/triangle.vert", factory).getObject();
-            frag = (GlslShader)mCtx.getResources().load("shaders/triangle.frag", factory).getObject();
+            // vert = (GlslShader)mCtx.getResources().load("shaders/triangle.vert", factory).getObject();
+            // frag = (GlslShader)mCtx.getResources().load("shaders/triangle.frag", factory).getObject();
+            vert = new GlslShader(GL20, "shaders/triangle.vert");
+            frag = new GlslShader(GL20, "shaders/triangle.frag");
         } catch(Exception fml) {
             Log.wtf(TAG, "Failed loading shaders", fml);
             fml.printStackTrace();

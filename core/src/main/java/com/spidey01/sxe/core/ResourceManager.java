@@ -66,100 +66,6 @@ public class ResourceManager {
         return old;
     }
 
-    public Resource load(File path) {
-        return load(path.getPath());
-    }
-
-    /*
-     * @param path Paths can be specified in a simple syntax of unix style file
-     *             paths, or in a CP/M style where "Containers" are used like
-     *             driver letters. A container is something like a zip file. So
-     *             Foo.zip:/ham/spam.png should make sense ;).
-     */
-    public Resource load(String path) {
-        Log.i(TAG, "load("+path+")");
-
-        Resource r = new FileResource(Resource.Type.TEXT_FILE, path, getLoader(path));
-        r.load();
-        mResources.put(path, r);
-        return r;
-    }
-
-    /** Loads a shader from path.
-     *
-     * You would call this like:
-     *
-     * <code>
-     *  try {
-     *      rm.load("foo.zip:/shaders/myshader.vert", MyShader.class);
-     *  } catch (IOException e) {
-     *      // ...
-     *  }
-     *  </code>
-     *
-     * @param path Resource path that must end with a suitable file extension
-     *             for a shader.
-     * @param gl an OpenGl implementation to use with the shader.
-     * @param shaderImplClass TheShaderImpl.class to use. It must implement a
-     *                        public constructor matching the argument
-     *                        signature of (OpenGl, Resource.Type, String,
-     *                            ResourceLoader, ShaderClass)
-     * @return Resource with it's Object field set to a GlslShader. null on failure.
-     * @throws IOException
-     */
-    public Resource load(String path, OpenGl gl, Class<? extends Shader> shaderImplClass)
-        throws IOException, InvocationTargetException
-    {
-        Log.i(TAG, "load("+path+", "+shaderImplClass+")");
-
-        Resource r = new ShaderResource(Utils.getShaderResourceType(path), path, getLoader(path), gl, shaderImplClass);
-        r.load();
-        mResources.put(path, r);
-        return r;
-    }
-
-    /** Loads a shader from path.
-     *
-     * You would call this like:
-     *
-     * <code>
-     *  try {
-     *      rm.load("foo.zip:/shaders/myshader.vert", new ShaderFactory<MyShader>(){
-     *          public Shader make(Shader.Type type, InputStream is, final String path) {
-     *              // ...
-     *          }
-     *      });
-     *  } catch (IOException e) {
-     *      // ...
-     *  }
-     *  </code>
-     *
-     * @param path Resource path that must end with a suitable file extension
-     *             for a shader.
-     * @param factory A ShaderFactory for make()'ing a suitable Shader.
-     * @return Resource with it's Object field set to a GlslShader. null on failure.
-     * @throws IOException
-     */
-    public Resource load(String path, ShaderFactory<? extends Shader> factory)
-        throws IOException
-    {
-        Log.i(TAG, "load("+path+", "+factory+")");
-
-        Resource r = new ShaderResource(Utils.getShaderResourceType(path), path, getLoader(path), factory);
-        r.load();
-        mResources.put(path, r);
-        return r;
-    }
-
-    /** Get a handle to an already loaded resource.
-     *
-     * @param path the path previously loaded
-     * @return Resource previously loaded for path, or null if  not found.
-     */
-    public Resource get(String path) {
-        return mResources.get(path);
-    }
-
     /** Get a view of the resource loaders available.
      *
      * The key is the container as given to setLoader().
@@ -194,5 +100,21 @@ public class ResourceManager {
             return mLoaders.get(container);
         }
     }
+
+    public long load(File path) {
+        return load(path.getPath());
+    }
+
+    public long load(String path) {
+        return -1;
+    }
+
+    public InputStream get(long rid) {
+        return null;
+    }
+
+    public void unload(long rid) {
+    }
+
 }
 
