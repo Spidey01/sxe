@@ -158,7 +158,7 @@ public class GameEngine {
                 Log.add(new LogSink(new File(fileName), l));
                 Log.i(TAG, "logging for "+top+" is level="+l+" file="+fileName);
             } catch(FileNotFoundException e) {
-                System.err.println("Failed creating default log file, *sad face*: "+e);
+                System.err.println("Failed creating log file, *sad face*: "+e);
                 Log.e(TAG, "Failed creating log file: "+fileName, e);
             }
         }
@@ -167,6 +167,9 @@ public class GameEngine {
             Log.add(new LogSink(
                 type.equals("stdout") ? System.out : System.err, l));
             Log.i(TAG, "logging for "+top+" is level="+l+" type="+type);
+        }
+        else if (type.equals("stdin")) {
+            throw new IllegalArgumentException("Can't log to stdin; maybe you has typo?");
         }
         // null log type gets no LogSink.
     }
