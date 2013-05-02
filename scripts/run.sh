@@ -8,4 +8,7 @@ fi
 demo="$1"
 shift
 
+XDG_CONFIG_HOME="`pwd`/tmp"
+export XDG_CONFIG_HOME
+
 "demos/${demo}/pc/build/install/${demo}-pc/bin/${demo}-pc" "$@"
