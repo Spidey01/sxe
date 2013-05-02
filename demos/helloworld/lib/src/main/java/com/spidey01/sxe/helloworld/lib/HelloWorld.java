@@ -27,16 +27,70 @@ import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 
+import com.spidey01.sxe.core.*;
+import java.io.IOException;
+
 /** Hello World demo.
  */
 public class HelloWorld
     extends Game
+    implements KeyListener
 {
     private static final String TAG = "HelloWorld";
 
     @Override
     public String getName() {
         return TAG;
+    }
+
+    @Override
+    public boolean start(GameEngine engine) {
+        super.start(engine);
+
+        Log.v(TAG, "Hello World demo is starting.");
+
+        mGameEngine.getGameContext().getInput().addKeyListener("Q", this);
+
+        try {
+            TrueTypeFont mFont = TrueTypeFont.from("DejaVuSansMono.ttf");
+        } catch(IOException e) {
+            Log.e(TAG, "Caught IOExeption from TrueTypeFont.from(String)", e);
+        }
+
+        return true;
+    }
+
+    @Override
+    public void stop() {
+        super.stop();
+        if (isStopped()) {
+            return;
+        }
+
+        Log.v(TAG, "Hello World demo is stopping.");
+    }
+
+    @Override
+    public void tick() {
+        switch (mState) {
+            case STARTING: {
+            } break;
+            case RUNNING: {
+            } break;
+            case STOPPING: {
+            } break;
+        }
+    }
+
+    public boolean onKey(KeyEvent event) {
+        if (event.isKeyUp()) {
+            if (event.getKeyName().equals("Q")) {
+                Log.d(TAG, "Q key released");
+                requestStop();
+                return true;
+            }
+        }
+        return false;
     }
 }
 
