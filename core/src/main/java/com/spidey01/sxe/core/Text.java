@@ -46,11 +46,11 @@ public class Text {
         mText = newText;
     }
 
-    public String getFont() {
+    public Font getFont() {
         return mFont;
     }
 
-    public void setFont(String newFont) {
+    public void setFont(Font newFont) {
         mFont = newFont;
     }
 }
