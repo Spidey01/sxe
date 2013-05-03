@@ -234,6 +234,85 @@ public class LwjglOpenGl implements OpenGl {
         GL11.glViewport(x, y, width, height);
     }
 
+    /* Legacy functions */
+
+    @Override
+    public void glBegin(int mode) {
+        // GL11.glBegin(t(mode));
+        GL11.glBegin(mode);
+    }
+
+    @Override
+    public void glColor3b(byte red, byte green, byte blue) {
+        GL11.glColor3b(red, green, blue);
+    }
+
+    @Override
+    public void glColor3d(double red, double green, double blue) {
+        GL11.glColor3d(red, green, blue);
+    }
+
+    @Override
+    public void glColor3f(float red, float green, float blue) {
+        GL11.glColor3f(red, green, blue);
+    }
+    
+    @Override
+    public void glEnd() {
+        GL11.glEnd();
+    }
+
+    @Override
+    public void glLineWidth(float width) {
+        GL11.glLineWidth(width);
+    }
+
+    @Override
+    public void glVertex2d(double x, double y) { 
+        GL11.glVertex2d(x, y);
+    }
+
+    @Override
+    public void glVertex2f(float x, float y) { 
+        GL11.glVertex2f(x, y);
+    }
+
+    @Override
+    public void glVertex2i(int x, int y) { 
+        GL11.glVertex2i(x, y);
+    }
+
+    @Override
+    public void glVertex3d(double x, double y, double z) { 
+        GL11.glVertex3d(x, y, z);
+    }
+
+    @Override
+    public void glVertex3f(float x, float y, float z) { 
+        GL11.glVertex3f(x, y, z);
+    }
+
+    @Override
+    public void glVertex3i(int x, int y, int z) { 
+        GL11.glVertex3i(x, y, z);
+    }
+
+    @Override
+    public void glVertex4d(double x, double y, double z, double w) { 
+        GL11.glVertex4d(x, y, z, w);
+    }
+
+    @Override
+    public void glVertex4f(float x, float y, float z, float w) { 
+        GL11.glVertex4f(x, y, z, w);
+    }
+
+    @Override
+    public void glVertex4i(int x, int y, int z, int w) { 
+        GL11.glVertex4i(x, y, z, w);
+    }
+
+
     /* Internal functions */
 
     private static int t(int konst) {

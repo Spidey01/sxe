@@ -243,6 +243,84 @@ public class AndroidOpenGlEs implements OpenGl {
         GLES20.glViewport(x, y, width, height);
     }
 
+    /* Legacy functions */
+
+    @Override
+    public void glBegin(int mode) {
+        // throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glColor3b(byte red, byte green, byte blue) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glColor3d(double red, double green, double blue) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glColor3f(float red, float green, float blue) {
+        throw new UnsupportedOperationException();
+    }
+    
+    @Override
+    public void glEnd() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glLineWidth(float width) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glVertex2d(double x, double y) { 
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glVertex2f(float x, float y) { 
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glVertex2i(int x, int y) { 
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glVertex3d(double x, double y, double z) { 
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glVertex3f(float x, float y, float z) { 
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glVertex3i(int x, int y, int z) { 
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glVertex4d(double x, double y, double z, double w) { 
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glVertex4f(float x, float y, float z, float w) { 
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void glVertex4i(int x, int y, int z, int w) { 
+        throw new UnsupportedOperationException();
+    }
+
     /* Internal functions */
 
     private static int t(int konst) {

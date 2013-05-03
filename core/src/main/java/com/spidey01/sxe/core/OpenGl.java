@@ -92,5 +92,28 @@ public interface OpenGl {
     void glValidateProgram(int program);
     void glVertexAttribPointer(int indx, int size, int type, boolean normalized, int stride, int offset);
     void glViewport(int x, int y, int width, int height);
+
+    /** OpenGL functions for the old Fixed Function Pipeline.
+     *
+     * Implementations may throw an unchecked exception if OpenGL legacy /
+     * depreciated functionality is unavailable.  Attempting to intermix things
+     * in a bad way may but is not required to throw an IllegalStateException.
+     */
+
+    void glBegin(int mode);
+    void glColor3b(byte red, byte green, byte blue);
+    void glColor3d(double red, double green, double blue);
+    void glColor3f(float red, float green, float blue);
+    void glEnd();
+    void glLineWidth(float width);
+    void glVertex2d(double x, double y);
+    void glVertex2f(float x, float y);
+    void glVertex2i(int x, int y);
+    void glVertex3d(double x, double y, double z);
+    void glVertex3f(float x, float y, float z);
+    void glVertex3i(int x, int y, int z);
+    void glVertex4d(double x, double y, double z, double w);
+    void glVertex4f(float x, float y, float z, float w);
+    void glVertex4i(int x, int y, int z, int w);
 }
 
