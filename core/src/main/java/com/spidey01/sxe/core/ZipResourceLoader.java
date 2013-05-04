@@ -60,6 +60,10 @@ public class ZipResourceLoader implements ResourceLoader {
                                              : pathInZip;
 
         ZipEntry zipEntry = zipFile.getEntry(p);
+        if (zipEntry == null) {
+            throw new IOException("Zip file "+zipPath+" doesn't contain "+pathInZip);
+        }
+
         if (zipEntry.isDirectory()) {
             Log.w(TAG, "We can't use a directory inside a zip file as a resource!");
         }
