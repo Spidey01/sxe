@@ -116,7 +116,8 @@ public class Utils {
 
     /** Return the systems bit bucket as a File. */
     public static File getBitBucketFile() {
-        String[] bitBuckets = { "/dev/null", "nul:" };
+        /*
+        String[] bitBuckets = { "/dev/null", "nul" };
 
         for (String p : bitBuckets) {
             File device = new File(p);
@@ -126,6 +127,14 @@ public class Utils {
             return device;
         }
         throw new RuntimeException("Can't find a bit bucket.");
+        */
+        /********** I HATE WINDOWS **********/
+        /**
+         * Just return /dev/null because Windows/Java is dumb and won't
+         * File#exists() for nul. So just assume that the user doesn't have a
+         * \dev\null on the current directory. Bastards!
+         */
+        return new File("/dev/null");
     }
 
     /** Return the path to the systems bit bucket. */
