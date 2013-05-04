@@ -71,6 +71,13 @@ public class ZipResourceLoader implements ResourceLoader {
         InputStream is = null;
         try {
             is = zipFile.getInputStream(zipEntry);
+            /* Instead of one of the documentation exceptions we might just get
+             * null in some cases. So we need to test this, as <b>we</b>
+             * promise to throw IOException!
+             */
+            if (is == null) {
+                throw new IOException("Zipfile#getInputStream returned null!");
+            }
         } catch (IOException e) {
             throw new IOException("Failed to load resource", e);
         }
