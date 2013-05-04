@@ -44,7 +44,7 @@ public class ZipResourceLoader implements ResourceLoader {
     public InputStream getInputStream(String path)
         throws IOException
     {
-        String zipPath = path.substring(0, path.indexOf(":"));
+        String zipPath = path.substring(0, path.lastIndexOf(":"));
         ZipFile zipFile = null;
         
         try {
@@ -53,7 +53,7 @@ public class ZipResourceLoader implements ResourceLoader {
             throw new IOException("Failed to open "+zipPath, e);
         }
 
-        String pathInZip = path.substring(path.indexOf(":")+1);
+        String pathInZip = path.substring(path.lastIndexOf(":")+1);
 
         /* The API borks if we use a leading '/', so take care of it */
         String p = pathInZip.startsWith("/") ? pathInZip.substring(1)
