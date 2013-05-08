@@ -1,0 +1,13 @@
+
+apply plugin: 'java'
+group = 'com.spidey01.sxe.scripting.rhino'
+archivesBaseName = 'sxe-scripting-rhino'
+version = '0.0.1-SNAPSHOT'
+description = 'Rhino backend for SxE Scripting.'
+   
+dependencies {
+    compile project(':scripting')
+    compile group: 'org.mozilla', name: 'rhino', version: '1.7R4'
+    testCompile group: 'junit', name: 'junit', version:'4.11'
+}
+
