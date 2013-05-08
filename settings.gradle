@@ -18,10 +18,33 @@ def sxeTargetConfigurations = [
         ':core',
         ':android',
     ],
+
+    'complete' : [ // build everything.
+        ':core',
+        ':scripting',
+        ':scripting:rhino',
+        ':pc',
+        // TODO: android stuff
+        ':demos:helloworld:lib',
+        ':demos:helloworld:pc',
+        // ':demos:helloworld:android',
+        ':demos:pingpong:lib',
+        ':demos:pingpong:pc',
+        // ':demos:pingpong:android',
+        ':demos:snake:lib',
+        ':demos:snake:pc',
+        // ':demos:snake:android',
+    ],
+
     'core' : [
         ':core',
     ],
+
     'pc' : [
+        ':core',
+        ':pc',
+    ],
+    'pc-demos' : [
         ':core',
         ':pc',
         ':demos:helloworld:lib',
@@ -31,17 +54,30 @@ def sxeTargetConfigurations = [
         ':demos:snake:lib',
         ':demos:snake:pc',
     ],
+
+    'scripting' : [ // just the scripting support
+        ':core',
+        ':scripting',
+        ':scripting:rhino',
+    ],
+
 ]
 
 // Get the canonical value of sxeTarget property.
 def getSxeTarget = {
     switch (sxeTarget) {
-        case [ 'x86', 'pc' ]:
-            return 'pc'
         case [ 'android' ]:
             return 'android'
+        case 'complete':
+            return 'complete'
         case 'core':
             return 'core'
+        case [ 'pc', 'x86' ]:
+            return 'pc'
+        case [ 'pc-demos', 'x86-demos' ]:
+            return 'pc-demos'
+        case 'scripting':
+            return 'scripting'
         default:
             throw new IllegalStateException('Bad sxeTarget: '+sxeTarget)
     }
