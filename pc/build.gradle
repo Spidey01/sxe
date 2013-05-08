@@ -12,8 +12,6 @@ dependencies {
     compile project(':core')
 }
 
-project.getParent().ext.includeInTags(project)
-
 /**
  * Dependent sub projects need to call this closure, passing their project.
  *

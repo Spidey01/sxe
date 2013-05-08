@@ -8,5 +8,3 @@ dependencies {
     compile project(':core')
 }
 
-project(':core').getParent().ext.includeInTags(project)
-
