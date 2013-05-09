@@ -40,9 +40,11 @@ public class RhinoScriptEngine extends ScriptEngine {
 
     private boolean mIsInitialized = false;
     private Context mContext;
+    private Scriptable mGlobalScope;
 
     public RhinoScriptEngine() {
         mContext = Context.enter();
+        mGlobalScope = mContext.initStandardObjects();
     }
 
     public void initialize() {
@@ -52,14 +54,12 @@ public class RhinoScriptEngine extends ScriptEngine {
     }
 
     public Object eval(String sourceCode) {
-        Scriptable scope = mContext.initStandardObjects();
-        return mContext.evaluateString(scope, sourceCode, TAG, 1, null);
+        return mContext.evaluateString(newScope(), sourceCode, TAG, 1, null);
     }
 
     public Object eval(File sourceFile) {
-        Scriptable scope = mContext.initStandardObjects();
         try {
-            return mContext.evaluateReader(scope,
+            return mContext.evaluateReader(newScope(),
                 new InputStreamReader(new FileInputStream(sourceFile)),
                 sourceFile.getPath(), 1, null);
         } catch (IOException e) {
@@ -67,5 +67,13 @@ public class RhinoScriptEngine extends ScriptEngine {
         }
         return null;
     }
+
+    private Scriptable newScope() {
+        Scriptable scope = mContext(mGlobalScope);
+        scope.setPrototype(mGlobalScope);
+        scope.setParentScope(null);
+        return scope;
+    }
+
 }
 
