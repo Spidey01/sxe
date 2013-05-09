@@ -69,7 +69,7 @@ public class RhinoScriptEngine extends ScriptEngine {
     }
 
     private Scriptable newScope() {
-        Scriptable scope = mContext(mGlobalScope);
+        Scriptable scope = mContext.newObject(mGlobalScope);
         scope.setPrototype(mGlobalScope);
         scope.setParentScope(null);
         return scope;
