@@ -82,7 +82,7 @@ public class ResourceManagerTest extends UnitTest {
     @Test
     public void load() {
         // long rid = sResourceManager.load("dummy:/foo/bar");
-        long rid = sResourceManager.load("core/src/test/resources/ZipResourceLoader.zip:/blargle/bar.txt");
+        long rid = sResourceManager.load(TestUtils.getResource("ZipResourceLoader.zip:/blargle/bar.txt"));
         Assert.assertTrue("Resource ID -1 is reserved for failure.", rid > -1);
 
         InputStream data = sResourceManager.get(rid);

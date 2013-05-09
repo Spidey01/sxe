@@ -86,6 +86,7 @@ public class SnakeGame
         });
         mGameEngine.getGameContext().getDisplay().addFrameStartedListener(mTriangle);
 
+        /* old code that's becoming extinct as ResourceManager gets rewritten.
         {
             Log.v(TAG, "testing vfs: ");
 
@@ -109,6 +110,7 @@ public class SnakeGame
             );
             Log.v(TAG, "Done testing vfs; requesting stop.");
         }
+        */
 
         return true;
     }
