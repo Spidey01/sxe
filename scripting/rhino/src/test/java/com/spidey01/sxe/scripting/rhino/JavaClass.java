@@ -21,27 +21,30 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.scripting;
+/* no package here: for extra seperation */
+//package com.spidey01.sxe.scripting.rhino;
 
 import com.spidey01.sxe.core.Log;
 
-import java.io.File;
+public class JavaClass {
+    private static final String TAG = "JavaToRhino.JavaClass";
 
-public class ScriptEngine {
-    private final static String TAG = "ScriptEngine";
-
-    public ScriptEngine() {
+    public JavaClass() {
+        Log.i(TAG, "Constructor fired.");
     }
 
-    public void initialize() {
+    public boolean returnsTrue() {
+        Log.i(TAG, "ReturnsTrue fired.");
+        return true;
     }
 
-    public Object eval(String sourceCode) {
-        return null;
+    public int returnsSum(int a, int b) {
+        Log.i(TAG, "ReturnsSum("+a+", "+b+") fired.");
+        return a+b;
     }
 
-    public Object eval(File sourceFile) {
-        return null;
+    public String returnStrCat(String a, String b) {
+        Log.i(TAG, "ReturnsStrCat("+a+", "+b+") fired.");
+        return a + b;
     }
 }
-

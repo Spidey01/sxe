@@ -29,6 +29,12 @@ import org.mozilla.javascript.Scriptable;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.scripting.ScriptEngine;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.Reader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
 public class RhinoScriptEngine extends ScriptEngine {
     private final static String TAG = "RhinoScriptEngine";
 
@@ -50,5 +56,16 @@ public class RhinoScriptEngine extends ScriptEngine {
         return mContext.evaluateString(scope, sourceCode, TAG, 1, null);
     }
 
+    public Object eval(File sourceFile) {
+        Scriptable scope = mContext.initStandardObjects();
+        try {
+            return mContext.evaluateReader(scope,
+                new InputStreamReader(new FileInputStream(sourceFile)),
+                sourceFile.getPath(), 1, null);
+        } catch (IOException e) {
+            Log.e(TAG, "Failed cooking file.", e);
+        }
+        return null;
+    }
 }
 

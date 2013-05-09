@@ -21,27 +21,26 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.scripting;
+package com.spidey01.sxe.scripting.rhino;
 
 import com.spidey01.sxe.core.Log;
-
+import com.spidey01.sxe.scripting.*;
+import org.junit.*;
 import java.io.File;
 
-public class ScriptEngine {
-    private final static String TAG = "ScriptEngine";
+public class JavaToRhino {
+    private static final String TAG = "JavaToRhino";
 
-    public ScriptEngine() {
-    }
+    // Really simple example.
+    @Test
+    public void simple() {
+        ScriptEngine rhino = new RhinoScriptEngine();
 
-    public void initialize() {
-    }
+        // package com.spidey01.sxe.scripting.rhino;
+        // private static final String TAG = "JavaToRhino.JavaClass";
 
-    public Object eval(String sourceCode) {
-        return null;
-    }
-
-    public Object eval(File sourceFile) {
-        return null;
+        File script = new File("JavaToRhino.js");
+        rhino.eval(script);
     }
 }
 
