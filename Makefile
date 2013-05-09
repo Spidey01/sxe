@@ -2,6 +2,8 @@
 # This file is just for convenience of typing. In most cases you should run
 # 'gradle' directly instead of adding a target here..
 #
+all:
+	@echo pick a target
 
 tags:
 	gradle -PsxeTarget=complete tags
@@ -11,23 +13,37 @@ clean:
 
 android:
 	gradle -PsxeTarget=android build
+test-android:
+	gradle -PsxeTarget=android test
 
 complete:
 	gradle -PsxeTarget=complete build
+test-complete:
+	gradle -PsxeTarget=complete test
 
 core:
 	gradle -PsxeTarget=core build
+test-core:
+	gradle -PsxeTarget=core test
 
 pc:
 	gradle -PsxeTarget=pc build
+test-pc:
+	gradle -PsxeTarget=pc test
 pc-demos:
 	gradle -PsxeTarget=pc-demos build
+test-pc-demos:
+	gradle -PsxeTarget=pc-demos test
 
 scripting:
 	gradle -PsxeTarget=scripting build
+test-scripting:
+	gradle -PsxeTarget=scripting test
 
 scripting-rhino:
 	gradle -PsxeTarget=scripting :scripting:rhino:build
+test-scripting-rhino:
+	gradle -PsxeTarget=scripting :scripting:rhino:test
 
 #
 # helpers
