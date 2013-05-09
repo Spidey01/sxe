@@ -42,7 +42,7 @@ public class UnitTest {
      */
     @BeforeClass
     public static void logging() {
-        if (!sIsLoggingReady) {
+        if (sIsLoggingReady) {
             return;
         }
         // gradle report will have all log statements sunk to 'Standard Output'
