@@ -23,21 +23,32 @@
 
 package com.spidey01.sxe.scripting.rhino;
 
+import org.mozilla.javascript.Context;
+import org.mozilla.javascript.Scriptable;
+import org.mozilla.javascript.ScriptableObject;
+
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.scripting.*;
-import org.junit.*;
+import com.spidey01.sxe.scripting.ScriptEngine;
+import com.spidey01.sxe.scripting.Script;
 
-public class HelloRhino {
-    private static final String TAG = "HelloRhino";
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.Reader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
-    // Really simple example.
-    @Test
-    public void hello() {
-        ScriptEngine rhino = new RhinoScriptEngine();
-        Script script = rhino.createScript();
+public class RhinoScript implements Script {
+    private final static String TAG = "RhinoScript";
 
-        String result = (String)rhino.eval(script, "'Hello, Rhino!'");
-        Assert.assertEquals("Hello, Rhino!", result);
+    private Scriptable mScript;
+
+    RhinoScript(Scriptable toWrap) {
+        mScript = toWrap;
     }
+
+    Scriptable getScriptable() {
+        return mScript;
+    }
+
 }
 

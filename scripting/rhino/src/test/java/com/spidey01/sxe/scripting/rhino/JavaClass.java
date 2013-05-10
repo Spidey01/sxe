@@ -22,7 +22,7 @@
  */
 
 /* no package here: for extra seperation */
-//package com.spidey01.sxe.scripting.rhino;
+package com.spidey01.sxe.scripting.rhino;
 
 import com.spidey01.sxe.core.Log;
 

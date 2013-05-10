@@ -27,21 +27,14 @@ import com.spidey01.sxe.core.Log;
 
 import java.io.File;
 
-public class ScriptEngine {
-    private final static String TAG = "ScriptEngine";
+public interface ScriptEngine {
 
-    public ScriptEngine() {
-    }
+    Object eval(Script scope, String sourceCode);
 
-    public void initialize() {
-    }
+    Object eval(Script scope, File sourceFile);
 
-    public Object eval(String sourceCode) {
-        return null;
-    }
+    Object get(Script scope, String variable);
 
-    public Object eval(File sourceFile) {
-        return null;
-    }
+    Script createScript();
 }
 

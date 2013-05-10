@@ -31,16 +31,32 @@ import java.io.File;
 public class JavaToRhino {
     private static final String TAG = "JavaToRhino";
 
+    private RhinoScriptEngine mRhino;
+    private RhinoScript mScript;
+    private JavaClass mJavaClass;
+
+    @Before
+    public void setup() {
+        mRhino = new RhinoScriptEngine();
+        mScript = (RhinoScript)mRhino.createScript();
+        mJavaClass = new JavaClass();
+    }
+
     // Really simple example.
     @Test
     public void simple() {
-        ScriptEngine rhino = new RhinoScriptEngine();
-
         // package com.spidey01.sxe.scripting.rhino;
         // private static final String TAG = "JavaToRhino.JavaClass";
 
         File script = new File("JavaToRhino.js");
-        rhino.eval(script);
+        mRhino.eval(mScript, script);
+    }
+
+
+    @Test
+    public void get() {
+        int x = (Integer)mRhino.eval(mScript, "x = 7;");
+        Assert.assertEquals(x, mRhino.get(mScript, "x"));
     }
 }
 

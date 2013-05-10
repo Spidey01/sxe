@@ -25,9 +25,11 @@ package com.spidey01.sxe.scripting.rhino;
 
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
+import org.mozilla.javascript.ScriptableObject;
 
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.scripting.ScriptEngine;
+import com.spidey01.sxe.scripting.Script;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,7 +37,7 @@ import java.io.Reader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
-public class RhinoScriptEngine extends ScriptEngine {
+public class RhinoScriptEngine implements ScriptEngine {
     private final static String TAG = "RhinoScriptEngine";
 
     private boolean mIsInitialized = false;
@@ -54,28 +56,35 @@ public class RhinoScriptEngine extends ScriptEngine {
         }
     }
 
-    public Object eval(String sourceCode) {
+    public Object eval(Script scope, String sourceCode) {
         mContext = Context.enter();
         Object rv = null;
+        Scriptable script = getScope(scope);
         try {
-            rv = mContext.evaluateString(newScope(), sourceCode, TAG, 1, null);
+            rv = mContext.evaluateString(script, sourceCode, TAG, 1, null);
         } finally {
             Context.exit();
         }
         return rv;
     }
 
-    public Object eval(File sourceFile) {
+    public Object eval(Script scope, File sourceFile) {
         mContext = Context.enter();
+        Scriptable script = getScope(scope);
         try {
-            return mContext.evaluateReader(newScope(),
+            return mContext.evaluateReader(script,
                 new InputStreamReader(new FileInputStream(sourceFile)),
                 sourceFile.getPath(), 1, null);
         } catch (IOException e) {
             Log.e(TAG, "Failed cooking file.", e);
+        } finally {
             Context.exit();
         }
         return null;
+    }
+
+    public Script createScript() {
+        return new RhinoScript(newScope());
     }
 
     private Scriptable newScope() {
@@ -85,5 +94,20 @@ public class RhinoScriptEngine extends ScriptEngine {
         return scope;
     }
 
+    private Scriptable getScope(Script scope) {
+        return ((RhinoScript)scope).getScriptable();
+    }
+
+    public Object get(Script scope, String variable) {
+        Scriptable s = getScope(scope);
+        Object x = s.get("x", s);
+        if (x == Scriptable.NOT_FOUND) {
+            System.out.println("x is not defined.");
+            return null;
+        } else {
+            System.out.println("x = " + Context.toString(x));
+        }
+        return x;
+    }
 }
 

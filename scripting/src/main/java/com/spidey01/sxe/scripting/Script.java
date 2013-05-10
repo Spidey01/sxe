@@ -21,23 +21,17 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.scripting.rhino;
+package com.spidey01.sxe.scripting;
 
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.scripting.*;
-import org.junit.*;
+import com.spidey01.sxe.scripting.ScriptEngine;
 
-public class HelloRhino {
-    private static final String TAG = "HelloRhino";
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.Reader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
-    // Really simple example.
-    @Test
-    public void hello() {
-        ScriptEngine rhino = new RhinoScriptEngine();
-        Script script = rhino.createScript();
-
-        String result = (String)rhino.eval(script, "'Hello, Rhino!'");
-        Assert.assertEquals("Hello, Rhino!", result);
-    }
+public interface Script {
 }
 
