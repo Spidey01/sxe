@@ -40,9 +40,9 @@ import java.io.IOException;
 public class RhinoScriptEngine implements ScriptEngine {
     private final static String TAG = "RhinoScriptEngine";
 
-    private boolean mIsInitialized = false;
     private Context mContext;
     private Scriptable mGlobalScope;
+
 
     public RhinoScriptEngine() {
         mContext = Context.enter();
@@ -50,11 +50,6 @@ public class RhinoScriptEngine implements ScriptEngine {
         Context.exit();
     }
 
-    public void initialize() {
-        if (mIsInitialized) {
-            return;
-        }
-    }
 
     public Object eval(Script scope, String sourceCode) {
         mContext = Context.enter();
@@ -67,6 +62,7 @@ public class RhinoScriptEngine implements ScriptEngine {
         }
         return rv;
     }
+
 
     public Object eval(Script scope, File sourceFile) {
         mContext = Context.enter();
@@ -83,9 +79,11 @@ public class RhinoScriptEngine implements ScriptEngine {
         return null;
     }
 
+
     public Script createScript() {
         return new RhinoScript(newScope());
     }
+
 
     private Scriptable newScope() {
         Scriptable scope = mContext.newObject(mGlobalScope);
@@ -94,9 +92,11 @@ public class RhinoScriptEngine implements ScriptEngine {
         return scope;
     }
 
+
     private Scriptable getScope(Script scope) {
         return ((RhinoScript)scope).getScriptable();
     }
+
 
     public Object get(Script scope, String variable) {
         Scriptable s = getScope(scope);
@@ -109,5 +109,35 @@ public class RhinoScriptEngine implements ScriptEngine {
         }
         return x;
     }
+
+
+    /** Export Java value to script language.
+     *
+     * If value is an instance of String, Number, or Boolean: it will be
+     * converted to the corresponding JavaScript types of string, number, and
+     * boolean. Instances of Character will be converted to a JavaScript string
+     * containing the character.
+     *
+     * Rhino relies on Number.doubeValue() when performing arithmetic in
+     * JavaScript on Number instances. Loss of precision is possible if the
+     * number won't fit in a double.
+     *
+     * @param variable name used in scripting language.
+     * @param value the java object referred to by variable.
+     * @return ...
+     */
+    public Object put(Script scope, String variable, Object value) {
+        Scriptable s = getScope(scope);
+        Object wrapped = null;
+        Context.enter();
+        try {
+            wrapped = Context.javaToJS(value, s);
+        } finally {
+            Context.exit();
+        }
+        ScriptableObject.putProperty(s, variable, wrapped);
+        return wrapped;
+    }
+
 }
 

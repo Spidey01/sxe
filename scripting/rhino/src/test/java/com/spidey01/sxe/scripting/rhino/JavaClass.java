@@ -43,7 +43,7 @@ public class JavaClass {
         return a+b;
     }
 
-    public String returnStrCat(String a, String b) {
+    public String returnsStrCat(String a, String b) {
         Log.i(TAG, "ReturnsStrCat("+a+", "+b+") fired.");
         return a + b;
     }

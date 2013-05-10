@@ -42,12 +42,8 @@ public class JavaToRhino {
         mJavaClass = new JavaClass();
     }
 
-    // Really simple example.
     @Test
     public void simple() {
-        // package com.spidey01.sxe.scripting.rhino;
-        // private static final String TAG = "JavaToRhino.JavaClass";
-
         File script = new File("JavaToRhino.js");
         mRhino.eval(mScript, script);
     }
@@ -57,6 +53,24 @@ public class JavaToRhino {
     public void get() {
         int x = (Integer)mRhino.eval(mScript, "x = 7;");
         Assert.assertEquals(x, mRhino.get(mScript, "x"));
+    }
+
+        // rhino.put("javaClass", javaClass);
+        // Log.d(TAG, "value: +"+ rhino.eval("javaClass.returnsTrue();").getClass());
+        // System.out.println( "value: +"+ rhino.eval("javaClass.returnsTrue();").getClass());
+        // String result = (String)rhino.eval("'Hello, Rhino!'");
+        // Assert.assertEquals("Hello, Rhino!", result);
+    @Test
+    public void put() {
+        mRhino.put(mScript, "out", System.out);
+        mRhino.eval(mScript, "out.println('fuck you!');");
+
+        mRhino.put(mScript, "javaClass", mJavaClass);
+        Assert.assertTrue((Boolean)mRhino.eval(mScript, "javaClass.returnsTrue();"));
+        int sum = (Integer)mRhino.eval(mScript, "javaClass.returnsSum(2, 2);");
+        Assert.assertEquals(4, sum);
+        String foobar = String.valueOf(mRhino.eval(mScript, "javaClass.returnsStrCat('foo', 'bar');"));
+        Assert.assertEquals("foobar", foobar);
     }
 }
 

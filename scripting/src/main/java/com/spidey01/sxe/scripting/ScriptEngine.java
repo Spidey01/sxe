@@ -29,12 +29,25 @@ import java.io.File;
 
 public interface ScriptEngine {
 
+    Script createScript();
+
     Object eval(Script scope, String sourceCode);
 
     Object eval(Script scope, File sourceFile);
 
     Object get(Script scope, String variable);
 
-    Script createScript();
+    /** Export Java value to script language.
+     *
+     * Types will be mapped as expected. Things like Strings , booleans, etc.
+     * Exact representation of numeric data on the other hand is implementation
+     * defined. Please see the corrisponding documentation for the
+     * implementation.
+     *
+     * @param variable name used in scripting language.
+     * @param value the java object referred to by variable.
+     * @return ...
+     */
+    Object put(Script scope, String variable, Object value);
 }
 
