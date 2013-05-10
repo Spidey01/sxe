@@ -45,6 +45,7 @@ public class RhinoScriptEngine extends ScriptEngine {
     public RhinoScriptEngine() {
         mContext = Context.enter();
         mGlobalScope = mContext.initStandardObjects();
+        Context.exit();
     }
 
     public void initialize() {
@@ -54,16 +55,25 @@ public class RhinoScriptEngine extends ScriptEngine {
     }
 
     public Object eval(String sourceCode) {
-        return mContext.evaluateString(newScope(), sourceCode, TAG, 1, null);
+        mContext = Context.enter();
+        Object rv = null;
+        try {
+            rv = mContext.evaluateString(newScope(), sourceCode, TAG, 1, null);
+        } finally {
+            Context.exit();
+        }
+        return rv;
     }
 
     public Object eval(File sourceFile) {
+        mContext = Context.enter();
         try {
             return mContext.evaluateReader(newScope(),
                 new InputStreamReader(new FileInputStream(sourceFile)),
                 sourceFile.getPath(), 1, null);
         } catch (IOException e) {
             Log.e(TAG, "Failed cooking file.", e);
+            Context.exit();
         }
         return null;
     }
