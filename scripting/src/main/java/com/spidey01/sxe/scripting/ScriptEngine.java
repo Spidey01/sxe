@@ -26,6 +26,8 @@ package com.spidey01.sxe.scripting;
 import com.spidey01.sxe.core.Log;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public interface ScriptEngine {
 
@@ -33,7 +35,7 @@ public interface ScriptEngine {
 
     Object eval(Script scope, String sourceCode);
 
-    Object eval(Script scope, File sourceFile);
+    Object eval(Script scope, File sourceFile) throws IOException, FileNotFoundException;
 
     Object get(Script scope, String variable);
 

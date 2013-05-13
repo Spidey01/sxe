@@ -33,9 +33,10 @@ import com.spidey01.sxe.scripting.Script;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.Reader;
-import java.io.InputStreamReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 public class RhinoScriptEngine implements ScriptEngine {
     private final static String TAG = "RhinoScriptEngine";
@@ -64,19 +65,18 @@ public class RhinoScriptEngine implements ScriptEngine {
     }
 
 
-    public Object eval(Script scope, File sourceFile) {
+    public Object eval(Script scope, File sourceFile)
+        throws IOException, FileNotFoundException
+    {
         mContext = Context.enter();
         Scriptable script = getScope(scope);
         try {
             return mContext.evaluateReader(script,
                 new InputStreamReader(new FileInputStream(sourceFile)),
                 sourceFile.getPath(), 1, null);
-        } catch (IOException e) {
-            Log.e(TAG, "Failed cooking file.", e);
         } finally {
             Context.exit();
         }
-        return null;
     }
 
 

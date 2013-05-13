@@ -30,6 +30,8 @@ import com.spidey01.sxe.core.UnitTest;
 import com.spidey01.sxe.scripting.*;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class JavaToRhino {
     private static final String TAG = "JavaToRhino";
@@ -54,7 +56,7 @@ public class JavaToRhino {
 
 
     @Test
-    public void simple() {
+    public void simple() throws IOException, FileNotFoundException {
         File script = new File("JavaToRhino.js");
         mRhino.eval(mScript, script);
     }
