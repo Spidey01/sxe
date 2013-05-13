@@ -52,7 +52,8 @@ public class HelloWorld
         mGameEngine.getGameContext().getInput().addKeyListener("Q", this);
 
         try {
-            TrueTypeFont mFont = TrueTypeFont.from("DejaVuSansMono.ttf");
+            TrueTypeFont mFont = TrueTypeFont.from("HelloWorld.ttf");
+            // mGameEngine.getGameContext().getDisplay().addFrameStartedListener(mFont);
         } catch(IOException e) {
             Log.e(TAG, "Caught IOExeption from TrueTypeFont.from(String)", e);
         }
