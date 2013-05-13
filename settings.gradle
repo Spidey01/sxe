@@ -15,11 +15,13 @@ if (!hasProperty('sxeTarget')) {
 
 def sxeTargetConfigurations = [
     'android' : [
+        ':deps:pngdecoder',
         ':core',
         ':android',
     ],
 
     'complete' : [ // build everything.
+        ':deps:pngdecoder',
         ':core',
         ':scripting',
         ':scripting:rhino',
@@ -37,14 +39,17 @@ def sxeTargetConfigurations = [
     ],
 
     'core' : [
+        ':deps:pngdecoder',
         ':core',
     ],
 
     'pc' : [
+        ':deps:pngdecoder',
         ':core',
         ':pc',
     ],
     'pc-demos' : [
+        ':deps:pngdecoder',
         ':core',
         ':pc',
         ':demos:helloworld:lib',
@@ -56,6 +61,7 @@ def sxeTargetConfigurations = [
     ],
 
     'scripting' : [ // just the scripting support
+        ':deps:pngdecoder',
         ':core',
         ':scripting',
         ':scripting:rhino',

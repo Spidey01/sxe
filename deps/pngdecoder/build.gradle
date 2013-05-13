@@ -1,0 +1,11 @@
+/** This file is public domain.
+ *
+ * The source code is not! See README
+ */
+
+apply plugin: 'java'
+group = 'de.matthiasmann.twl.utils'
+archivesBaseName = 'twl-pngdecoder'
+version = 'e78c533a0e67'
+description = 'TWL PNGDecoder'
+

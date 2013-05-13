@@ -11,3 +11,4 @@ The installApp, distZip, and distTarget targets should generally work where appl
 
 Code is structured into subproject modules for the core system and platform dependencies. Demo apps do like wise.
 
+Most external dependencies are supplied through a repository. Those that cannot be, will usually be found somewhere in deps/. Refer to deps/README for details.
