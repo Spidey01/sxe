@@ -43,8 +43,11 @@ public interface OpenGl {
     static final int GL_FLOAT = 0x1406;
     static final int GL_FRAGMENT_SHADER = 0x8B30;
     static final int GL_LINK_STATUS = 0x8B82;
+    static final int GL_RGBA = 0x00001908;
     static final int GL_STATIC_DRAW = 0x88E4;
+    static final int GL_TEXTURE_2D = 0x0de1;
     static final int GL_TRIANGLES = 0x0004;
+    static final int GL_UNSIGNED_BYTE = 0x00001401;
     static final int GL_VALIDATE_STATUS = 0x8B83;
     static final int GL_VERTEX_SHADER = 0x8B31;
 
@@ -62,6 +65,7 @@ public interface OpenGl {
     void glAttachShader(GpuProgram p, Shader s);
     void glAttachShader(int program, int shader);
     void glBindBuffer(int target, int buffer);
+    void glBindTexture(int target, int texture);
     void glBufferData(int target, ByteBuffer data, int usage);
     void glBufferData(int target, DoubleBuffer data, int usage);
     void glBufferData(int target, FloatBuffer data, int usage);
@@ -78,6 +82,8 @@ public interface OpenGl {
     void glEnable(int cap);
     void glEnableVertexAttribArray(int index);
     void glGenBuffers(IntBuffer buffers);
+    void glGenTextures(ByteBuffer buffer);
+    void glGenTextures(IntBuffer buffer);
     int glGetAttribLocation(int program, String name);
     String glGetProgramInfoLog(int program);
     int glGetProgramiv(int program, int pname);
@@ -86,6 +92,7 @@ public interface OpenGl {
     void glLinkProgram(GpuProgram p);
     void glLinkProgram(int program);
     void glShaderSource(int shader, String source);
+    void glTexImage2D(int target, int level, int internalFormat, int width, int height, int border, int format, int type, ByteBuffer pixels);
     void glUseProgram(GpuProgram program);
     void glUseProgram(int program);
     void glValidateProgram(GpuProgram p);

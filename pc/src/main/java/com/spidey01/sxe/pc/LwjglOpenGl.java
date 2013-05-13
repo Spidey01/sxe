@@ -81,6 +81,11 @@ public class LwjglOpenGl implements OpenGl {
     public void glBindBuffer(int target, int buffer) {
         GL15.glBindBuffer(t(target), buffer);
     }
+
+    @Override
+    public void glBindTexture(int target, int texture) {
+        GL11.glBindTexture(t(target), texture);
+    }
         
     @Override
     public void glBufferData(int target, ByteBuffer data, int usage) {
@@ -163,6 +168,16 @@ public class LwjglOpenGl implements OpenGl {
     }
 
     @Override
+    public void glGenTextures(ByteBuffer buffer) {
+        glGenTextures(buffer.asIntBuffer());
+    }
+
+    @Override
+    public void glGenTextures(IntBuffer buffer) {
+        GL11.glGenTextures(buffer);
+    }
+
+    @Override
     public int glGetAttribLocation(int program, String name) {
         return GL20.glGetAttribLocation(program, name);
     }
@@ -202,6 +217,14 @@ public class LwjglOpenGl implements OpenGl {
     @Override
     public void glShaderSource(int shader, String source) {
         GL20.glShaderSource(shader, source);
+    }
+
+    @Override
+    public void glTexImage2D(int target, int level, int internalFormat,
+                             int width, int height, int border, int format,
+                             int type, ByteBuffer pixels) {
+
+        GL11.glTexImage2D(t(target), level, t(internalFormat), width, height, border, t(format), t(type), pixels);
     }
 
     @Override
@@ -348,11 +371,20 @@ public class LwjglOpenGl implements OpenGl {
             case OpenGl.GL_LINK_STATUS:
                 return GL20.GL_LINK_STATUS;
 
+            case OpenGl.GL_RGBA:
+                return GL11.GL_RGBA;
+
             case OpenGl.GL_STATIC_DRAW:
                 return GL15.GL_STATIC_DRAW;
 
+            case OpenGl.GL_TEXTURE_2D:
+                return GL11.GL_TEXTURE_2D;
+
             case OpenGl.GL_TRIANGLES:
                 return GL11.GL_TRIANGLES;
+
+            case OpenGl.GL_UNSIGNED_BYTE:
+                return GL11.GL_UNSIGNED_BYTE;
 
             case OpenGl.GL_VALIDATE_STATUS:
                 return GL20.GL_VALIDATE_STATUS;
