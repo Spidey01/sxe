@@ -23,14 +23,13 @@
 
 package com.spidey01.sxe.core;
 
-import org.junit.*;
-
-import com.spidey01.sxe.core.Utils;
-import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.LogSink;
-
-import java.io.*;
-
+/** Base class for unit tests.
+ *
+ * This class is configured as a way of providing unit testing support for unit
+ * tests that can be shared with other modules. It needs to have access to
+ * core, so it cannot be a separate project. I don't care to add junit as a
+ * baked in dependency of core either.
+ */
 public class UnitTest {
 
     private static boolean sIsLoggingReady = false;
@@ -40,7 +39,6 @@ public class UnitTest {
      * stdout will get all messages.
      * stderr will get up to warning messages.
      */
-    @BeforeClass
     public static void logging() {
         if (sIsLoggingReady) {
             return;
@@ -52,6 +50,18 @@ public class UnitTest {
         Log.add(new LogSink(System.err, Log.WARN));
 
         sIsLoggingReady = true;
+    }
+
+    /** Perform any standard setup for unit tests.
+     *
+     * This is meant to be used in a @BeforeClass method.
+     *
+     * Equal to calling:<ul>
+     *  <li>logging()</li>
+     * </ul>
+     */
+    public static void setup() {
+        UnitTest.logging();
     }
 }
 

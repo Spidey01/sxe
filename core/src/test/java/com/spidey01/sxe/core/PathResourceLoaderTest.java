@@ -23,21 +23,20 @@
 
 package com.spidey01.sxe.core;
 
-import org.junit.Assert;
-import org.junit.Assume;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.*;
 
-import com.spidey01.sxe.core.ResourceLoader;
-import com.spidey01.sxe.core.PathResourceLoader;
-import com.spidey01.sxe.core.Utils;
 
 import java.io.File;
 import java.io.IOException;
 
 public class PathResourceLoaderTest extends UnitTest {
     private static PathResourceLoader sLoader = new PathResourceLoader();
+
+    @BeforeClass
+    public static void setup() {
+        UnitTest.setup();
+    }
+
 
     @Test
     public void simplePathTest() throws IOException {

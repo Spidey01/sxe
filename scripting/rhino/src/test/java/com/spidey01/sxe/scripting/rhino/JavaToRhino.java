@@ -23,9 +23,12 @@
 
 package com.spidey01.sxe.scripting.rhino;
 
-import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.scripting.*;
 import org.junit.*;
+
+import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.UnitTest;
+import com.spidey01.sxe.scripting.*;
+
 import java.io.File;
 
 public class JavaToRhino {
@@ -35,12 +38,20 @@ public class JavaToRhino {
     private RhinoScript mScript;
     private JavaClass mJavaClass;
 
+
+    @BeforeClass
+    public static void setupClass() {
+        UnitTest.setup();
+    }
+
+
     @Before
     public void setup() {
         mRhino = new RhinoScriptEngine();
         mScript = (RhinoScript)mRhino.createScript();
         mJavaClass = new JavaClass();
     }
+
 
     @Test
     public void simple() {
@@ -54,6 +65,7 @@ public class JavaToRhino {
         int x = (Integer)mRhino.eval(mScript, "x = 7;");
         Assert.assertEquals(x, mRhino.get(mScript, "x"));
     }
+
 
         // rhino.put("javaClass", javaClass);
         // Log.d(TAG, "value: +"+ rhino.eval("javaClass.returnsTrue();").getClass());

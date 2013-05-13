@@ -24,17 +24,7 @@
 package com.spidey01.sxe.core;
 
 import org.hamcrest.CoreMatchers;
-import org.junit.Assert;
-import org.junit.Assume;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
-
-import com.spidey01.sxe.core.PathResourceLoader;
-import com.spidey01.sxe.core.Resource;
-import com.spidey01.sxe.core.ResourceLoader;
-import com.spidey01.sxe.core.ResourceManager;
-import com.spidey01.sxe.core.ZipResourceLoader;
+import org.junit.*;
 
 import java.io.File;
 import java.io.InputStream;
@@ -46,8 +36,10 @@ public class ResourceManagerTest extends UnitTest {
 
     @BeforeClass
     public static void setUpClass() {
+        UnitTest.setup();
         sResourceManager = new ResourceManager();
     }
+
 
     @Test
     public void checkDefaults() {
@@ -62,6 +54,7 @@ public class ResourceManagerTest extends UnitTest {
         Assert.assertThat("ResourceManager should handle .zip out of box.", loaders.get(".zip"),
                           CoreMatchers.instanceOf(ZipResourceLoader.class));
     }
+
 
     @Test
     public void addLoader() {
@@ -78,6 +71,7 @@ public class ResourceManagerTest extends UnitTest {
         // Assert.assertThat(sResourceManager.getLoader(prefix+"/foo/bar/ham"),
                           // CoreMatchers.instanceOf(DummyResourceLoader.class));
     }
+
 
     @Test
     public void load() {
@@ -100,5 +94,7 @@ public class ResourceManagerTest extends UnitTest {
 
         sResourceManager.unload(rid);
     }
+
+
 }
 

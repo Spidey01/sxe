@@ -24,27 +24,34 @@
 /* no package here: for extra seperation */
 package com.spidey01.sxe.scripting.rhino;
 
+import com.spidey01.sxe.core.UnitTest;
 import com.spidey01.sxe.core.Log;
 
 public class JavaClass {
     private static final String TAG = "JavaToRhino.JavaClass";
 
+
     public JavaClass() {
         Log.i(TAG, "Constructor fired.");
     }
+
 
     public boolean returnsTrue() {
         Log.i(TAG, "ReturnsTrue fired.");
         return true;
     }
 
+
     public int returnsSum(int a, int b) {
         Log.i(TAG, "ReturnsSum("+a+", "+b+") fired.");
         return a+b;
     }
 
+
     public String returnsStrCat(String a, String b) {
         Log.i(TAG, "ReturnsStrCat("+a+", "+b+") fired.");
         return a + b;
     }
+
+
 }

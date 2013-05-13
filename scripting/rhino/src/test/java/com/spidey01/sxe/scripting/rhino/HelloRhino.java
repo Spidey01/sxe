@@ -23,12 +23,21 @@
 
 package com.spidey01.sxe.scripting.rhino;
 
-import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.scripting.*;
 import org.junit.*;
+
+import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.UnitTest;
+
+import com.spidey01.sxe.scripting.*;
 
 public class HelloRhino {
     private static final String TAG = "HelloRhino";
+
+    @BeforeClass
+    public static void setup() {
+        UnitTest.setup();
+    }
+
 
     // Really simple example.
     @Test
@@ -39,5 +48,6 @@ public class HelloRhino {
         String result = (String)rhino.eval(script, "'Hello, Rhino!'");
         Assert.assertEquals("Hello, Rhino!", result);
     }
+
 }
 

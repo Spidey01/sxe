@@ -23,16 +23,7 @@
 
 package com.spidey01.sxe.core;
 
-import org.junit.Assert;
-import org.junit.Assume;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
-
-import com.spidey01.sxe.core.ResourceLoader;
-import com.spidey01.sxe.core.PathResourceLoader;
-import com.spidey01.sxe.core.Utils;
-import com.spidey01.sxe.core.Log;
+import org.junit.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,20 +33,30 @@ public class ZipResourceLoaderTest extends UnitTest {
 
     private static final String dummyText = "Test dummy for ZipResourceLoader.\n";
 
+
+    @BeforeClass
+    public static void setup() {
+        UnitTest.setup();
+    }
+
+
     @Test
     public void loadTopLevelFile() throws IOException {
         test("foo.txt");
     }
+
 
     @Test
     public void loadFileInSubDir() throws IOException {
         test("blargle/bar.txt");
     }
 
+
     @Test(expected = IOException.class)
     public void loadNonExistantFile() throws IOException {
         test("guux.blarg");
     }
+
 
     /** You can't load directories. */
     @Test(expected = IOException.class)
@@ -63,20 +64,24 @@ public class ZipResourceLoaderTest extends UnitTest {
         sLoader.getInputStream(getZip().getPath()+":/blargle");
     }
 
+
     @Test(expected = IOException.class)
     public void garbageZipFile() throws IOException {
         sLoader.getInputStream(Utils.getBitBucketPath() +":/foo");
     }
+
 
     @Test(expected = NullPointerException.class)
     public void nullFile() throws IOException {
         sLoader.getInputStream((File)null);
     }
 
+
     @Test(expected = NullPointerException.class)
     public void nullString() throws IOException {
         sLoader.getInputStream((String)null);
     }
+
 
     private File getZip() {
         File zip = TestUtils.getResource("ZipResourceLoader.zip");
@@ -84,6 +89,7 @@ public class ZipResourceLoaderTest extends UnitTest {
         Assume.assumeTrue(zip.exists());
         return zip;
     }
+
 
     /** Tests that it works with and without a leading "/" in the path name. */
     private void test(String path) throws IOException {
@@ -98,6 +104,7 @@ public class ZipResourceLoaderTest extends UnitTest {
         Assert.assertEquals("With $zip:$filename.", dummyText,
                             Utils.slurp(sLoader.getInputStream(s)));
     }
+
 
 }
 
