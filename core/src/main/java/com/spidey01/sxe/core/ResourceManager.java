@@ -123,11 +123,17 @@ public class ResourceManager {
     }
 
     public ResourceHandle get(long rid) {
-        // todo: enforce non null
+        // TODO: don't leak null
         return mResourceHandles.get((Long)rid);
     }
 
     public void unload(long rid) {
+        // TODO: only unload if no other users.
+        try {
+            mResourceHandles.get((Long)rid).close();
+        } catch (IOException e) {
+            Log.w(TAG, "Exception while closing rid="+rid, e);
+        }
     }
 
 }
