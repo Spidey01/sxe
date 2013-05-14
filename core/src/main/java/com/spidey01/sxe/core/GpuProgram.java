@@ -23,14 +23,115 @@
 
 package com.spidey01.sxe.core;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.LinkedList;
 
-public interface GpuProgram {
-    int getProgram();
-    List<Shader> getShaders();
-    void addShader(Shader shader);
-    boolean link();
-    boolean validate();
-    String getInfoLog();
+public class GpuProgram {
+    private static final String TAG = "GpuProgram";
+
+    private boolean mIsInitialized;
+    private int mProgramId;
+    private Collection<Shader> mShaders = new LinkedList<Shader>();
+
+
+    public GpuProgram() {
+    }
+
+
+    /** Convenience constructor when you just want a vert/frag shader pair. */
+    public GpuProgram(Shader vertex, Shader fragment) {
+        mShaders.add(vertex);
+        mShaders.add(fragment);
+    }
+
+    public GpuProgram(Collection<Shader> shaders) {
+        mShaders.addAll(shaders);
+    }
+
+    public void initialize(OpenGl GL) {
+        mProgramId = GL.glCreateProgram();
+        if (mProgramId == 0) {
+        }
+
+        for (Shader s : mShaders) {
+            s.initialize(GL);
+            GL.glAttachShader(mProgramId, s.getId());
+        }
+
+        link(GL);
+
+        // Could detach shaders now but would it break deinitialize and how
+        // much memory would it usually recover?
+    }
+
+
+    public void deinitialize(OpenGl GL) {
+        for (Shader s : mShaders) {
+            GL.glDetachShader(mProgramId, s.getId());
+            // XXX do we want to do this?
+            // s.deinitialize(GL);
+        }
+        GL.glDeleteProgram(mProgramId);
+        mProgramId = 0;
+    }
+
+
+    private String getInfoLog(OpenGl GL) {
+        return GL.glGetProgramInfoLog(mProgramId);
+    }
+ 
+    
+    public void attachShader(Shader shader) {
+        mShaders.add(shader);
+    }
+
+    public void attachShader(OpenGl GL, Shader shader) {
+        GL.glAttachShader(mProgramId, shader.getId());
+        mShaders.add(shader);
+    }
+
+    public void detachShader(Shader shader) {
+        mShaders.remove(shader);
+    }
+
+    public void detachShader(OpenGl GL, Shader shader) {
+        GL.glDetachShader(mProgramId, shader.getId());
+        mShaders.remove(shader);
+    }
+
+    public void link(OpenGl GL) {
+        check();
+
+        GL.glLinkProgram(mProgramId);
+        if (GL.glGetProgramiv(mProgramId, OpenGl.GL_LINK_STATUS) == OpenGl.GL_FALSE) {
+            throw new RuntimeException("Failed linking program: "+getInfoLog(GL));
+        }
+
+    }
+
+
+    public boolean validate(OpenGl GL) {
+        GL.glValidateProgram(mProgramId);
+
+        return GL.glGetProgramiv(mProgramId, OpenGl.GL_VALIDATE_STATUS)
+            == OpenGl.GL_FALSE ? false : true;
+    }
+
+
+    /** Installs this GpuProgram as part of the OpenGL rendering state. */
+    public void use(OpenGl GL) {
+        GL.glUseProgram(mProgramId);
+    }
+
+
+    public int getProgram() {
+        return mProgramId;
+    }
+
+    private void check() {
+        if (!mIsInitialized) {
+            throw new IllegalStateException("Not yet fully initialized!");
+        }
+    }
 }
 

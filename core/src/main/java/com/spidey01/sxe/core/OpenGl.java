@@ -62,6 +62,8 @@ public interface OpenGl {
 
     /* OpenGL functions */
 
+    int glCreateProgram();
+    int glCreateShader(int type);
     void glAttachShader(GpuProgram p, Shader s);
     void glAttachShader(int program, int shader);
     void glBindBuffer(int target, int buffer);
@@ -73,9 +75,11 @@ public interface OpenGl {
     void glClear(int mask);
     void glClearColor(float red, float green, float blue, float alpha);
     void glCompileShader(int shader);
-    int glCreateProgram();
-    int glCreateShader(int type);
+    void glDeleteProgram(GpuProgram program);
+    void glDeleteProgram(int program);
     void glDeleteShader(int shader);
+    void glDetachShader(GpuProgram program, Shader shader);
+    void glDetachShader(int program, int shader);
     void glDisable(int cap);
     void glDisableVertexAttribArray(int index);
     void glDrawArrays(int mode, int first, int count);

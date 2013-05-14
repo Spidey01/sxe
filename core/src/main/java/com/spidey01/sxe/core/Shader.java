@@ -23,17 +23,108 @@
 
 package com.spidey01.sxe.core;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.Reader;
 
-public interface Shader {
+public class Shader {
+    private static final String TAG = "Shader";
+    
+    private boolean mIsInitialized;
+    private int mShaderId;
+    private final String mSourceCode;
+
     public enum Type {
         VERTEX, FRAGMENT
     }
-    boolean compile(String fileName);
-    boolean compile(Type type, InputStream source);
-    int getShader();
-    Type getType();
-    String getFileName();
-    String getInfoLog();
+
+    private final Type mType;
+
+
+    /** Shader source code from a String. */
+    public Shader(String code, Type type) throws IOException {
+        mSourceCode = code;
+        mType = type;
+    }
+
+
+    /** Shader source code from a File. */
+    public Shader(File file, Type type) throws IOException {
+        mSourceCode = Utils.slurp(file);
+        mType = type;
+    }
+
+
+    /** Shader source code from a Reader. */
+    public Shader(BufferedReader reader, Type type) throws IOException {
+        mSourceCode = Utils.slurp(reader);
+        mType = type;
+    }
+
+
+    /** Shader source code from a InputStream. */
+    public Shader(InputStream stream, Type type) throws IOException {
+        mSourceCode = Utils.slurp(stream);
+        mType = type;
+    }
+
+
+    /** Obtain the underlaying Shader ID from OpenGL. */
+    public int getId() {
+        check();
+        return mShaderId;
+    }
+
+
+    public Type getType() {
+        return mType;
+    }
+
+
+    public void initialize(OpenGl GL) {
+        if (mIsInitialized) return;
+
+        int type =
+            mType == Type.VERTEX ? OpenGl.GL_VERTEX_SHADER
+                                 : (mType == Type.FRAGMENT ? OpenGl.GL_FRAGMENT_SHADER : -1);
+        assert (type == OpenGl.GL_VERTEX_SHADER) || (type == OpenGl.GL_FRAGMENT_SHADER);
+
+        mShaderId = GL.glCreateShader(type);
+        if (mShaderId == 0) {
+            throw new RuntimeException("Failed creating shader: "+getInfoLog(GL));
+        }
+
+        GL.glShaderSource(mShaderId, mSourceCode);
+        GL.glCompileShader(mShaderId);
+        if (GL.glGetShaderiv(mShaderId, OpenGl.GL_COMPILE_STATUS) == OpenGl.GL_FALSE) {
+            String log = getInfoLog(GL);
+            GL.glDeleteShader(mShaderId);
+            throw new RuntimeException("Failed compiling shader: "+log);
+        }
+
+        mIsInitialized = true;
+    }
+
+
+    public void deinitialize(OpenGl GL) {
+        check();
+        GL.glDeleteShader(mShaderId);
+        mIsInitialized = false;
+    }
+
+
+    private String getInfoLog(OpenGl GL) {
+        check();
+        return GL.glGetShaderInfoLog(mShaderId);
+    }
+
+    private void check() {
+        if (!mIsInitialized) {
+            throw new IllegalStateException("Not yet fully initialized!");
+        }
+    }
+
 }
 

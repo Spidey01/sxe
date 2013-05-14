@@ -88,6 +88,7 @@ public class Mesh implements FrameStartedListener {
     }
 
     public void initialize(final OpenGl GL20) {
+    /* FIXME
         // Setup shaders.
         GlslShader vert = null;
         GlslShader frag = null;
@@ -133,6 +134,7 @@ public class Mesh implements FrameStartedListener {
         }
 
         mInitialized = true;
+    */
     }
 }
 

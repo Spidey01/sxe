@@ -29,6 +29,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 
 public class Utils {
 
@@ -88,7 +89,7 @@ public class Utils {
         return Utils.slurp(Utils.makeBufferedReader(source));
     }
 
-    /** Slurps a BufferedReader into a String. */
+    /** Slurps a Reader into a String. */
     public static String slurp(BufferedReader source) throws IOException {
         String line;
         StringBuilder sb = new StringBuilder();

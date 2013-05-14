@@ -132,10 +132,31 @@ public class LwjglOpenGl implements OpenGl {
         return GL20.glCreateShader(t(type));
     }
 
+
+    void glDeleteProgram(GpuProgram program) {
+        GL20.glDeleteProgram(program.getProgram());
+    }
+
+
+    void glDeleteProgram(int program) {
+        GL20.glDeleteProgram(program);
+    }
+
     @Override
     public void glDeleteShader(int shader) {
         GL20.glDeleteShader(shader);
     }
+
+
+    void glDetachShader(GpuProgram program, Shader shader) {
+        GL20.glDetachShader(program.getProgram(), shader.getId());
+    }
+
+
+    void glDetachShader(int program, int shader) {
+        GL20.glDetachShader(program, shader);
+    }
+
 
     @Override
     public void glDisable(int cap) {
