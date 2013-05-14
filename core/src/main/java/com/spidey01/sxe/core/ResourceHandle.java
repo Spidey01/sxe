@@ -95,6 +95,7 @@ public class ResourceHandle implements Closeable {
     public Shader asShader(Shader.Type type) throws IOException {
         if (mShader == null) {
             mShader = new Shader(asReader(), type);
+            close();
         }
         return mShader;
     }
