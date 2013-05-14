@@ -107,20 +107,16 @@ public class ResourceManager {
         return load(path.getPath());
     }
 
+
     public long load(String path) {
         ResourceLoader loader = getLoader(path);
-        try {
-            InputStream is = loader.getInputStream(path);
-            mLastResourceId++;
-            // mResourceHandles.put((Long)mLastResourceId, is);
-            System.out.println("Loaded "+path+" with "+loader+" and rid="+mLastResourceId);
-            return mLastResourceId;
-        } catch (IOException e) {
-            Log.e(TAG, "Problem loading "+path+" with "+loader, e);
-            System.out.println("Problem loading "+path+" with "+loader+"Exception: "+ e);
-        }
-        return -1;
+        mLastResourceId++;
+        ResourceHandle r = new ResourceHandle(loader, mLastResourceId, path);
+        mResourceHandles.put((Long)mLastResourceId, r);
+        Log.d(TAG, "Loaded "+path+" with "+loader+" and rid="+mLastResourceId);
+        return mLastResourceId;
     }
+
 
     public ResourceHandle get(long rid) {
         // TODO: don't leak null

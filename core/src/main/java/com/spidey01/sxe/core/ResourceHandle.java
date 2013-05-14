@@ -35,7 +35,7 @@ import java.io.Closeable;
 public class ResourceHandle implements Closeable {
     private final static String TAG = "ResourceHandle";
 
-    private final int mRid;
+    private final long mRid;
     private final ResourceLoader mLoadedBy;
     private final String mResourcePath;
 
@@ -51,39 +51,23 @@ public class ResourceHandle implements Closeable {
     private Shader mShader;
     private Font mFont;
 
-    public ResourceHandle(ResourceLoader loader, int rid, String resource) {
+
+    public ResourceHandle(ResourceLoader loader, long rid, String resource) {
         mLoadedBy = loader;
         mRid = rid;
         mResourcePath = resource;
     }
 
-    // public void load() {
-        // assert mLoadedBy != null;
-
-        // try {
-            // mInputStream = mLoadedBy.getInputStream(resourcePath);
-        // } catch (IOException e) {
-            // mInputStream = null;
-            // mFailure = e;
-            // Log.w(TAG, "load()", e);
-        // }
-    // }
 
     public boolean isLoaded() {
         return false;
     }
 
+
     public ResourceLoader getLoader() {
         return mLoadedBy;
     }
 
-    // public InputStream getInputStream() {
-        // return mInputStream;
-    // }
-
-    // public Throwable getFailure() {
-        // return mFailure;
-    // }
 
     public BufferedReader asReader() throws IOException {
         if (mReader == null) {
@@ -117,12 +101,14 @@ public class ResourceHandle implements Closeable {
         return mShader;
     }
 
+
     public Font asFont() throws IOException {
         if (mFont == null) {
             throw new IOException("Nadda typeface.");
         }
         return mFont;
     }
+
 
     public void close() throws IOException {
         if (mInputStream != null) {
