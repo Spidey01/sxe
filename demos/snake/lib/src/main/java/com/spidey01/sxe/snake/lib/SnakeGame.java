@@ -42,7 +42,6 @@ import com.spidey01.sxe.core.Mesh;
 import com.spidey01.sxe.core.Resource;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.Shader;
-import com.spidey01.sxe.core.ShaderFactory;
 import com.spidey01.sxe.core.VirtualFileSystemLoader;
 import java.io.InputStream;
 import java.nio.ByteOrder;
