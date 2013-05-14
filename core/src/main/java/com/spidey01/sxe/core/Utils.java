@@ -43,6 +43,7 @@ public class Utils {
         return new BufferedReader(new InputStreamReader(in));
     }
 
+    /* XXX clean up as necessarily.
     public static Shader.Type resourceTypeToShaderType(Resource.Type type) {
         return type == Resource.Type.VERTEX_SHADER ? Shader.Type.VERTEX
             : Shader.Type.FRAGMENT;
@@ -70,6 +71,7 @@ public class Utils {
         }
         throw new RuntimeException("Unknown shader type for "+fileName);
     }
+    */
 
     /** Slurps a File into a String. */
     public static String slurp(File source) throws IOException {

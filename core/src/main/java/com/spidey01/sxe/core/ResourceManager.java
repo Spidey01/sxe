@@ -41,7 +41,7 @@ public class ResourceManager {
     /** Map of loaders to container types, e.g. .zip */
     private Map<String, ResourceLoader> mLoaders = new HashMap<String, ResourceLoader>();
     /** Map of resources loaded */
-    private Map<Long, InputStream> mResources = new HashMap<Long, InputStream>();
+    private Map<Long, ResourceHandle> mResourceHandles = new HashMap<Long, ResourceHandle>();
     /** Last RID given; used by load() to generate a new rid. */
     private long mLastResourceId = -1;
 
@@ -112,7 +112,7 @@ public class ResourceManager {
         try {
             InputStream is = loader.getInputStream(path);
             mLastResourceId++;
-            mResources.put((Long)mLastResourceId, is);
+            // mResourceHandles.put((Long)mLastResourceId, is);
             System.out.println("Loaded "+path+" with "+loader+" and rid="+mLastResourceId);
             return mLastResourceId;
         } catch (IOException e) {
@@ -122,9 +122,9 @@ public class ResourceManager {
         return -1;
     }
 
-    public InputStream get(long rid) {
-        // return null;
-        return mResources.get((Long)rid);
+    public ResourceHandle get(long rid) {
+        // todo: enforce non null
+        return mResourceHandles.get((Long)rid);
     }
 
     public void unload(long rid) {

@@ -116,14 +116,17 @@ public class GlslShader implements Shader {
 
     @Override
     public boolean compile(String fileName) {
-        mType = Utils.getShaderType(fileName);
+        throw new IllegalStateException("Method needs fixing.");
+        // mType = Utils.getShaderType(fileName);
 
+        /*
         try {
             return doCompile(Utils.slurp(fileName));
         } catch(IOException e) {
             Log.e(TAG, "Unable to load shader from "+fileName, e);
             return false;
         }
+        */
     }
 
     @Override
