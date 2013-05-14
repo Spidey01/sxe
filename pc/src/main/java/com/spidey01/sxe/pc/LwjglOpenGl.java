@@ -69,7 +69,7 @@ public class LwjglOpenGl implements OpenGl {
 
     @Override
     public void glAttachShader(GpuProgram p, Shader s) {
-        glAttachShader(p.getProgram(), s.getShader());
+        GL20.glAttachShader(p.getProgram(), s.getShader());
     }
 
     @Override
@@ -133,12 +133,14 @@ public class LwjglOpenGl implements OpenGl {
     }
 
 
-    void glDeleteProgram(GpuProgram program) {
+    @Override
+    public void glDeleteProgram(GpuProgram program) {
         GL20.glDeleteProgram(program.getProgram());
     }
 
 
-    void glDeleteProgram(int program) {
+    @Override
+    public void glDeleteProgram(int program) {
         GL20.glDeleteProgram(program);
     }
 
@@ -148,12 +150,14 @@ public class LwjglOpenGl implements OpenGl {
     }
 
 
-    void glDetachShader(GpuProgram program, Shader shader) {
+    @Override
+    public void glDetachShader(GpuProgram program, Shader shader) {
         GL20.glDetachShader(program.getProgram(), shader.getId());
     }
 
 
-    void glDetachShader(int program, int shader) {
+    @Override
+    public void glDetachShader(int program, int shader) {
         GL20.glDetachShader(program, shader);
     }
 

@@ -4,3 +4,4 @@
 [X] There should be a way for `gradle tags` to make ALL tags.
 [ ] A way to configure things like setting log level separately per tag, from .cfg file.
 [ ] Maybe make OpenGL stuff throw a checked 'GraphicsException' on failures like e.g. bad shader compile?
+[ ] Replace Action with a standard Java type like Callabe?
