@@ -127,6 +127,10 @@ public class ResourceManager {
         return mResourceHandles.get((Long)rid);
     }
 
+    public ResourceHandle get(String path) {
+        return get(load(path));
+    }
+
     public void unload(long rid) {
         // TODO: only unload if no other users.
         try {
