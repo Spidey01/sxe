@@ -85,14 +85,12 @@ public class ResourceHandle implements Closeable {
     }
 
 
-    /*
     public Texture asTexture() throws IOException {
         if (mTexture == null) {
             throw new IOException("Blarg");
         }
         return mTexture;
     }
-    */
 
     public Shader asShader(Shader.Type type) throws IOException {
         if (mShader == null) {
