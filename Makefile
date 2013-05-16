@@ -6,49 +6,47 @@ all:
 	@echo pick a target
 
 tags:
-	gradle -PsxeTarget=complete tags
+	gradle tags
 
 clean:
-	gradle -PsxeTarget=complete clean
+	gradle clean
 
 android:
-	gradle -PsxeTarget=android build
+	gradle :android:build
 test-android:
-	gradle -PsxeTarget=android test
+	gradle :android:test
 
 complete:
-	gradle -PsxeTarget=complete build
+	gradle build
 test-complete:
-	gradle -PsxeTarget=complete test
+	gradle test
 
 core:
-	gradle -PsxeTarget=core build
+	gradle :core:build
 test-core:
-	gradle -PsxeTarget=core test
+	gradle :core:test
 
 pc:
-	gradle -PsxeTarget=pc build
+	gradle :pc:build
 test-pc:
-	gradle -PsxeTarget=pc test
+	gradle :pc:test
 pc-demos:
-	gradle -PsxeTarget=pc-demos build
-test-pc-demos:
-	gradle -PsxeTarget=pc-demos test
+	gradle pc-demos
 
 scripting:
-	gradle -PsxeTarget=scripting build
+	gradle scripting:build
 test-scripting:
-	gradle -PsxeTarget=scripting test
+	gradle scripting:test
 
 scripting-rhino:
-	gradle -PsxeTarget=scripting :scripting:rhino:build
+	gradle :scripting:rhino:build
 test-scripting-rhino:
-	gradle -PsxeTarget=scripting :scripting:rhino:test
+	gradle :scripting:rhino:test
 
 scripting-jsr223:
-	gradle -PsxeTarget=scripting :scripting:jsr223:build
+	gradle :scripting:jsr223:build
 test-scripting-jsr223:
-	gradle -PsxeTarget=scripting :scripting:jsr223:test
+	gradle :scripting:jsr223:test
 
 #
 # helpers
@@ -57,13 +55,13 @@ test-scripting-jsr223:
 #     of .\dos\paths, I'd make this more portable.
 #
 helloworld:
-	gradle -PsxeTarget=pc-demos :demos:helloworld:pc:installApp
+	gradle :demos:helloworld:pc:installApp
 	./scripts/run.sh helloworld
 pingpong:
-	gradle -PsxeTarget=pc-demos :demos:pingpong:pc:installApp
+	gradle :demos:pingpong:pc:installApp
 	./scripts/run.sh pingpong
 snake:
-	gradle -PsxeTarget=pc-demos :demos:snake:pc:installApp
+	gradle :demos:snake:pc:installApp
 	./scripts/run.sh snake
 
 .PHONY: tags clean android complete core pc pc-demos scripting scripting-rhino
