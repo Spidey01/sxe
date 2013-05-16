@@ -69,7 +69,7 @@ public class LwjglOpenGl implements OpenGl {
 
     @Override
     public void glAttachShader(GpuProgram p, Shader s) {
-        GL20.glAttachShader(p.getProgram(), s.getShader());
+        GL20.glAttachShader(p.getProgram(), s.getId());
     }
 
     @Override
