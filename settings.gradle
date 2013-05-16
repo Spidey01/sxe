@@ -14,44 +14,45 @@ if (!hasProperty('sxeTarget')) {
 
 
 def sxeTargetConfigurations = [
-    'android' : [
-        ':deps:pngdecoder',
+    'android' : [ // FIXME: android
         ':core',
         ':android',
     ],
+    'android-demos' : [ // FIXME: android with demos.
+        ':android',
+        ':demos:helloworld:lib',
+        ':demos:helloworld:android',
+        ':demos:pingpong:lib',
+        ':demos:pingpong:android',
+        ':demos:snake:lib',
+        ':demos:snake:android',
+    ],
 
     'complete' : [ // build everything.
-        ':deps:pngdecoder',
         ':core',
         ':scripting',
-        ':scripting:rhino',
-        ':scripting:jsr223',
+        // 'android',
+        // 'android-demos',
         ':pc',
-        // TODO: android stuff
+        ':pc-demos'
+    ],
+
+    'core' : [ // required core library and dependencies
+        ':deps:pngdecoder',
+        ':core',
+    ],
+    'core-demos': [ // core + demos without platform code.
+        ':core',
         ':demos:helloworld:lib',
-        ':demos:helloworld:pc',
-        // ':demos:helloworld:android',
         ':demos:pingpong:lib',
-        ':demos:pingpong:pc',
-        // ':demos:pingpong:android',
         ':demos:snake:lib',
-        ':demos:snake:pc',
-        // ':demos:snake:android',
     ],
 
-    'core' : [
-        ':deps:pngdecoder',
-        ':core',
-    ],
-
-    'pc' : [
-        ':deps:pngdecoder',
+    'pc' : [ // pc support code.
         ':core',
         ':pc',
     ],
-    'pc-demos' : [
-        ':deps:pngdecoder',
-        ':core',
+    'pc-demos' : [ // pc support code and demos.
         ':pc',
         ':demos:helloworld:lib',
         ':demos:helloworld:pc',
@@ -61,8 +62,7 @@ def sxeTargetConfigurations = [
         ':demos:snake:pc',
     ],
 
-    'scripting' : [ // just the scripting support
-        ':deps:pngdecoder',
+    'scripting' : [ // scripting plugin and all backends
         ':core',
         ':scripting',
         ':scripting:rhino',
@@ -76,10 +76,14 @@ def getSxeTarget = {
     switch (sxeTarget) {
         case [ 'android' ]:
             return 'android'
+        case [ 'android-demos' ]:
+            return 'android-demos'
         case 'complete':
             return 'complete'
         case 'core':
             return 'core'
+        case 'core-demos':
+            return 'core-demos'
         case [ 'pc', 'x86' ]:
             return 'pc'
         case [ 'pc-demos', 'x86-demos' ]:
@@ -91,7 +95,32 @@ def getSxeTarget = {
     }
 }
 
-sxeTargetConfigurations[getSxeTarget()].each { module ->
+def getSxeTargetConfiguration = { target ->
+
+    def modules = []
+    def c = sxeTargetConfigurations[target]
+
+    for (m in c) { 
+        assert m.startsWith(":")
+        def superTarget = m.substring(1)
+
+        if (sxeTargetConfigurations.containsKey(superTarget)) {
+            if (m != ':'+target) {
+                // call() calls ourself, i.e. recurse.
+                modules.addAll(call(superTarget))
+                continue
+            }
+        }
+
+        modules << m
+    }
+
+    // this should strip any dups.
+    return modules.unique()
+}
+
+getSxeTargetConfiguration(getSxeTarget()).each { module ->
+println "module => "+module
     include module
 }
 
