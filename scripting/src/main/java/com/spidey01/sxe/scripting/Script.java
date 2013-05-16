@@ -24,13 +24,6 @@
 package com.spidey01.sxe.scripting;
 
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.scripting.ScriptEngine;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.Reader;
-import java.io.InputStreamReader;
-import java.io.IOException;
 
 public interface Script {
 }

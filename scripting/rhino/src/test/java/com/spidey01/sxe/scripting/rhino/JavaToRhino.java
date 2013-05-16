@@ -36,7 +36,7 @@ import java.io.IOException;
 public class JavaToRhino {
     private static final String TAG = "JavaToRhino";
 
-    private RhinoScriptEngine mRhino;
+    private RhinoScriptManager mRhino;
     private RhinoScript mScript;
     private JavaClass mJavaClass;
 
@@ -49,7 +49,7 @@ public class JavaToRhino {
 
     @Before
     public void setup() {
-        mRhino = new RhinoScriptEngine();
+        mRhino = new RhinoScriptManager();
         mScript = (RhinoScript)mRhino.createScript();
         mJavaClass = new JavaClass();
     }

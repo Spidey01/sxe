@@ -42,7 +42,7 @@ public class HelloRhino {
     // Really simple example.
     @Test
     public void hello() {
-        ScriptEngine rhino = new RhinoScriptEngine();
+        ScriptManager rhino = new RhinoScriptManager();
         Script script = rhino.createScript();
 
         String result = (String)rhino.eval(script, "'Hello, Rhino!'");

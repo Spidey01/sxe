@@ -43,7 +43,7 @@ DEFAULT_TOGGLE_KEY	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    p
 Display	core/src/main/java/com/spidey01/sxe/core/Display.java	/^public interface Display {$/;"	i
 DummyResourceLoader	core/src/main/java/com/spidey01/sxe/core/DummyResourceLoader.java	/^public class DummyResourceLoader  implements ResourceLoader {$/;"	c
 ERROR	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int ERROR   = 1;$/;"	f	class:Log
-EXTENSION	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptEngine.GetBy	file:
+EXTENSION	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptManager.GetBy	file:
 FRAGMENT	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^        VERTEX, FRAGMENT$/;"	e	enum:Shader.Type	file:
 Font	core/src/main/java/com/spidey01/sxe/core/Font.java	/^public interface Font {$/;"	i
 Format	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        private Format(int numComponents, boolean hasAlpha) {$/;"	m	class:PNGDecoder.Format	file:
@@ -77,7 +77,7 @@ GameEngine	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public
 GameEngine	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^public class GameEngine {$/;"	c
 GameThread	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    public GameThread(GameEngine e, Game g) {$/;"	m	class:GameThread
 GameThread	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^public class GameThread extends Thread {$/;"	c
-GetBy	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    private enum GetBy {$/;"	g	class:Jsr223ScriptEngine
+GetBy	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    private enum GetBy {$/;"	g	class:Jsr223ScriptManager
 GlslProgram	tmp/GlslProgram.java	/^    public GlslProgram(OpenGl gl) {$/;"	m	class:GlslProgram
 GlslProgram	tmp/GlslProgram.java	/^public class GlslProgram implements GpuProgram {$/;"	c
 GlslShader	tmp/GlslShader.java	/^    public GlslShader(OpenGl gl) {$/;"	m	class:GlslShader
@@ -106,9 +106,9 @@ JavaToJs	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaTo
 JavaToRhino	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^public class JavaToRhino {$/;"	c
 Jsr223Script	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    Jsr223Script(ScriptContext toWrap) {$/;"	m	class:Jsr223Script
 Jsr223Script	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^public class Jsr223Script implements Script {$/;"	c
-Jsr223ScriptEngine	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    private Jsr223ScriptEngine(GetBy how, String value) {$/;"	m	class:Jsr223ScriptEngine	file:
-Jsr223ScriptEngine	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public Jsr223ScriptEngine() {$/;"	m	class:Jsr223ScriptEngine
-Jsr223ScriptEngine	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^public class Jsr223ScriptEngine implements ScriptEngine {$/;"	c
+Jsr223ScriptManager	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    private Jsr223ScriptManager(GetBy how, String value) {$/;"	m	class:Jsr223ScriptManager	file:
+Jsr223ScriptManager	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Jsr223ScriptManager() {$/;"	m	class:Jsr223ScriptManager
+Jsr223ScriptManager	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^public class Jsr223ScriptManager implements ScriptManager {$/;"	c
 KeyEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public KeyEvent(InputManager source, Object nativeEvent,$/;"	m	class:KeyEvent
 KeyEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public KeyEvent(InputManager source, int keyCode,$/;"	m	class:KeyEvent
 KeyEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^public class KeyEvent {$/;"	c
@@ -124,13 +124,13 @@ LogSink	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public LogSi
 LogSink	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public LogSink(int level) {$/;"	m	class:LogSink
 LogSink	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^public class LogSink {$/;"	c
 LwjglOpenGl	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^public class LwjglOpenGl implements OpenGl {$/;"	c
-MIME_TYPE	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptEngine.GetBy	file:
+MIME_TYPE	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptManager.GetBy	file:
 Main	demos/helloworld/pc/src/main/java/com/spidey01/sxe/helloworld/pc/Main.java	/^class Main {$/;"	c
 Main	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^class Main {$/;"	c
 Main	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^class Main {$/;"	c
 Mesh	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    public Mesh(GameContext ctx, float[] vertices) {$/;"	m	class:Mesh
 Mesh	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^public class Mesh implements FrameStartedListener {$/;"	c
-NAME	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptEngine.GetBy	file:
+NAME	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptManager.GetBy	file:
 OnChangedListener	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    public interface OnChangedListener {$/;"	i	interface:Settings
 OpenGl	core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^public interface OpenGl {$/;"	i
 OpenGles2Renderer	android/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^public class OpenGles2Renderer implements GLSurfaceView.Renderer {$/;"	c
@@ -166,13 +166,13 @@ ResourceManager	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^
 ResourceManagerTest	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^public class ResourceManagerTest extends UnitTest {$/;"	c
 RhinoScript	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^    RhinoScript(Scriptable toWrap) {$/;"	m	class:RhinoScript
 RhinoScript	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^public class RhinoScript implements Script {$/;"	c
-RhinoScriptEngine	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    public RhinoScriptEngine() {$/;"	m	class:RhinoScriptEngine
-RhinoScriptEngine	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^public class RhinoScriptEngine implements ScriptEngine {$/;"	c
+RhinoScriptManager	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public RhinoScriptManager() {$/;"	m	class:RhinoScriptManager
+RhinoScriptManager	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^public class RhinoScriptManager implements ScriptManager {$/;"	c
 SIGNATURE	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte[] SIGNATURE = {(byte)137, 80, 78, 71, 13, 10, 26, 10};$/;"	f	class:PNGDecoder	file:
 STARTING	core/src/main/java/com/spidey01/sxe/core/Game.java	/^        STARTING,$/;"	e	enum:Game.State	file:
 STOPPING	core/src/main/java/com/spidey01/sxe/core/Game.java	/^        STOPPING,$/;"	e	enum:Game.State	file:
 Script	scripting/src/main/java/com/spidey01/sxe/scripting/Script.java	/^public interface Script {$/;"	i
-ScriptEngine	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptEngine.java	/^public interface ScriptEngine {$/;"	i
+ScriptManager	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^public interface ScriptManager {$/;"	i
 Settings	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^public interface Settings {$/;"	i
 SettingsFile	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public SettingsFile(String name) {$/;"	m	class:SettingsFile
 SettingsFile	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^public class SettingsFile implements Settings {$/;"	c
@@ -234,12 +234,12 @@ TAG	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^    private stat
 TAG	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private static final String TAG = "PcDisplay";$/;"	f	class:PcDisplay	file:
 TAG	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    private static final String TAG = "PcInputManager";$/;"	f	class:PcInputManager	file:
 TAG	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    private final static String TAG = "Jsr223Script";$/;"	f	class:Jsr223Script	file:
-TAG	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    private final static String TAG = "Jsr223ScriptEngine";$/;"	f	class:Jsr223ScriptEngine	file:
+TAG	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    private final static String TAG = "Jsr223ScriptManager";$/;"	f	class:Jsr223ScriptManager	file:
 TAG	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloWorld.java	/^    private static final String TAG = "HelloWorld";$/;"	f	class:HelloWorld	file:
 TAG	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaClass.java	/^    private static final String TAG = "JavaToJs.JavaClass";$/;"	f	class:JavaClass	file:
 TAG	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    private static final String TAG = "JavaToJs";$/;"	f	class:JavaToJs	file:
 TAG	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^    private final static String TAG = "RhinoScript";$/;"	f	class:RhinoScript	file:
-TAG	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    private final static String TAG = "RhinoScriptEngine";$/;"	f	class:RhinoScriptEngine	file:
+TAG	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private final static String TAG = "RhinoScriptManager";$/;"	f	class:RhinoScriptManager	file:
 TAG	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/HelloRhino.java	/^    private static final String TAG = "HelloRhino";$/;"	f	class:HelloRhino	file:
 TAG	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaClass.java	/^    private static final String TAG = "JavaToRhino.JavaClass";$/;"	f	class:JavaClass	file:
 TAG	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    private static final String TAG = "JavaToRhino";$/;"	f	class:JavaToRhino	file:
@@ -313,12 +313,7 @@ bitdepth	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java
 booleanValue	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public boolean booleanValue() {$/;"	m	class:Variable
 buffer	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private final byte[] buffer;$/;"	f	class:PNGDecoder	file:
 bytesPerPixel	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int bytesPerPixel;$/;"	f	class:PNGDecoder	file:
-changeElementClass	core/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	deps/pngdecoder/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	pc/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	scripting/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
 changeElementClass	scripting/jsr223/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	scripting/rhino/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
 check	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    private void check() {$/;"	m	class:GpuProgram	file:
 check	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    private void check() {$/;"	m	class:Shader	file:
 checkChunkLength	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void checkChunkLength(int expected) throws IOException {$/;"	m	class:PNGDecoder	file:
@@ -399,14 +394,14 @@ com.spidey01.sxe.pingpong.lib	demos/pingpong/lib/src/main/java/com/spidey01/sxe/
 com.spidey01.sxe.pingpong.lib	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/Player.java	/^package com.spidey01.sxe.pingpong.lib;$/;"	p
 com.spidey01.sxe.pingpong.pc	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^package com.spidey01.sxe.pingpong.pc;$/;"	p
 com.spidey01.sxe.scripting	scripting/src/main/java/com/spidey01/sxe/scripting/Script.java	/^package com.spidey01.sxe.scripting;$/;"	p
-com.spidey01.sxe.scripting	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptEngine.java	/^package com.spidey01.sxe.scripting;$/;"	p
+com.spidey01.sxe.scripting	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^package com.spidey01.sxe.scripting;$/;"	p
 com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
-com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
+com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
 com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloWorld.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
 com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaClass.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
 com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
 com.spidey01.sxe.scripting.rhino	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^package com.spidey01.sxe.scripting.rhino;$/;"	p
-com.spidey01.sxe.scripting.rhino	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^package com.spidey01.sxe.scripting.rhino;$/;"	p
+com.spidey01.sxe.scripting.rhino	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^package com.spidey01.sxe.scripting.rhino;$/;"	p
 com.spidey01.sxe.scripting.rhino	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/HelloRhino.java	/^package com.spidey01.sxe.scripting.rhino;$/;"	p
 com.spidey01.sxe.scripting.rhino	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaClass.java	/^package com.spidey01.sxe.scripting.rhino;$/;"	p
 com.spidey01.sxe.scripting.rhino	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^package com.spidey01.sxe.scripting.rhino;$/;"	p
@@ -444,9 +439,9 @@ createFloatBuffer	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    pu
 createIntBuffer	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public IntBuffer createIntBuffer(int size) {$/;"	m	class:AndroidOpenGlEs
 createIntBuffer	core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    IntBuffer createIntBuffer(int size);$/;"	m	interface:OpenGl
 createIntBuffer	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public IntBuffer createIntBuffer(int size) {$/;"	m	class:LwjglOpenGl
-createScript	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public Script createScript() {$/;"	m	class:Jsr223ScriptEngine
-createScript	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    public Script createScript() {$/;"	m	class:RhinoScriptEngine
-createScript	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptEngine.java	/^    Script createScript();$/;"	m	interface:ScriptEngine
+createScript	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Script createScript() {$/;"	m	class:Jsr223ScriptManager
+createScript	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public Script createScript() {$/;"	m	class:RhinoScriptManager
+createScript	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^    Script createScript();$/;"	m	interface:ScriptManager
 d	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void d(String tag, String message) {$/;"	m	class:Log
 d	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void d(String tag, String message, Throwable tr) {$/;"	m	class:Log
 de.matthiasmann.twl.utils	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^package de.matthiasmann.twl.utils;$/;"	p
@@ -456,12 +451,7 @@ decodeFlipped	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder
 decodePng	tmp/Sprite.java	/^    protected ByteBuffer decodePng(File png) throws IOException {$/;"	m	class:Sprite
 deinitialize	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void deinitialize(OpenGl GL) {$/;"	m	class:GpuProgram
 deinitialize	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    public void deinitialize(OpenGl GL) {$/;"	m	class:Shader
-deselectAll	core/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	deps/pngdecoder/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	pc/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	scripting/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
 deselectAll	scripting/jsr223/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	scripting/rhino/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
 destroy	android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    public void destroy() {$/;"	m	class:AndroidDisplay
 destroy	core/src/main/java/com/spidey01/sxe/core/Display.java	/^    public void destroy();$/;"	m	interface:Display
 destroy	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void destroy() {$/;"	m	class:PcDisplay
@@ -475,42 +465,22 @@ e	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void e(S
 enableDebugging	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void enableDebugging() {$/;"	m	class:RateCounter
 equals	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    public boolean equals(ConsoleCommand other) {$/;"	m	class:ConsoleCommand
 equals	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public boolean equals(KeyEvent other) {$/;"	m	class:KeyEvent
-eval	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public Object eval(Script scope, File sourceFile)$/;"	m	class:Jsr223ScriptEngine
-eval	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public Object eval(Script scope, String sourceCode) {$/;"	m	class:Jsr223ScriptEngine
-eval	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    public Object eval(Script scope, File sourceFile)$/;"	m	class:RhinoScriptEngine
-eval	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    public Object eval(Script scope, String sourceCode) {$/;"	m	class:RhinoScriptEngine
-eval	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptEngine.java	/^    Object eval(Script scope, File sourceFile) throws IOException, FileNotFoundException;$/;"	m	interface:ScriptEngine
-eval	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptEngine.java	/^    Object eval(Script scope, String sourceCode);$/;"	m	interface:ScriptEngine
+eval	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Object eval(Script scope, File sourceFile)$/;"	m	class:Jsr223ScriptManager
+eval	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Object eval(Script scope, String sourceCode) {$/;"	m	class:Jsr223ScriptManager
+eval	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public Object eval(Script scope, File sourceFile)$/;"	m	class:RhinoScriptManager
+eval	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public Object eval(Script scope, String sourceCode) {$/;"	m	class:RhinoScriptManager
+eval	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^    Object eval(Script scope, File sourceFile) throws IOException, FileNotFoundException;$/;"	m	interface:ScriptManager
+eval	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^    Object eval(Script scope, String sourceCode);$/;"	m	interface:ScriptManager
 execute	core/src/main/java/com/spidey01/sxe/core/Action.java	/^    void execute();$/;"	m	interface:Action
 execute	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void execute(String line) {$/;"	m	class:Console
 execute	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    public void execute() {$/;"	m	class:ConsoleCommand
 expand1	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand1(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand2	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand2(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand4	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand4(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
-findChildElements	core/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	deps/pngdecoder/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	pc/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	scripting/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
 findChildElements	scripting/jsr223/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	scripting/rhino/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findHeaders	core/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	deps/pngdecoder/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	pc/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	scripting/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
 findHeaders	scripting/jsr223/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	scripting/rhino/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findTabs	core/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	deps/pngdecoder/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	pc/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	scripting/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
 findTabs	scripting/jsr223/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	scripting/rhino/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTitles	core/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	deps/pngdecoder/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	pc/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	scripting/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
 findTitles	scripting/jsr223/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	scripting/rhino/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
 floatValue	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public float floatValue() {$/;"	m	class:Variable
 frameEnded	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void frameEnded() {$/;"	m	class:Console
 frameEnded	core/src/main/java/com/spidey01/sxe/core/FrameEndedListener.java	/^    public void frameEnded();$/;"	m	interface:FrameEndedListener
@@ -528,11 +498,11 @@ garbageZipFile	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.ja
 get	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceHandle get(String path) {$/;"	m	class:ResourceManager
 get	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceHandle get(long rid) {$/;"	m	class:ResourceManager
 get	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public String get() {$/;"	m	class:Variable
-get	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public Object get(Script scope, String variable) {$/;"	m	class:Jsr223ScriptEngine
+get	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Object get(Script scope, String variable) {$/;"	m	class:Jsr223ScriptManager
 get	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    public void get() {$/;"	m	class:JavaToJs
-get	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    public Object get(Script scope, String variable) {$/;"	m	class:RhinoScriptEngine
+get	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public Object get(Script scope, String variable) {$/;"	m	class:RhinoScriptManager
 get	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public void get() {$/;"	m	class:JavaToRhino
-get	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptEngine.java	/^    Object get(Script scope, String variable);$/;"	m	interface:ScriptEngine
+get	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^    Object get(Script scope, String variable);$/;"	m	interface:ScriptManager
 getAll	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    public Map<String, Object> getAll() {$/;"	m	class:AndroidSettings
 getAsReader	tmp/ResourceHandle.java	/^    public BufferedReader getAsReader() throws IOException {$/;"	m	class:ResourceHandle
 getBitBucketFile	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static File getBitBucketFile() {$/;"	m	class:Utils
@@ -540,9 +510,9 @@ getBitBucketPath	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    publi
 getBoolean	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    public boolean getBoolean(String key) {$/;"	m	class:AndroidSettings
 getBoolean	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    boolean getBoolean(String key);$/;"	m	interface:Settings
 getBoolean	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public boolean getBoolean(String key) {$/;"	m	class:SettingsFile
-getByExtension	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public static Jsr223ScriptEngine getByExtension(String extension) {$/;"	m	class:Jsr223ScriptEngine
-getByMimeType	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public static Jsr223ScriptEngine getByMimeType(String mimeType) {$/;"	m	class:Jsr223ScriptEngine
-getByName	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public static Jsr223ScriptEngine getByName(String shortName) {$/;"	m	class:Jsr223ScriptEngine
+getByExtension	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public static Jsr223ScriptManager getByExtension(String extension) {$/;"	m	class:Jsr223ScriptManager
+getByMimeType	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public static Jsr223ScriptManager getByMimeType(String mimeType) {$/;"	m	class:Jsr223ScriptManager
+getByName	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public static Jsr223ScriptManager getByName(String shortName) {$/;"	m	class:Jsr223ScriptManager
 getCacheDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getCacheDir() {$/;"	m	class:Utils.Xdg
 getCacheDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getCacheDir(String relative) {$/;"	m	class:Utils.Xdg
 getConfigDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getConfigDir(String relative) {$/;"	m	class:Utils.Xdg
@@ -626,9 +596,9 @@ getRepeatDelay	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    publi
 getResource	core/src/main/java/com/spidey01/sxe/core/TestUtils.java	/^    public static File getResource(String path) {$/;"	m	class:TestUtils
 getResources	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public ResourceManager getResources() {$/;"	m	class:GameContext
 getRuntimeDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getRuntimeDir() {$/;"	m	class:Utils.Xdg
-getScope	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    private Scriptable getScope(Script scope) {$/;"	m	class:RhinoScriptEngine	file:
+getScope	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Scriptable getScope(Script scope) {$/;"	m	class:RhinoScriptManager	file:
 getScriptContext	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    ScriptContext getScriptContext() {$/;"	m	class:Jsr223Script
-getScriptContext	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    private ScriptContext getScriptContext(Script scope) {$/;"	m	class:Jsr223ScriptEngine	file:
+getScriptContext	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    private ScriptContext getScriptContext(Script scope) {$/;"	m	class:Jsr223ScriptManager	file:
 getScriptable	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^    Scriptable getScriptable() {$/;"	m	class:RhinoScript
 getSettings	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Settings getSettings() {$/;"	m	class:GameContext
 getShader	tmp/GlslShader.java	/^    public int getShader() {$/;"	m	class:GlslShader
@@ -817,12 +787,7 @@ hello	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/HelloRhino.
 i	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void i(String tag, String message) {$/;"	m	class:Log
 i	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void i(String tag, String message, Throwable tr) {$/;"	m	class:Log
 init	tmp/Sprite.java	/^    public void init(OpenGl GL) {$/;"	m	class:Sprite
-initTabs	core/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	deps/pngdecoder/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	pc/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	scripting/build/reports/tests/report.js	/^function initTabs() {$/;"	f
 initTabs	scripting/jsr223/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	scripting/rhino/build/reports/tests/report.js	/^function initTabs() {$/;"	f
 initialize	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void initialize(OpenGl GL) {$/;"	m	class:GpuProgram
 initialize	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    public void initialize(final OpenGl GL20) {$/;"	m	class:Mesh
 initialize	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    public void initialize(OpenGl GL) {$/;"	m	class:Shader
@@ -866,7 +831,7 @@ mBuffer	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private Stri
 mCommands	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private Map<String,ConsoleCommand> mCommands = new HashMap<String,ConsoleCommand>();$/;"	f	class:Console	file:
 mConsole	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private Console mConsole;$/;"	f	class:GameContext	file:
 mConsole	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    private Console mConsole;$/;"	f	class:SnakeGame	file:
-mContext	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    private Context mContext;$/;"	f	class:RhinoScriptEngine	file:
+mContext	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Context mContext;$/;"	f	class:RhinoScriptManager	file:
 mCoord2d	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    private int mCoord2d = -1;$/;"	f	class:Mesh	file:
 mCtx	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    protected GameContext mCtx;$/;"	f	class:GameEngine
 mCtx	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    private GameContext mCtx;$/;"	f	class:Mesh	file:
@@ -897,7 +862,7 @@ mGame	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    protected G
 mGameEngine	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    protected GameEngine mGameEngine;$/;"	f	class:Game
 mGameThread	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    protected GameThread mGameThread;$/;"	f	class:GameEngine
 mGl	tmp/GlslShader.java	/^    protected OpenGl mGl;$/;"	f	class:GlslShader
-mGlobalScope	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    private Scriptable mGlobalScope;$/;"	f	class:RhinoScriptEngine	file:
+mGlobalScope	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Scriptable mGlobalScope;$/;"	f	class:RhinoScriptManager	file:
 mHandleRepeat	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private boolean mHandleRepeat = true;$/;"	f	class:Console	file:
 mHeight	tmp/Sprite.java	/^    private int mHeight;$/;"	f	class:Sprite	file:
 mInitialized	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    private boolean mInitialized = false;$/;"	f	class:Mesh	file:
@@ -912,7 +877,7 @@ mIsLoaded	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    pri
 mIsLoaded	tmp/ResourceHandle.java	/^    private boolean mIsLoaded = false;$/;"	f	class:ResourceHandle	file:
 mJavaClass	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    private JavaClass mJavaClass;$/;"	f	class:JavaToJs	file:
 mJavaClass	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    private JavaClass mJavaClass;$/;"	f	class:JavaToRhino	file:
-mJavaScript	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    private Jsr223ScriptEngine mJavaScript;$/;"	f	class:JavaToJs	file:
+mJavaScript	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    private Jsr223ScriptManager mJavaScript;$/;"	f	class:JavaToJs	file:
 mKeyBroadcastReceivers	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    protected List<KeyListener> mKeyBroadcastReceivers =$/;"	f	class:InputManager
 mKeyCode	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private final int mKeyCode;$/;"	f	class:KeyEvent	file:
 mKeyListeners	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    protected Map<String, List<KeyListener>> mKeyListeners =$/;"	f	class:InputManager
@@ -956,14 +921,14 @@ mResourcePath	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^   
 mResourcePath	core/src/main/java/com/spidey01/sxe/core/VirtualFileSystemLoader.java	/^    private String[] mResourcePath;$/;"	f	class:VirtualFileSystemLoader	file:
 mResourcePath	tmp/ResourceHandle.java	/^    private final String mResourcePath;$/;"	f	class:ResourceHandle	file:
 mResources	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private ResourceManager mResources;$/;"	f	class:GameContext	file:
-mRhino	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    private RhinoScriptEngine mRhino;$/;"	f	class:JavaToRhino	file:
+mRhino	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    private RhinoScriptManager mRhino;$/;"	f	class:JavaToRhino	file:
 mRid	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private final long mRid;$/;"	f	class:ResourceHandle	file:
 mRid	tmp/ResourceHandle.java	/^    private final int mRid;$/;"	f	class:ResourceHandle	file:
 mScript	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    private ScriptContext mScript;$/;"	f	class:Jsr223Script	file:
 mScript	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    private Jsr223Script mScript;$/;"	f	class:JavaToJs	file:
 mScript	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^    private Scriptable mScript;$/;"	f	class:RhinoScript	file:
 mScript	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    private RhinoScript mScript;$/;"	f	class:JavaToRhino	file:
-mScriptEngine	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    private javax.script.ScriptEngine mScriptEngine;$/;"	f	class:Jsr223ScriptEngine	file:
+mScriptEngine	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    private ScriptEngine mScriptEngine;$/;"	f	class:Jsr223ScriptManager	file:
 mSettings	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private Settings mSettings;$/;"	f	class:GameContext	file:
 mShader	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private Shader mShader;$/;"	f	class:ResourceHandle	file:
 mShader	tmp/GlslShader.java	/^    protected int mShader = -1;$/;"	f	class:GlslShader
@@ -1003,7 +968,7 @@ makeBufferedReader	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    pub
 makeLogSink	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private void makeLogSink(String top) {$/;"	m	class:GameEngine	file:
 ms	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private long ms;$/;"	f	class:RateCounter	file:
 name	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        public final String name;$/;"	f	class:TrueTypeFont.Table
-newScope	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    private Scriptable newScope() {$/;"	m	class:RhinoScriptEngine	file:
+newScope	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Scriptable newScope() {$/;"	m	class:RhinoScriptManager	file:
 notifyKeyListeners	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void notifyKeyListeners(KeyEvent event) {$/;"	m	class:InputManager
 notifyListeners	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    private void notifyListeners(String key) {$/;"	m	class:AndroidSettings	file:
 notifyListeners	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    private void notifyListeners(String key) {$/;"	m	class:SettingsFile	file:
@@ -1031,12 +996,11 @@ pick	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        private stati
 poll	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    public void poll() {$/;"	m	class:AndroidInputManager
 poll	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void poll() {$/;"	m	class:InputManager
 poll	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    public void poll() {$/;"	m	class:PcInputManager
-put	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public Object put(Script scope, String variable, Object value) {$/;"	m	class:Jsr223ScriptEngine
+put	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Object put(Script scope, String variable, Object value) {$/;"	m	class:Jsr223ScriptManager
 put	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    public void put() {$/;"	m	class:JavaToJs
-put	scripting/rhino/build/reports/tests/com.spidey01.sxe.scripting.rhino.JavaToRhino.html	/^<a name="put"><\/a>$/;"	a
-put	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    public Object put(Script scope, String variable, Object value) {$/;"	m	class:RhinoScriptEngine
+put	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public Object put(Script scope, String variable, Object value) {$/;"	m	class:RhinoScriptManager
 put	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public void put() {$/;"	m	class:JavaToRhino
-put	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptEngine.java	/^    Object put(Script scope, String variable, Object value);$/;"	m	interface:ScriptEngine
+put	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^    Object put(Script scope, String variable, Object value);$/;"	m	interface:ScriptManager
 rand	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    private static Random rand = new Random();$/;"	f	class:SnakeGame	file:
 readChunk	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int readChunk(byte[] buffer, int offset, int length) throws IOException {$/;"	m	class:PNGDecoder	file:
 readChunkUnzip	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void readChunkUnzip(Inflater inflater, byte[] buffer, int offset, int length) throws IOException {$/;"	m	class:PNGDecoder	file:
@@ -1082,12 +1046,7 @@ sResourceManager	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.ja
 save	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    boolean save() {$/;"	m	class:AndroidSettings
 save	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    boolean save();$/;"	m	interface:Settings
 save	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public boolean save() {$/;"	m	class:SettingsFile
-select	core/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	deps/pngdecoder/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	pc/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	scripting/build/reports/tests/report.js	/^function select(i) {$/;"	c
 select	scripting/jsr223/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	scripting/rhino/build/reports/tests/report.js	/^function select(i) {$/;"	c
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(String value) {$/;"	m	class:Variable
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(boolean value) {$/;"	m	class:Variable
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(float value) {$/;"	m	class:Variable
@@ -1149,7 +1108,6 @@ setupControls	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame
 setupLogging	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private void setupLogging() {$/;"	m	class:GameEngine	file:
 simple	scripting/jsr223/build/reports/tests/com.spidey01.sxe.scripting.jsr223.JavaToJs.html	/^<a name="simple"><\/a>$/;"	a
 simple	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    public void simple() throws IOException, FileNotFoundException {$/;"	m	class:JavaToJs
-simple	scripting/rhino/build/reports/tests/com.spidey01.sxe.scripting.rhino.JavaToRhino.html	/^<a name="simple"><\/a>$/;"	a
 simple	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public void simple() throws IOException, FileNotFoundException {$/;"	m	class:JavaToRhino
 simplePathTest	core/src/test/java/com/spidey01/sxe/core/PathResourceLoaderTest.java	/^    public void simplePathTest() throws IOException {$/;"	m	class:PathResourceLoaderTest
 skip	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void skip(long amount) throws IOException {$/;"	m	class:PNGDecoder	file:
@@ -1167,21 +1125,11 @@ stop	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void 
 stop	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public void stop() {$/;"	m	class:HelloWorld
 stop	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/PingPongGame.java	/^    public void stop() {$/;"	m	class:PingPongGame
 stop	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public void stop() {$/;"	m	class:SnakeGame
-switchTab	core/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	deps/pngdecoder/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	pc/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	scripting/build/reports/tests/report.js	/^function switchTab() {$/;"	f
 switchTab	scripting/jsr223/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	scripting/rhino/build/reports/tests/report.js	/^function switchTab() {$/;"	f
 t	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    private static int t(int konst) {$/;"	m	class:AndroidOpenGlEs	file:
 t	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    private static int t(int konst) {$/;"	m	class:LwjglOpenGl	file:
 tRNS	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final int tRNS = 0x74524E53;$/;"	f	class:PNGDecoder	file:
-tabs	core/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	deps/pngdecoder/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	pc/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	scripting/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
 tabs	scripting/jsr223/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	scripting/rhino/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
 test	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^    private void test(String path) throws IOException {$/;"	m	class:ZipResourceLoaderTest	file:
 tick	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public void tick() {$/;"	m	class:Game
 tick	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public void tick() {$/;"	m	class:HelloWorld

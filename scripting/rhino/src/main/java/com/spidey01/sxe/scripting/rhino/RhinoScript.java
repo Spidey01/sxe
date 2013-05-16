@@ -28,7 +28,7 @@ import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
 
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.scripting.ScriptEngine;
+import com.spidey01.sxe.scripting.ScriptManager;
 import com.spidey01.sxe.scripting.Script;
 
 import java.io.File;

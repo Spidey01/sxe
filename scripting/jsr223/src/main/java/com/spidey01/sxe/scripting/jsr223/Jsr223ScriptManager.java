@@ -25,7 +25,7 @@ package com.spidey01.sxe.scripting.jsr223;
 
 import javax.script.Bindings;
 import javax.script.ScriptContext;
-// import javax.script.ScriptEngine;
+import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import javax.script.SimpleScriptContext;
@@ -33,7 +33,7 @@ import javax.script.SimpleScriptContext;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.Utils;
 import com.spidey01.sxe.scripting.Script;
-import com.spidey01.sxe.scripting.ScriptEngine;
+import com.spidey01.sxe.scripting.ScriptManager;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -42,17 +42,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
-public class Jsr223ScriptEngine implements ScriptEngine {
-    private final static String TAG = "Jsr223ScriptEngine";
+public class Jsr223ScriptManager implements ScriptManager {
+    private final static String TAG = "Jsr223ScriptManager";
 
-    private javax.script.ScriptEngine mScriptEngine;
+    private ScriptEngine mScriptEngine;
 
     private enum GetBy {
         NAME, EXTENSION, MIME_TYPE
     }
 
 
-    private Jsr223ScriptEngine(GetBy how, String value) {
+    private Jsr223ScriptManager(GetBy how, String value) {
         switch (how) {
             case NAME:
                 mScriptEngine = (new ScriptEngineManager()).getEngineByName(value);
@@ -67,24 +67,24 @@ public class Jsr223ScriptEngine implements ScriptEngine {
     }
 
 
-    /** Create a ScriptEngine for "JavaScript". */
-    public Jsr223ScriptEngine() {
+    /** Create a ScriptManager for "JavaScript". */
+    public Jsr223ScriptManager() {
         this(GetBy.NAME, "JavaScript");
     }
 
 
-    public static Jsr223ScriptEngine getByName(String shortName) {
-        return new Jsr223ScriptEngine(GetBy.NAME, shortName);
+    public static Jsr223ScriptManager getByName(String shortName) {
+        return new Jsr223ScriptManager(GetBy.NAME, shortName);
     }
 
 
-    public static Jsr223ScriptEngine getByExtension(String extension) {
-        return new Jsr223ScriptEngine(GetBy.EXTENSION, extension);
+    public static Jsr223ScriptManager getByExtension(String extension) {
+        return new Jsr223ScriptManager(GetBy.EXTENSION, extension);
     }
 
 
-    public static Jsr223ScriptEngine getByMimeType(String mimeType) {
-        return new Jsr223ScriptEngine(GetBy.MIME_TYPE, mimeType);
+    public static Jsr223ScriptManager getByMimeType(String mimeType) {
+        return new Jsr223ScriptManager(GetBy.MIME_TYPE, mimeType);
     }
 
 

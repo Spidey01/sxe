@@ -42,7 +42,7 @@ public class HelloWorld {
     // Really simple example.
     @Test
     public void hello() {
-        ScriptEngine jsr223 = new Jsr223ScriptEngine();
+        ScriptManager jsr223 = new Jsr223ScriptManager();
         Script script = jsr223.createScript();
 
         String result = (String)jsr223.eval(script, "'Hello, World!'");

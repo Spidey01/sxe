@@ -28,7 +28,7 @@ import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
 
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.scripting.ScriptEngine;
+import com.spidey01.sxe.scripting.ScriptManager;
 import com.spidey01.sxe.scripting.Script;
 
 import java.io.File;
@@ -38,14 +38,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
-public class RhinoScriptEngine implements ScriptEngine {
-    private final static String TAG = "RhinoScriptEngine";
+public class RhinoScriptManager implements ScriptManager {
+    private final static String TAG = "RhinoScriptManager";
 
     private Context mContext;
     private Scriptable mGlobalScope;
 
 
-    public RhinoScriptEngine() {
+    public RhinoScriptManager() {
         mContext = Context.enter();
         mGlobalScope = mContext.initStandardObjects();
         Context.exit();

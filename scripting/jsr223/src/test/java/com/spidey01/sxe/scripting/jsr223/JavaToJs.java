@@ -36,7 +36,7 @@ import java.io.IOException;
 public class JavaToJs {
     private static final String TAG = "JavaToJs";
 
-    private Jsr223ScriptEngine mJavaScript;
+    private Jsr223ScriptManager mJavaScript;
     private Jsr223Script mScript;
     private JavaClass mJavaClass;
 
@@ -49,7 +49,7 @@ public class JavaToJs {
 
     @Before
     public void setup() {
-        mJavaScript = new Jsr223ScriptEngine();
+        mJavaScript = new Jsr223ScriptManager();
         mScript = (Jsr223Script)mJavaScript.createScript();
         mJavaClass = new JavaClass();
     }
