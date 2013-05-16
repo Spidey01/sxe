@@ -25,6 +25,7 @@ def sxeTargetConfigurations = [
         ':core',
         ':scripting',
         ':scripting:rhino',
+        ':scripting:jsr223',
         ':pc',
         // TODO: android stuff
         ':demos:helloworld:lib',
@@ -65,6 +66,7 @@ def sxeTargetConfigurations = [
         ':core',
         ':scripting',
         ':scripting:rhino',
+        ':scripting:jsr223',
     ],
 
 ]

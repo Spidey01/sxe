@@ -4,14 +4,8 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-4NT_args	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:4NT_args$/;"	l
-4NT_args	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:4NT_args$/;"	l
 ABGR	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        ABGR(4, true);$/;"	e	enum:PNGDecoder.Format	file:
 ALPHA	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        ALPHA(1, true),$/;"	e	enum:PNGDecoder.Format	file:
-APP_BASE_NAME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
-APP_BASE_NAME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
-APP_HOME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
-APP_HOME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
 ASSERT	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int ASSERT  = 0;$/;"	f	class:Log
 Action	core/src/main/java/com/spidey01/sxe/core/Action.java	/^public interface Action {$/;"	i
 AndroidConfiguration	android/src/main/java/com/spidey01/sxe/android/AndroidConfiguration.java	/^public class AndroidConfiguration {$/;"	c
@@ -28,19 +22,10 @@ AndroidSettings	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.j
 AssetLoader	android/src/main/java/com/spidey01/sxe/android/AssetLoader.java	/^    public AssetLoader(AssetManager assetManager) {$/;"	m	class:AssetLoader
 AssetLoader	android/src/main/java/com/spidey01/sxe/android/AssetLoader.java	/^public class AssetLoader implements ResourceLoader {$/;"	c
 BGRA	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        BGRA(4, true),$/;"	e	enum:PNGDecoder.Format	file:
-C	core/src/main/java/com/spidey01/sxe/core/C.java	/^public class C {$/;"	c
-CLASSPATH	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-platform-2.8.4-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.8.4-natives-osx.jar;%APP_HOME%\\lib\\lwjgl-platform-2.8.4-natives-windows.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-2.8.4.jar;%APP_HOME%\\lib\\lwjgl_util-2.8.4.jar$/;"	v
-CLASSPATH	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-platform-2.8.4-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.8.4-natives-osx.jar;%APP_HOME%\\lib\\lwjgl-platform-2.8.4-natives-windows.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-2.8.4.jar;%APP_HOME%\\lib\\lwjgl_util-2.8.4.jar$/;"	v
 CLASSTEMPLATE	core/build/resources/main/templates/NewClass.java	/^    public CLASSTEMPLATE() {$/;"	m	class:CLASSTEMPLATE
 CLASSTEMPLATE	core/build/resources/main/templates/NewClass.java	/^public class CLASSTEMPLATE {$/;"	c
 CLASSTEMPLATE	core/src/main/resources/templates/NewClass.java	/^    public CLASSTEMPLATE() {$/;"	m	class:CLASSTEMPLATE
 CLASSTEMPLATE	core/src/main/resources/templates/NewClass.java	/^public class CLASSTEMPLATE {$/;"	c
-CMD_LINE_ARGS	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
-CMD_LINE_ARGS	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set CMD_LINE_ARGS=%*$/;"	v
-CMD_LINE_ARGS	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
-CMD_LINE_ARGS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
-CMD_LINE_ARGS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CMD_LINE_ARGS=%*$/;"	v
-CMD_LINE_ARGS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
 COLOR_GREYALPHA	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_GREYALPHA = 4;$/;"	f	class:PNGDecoder	file:
 COLOR_GREYSCALE	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_GREYSCALE = 0;$/;"	f	class:PNGDecoder	file:
 COLOR_INDEXED	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_INDEXED = 3;$/;"	f	class:PNGDecoder	file:
@@ -51,19 +36,14 @@ Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public Conso
 Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^public class Console$/;"	c
 ConsoleCommand	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^public class ConsoleCommand implements Action {$/;"	c
 DEBUG	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int DEBUG   = 4;$/;"	f	class:Log
-DEFAULT_JVM_OPTS	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set DEFAULT_JVM_OPTS=$/;"	v
-DEFAULT_JVM_OPTS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set DEFAULT_JVM_OPTS=$/;"	v
 DEFAULT_LOG_LEVEL	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public static final int DEFAULT_LOG_LEVEL = Log.INFO;$/;"	f	class:LogSink
 DEFAULT_MODE	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    private final int DEFAULT_MODE = Context.MODE_PRIVATE;$/;"	f	class:AndroidSettings	file:
 DEFAULT_REPEAT_DELAY	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public static final int DEFAULT_REPEAT_DELAY = 2;$/;"	f	class:Console
 DEFAULT_TOGGLE_KEY	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public static final String DEFAULT_TOGGLE_KEY = "GRAVE";$/;"	f	class:Console
-DIRNAME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
-DIRNAME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set DIRNAME=%~dp0$/;"	v
-DIRNAME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
-DIRNAME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set DIRNAME=%~dp0$/;"	v
 Display	core/src/main/java/com/spidey01/sxe/core/Display.java	/^public interface Display {$/;"	i
 DummyResourceLoader	core/src/main/java/com/spidey01/sxe/core/DummyResourceLoader.java	/^public class DummyResourceLoader  implements ResourceLoader {$/;"	c
 ERROR	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int ERROR   = 1;$/;"	f	class:Log
+EXTENSION	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptEngine.GetBy	file:
 FRAGMENT	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^        VERTEX, FRAGMENT$/;"	e	enum:Shader.Type	file:
 Font	core/src/main/java/com/spidey01/sxe/core/Font.java	/^public interface Font {$/;"	i
 Format	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        private Format(int numComponents, boolean hasAlpha) {$/;"	m	class:PNGDecoder.Format	file:
@@ -97,6 +77,7 @@ GameEngine	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public
 GameEngine	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^public class GameEngine {$/;"	c
 GameThread	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    public GameThread(GameEngine e, Game g) {$/;"	m	class:GameThread
 GameThread	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^public class GameThread extends Thread {$/;"	c
+GetBy	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    private enum GetBy {$/;"	g	class:Jsr223ScriptEngine
 GlslProgram	tmp/GlslProgram.java	/^    public GlslProgram(OpenGl gl) {$/;"	m	class:GlslProgram
 GlslProgram	tmp/GlslProgram.java	/^public class GlslProgram implements GpuProgram {$/;"	c
 GlslShader	tmp/GlslShader.java	/^    public GlslShader(OpenGl gl) {$/;"	m	class:GlslShader
@@ -110,21 +91,24 @@ GpuProgram	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public
 GpuProgram	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^public class GpuProgram {$/;"	c
 HelloRhino	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/HelloRhino.java	/^public class HelloRhino {$/;"	c
 HelloWorld	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^public class HelloWorld$/;"	c
+HelloWorld	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloWorld.java	/^public class HelloWorld {$/;"	c
 IDAT	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final int IDAT = 0x49444154;$/;"	f	class:PNGDecoder	file:
 IEND	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final int IEND = 0x49454E44;$/;"	f	class:PNGDecoder	file:
 IHDR	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final int IHDR = 0x49484452;$/;"	f	class:PNGDecoder	file:
 INFO	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int INFO    = 3;$/;"	f	class:Log
 INITIAL_BUFFER_SIZE	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    protected static final int INITIAL_BUFFER_SIZE = 160; \/* works for 7-bit SMS *\/$/;"	f	class:Console
 InputManager	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^public abstract class InputManager {$/;"	c
-JAVA_EXE	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
-JAVA_EXE	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
-JAVA_EXE	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
-JAVA_EXE	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
-JAVA_HOME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
-JAVA_HOME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
+JavaClass	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaClass.java	/^    public JavaClass() {$/;"	m	class:JavaClass
+JavaClass	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaClass.java	/^public class JavaClass {$/;"	c
 JavaClass	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaClass.java	/^    public JavaClass() {$/;"	m	class:JavaClass
 JavaClass	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaClass.java	/^public class JavaClass {$/;"	c
+JavaToJs	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^public class JavaToJs {$/;"	c
 JavaToRhino	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^public class JavaToRhino {$/;"	c
+Jsr223Script	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    Jsr223Script(ScriptContext toWrap) {$/;"	m	class:Jsr223Script
+Jsr223Script	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^public class Jsr223Script implements Script {$/;"	c
+Jsr223ScriptEngine	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    private Jsr223ScriptEngine(GetBy how, String value) {$/;"	m	class:Jsr223ScriptEngine	file:
+Jsr223ScriptEngine	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public Jsr223ScriptEngine() {$/;"	m	class:Jsr223ScriptEngine
+Jsr223ScriptEngine	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^public class Jsr223ScriptEngine implements ScriptEngine {$/;"	c
 KeyEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public KeyEvent(InputManager source, Object nativeEvent,$/;"	m	class:KeyEvent
 KeyEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public KeyEvent(InputManager source, int keyCode,$/;"	m	class:KeyEvent
 KeyEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^public class KeyEvent {$/;"	c
@@ -140,11 +124,13 @@ LogSink	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public LogSi
 LogSink	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public LogSink(int level) {$/;"	m	class:LogSink
 LogSink	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^public class LogSink {$/;"	c
 LwjglOpenGl	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^public class LwjglOpenGl implements OpenGl {$/;"	c
+MIME_TYPE	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptEngine.GetBy	file:
 Main	demos/helloworld/pc/src/main/java/com/spidey01/sxe/helloworld/pc/Main.java	/^class Main {$/;"	c
 Main	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^class Main {$/;"	c
 Main	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^class Main {$/;"	c
 Mesh	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    public Mesh(GameContext ctx, float[] vertices) {$/;"	m	class:Mesh
 Mesh	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^public class Mesh implements FrameStartedListener {$/;"	c
+NAME	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptEngine.GetBy	file:
 OnChangedListener	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    public interface OnChangedListener {$/;"	i	interface:Settings
 OpenGl	core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^public interface OpenGl {$/;"	i
 OpenGles2Renderer	android/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^public class OpenGles2Renderer implements GLSurfaceView.Renderer {$/;"	c
@@ -170,7 +156,7 @@ RUNNING	core/src/main/java/com/spidey01/sxe/core/Game.java	/^        RUNNING,$/;
 RateCounter	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public RateCounter(String name) {$/;"	m	class:RateCounter
 RateCounter	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public RateCounter(String name, boolean debug) {$/;"	m	class:RateCounter
 RateCounter	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^public class RateCounter {$/;"	c
-ResourceHandle	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public ResourceHandle(ResourceLoader loader, int rid, String resource) {$/;"	m	class:ResourceHandle
+ResourceHandle	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public ResourceHandle(ResourceLoader loader, long rid, String resource) {$/;"	m	class:ResourceHandle
 ResourceHandle	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^public class ResourceHandle implements Closeable {$/;"	c
 ResourceHandle	tmp/ResourceHandle.java	/^    public ResourceHandle(ResourceLoader loader, int rid, String resource) {$/;"	m	class:ResourceHandle
 ResourceHandle	tmp/ResourceHandle.java	/^public class ResourceHandle {$/;"	c
@@ -195,7 +181,6 @@ Shader	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    public Shader(
 Shader	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    public Shader(InputStream stream, Type type) throws IOException {$/;"	m	class:Shader
 Shader	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    public Shader(String code, Type type) throws IOException {$/;"	m	class:Shader
 Shader	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^public class Shader {$/;"	c
-ShaderFactory	core/src/main/java/com/spidey01/sxe/core/ShaderFactory.java	/^public interface ShaderFactory<T extends Shader> {$/;"	i
 SnakeGame	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^public class SnakeGame$/;"	c
 SnakeGameActivity	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^public class SnakeGameActivity extends GameActivity {$/;"	c
 Sprite	tmp/Sprite.java	/^    public Sprite(File png) throws FileNotFoundException, IOException {$/;"	m	class:Sprite
@@ -212,7 +197,6 @@ TAG	android/src/main/java/com/spidey01/sxe/android/AssetLoader.java	/^    privat
 TAG	android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^    private static final String TAG = "GameActivity";$/;"	f	class:GameActivity	file:
 TAG	android/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^    private static final String TAG = "OpenGles2Renderer";$/;"	f	class:OpenGles2Renderer	file:
 TAG	core/build/resources/main/templates/NewClass.java	/^    private final static String TAG = "CLASSTEMPLATE";$/;"	f	class:CLASSTEMPLATE	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/C.java	/^    private static final String TAG = "C";$/;"	f	class:C	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private static final String TAG = "Console";$/;"	f	class:Console	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    private static final String TAG = "ConsoleCommand";$/;"	f	class:ConsoleCommand	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private static final String TAG = "Game";$/;"	f	class:Game	file:
@@ -249,6 +233,11 @@ TAG	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    private static f
 TAG	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^    private static final String TAG = "PcConfiguration";$/;"	f	class:PcConfiguration	file:
 TAG	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private static final String TAG = "PcDisplay";$/;"	f	class:PcDisplay	file:
 TAG	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    private static final String TAG = "PcInputManager";$/;"	f	class:PcInputManager	file:
+TAG	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    private final static String TAG = "Jsr223Script";$/;"	f	class:Jsr223Script	file:
+TAG	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    private final static String TAG = "Jsr223ScriptEngine";$/;"	f	class:Jsr223ScriptEngine	file:
+TAG	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloWorld.java	/^    private static final String TAG = "HelloWorld";$/;"	f	class:HelloWorld	file:
+TAG	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaClass.java	/^    private static final String TAG = "JavaToJs.JavaClass";$/;"	f	class:JavaClass	file:
+TAG	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    private static final String TAG = "JavaToJs";$/;"	f	class:JavaToJs	file:
 TAG	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^    private final static String TAG = "RhinoScript";$/;"	f	class:RhinoScript	file:
 TAG	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    private final static String TAG = "RhinoScriptEngine";$/;"	f	class:RhinoScriptEngine	file:
 TAG	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/HelloRhino.java	/^    private static final String TAG = "HelloRhino";$/;"	f	class:HelloRhino	file:
@@ -289,8 +278,6 @@ WARN	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final
 Xdg	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static class Xdg {$/;"	c	class:Utils
 ZipResourceLoader	core/src/main/java/com/spidey01/sxe/core/ZipResourceLoader.java	/^public class ZipResourceLoader implements ResourceLoader {$/;"	c
 ZipResourceLoaderTest	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^public class ZipResourceLoaderTest extends UnitTest {$/;"	c
-_SKIP	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set _SKIP=2$/;"	v
-_SKIP	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set _SKIP=2$/;"	v
 add	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void add(LogSink sink) {$/;"	m	class:Log
 addChangeListener	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    public void addChangeListener(OnChangedListener listener) {$/;"	m	class:AndroidSettings
 addChangeListener	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    void addChangeListener(OnChangedListener listener);$/;"	m	interface:Settings
@@ -317,7 +304,8 @@ androidKeyCodeToString	android/src/main/java/com/spidey01/sxe/android/AndroidInp
 asFont	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public Font asFont() throws IOException {$/;"	m	class:ResourceHandle
 asInputStream	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public InputStream asInputStream() throws IOException {$/;"	m	class:ResourceHandle
 asReader	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public BufferedReader asReader() throws IOException {$/;"	m	class:ResourceHandle
-asShader	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public Shader asShader() throws IOException {$/;"	m	class:ResourceHandle
+asShader	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public Shader asShader(Shader.Type type) throws IOException {$/;"	m	class:ResourceHandle
+asTexture	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public Texture asTexture() throws IOException {$/;"	m	class:ResourceHandle
 attachShader	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void attachShader(OpenGl GL, Shader shader) {$/;"	m	class:GpuProgram
 attachShader	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void attachShader(Shader shader) {$/;"	m	class:GpuProgram
 baseDir	core/src/main/java/com/spidey01/sxe/core/TestUtils.java	/^    public static File baseDir = new File(System.getProperty("user.dir"));$/;"	f	class:TestUtils
@@ -329,6 +317,7 @@ changeElementClass	core/build/reports/tests/report.js	/^function changeElementCl
 changeElementClass	deps/pngdecoder/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
 changeElementClass	pc/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
 changeElementClass	scripting/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
+changeElementClass	scripting/jsr223/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
 changeElementClass	scripting/rhino/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
 check	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    private void check() {$/;"	m	class:GpuProgram	file:
 check	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    private void check() {$/;"	m	class:Shader	file:
@@ -355,7 +344,6 @@ com.spidey01.sxe.android	android/src/main/java/com/spidey01/sxe/android/AssetLoa
 com.spidey01.sxe.android	android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.android	android/src/main/java/com/spidey01/sxe/android/OpenGles2Renderer.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Action.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/C.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Console.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Display.java	/^package com.spidey01.sxe.core;$/;"	p
@@ -384,7 +372,6 @@ com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/ResourceManager.j
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/ShaderFactory.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/TestUtils.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Text.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^package com.spidey01.sxe.core;$/;"	p
@@ -413,6 +400,11 @@ com.spidey01.sxe.pingpong.lib	demos/pingpong/lib/src/main/java/com/spidey01/sxe/
 com.spidey01.sxe.pingpong.pc	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^package com.spidey01.sxe.pingpong.pc;$/;"	p
 com.spidey01.sxe.scripting	scripting/src/main/java/com/spidey01/sxe/scripting/Script.java	/^package com.spidey01.sxe.scripting;$/;"	p
 com.spidey01.sxe.scripting	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptEngine.java	/^package com.spidey01.sxe.scripting;$/;"	p
+com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
+com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
+com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloWorld.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
+com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaClass.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
+com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
 com.spidey01.sxe.scripting.rhino	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^package com.spidey01.sxe.scripting.rhino;$/;"	p
 com.spidey01.sxe.scripting.rhino	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^package com.spidey01.sxe.scripting.rhino;$/;"	p
 com.spidey01.sxe.scripting.rhino	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/HelloRhino.java	/^package com.spidey01.sxe.scripting.rhino;$/;"	p
@@ -452,6 +444,7 @@ createFloatBuffer	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    pu
 createIntBuffer	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public IntBuffer createIntBuffer(int size) {$/;"	m	class:AndroidOpenGlEs
 createIntBuffer	core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    IntBuffer createIntBuffer(int size);$/;"	m	interface:OpenGl
 createIntBuffer	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public IntBuffer createIntBuffer(int size) {$/;"	m	class:LwjglOpenGl
+createScript	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public Script createScript() {$/;"	m	class:Jsr223ScriptEngine
 createScript	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    public Script createScript() {$/;"	m	class:RhinoScriptEngine
 createScript	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptEngine.java	/^    Script createScript();$/;"	m	interface:ScriptEngine
 d	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void d(String tag, String message) {$/;"	m	class:Log
@@ -467,24 +460,23 @@ deselectAll	core/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
 deselectAll	deps/pngdecoder/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
 deselectAll	pc/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
 deselectAll	scripting/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
+deselectAll	scripting/jsr223/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
 deselectAll	scripting/rhino/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
 destroy	android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    public void destroy() {$/;"	m	class:AndroidDisplay
 destroy	core/src/main/java/com/spidey01/sxe/core/Display.java	/^    public void destroy();$/;"	m	interface:Display
 destroy	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void destroy() {$/;"	m	class:PcDisplay
 detachShader	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void detachShader(OpenGl GL, Shader shader) {$/;"	m	class:GpuProgram
 detachShader	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void detachShader(Shader shader) {$/;"	m	class:GpuProgram
-die	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc	/^die ( ) {$/;"	f
-die	demos/helloworld/pc/build/scripts/helloworld-pc	/^die ( ) {$/;"	f
 disableDebugging	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void disableDebugging() {$/;"	m	class:RateCounter
 doCompile	tmp/GlslShader.java	/^    protected boolean doCompile(String code) {$/;"	m	class:GlslShader
 dummyText	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^    private static final String dummyText = "Test dummy for ZipResourceLoader.\\n";$/;"	f	class:ZipResourceLoaderTest	file:
 e	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void e(String tag, String message) {$/;"	m	class:Log
 e	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void e(String tag, String message, Throwable tr) {$/;"	m	class:Log
 enableDebugging	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void enableDebugging() {$/;"	m	class:RateCounter
-end	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:end$/;"	l
-end	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:end$/;"	l
 equals	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    public boolean equals(ConsoleCommand other) {$/;"	m	class:ConsoleCommand
 equals	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public boolean equals(KeyEvent other) {$/;"	m	class:KeyEvent
+eval	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public Object eval(Script scope, File sourceFile)$/;"	m	class:Jsr223ScriptEngine
+eval	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public Object eval(Script scope, String sourceCode) {$/;"	m	class:Jsr223ScriptEngine
 eval	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    public Object eval(Script scope, File sourceFile)$/;"	m	class:RhinoScriptEngine
 eval	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    public Object eval(Script scope, String sourceCode) {$/;"	m	class:RhinoScriptEngine
 eval	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptEngine.java	/^    Object eval(Script scope, File sourceFile) throws IOException, FileNotFoundException;$/;"	m	interface:ScriptEngine
@@ -492,34 +484,32 @@ eval	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptEngine.java	/^    
 execute	core/src/main/java/com/spidey01/sxe/core/Action.java	/^    void execute();$/;"	m	interface:Action
 execute	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void execute(String line) {$/;"	m	class:Console
 execute	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    public void execute() {$/;"	m	class:ConsoleCommand
-execute	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:execute$/;"	l
-execute	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:execute$/;"	l
 expand1	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand1(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand2	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand2(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand4	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand4(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
-fail	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:fail$/;"	l
-fail	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:fail$/;"	l
 findChildElements	core/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
 findChildElements	deps/pngdecoder/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
 findChildElements	pc/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
 findChildElements	scripting/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
+findChildElements	scripting/jsr223/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
 findChildElements	scripting/rhino/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
 findHeaders	core/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
 findHeaders	deps/pngdecoder/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
 findHeaders	pc/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
 findHeaders	scripting/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
+findHeaders	scripting/jsr223/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
 findHeaders	scripting/rhino/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findJavaFromJavaHome	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:findJavaFromJavaHome$/;"	l
-findJavaFromJavaHome	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:findJavaFromJavaHome$/;"	l
 findTabs	core/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
 findTabs	deps/pngdecoder/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
 findTabs	pc/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
 findTabs	scripting/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
+findTabs	scripting/jsr223/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
 findTabs	scripting/rhino/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
 findTitles	core/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
 findTitles	deps/pngdecoder/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
 findTitles	pc/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
 findTitles	scripting/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
+findTitles	scripting/jsr223/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
 findTitles	scripting/rhino/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
 floatValue	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public float floatValue() {$/;"	m	class:Variable
 frameEnded	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void frameEnded() {$/;"	m	class:Console
@@ -535,10 +525,11 @@ from	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    public sta
 from	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    public static TrueTypeFont from(InputStream stream) throws IOException {$/;"	m	class:TrueTypeFont
 from	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    public static TrueTypeFont from(String path) throws IOException {$/;"	m	class:TrueTypeFont
 garbageZipFile	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^    public void garbageZipFile() throws IOException {$/;"	m	class:ZipResourceLoaderTest
-get	core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static Object get(String what) {$/;"	m	class:C
 get	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceHandle get(String path) {$/;"	m	class:ResourceManager
 get	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceHandle get(long rid) {$/;"	m	class:ResourceManager
 get	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public String get() {$/;"	m	class:Variable
+get	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public Object get(Script scope, String variable) {$/;"	m	class:Jsr223ScriptEngine
+get	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    public void get() {$/;"	m	class:JavaToJs
 get	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    public Object get(Script scope, String variable) {$/;"	m	class:RhinoScriptEngine
 get	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public void get() {$/;"	m	class:JavaToRhino
 get	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptEngine.java	/^    Object get(Script scope, String variable);$/;"	m	interface:ScriptEngine
@@ -549,28 +540,27 @@ getBitBucketPath	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    publi
 getBoolean	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    public boolean getBoolean(String key) {$/;"	m	class:AndroidSettings
 getBoolean	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    boolean getBoolean(String key);$/;"	m	interface:Settings
 getBoolean	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public boolean getBoolean(String key) {$/;"	m	class:SettingsFile
+getByExtension	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public static Jsr223ScriptEngine getByExtension(String extension) {$/;"	m	class:Jsr223ScriptEngine
+getByMimeType	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public static Jsr223ScriptEngine getByMimeType(String mimeType) {$/;"	m	class:Jsr223ScriptEngine
+getByName	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public static Jsr223ScriptEngine getByName(String shortName) {$/;"	m	class:Jsr223ScriptEngine
 getCacheDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getCacheDir() {$/;"	m	class:Utils.Xdg
 getCacheDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getCacheDir(String relative) {$/;"	m	class:Utils.Xdg
 getConfigDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getConfigDir(String relative) {$/;"	m	class:Utils.Xdg
 getConfigDirs	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String[] getConfigDirs() {$/;"	m	class:Utils.Xdg
 getConfigHome	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getConfigHome() {$/;"	m	class:Utils.Xdg
 getConfigHomeDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getConfigHomeDir(String relative) {$/;"	m	class:Utils.Xdg
-getConsole	core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static Console getConsole() {$/;"	m	class:C
 getConsole	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Console getConsole() {$/;"	m	class:GameContext
 getDataDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getDataDir(String relative) {$/;"	m	class:Utils.Xdg
 getDataDirs	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String[] getDataDirs() {$/;"	m	class:Utils.Xdg
 getDataHome	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getDataHome() {$/;"	m	class:Utils.Xdg
 getDataHomeDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getDataHomeDir(String relative) {$/;"	m	class:Utils.Xdg
-getDisplay	core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static Display getDisplay() {$/;"	m	class:C
 getDisplay	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Display getDisplay() {$/;"	m	class:GameContext
-getEngine	core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static GameEngine getEngine() {$/;"	m	class:C
 getEngine	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameEngine getEngine() {$/;"	m	class:GameContext
 getFileName	tmp/GlslShader.java	/^    public String getFileName() {$/;"	m	class:GlslShader
 getFloat	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    public float getFloat(String key) {$/;"	m	class:AndroidSettings
 getFloat	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    float getFloat(String key);$/;"	m	interface:Settings
 getFloat	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public float getFloat(String key) {$/;"	m	class:SettingsFile
 getFont	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    public Font getFont() {$/;"	m	class:Text
-getGame	core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static Game getGame() {$/;"	m	class:C
 getGame	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Game getGame() {$/;"	m	class:GameContext
 getGameContext	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public GameContext getGameContext() {$/;"	m	class:GameEngine
 getGameEngine	android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^    public abstract GameEngine getGameEngine();$/;"	m	class:GameActivity
@@ -582,7 +572,6 @@ getInfoLog	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    privat
 getInfoLog	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    private String getInfoLog(OpenGl GL) {$/;"	m	class:Shader	file:
 getInfoLog	tmp/GlslProgram.java	/^    public String getInfoLog() {$/;"	m	class:GlslProgram
 getInfoLog	tmp/GlslShader.java	/^    public String getInfoLog() {$/;"	m	class:GlslShader
-getInput	core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static InputManager getInput() {$/;"	m	class:C
 getInput	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public InputManager getInput() {$/;"	m	class:GameContext
 getInputStream	android/src/main/java/com/spidey01/sxe/android/AssetLoader.java	/^    public InputStream getInputStream(File path)$/;"	m	class:AssetLoader
 getInputStream	android/src/main/java/com/spidey01/sxe/android/AssetLoader.java	/^    public InputStream getInputStream(String path)$/;"	m	class:AssetLoader
@@ -635,10 +624,11 @@ getProgram	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public
 getProgram	tmp/GlslProgram.java	/^    public int getProgram() {$/;"	m	class:GlslProgram
 getRepeatDelay	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public int getRepeatDelay() {$/;"	m	class:Console
 getResource	core/src/main/java/com/spidey01/sxe/core/TestUtils.java	/^    public static File getResource(String path) {$/;"	m	class:TestUtils
-getResources	core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static ResourceManager getResources() {$/;"	m	class:C
 getResources	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public ResourceManager getResources() {$/;"	m	class:GameContext
 getRuntimeDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getRuntimeDir() {$/;"	m	class:Utils.Xdg
 getScope	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    private Scriptable getScope(Script scope) {$/;"	m	class:RhinoScriptEngine	file:
+getScriptContext	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    ScriptContext getScriptContext() {$/;"	m	class:Jsr223Script
+getScriptContext	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    private ScriptContext getScriptContext(Script scope) {$/;"	m	class:Jsr223ScriptEngine	file:
 getScriptable	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^    Scriptable getScriptable() {$/;"	m	class:RhinoScript
 getSettings	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Settings getSettings() {$/;"	m	class:GameContext
 getShader	tmp/GlslShader.java	/^    public int getShader() {$/;"	m	class:GlslShader
@@ -710,15 +700,15 @@ glCreateShader	core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    int gl
 glCreateShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public int glCreateShader(int type) {$/;"	m	class:LwjglOpenGl
 glDeleteProgram	core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glDeleteProgram(GpuProgram program);$/;"	m	interface:OpenGl
 glDeleteProgram	core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glDeleteProgram(int program);$/;"	m	interface:OpenGl
-glDeleteProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    void glDeleteProgram(GpuProgram program) {$/;"	m	class:LwjglOpenGl
-glDeleteProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    void glDeleteProgram(int program) {$/;"	m	class:LwjglOpenGl
+glDeleteProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glDeleteProgram(GpuProgram program) {$/;"	m	class:LwjglOpenGl
+glDeleteProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glDeleteProgram(int program) {$/;"	m	class:LwjglOpenGl
 glDeleteShader	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glDeleteShader(int shader) {$/;"	m	class:AndroidOpenGlEs
 glDeleteShader	core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glDeleteShader(int shader);$/;"	m	interface:OpenGl
 glDeleteShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glDeleteShader(int shader) {$/;"	m	class:LwjglOpenGl
 glDetachShader	core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glDetachShader(GpuProgram program, Shader shader);$/;"	m	interface:OpenGl
 glDetachShader	core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glDetachShader(int program, int shader);$/;"	m	interface:OpenGl
-glDetachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    void glDetachShader(GpuProgram program, Shader shader) {$/;"	m	class:LwjglOpenGl
-glDetachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    void glDetachShader(int program, int shader) {$/;"	m	class:LwjglOpenGl
+glDetachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glDetachShader(GpuProgram program, Shader shader) {$/;"	m	class:LwjglOpenGl
+glDetachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glDetachShader(int program, int shader) {$/;"	m	class:LwjglOpenGl
 glDisable	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    public void glDisable(int cap) {$/;"	m	class:AndroidOpenGlEs
 glDisable	core/src/main/java/com/spidey01/sxe/core/OpenGl.java	/^    void glDisable(int cap);$/;"	m	interface:OpenGl
 glDisable	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    public void glDisable(int cap) {$/;"	m	class:LwjglOpenGl
@@ -822,16 +812,16 @@ hasAlpha	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java
 hasAlpha	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    public boolean hasAlpha() {$/;"	m	class:PNGDecoder
 hasAlphaChannel	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    public boolean hasAlphaChannel() {$/;"	m	class:PNGDecoder
 height	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int height;$/;"	f	class:PNGDecoder	file:
+hello	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloWorld.java	/^    public void hello() {$/;"	m	class:HelloWorld
 hello	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/HelloRhino.java	/^    public void hello() {$/;"	m	class:HelloRhino
 i	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void i(String tag, String message) {$/;"	m	class:Log
 i	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void i(String tag, String message, Throwable tr) {$/;"	m	class:Log
-init	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:init$/;"	l
-init	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:init$/;"	l
 init	tmp/Sprite.java	/^    public void init(OpenGl GL) {$/;"	m	class:Sprite
 initTabs	core/build/reports/tests/report.js	/^function initTabs() {$/;"	f
 initTabs	deps/pngdecoder/build/reports/tests/report.js	/^function initTabs() {$/;"	f
 initTabs	pc/build/reports/tests/report.js	/^function initTabs() {$/;"	f
 initTabs	scripting/build/reports/tests/report.js	/^function initTabs() {$/;"	f
+initTabs	scripting/jsr223/build/reports/tests/report.js	/^function initTabs() {$/;"	f
 initTabs	scripting/rhino/build/reports/tests/report.js	/^function initTabs() {$/;"	f
 initialize	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void initialize(OpenGl GL) {$/;"	m	class:GpuProgram
 initialize	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    public void initialize(final OpenGl GL20) {$/;"	m	class:Mesh
@@ -860,7 +850,6 @@ keys	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public Str
 length	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        public final long length;$/;"	f	class:TrueTypeFont.Table
 link	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void link(OpenGl GL) {$/;"	m	class:GpuProgram
 link	tmp/GlslProgram.java	/^    public boolean link() {$/;"	m	class:GlslProgram
-load	core/build/reports/tests/com.spidey01.sxe.core.ResourceManagerTest.html	/^<a name="load"><\/a>$/;"	a
 load	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public long load(File path) {$/;"	m	class:ResourceManager
 load	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public long load(String path) {$/;"	m	class:ResourceManager
 load	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public void load() {$/;"	m	class:ResourceManagerTest
@@ -921,7 +910,9 @@ mIsInitialized	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    pr
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    private boolean mIsInitialized;$/;"	f	class:Shader	file:
 mIsLoaded	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private boolean mIsLoaded = false;$/;"	f	class:ResourceHandle	file:
 mIsLoaded	tmp/ResourceHandle.java	/^    private boolean mIsLoaded = false;$/;"	f	class:ResourceHandle	file:
+mJavaClass	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    private JavaClass mJavaClass;$/;"	f	class:JavaToJs	file:
 mJavaClass	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    private JavaClass mJavaClass;$/;"	f	class:JavaToRhino	file:
+mJavaScript	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    private Jsr223ScriptEngine mJavaScript;$/;"	f	class:JavaToJs	file:
 mKeyBroadcastReceivers	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    protected List<KeyListener> mKeyBroadcastReceivers =$/;"	f	class:InputManager
 mKeyCode	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private final int mKeyCode;$/;"	f	class:KeyEvent	file:
 mKeyListeners	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    protected Map<String, List<KeyListener>> mKeyListeners =$/;"	f	class:InputManager
@@ -954,7 +945,6 @@ mProgram	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    private GpuPro
 mProgram	tmp/GlslProgram.java	/^    private int mProgram;$/;"	f	class:GlslProgram	file:
 mProgram	tmp/Sprite.java	/^    private GlslProgram mProgram;$/;"	f	class:Sprite	file:
 mProgramId	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    private int mProgramId;$/;"	f	class:GpuProgram	file:
-mProps	core/src/main/java/com/spidey01/sxe/core/C.java	/^    private static HashMap<String, Object> mProps = new HashMap<String, Object>();$/;"	f	class:C	file:
 mProps	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    private Properties mProps = new Properties();$/;"	f	class:SettingsFile	file:
 mReader	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private BufferedReader mReader;$/;"	f	class:ResourceHandle	file:
 mRenderer	android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    private OpenGles2Renderer mRenderer = new OpenGles2Renderer();$/;"	f	class:AndroidDisplay	file:
@@ -967,10 +957,13 @@ mResourcePath	core/src/main/java/com/spidey01/sxe/core/VirtualFileSystemLoader.j
 mResourcePath	tmp/ResourceHandle.java	/^    private final String mResourcePath;$/;"	f	class:ResourceHandle	file:
 mResources	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private ResourceManager mResources;$/;"	f	class:GameContext	file:
 mRhino	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    private RhinoScriptEngine mRhino;$/;"	f	class:JavaToRhino	file:
-mRid	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private final int mRid;$/;"	f	class:ResourceHandle	file:
+mRid	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private final long mRid;$/;"	f	class:ResourceHandle	file:
 mRid	tmp/ResourceHandle.java	/^    private final int mRid;$/;"	f	class:ResourceHandle	file:
+mScript	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    private ScriptContext mScript;$/;"	f	class:Jsr223Script	file:
+mScript	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    private Jsr223Script mScript;$/;"	f	class:JavaToJs	file:
 mScript	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^    private Scriptable mScript;$/;"	f	class:RhinoScript	file:
 mScript	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    private RhinoScript mScript;$/;"	f	class:JavaToRhino	file:
+mScriptEngine	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    private javax.script.ScriptEngine mScriptEngine;$/;"	f	class:Jsr223ScriptEngine	file:
 mSettings	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private Settings mSettings;$/;"	f	class:GameContext	file:
 mShader	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private Shader mShader;$/;"	f	class:ResourceHandle	file:
 mShader	tmp/GlslShader.java	/^    protected int mShader = -1;$/;"	f	class:GlslShader
@@ -1004,10 +997,8 @@ mWidth	tmp/Sprite.java	/^    private int mWidth;$/;"	f	class:Sprite	file:
 main	demos/helloworld/pc/src/main/java/com/spidey01/sxe/helloworld/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
 main	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
 main	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
-mainEnd	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:mainEnd$/;"	l
-mainEnd	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:mainEnd$/;"	l
 mainLoop	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void mainLoop() {$/;"	m	class:GameEngine
-make	core/src/main/java/com/spidey01/sxe/core/ShaderFactory.java	/^    public Shader make(Shader.Type type, InputStream is, final String path);$/;"	m	interface:ShaderFactory
+makeBufferedReader	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static BufferedReader makeBufferedReader(File file) throws FileNotFoundException {$/;"	m	class:Utils
 makeBufferedReader	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static BufferedReader makeBufferedReader(InputStream in) {$/;"	m	class:Utils
 makeLogSink	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private void makeLogSink(String top) {$/;"	m	class:GameEngine	file:
 ms	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private long ms;$/;"	f	class:RateCounter	file:
@@ -1020,8 +1011,6 @@ nullFile	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^ 
 nullString	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^    public void nullString() throws IOException {$/;"	m	class:ZipResourceLoaderTest
 numComponents	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        final int numComponents;$/;"	f	class:PNGDecoder.Format
 offset	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        public final long offset;$/;"	f	class:TrueTypeFont.Table
-omega	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:omega$/;"	l
-omega	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:omega$/;"	l
 onChanged	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^        void onChanged(Settings settings, String key);$/;"	m	interface:Settings.OnChangedListener
 onCreate	android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:GameActivity
 onCreate	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:SnakeGameActivity
@@ -1042,7 +1031,8 @@ pick	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        private stati
 poll	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    public void poll() {$/;"	m	class:AndroidInputManager
 poll	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void poll() {$/;"	m	class:InputManager
 poll	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    public void poll() {$/;"	m	class:PcInputManager
-put	core/src/main/java/com/spidey01/sxe/core/C.java	/^    public static Object put(String what, Object value) {$/;"	m	class:C
+put	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptEngine.java	/^    public Object put(Script scope, String variable, Object value) {$/;"	m	class:Jsr223ScriptEngine
+put	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    public void put() {$/;"	m	class:JavaToJs
 put	scripting/rhino/build/reports/tests/com.spidey01.sxe.scripting.rhino.JavaToRhino.html	/^<a name="put"><\/a>$/;"	a
 put	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptEngine.java	/^    public Object put(Script scope, String variable, Object value) {$/;"	m	class:RhinoScriptEngine
 put	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public void put() {$/;"	m	class:JavaToRhino
@@ -1078,8 +1068,11 @@ removeOpt	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public
 repeatingAllowed	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public boolean repeatingAllowed() {$/;"	m	class:Console
 requestStop	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public void requestStop() {$/;"	m	class:Game
 resourcesDir	core/src/main/java/com/spidey01/sxe/core/TestUtils.java	/^    public static File resourcesDir = new File(baseDir,$/;"	f	class:TestUtils
+returnsStrCat	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaClass.java	/^    public String returnsStrCat(String a, String b) {$/;"	m	class:JavaClass
 returnsStrCat	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaClass.java	/^    public String returnsStrCat(String a, String b) {$/;"	m	class:JavaClass
+returnsSum	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaClass.java	/^    public int returnsSum(int a, int b) {$/;"	m	class:JavaClass
 returnsSum	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaClass.java	/^    public int returnsSum(int a, int b) {$/;"	m	class:JavaClass
+returnsTrue	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaClass.java	/^    public boolean returnsTrue() {$/;"	m	class:JavaClass
 returnsTrue	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaClass.java	/^    public boolean returnsTrue() {$/;"	m	class:JavaClass
 run	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    public void run() {$/;"	m	class:GameThread
 sIsLoggingReady	core/src/main/java/com/spidey01/sxe/core/UnitTest.java	/^    private static boolean sIsLoggingReady = false;$/;"	f	class:UnitTest	file:
@@ -1093,6 +1086,7 @@ select	core/build/reports/tests/report.js	/^function select(i) {$/;"	c
 select	deps/pngdecoder/build/reports/tests/report.js	/^function select(i) {$/;"	c
 select	pc/build/reports/tests/report.js	/^function select(i) {$/;"	c
 select	scripting/build/reports/tests/report.js	/^function select(i) {$/;"	c
+select	scripting/jsr223/build/reports/tests/report.js	/^function select(i) {$/;"	c
 select	scripting/rhino/build/reports/tests/report.js	/^function select(i) {$/;"	c
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(String value) {$/;"	m	class:Variable
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(boolean value) {$/;"	m	class:Variable
@@ -1144,12 +1138,17 @@ setup	core/src/test/java/com/spidey01/sxe/core/PathResourceLoaderTest.java	/^   
 setup	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^    public static void setup() {$/;"	m	class:ZipResourceLoaderTest
 setup	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^    public static GameEngine setup(Game game) {$/;"	m	class:PcConfiguration
 setup	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^    public static GameEngine setup(Game game, String displayMode) {$/;"	m	class:PcConfiguration
+setup	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloWorld.java	/^    public static void setup() {$/;"	m	class:HelloWorld
+setup	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    public void setup() {$/;"	m	class:JavaToJs
 setup	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/HelloRhino.java	/^    public static void setup() {$/;"	m	class:HelloRhino
 setup	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public void setup() {$/;"	m	class:JavaToRhino
+setupClass	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    public static void setupClass() {$/;"	m	class:JavaToJs
 setupClass	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public static void setupClass() {$/;"	m	class:JavaToRhino
 setupConsoleCommands	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public void setupConsoleCommands() {$/;"	m	class:SnakeGame
 setupControls	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public void setupControls() {$/;"	m	class:SnakeGame
 setupLogging	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private void setupLogging() {$/;"	m	class:GameEngine	file:
+simple	scripting/jsr223/build/reports/tests/com.spidey01.sxe.scripting.jsr223.JavaToJs.html	/^<a name="simple"><\/a>$/;"	a
+simple	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJs.java	/^    public void simple() throws IOException, FileNotFoundException {$/;"	m	class:JavaToJs
 simple	scripting/rhino/build/reports/tests/com.spidey01.sxe.scripting.rhino.JavaToRhino.html	/^<a name="simple"><\/a>$/;"	a
 simple	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public void simple() throws IOException, FileNotFoundException {$/;"	m	class:JavaToRhino
 simplePathTest	core/src/test/java/com/spidey01/sxe/core/PathResourceLoaderTest.java	/^    public void simplePathTest() throws IOException {$/;"	m	class:PathResourceLoaderTest
@@ -1158,8 +1157,6 @@ slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static St
 slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(File source) throws IOException {$/;"	m	class:Utils
 slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(InputStream source) throws IOException {$/;"	m	class:Utils
 slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(String path) throws IOException {$/;"	m	class:Utils
-splitJvmOpts	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc	/^function splitJvmOpts() {$/;"	f
-splitJvmOpts	demos/helloworld/pc/build/scripts/helloworld-pc	/^function splitJvmOpts() {$/;"	f
 start	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:Game
 start	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public boolean start() {$/;"	m	class:GameEngine
 start	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:HelloWorld
@@ -1174,6 +1171,7 @@ switchTab	core/build/reports/tests/report.js	/^function switchTab() {$/;"	f
 switchTab	deps/pngdecoder/build/reports/tests/report.js	/^function switchTab() {$/;"	f
 switchTab	pc/build/reports/tests/report.js	/^function switchTab() {$/;"	f
 switchTab	scripting/build/reports/tests/report.js	/^function switchTab() {$/;"	f
+switchTab	scripting/jsr223/build/reports/tests/report.js	/^function switchTab() {$/;"	f
 switchTab	scripting/rhino/build/reports/tests/report.js	/^function switchTab() {$/;"	f
 t	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGlEs.java	/^    private static int t(int konst) {$/;"	m	class:AndroidOpenGlEs	file:
 t	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGl.java	/^    private static int t(int konst) {$/;"	m	class:LwjglOpenGl	file:
@@ -1182,6 +1180,7 @@ tabs	core/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
 tabs	deps/pngdecoder/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
 tabs	pc/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
 tabs	scripting/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
+tabs	scripting/jsr223/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
 tabs	scripting/rhino/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
 test	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^    private void test(String path) throws IOException {$/;"	m	class:ZipResourceLoaderTest	file:
 tick	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public void tick() {$/;"	m	class:Game
@@ -1211,12 +1210,6 @@ validate	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public b
 validate	tmp/GlslProgram.java	/^    public boolean validate() {$/;"	m	class:GlslProgram
 w	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void w(String tag, String message) {$/;"	m	class:Log
 w	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void w(String tag, String message, Throwable tr) {$/;"	m	class:Log
-warn	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc	/^warn ( ) {$/;"	f
-warn	demos/helloworld/pc/build/scripts/helloworld-pc	/^warn ( ) {$/;"	f
 width	deps/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int width;$/;"	f	class:PNGDecoder	file:
-win9xME_args	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:win9xME_args$/;"	l
-win9xME_args	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:win9xME_args$/;"	l
-win9xME_args_slurp	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:win9xME_args_slurp$/;"	l
-win9xME_args_slurp	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:win9xME_args_slurp$/;"	l
 wtf	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void wtf(String tag, String message) {$/;"	m	class:Log
 wtf	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void wtf(String tag, String message, Throwable tr) {$/;"	m	class:Log

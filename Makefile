@@ -45,6 +45,11 @@ scripting-rhino:
 test-scripting-rhino:
 	gradle -PsxeTarget=scripting :scripting:rhino:test
 
+scripting-jsr223:
+	gradle -PsxeTarget=scripting :scripting:jsr223:build
+test-scripting-jsr223:
+	gradle -PsxeTarget=scripting :scripting:jsr223:test
+
 #
 # helpers
 # 
