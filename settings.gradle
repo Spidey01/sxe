@@ -1,126 +1,19 @@
 rootProject.name = 'sxe'
 
-/** Our way of deciding what to build for.
- *
- * Value        Description
- *
- * null         Just build core.
- * pc           Code for x86 PCs.
- * android      Code for Android devices.
- */
-if (!hasProperty('sxeTarget')) {
-    set('sxeTarget', 'core')
-}
-
-
-def sxeTargetConfigurations = [
-    'android' : [ // FIXME: android
-        ':core',
-        ':android',
-    ],
-    'android-demos' : [ // FIXME: android with demos.
-        ':android',
-        ':demos:helloworld:lib',
-        ':demos:helloworld:android',
-        ':demos:pingpong:lib',
-        ':demos:pingpong:android',
-        ':demos:snake:lib',
-        ':demos:snake:android',
-    ],
-
-    'complete' : [ // build everything.
-        ':core',
-        ':scripting',
-        // 'android',
-        // 'android-demos',
-        ':pc',
-        ':pc-demos'
-    ],
-
-    'core' : [ // required core library and dependencies
-        ':deps:pngdecoder',
-        ':core',
-    ],
-    'core-demos': [ // core + demos without platform code.
-        ':core',
-        ':demos:helloworld:lib',
-        ':demos:pingpong:lib',
-        ':demos:snake:lib',
-    ],
-
-    'pc' : [ // pc support code.
-        ':core',
-        ':pc',
-    ],
-    'pc-demos' : [ // pc support code and demos.
-        ':pc',
-        ':demos:helloworld:lib',
-        ':demos:helloworld:pc',
-        ':demos:pingpong:lib',
-        ':demos:pingpong:pc',
-        ':demos:snake:lib',
-        ':demos:snake:pc',
-    ],
-
-    'scripting' : [ // scripting plugin and all backends
-        ':core',
-        ':scripting',
-        ':scripting:rhino',
-        ':scripting:jsr223',
-    ],
-
-]
-
-// Get the canonical value of sxeTarget property.
-def getSxeTarget = {
-    switch (sxeTarget) {
-        case [ 'android' ]:
-            return 'android'
-        case [ 'android-demos' ]:
-            return 'android-demos'
-        case 'complete':
-            return 'complete'
-        case 'core':
-            return 'core'
-        case 'core-demos':
-            return 'core-demos'
-        case [ 'pc', 'x86' ]:
-            return 'pc'
-        case [ 'pc-demos', 'x86-demos' ]:
-            return 'pc-demos'
-        case 'scripting':
-            return 'scripting'
-        default:
-            throw new IllegalStateException('Bad sxeTarget: '+sxeTarget)
-    }
-}
-
-def getSxeTargetConfiguration = { target ->
-
-    def modules = []
-    def c = sxeTargetConfigurations[target]
-
-    for (m in c) { 
-        assert m.startsWith(":")
-        def superTarget = m.substring(1)
-
-        if (sxeTargetConfigurations.containsKey(superTarget)) {
-            if (m != ':'+target) {
-                // call() calls ourself, i.e. recurse.
-                modules.addAll(call(superTarget))
-                continue
-            }
-        }
-
-        modules << m
-    }
-
-    // this should strip any dups.
-    return modules.unique()
-}
-
-getSxeTargetConfiguration(getSxeTarget()).each { module ->
-println "module => "+module
-    include module
-}
+include ':deps:pngdecoder'
+include ':core'
+include ':scripting'
+include ':scripting:rhino'
+include ':scripting:jsr223'
+include ':pc'
+include ':android'
+include ':demos:helloworld:lib'
+include ':demos:helloworld:pc'
+include ':demos:helloworld:android'
+include ':demos:pingpong:lib'
+include ':demos:pingpong:pc'
+include ':demos:pingpong:android'
+include ':demos:snake:lib'
+include ':demos:snake:pc'
+include ':demos:snake:android'
 
