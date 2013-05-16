@@ -34,12 +34,8 @@ import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.OpenGl;
 
 // for testing stuff
-import com.spidey01.sxe.core.C;
-import com.spidey01.sxe.core.GlslProgram;
-import com.spidey01.sxe.core.GlslShader;
 import com.spidey01.sxe.core.GpuProgram;
 import com.spidey01.sxe.core.Mesh;
-import com.spidey01.sxe.core.Resource;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.Shader;
 import com.spidey01.sxe.core.VirtualFileSystemLoader;
