@@ -28,7 +28,13 @@ def project_glob = { glob ->
                 // FIXME: index out of range if /:*$'
                 def remainder = glob[s.length()+1+segment.length() .. glob.length()-1]
                 def fusion = (p+':'+d+remainder).replace('\\', '/').replace('.', '').replace('/', ':')
-                nodes << sanitize(p+':'+d)
+                // nodes << sanitize(p+':'+d)
+                s = sanitize(p+':'+d)
+                try {
+                    nodes << project(s)
+                } catch (org.gradle.api.UnknownProjectException e) {
+                    println "For glob "+glob+": "+e
+                }
             }
         } else if (segment == '**') {
             throw new RuntimeException(":foo:**:bar syntax not implemented!")
@@ -38,7 +44,7 @@ def project_glob = { glob ->
                 // p = p+'/'+segment
             } else {
                 def temp = []
-                nodes.each { temp << sanitize(it+':'+segment) }
+                nodes.each { temp << project(sanitize(it.getPath()+':'+segment)) }
                 nodes = temp
             }
         }
@@ -52,7 +58,7 @@ def project_glob = { glob ->
 
 tasks.add(name: "core-demos", description: "build :demos:*:lib" ) {
     project_glob(':demos:*:lib').each { demo ->
-        dependsOn demo+':build'
+        dependsOn demo
     }
 }
 
@@ -61,7 +67,7 @@ tasks.add(name: "core-demos", description: "build :demos:*:lib" ) {
 [ 'pc', 'android' ].each { 
     tasks.add(name: "${it}-demos", description: "build :demos:*:${it}" ) {
         project_glob(':demos:*:${it}').each { demo ->
-            dependsOn demo+':build'
+            dependsOn demo
         }
     }
 }
