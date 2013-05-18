@@ -27,18 +27,15 @@ import org.junit.*;
 
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.UnitTest;
-import com.spidey01.sxe.scripting.*;
 
-import java.io.File;
+import com.spidey01.sxe.scripting.*;
+import com.spidey01.sxe.scripting.testhelpers.JavaToJavaScript;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class JavaToJs {
-    private static final String TAG = "JavaToJs";
-
-    private Jsr223ScriptManager mJavaScript;
-    private Jsr223Script mScript;
-    private JavaClass mJavaClass;
+public class JavaToJsr223 {
+    private static final String TAG = "JavaToJsr223";
 
 
     @BeforeClass
@@ -47,39 +44,26 @@ public class JavaToJs {
     }
 
 
-    @Before
-    public void setup() {
-        mJavaScript = new Jsr223ScriptManager();
-        mScript = (Jsr223Script)mJavaScript.createScript();
-        mJavaClass = new JavaClass();
+    public Jsr223ScriptManager m() {
+        return new Jsr223ScriptManager();
     }
 
 
     @Test
     public void simple() throws IOException, FileNotFoundException {
-        File script = new File("JavaWrapper.js");
-        mJavaScript.eval(mScript, script);
+        JavaToJavaScript.simple(m());
     }
 
 
     @Test
     public void get() {
-        int x = (Integer)mJavaScript.eval(mScript, "x = 7;");
-        Assert.assertEquals(x, mJavaScript.get(mScript, "x"));
+        JavaToJavaScript.get(m());
     }
 
 
     @Test
     public void put() {
-        mJavaScript.put(mScript, "out", System.out);
-        mJavaScript.eval(mScript, "out.println('fuck you!');");
-
-        mJavaScript.put(mScript, "javaClass", mJavaClass);
-        Assert.assertTrue((Boolean)mJavaScript.eval(mScript, "javaClass.returnsTrue();"));
-        int sum = (Integer)mJavaScript.eval(mScript, "javaClass.returnsSum(2, 2);");
-        Assert.assertEquals(4, sum);
-        String foobar = String.valueOf(mJavaScript.eval(mScript, "javaClass.returnsStrCat('foo', 'bar');"));
-        Assert.assertEquals("foobar", foobar);
+        JavaToJavaScript.put(m());
     }
 }
 

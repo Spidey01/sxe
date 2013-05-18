@@ -29,6 +29,7 @@ import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.UnitTest;
 
 import com.spidey01.sxe.scripting.*;
+import com.spidey01.sxe.scripting.testhelpers.HelloJavaScript;
 
 public class HelloRhino {
     private static final String TAG = "HelloRhino";
@@ -38,15 +39,10 @@ public class HelloRhino {
         UnitTest.setup();
     }
 
-
     // Really simple example.
     @Test
     public void hello() {
-        ScriptManager rhino = new RhinoScriptManager();
-        Script script = rhino.createScript();
-
-        String result = (String)rhino.eval(script, "'Hello, Rhino!'");
-        Assert.assertEquals("Hello, Rhino!", result);
+        HelloJavaScript.hello(new RhinoScriptManager());
     }
 
 }

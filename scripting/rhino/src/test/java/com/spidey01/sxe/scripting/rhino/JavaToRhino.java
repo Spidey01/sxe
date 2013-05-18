@@ -27,18 +27,15 @@ import org.junit.*;
 
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.UnitTest;
-import com.spidey01.sxe.scripting.*;
 
-import java.io.File;
+import com.spidey01.sxe.scripting.*;
+import com.spidey01.sxe.scripting.testhelpers.JavaToJavaScript;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class JavaToRhino {
     private static final String TAG = "JavaToRhino";
-
-    private RhinoScriptManager mRhino;
-    private RhinoScript mScript;
-    private JavaClass mJavaClass;
 
 
     @BeforeClass
@@ -47,44 +44,26 @@ public class JavaToRhino {
     }
 
 
-    @Before
-    public void setup() {
-        mRhino = new RhinoScriptManager();
-        mScript = (RhinoScript)mRhino.createScript();
-        mJavaClass = new JavaClass();
+    public RhinoScriptManager m() {
+        return new RhinoScriptManager();
     }
 
 
     @Test
     public void simple() throws IOException, FileNotFoundException {
-        File script = new File("JavaToRhino.js");
-        mRhino.eval(mScript, script);
+        JavaToJavaScript.simple(m());
     }
 
 
     @Test
     public void get() {
-        int x = (Integer)mRhino.eval(mScript, "x = 7;");
-        Assert.assertEquals(x, mRhino.get(mScript, "x"));
+        JavaToJavaScript.get(m());
     }
 
 
-        // rhino.put("javaClass", javaClass);
-        // Log.d(TAG, "value: +"+ rhino.eval("javaClass.returnsTrue();").getClass());
-        // System.out.println( "value: +"+ rhino.eval("javaClass.returnsTrue();").getClass());
-        // String result = (String)rhino.eval("'Hello, Rhino!'");
-        // Assert.assertEquals("Hello, Rhino!", result);
     @Test
     public void put() {
-        mRhino.put(mScript, "out", System.out);
-        mRhino.eval(mScript, "out.println('fuck you!');");
-
-        mRhino.put(mScript, "javaClass", mJavaClass);
-        Assert.assertTrue((Boolean)mRhino.eval(mScript, "javaClass.returnsTrue();"));
-        int sum = (Integer)mRhino.eval(mScript, "javaClass.returnsSum(2, 2);");
-        Assert.assertEquals(4, sum);
-        String foobar = String.valueOf(mRhino.eval(mScript, "javaClass.returnsStrCat('foo', 'bar');"));
-        Assert.assertEquals("foobar", foobar);
+        JavaToJavaScript.put(m());
     }
 }
 

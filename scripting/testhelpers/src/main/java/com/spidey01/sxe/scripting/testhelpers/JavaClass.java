@@ -21,10 +21,8 @@
  *	   distribution.
  */
 
-/* no package here: for extra seperation */
-package com.spidey01.sxe.scripting.rhino;
+package com.spidey01.sxe.scripting.testhelpers;
 
-import com.spidey01.sxe.core.UnitTest;
 import com.spidey01.sxe.core.Log;
 
 public class JavaClass {
@@ -55,3 +53,4 @@ public class JavaClass {
 
 
 }
+

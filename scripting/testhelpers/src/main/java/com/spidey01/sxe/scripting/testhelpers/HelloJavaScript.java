@@ -21,37 +21,20 @@
  *	   distribution.
  */
 
-/* no package here: for extra seperation */
-package com.spidey01.sxe.scripting.jsr223;
+package com.spidey01.sxe.scripting.testhelpers;
 
-import com.spidey01.sxe.core.UnitTest;
-import com.spidey01.sxe.core.Log;
+import org.junit.*;
 
-public class JavaClass {
-    private static final String TAG = "JavaToJs.JavaClass";
+import com.spidey01.sxe.scripting.*;
 
+public class HelloJavaScript {
 
-    public JavaClass() {
-        Log.i(TAG, "Constructor fired.");
+    public static void hello(ScriptManager manager) {
+        Script script = manager.createScript();
+
+        String result = (String)manager.eval(script, "'Hello, World!'");
+        Assert.assertEquals("Hello, World!", result);
     }
-
-
-    public boolean returnsTrue() {
-        Log.i(TAG, "ReturnsTrue fired.");
-        return true;
-    }
-
-
-    public int returnsSum(int a, int b) {
-        Log.i(TAG, "ReturnsSum("+a+", "+b+") fired.");
-        return a+b;
-    }
-
-
-    public String returnsStrCat(String a, String b) {
-        Log.i(TAG, "ReturnsStrCat("+a+", "+b+") fired.");
-        return a + b;
-    }
-
 
 }
+

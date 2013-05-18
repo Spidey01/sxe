@@ -30,8 +30,8 @@ import com.spidey01.sxe.core.UnitTest;
 
 import com.spidey01.sxe.scripting.*;
 
-public class HelloWorld {
-    private static final String TAG = "HelloWorld";
+public class HelloJsr223 {
+    private static final String TAG = "HelloJsr223";
 
     @BeforeClass
     public static void setup() {
@@ -45,8 +45,8 @@ public class HelloWorld {
         ScriptManager jsr223 = new Jsr223ScriptManager();
         Script script = jsr223.createScript();
 
-        String result = (String)jsr223.eval(script, "'Hello, World!'");
-        Assert.assertEquals("Hello, World!", result);
+        String result = (String)jsr223.eval(script, "'Hello, JSR-223!'");
+        Assert.assertEquals("Hello, JSR-223!", result);
     }
 
 }

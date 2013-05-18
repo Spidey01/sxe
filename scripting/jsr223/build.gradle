@@ -8,5 +8,6 @@ description = 'SxE Scripting that uses standard Java JSR223/javax.script API.'
 dependencies {
     compile project(':scripting')
     testCompile group: 'junit', name: 'junit', version:'4.11'
+    testCompile project(':scripting:testhelpers')
 }
 

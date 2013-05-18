@@ -1,0 +1,13 @@
+
+apply plugin: 'java'
+group = 'com.spidey01.sxe.scripting.testhelpers'
+archivesBaseName = 'sxe-scripting-testhelpers'
+version = '0.0.1-SNAPSHOT'
+description = 'Unit test helpers for SxE Scripting.'
+   
+dependencies {
+    compile project(':core')
+    compile project(':scripting')
+    compile group: 'junit', name: 'junit', version:'4.11'
+}
+
