@@ -25,14 +25,26 @@ package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.GameEngine;
 
+/** Your games base class.
+ */
 public abstract class Game {
 
+    /** Enumerated game state.
+     *
+     * We're either starting the game, running, or stopping the game. This can
+     * be used to adjust code to the current state of the game. Such as loading
+     * resources during STARTING and unloading them during STOPPING.
+     */
     public enum State {
         STARTING,
         RUNNING,
         STOPPING,
     }
 
+    /** Our GameEngine.
+     *
+     * @see #start
+     */
     protected GameEngine mGameEngine;
     private volatile boolean mStopRequested;
     private boolean mStopDone = false;
@@ -44,6 +56,10 @@ public abstract class Game {
 
     public abstract String getName();
 
+    /** Starts the game running.
+     *
+     * @param engine a GameEngine to execute the game within.
+     */
     public boolean start(GameEngine engine) {
         Log.v(TAG, "start() called");
 
@@ -53,6 +69,9 @@ public abstract class Game {
         return true;
     }
 
+    /** Stops the game running.
+     *
+     */
     public void stop() {
         if (mStopDone) {
             Log.d(TAG, "Game was already stopped");
@@ -72,12 +91,17 @@ public abstract class Game {
     }
 
 
+    /** Request that the game be stoped.
+     *
+     * @see #stop
+     */
     public void requestStop() {
         Log.v(TAG, "requestStop() called");
         mStopRequested = true;
         mState = State.STOPPING;
     }
 
+    /** Maximum Frames Per Second rate.  */
     public int getMaxFpsRate() {
         return mMaxTickRate;
     }
