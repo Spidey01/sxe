@@ -100,14 +100,13 @@ public class RhinoScriptManager implements ScriptManager {
 
     public Object get(Script scope, String variable) {
         Scriptable s = getScope(scope);
-        Object x = s.get("x", s);
-        if (x == Scriptable.NOT_FOUND) {
-            System.out.println("x is not defined.");
+        Object object = s.get(variable, s);
+        if (object == Scriptable.NOT_FOUND) {
+            Log.v(TAG, variable+" is not defined.");
             return null;
-        } else {
-            System.out.println("x = " + Context.toString(x));
         }
-        return x;
+        Log.v(TAG, "object class: "+object.getClass().getName());
+        return object;
     }
 
 
