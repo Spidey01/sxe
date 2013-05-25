@@ -24,6 +24,7 @@
 package com.spidey01.sxe.scripting.rhino;
 
 import org.mozilla.javascript.Context;
+import org.mozilla.javascript.NativeJavaObject;
 import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
 
@@ -61,7 +62,8 @@ public class RhinoScriptManager implements ScriptManager {
         } finally {
             Context.exit();
         }
-        return rv;
+
+        return filter(rv);
     }
 
 
@@ -71,9 +73,9 @@ public class RhinoScriptManager implements ScriptManager {
         mContext = Context.enter();
         Scriptable script = getScope(scope);
         try {
-            return mContext.evaluateReader(script,
+            return filter(mContext.evaluateReader(script,
                 new InputStreamReader(new FileInputStream(sourceFile)),
-                sourceFile.getPath(), 1, null);
+                sourceFile.getPath(), 1, null));
         } finally {
             Context.exit();
         }
@@ -136,6 +138,18 @@ public class RhinoScriptManager implements ScriptManager {
         }
         ScriptableObject.putProperty(s, variable, wrapped);
         return wrapped;
+    }
+
+
+    /* For some reason Rhino may give back NativeJavaObject for a Java String
+     * value, even though we'll get Integer back okay. So just unwrap it. This
+     * simple method should get the correct type back.
+     */
+    private Object filter(Object o) {
+        if (o instanceof NativeJavaObject) {
+            return ((NativeJavaObject)o).unwrap();
+        }
+        return o;
     }
 
 }
