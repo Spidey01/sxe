@@ -35,14 +35,16 @@ import java.io.IOException;
 
 public class JavaToJavaScript {
     private static final String TAG = "JavaToJavaScript";
+    private static final String sResourceProperty = "scripting.testhelpers.resources";
 
 
     public static void simple(ScriptManager manager) throws IOException, FileNotFoundException {
-        String resourcesDir = System.getProperty("scripting.testhelpers.resources");
-        Log.d(TAG, "prop: "+resourcesDir);
+        String resourcesDir = System.getProperty(sResourceProperty);
+        if (resourcesDir == null) {
+            Log.d(TAG, "Please set "+sResourceProperty+" property in build.gradle.");
+        }
 
         File source = new File(resourcesDir, "JavaWrapper.js");
-        Log.d(TAG, "source: "+source.getPath());
 
         manager.eval(manager.createScript(), source);
     }
