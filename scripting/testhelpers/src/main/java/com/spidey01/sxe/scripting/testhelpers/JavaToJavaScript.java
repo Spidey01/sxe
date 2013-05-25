@@ -38,14 +38,30 @@ public class JavaToJavaScript {
 
 
     public static void simple(ScriptManager manager) throws IOException, FileNotFoundException {
-        manager.eval(manager.createScript(), new File("JavaWrapper.js"));
+        String resourcesDir = System.getProperty("scripting.testhelpers.resources");
+        Log.d(TAG, "prop: "+resourcesDir);
+
+        File source = new File(resourcesDir, "JavaWrapper.js");
+        Log.d(TAG, "source: "+source.getPath());
+
+        manager.eval(manager.createScript(), source);
     }
 
 
     public static void get(ScriptManager manager) {
         Script script = manager.createScript();
-        int x = (Integer)manager.eval(script, "x = 7;");
-        Assert.assertEquals(x, manager.get(script, "x"));
+        /*
+         * The exact numeric type returned from native JS depends on the
+         * backend implementation of JavaScript.
+         *
+         *      rhino: Integer.
+         *      jsr223: Double.
+         *
+         * Java makes these both subclasses of Number :-).
+         * You can check logging eval(...).getClass().getName().
+         */
+        int x = ((Number)manager.eval(script, "x = 7;")).intValue();
+        Assert.assertEquals(7, x);
     }
 
 
@@ -53,13 +69,13 @@ public class JavaToJavaScript {
         Script script = manager.createScript();
         JavaClass javaClass = new JavaClass();
 
-        manager.put(script, "out", System.out);
-        manager.eval(script, "out.println('fuck you!');");
-
         manager.put(script, "javaClass", javaClass);
         Assert.assertTrue((Boolean)manager.eval(script, "javaClass.returnsTrue();"));
+
+        // since javaClass is a Java method, it should be returned as a real int.
         int sum = (Integer)manager.eval(script, "javaClass.returnsSum(2, 2);");
         Assert.assertEquals(4, sum);
+
         String foobar = String.valueOf(manager.eval(script, "javaClass.returnsStrCat('foo', 'bar');"));
         Assert.assertEquals("foobar", foobar);
     }

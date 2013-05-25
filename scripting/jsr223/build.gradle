@@ -11,3 +11,9 @@ dependencies {
     testCompile project(':scripting:testhelpers')
 }
 
+
+/* For some reason project(":scripting:testhelpers").sourceSets gives us paths from :scripting.
+ * So just compute the path manually.
+ */
+test.systemProperties['scripting.testhelpers.resources'] = (new File(project(":scripting:testhelpers").projectDir, "src/main/resources")).getPath()
+
