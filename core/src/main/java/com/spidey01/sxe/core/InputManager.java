@@ -28,8 +28,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.LinkedList;
 
-// TODO maybe make key listeners be Map<String, List<KeyListener>>
+/** Class for managing game input.
+ *
+ * Allows registering listeners for key events, etc. The input manager will
+ * only pass on input to the listeners when the appropriate notify method is
+ * executed.
+ *
+ * Platform specific implementations of this class will provide the backend for
+ * obtaining input that can then be passed on to an appropriate notify method.
+ * The reccomended way to do this is overriding poll(), the default mainLoop for
+ * GameEngine expects it.
+ */
 public abstract class InputManager {
+// TODO maybe make key listeners be Map<String, List<KeyListener>>
     
     /** List of listeners who wish to receive a broad cast of any key event */
     protected List<KeyListener> mKeyBroadcastReceivers =
@@ -41,12 +52,23 @@ public abstract class InputManager {
 
     private static final String TAG = "InputManager";
 
+    /** Poll for new input and notify listeners.
+     *
+     * The default implementation does nothing.
+     */
     public void poll() {
     }
 
-    /** Add a KeyListener for key events.
+    /** Add a KeyListener to recieve all KeyEvent.
      *
-     * This will register a KeyListener that will be called whenever a key event occurs.
+     * This will register a KeyListener that will be called whenever a key
+     * event occurs. Note that in the default implementation of
+     * NotifyKeyListeners, the first KeyListener to return true from onKey
+     * consumes the event and it will <strong>not</strong> be passed on to
+     * subsequent KeyListeners.
+     *
+     * @see #notifyKeyListeners
+     * @see KeyEvent
      */
     public void addKeyListener(KeyListener listener) {
         mKeyBroadcastReceivers.add(listener);
@@ -61,7 +83,7 @@ public abstract class InputManager {
      * You can use this to implement keybinds for game play.
      *
      * @param keyName what key to listen for.
-     * @param listener the KeyListener.
+     * @param listener the KeyListener for keyName.
      * @see KeyEvent
      */
     public void addKeyListener(String keyName, KeyListener listener) {
@@ -76,6 +98,22 @@ public abstract class InputManager {
         Log.v(TAG, listener+" is now listening for '"+keyName+"'");
     }
 
+    /** Dispatch KeyEvent to registered listeners.
+     *
+     * Notification is to delivered in the following order to each
+     * KeyListener until their onKey method returns true.
+     *
+     * <ol>
+     *  <li>In order of registeration, each KeyListener registered for broadcast until event is consumed.
+     *  <li>In order of registration, each KeyListener registered to this specific key.
+     * </ol>
+     *
+     * The KeyEvent is considered consomed when the KeyListener returns true
+     * from onKey(); which is the method invokved.
+     *
+     * @see KeyListener
+     * @see KeyEvent
+     */
     public void notifyKeyListeners(KeyEvent event) {
         // broadcast receivers get first dibs on any event.
         for (KeyListener listener : mKeyBroadcastReceivers) {

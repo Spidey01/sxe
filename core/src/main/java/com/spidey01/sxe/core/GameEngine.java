@@ -69,10 +69,11 @@ public class GameEngine {
         }
     }
 
-    /** Start up the game
+    /** Start up the game.
      *
-     * Takes care of initializing the games display, etc.  It will call the
-     * start() method of your Game accordingly.
+     * Takes care of initializing the games engine to run the game in the
+     * current context. It will call the start() method of your Game
+     * implementation accordingly.
      */
     public boolean start() {
         Log.v(TAG, "start()");
@@ -94,7 +95,7 @@ public class GameEngine {
         return true;
     }
 
-    /** Stop the game
+    /** Stop the game.
      *
      * Will ensure Game.stop() is called. Shuts down the display, etc.
      */
@@ -106,6 +107,11 @@ public class GameEngine {
     }
 
     /** Convenience method that can serve as a simple main loop.
+     *
+     * <ol>
+     *  <li>Calls poll() on the InputManager.</li>
+     *  <li>Updates the Display.</li>
+     * </ol>
      */
     public void mainLoop() {
 		while (!mCtx.getGame().isStopRequested() && !mCtx.getDisplay().isCloseRequested()) {

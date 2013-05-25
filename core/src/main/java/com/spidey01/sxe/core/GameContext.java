@@ -67,11 +67,17 @@ public class GameContext {
 
     /** The constructor call from hell.
      *
-     * Initialize the various parameters of the SxE game context.  This is a
-     * simple an effective way to allow you to "Bundle" up data that many
-     * subsystems may need access to without  having to rely on a singleton.
+     * Initialize the various parameters of the SxE game engines context.  This
+     * is a simple an effective way to allow you to "Bundle" up data that is
+     * needed to initialze the GameEngine with whatever contextual information
+     * is required. Namely what managers to use on the current platform.
      *
-     * @param opts A Map to for the *Opt methods. If null, an empty HashMap will be used.
+     * This class is intended as an alternative to creating static methods on
+     * things like the input and resource manager, that return a singleton
+     * instance. The constructor to GameEngine could look exactly like this and
+     * perhaps, I will someday convert it to that.
+     *
+     * @param opts A Map to use for the *Opt methods. If null, an empty HashMap will be used.
      * @see {@link #getOpt}.
      */
     public GameContext(Console console, Display display, Game game,

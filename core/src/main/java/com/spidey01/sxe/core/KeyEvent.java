@@ -79,6 +79,10 @@ public class KeyEvent {
         return mNative;
     }
 
+    /** Format this KeyEvent for pretty printing.
+     *
+     * <samp>KeyEvent Input=com.spidey01.sxe.pc.PcInputManager@2f3adc56 Code=16 Name=Q Down=false Native=null</samp>
+     */
     @Override
     public String toString() {
         return "KeyEvent Input="+mSource+" Code="+mKeyCode+
@@ -88,7 +92,7 @@ public class KeyEvent {
     /** Compare KeyEvent's.
      *
      * Two KeyEvent are considered equal if the key code, name, and status match.
-     * The input source and native event may differ however.
+     * The input source and native event may however differ.
      */
     public boolean equals(KeyEvent other) {
         return mKeyCode == other.getKeyCode()

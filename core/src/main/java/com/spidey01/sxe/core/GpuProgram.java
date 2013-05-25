@@ -26,6 +26,12 @@ package com.spidey01.sxe.core;
 import java.util.Collection;
 import java.util.LinkedList;
 
+/** OpenGL Program object.
+ *
+ * This encapsulates the OpenGl code for working with <em>GPU programs</em>.
+ * Direct access to the program (int) is provided with getId(). Most methods
+ * will have little value until initinitized with an OpenGl instance.
+ */
 public class GpuProgram {
     private static final String TAG = "GpuProgram";
 
@@ -48,6 +54,10 @@ public class GpuProgram {
         mShaders.addAll(shaders);
     }
 
+    /** Initinize the program for use.
+     *
+     * This creates a new program, initinizes attached shaders, and links the program up for immediate use.
+     */
     public void initialize(OpenGl GL) {
         mProgramId = GL.glCreateProgram();
         if (mProgramId == 0) {
@@ -65,6 +75,11 @@ public class GpuProgram {
     }
 
 
+    /** Clean up the program.
+     *
+     * At this time, any remaining shaders are detached but not cleaned up.
+     * Future versions may do so.
+     */
     public void deinitialize(OpenGl GL) {
         for (Shader s : mShaders) {
             GL.glDetachShader(mProgramId, s.getId());
@@ -99,6 +114,7 @@ public class GpuProgram {
         mShaders.remove(shader);
     }
 
+    /** Links this program object. */
     public void link(OpenGl GL) {
         check();
 
@@ -110,6 +126,7 @@ public class GpuProgram {
     }
 
 
+    /** Validates this program object. */
     public boolean validate(OpenGl GL) {
         GL.glValidateProgram(mProgramId);
 
@@ -124,9 +141,16 @@ public class GpuProgram {
     }
 
 
+    /** Alias for getId(). */
     public int getProgram() {
         return mProgramId;
     }
+
+
+    public int getId() {
+        return mProgramId;
+    }
+
 
     private void check() {
         if (!mIsInitialized) {
