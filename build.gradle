@@ -83,7 +83,7 @@ task wrapper(type: Wrapper) {
     gradleVersion = '1.6'
 }
 
-task fromTemplate(description: "See templates/README") {
+task fromTemplate(description: "See templates/README") << {
 
     def dest = ''
     if (project.hasProperty('templateDestination')) {
