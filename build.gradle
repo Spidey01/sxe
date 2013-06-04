@@ -79,3 +79,7 @@ task tags(type: Exec) {
     args '-R'
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.4'
+}
+
