@@ -1,15 +1,31 @@
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.4.1'
+    }
+}
+
+apply plugin: 'android'
+
 group = 'com.spidey01.sxe.snake.android'
 version = '0.0.1-SNAPSHOT'
 description = 'Snake game demo for android-based devices'
 
-/*
 dependencies {
-    compile project(':core')
     compile project(':android')
     compile project(':demos:snake:lib')
 }
-*/
-task build {}
 
+android {
+    buildToolsVersion "17.0"
+    compileSdkVersion 10
+    defaultConfig {
+        minSdkVersion 10
+        targetSdkVersion 17
+    }
+}
 

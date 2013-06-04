@@ -1,4 +1,2 @@
-# maven plugin uses this instead of bin/* and gen/*
-target/*
-# Local configuration file (sdk path, etc)
-local.properties
+# gradle
+build/*
