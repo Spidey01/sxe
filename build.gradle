@@ -1,4 +1,17 @@
 
+apply plugin: 'versions'
+
+// this scripts dependencies.
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.3'
+  }
+}
+
 allprojects {
 
     /** So all projects  have this in one place.
