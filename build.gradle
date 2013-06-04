@@ -56,7 +56,7 @@ def project_glob = { glob ->
 }
 
 
-tasks.add(name: "core-demos", description: "build :demos:*:lib" ) {
+tasks.create(name: "core-demos", description: "build :demos:*:lib" ) {
     project_glob(":demos:*:lib").each { demo ->
         dependsOn demo.path+':build'
     }
@@ -68,7 +68,7 @@ tasks.add(name: "core-demos", description: "build :demos:*:lib" ) {
     def deps = []
     project_glob(":demos:*:${t}").each { p -> deps << p.path+':build' }
 
-    tasks.add(name: "${t}-demos",
+    tasks.create(name: "${t}-demos",
               description: "build :demos:*:${t}",
               dependsOn: deps) { }
 }
@@ -80,6 +80,6 @@ task tags(type: Exec) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.4'
+    gradleVersion = '1.6'
 }
 
