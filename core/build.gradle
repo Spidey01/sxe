@@ -1,5 +1,7 @@
 
 apply plugin: 'java'
+apply plugin: 'java-library-distribution'
+
 group = 'com.spidey01.sxe.core'
 archivesBaseName = 'sxe-core'
 version = '0.0.1-SNAPSHOT'
@@ -10,3 +12,8 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version:'4.11'
 }
 
+distributions {
+    main {
+        baseName archivesBaseName
+    }
+}

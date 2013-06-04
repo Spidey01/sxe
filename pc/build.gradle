@@ -1,5 +1,7 @@
 
 apply plugin: 'java'
+apply plugin: 'java-library-distribution'
+
 group = 'com.spidey01.sxe.pc'
 archivesBaseName = 'sxe-pc'
 version = '0.0.1-SNAPSHOT'
@@ -10,6 +12,12 @@ dependencies {
     compile group: 'org.lwjgl.lwjgl', name: 'lwjgl_util', version:'2.8.4'
     compile group: 'org.lwjgl.lwjgl', name: 'lwjgl-platform', version:'2.8.4'
     compile project(':core')
+}
+
+distributions {
+    main {
+        baseName archivesBaseName
+    }
 }
 
 /**
