@@ -83,3 +83,37 @@ task wrapper(type: Wrapper) {
     gradleVersion = '1.6'
 }
 
+task fromTemplate(description: "See templates/README") {
+
+    def dest = ''
+    if (project.hasProperty('templateDestination')) {
+        dest =project.templateDestination
+    }
+    // windows sanitation
+    dest = dest.replace("\\", "/")
+
+    def copyLines = { path, writer ->
+        new File(path).eachLine { line ->
+            writer.writeLine(line)
+        }
+    }
+
+    if (dest =~ /\.java$/) {
+        new File(dest).withWriter() { output ->
+            copyLines("COPYING", output)
+            copyLines("templates/NewClass.java", output)
+        }
+
+    }
+    else if (dest.endsWith("build.gradle")) {
+        new File(dest).withWriter() { output ->
+            copyLines("templates/build.gradle", output)
+        }
+    }
+    else if (dest.isEmpty()) {
+        println "Must set property templateDestination."
+        println "See templates/README."
+        return
+    }
+}
+

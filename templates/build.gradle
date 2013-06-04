@@ -1,0 +1,21 @@
+//
+// edit this template to suit.
+//
+
+apply plugin: 'java'
+apply plugin:'application'
+
+group = 'com.spidey01.sxe.MODULETEMPLATE'
+mainClassName = group + '.Main'
+applicationName = archivesBaseName = 'MODULETEMPLATE'
+version = '0.0.1-SNAPSHOT'
+description = ''
+
+dependencies {
+    compile project(':core')
+    compile project(':pc')
+}
+
+project(":pc").ext.extractNatives(project)
+project(":pc").ext.filterStartScripts(project)
+
