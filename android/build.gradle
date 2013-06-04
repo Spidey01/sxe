@@ -1,0 +1,38 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.4.1'
+    }
+}
+
+apply plugin: 'android-library'
+
+group = 'com.spidey01.sxe.android'
+// archivesBaseName = 'sxe-android'
+version = '0.0.1-SNAPSHOT'
+description = 'Platform library for Android.'
+
+dependencies {
+    compile project(':core')
+    releaseCompile project(':core')
+    debugCompile project(':core')
+}
+
+android {
+    // needed by android-library's :android:compileReleaseAidl task.
+    buildToolsVersion "17.0"
+    compileSdkVersion 10
+    defaultConfig {
+        // are these needed for a library project?
+        // versionCode 1
+        // versionName getVersionName()
+        minSdkVersion 10
+        // is this needed in a library project?
+        //targetSdkVersion 17
+    }
+}
+

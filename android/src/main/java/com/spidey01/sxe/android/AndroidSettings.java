@@ -23,13 +23,14 @@
 
 package com.spidey01.sxe.android;
 
-import core.spidey01.sxe.core.Settings;
+import com.spidey01.sxe.core.Settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import java.util.List;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /** Implementation of Settings using SharedPreferences.
  *
@@ -42,18 +43,23 @@ public class AndroidSettings implements Settings {
         new LinkedList<Settings.OnChangedListener>();
     private SharedPreferences mPrefs = null;
 
+    static class Notifier implements SharedPreferences.OnSharedPreferenceChangeListener {
+        private AndroidSettings mSettings;
+
+        Notifier(AndroidSettings s) {
+            mSettings = s;
+        }
+
+
+        public void onSharedPreferenceChanged(SharedPreferences sp, String key) {
+            mSettings.notifyListeners(key);
+        }
+    }
+
     public AndroidSettings(Context context, String name) {
         mPrefs = context.getSharedPreferences(name, DEFAULT_MODE);
 
-        final Settings s = this;
-
-        mPrefs.registerOnSharedPreferenceChangeListener(
-            new SharedPreferences.OnSharedPreferenceChangeListener() {
-                public void onSharedPreferenceChanged(SharedPreferences sp, String key) {
-                    s.notifyListeners(key);
-                }
-            }
-        );
+        mPrefs.registerOnSharedPreferenceChangeListener(new Notifier(this));
     }
 
     public void addChangeListener(OnChangedListener listener) {
@@ -71,7 +77,7 @@ public class AndroidSettings implements Settings {
     }
 
     public String[] keys() {
-        return (String[])mPrefs.keySet().toArray();
+        return (String[])getAll().keySet().toArray();
     }
 
     public boolean contains(String key) {
@@ -79,7 +85,7 @@ public class AndroidSettings implements Settings {
     }
 
     public Map<String, Object> getAll() {
-        return mPrefs.getAll();
+        return (Map<String, Object>)mPrefs.getAll();
     }
 
     public boolean getBoolean(String key) {
@@ -128,7 +134,7 @@ public class AndroidSettings implements Settings {
         return this;
     }
 
-    boolean save() {
+    public boolean save() {
         return mPrefs.edit().commit();
     }
 }

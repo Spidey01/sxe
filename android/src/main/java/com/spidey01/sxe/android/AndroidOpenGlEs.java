@@ -66,7 +66,7 @@ public class AndroidOpenGlEs implements OpenGl {
 
     @Override
     public void glAttachShader(GpuProgram p, Shader s) {
-        glAttachShader(p.getProgram(), s.getShader());
+        glAttachShader(p.getProgram(), s.getId());
     }
 
     @Override
@@ -78,6 +78,13 @@ public class AndroidOpenGlEs implements OpenGl {
     public void glBindBuffer(int target, int buffer) {
         GLES20.glBindBuffer(t(target), buffer);
     }
+        
+
+    @Override
+    public void glBindTexture(int target, int texture) {
+        GLES20.glBindTexture(t(target), texture);
+    }
+
         
     @Override
     public void glBufferData(int target, ByteBuffer data, int usage) {
@@ -132,10 +139,36 @@ public class AndroidOpenGlEs implements OpenGl {
         return GLES20.glCreateShader(t(type));
     }
 
+
+    @Override
+    public void glDeleteProgram(GpuProgram program) {
+        GLES20.glDeleteProgram(program.getProgram());
+    }
+
+
+    @Override
+    public void glDeleteProgram(int program) {
+        GLES20.glDeleteProgram(program);
+    }
+
+
     @Override
     public void glDeleteShader(int shader) {
         GLES20.glDeleteShader(shader);
     }
+
+
+    @Override
+    public void glDetachShader(GpuProgram program, Shader shader) {
+        GLES20.glDetachShader(program.getProgram(), shader.getId());
+    }
+
+
+    @Override
+    public void glDetachShader(int program, int shader) {
+        GLES20.glDetachShader(program, shader);
+    }
+
 
     @Override
     public void glDisable(int cap) {
@@ -166,6 +199,17 @@ public class AndroidOpenGlEs implements OpenGl {
     public void glGenBuffers(IntBuffer buffers) {
         GLES20.glGenBuffers(1, buffers);
     }
+
+    @Override
+    public void glGenTextures(ByteBuffer buffer) {
+        glGenTextures(buffer.asIntBuffer());
+    }
+
+    @Override
+    public void glGenTextures(IntBuffer buffer) {
+        GLES20.glGenTextures(1, buffer);
+    }
+
 
     @Override
     public int glGetAttribLocation(int program, String name) {
@@ -209,6 +253,16 @@ public class AndroidOpenGlEs implements OpenGl {
     public void glShaderSource(int shader, String source) {
         GLES20.glShaderSource(shader, source);
     }
+
+
+    @Override
+    public void glTexImage2D(int target, int level, int internalFormat,
+                             int width, int height, int border, int format,
+                             int type, ByteBuffer pixels) {
+
+        GLES20.glTexImage2D(t(target), level, t(internalFormat), width, height, border, t(format), t(type), pixels);
+    }
+
 
     @Override
     public void glUseProgram(GpuProgram program) {
@@ -356,11 +410,20 @@ public class AndroidOpenGlEs implements OpenGl {
             case OpenGl.GL_LINK_STATUS:
                 return GLES20.GL_LINK_STATUS;
 
+            case OpenGl.GL_RGBA:
+                return GLES20.GL_RGBA;
+
             case OpenGl.GL_STATIC_DRAW:
                 return GLES20.GL_STATIC_DRAW;
 
+            case OpenGl.GL_TEXTURE_2D:
+                return GLES20.GL_TEXTURE_2D;
+
             case OpenGl.GL_TRIANGLES:
                 return GLES20.GL_TRIANGLES;
+
+            case OpenGl.GL_UNSIGNED_BYTE:
+                return GLES20.GL_UNSIGNED_BYTE;
 
             case OpenGl.GL_VALIDATE_STATUS:
                 return GLES20.GL_VALIDATE_STATUS;
