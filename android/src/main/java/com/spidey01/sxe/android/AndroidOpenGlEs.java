@@ -302,6 +302,54 @@ public class AndroidOpenGlEs implements OpenGl {
 
 
     @Override
+    public void glUniform1f(int location, int v0) {
+        GLES20.glUniform1f(location, v0);
+    }
+
+
+    @Override
+    public void glUniform1i(int location, int v0) {
+        GLES20.glUniform1i(location, v0);
+    }
+
+
+    @Override
+    public void glUniform2f(int location, float v0, float v1) {
+        GLES20.glUniform2f(location, v0, v1);
+    }
+
+
+    @Override
+    public void glUniform2i(int location, int v0, int v1) {
+        GLES20.glUniform2i(location, v0, v1);
+    }
+
+
+    @Override
+    public void glUniform3f(int location, float v0, float v1, float v2) {
+        GLES20.glUniform3f(location, v0, v1, v2);
+    }
+
+
+    @Override
+    public void glUniform3i(int location, int v0, int v1, int v2) {
+        GLES20.glUniform3i(location, v0, v1, v2);
+    }
+
+
+    @Override
+    public void glUniform4f(int location, float v0, float v1, float v2, float v3) {
+        GLES20.glUniform4f(location, v0, v1, v2, v3);
+    }
+
+
+    @Override
+    public void glUniform4i(int location, int v0, int v1, int v2, int v3) {
+        GLES20.glUniform4i(location, v0, v1, v2, v3);
+    }
+
+
+    @Override
     public void glUseProgram(GpuProgram program) {
         GLES20.glUseProgram(program.getProgram());
     }

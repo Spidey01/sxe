@@ -103,6 +103,15 @@ public interface OpenGl {
     void glLinkProgram(int program);
     void glShaderSource(int shader, String source);
     void glTexImage2D(int target, int level, int internalFormat, int width, int height, int border, int format, int type, ByteBuffer pixels);
+    void glUniform1f(int location, float v0);
+    void glUniform1i(int location, int v0);
+    void glUniform2f(int location, float v0, float v1);
+    void glUniform2i(int location, int v0, int v1);
+    void glUniform3f(int location, float v0, float v1, float v2);
+    void glUniform3i(int location, int v0, int v1, int v2);
+    void glUniform4f(int location, float v0, float v1, float v2, float v3);
+    void glUniform4i(int location, int v0, int v1, int v2, int v3);
+
     void glUseProgram(GpuProgram program);
     void glUseProgram(int program);
     void glValidateProgram(GpuProgram p);
