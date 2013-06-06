@@ -95,6 +95,10 @@ public interface OpenGl {
     int glGetShaderiv(int shader, int pname);
     int glGetUniformLocation(GpuProgram program, String name);
     int glGetUniformLocation(int program, String name);
+    void glGetUniformfv(GpuProgram program, int location, FloatBuffer params);
+    void glGetUniformfv(int program, int location, FloatBuffer params);
+    void glGetUniformiv(GpuProgram program, int location, IntBuffer params);
+    void glGetUniformiv(int program, int location, IntBuffer params);
     void glLinkProgram(GpuProgram p);
     void glLinkProgram(int program);
     void glShaderSource(int shader, String source);
