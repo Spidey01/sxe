@@ -91,8 +91,10 @@ public interface OpenGl {
     int glGetAttribLocation(int program, String name);
     String glGetProgramInfoLog(int program);
     int glGetProgramiv(int program, int pname);
-    int glGetShaderiv(int shader, int pname);
     String glGetShaderInfoLog(int shader);
+    int glGetShaderiv(int shader, int pname);
+    int glGetUniformLocation(GpuProgram program, String name);
+    int glGetUniformLocation(int program, String name);
     void glLinkProgram(GpuProgram p);
     void glLinkProgram(int program);
     void glShaderSource(int shader, String source);

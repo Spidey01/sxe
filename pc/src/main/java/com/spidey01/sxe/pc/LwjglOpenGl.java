@@ -229,6 +229,19 @@ public class LwjglOpenGl implements OpenGl {
         return GL20.glGetShader(shader, pname);
     }
 
+
+    @Override
+    public int glGetUniformLocation(GpuProgram program, String name) {
+        return GL20.glGetUniformLocation(program.getProgram(), name);
+    }
+
+
+    @Override
+    public int glGetUniformLocation(int program, String name) {
+        return GL20.glGetUniformLocation(program, name);
+    }
+
+
     @Override
     public void glLinkProgram(GpuProgram p) {
         glLinkProgram(p.getProgram());

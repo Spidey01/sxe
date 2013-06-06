@@ -239,6 +239,19 @@ public class AndroidOpenGlEs implements OpenGl {
         return compiled[0];
     }
 
+
+    @Override
+    public int glGetUniformLocation(GpuProgram program, String name) {
+        return GLES20.glGetUniformLocation(program.getProgram(), name);
+    }
+
+
+    @Override
+    public int glGetUniformLocation(int program, String name) {
+        return GLES20.glGetUniformLocation(program, name);
+    }
+
+
     @Override
     public void glLinkProgram(GpuProgram p) {
         glLinkProgram(p.getProgram());
