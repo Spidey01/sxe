@@ -43,9 +43,8 @@ public class GameEngine {
     /** Initializes the engine for use.
      *
      * If you have little interest in providing more than "Game" yourself. You
-     * can use your platforms configuration class to setup
-     * com.spidey01.sxe.core.C, or just fill out the documented fields as
-     * necessary.
+     * can use your platforms configuration class to setup a GameContext or
+     * just fill out the documented fields as necessary.
      */
     public GameEngine(GameContext context) {
         mCtx = context;
