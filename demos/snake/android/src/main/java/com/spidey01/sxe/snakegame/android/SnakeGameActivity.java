@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.snakegame.android;
+package com.spidey01.sxe.snake.android;
 
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.GameEngine;
@@ -31,7 +31,7 @@ import com.spidey01.sxe.android.AndroidDisplay;
 import com.spidey01.sxe.android.AssetLoader;
 import com.spidey01.sxe.android.GameActivity;
 
-import com.spidey01.sxe.snakegame.lib.SnakeGame;
+import com.spidey01.sxe.snake.lib.SnakeGame;
 
 import android.app.Activity;
 import android.os.Bundle;

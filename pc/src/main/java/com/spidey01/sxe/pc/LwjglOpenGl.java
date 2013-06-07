@@ -243,25 +243,25 @@ public class LwjglOpenGl implements OpenGl {
 
 
     @Override
-    void glGetUniformfv(GpuProgram program, int location, FloatBuffer params) {
+    public void glGetUniformfv(GpuProgram program, int location, FloatBuffer params) {
         GL20.glGetUniform(program.getProgram(), location, params);
     }
 
 
     @Override
-    void glGetUniformfv(int program, int location, FloatBuffer params) {
+    public void glGetUniformfv(int program, int location, FloatBuffer params) {
         GL20.glGetUniform(program, location, params);
     }
 
 
     @Override
-    void glGetUniformiv(GpuProgram program, int location, IntBuffer params) {
+    public void glGetUniformiv(GpuProgram program, int location, IntBuffer params) {
         GL20.glGetUniform(program.getProgram(), location, params);
     }
 
 
     @Override
-    void glGetUniformiv(int program, int location, IntBuffer params) {
+    public void glGetUniformiv(int program, int location, IntBuffer params) {
         GL20.glGetUniform(program, location, params);
     }
 
