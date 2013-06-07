@@ -13,13 +13,8 @@ dependencies {
     compile project(':demos:helloworld:lib')
 }
 
-/**
- * InstallApp, distZip, and distTar need to be tweaked in order to handle the native libraries of LWJGL.
- */
-project(":pc").ext.extractNatives(project)
-
-/**
- * Makes the startup scripts pass -Djava.library.path argument for the above.
- */
-project(":pc").ext.filterStartScripts(project)
-
+apply from: '../../../gradle/runDemo.gradle', to: run
+apply from: '../../../gradle/installDemo.gradle'
+applicationDistribution.from(project(':pc').extractLwjglNatives) {
+    into "lib/natives"
+}

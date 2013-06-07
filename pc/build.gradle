@@ -20,22 +20,12 @@ distributions {
     }
 }
 
-/**
- * Dependent sub projects need to call this closure, passing their project.
- *
- *  - Hooks InstallApp, distZip, and distTar.
- */
-project.ext.extractNatives = { subproject ->
+task extractLwjglNatives {
+    def natives = new File('src/dist/lib/natives/')
 
-    def nativesDir = new File("${buildDir}${File.separator}libs${File.separator}natives")
+    outputs.dir natives
 
-    def extract = {
-        if (nativesDir.exists()) {
-            return
-        }
-
-        nativesDir.mkdirs()
-
+    doLast {
         configurations.compile.files.each {
             def path = it.toString().replace('\\', '/') // replace is for Winsucks.
 
@@ -44,55 +34,20 @@ project.ext.extractNatives = { subproject ->
                 && path.contains('-native')
                 && path.endsWith('.jar'))
             {
-                def start = path.lastIndexOf('/')+1
-                def end = path.lastIndexOf('.jar')-1
-                def basename = path[ start .. end ]
-                def nativeJarToUnpack = path
-
                 copy {
                     from zipTree(path)
-                    into nativesDir
+                    into natives
                 }
             }
         }
     }
-
-    /* Make sure we extract the native files before we do the distribution.
-     */
-    def distHook = {
-        doFirst extract
-    }
-    subproject.installApp distHook
-    subproject.distZip distHook
-    subproject.distTar distHook
-
-    /* Copy the native libs from the cp build.
-     */
-    subproject.applicationDistribution.from(nativesDir) { 
-      exclude "META-INF"
-      include "*"
-      into "lib/natives"
-    } 
-
 }
 
-/* Set the start script with a suitable java.library.path.
- *
- * Alternatively this could and likely should be done in the application.
- */
-project.ext.filterStartScripts = { subproject ->
-    subproject.startScripts {
-        doLast {  
-            unixScript.text = unixScript.text.replace(
-                'exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" ' + subproject.mainClassName,
-                'exec "$JAVACMD" "${JVM_OPTS[@]}" -Djava.library.path=$APP_HOME/lib/natives -classpath "$CLASSPATH" ' + subproject.mainClassName
-            )
-
-            windowsScript.text = windowsScript.text.replace(
-                '"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% ',
-                '"%JAVA_EXE%" -Djava.library.path=%APP_HOME%\\lib\\natives %DEFAULT_JVM_OPTS% %JAVA_OPTS% '
-            )
-        }  
-    }
+task cleanLwjglNatives << {
+    delete("src/dist/lib/natives")
 }
+clean.dependsOn cleanLwjglNatives
+
+distZip.dependsOn extractLwjglNatives
+distTar.dependsOn extractLwjglNatives
 

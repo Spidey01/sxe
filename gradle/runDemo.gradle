@@ -1,0 +1,17 @@
+/**
+ * Helper script to configure the 'run' task for demos.
+ * 
+ * usage: apply from: '../../../gradle/natives.gradle', to: run
+ */
+
+// Ensure java.library.path is setup for run.
+jvmArgs "-Djava.library.path=${project.rootDir}/pc/src/dist/lib/natives"
+dependsOn project.project(":pc").extractLwjglNatives
+
+// Probably want assertions for :run.
+enableAssertions true
+
+// For testing purposes, this is the best place to drop log files and
+// configuration.
+environment XDG_CONFIG_HOME: "${project.rootDir}/tmp"
+

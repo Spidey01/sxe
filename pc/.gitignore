@@ -2,3 +2,5 @@
 target/*
 # gradle
 build/*
+# from extractLwjglNatives
+src/dist/lib/natives/*
