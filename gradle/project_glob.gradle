@@ -1,0 +1,47 @@
+
+//
+// Like project(':demos:*:pc'), except that doesn't work so I wrote this.
+//
+def project_glob = { glob ->
+    def sanitize = { s -> s.replace('\\', '/').replace('.', '').replace('/', ':') }
+    def nodes = []
+    def p = ''
+    def position = []
+
+    for (segment in glob.substring(1).tokenize(':')) {
+        if (segment == '*') {
+            (new File(p).list()).each { d ->
+                def s = ':' + position.join(':')
+                assert glob.startsWith(s)
+
+                // FIXME: index out of range if /:*$'
+                def remainder = glob[s.length()+1+segment.length() .. glob.length()-1]
+                def fusion = (p+':'+d+remainder).replace('\\', '/').replace('.', '').replace('/', ':')
+                // nodes << sanitize(p+':'+d)
+                s = sanitize(p+':'+d)
+                try {
+                    nodes << project(s)
+                } catch (org.gradle.api.UnknownProjectException e) {
+                    println "For glob "+glob+": "+e
+                }
+            }
+        } else if (segment == '**') {
+            throw new RuntimeException(":foo:**:bar syntax not implemented!")
+        } else {
+            if (nodes.isEmpty()) {
+                p = (p.isEmpty() ? './' : p+'/')+segment
+                // p = p+'/'+segment
+            } else {
+                def temp = []
+                nodes.each { temp << project(sanitize(it.getPath()+':'+segment)) }
+                nodes = temp
+            }
+        }
+
+        position << segment
+    }
+
+    return nodes
+}
+
+project.ext.set('project_glob', project_glob)
