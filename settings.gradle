@@ -1,6 +1,6 @@
 rootProject.name = 'sxe'
 
-include ':deps:pngdecoder'
+include ':vendor:pngdecoder'
 include ':core'
 include ':scripting'
 include ':scripting:testhelpers'
