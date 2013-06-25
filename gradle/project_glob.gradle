@@ -22,7 +22,8 @@ def project_glob = { glob ->
                 try {
                     nodes << project(s)
                 } catch (org.gradle.api.UnknownProjectException e) {
-                    println "For glob "+glob+": "+e
+                    // logger.warn("For glob "+glob+": "+e)
+                    return
                 }
             }
         } else if (segment == '**') {
