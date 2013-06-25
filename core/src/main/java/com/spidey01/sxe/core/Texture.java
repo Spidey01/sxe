@@ -37,10 +37,10 @@ public class Texture {
     private int mWidth;
     private int mHeight;
 
-    private ByteBuffer mImageData;
+    private Bitmap mBitmap;
 
-    public Texture(InputStream data) throws IOException {
-        mImageData = decodePng(data);
+    public Texture(Bitmap data) {
+        mBitmap = data;
     }
 
 
@@ -52,13 +52,13 @@ public class Texture {
 
     /** Width of this texture in pixels. */
     public int getWidth() {
-        return mWidth;
+        return mBitmap.getWidth();
     }
 
 
     /** Height of this texture in pixels. */
     public int getHeight() {
-        return mHeight;
+        return mBitmap.getHeight();
     }
 
 
@@ -67,13 +67,13 @@ public class Texture {
 
         GL.glEnable(OpenGl.GL_TEXTURE_2D);
 
-        GL.glGenTextures(mImageData);
-        mTextureId = mImageData.get(0);
+        GL.glGenTextures(mBitmap.getImageData());
+        mTextureId = mBitmap.getImageData().get(0);
 
         GL.glBindTexture(OpenGl.GL_TEXTURE_2D, mTextureId);
 
         GL.glTexImage2D(OpenGl.GL_TEXTURE_2D, 0, OpenGl.GL_RGBA, mWidth, mHeight,
-                        0, OpenGl.GL_RGBA, OpenGl.GL_UNSIGNED_BYTE, mImageData);
+                        0, OpenGl.GL_RGBA, OpenGl.GL_UNSIGNED_BYTE, mBitmap.getImageData());
 
         // Can we clear() mImageData and set it to null because OpenGL made an
         // internal copy for  it's own business or does OpenGL just take our
@@ -84,22 +84,5 @@ public class Texture {
         mIsInitialized = true;
     }
 
-
-    private ByteBuffer decodePng(InputStream in) throws IOException {
-        PNGDecoder d = new PNGDecoder(in);
-
-        mWidth = d.getWidth();
-        mHeight = d.getHeight();
-
-        // We're assuming 4 bytes per pixel, RGBA
-        int bpp = 4;
-        int size = bpp * d.getWidth() * d.getHeight();
-        ByteBuffer buffer = ByteBuffer.allocateDirect(size);
-
-        d.decode(buffer, (d.getWidth() * bpp), PNGDecoder.Format.RGBA);
-        buffer.flip();
-
-        return buffer;
-    }
 }
 

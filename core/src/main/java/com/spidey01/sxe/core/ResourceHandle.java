@@ -87,7 +87,7 @@ public class ResourceHandle implements Closeable {
 
     public Texture asTexture() throws IOException {
         if (mTexture == null) {
-            mTexture = new Texture(asInputStream());
+            mTexture = new Texture(new PngBitmap(asInputStream()));
             close();
         }
         return mTexture;
