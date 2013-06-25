@@ -37,12 +37,12 @@ import java.util.ArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-public class OpenGles2Renderer implements GLSurfaceView.Renderer {
+public class OpenGLES20Renderer implements GLSurfaceView.Renderer {
 
     private RateCounter mFrameCounter = new RateCounter("Frames");
     private List<FrameStartedListener> mFrameStartedListeners = new ArrayList<FrameStartedListener>();
     private List<FrameEndedListener> mFrameEndedListeners = new ArrayList<FrameEndedListener>();
-    private static final String TAG = "OpenGles2Renderer";
+    private static final String TAG = "OpenGLES20Renderer";
 
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
         for (FrameStartedListener o : mFrameStartedListeners) {

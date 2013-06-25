@@ -27,7 +27,7 @@ public interface FrameStartedListener {
 
     /** Called before updating the display.
      */
-    public void frameStarted(OpenGl GL20);
+    public void frameStarted(OpenGL GL20);
 }
 
 

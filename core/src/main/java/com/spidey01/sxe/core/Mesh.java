@@ -64,30 +64,30 @@ public class Mesh implements FrameStartedListener {
         mVertices = vertices;
     }
 
-    public void frameStarted(OpenGl GL20) {
+    public void frameStarted(OpenGL GL20) {
         if (!mInitialized) {
             initialize(GL20);
         }
 
         // Clear the background.
         GL20.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
-        GL20.glClear(OpenGl.GL_COLOR_BUFFER_BIT);
+        GL20.glClear(OpenGL.GL_COLOR_BUFFER_BIT);
 
         // Ready the shader program.
         GL20.glUseProgram(mProgram.getProgram());
 
         // Lock and load the coord2d attribute for our fragment shader.
         GL20.glEnableVertexAttribArray(mCoord2d);
-        GL20.glVertexAttribPointer(mCoord2d, 2, OpenGl.GL_FLOAT, false, 0, 0);
+        GL20.glVertexAttribPointer(mCoord2d, 2, OpenGL.GL_FLOAT, false, 0, 0);
  
         // feed it to our shader to draw.
-        GL20.glBindBuffer(OpenGl.GL_ARRAY_BUFFER, mVBO.get(0));
-        GL20.glDrawArrays(OpenGl.GL_TRIANGLES, 0, 3);
+        GL20.glBindBuffer(OpenGL.GL_ARRAY_BUFFER, mVBO.get(0));
+        GL20.glDrawArrays(OpenGL.GL_TRIANGLES, 0, 3);
 
         GL20.glDisableVertexAttribArray(mCoord2d);
     }
 
-    public void initialize(final OpenGl GL20) {
+    public void initialize(final OpenGL GL20) {
     /* FIXME
         // Setup shaders.
         GlslShader vert = null;
@@ -122,10 +122,10 @@ public class Mesh implements FrameStartedListener {
         // Generate an ID for our VBO in the video memory and bind it.
         mVBO = GL20.createIntBuffer(1);
         GL20.glGenBuffers(mVBO);
-        GL20.glBindBuffer(OpenGl.GL_ARRAY_BUFFER, mVBO.get(0));
+        GL20.glBindBuffer(OpenGL.GL_ARRAY_BUFFER, mVBO.get(0));
 
         // Buffer it to the GPU.
-        GL20.glBufferData(OpenGl.GL_ARRAY_BUFFER, buffer, OpenGl.GL_STATIC_DRAW);
+        GL20.glBufferData(OpenGL.GL_ARRAY_BUFFER, buffer, OpenGL.GL_STATIC_DRAW);
 
         // Create coord2d attribute for our fragment shader.
         mCoord2d = GL20.glGetAttribLocation(mProgram.getProgram(), "coord2d");

@@ -27,7 +27,7 @@ import com.spidey01.sxe.core.FrameEndedListener;
 import com.spidey01.sxe.core.FrameListener;
 import com.spidey01.sxe.core.FrameStartedListener;
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.OpenGl;
+import com.spidey01.sxe.core.OpenGL;
 import com.spidey01.sxe.core.RateCounter;
 
 import org.lwjgl.LWJGLException;
@@ -49,7 +49,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
     private DisplayMode mDisplayMode = new DisplayMode(640, 480);
     private List<FrameStartedListener> mFrameStartedListeners = new ArrayList<FrameStartedListener>();
     private List<FrameEndedListener> mFrameEndedListeners = new ArrayList<FrameEndedListener>();
-    private OpenGl mOpenGl;
+    private OpenGL mOpenGL;
     private static final String TAG = "PcDisplay";
 
     /** Create the display based on the desired parameters.
@@ -76,14 +76,14 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
     public boolean create() {
         try {
             Display.create();
-            mOpenGl = new LwjglOpenGl();
+            mOpenGL = new LwjglOpenGL();
         } catch (LWJGLException e) {
             Log.e(TAG, "create() can't create LWJGL display :'(");
             e.printStackTrace();
             return false;
         }
 
-        Log.i(TAG, "Display supports OpenGL "+getOpenGlVersion());
+        Log.i(TAG, "Display supports OpenGL "+getOpenGLVersion());
         return true;
     }
 
@@ -94,7 +94,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
     public void update() {
         try {
             for (FrameStartedListener o : mFrameStartedListeners) {
-                o.frameStarted(mOpenGl);
+                o.frameStarted(mOpenGL);
             }
 
             Display.update();
@@ -182,11 +182,11 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
         mFrameEndedListeners.remove(listener);
     }
 
-    public OpenGl getOpenGl() {
-        return mOpenGl;
+    public OpenGL getOpenGL() {
+        return mOpenGL;
     }
 
-    public String getOpenGlVersion() {
+    public String getOpenGLVersion() {
         ContextCapabilities ctx = GLContext.getCapabilities();
         // Yes, this is excessive.
         return (ctx.OpenGL42 ? "4.2"

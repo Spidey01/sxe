@@ -62,18 +62,18 @@ public class Texture {
     }
 
 
-    public void initialize(OpenGl GL) {
+    public void initialize(OpenGL GL) {
         if (!mIsInitialized) return;
 
-        GL.glEnable(OpenGl.GL_TEXTURE_2D);
+        GL.glEnable(OpenGL.GL_TEXTURE_2D);
 
         GL.glGenTextures(mBitmap.getImageData());
         mTextureId = mBitmap.getImageData().get(0);
 
-        GL.glBindTexture(OpenGl.GL_TEXTURE_2D, mTextureId);
+        GL.glBindTexture(OpenGL.GL_TEXTURE_2D, mTextureId);
 
-        GL.glTexImage2D(OpenGl.GL_TEXTURE_2D, 0, OpenGl.GL_RGBA, mWidth, mHeight,
-                        0, OpenGl.GL_RGBA, OpenGl.GL_UNSIGNED_BYTE, mBitmap.getImageData());
+        GL.glTexImage2D(OpenGL.GL_TEXTURE_2D, 0, OpenGL.GL_RGBA, mWidth, mHeight,
+                        0, OpenGL.GL_RGBA, OpenGL.GL_UNSIGNED_BYTE, mBitmap.getImageData());
 
         // Can we clear() mImageData and set it to null because OpenGL made an
         // internal copy for  it's own business or does OpenGL just take our

@@ -28,9 +28,9 @@ import java.util.LinkedList;
 
 /** OpenGL Program object.
  *
- * This encapsulates the OpenGl code for working with <em>GPU programs</em>.
+ * This encapsulates the OpenGL code for working with <em>GPU programs</em>.
  * Direct access to the program (int) is provided with getId(). Most methods
- * will have little value until initinitized with an OpenGl instance.
+ * will have little value until initinitized with an OpenGL instance.
  */
 public class GpuProgram {
     private static final String TAG = "GpuProgram";
@@ -58,7 +58,7 @@ public class GpuProgram {
      *
      * This creates a new program, initinizes attached shaders, and links the program up for immediate use.
      */
-    public void initialize(OpenGl GL) {
+    public void initialize(OpenGL GL) {
         mProgramId = GL.glCreateProgram();
         if (mProgramId == 0) {
         }
@@ -80,7 +80,7 @@ public class GpuProgram {
      * At this time, any remaining shaders are detached but not cleaned up.
      * Future versions may do so.
      */
-    public void deinitialize(OpenGl GL) {
+    public void deinitialize(OpenGL GL) {
         for (Shader s : mShaders) {
             GL.glDetachShader(mProgramId, s.getId());
             // XXX do we want to do this?
@@ -91,7 +91,7 @@ public class GpuProgram {
     }
 
 
-    private String getInfoLog(OpenGl GL) {
+    private String getInfoLog(OpenGL GL) {
         return GL.glGetProgramInfoLog(mProgramId);
     }
  
@@ -100,7 +100,7 @@ public class GpuProgram {
         mShaders.add(shader);
     }
 
-    public void attachShader(OpenGl GL, Shader shader) {
+    public void attachShader(OpenGL GL, Shader shader) {
         GL.glAttachShader(mProgramId, shader.getId());
         mShaders.add(shader);
     }
@@ -109,17 +109,17 @@ public class GpuProgram {
         mShaders.remove(shader);
     }
 
-    public void detachShader(OpenGl GL, Shader shader) {
+    public void detachShader(OpenGL GL, Shader shader) {
         GL.glDetachShader(mProgramId, shader.getId());
         mShaders.remove(shader);
     }
 
     /** Links this program object. */
-    public void link(OpenGl GL) {
+    public void link(OpenGL GL) {
         check();
 
         GL.glLinkProgram(mProgramId);
-        if (GL.glGetProgramiv(mProgramId, OpenGl.GL_LINK_STATUS) == OpenGl.GL_FALSE) {
+        if (GL.glGetProgramiv(mProgramId, OpenGL.GL_LINK_STATUS) == OpenGL.GL_FALSE) {
             throw new RuntimeException("Failed linking program: "+getInfoLog(GL));
         }
 
@@ -127,16 +127,16 @@ public class GpuProgram {
 
 
     /** Validates this program object. */
-    public boolean validate(OpenGl GL) {
+    public boolean validate(OpenGL GL) {
         GL.glValidateProgram(mProgramId);
 
-        return GL.glGetProgramiv(mProgramId, OpenGl.GL_VALIDATE_STATUS)
-            == OpenGl.GL_FALSE ? false : true;
+        return GL.glGetProgramiv(mProgramId, OpenGL.GL_VALIDATE_STATUS)
+            == OpenGL.GL_FALSE ? false : true;
     }
 
 
     /** Installs this GpuProgram as part of the OpenGL rendering state. */
-    public void use(OpenGl GL) {
+    public void use(OpenGL GL) {
         GL.glUseProgram(mProgramId);
     }
 

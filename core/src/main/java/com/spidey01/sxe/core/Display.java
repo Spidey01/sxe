@@ -65,7 +65,7 @@ public interface Display {
      */
     public boolean isCloseRequested();
 
-    /** Get an Instance of OpenGl suitable for running GL commands.
+    /** Get an Instance of OpenGL suitable for running GL commands.
      *
      * This shouldn't be necessary in most cases but is made public for
      * convenience. It may be depreciated in the future.
@@ -73,7 +73,7 @@ public interface Display {
      * In most cases, you just want to implement some portion of FrameListener
      * and be added to the display. 
      */
-    public OpenGl getOpenGl();
+    public OpenGL getOpenGL();
 
     /** Add a FrameListener for frame events.
      *

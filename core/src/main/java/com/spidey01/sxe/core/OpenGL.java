@@ -29,7 +29,7 @@ import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
-public interface OpenGl {
+public interface OpenGL {
 
     /* these values are just ripped off from /usr/include/GL/**.h on my linux box. */
 

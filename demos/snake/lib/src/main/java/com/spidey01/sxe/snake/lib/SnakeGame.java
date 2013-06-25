@@ -31,7 +31,7 @@ import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.KeyEvent;
 import com.spidey01.sxe.core.KeyListener;
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.OpenGl;
+import com.spidey01.sxe.core.OpenGL;
 
 // for testing stuff
 import com.spidey01.sxe.core.GpuProgram;
@@ -217,7 +217,7 @@ public class SnakeGame
         return false;
     }
 
-    public void frameStarted(OpenGl GL20) {
+    public void frameStarted(OpenGL GL20) {
     }
 
     public void frameEnded() {

@@ -83,13 +83,13 @@ public class Shader {
     }
 
 
-    public void initialize(OpenGl GL) {
+    public void initialize(OpenGL GL) {
         if (mIsInitialized) return;
 
         int type =
-            mType == Type.VERTEX ? OpenGl.GL_VERTEX_SHADER
-                                 : (mType == Type.FRAGMENT ? OpenGl.GL_FRAGMENT_SHADER : -1);
-        assert (type == OpenGl.GL_VERTEX_SHADER) || (type == OpenGl.GL_FRAGMENT_SHADER);
+            mType == Type.VERTEX ? OpenGL.GL_VERTEX_SHADER
+                                 : (mType == Type.FRAGMENT ? OpenGL.GL_FRAGMENT_SHADER : -1);
+        assert (type == OpenGL.GL_VERTEX_SHADER) || (type == OpenGL.GL_FRAGMENT_SHADER);
 
         mShaderId = GL.glCreateShader(type);
         if (mShaderId == 0) {
@@ -98,7 +98,7 @@ public class Shader {
 
         GL.glShaderSource(mShaderId, mSourceCode);
         GL.glCompileShader(mShaderId);
-        if (GL.glGetShaderiv(mShaderId, OpenGl.GL_COMPILE_STATUS) == OpenGl.GL_FALSE) {
+        if (GL.glGetShaderiv(mShaderId, OpenGL.GL_COMPILE_STATUS) == OpenGL.GL_FALSE) {
             String log = getInfoLog(GL);
             GL.glDeleteShader(mShaderId);
             throw new RuntimeException("Failed compiling shader: "+log);
@@ -108,14 +108,14 @@ public class Shader {
     }
 
 
-    public void deinitialize(OpenGl GL) {
+    public void deinitialize(OpenGL GL) {
         check();
         GL.glDeleteShader(mShaderId);
         mIsInitialized = false;
     }
 
 
-    private String getInfoLog(OpenGl GL) {
+    private String getInfoLog(OpenGL GL) {
         check();
         return GL.glGetShaderInfoLog(mShaderId);
     }
