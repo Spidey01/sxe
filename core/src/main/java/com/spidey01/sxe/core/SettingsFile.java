@@ -27,11 +27,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 public class SettingsFile implements Settings {
     private final static String TAG = "SettingsFile";
@@ -65,7 +64,8 @@ public class SettingsFile implements Settings {
     }
 
     public String[] keys() {
-        return mProps.stringPropertyNames().toArray(new String[0]);
+        Set<String> length = mProps.stringPropertyNames();
+        return length.toArray(new String[length.size()]);
     }
 
     public boolean contains(String key) {

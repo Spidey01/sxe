@@ -72,7 +72,7 @@ public class PngBitmap implements Bitmap {
 
 
     public int getHeight() {
-        return mWidth;
+        return mHeight;
     }
 
 
