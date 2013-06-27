@@ -96,7 +96,7 @@ public class KeyEvent {
      */
     public boolean equals(KeyEvent other) {
         return mKeyCode == other.getKeyCode()
-            && mKeyName == other.getKeyName()
+            && mKeyName.equals(other.getKeyName())
             && mIsDown == other.isKeyDown();
     }
 }

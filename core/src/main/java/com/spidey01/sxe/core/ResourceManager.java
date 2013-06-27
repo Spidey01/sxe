@@ -112,7 +112,7 @@ public class ResourceManager {
         ResourceLoader loader = getLoader(path);
         mLastResourceId++;
         ResourceHandle r = new ResourceHandle(loader, mLastResourceId, path);
-        mResourceHandles.put((Long)mLastResourceId, r);
+        mResourceHandles.put(mLastResourceId, r);
         Log.d(TAG, "Loaded "+path+" with "+loader+" and rid="+mLastResourceId);
         return mLastResourceId;
     }
@@ -120,7 +120,7 @@ public class ResourceManager {
 
     public ResourceHandle get(long rid) {
         // TODO: don't leak null
-        return mResourceHandles.get((Long)rid);
+        return mResourceHandles.get(rid);
     }
 
     public ResourceHandle get(String path) {
@@ -130,7 +130,7 @@ public class ResourceManager {
     public void unload(long rid) {
         // TODO: only unload if no other users.
         try {
-            mResourceHandles.get((Long)rid).close();
+            mResourceHandles.get(rid).close();
         } catch (IOException e) {
             Log.w(TAG, "Exception while closing rid="+rid, e);
         }

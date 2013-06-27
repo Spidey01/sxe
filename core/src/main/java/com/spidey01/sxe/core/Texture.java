@@ -34,8 +34,6 @@ public class Texture {
 
     private boolean mIsInitialized;
     private int mTextureId;
-    private int mWidth;
-    private int mHeight;
 
     private Bitmap mBitmap;
 
@@ -72,7 +70,7 @@ public class Texture {
 
         GL.glBindTexture(OpenGL.GL_TEXTURE_2D, mTextureId);
 
-        GL.glTexImage2D(OpenGL.GL_TEXTURE_2D, 0, OpenGL.GL_RGBA, mWidth, mHeight,
+        GL.glTexImage2D(OpenGL.GL_TEXTURE_2D, 0, OpenGL.GL_RGBA, mBitmap.getWidth(), mBitmap.getHeight(),
                         0, OpenGL.GL_RGBA, OpenGL.GL_UNSIGNED_BYTE, mBitmap.getImageData());
 
         // Can we clear() mImageData and set it to null because OpenGL made an

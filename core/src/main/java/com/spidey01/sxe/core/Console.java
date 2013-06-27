@@ -66,7 +66,7 @@ public class Console
     }
 
     public void setVisable(boolean visable) {
-        Log.v(TAG, "console " + (visable == true ? "opened" : "closed"));
+        Log.v(TAG, "console " + (visable ? "opened" : "closed"));
         mVisable = visable;
     }
 

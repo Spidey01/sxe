@@ -59,6 +59,8 @@ public class GpuProgram {
      * This creates a new program, initinizes attached shaders, and links the program up for immediate use.
      */
     public void initialize(OpenGL GL) {
+        if (mIsInitialized) return;
+
         mProgramId = GL.glCreateProgram();
         if (mProgramId == 0) {
         }
@@ -72,6 +74,8 @@ public class GpuProgram {
 
         // Could detach shaders now but would it break deinitialize and how
         // much memory would it usually recover?
+
+        mIsInitialized = true;
     }
 
 
@@ -88,6 +92,7 @@ public class GpuProgram {
         }
         GL.glDeleteProgram(mProgramId);
         mProgramId = 0;
+        mIsInitialized = false;
     }
 
 
@@ -130,8 +135,7 @@ public class GpuProgram {
     public boolean validate(OpenGL GL) {
         GL.glValidateProgram(mProgramId);
 
-        return GL.glGetProgramiv(mProgramId, OpenGL.GL_VALIDATE_STATUS)
-            == OpenGL.GL_FALSE ? false : true;
+        return GL.glGetProgramiv(mProgramId, OpenGL.GL_VALIDATE_STATUS) != OpenGL.GL_FALSE;
     }
 
 

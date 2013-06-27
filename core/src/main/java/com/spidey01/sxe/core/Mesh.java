@@ -53,7 +53,7 @@ import java.util.*;
 public class Mesh implements FrameStartedListener {
     private GameContext mCtx;
     private GpuProgram mProgram;
-    private IntBuffer mVBO;;
+    private IntBuffer mVBO;
     private boolean mInitialized = false;
     private float[] mVertices;
     private int mCoord2d = -1;

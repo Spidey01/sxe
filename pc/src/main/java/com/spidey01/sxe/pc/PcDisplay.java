@@ -131,8 +131,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
             return false;
         }
 
-        for (int i=0; i < modes.length; i++) {
-            DisplayMode c = modes[i];
+        for (DisplayMode c : modes) {
             if (c.isFullscreenCapable() && c.toString().startsWith(mode)) {
                 p = c;
                 break;
