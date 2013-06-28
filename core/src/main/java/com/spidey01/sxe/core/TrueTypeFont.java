@@ -56,8 +56,8 @@ import java.util.*;
 public class TrueTypeFont implements Font {
     private final static String TAG = "TrueTypeFont";
 
-    private float mVersionNumber = 0;
-    private final String mVersionString;
+    private int mVersionNumber;
+    private String mVersionString;
     private DataInputStream mStream;
 
     /* Wrapper for the fields of the font directory. */
@@ -127,10 +127,29 @@ public class TrueTypeFont implements Font {
 
     }
 
+    /** Supposedly required. */
+    private static String[] sRequiredTables = {
+        "cmap", // character to glyph mapping
+        "glyf", // glyph data
+        "head", // font header
+        "hhea", // horizontal header
+        "hmtx", // horizontal metrics
+        "loca", // index to location
+        "maxp", // maximum profile
+        "name", // naming
+        "post", // PostScript
+    };
+
 
     public TrueTypeFont(DataInputStream data) throws IOException {
         parseFontDirectory(data);
         parseTableDirectory(data);
+
+        for (String name : sRequiredTables) {
+            if (!mOffsetMap.containsKey(name)) {
+                throw new RuntimeException("Required table "+name+" not found in directory.");
+            }
+        }
     }
 
     /*
@@ -184,6 +203,9 @@ public class TrueTypeFont implements Font {
     /** Shift value for search ranges. */
     private int mRangeShift;
 
+    /** Maps table names to the offset tables. */
+    private Map<String, Table> mOffsetMap = new HashMap<String, Table>();
+
 
     /** Number of tables and their offsets.
      */
@@ -195,10 +217,12 @@ public class TrueTypeFont implements Font {
 
         mVersionString = String.valueOf(mVersionNumber);
         Log.i(TAG, "TTF Version: "+mVersionString);
+        /*
         if (!mVersionString.equals("1.0")) {
             // this could be other values than 1, if the font comes from other systems, like Mac.
             throw new RuntimeException("Unsupported format version: "+mVersionString);
         }
+        */
 
         mNumTables = data.readUnsignedShort();
         Log.v(TAG, "numTables = "+mNumTables);
@@ -223,26 +247,10 @@ public class TrueTypeFont implements Font {
      * Each table in the font file must have it's own directory.
      */
     private void parseTableDirectory(DataInputStream data) throws IOException {
-        // ...
-    /*
-        try { 
-            for (int i=0; i < numberOfTables; ++i) {
-                Table.from(data);
-            }
-        } catch (IOException e) {
-            throw new IOException("Error parsing TTF font directory.", e);
+        for (int i=0; i < mNumTables; ++i) {
+            Table t = Table.from(data);
+            mOffsetMap.put(t.name, t);
         }
-
-        try { // read random junk
-            for (int i=0; i < 10; i++) {
-                int p = data.readUnsignedShort();
-                Log.i(TAG, "readshit: "+p);
-            }
-        } catch(IOException e) {
-            throw new IOException("bad I/O", e);
-        }
-        */
-
     }
 
 }
