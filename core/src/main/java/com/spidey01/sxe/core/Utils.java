@@ -261,5 +261,21 @@ public class Utils {
             return null;
         }
     }
+
+    // conversions to unsigned integers.
+    // http://jessicarbrown.com/resources/unsignedtojava.html
+
+    public static short uint8(byte i) {
+        return (short)(i & 0xff);
+    }
+
+    public static int uint16(short i) {
+        return i & 0xffff;
+    }
+
+    public static long uint32(int i) {
+        return i & 0xffffffffL;
+    }
+
 }
 
