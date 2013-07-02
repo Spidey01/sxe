@@ -25,12 +25,39 @@ package com.spidey01.sxe.core;
 
 /** Access to persistent settings.
  *
- * @see PcSettings
+ * Settings are presented as a simple key/value store. The actual storage
+ * method is platform specific: it could be anything from a property file, a
+ * database, or even a hashtable in ram provided by a game console.
+ *
+ * Values are bound to a key, where the key is a String. To create an artifical
+ * relationship between values, use a form of hierarchal naming. SxE uses the
+ * period for this purpose, e.g. quux.foo, quux.bar. This mapping method makes
+ * things simple to process in code and minimizes requirements on the storage
+ * engine.
+ *
+ * @see SettingsFile
  * @see AndroidSettings
  */
 public interface Settings {
 
+    /** Interface for subscribing to settings changes.
+     *
+     * Use this if you must be kept up to date with the current value of a key.
+     */
     public interface OnChangedListener {
+        /** Handle change notification.
+         *
+         * You are provided an instance of the Settings so that you can query
+         * its value using the provided methods.  It is not recommended to
+         * modify the Settings instance unless you must update related settings
+         * for e.g. consistency.
+         *
+         * No guarantee of thread safety is required for implementations of
+         * this interface.
+         *
+         * @param settings - used to obtain the new value of key.
+         * @param key - the key associated with the change.
+         */
         void onChanged(Settings settings, String key);
     }
     
@@ -88,6 +115,10 @@ public interface Settings {
     /** Set key as a String value.  */
     Settings setString(String key, String value);
 
+    /** Commit changes to storage.
+     *
+     * @return true on success; false on failure.
+     */
     boolean save();
 }
 
