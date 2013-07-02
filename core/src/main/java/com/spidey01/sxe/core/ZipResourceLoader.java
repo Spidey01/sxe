@@ -30,8 +30,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.File;
+import java.net.URI;
 
-/** Loads an InputStream out of a Zip Archive */
+/** Loads an InputStream out of a Zip Archive. */
 public class ZipResourceLoader implements ResourceLoader {
     private final static String TAG = "ZipResourceLoader";
 
@@ -44,24 +45,44 @@ public class ZipResourceLoader implements ResourceLoader {
     public InputStream getInputStream(String path)
         throws IOException
     {
-        String zipPath = path.substring(0, path.lastIndexOf(":"));
+        return null;
+    }
+
+
+    public InputStream getInputStream(URI uri)
+        throws IOException
+    {
+        return null;
+    }
+
+
+
+    public InputStream getInputStream(File from, File what)
+        throws IOException
+    {
+        return getInputStream(from.getPath(), what.getPath());
+    }
+
+
+    // TODO: normalize to /paths/ and ban retard \paths\; make it a method of Utils.
+    public InputStream getInputStream(String from, String what)
+        throws IOException
+    {
         ZipFile zipFile = null;
         
         try {
-            zipFile = new ZipFile(zipPath);
+            zipFile = new ZipFile(from);
         } catch (IOException e) {
-            throw new IOException("Failed to open "+zipPath, e);
+            throw new IOException("Failed to open "+from, e);
         }
 
-        String pathInZip = path.substring(path.lastIndexOf(":")+1);
-
         /* The API borks if we use a leading '/', so take care of it */
-        String p = pathInZip.startsWith("/") ? pathInZip.substring(1)
-                                             : pathInZip;
+        String p = what.startsWith("/") ? what.substring(1)
+                                        : what;
 
         ZipEntry zipEntry = zipFile.getEntry(p);
         if (zipEntry == null) {
-            throw new IOException("Zip file "+zipPath+" doesn't contain "+pathInZip);
+            throw new IOException("Zip file "+from+" doesn't contain "+p);
         }
 
         if (zipEntry.isDirectory()) {
@@ -73,10 +94,10 @@ public class ZipResourceLoader implements ResourceLoader {
             is = zipFile.getInputStream(zipEntry);
             /* Instead of one of the documentation exceptions we might just get
              * null in some cases. So we need to test this, as <b>we</b>
-             * promise to throw IOException!
+             * promise to throw IOException rather than return null!
              */
             if (is == null) {
-                throw new IOException("Zipfile#getInputStream returned null!");
+                throw new IOException("ZipFile#getInputStream returned null!");
             }
         } catch (IOException e) {
             throw new IOException("Failed to load resource", e);
@@ -84,5 +105,6 @@ public class ZipResourceLoader implements ResourceLoader {
 
         return is;
     }
+
 }
 

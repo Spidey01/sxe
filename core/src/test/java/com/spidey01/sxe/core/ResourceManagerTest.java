@@ -38,6 +38,7 @@ public class ResourceManagerTest extends UnitTest {
     public static void setUpClass() {
         UnitTest.setup();
         sResourceManager = new ResourceManager();
+        sResourceManager.addResourceLocation("src/test/resources");
     }
 
 
@@ -51,14 +52,14 @@ public class ResourceManagerTest extends UnitTest {
         Assert.assertThat(loaders.get("default"),
                           CoreMatchers.instanceOf(PathResourceLoader.class));
 
-        Assert.assertThat("ResourceManager should handle .zip out of box.", loaders.get(".zip"),
+        Assert.assertThat("ResourceManager should handle .zip out of box.", loaders.get("zip"),
                           CoreMatchers.instanceOf(ZipResourceLoader.class));
     }
 
 
     @Test
     public void addLoader() {
-        final String prefix = "dummy:";
+        final String prefix = "dummy";
         DummyResourceLoader dummy = new DummyResourceLoader();
 
         Assert.assertNull("There shouldn't be a default ResourceLoader for dummies.",
@@ -68,39 +69,45 @@ public class ResourceManagerTest extends UnitTest {
                           CoreMatchers.instanceOf(DummyResourceLoader.class));
 
         // FIXME
-        // Assert.assertThat(sResourceManager.getLoader(prefix+"/foo/bar/ham"),
-                          // CoreMatchers.instanceOf(DummyResourceLoader.class));
+        Assert.assertThat(sResourceManager.getLoader(prefix+"://foo/bar/ham"),
+                          CoreMatchers.instanceOf(DummyResourceLoader.class));
+        try { sResourceManager.load(prefix+"://foo/bar/ham"); } catch(IOException e) {}
     }
-
 
     @Test
-    public void load() {
-        // long rid = sResourceManager.load("dummy:/foo/bar");
-        long rid = sResourceManager.load(TestUtils.getResource("ZipResourceLoader.zip:/blargle/bar.txt"));
-        Assert.assertTrue("Resource ID -1 is reserved for failure.", rid > -1);
+    public void setLoader() {
+        ResourceLoader foo = new DummyResourceLoader();
+        sResourceManager.setLoader("foo", foo);
+        Assert.assertEquals("setLoader() should work.", foo,
+                sResourceManager.getLoader("foo://ham/spam"));
 
-        ResourceHandle resource = sResourceManager.get(rid);
-        Assert.assertNotNull("Never leak a null here.", resource);
-
-        // all fine unless we throw exceptions.
-        try {
-            InputStream data = resource.asInputStream();
-            Assert.assertNotNull("Never leak a null here either.", data);
-
-            data.read();
-
-            Assert.assertSame("Getting same rid == same resource",
-                    resource, sResourceManager.get(rid));
-
-            Assert.assertSame("Getting same handle == same resource",
-                    data, sResourceManager.get(rid).asInputStream());
-        } catch(IOException e) {
-            Assert.fail(e.toString());
-        }
-
-        sResourceManager.unload(rid);
+        sResourceManager.setLoader("bar", sResourceManager.getDefaultLoader());
+        Assert.assertEquals("setLoader() should allow aliasing.",
+                sResourceManager.getDefaultLoader(), sResourceManager.getLoader("bar://ham/spam"));
+        try { sResourceManager.load("foo://quux/bar/ham"); sResourceManager.load("bar://quux/bar/ham"); } catch(IOException e) {}
     }
 
+    // TODO assert that default:// handling when no scheme works.
+    @Test
+    public void load() throws IOException {
+        loading("default://PathResourceLoader.txt");
+        loading("file://PathResourceLoader.txt");
+        loading("zip://ZipResourceLoader.zip/blargle/bar.txt");
+    }
+
+    protected void loading(String file) throws IOException {
+        ResourceHandle resource = sResourceManager.load(file);
+        Assert.assertNotNull("Never leak a null here.", resource);
+
+        InputStream data = resource.asInputStream();
+        Assert.assertNotNull("Never leak a null here either.", data);
+        Assert.assertFalse(data.read() == -1);
+
+        Assert.assertSame("Getting same URI == same resource", resource, sResourceManager.load(file));
+        Assert.assertSame("Getting same handle == same resource", data, sResourceManager.load(file).asInputStream());
+        sResourceManager.unload(file);
+        // Assert.assertNotSame("Really reloading is really reloading.", resource, sResourceManager.load(file));
+    }
 
 }
 

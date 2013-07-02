@@ -28,6 +28,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 
 /** Dummy ResourceLoader that returns the bitbucket. */
 public class DummyResourceLoader  implements ResourceLoader {
@@ -38,10 +39,31 @@ public class DummyResourceLoader  implements ResourceLoader {
         return new FileInputStream(Utils.getBitBucketFile());
     }
 
+
     public InputStream getInputStream(String path)
         throws IOException
     {
         return new FileInputStream(Utils.getBitBucketPath());
+    }
+
+
+    public InputStream getInputStream(URI uri)
+        throws IOException
+    {
+        return new FileInputStream(Utils.getBitBucketPath());
+    }
+
+    public InputStream getInputStream(File from, File what)
+        throws IOException
+    {
+        return null;
+    }
+
+
+    public InputStream getInputStream(String from, String what)
+        throws IOException
+    {
+        return null;
     }
 }
 

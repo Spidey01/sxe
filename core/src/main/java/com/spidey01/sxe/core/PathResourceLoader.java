@@ -27,6 +27,7 @@ import java.io.InputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.File;
+import java.net.URI;
 
 /** Loads an InputStream out of a file path */
 public class PathResourceLoader implements ResourceLoader {
@@ -38,10 +39,32 @@ public class PathResourceLoader implements ResourceLoader {
         return new FileInputStream(path);
     }
 
+
     public InputStream getInputStream(String path)
         throws IOException
     {
         return new FileInputStream(path);
+    }
+
+
+    public InputStream getInputStream(URI uri)
+        throws IOException
+    {
+        return null;
+    }
+    //-------------------
+
+    public InputStream getInputStream(File from, File what)
+        throws IOException
+    {
+        return new FileInputStream(new File(from, what.getPath()));
+    }
+
+
+    public InputStream getInputStream(String from, String what)
+        throws IOException
+    {
+        return new FileInputStream(new File(from, what));
     }
 }
 

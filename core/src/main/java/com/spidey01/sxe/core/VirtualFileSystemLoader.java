@@ -98,6 +98,20 @@ public class VirtualFileSystemLoader implements ResourceLoader {
 
         throw new IOException("\""+vpath+"\" not found in the vfs of "+this);
     }
+
+    public InputStream getInputStream(java.net.URI uri) throws IOException { return null; }
+    public InputStream getInputStream(File from, File what)
+        throws IOException
+    {
+        return null;
+    }
+
+
+    public InputStream getInputStream(String from, String what)
+        throws IOException
+    {
+        return null;
+    }
 }
 
 

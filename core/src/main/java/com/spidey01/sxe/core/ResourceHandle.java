@@ -24,20 +24,20 @@
 package com.spidey01.sxe.core;
 
 import java.io.BufferedReader;
+import java.io.Closeable;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.io.Closeable;
+import java.net.URI;
 
 public class ResourceHandle implements Closeable {
     private final static String TAG = "ResourceHandle";
 
-    private final long mRid;
-    private final ResourceLoader mLoadedBy;
-    private final String mResourcePath;
+    private ResourceLoader mLoadedBy;
+    private final URI mURI;
 
     private boolean mIsLoaded = false;
     private IOException mFailure = null;
@@ -52,10 +52,15 @@ public class ResourceHandle implements Closeable {
     private Font mFont;
 
 
-    public ResourceHandle(ResourceLoader loader, long rid, String resource) {
+    public ResourceHandle(ResourceLoader loader, URI resource) {
         mLoadedBy = loader;
-        mRid = rid;
-        mResourcePath = resource;
+        mURI = resource;
+    }
+
+    
+    public ResourceHandle(URI uri, InputStream stream) {
+        mURI = uri;
+        mInputStream = stream;
     }
 
 
@@ -71,7 +76,7 @@ public class ResourceHandle implements Closeable {
 
     public BufferedReader asReader() throws IOException {
         if (mReader == null) {
-            mReader = new BufferedReader(new InputStreamReader(getLoader().getInputStream(mResourcePath)));
+            mReader = new BufferedReader(new InputStreamReader(getLoader().getInputStream(mURI)));
         }
         return mReader;
     }
@@ -79,7 +84,7 @@ public class ResourceHandle implements Closeable {
 
     public InputStream asInputStream() throws IOException {
         if (mInputStream == null) {
-            mInputStream = getLoader().getInputStream(mResourcePath);
+            mInputStream = getLoader().getInputStream(mURI);
         }
         return mInputStream;
     }

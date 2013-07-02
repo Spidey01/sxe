@@ -40,7 +40,9 @@ public class PathResourceLoaderTest extends UnitTest {
 
     @Test
     public void simplePathTest() throws IOException {
-        File txt = TestUtils.getResource("PathResourceLoader.txt");
+        String from = "src/test/resources";
+        String what = "PathResourceLoader.txt";
+        File txt = new File(from, what);
         Assume.assumeTrue(txt.exists());
 
         String expected = "Test dummy for PathResourceLoader.\n";

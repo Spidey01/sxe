@@ -61,25 +61,25 @@ public class ZipResourceLoaderTest extends UnitTest {
     /** You can't load directories. */
     @Test(expected = IOException.class)
     public void loadDirectory() throws IOException {
-        sLoader.getInputStream(getZip().getPath()+":/blargle");
+        sLoader.getInputStream(getZip(), new File("/blargle"));
     }
 
 
     @Test(expected = IOException.class)
     public void garbageZipFile() throws IOException {
-        sLoader.getInputStream(Utils.getBitBucketPath() +":/foo");
+        sLoader.getInputStream(Utils.getBitBucketPath(), "foo");
     }
 
 
     @Test(expected = NullPointerException.class)
     public void nullFile() throws IOException {
-        sLoader.getInputStream((File)null);
+        sLoader.getInputStream((File)null, (File)null);
     }
 
 
     @Test(expected = NullPointerException.class)
     public void nullString() throws IOException {
-        sLoader.getInputStream((String)null);
+        sLoader.getInputStream((String)null, (String)null);
     }
 
 
@@ -93,6 +93,11 @@ public class ZipResourceLoaderTest extends UnitTest {
 
     /** Tests that it works with and without a leading "/" in the path name. */
     private void test(String path) throws IOException {
+        Assert.assertEquals(dummyText, Utils.slurp(sLoader.getInputStream(getZip().getPath(), path)));
+        // Assert.assertEquals(dummyText, Utils.slurp(sLoader.getInputStream(getZip(), new File(path))));
+    }
+
+    private void old_test(String path) throws IOException {
         String s;
         File zip = getZip();
 
