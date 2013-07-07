@@ -98,16 +98,10 @@ public class ZipResourceLoaderTest extends UnitTest {
     }
 
     private void old_test(String path) throws IOException {
-        String s;
-        File zip = getZip();
+        String zip = getZip().getPath();
 
-        s = zip.getPath() + ":/" + path;
-        Assert.assertEquals("With $zip:/$filename.", dummyText,
-                            Utils.slurp(sLoader.getInputStream(s)));
-
-        s = zip.getPath() + ":" + path;
-        Assert.assertEquals("With $zip:$filename.", dummyText,
-                            Utils.slurp(sLoader.getInputStream(s)));
+        Assert.assertEquals("Simple ZIP loading.", dummyText,
+                            Utils.slurp(sLoader.getInputStream(zip, path)));
     }
 
 

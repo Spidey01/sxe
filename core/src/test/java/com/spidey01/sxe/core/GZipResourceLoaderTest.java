@@ -27,7 +27,6 @@ import org.junit.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.*;
 
 public class GZipResourceLoaderTest extends UnitTest {
     private static GZipResourceLoader sLoader = new GZipResourceLoader();

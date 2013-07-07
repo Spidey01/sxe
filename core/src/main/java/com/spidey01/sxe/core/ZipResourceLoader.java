@@ -36,26 +36,6 @@ import java.net.URI;
 public class ZipResourceLoader implements ResourceLoader {
     private final static String TAG = "ZipResourceLoader";
 
-    public InputStream getInputStream(File path)
-        throws IOException
-    {
-        return getInputStream(path.getPath());
-    }
-
-    public InputStream getInputStream(String path)
-        throws IOException
-    {
-        return null;
-    }
-
-
-    public InputStream getInputStream(URI uri)
-        throws IOException
-    {
-        return null;
-    }
-
-
 
     public InputStream getInputStream(File from, File what)
         throws IOException

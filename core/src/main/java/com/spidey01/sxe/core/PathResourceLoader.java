@@ -33,26 +33,6 @@ import java.net.URI;
 public class PathResourceLoader implements ResourceLoader {
     private final static String TAG = "PathResourceLoader";
 
-    public InputStream getInputStream(File path)
-        throws IOException
-    {
-        return new FileInputStream(path);
-    }
-
-
-    public InputStream getInputStream(String path)
-        throws IOException
-    {
-        return new FileInputStream(path);
-    }
-
-
-    public InputStream getInputStream(URI uri)
-        throws IOException
-    {
-        return null;
-    }
-    //-------------------
 
     public InputStream getInputStream(File from, File what)
         throws IOException

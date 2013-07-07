@@ -33,37 +33,17 @@ import java.net.URI;
 /** Dummy ResourceLoader that returns the bitbucket. */
 public class DummyResourceLoader  implements ResourceLoader {
 
-    public InputStream getInputStream(File path)
-        throws IOException
-    {
-        return new FileInputStream(Utils.getBitBucketFile());
-    }
-
-
-    public InputStream getInputStream(String path)
-        throws IOException
-    {
-        return new FileInputStream(Utils.getBitBucketPath());
-    }
-
-
-    public InputStream getInputStream(URI uri)
-        throws IOException
-    {
-        return new FileInputStream(Utils.getBitBucketPath());
-    }
-
     public InputStream getInputStream(File from, File what)
         throws IOException
     {
-        return null;
+        return new FileInputStream(Utils.getBitBucketPath());
     }
 
 
     public InputStream getInputStream(String from, String what)
         throws IOException
     {
-        return null;
+        return new FileInputStream(Utils.getBitBucketPath());
     }
 }
 

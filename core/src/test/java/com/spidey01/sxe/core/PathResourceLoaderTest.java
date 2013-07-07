@@ -32,6 +32,7 @@ import java.io.IOException;
 public class PathResourceLoaderTest extends UnitTest {
     private static PathResourceLoader sLoader = new PathResourceLoader();
 
+
     @BeforeClass
     public static void setup() {
         UnitTest.setup();
@@ -47,7 +48,7 @@ public class PathResourceLoaderTest extends UnitTest {
 
         String expected = "Test dummy for PathResourceLoader.\n";
         Assert.assertEquals("Loading a text file.", expected,
-                            Utils.slurp(sLoader.getInputStream(txt)));
+                            Utils.slurp(sLoader.getInputStream(from, what)));
     }
 
 }

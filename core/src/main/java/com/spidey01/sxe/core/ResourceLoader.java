@@ -30,10 +30,6 @@ import java.net.URI;
 
 /** ABC for loading a Resource */
 public interface ResourceLoader {
-    InputStream getInputStream(File path) throws IOException;
-    InputStream getInputStream(String path) throws IOException;
-    InputStream getInputStream(URI uri) throws IOException;
-    //----------------------------
     InputStream getInputStream(File from, File what) throws IOException;
     InputStream getInputStream(String from, String what) throws IOException;
 }
