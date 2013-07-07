@@ -38,7 +38,6 @@ import com.spidey01.sxe.core.GpuProgram;
 import com.spidey01.sxe.core.Mesh;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.Shader;
-import com.spidey01.sxe.core.VirtualFileSystemLoader;
 import java.io.InputStream;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -80,32 +79,6 @@ public class SnakeGame
               0.8f,  -0.8f,
         });
         mGameEngine.getGameContext().getDisplay().addFrameStartedListener(mTriangle);
-
-        /* old code that's becoming extinct as ResourceManager gets rewritten.
-        {
-            Log.v(TAG, "testing vfs: ");
-
-            VirtualFileSystemLoader vfs = new VirtualFileSystemLoader(
-                mGameEngine.getGameContext().getResources(),
-                new String[]{ 
-                    "shaders", "debug.zip:", "default:"
-                });
-
-            mGameEngine.getGameContext().getResources().setLoader("vfs", vfs);
-
-
-
-            Resource foo = mGameEngine.getGameContext().getResources().load("vfs:test/foo.txt");
-            Log.v(TAG, "result of load via vfs container:\n"
-                +"\n ref "+foo.toString()
-                +"\n file name "+foo.getFileName()
-                +"\n input stream "+foo.getInputStream()
-                +"\n object "+foo.getObject()
-                +"\n loader "+foo.getLoader()
-            );
-            Log.v(TAG, "Done testing vfs; requesting stop.");
-        }
-        */
 
         return true;
     }
