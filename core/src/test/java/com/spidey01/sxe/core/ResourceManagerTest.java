@@ -68,10 +68,8 @@ public class ResourceManagerTest extends UnitTest {
         Assert.assertThat(sResourceManager.getLoaders().get(prefix),
                           CoreMatchers.instanceOf(DummyResourceLoader.class));
 
-        // FIXME
         Assert.assertThat(sResourceManager.getLoader(prefix+"://foo/bar/ham"),
                           CoreMatchers.instanceOf(DummyResourceLoader.class));
-        try { sResourceManager.load(prefix+"://foo/bar/ham"); } catch(IOException e) {}
     }
 
     @Test
@@ -84,7 +82,6 @@ public class ResourceManagerTest extends UnitTest {
         sResourceManager.setLoader("bar", sResourceManager.getDefaultLoader());
         Assert.assertEquals("setLoader() should allow aliasing.",
                 sResourceManager.getDefaultLoader(), sResourceManager.getLoader("bar://ham/spam"));
-        try { sResourceManager.load("foo://quux/bar/ham"); sResourceManager.load("bar://quux/bar/ham"); } catch(IOException e) {}
     }
 
     // TODO assert that default:// handling when no scheme works.
