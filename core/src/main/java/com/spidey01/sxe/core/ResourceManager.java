@@ -246,7 +246,7 @@ public class ResourceManager {
             return;
         }
         h.close();
-        mHandles.remove(h);
+        mHandles.remove(uri);
         Log.v(TAG, "unload(): URI => "+uri);
     }
 

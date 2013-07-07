@@ -106,7 +106,7 @@ public class ResourceManagerTest extends UnitTest {
         Assert.assertSame("Getting same URI == same resource", resource, sResourceManager.load(file));
         Assert.assertSame("Getting same handle == same resource", data, sResourceManager.load(file).asInputStream());
         sResourceManager.unload(file);
-        // Assert.assertNotSame("Really reloading is really reloading.", resource, sResourceManager.load(file));
+        Assert.assertNotSame("Really reloading is really reloading.", resource, sResourceManager.load(file));
     }
 
 }
