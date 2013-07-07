@@ -41,13 +41,13 @@ public class PathResourceLoaderTest extends UnitTest {
 
     @Test
     public void simplePathTest() throws IOException {
-        String from = "src/test/resources";
-        String what = "PathResourceLoader.txt";
+        String from = TestResources.directory;
+        String what = TestResources.textFileName;
         File txt = new File(from, what);
         Assume.assumeTrue(txt.exists());
 
-        String expected = "Test dummy for PathResourceLoader.\n";
-        Assert.assertEquals("Loading a text file.", expected,
+        Assert.assertEquals("Loading a text file.", 
+                            TestResources.textFileContent,
                             Utils.slurp(sLoader.getInputStream(from, what)));
     }
 

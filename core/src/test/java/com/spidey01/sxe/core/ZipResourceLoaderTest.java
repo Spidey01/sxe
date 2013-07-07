@@ -31,8 +31,6 @@ import java.io.IOException;
 public class ZipResourceLoaderTest extends UnitTest {
     private static ZipResourceLoader sLoader = new ZipResourceLoader();
 
-    private static final String dummyText = "Test dummy for ZipResourceLoader.\n";
-
 
     @BeforeClass
     public static void setup() {
@@ -84,26 +82,20 @@ public class ZipResourceLoaderTest extends UnitTest {
 
 
     private File getZip() {
-        File zip = TestUtils.getResource("ZipResourceLoader.zip");
+        File zip = new File(TestResources.directory, TestResources.zipFileName);
         // desired side effect >_>.
         Assume.assumeTrue(zip.exists());
         return zip;
     }
 
 
-    /** Tests that it works with and without a leading "/" in the path name. */
+    /** Common test code.. */
     private void test(String path) throws IOException {
-        Assert.assertEquals(dummyText, Utils.slurp(sLoader.getInputStream(getZip().getPath(), path)));
-        // Assert.assertEquals(dummyText, Utils.slurp(sLoader.getInputStream(getZip(), new File(path))));
-    }
-
-    private void old_test(String path) throws IOException {
         String zip = getZip().getPath();
 
-        Assert.assertEquals("Simple ZIP loading.", dummyText,
+        Assert.assertEquals("Simple ZIP loading.", TestResources.zipFileContent,
                             Utils.slurp(sLoader.getInputStream(zip, path)));
     }
-
 
 }
 

@@ -23,32 +23,28 @@
 
 package com.spidey01.sxe.core;
 
-import org.junit.*;
+public class TestResources {
 
-import java.io.File;
-import java.io.IOException;
+    /** Directory containing test resources. */
+    static final String directory = "src/test/resources";
 
-public class GZipResourceLoaderTest extends UnitTest {
-    private static GZipResourceLoader sLoader = new GZipResourceLoader();
+    /** File name of text file used for testing. */
+    static final String textFileName = "PathResourceLoader.txt";
 
-    @BeforeClass
-    public static void setup() {
-        UnitTest.setup();
-    }
+    /** String of text used for testing with textFileName. */
+    static final String textFileContent = "Test dummy for PathResourceLoader.\n";
 
+    /** File name of GZip'd text file used for testing. */
+    static final String gzipFileName = "PathResourceLoader.txt.gz";
 
-    @Test
-    public void simplePathTest() throws IOException {
-        String from = TestResources.directory;
-        String what = TestResources.gzipFileName;
-        File txt = new File(from, what);
-        Assume.assumeTrue(txt.exists());
+    /** String of text used for testing with gzipFileName. */
+    static final String gzipFileContent = textFileContent;
 
+    /** File name of Zip archive used for testing. */
+    static final String zipFileName = "ZipResourceLoader.zip";
 
-        Assert.assertEquals("Loading a gzip compressed text file.",
-                            TestResources.gzipFileContent,
-                            Utils.slurp(sLoader.getInputStream(from, what)));
-    }
+    /** String of text used for testing with zipFileName. */
+    static final String zipFileContent = "Test dummy for ZipResourceLoader.\n";
 
 }
 

@@ -38,7 +38,7 @@ public class ResourceManagerTest extends UnitTest {
     public static void setUpClass() {
         UnitTest.setup();
         sResourceManager = new ResourceManager();
-        sResourceManager.addResourceLocation("src/test/resources");
+        sResourceManager.addResourceLocation(TestResources.directory);
     }
 
 
@@ -87,9 +87,9 @@ public class ResourceManagerTest extends UnitTest {
     // TODO assert that default:// handling when no scheme works.
     @Test
     public void load() throws IOException {
-        loading("default://PathResourceLoader.txt");
-        loading("file://PathResourceLoader.txt");
-        loading("zip://ZipResourceLoader.zip/blargle/bar.txt");
+        loading("default://"+TestResources.textFileName);
+        loading("file://"+TestResources.textFileName);
+        loading("zip://"+TestResources.zipFileName+"/blargle/bar.txt");
     }
 
     protected void loading(String file) throws IOException {
