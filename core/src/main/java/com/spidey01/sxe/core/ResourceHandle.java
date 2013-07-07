@@ -42,76 +42,59 @@ public class ResourceHandle implements Closeable {
     private boolean mIsLoaded = false;
     private IOException mFailure = null;
 
-    // Handles to whatever the underlaying resource is.
-    // Remember that the Java defaults them to null.
     //
-    private BufferedReader mReader;
+    // Handle to whatever the underlaying resource is.
+    //
+    // I assume the JVM/Bytecode has to allocate the extra pointers under the
+    // hood, so perhaps it might be more worth while (time vs space) to just
+    // use an Object and casting rather than fields for each possible resource.
+    //
+    private Object mData;
     private InputStream mInputStream;
-    private Texture mTexture;
-    private Shader mShader;
-    private Font mFont;
+
+    private enum Type {
+        RAW,
+        READER,
+        TEXTURE,
+        SHADER,
+    };
+    Type mType = Type.RAW;
 
 
-    public ResourceHandle(ResourceLoader loader, URI resource) {
-        mLoadedBy = loader;
-        mURI = resource;
-    }
-
-    
     public ResourceHandle(URI uri, InputStream stream) {
         mURI = uri;
         mInputStream = stream;
     }
 
 
-    public boolean isLoaded() {
-        return false;
-    }
-
-
-    public ResourceLoader getLoader() {
-        return mLoadedBy;
-    }
-
-
     public BufferedReader asReader() throws IOException {
-        if (mReader == null) {
-            mReader = new BufferedReader(new InputStreamReader(getLoader().getInputStream(mURI)));
+        if (mData == null && checkType(Type.READER)) {
+            mType = Type.READER;
+            mData = new BufferedReader(new InputStreamReader(mInputStream));
         }
-        return mReader;
+        return (BufferedReader)mData;
     }
 
 
-    public InputStream asInputStream() throws IOException {
-        if (mInputStream == null) {
-            mInputStream = getLoader().getInputStream(mURI);
-        }
+    public InputStream asInputStream() {
         return mInputStream;
     }
 
 
     public Texture asTexture() throws IOException {
-        if (mTexture == null) {
-            mTexture = new Texture(new PngBitmap(asInputStream()));
+        if (mData == null && checkType(Type.TEXTURE)) {
+            mData = new Texture(new PngBitmap(mInputStream));
             close();
         }
-        return mTexture;
+        return (Texture)mData;
     }
 
     public Shader asShader(Shader.Type type) throws IOException {
-        if (mShader == null) {
-            mShader = new Shader(asReader(), type);
+        if (mData == null && checkType(Type.SHADER)) {
+            mData = new Shader(asReader(), type);
             close();
         }
-        return mShader;
-    }
-
-
-    public Font asFont() throws IOException {
-        if (mFont == null) {
-            throw new IOException("Nadda typeface.");
-        }
-        return mFont;
+        return (Shader)mData;
     }
 
 
@@ -119,10 +102,10 @@ public class ResourceHandle implements Closeable {
         if (mInputStream != null) {
             mInputStream.close();
         }
-        if (mReader != null) {
-            mReader.close();
-        }
     }
 
+    private boolean checkType(Type supposed) {
+        return mType == supposed || mType == Type.RAW;
+    }
 }
 
