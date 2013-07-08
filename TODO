@@ -1,8 +1,8 @@
 [ ] Update documentation, NOTES, etc.
 [ ] Fix sources of brain damage / not enough time to do it well.
-[ ] A way to configure things like setting log level separately per tag, from .cfg file.
+[X] A way to configure things like setting log level separately per tag, from .cfg file.
 [ ] Maybe make OpenGL stuff throw a checked 'GraphicsException' on failures like e.g. bad shader compile?
 [ ] Replace Action with a standard Java type like Callabe?
 [ ] Should SettingsFile be trapping IOException and blanking the contents? I think not.
-[ ] Clean up GameEngine#setupLogging
+[X] Clean up GameEngine#setupLogging
 [ ] Some way of addressing the installation root, resource paths, etc.

@@ -147,36 +147,65 @@ public class GameEngine {
     }
 
     private void makeLogSink(String top) {
+        System.err.println("Setting up logging for "+top);
         Settings s = mCtx.getSettings();
-        String type = s.getString(top+".log_type").toLowerCase();
+        LogSink sink = null;
 
+        /* this will default to ASSERT(0). */
+        int level = s.getInt(top+".log_level");
+
+        String fileName = s.getString(top+".log_file");
+
+        /* Configure the log_type for top.
+         */
+        String type = s.getString(top+".log_type").toLowerCase();
         if (type.isEmpty()) {
             // not a log spec'
+            System.err.println("EMPTY LOG SPEC");
             return;
         }
         else if (type.equals("file")) {
-            String fileName = s.getString(top+".log_file");
-
             try {
-                // this will default to ASSERT(0)
-                int l = s.getInt(top+".log_level");
-                Log.add(new LogSink(new File(fileName), l));
-                Log.i(TAG, "logging for "+top+" is level="+l+" file="+fileName);
+                sink = new LogSink(new File(fileName), level);
+                System.err.println("file sink set.");
             } catch(FileNotFoundException e) {
                 System.err.println("Failed creating log file, *sad face*: "+e);
                 Log.e(TAG, "Failed creating log file: "+fileName, e);
             }
         }
         else if (type.equals("stdout") || type.equals("stderr")) {
-            int l = s.getInt(top+".log_level");
-            Log.add(new LogSink(
-                type.equals("stdout") ? System.out : System.err, l));
-            Log.i(TAG, "logging for "+top+" is level="+l+" type="+type);
+            sink = new LogSink(type.equals("stdout") ? System.out : System.err, level);
+            System.err.println("stdout/stderr sink set.");
         }
         else if (type.equals("stdin")) {
             throw new IllegalArgumentException("Can't log to stdin; maybe you has typo?");
         }
-        // null log type gets no LogSink.
+        else {
+            // null log type gets no LogSink.
+            System.err.println("NULL LOG TYPE");
+            return;
+        }
+
+        /* Configure the log_tags for top.
+         */
+        String tags = s.getString(top+".log_tags");
+        if (!tags.isEmpty()) {
+            /*
+             * Must be done or it'll have the same default level for !log_tags.
+             */
+            sink.setDefaultLevel(0);
+
+            for (String t : tags.split(",")) {
+                sink.setLevel(t, level);
+            }
+        }
+
+        Log.add(sink);
+        Log.i(TAG, "logging for", top, " => ",
+              "log_level="+level, ", ",
+              "log_type="+type, ", ",
+              "log_tags="+tags, ", ",
+              "log_file="+fileName);
     }
 }
 

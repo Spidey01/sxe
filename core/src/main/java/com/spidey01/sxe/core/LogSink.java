@@ -110,6 +110,16 @@ public class LogSink {
     }
 
 
+    /** Sets the default log level.
+     *
+     * This is comparable to setting the level in the constructor but does not
+     * modify any levels already set.
+     */
+    public void setDefaultLevel(int level) {
+        mDefaultLevel = level;
+    }
+
+
     private static String translate(int level) {
         switch (level) {
             case Log.ASSERT:
