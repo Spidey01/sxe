@@ -83,6 +83,7 @@ public class AndroidLogSink extends LogSink {
                 Log.i(tag, message);
                 break;
             case com.spidey01.sxe.core.Log.VERBOSE:
+            case com.spidey01.sxe.core.Log.TRACE:
                 Log.v(tag, message);
                 break;
             case com.spidey01.sxe.core.Log.WARN:

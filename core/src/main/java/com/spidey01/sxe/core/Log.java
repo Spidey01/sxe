@@ -52,6 +52,7 @@ public class Log {
     public static final int INFO    = 3;
     public static final int DEBUG   = 4;
     public static final int VERBOSE = 5;
+    public static final int TRACE   = 10;
 
     private static List<LogSink> mSinks = new LinkedList<LogSink>();
     private static final String TAG = "Log";
@@ -129,6 +130,19 @@ public class Log {
     /** Send a WARN message. */
     public static void w(String tag, Object... messages) {
         logit(WARN, tag, messages);
+    }
+
+    /** Send a TRACE message.
+     *
+     * This is intended as a log level more verbose than a DEBUG message, yet
+     * more specific than a VERBOSE message. It's purpose is for tracing
+     * control flow and conditions through the log. It is best combined with a
+     * LogSink set to the specific tag(s) being traced.
+     *
+     * The name is taken from the Bourne shell option called 'xtrace'.
+     */
+    public static void xtrace(String tag, Object... messages) {
+        logit(TRACE, tag, messages);
     }
  
 

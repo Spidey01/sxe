@@ -134,6 +134,8 @@ public class LogSink {
                 return "v";
             case Log.WARN:
                 return "w";
+            case Log.TRACE:
+                return "x";
         }
         return "WTF";
     }
