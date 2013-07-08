@@ -34,7 +34,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.File;
 
-/** Loads an InputStream out of a Zip Archive */
+/** Loads an InputStream through the Android AssetManager. */
 public class AssetLoader implements ResourceLoader {
     private final static String TAG = "AssetLoader";
     private AssetManager mAssetManager;
@@ -43,17 +43,6 @@ public class AssetLoader implements ResourceLoader {
         mAssetManager = assetManager;
     }
 
-    public InputStream getInputStream(File path)
-        throws IOException
-    {
-        return getInputStream(path.getPath());
-    }
-
-    public InputStream getInputStream(String path)
-        throws IOException
-    {
-        return getInputStream(path, AssetManager.ACCESS_UNKNOWN);
-    }
 
     /**
      * @param path Note that since the part after 'container:' is handed off to
@@ -71,6 +60,16 @@ public class AssetLoader implements ResourceLoader {
         String assetPath = path.substring(path.indexOf(":")+1);
 
         return mAssetManager.open(assetPath, mode);
+    }
+
+    /// Need to fix and test this later.
+
+    public InputStream getInputStream(File from, File what) throws IOException {
+        return getInputStream(from.getPath(), what.getPath());
+    }
+    public InputStream getInputStream(String from, String what) throws IOException {
+        // return getInputStream(path, AssetManager.ACCESS_UNKNOWN);
+        return null;
     }
 }
 
