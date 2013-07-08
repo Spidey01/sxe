@@ -27,6 +27,7 @@ import com.spidey01.sxe.core.LogSink;
 
 import android.util.Log;
 
+import java.util.Formatter;
 import java.util.HashMap;
 
 /** Sink that uses android.util.Log.
@@ -44,46 +45,48 @@ public class AndroidLogSink extends LogSink {
     }
 
 
-    public boolean isLoggable(String tag, int level) {
-        return level == getLevel(tag);
-    }
-
-    public int getLevel(String tag) {
-        Integer level = mFilters.get(tag);
-        if (level == null) {
-            level = mDefaultLevel;
-            setLevel(tag, level);
-        }
-        return level;
-    }
-
-    public void setLevel(String tag, int level) {
-        mFilters.put(tag, level);
-    }
-
-    public void log(int level, String tag, String message, Throwable tr) {
+    public void log(int level, String tag, Object... messages) {
         if (level > getLevel(tag)) {
             return;
         }
 
+        StringBuilder sb = new StringBuilder();
+        for (Object o : messages) {
+            sb.append(o);
+        }
+        alog(level, tag, sb.toString());
+    }
+
+
+    public void log(int level, String tag, String format, Object... args) {
+        if (level > getLevel(tag)) {
+            return;
+        }
+
+        Formatter f = new Formatter();
+        alog(level, tag, f.format(format, args).out().toString());
+    }
+
+
+    private void alog(int level, String tag, String message) {
         switch (level) {
             case com.spidey01.sxe.core.Log.ASSERT:
-                Log.wtf(tag, message, tr);
+                Log.wtf(tag, message);
                 break;
             case com.spidey01.sxe.core.Log.DEBUG:
-                Log.d(tag, message, tr);
+                Log.d(tag, message);
                 break;
             case com.spidey01.sxe.core.Log.ERROR:
-                Log.e(tag, message, tr);
+                Log.e(tag, message);
                 break;
             case com.spidey01.sxe.core.Log.INFO:
-                Log.i(tag, message, tr);
+                Log.i(tag, message);
                 break;
             case com.spidey01.sxe.core.Log.VERBOSE:
-                Log.v(tag, message, tr);
+                Log.v(tag, message);
                 break;
             case com.spidey01.sxe.core.Log.WARN:
-                Log.w(tag, message, tr);
+                Log.w(tag, message);
                 break;
         }
     }
