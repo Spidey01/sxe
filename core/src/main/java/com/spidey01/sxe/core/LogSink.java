@@ -129,11 +129,34 @@ public class LogSink {
     }
 
 
-    public void log(int level, String tag, String message, Throwable tr) {
+    public void log(int level, String tag, Object... messages) {
         if (level > getLevel(tag)) {
             return;
         }
 
+        header(level, tag);
+
+        for (int i=0; i < messages.length - 1; ++i) {
+            mOutput.print(messages[i]);
+            mOutput.print(", ");
+        }
+        mOutput.println(messages[messages.length-1]);
+    }
+
+
+    public void log(int level, String tag, String format, Object... args) {
+        if (level > getLevel(tag)) {
+            return;
+        }
+
+        header(level, tag);
+
+        mOutput.format(format, args);
+        mOutput.format("%n");
+    }
+
+
+    private void header(int level, String tag) {
         mOutput.print(LogSink.translate(level));
         mOutput.print("/");
         mOutput.print(tag);
@@ -158,15 +181,7 @@ public class LogSink {
             mOutput.print(c.get(Calendar.SECOND));
         }
         mOutput.print(" ): ");
-        mOutput.print(message);
-        if (tr != null) {
-            mOutput.print(": ");
-            mOutput.print(tr);
-        }
-        //
-        mOutput.format("%n");
     }
-
 
     public boolean getDisplayThreadId(boolean x) {
         return mDisplayThreadId;

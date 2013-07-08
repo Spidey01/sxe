@@ -30,13 +30,25 @@ import java.util.LinkedList;
  *
  * The goal here is to generally do the right thing.
  *
- * When possible the API resemblies the Android logging system. It is however
- * paired up with a notion of "Sinks" that process the log data. Log sinks have
- * a per 'tag' log level that controls whether or not the will statement will
- * be logged. So it is entirely possible to send log data to multiple sources
- * and to configure each source based on tag/level.
+ * Logging is a simple Android inspired API based on log levels. Each log
+ * level has a set of overloads based on LogSink:
+ * <ol>
+ *   <li>X(tag, messages...);</li>
+ *   <li>X(tag, format, objects...);</li>
+ * </ol>
+ * Where X will be the terse form of the level, e.g. d for debug, e for error,
+ * etc. This is backwards compatable with the Android API, while allowing a
+ * much nicer syntax from my point of view: less +'s and more let the language
+ * do it.
+ *
+ * In SxE the destination of log messages can be customized. Everything is
+ * logged to a collection LogSink's according to the log levels and tags
+ * supplied with the message.  Logging is controlled by a per 'tag' log level.
+ * So it is entirely possible to send log data to multiple sources and to
+ * configure each source based on tag/level.
  *
  * By default there are no log sinks, which causes all log data to be silenced.
+ *
  */
 public class Log {
     
@@ -51,13 +63,20 @@ public class Log {
     private static List<LogSink> mSinks = new LinkedList<LogSink>();
     private static final String TAG = "Log";
 
+
+    /** Add log sink. */
     public static void add(LogSink sink) {
         mSinks.add(sink);
     }
+
+
+    /** Remove log sink. */
     public static void remove(LogSink sink) {
         mSinks.remove(sink);
     }
 
+
+    /** Return if tag is loggable at level. */
     public static boolean isLoggable(String tag, int level) {
         for (LogSink sink : mSinks) {
             if (sink.isLoggable(tag, level)) {
@@ -68,6 +87,7 @@ public class Log {
         return false;
     }
 
+
     /** Convenience method that sets the level of tag for every sink. */
     public static void setLevel(String tag, int level) {
         for (LogSink sink : mSinks) {
@@ -75,54 +95,74 @@ public class Log {
         }
     }
 
-    public static void wtf(String tag, String message) {
-        wtf(tag, message, null);
+
+    public static void wtf(String tag, Object... messages) {
+        logit(ASSERT, tag, messages);
+        death();
     }
-    public static void wtf(String tag, String message, Throwable tr) {
-        logit(ASSERT, tag, message, tr);
-        assert false : "What a Terrible Failure Report we has here";
+    public static void wtf(String tag, String format, Object... args) {
+        logit(ASSERT, tag, format, args);
+        death();
     }
 
-    public static void d(String tag, String message) {
-        d(tag, message, null);
+
+    public static void d(String tag, Object... messages) {
+        logit(DEBUG, tag, messages);
     }
-    public static void d(String tag, String message, Throwable tr) {
-        logit(DEBUG, tag, message, tr);
+    public static void d(String tag, String format, Object... args) {
+        logit(DEBUG, tag, format, args);
     }
 
-    public static void e(String tag, String message) {
-        e(tag, message, null);
+
+    public static void e(String tag, Object... messages) {
+        logit(ERROR, tag, messages);
     }
-    public static void e(String tag, String message, Throwable tr) {
-        logit(ERROR, tag, message, tr);
+    public static void e(String tag, String format, Object... args) {
+        logit(ERROR, tag, format, args);
     }
 
-    public static void i(String tag, String message) {
-        i(tag, message, null);
+
+    public static void i(String tag, Object... messages) {
+        logit(INFO, tag, messages);
     }
-    public static void i(String tag, String message, Throwable tr) {
-        logit(INFO, tag, message, tr);
+    public static void i(String tag, String format, Object... args) {
+        logit(INFO, tag, format, args);
     }
 
-    public static void v(String tag, String message) {
-        v(tag, message, null);
+
+    public static void v(String tag, Object... messages) {
+        logit(VERBOSE, tag, messages);
     }
-    public static void v(String tag, String message, Throwable tr) {
-        logit(VERBOSE, tag, message, tr);
+    public static void v(String tag, String format, Object... args) {
+        logit(VERBOSE, tag, format, args);
     }
 
-    public static void w(String tag, String message) {
-        w(tag, message, null);
+
+    public static void w(String tag, Object... messages) {
+        logit(WARN, tag, messages);
     }
-    public static void w(String tag, String message, Throwable tr) {
-        logit(WARN, tag, message, tr);
+    public static void w(String tag, String format, Object... args) {
+        logit(WARN, tag, format, args);
     }
  
 
-    private static void logit(int level, String tag, String message, Throwable tr) {
+    private static void logit(int level, String tag, Object... messages) {
         for (LogSink sink : mSinks) {
-            sink.log(level, tag, message, tr);
+            sink.log(level, tag, messages);
         }
+    }
+
+
+    private static void logit(int level, String tag, String format, Object... args) {
+        for (LogSink sink : mSinks) {
+            sink.log(level, tag, format, args);
+        }
+    }
+
+
+    /** Used by the wtf() methods to trigger an assertion. */
+    private static void death() {
+        assert false : "What a Terrible Failure Report we has here";
     }
 
 }
