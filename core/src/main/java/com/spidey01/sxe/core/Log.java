@@ -98,38 +98,38 @@ public class Log {
      * names if you wish ;).
      */
     public static void wtf(String tag, Object... messages) {
-        logit(ASSERT, tag, messages);
+        log(ASSERT, tag, messages);
         assert false : "What a Terrible Failure Report we has here";
     }
 
 
     /** Send a DEBUG message. */
     public static void d(String tag, Object... messages) {
-        logit(DEBUG, tag, messages);
+        log(DEBUG, tag, messages);
     }
 
 
     /** Send a ERROR message. */
     public static void e(String tag, Object... messages) {
-        logit(ERROR, tag, messages);
+        log(ERROR, tag, messages);
     }
 
 
     /** Send a INFO message. */
     public static void i(String tag, Object... messages) {
-        logit(INFO, tag, messages);
+        log(INFO, tag, messages);
     }
 
 
     /** Send a VERBOSE message. */
     public static void v(String tag, Object... messages) {
-        logit(VERBOSE, tag, messages);
+        log(VERBOSE, tag, messages);
     }
 
 
     /** Send a WARN message. */
     public static void w(String tag, Object... messages) {
-        logit(WARN, tag, messages);
+        log(WARN, tag, messages);
     }
 
     /** Send a TRACE message.
@@ -142,7 +142,7 @@ public class Log {
      * The name is taken from the Bourne shell option called 'xtrace'.
      */
     public static void xtrace(String tag, Object... messages) {
-        logit(TRACE, tag, messages);
+        log(TRACE, tag, messages);
     }
  
 
