@@ -26,6 +26,8 @@ package com.spidey01.sxe.core;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 /** Sink for consuming statements from Log.
@@ -39,6 +41,8 @@ public class LogSink {
 
     protected int mDefaultLevel = DEFAULT_LOG_LEVEL;
     protected HashMap<String, Integer> mFilters = new HashMap<String, Integer>();
+    protected boolean mDisplayThreadId = true;
+    protected boolean mDisplayDate = true;
 
     private PrintStream mOutput;
     private static final String TAG = "LogSink";
@@ -48,14 +52,17 @@ public class LogSink {
         mOutput = System.out;
     }
 
+
     public LogSink(int level) {
         this();
         mDefaultLevel = level;
     }
 
+
     public LogSink(PrintStream s) {
         mOutput = s;
     }
+
 
     /** Creates a LogSink for PrintStream.
      *
@@ -67,9 +74,11 @@ public class LogSink {
         mDefaultLevel = level;
     }
 
+
     public LogSink(File file) throws FileNotFoundException {
         this(new PrintStream(file));
     }
+
 
     /** Creates a LogSink for a File.
      *
@@ -80,9 +89,11 @@ public class LogSink {
         this(new PrintStream(file), level);
     }
 
+
     public boolean isLoggable(String tag, int level) {
         return level == getLevel(tag);
     }
+
 
     public int getLevel(String tag) {
         Integer level = mFilters.get(tag);
@@ -93,22 +104,11 @@ public class LogSink {
         return level;
     }
 
+
     public void setLevel(String tag, int level) {
         mFilters.put(tag, level);
     }
 
-    public void log(int level, String tag, String message, Throwable tr) {
-        if (level > getLevel(tag)) {
-            return;
-        }
-
-        mOutput.println(
-            LogSink.translate(level)+"/"+tag
-            +"( tid="+Thread.currentThread().getId()
-            +" )"
-            +": "+(tr == null ? message : message+": "+tr)
-        );
-    }
 
     private static String translate(int level) {
         switch (level) {
@@ -127,5 +127,65 @@ public class LogSink {
         }
         return "WTF";
     }
+
+
+    public void log(int level, String tag, String message, Throwable tr) {
+        if (level > getLevel(tag)) {
+            return;
+        }
+
+        mOutput.print(LogSink.translate(level));
+        mOutput.print("/");
+        mOutput.print(tag);
+        mOutput.print("(");
+        if (mDisplayThreadId) {
+            mOutput.print(" tid="+Thread.currentThread().getId());
+        }
+        if (mDisplayDate) {
+            if (mDisplayThreadId) { mOutput.print(","); }
+            Calendar c = Calendar.getInstance();
+            mOutput.print(" date=");
+            mOutput.print(c.get(Calendar.YEAR));
+            mOutput.print("-");
+            mOutput.print(c.get(Calendar.MONTH));
+            mOutput.print("-");
+            mOutput.print(c.get(Calendar.DAY_OF_WEEK));
+            mOutput.print(", time=");
+            mOutput.print(c.get(Calendar.HOUR_OF_DAY));
+            mOutput.print(":");
+            mOutput.print(c.get(Calendar.MINUTE));
+            mOutput.print(":");
+            mOutput.print(c.get(Calendar.SECOND));
+        }
+        mOutput.print(" ): ");
+        mOutput.print(message);
+        if (tr != null) {
+            mOutput.print(": ");
+            mOutput.print(tr);
+        }
+        //
+        mOutput.format("%n");
+    }
+
+
+    public boolean getDisplayThreadId(boolean x) {
+        return mDisplayThreadId;
+    }
+
+
+    public void setDisplayThreadId(boolean x) {
+        mDisplayThreadId = x;
+    }
+
+
+    public boolean getDisplayDate(boolean x) {
+        return mDisplayDate;
+    }
+
+
+    public void setDisplayDate(boolean x) {
+        mDisplayDate = x;
+    }
+
 }
 
