@@ -58,7 +58,7 @@ public class AndroidLogSink extends LogSink {
     }
 
 
-    public void log(int level, String tag, String format, Object... args) {
+    public void logf(int level, String tag, String format, Object... args) {
         if (level > getLevel(tag)) {
             return;
         }

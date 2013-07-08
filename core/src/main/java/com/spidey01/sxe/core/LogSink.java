@@ -147,14 +147,14 @@ public class LogSink {
         header(level, tag);
 
         for (int i=0; i < messages.length - 1; ++i) {
-            mOutput.print(messages[i]);
-            mOutput.print(", ");
+            mOutput.print(messages[i].toString());
+            mOutput.print(" ");
         }
-        mOutput.println(messages[messages.length-1]);
+        mOutput.println(messages[messages.length-1].toString());
     }
 
 
-    public void log(int level, String tag, String format, Object... args) {
+    public void logf(int level, String tag, String format, Object... args) {
         if (level > getLevel(tag)) {
             return;
         }

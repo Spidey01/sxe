@@ -30,16 +30,9 @@ import java.util.LinkedList;
  *
  * The goal here is to generally do the right thing.
  *
- * Logging is a simple Android inspired API based on log levels. Each log
- * level has a set of overloads based on LogSink:
- * <ol>
- *   <li>X(tag, messages...);</li>
- *   <li>X(tag, format, objects...);</li>
- * </ol>
- * Where X will be the terse form of the level, e.g. d for debug, e for error,
- * etc. This is backwards compatable with the Android API, while allowing a
- * much nicer syntax from my point of view: less +'s and more let the language
- * do it.
+ * Logging is a simple Android inspired API based on log levels. Each log level
+ * has a set of related methods.  This is backwards compatable with the Android
+ * API, while allowing good freedom for a more specialized logging API.
  *
  * In SxE the destination of log messages can be customized. Everything is
  * logged to a collection LogSink's according to the log levels and tags
@@ -96,73 +89,64 @@ public class Log {
     }
 
 
+    /** Send an ASSERT message.
+     *
+     * Report a condition that should never happen. A false assertion will also
+     * be triggered if assertions are enabled.  Android and the assertion
+     * method calls this "What a Terrible Failure" but you may call it by other
+     * names if you wish ;).
+     */
     public static void wtf(String tag, Object... messages) {
         logit(ASSERT, tag, messages);
-        death();
-    }
-    public static void wtf(String tag, String format, Object... args) {
-        logit(ASSERT, tag, format, args);
-        death();
+        assert false : "What a Terrible Failure Report we has here";
     }
 
 
+    /** Send a DEBUG message. */
     public static void d(String tag, Object... messages) {
         logit(DEBUG, tag, messages);
     }
-    public static void d(String tag, String format, Object... args) {
-        logit(DEBUG, tag, format, args);
-    }
 
 
+    /** Send a ERROR message. */
     public static void e(String tag, Object... messages) {
         logit(ERROR, tag, messages);
     }
-    public static void e(String tag, String format, Object... args) {
-        logit(ERROR, tag, format, args);
-    }
 
 
+    /** Send a INFO message. */
     public static void i(String tag, Object... messages) {
         logit(INFO, tag, messages);
     }
-    public static void i(String tag, String format, Object... args) {
-        logit(INFO, tag, format, args);
-    }
 
 
+    /** Send a VERBOSE message. */
     public static void v(String tag, Object... messages) {
         logit(VERBOSE, tag, messages);
     }
-    public static void v(String tag, String format, Object... args) {
-        logit(VERBOSE, tag, format, args);
-    }
 
 
+    /** Send a WARN message. */
     public static void w(String tag, Object... messages) {
         logit(WARN, tag, messages);
     }
-    public static void w(String tag, String format, Object... args) {
-        logit(WARN, tag, format, args);
-    }
  
 
-    private static void logit(int level, String tag, Object... messages) {
+    /** Send a message to all sinks.
+     */
+    public static void log(int level, String tag, Object... messages) {
         for (LogSink sink : mSinks) {
             sink.log(level, tag, messages);
         }
     }
 
 
-    private static void logit(int level, String tag, String format, Object... args) {
+    /** Send a formatted message to all sinks.
+     */
+    public static void logf(int level, String tag, String format, Object... args) {
         for (LogSink sink : mSinks) {
-            sink.log(level, tag, format, args);
+            sink.logf(level, tag, format, args);
         }
-    }
-
-
-    /** Used by the wtf() methods to trigger an assertion. */
-    private static void death() {
-        assert false : "What a Terrible Failure Report we has here";
     }
 
 }
