@@ -36,6 +36,9 @@ import java.util.HashMap;
  */
 public class LogSink {
 
+    /** Value used to log a null. */
+    private static final String sNullFormat = "(null)";
+
     /** Default log level for previously unseen tags. */
     public static final int DEFAULT_LOG_LEVEL = Log.INFO;
 
@@ -46,6 +49,7 @@ public class LogSink {
 
     private PrintStream mOutput;
     private static final String TAG = "LogSink";
+
 
     /** Creates a LogSink that writes to System.out. */
     public LogSink() {
@@ -148,11 +152,19 @@ public class LogSink {
 
         header(level, tag);
 
+        //
+        // We need to handle null specially because null isn't an Object, hence
+        // we can't call toString() on it. Joy, right?
+        //
+
+        Object m;
         for (int i=0; i < messages.length - 1; ++i) {
-            mOutput.print(messages[i].toString());
+            m = messages[i];
+            mOutput.print( m == null ? sNullFormat : m.toString());
             mOutput.print(" ");
         }
-        mOutput.println(messages[messages.length-1].toString());
+        m = messages[messages.length-1];
+        mOutput.println( m == null ? sNullFormat : m.toString());
     }
 
 
