@@ -52,6 +52,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
     private OpenGL mOpenGL;
     private static final String TAG = "PcDisplay";
 
+
     /** Create the display based on the desired parameters.
      *
      * @param desired A string like that used with setMode().
@@ -61,6 +62,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
             throw new RuntimeException("Can't set displaymode to "+desired);
         }
     }
+
 
     /** Create the Display based on the desktops current DisplayMode.
      *
@@ -72,6 +74,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
             throw new RuntimeException("Can't set displaymode to match desktop");
         }
     }
+
 
     public boolean create() {
         try {
@@ -87,9 +90,11 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
         return true;
     }
 
+
     public void destroy() {
 		Display.destroy();
     }
+
 
     public void update() {
         try {
@@ -109,9 +114,11 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
         }
     }
 
+
     public boolean isCloseRequested() {
         return Display.isCloseRequested();
     }
+
 
     /** Set display mode
      *
@@ -132,21 +139,25 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
         }
 
         for (DisplayMode c : modes) {
+            Log.xtrace(TAG, "looking at Display Mode", c, "for desired mode", mode);
             if (c.isFullscreenCapable() && c.toString().startsWith(mode)) {
+                // Do we really care if it's full screen capable?
                 p = c;
                 break;
             }
         }
 
         if (p != null) {
-            return setMode(mDisplayMode);
+            return setMode(p);
         }
         return false;
     }
 
+
     private boolean setMode(DisplayMode mode) {
         try {
             mDisplayMode = mode;
+            Log.i(TAG, "Setting display resolution to ", mode);
             Display.setDisplayMode(mDisplayMode);
         } catch (LWJGLException e) {
             Log.e(TAG, "Couldn't set display mode for LWJGL!", e);
@@ -155,35 +166,43 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
         return true;
     }
 
+
     public void addFrameListener(FrameListener listener) {
         mFrameStartedListeners.add(listener);
         mFrameEndedListeners.add(listener);
     }
 
+
     public void addFrameStartedListener(FrameStartedListener listener) {
         mFrameStartedListeners.add(listener);
     }
 
+
     public void addFrameEndedListener(FrameEndedListener listener) {
         mFrameEndedListeners.add(listener);
     }
+
 
     public void removeFrameListener(FrameListener listener) {
         mFrameStartedListeners.remove(listener);
         mFrameEndedListeners.remove(listener);
     }
 
+
     public void removeFrameStartedListener(FrameStartedListener listener) {
         mFrameStartedListeners.remove(listener);
     }
+
 
     public void removeFrameEndedListener(FrameEndedListener listener) {
         mFrameEndedListeners.remove(listener);
     }
 
+
     public OpenGL getOpenGL() {
         return mOpenGL;
     }
+
 
     public String getOpenGLVersion() {
         ContextCapabilities ctx = GLContext.getCapabilities();
