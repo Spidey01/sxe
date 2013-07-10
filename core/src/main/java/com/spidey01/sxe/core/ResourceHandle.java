@@ -36,11 +36,7 @@ import java.net.URI;
 public class ResourceHandle implements Closeable {
     private final static String TAG = "ResourceHandle";
 
-    private ResourceLoader mLoadedBy;
     private final URI mURI;
-
-    private boolean mIsLoaded = false;
-    private IOException mFailure = null;
 
     //
     // Handle to whatever the underlaying resource is.
@@ -64,6 +60,11 @@ public class ResourceHandle implements Closeable {
     public ResourceHandle(URI uri, InputStream stream) {
         mURI = uri;
         mInputStream = stream;
+    }
+
+
+    public URI getURI() {
+        return mURI;
     }
 
 
