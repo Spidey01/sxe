@@ -49,10 +49,10 @@ public class SnakeGameActivity extends GameActivity {
         mEngine = AndroidConfiguration.setup(new SnakeGame(), this);
 
         // Setup a resource loader so we can use apk:path.
-        mEngine.getGameContext().getResources()
+        mEngine.getResourceManager()
             .setLoader("apk", new AssetLoader(getAssets()));
 
-        setContentView((AndroidDisplay)mEngine.getGameContext().getDisplay());
+        setContentView((AndroidDisplay)mEngine.getDisplay());
 
         mEngine.start();
     }

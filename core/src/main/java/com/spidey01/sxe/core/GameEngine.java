@@ -36,9 +36,21 @@ import java.io.PrintStream;
 /** Class implementing the game engine for PC/Mac hardware. */
 public class GameEngine {
 
-    protected GameContext mCtx;
-    protected GameThread mGameThread;
     private static final String TAG = "GameEngine";
+
+    /**
+     * @deprecated Go through GameEngine manually.
+     */
+    @Deprecated 
+    protected GameContext mCtx;
+
+    private final Display mDisplay;
+    private final Game mGame;
+    private final InputManager mInputManager;
+    private final ResourceManager mResourceManager;
+    // should this be final?
+    private final Settings mSettings;
+    private GameThread mGameThread;
 
     /** Initializes the engine for use.
      *
@@ -47,20 +59,31 @@ public class GameEngine {
      * just fill out the documented fields as necessary.
      */
     public GameEngine(GameContext context) {
+        this(context.getDisplay(), context.getGame(), context.getInput(),
+             context.getResources(), context.getSettings());
         mCtx = context;
+    }
+
+    private GameEngine(Display display, Game game, InputManager input,
+            ResourceManager resources, Settings settings)
+    {
+        mDisplay = display;
+        mGame = game;
+        mInputManager = input;
+        mResourceManager = resources;
+        mSettings = settings;
 
         setupLogging();
 
-        Log.i(TAG,
-            "platform=\""+mCtx.getPlatform()+"\""
-            + " version=\""+mCtx.getPlatformVersion()+"\""
-            + " arch=\""+mCtx.getPlatformArch()+"\"");
+        Log.i(TAG, "platform=\""+System.getProperty("os.name")+"\"",
+                "version=\""+Utils.PLATFORM_VERSION+"\"",
+                "arch=\""+Utils.PLATFORM_ARCHITECTURE+"\"");
 
         // ternary abuse, yeah.
         final String p;
-        p = mCtx.getDisplay() == null ?
+        p = mDisplay == null ?
             "display" :
-                (mCtx.getInput() == null ?
+                (mInputManager == null ?
                     "input" : null);
  
         if (p != null) {
@@ -86,35 +109,34 @@ public class GameEngine {
 
         // doStartConfiguration();
 
-        Settings cfg = mCtx.getSettings();
-        final String game = mCtx.getGame().getName();
+        final String game = mGame.getName();
         String name;
         String x;
 
         /* Register resource search path via configuration file. */
         name = game+".resources.path";
-        x = cfg.getString(name);
+        x = mSettings.getString(name);
         if (!x.isEmpty()) {
             for (String dir : x.split(":")) {
-                mCtx.getResources().addResourceLocation(dir);
+                mResourceManager.addResourceLocation(dir);
             }
         }
         
 
         /* Support setting resolution from configuration file. */
         name = game+".display.resolution";
-        x = cfg.getString(name);
+        x = mSettings.getString(name);
         if (!x.isEmpty()) {
             Log.d(TAG, name, "=", x);
-            mCtx.getDisplay().setMode(x);
+            mDisplay.setMode(x);
         }
 
 
-        if (!mCtx.getDisplay().create()) {
+        if (!mDisplay.create()) {
             return false;
         }
 
-        mGameThread = new GameThread(this, mCtx.getGame());
+        mGameThread = new GameThread(this, mGame);
         mGameThread.start();
 
         return true;
@@ -125,9 +147,9 @@ public class GameEngine {
      * Will ensure Game.stop() is called. Shuts down the display, etc.
      */
     public void stop() {
-        mCtx.getGame().stop();
+        mGame.stop();
         mGameThread.interrupt(); // should this be overriden to do Game.stop()?
-		mCtx.getDisplay().destroy();
+		mDisplay.destroy();
         Log.v(TAG, "stop() done");
     }
 
@@ -139,19 +161,46 @@ public class GameEngine {
      * </ol>
      */
     public void mainLoop() {
-		while (!mCtx.getGame().isStopRequested() && !mCtx.getDisplay().isCloseRequested()) {
-            mCtx.getInput().poll();
-            mCtx.getDisplay().update();
+		while (!mGame.isStopRequested() && !mDisplay.isCloseRequested()) {
+            mInputManager.poll();
+            mDisplay.update();
 		}
     }
 
 
+    public Display getDisplay() {
+        return mDisplay;
+    }
+
+
+    public Game getGame() {
+        return mGame;
+    }
+
+
+    public InputManager getInputManager() {
+        return mInputManager;
+    }
+
+
+    public ResourceManager getResourceManager() {
+        return mResourceManager;
+    }
+
+
+    public Settings getSettings() {
+        return mSettings;
+    }
+
+
+    @Deprecated
     public GameContext getGameContext() {
         return mCtx;
     }
 
+
     private void setupLogging() {
-        Settings s = mCtx.getSettings();
+        Settings s = mSettings; // lazy git.
 
         if (s.getBoolean("debug")) {
             // Make sure that we have a log file.
@@ -172,9 +221,10 @@ public class GameEngine {
         }
     }
 
+
     private void makeLogSink(String top) {
         System.err.println("Setting up logging for "+top);
-        Settings s = mCtx.getSettings();
+        Settings s = mSettings; // lazy git.
         LogSink sink = null;
 
         /* this will default to ASSERT(0). */

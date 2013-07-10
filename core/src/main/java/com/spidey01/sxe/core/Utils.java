@@ -35,7 +35,12 @@ import java.io.Reader;
 
 public class Utils {
 
-    private final static String TAG = "Utils";
+    private static final String TAG = "Utils";
+
+    // PLATFORM_NAME?
+    public static final String PLATFORM_ARCHITECTURE = System.getProperty("os.arch");
+    public static final String PLATFORM_VERSION = System.getProperty("os.name")+" "+System.getProperty("os.version");
+
 
     /** InputStream to something with .readLine() :-).
      *
@@ -150,6 +155,7 @@ public class Utils {
     public static String getBitBucketPath() {
         return getBitBucketFile().getPath();
     }
+
 
     /** Helper for XDG Base Directory Specification (version 0.7).
      *

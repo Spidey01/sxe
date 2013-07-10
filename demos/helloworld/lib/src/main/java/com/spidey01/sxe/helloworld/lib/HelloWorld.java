@@ -49,12 +49,12 @@ public class HelloWorld
 
         Log.v(TAG, "Hello World demo is starting.");
 
-        mGameEngine.getGameContext().getInput().addKeyListener("Q", this);
+        mGameEngine.getInputManager().addKeyListener("Q", this);
 
         try {
             TrueTypeFont mFont = TrueTypeFont.from("tmp/HelloWorld.ttf");
             Text s = new Text("Hello, world!", mFont);
-            // mGameEngine.getGameContext().getDisplay().addFrameStartedListener(mFont);
+            // mGameEngine.getDisplay().addFrameStartedListener(mFont);
         } catch(IOException e) {
             Log.e(TAG, "Caught IOExeption from TrueTypeFont.from(String)", e);
         }

@@ -49,10 +49,9 @@ public class HelloWorldGameActivity extends GameActivity {
         mEngine = AndroidConfiguration.setup(new HelloWorld(), this);
 
         // Setup a resource loader so we can use apk:path.
-        mEngine.getGameContext().getResources()
-            .setLoader("apk", new AssetLoader(getAssets()));
+        mEngine.getResourceManager().setLoader("apk", new AssetLoader(getAssets()));
 
-        setContentView((AndroidDisplay)mEngine.getGameContext().getDisplay());
+        setContentView((AndroidDisplay)mEngine.getDisplay());
 
         mEngine.start();
         finish();
