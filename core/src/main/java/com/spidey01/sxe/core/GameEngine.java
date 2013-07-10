@@ -84,6 +84,14 @@ public class GameEngine {
         Log.d(TAG, "XDG_DATA_DIRS=\""+System.getenv("XDG_DATA_DIRS")+"\"");
         Log.d(TAG, "XDG_CONFIG_DIRS=\""+System.getenv("XDG_CONFIG_DIRS")+"\"");
 
+        /* Support setting resolution from configuration file. */
+        String resolution = mCtx.getSettings().getString(mCtx.getGame().getName()+".display.resolution");
+        Log.d(TAG, mCtx.getGame().getName()+".display.resolution =", resolution);
+        if (!resolution.isEmpty()) {
+            mCtx.getDisplay().setMode(resolution);
+        }
+
+
         if (!mCtx.getDisplay().create()) {
             return false;
         }
