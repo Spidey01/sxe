@@ -45,6 +45,7 @@ public class ResourceManagerTest extends UnitTest {
         "default://"+TestResources.textFileName,
         "file://"+TestResources.textFileName,
         "zip://"+TestResources.zipFileName+"/blargle/bar.txt",
+        "gzip://"+TestResources.gzipFileName,
     };
 
 

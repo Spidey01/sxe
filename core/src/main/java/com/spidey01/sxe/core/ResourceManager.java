@@ -59,8 +59,8 @@ import java.util.concurrent.FutureTask;
  * whatever the platforms local convention is, either manually or through a
  * configuration class.
  *
- * Handling of file:// and zip:// will be setup by the constructor. By default,
- * default:// is setan alias to file://.
+ * Handling of file://, zip://, and gzip:// will be setup by the constructor
+ * for the obvious loaders. By default, default:// is setan alias to file://.
  *
  * TODO: tar://; maybe http://, ftp:// etc.
  *
@@ -90,6 +90,7 @@ public class ResourceManager {
         mLoaders.put("default", mDefaultLoader);
         mLoaders.put("file", mDefaultLoader);
         mLoaders.put("zip", new ZipResourceLoader());
+        mLoaders.put("gzip", new GZipResourceLoader());
     }
 
 
