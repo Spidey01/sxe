@@ -47,7 +47,7 @@ import java.util.concurrent.FutureTask;
  * ResourceLoader should be used to load the URI. For example file://foo or
  * zip://bar. You specify how schemes should be handled by registering
  * instances of ResourceLoader with the ResourceManager#setLoader() instance
- * method. If no scheme is given then default will be used; see below.
+ * method.
  *
  * The authority (or host) portion is used by the ResourceLoader to determine
  * the source to load from. In the case of the zip scheme, we would use a URI
@@ -55,11 +55,12 @@ import java.util.concurrent.FutureTask;
  * foo inside of my.zip; it would be loaded using whatever ResourceLoader is
  * set for "zip".
  *
- * When the scheme is missing it is mapped to the "default" scheme. So a URI of
- * "foo" is treated as "default://foo". This allows mapping paths to whatever
- * the platforms local convention is. By default, default:// refers to file://.
+ * A scheme called "default" is provided. This allows mapping URIs to
+ * whatever the platforms local convention is, either manually or through a
+ * configuration class.
  *
- * Handling of file:// and zip:// will be created by default.
+ * Handling of file:// and zip:// will be setup by the constructor. By default,
+ * default:// is setan alias to file://.
  *
  * TODO: tar://; maybe http://, ftp:// etc.
  *

@@ -39,7 +39,6 @@ public class ResourceManagerTest extends UnitTest {
 
     /** Various URIs for testing.
      *
-     * TODO assert that default:// handling when no scheme works.
      * @see TestResources
      */
     protected static final String[] sTestURIs = new String[]{
