@@ -169,6 +169,7 @@ public class ResourceManager {
 
     public void addResourceLocation(String path) {
         mSearchLocations.add(path);
+        Log.v(TAG, "Added resource location:", path);
     }
 
 

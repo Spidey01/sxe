@@ -84,11 +84,29 @@ public class GameEngine {
         Log.d(TAG, "XDG_DATA_DIRS=\""+System.getenv("XDG_DATA_DIRS")+"\"");
         Log.d(TAG, "XDG_CONFIG_DIRS=\""+System.getenv("XDG_CONFIG_DIRS")+"\"");
 
+        // doStartConfiguration();
+
+        Settings cfg = mCtx.getSettings();
+        final String game = mCtx.getGame().getName();
+        String name;
+        String x;
+
+        /* Register resource search path via configuration file. */
+        name = game+".resources.path";
+        x = cfg.getString(name);
+        if (!x.isEmpty()) {
+            for (String dir : x.split(":")) {
+                mCtx.getResources().addResourceLocation(dir);
+            }
+        }
+        
+
         /* Support setting resolution from configuration file. */
-        String resolution = mCtx.getSettings().getString(mCtx.getGame().getName()+".display.resolution");
-        Log.d(TAG, mCtx.getGame().getName()+".display.resolution =", resolution);
-        if (!resolution.isEmpty()) {
-            mCtx.getDisplay().setMode(resolution);
+        name = game+".display.resolution";
+        x = cfg.getString(name);
+        if (!x.isEmpty()) {
+            Log.d(TAG, name, "=", x);
+            mCtx.getDisplay().setMode(x);
         }
 
 
