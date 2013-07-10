@@ -33,6 +33,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
 
 /** Class to manage game resources.
  *
@@ -248,6 +251,60 @@ public class ResourceManager {
         h.close();
         mHandles.remove(uri);
         Log.v(TAG, "unload(): URI => "+uri);
+    }
+
+
+    /** Used to call to ResourceManager#load() in another thread. */
+    private class QueuedLoader implements Callable<ResourceHandle> {
+        private static final String TAG = "ResourceManager.QueuedLoader";
+        private URI mURI;
+        QueuedLoader(URI uri) {
+            mURI = uri;
+        }
+        public ResourceHandle call() {
+            try {
+                return ResourceManager.this.load(mURI);
+            } catch (IOException e) {
+                Log.w(TAG, "call(): ", e);
+            }
+            return null;
+        }
+    }
+ 
+
+    public Future<ResourceHandle> enqueue(File path) {
+        return enqueue(path.getPath());
+    }
+
+
+    public Future<ResourceHandle> enqueue(String path) {
+        try {
+            return enqueue(new URI(path));
+        } catch(URISyntaxException e) {
+            Log.w(TAG, "enqueue(): URISyntaxException.", e);
+            return null;
+        }
+    }
+
+
+    /** Enqueue resource to be loaded.
+     *
+     * You can use this method to queue up resources for asynchronous loading.
+     * They can be obtained by calling the get() method on the returned Future.
+     *
+     * <em>Implementation Note:</em>: Currently this is implemented by creating
+     * a FutureTask and calling its run() method. In the future this will
+     * probably be pawned off to a background worker thread, when SxE or
+     * ResourceManager supports this more directly.
+     *
+     * @param uri - URI to pass to #load().
+     * @return A Future that can obtain the result of loading uri.
+     */
+    public Future<ResourceHandle> enqueue(URI uri) {
+        FutureTask<ResourceHandle> task =
+            new FutureTask<ResourceHandle>(new QueuedLoader(uri));
+        task.run();
+        return task;
     }
 
 }

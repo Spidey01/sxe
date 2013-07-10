@@ -30,9 +30,24 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.Future;
 
 public class ResourceManagerTest extends UnitTest {
+    private static final String TAG = "ResourceManagerTest";
     private static ResourceManager sResourceManager;
+
+
+    /** Various URIs for testing.
+     *
+     * TODO assert that default:// handling when no scheme works.
+     * @see TestResources
+     */
+    protected static final String[] sTestURIs = new String[]{
+        "default://"+TestResources.textFileName,
+        "file://"+TestResources.textFileName,
+        "zip://"+TestResources.zipFileName+"/blargle/bar.txt",
+    };
+
 
     @BeforeClass
     public static void setUpClass() {
@@ -72,6 +87,7 @@ public class ResourceManagerTest extends UnitTest {
                           CoreMatchers.instanceOf(DummyResourceLoader.class));
     }
 
+
     @Test
     public void setLoader() {
         ResourceLoader foo = new DummyResourceLoader();
@@ -84,27 +100,40 @@ public class ResourceManagerTest extends UnitTest {
                 sResourceManager.getDefaultLoader(), sResourceManager.getLoader("bar://ham/spam"));
     }
 
-    // TODO assert that default:// handling when no scheme works.
+
     @Test
     public void load() throws IOException {
-        loading("default://"+TestResources.textFileName);
-        loading("file://"+TestResources.textFileName);
-        loading("zip://"+TestResources.zipFileName+"/blargle/bar.txt");
+        for (String file : sTestURIs) {
+            Log.i(TAG, "Testing load(\""+file+"\")");
+            testResourceHandle(sResourceManager.load(file));
+        }
     }
 
-    protected void loading(String file) throws IOException {
-        ResourceHandle resource = sResourceManager.load(file);
+
+    @Test
+    public void enqueue() throws Exception {
+        for (String file : sTestURIs) {
+            Log.i(TAG, "Testing enqueue(\""+file+"\")");
+            testResourceHandle(sResourceManager.enqueue(file).get());
+        }
+    }
+
+
+    private void testResourceHandle(ResourceHandle resource) throws IOException {
         Assert.assertNotNull("Never leak a null here.", resource);
 
         InputStream data = resource.asInputStream();
         Assert.assertNotNull("Never leak a null here either.", data);
         Assert.assertFalse(data.read() == -1);
 
-        Assert.assertSame("Getting same URI == same resource", resource, sResourceManager.load(file));
-        Assert.assertSame("Getting same handle == same resource", data, sResourceManager.load(file).asInputStream());
-        sResourceManager.unload(file);
-        Assert.assertNotSame("Really reloading is really reloading.", resource, sResourceManager.load(file));
-    }
+        //
+        // These should hold true however the ResourceHandle was obtained from ResourceManager.
+        //
 
+        Assert.assertSame("Loading same URI == same resource", resource, sResourceManager.load(resource.getURI()));
+        Assert.assertSame("Loading same URI == same resource data", data, sResourceManager.load(resource.getURI()).asInputStream());
+        sResourceManager.unload(resource.getURI());
+        Assert.assertNotSame("Really reloading is really reloading.", resource, sResourceManager.load(resource.getURI()));
+    }
 }
 
