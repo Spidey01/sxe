@@ -156,12 +156,7 @@ public class ResourceManager {
      * @return ResourceLoader for specified URI or null.
      */
     public ResourceLoader getLoader(String path) {
-        try {
-            return getLoader(new URI(path));
-        } catch (URISyntaxException e) {
-            Log.w(TAG, "getLoader(String): URISyntaxException.", e);
-            return null;
-        }
+        return getLoader(URI.create(path));
     }
 
     
@@ -197,17 +192,12 @@ public class ResourceManager {
 
 
     public ResourceHandle load(File path) throws IOException {
-        return load(path.getPath());
+        return load(URI.create(path.getPath()));
     }
 
 
     public ResourceHandle load(String path) throws IOException {
-        try {
-            return load(new URI(path));
-        } catch(URISyntaxException e) {
-            Log.w(TAG, "load(): URISyntaxException.", e);
-            return null;
-        }
+        return load(URI.create(path));
     }
 
 
@@ -229,16 +219,12 @@ public class ResourceManager {
 
 
     public void unload(File uri) throws IOException {
-        unload(uri.getPath());
+        unload(URI.create(uri.getPath()));
     }
 
 
     public void unload(String uri) throws IOException {
-        try {
-            unload(new URI(uri));
-        } catch(URISyntaxException e) {
-            Log.w(TAG, "unload(): URISyntaxException.", e);
-        }
+        unload(URI.create(uri));
     }
 
 
@@ -273,17 +259,12 @@ public class ResourceManager {
  
 
     public Future<ResourceHandle> enqueue(File path) {
-        return enqueue(path.getPath());
+        return enqueue(URI.create(path.getPath()));
     }
 
 
     public Future<ResourceHandle> enqueue(String path) {
-        try {
-            return enqueue(new URI(path));
-        } catch(URISyntaxException e) {
-            Log.w(TAG, "enqueue(): URISyntaxException.", e);
-            return null;
-        }
+        return enqueue(URI.create(path));
     }
 
 
