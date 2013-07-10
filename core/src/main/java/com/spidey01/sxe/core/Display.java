@@ -37,11 +37,13 @@ public interface Display {
      *
      * This must be called before rendering may be done.
      */
-    public boolean create();
+    boolean create();
+
 
     /** Destroy this OpenGL context.
      */
-    public void destroy();
+    void destroy();
+
 
     /** Update the Display.
      *
@@ -52,7 +54,8 @@ public interface Display {
      * IllegalStateException if the display has not been created; they could
      * also treat it as a noop.
      */
-    public void update();
+    void update();
+
 
     /** Indicates the user has tried to close the display.
      *
@@ -63,32 +66,47 @@ public interface Display {
      * On Mobile platforms, this will likely corrispond to whatever the
      * platforms norm is with regard to closing an application.
      */
-    public boolean isCloseRequested();
+    boolean isCloseRequested();
+
+
+    /** Set the display mode.
+     *
+     * The exact mode syntax depends on the platform and display technology
+     * involved. Not all Displays support setting the mode. A display mode is
+     * information like horizontal and vertical resolution, color depth,
+     * refresh rate, etc.
+     *
+     * @return true if successful; false otherwise.
+     */
+    boolean setMode(String mode);
+
 
     /** Get an Instance of OpenGL suitable for running GL commands.
      *
-     * This shouldn't be necessary in most cases but is made public for
+     * This shouldn't be necessary in most cases but is made for
      * convenience. It may be depreciated in the future.
      *
      * In most cases, you just want to implement some portion of FrameListener
      * and be added to the display. 
      */
-    public OpenGL getOpenGL();
+    OpenGL getOpenGL();
+
 
     /** Add a FrameListener for frame events.
      *
      * This will register a FrameListener that will be notified on rendering evenets.
      */
-    public void addFrameListener(FrameListener listener);
-    public void addFrameStartedListener(FrameStartedListener listener);
-    public void addFrameEndedListener(FrameEndedListener listener);
+    void addFrameListener(FrameListener listener);
+    void addFrameStartedListener(FrameStartedListener listener);
+    void addFrameEndedListener(FrameEndedListener listener);
+
 
     /** remove a FrameListener for frame events.
      *
      * This will unregister a FrameListener that was previously registered.
      */
-    public void removeFrameListener(FrameListener listener);
-    public void removeFrameStartedListener(FrameStartedListener listener);
-    public void removeFrameEndedListener(FrameEndedListener listener);
+    void removeFrameListener(FrameListener listener);
+    void removeFrameStartedListener(FrameStartedListener listener);
+    void removeFrameEndedListener(FrameEndedListener listener);
 }
 

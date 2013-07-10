@@ -82,6 +82,10 @@ public class AndroidDisplay
         return false;
     }
 
+    public boolean setMode(String mode) {
+        return false;
+    }
+
     public OpenGL getOpenGL() {
         return mOpenGL;
     }
