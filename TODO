@@ -6,3 +6,4 @@
 [ ] Should SettingsFile be trapping IOException and blanking the contents? I think not.
 [X] Clean up GameEngine#setupLogging
 [ ] Some way of addressing the installation root, resource paths, etc.
+[ ] ResourceHandle#asTexture should inspect URI for file extension (.png, .jpg, etc) and act accordingly. Also should have an overload that allows specifying the format.

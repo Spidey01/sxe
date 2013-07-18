@@ -23,16 +23,28 @@
 
 package com.spidey01.sxe.core;
 
+import java.nio.IntBuffer;
+
 /** Class encapsulating an OpenGL Vertex Buffer Object (VBO).
  */
 public class VertexBuffer {
     private static final String TAG = "VertexBuffer";
     
+    private final int mTarget;
+    private final int mUsage;
     private boolean mIsInitialized;
     private int mVertexBufferId;
 
 
     public VertexBuffer() {
+        mTarget = OpenGL.GL_ARRAY_BUFFER;
+        mUsage = OpenGL.GL_STATIC_DRAW;
+    }
+    
+
+    public VertexBuffer(int target, int usage) {
+        mTarget = target;
+        mUsage = usage;
     }
 
 
@@ -45,6 +57,14 @@ public class VertexBuffer {
 
     public void initialize(OpenGL GL) {
         if (mIsInitialized) return;
+        
+        IntBuffer b = GL.createIntBuffer(1);
+        GL.glGenBuffers(b);
+        mVertexBufferId = b.get(0);
+
+        GL.glBindBuffer(mTarget, mVertexBufferId);
+        // TODO: How do we want to setup the contents 'buffer' to upload?
+        // GL.glBufferData(mTarget, buffer, mUsage);
 
         mIsInitialized = true;
     }
@@ -64,4 +84,5 @@ public class VertexBuffer {
 
 }
 
-
+/*
+*/

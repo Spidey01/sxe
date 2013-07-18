@@ -51,6 +51,7 @@ public class HelloWorld
 
         mGameEngine.getInputManager().addKeyListener("Q", this);
 
+        /*
         try {
             TrueTypeFont mFont = TrueTypeFont.from("tmp/HelloWorld.ttf");
             Text s = new Text("Hello, world!", mFont);
@@ -58,6 +59,19 @@ public class HelloWorld
         } catch(IOException e) {
             Log.e(TAG, "Caught IOExeption from TrueTypeFont.from(String)", e);
         }
+        */
+        ResourceHandle spriteResource;
+        Texture spriteTexture;
+        Sprite sprite;
+        try {
+            spriteResource = mGameEngine.getResourceManager().load("default://Sprite.png");
+            spriteTexture = spriteResource.asTexture();
+        } catch (IOException e) {
+            Log.w(TAG, "Failed loading Sprite:", e);
+            return false;
+        }
+        sprite = new Sprite(spriteTexture);
+        mGameEngine.getDisplay().addFrameStartedListener(sprite);
 
         return true;
     }
