@@ -148,6 +148,9 @@ public class ResourceManager {
         Log.d(TAG, "URI Scheme: "+uri.getScheme());
         Log.d(TAG, "URI SchemeSpecificPart: "+uri.getSchemeSpecificPart());
 
+        if (uri.getScheme() == null) {
+            throw new IllegalArgumentException("No scheme in URI: "+uri);
+        }
         return mLoaders.get(uri.getScheme());
     }
 
@@ -180,6 +183,7 @@ public class ResourceManager {
      */
     protected String findLocation(URI uri) {
         for (String location : mSearchLocations) {
+            Log.xtrace(TAG, "findLocation: looking in", location, "for URI => ", uri);
             File test = new File(location, uri.getAuthority());
             Log.d(TAG, "Search for "+test.getPath());
             if (!test.isFile()) {
@@ -204,6 +208,11 @@ public class ResourceManager {
     }
 
 
+    /** Load URI as a ResourceHandle.
+     *
+     * @throws IllegalArgumentException if no scheme given in URI.
+     *
+     */
     public ResourceHandle load(URI uri) throws IOException {
         Log.v(TAG, "load(): URI => "+uri);
         ResourceHandle h = mHandles.get(uri);

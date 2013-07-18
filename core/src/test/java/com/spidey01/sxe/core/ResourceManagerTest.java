@@ -135,5 +135,11 @@ public class ResourceManagerTest extends UnitTest {
         sResourceManager.unload(resource.getURI());
         Assert.assertNotSame("Really reloading is really reloading.", resource, sResourceManager.load(resource.getURI()));
     }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void schemaRequiredForLoad() throws IOException {
+        sResourceManager.load("throw/if/no/scheme");
+    }
+
 }
 
