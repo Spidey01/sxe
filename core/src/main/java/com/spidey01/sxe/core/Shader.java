@@ -44,7 +44,7 @@ public class Shader {
 
 
     /** Shader source code from a String. */
-    public Shader(String code, Type type) throws IOException {
+    public Shader(String code, Type type) {
         mSourceCode = code;
         mType = type;
     }
@@ -122,7 +122,7 @@ public class Shader {
 
     private void check() {
         if (!mIsInitialized) {
-            throw new IllegalStateException("Not yet fully initialized!");
+            throw new IllegalStateException(TAG+" not yet fully initialized!");
         }
     }
 

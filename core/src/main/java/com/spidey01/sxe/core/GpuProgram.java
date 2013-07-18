@@ -70,12 +70,12 @@ public class GpuProgram {
             GL.glAttachShader(mProgramId, s.getId());
         }
 
+        mIsInitialized = true;
+
         link(GL);
 
         // Could detach shaders now but would it break deinitialize and how
         // much memory would it usually recover?
-
-        mIsInitialized = true;
     }
 
 
@@ -158,7 +158,7 @@ public class GpuProgram {
 
     private void check() {
         if (!mIsInitialized) {
-            throw new IllegalStateException("Not yet fully initialized!");
+            throw new IllegalStateException(TAG+" not yet fully initialized!");
         }
     }
 }
