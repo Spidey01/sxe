@@ -209,24 +209,24 @@ public class LwjglOpenGL implements OpenGL {
 
     @Override
     public String glGetProgramInfoLog(int program) {
-        int length = GL20.glGetProgram(program, GL20.GL_INFO_LOG_LENGTH);
+        int length = GL20.glGetProgrami(program, GL20.GL_INFO_LOG_LENGTH);
         return GL20.glGetProgramInfoLog(program, length);
     }
 
     @Override
     public int glGetProgramiv(int program, int pname) {
-        return GL20.glGetProgram(program, pname);
+        return GL20.glGetProgrami(program, pname);
     }
 
     @Override
     public String glGetShaderInfoLog(int shader) {
-        int length = GL20.glGetShader(shader, GL20.GL_INFO_LOG_LENGTH);
+        int length = GL20.glGetShaderi(shader, GL20.GL_INFO_LOG_LENGTH);
         return GL20.glGetShaderInfoLog(shader, length);
     }
 
     @Override
     public int glGetShaderiv(int shader, int pname) {
-        return GL20.glGetShader(shader, pname);
+        return GL20.glGetShaderi(shader, pname);
     }
 
 
