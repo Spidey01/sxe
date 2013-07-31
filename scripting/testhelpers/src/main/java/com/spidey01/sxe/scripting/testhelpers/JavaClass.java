@@ -26,7 +26,7 @@ package com.spidey01.sxe.scripting.testhelpers;
 import com.spidey01.sxe.core.Log;
 
 public class JavaClass {
-    private static final String TAG = "JavaToRhino.JavaClass";
+    private static final String TAG = "JavaClass";
 
 
     public JavaClass() {
