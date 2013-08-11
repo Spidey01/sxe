@@ -2,13 +2,12 @@ This is an experiment in making a game engine. It's intended for real use but ha
 
 SxE is intended to be simple, modular, and able to deal with platforms. PC and Android are officially supported.
 
-To build the system you must set the sxeTarget property. Refer to settings.gradle for values. Generally, you want something like this:
+To build the system, generally, you want something like this:
 
-	gradle -q -PsxeTarget=pc build
+	gradle -q build
 
-The installApp, distZip, and distTarget targets should generally work where applicable, e.g. for demo applications.
+Exact procedures for building an SDK or a project is not well defined yet. The installApp, distZip, and distTarget targets should generally work where applicable, e.g. for demo applications but not necessarily as a top level target.
 
+Code is structured into subproject modules for the core system, platform dependencies, and other modules such as scripting and demo applications.
 
-Code is structured into subproject modules for the core system and platform dependencies. Demo apps do like wise.
-
-Most external dependencies are supplied through a repository. Those that cannot be, will usually be found somewhere in vendor/. Refer to deps/README for details.
+Most external dependencies are supplied through a repository. Those that cannot be, will usually be found somewhere in vendor/. Assume that you will require network connectivity the first time you build SxE.
