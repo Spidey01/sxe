@@ -12,9 +12,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="pc" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="lib" exported="" />
+    <orderEntry type="module" module-name="scripting" exported="" />
+    <orderEntry type="module" module-name="testhelpers" scope="TEST" />
+    <orderEntry type="library" exported="" name="jython-2.5.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="junit-4.11" level="project" />
+    <orderEntry type="library" scope="TEST" name="hamcrest-core-1.3" level="project" />
   </component>
 </module>
 

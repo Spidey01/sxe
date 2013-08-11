@@ -8,7 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/demos/helloworld/helloworld.iml" filepath="$PROJECT_DIR$/demos/helloworld/helloworld.iml" />
       <module fileurl="file://$PROJECT_DIR$/demos/helloworld/android/helloworld-android.iml" filepath="$PROJECT_DIR$/demos/helloworld/android/helloworld-android.iml" />
       <module fileurl="file://$PROJECT_DIR$/demos/helloworld/pc/helloworld-pc.iml" filepath="$PROJECT_DIR$/demos/helloworld/pc/helloworld-pc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scripting/jruby/jruby.iml" filepath="$PROJECT_DIR$/scripting/jruby/jruby.iml" />
       <module fileurl="file://$PROJECT_DIR$/scripting/jsr223/jsr223.iml" filepath="$PROJECT_DIR$/scripting/jsr223/jsr223.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scripting/jython/jython.iml" filepath="$PROJECT_DIR$/scripting/jython/jython.iml" />
       <module fileurl="file://$PROJECT_DIR$/demos/helloworld/lib/lib.iml" filepath="$PROJECT_DIR$/demos/helloworld/lib/lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/pc/pc.iml" filepath="$PROJECT_DIR$/pc/pc.iml" />
       <module fileurl="file://$PROJECT_DIR$/demos/pingpong/pingpong.iml" filepath="$PROJECT_DIR$/demos/pingpong/pingpong.iml" />
