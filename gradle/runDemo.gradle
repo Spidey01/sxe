@@ -15,3 +15,5 @@ enableAssertions true
 // configuration.
 environment XDG_CONFIG_HOME: "${project.rootDir}/tmp"
 
+// :run executes from the root project, not the demo project.
+workingDir project.rootDir
