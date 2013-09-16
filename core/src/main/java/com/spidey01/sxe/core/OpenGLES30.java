@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -29,27 +29,8 @@ import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
-public interface OpenGL extends OpenGLES20 {
+/** OpenGL Interface for Embedded Systems v3.0 */
+public interface OpenGLES30 extends OpenGLES20 {
 
-    /* Utility functions */
-
-    ByteBuffer createByteBuffer(int size);
-    DoubleBuffer createDoubleBuffer(int size);
-    FloatBuffer createFloatBuffer(int size);
-    IntBuffer createIntBuffer(int size);
-
-
-    /** OpenGL functions for the old Fixed Function Pipeline.
-     *
-     * Implementations may throw an unchecked exception if OpenGL legacy /
-     * depreciated functionality is unavailable.  Attempting to intermix things
-     * in a bad way may but is not required to throw an IllegalStateException.
-     */
-
-    void glBegin(int mode);
-    void glColor3b(byte red, byte green, byte blue);
-    void glColor3d(double red, double green, double blue);
-    void glColor3f(float red, float green, float blue);
-    void glEnd();
 }
 
