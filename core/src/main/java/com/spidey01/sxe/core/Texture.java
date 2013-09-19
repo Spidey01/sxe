@@ -68,7 +68,7 @@ public class Texture {
         GL.glGenTextures(mBitmap.getImageData());
         mTextureId = mBitmap.getImageData().get(0);
 
-        GL.glBindTexture(OpenGL.GL_TEXTURE_2D, mTextureId);
+        bind(GL);
 
         GL.glTexImage2D(OpenGL.GL_TEXTURE_2D, 0, OpenGL.GL_RGBA, mBitmap.getWidth(), mBitmap.getHeight(),
                         0, OpenGL.GL_RGBA, OpenGL.GL_UNSIGNED_BYTE, mBitmap.getImageData());
@@ -82,5 +82,9 @@ public class Texture {
         mIsInitialized = true;
     }
 
+
+    public void bind(OpenGL GL) {
+        GL.glBindTexture(OpenGL.GL_TEXTURE_2D, mTextureId);
+    }
 }
 

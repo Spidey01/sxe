@@ -50,6 +50,7 @@ public class Sprite implements FrameStartedListener {
     private GpuProgram mProgram = new GpuProgram();
     private Shader mVertexShader;
     private Shader mFragmentShader;
+    private VertexBuffer mVertexBuffer;
 
 
     public Sprite(Texture backing) {
@@ -63,19 +64,48 @@ public class Sprite implements FrameStartedListener {
         mFragmentShader = fragment;
         mProgram.attachShader(mVertexShader);
         mProgram.attachShader(mFragmentShader);
+        mVertexBuffer = new VertexBuffer();
     }
 
 
     public void frameStarted(OpenGL GL) {
         if (!mIsInitialized) {
-            mTexture.initialize(GL);
-            // mVertexShader.initialize(GL);
-            // mFragmentShader.initialize(GL);
-            mProgram.initialize(GL);
-            mIsInitialized = true;
+            initialize(GL);
         }
-        GL.glBindTexture(OpenGL.GL_TEXTURE_2D, mTexture.getId());
+        mTexture.bind(GL);
+        mVertexBuffer.bind(GL);
     }
 
+    public void initialize(OpenGL GL) {
+        if (mIsInitialized) throw new IllegalStateException(TAG+": already initialized!");
+
+        // just for testing
+        /*
+        float[] vertices = {
+            // Left bottom triangle
+            -0.5f, 0.5f, 0f,
+            -0.5f, -0.5f, 0f,
+            0.5f, -0.5f, 0f,
+            // Right top triangle
+            0.5f, -0.5f, 0f,
+            0.5f, 0.5f, 0f,
+            -0.5f, 0.5f, 0f
+        };
+        mVertexBuffer.initialize(GL, vertices);
+        */
+
+        mTexture.initialize(GL);
+        // mVertexShader.initialize(GL);
+        // mFragmentShader.initialize(GL);
+        // mProgram.initialize(GL);
+
+        mIsInitialized = true;
+    }
+
+    public void deinitialize(OpenGL GL) {
+        if (!mIsInitialized) throw new IllegalStateException(TAG+": not initialized!");
+
+        mIsInitialized = false;
+    }
 }
 

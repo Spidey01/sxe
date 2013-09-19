@@ -55,34 +55,77 @@ public class VertexBuffer {
     }
 
 
+    /** Initializes an empty VertexBuffer. */
     public void initialize(OpenGL GL) {
         if (mIsInitialized) return;
         
-        IntBuffer b = GL.createIntBuffer(1);
+        IntBuffer b = Utils.Buffers.createIntBuffer(1);
         GL.glGenBuffers(b);
         mVertexBufferId = b.get(0);
-
-        GL.glBindBuffer(mTarget, mVertexBufferId);
-        // TODO: How do we want to setup the contents 'buffer' to upload?
-        // GL.glBufferData(mTarget, buffer, mUsage);
 
         mIsInitialized = true;
     }
 
 
+    /** Initialize, bind, and buffer vertices from array. */
+    public void initialize(OpenGL GL, float[] vertices) {
+        if (mIsInitialized) return;
+        initialize(GL);
+        bind(GL);
+        buffer(vertices);
+    }
+
+
+    /** Initialize, bind, and buffer vertices from FloatBuffer. */
+    public void initialize(OpenGL GL, FloatBuffer vertices) {
+        if (mIsInitialized) return;
+        initialize(GL);
+        bind(GL);
+        buffer(vertices);
+    }
+
+
+    /** Bind the VertexBuffer for use.
+     *
+     * I.e. call glBindBuffer.
+     */
+    public void bind(OpenGL GL) {
+        check();
+        GL.glBindBuffer(mTarget, mVertexBufferId);
+    }
+
+
+    /** Buffers vertices to OpenGL memory.  */
+    public void buffer(OpenGL GL, FloatBuffer vertices) {
+        check();
+        GL.glBufferData(mTarget, vertices, mUsage);
+    }
+
+
+    public void buffer(OpenGL GL, float[] vertices) {
+        check();
+        FloatBuffer b = BufferUtils.createFloatBuffer(vertices.length);
+        b.put(vertices);
+        // Basically make sure the bounds is set to vertices.length and rewind the position.
+        b.flip();
+        int vertexCount = vertices+1;
+        buffer(b);
+        b.clear();
+    }
+
+
     public void deinitialize(OpenGL GL) {
         check();
+        // TODO: Delete the buffer.
         mIsInitialized = false;
     }
 
 
     private void check() {
         if (!mIsInitialized) {
-            throw new IllegalStateException(TAG+" not yet fully initialized!");
+            throw new IllegalStateException(TAG+" not initialized!");
         }
     }
 
 }
 
-/*
-*/

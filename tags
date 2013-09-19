@@ -6,12 +6,18 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 4NT_args	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:4NT_args$/;"	l
 4NT_args	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:4NT_args$/;"	l
+4NT_args	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:4NT_args$/;"	l
+4NT_args	demos/snake/pc/build/scripts/snake-pc.bat	/^:4NT_args$/;"	l
 ABGR	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        ABGR(4, true);$/;"	e	enum:PNGDecoder.Format	file:
 ALPHA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        ALPHA(1, true),$/;"	e	enum:PNGDecoder.Format	file:
 APP_BASE_NAME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
 APP_BASE_NAME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
+APP_BASE_NAME	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
+APP_BASE_NAME	demos/snake/pc/build/scripts/snake-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
 APP_HOME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
 APP_HOME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
+APP_HOME	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
+APP_HOME	demos/snake/pc/build/scripts/snake-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
 ASSERT	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int ASSERT  = 0;$/;"	f	class:Log
 Action	core/src/main/java/com/spidey01/sxe/core/Action.java	/^public interface Action {$/;"	i
 AndroidConfiguration	android/src/main/java/com/spidey01/sxe/android/AndroidConfiguration.java	/^public class AndroidConfiguration {$/;"	c
@@ -25,20 +31,18 @@ AndroidLogSink	android/src/main/java/com/spidey01/sxe/android/AndroidLogSink.jav
 AndroidOpenGLES	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^public class AndroidOpenGLES implements OpenGL {$/;"	c
 AndroidSettings	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    public AndroidSettings(Context context, String name) {$/;"	m	class:AndroidSettings
 AndroidSettings	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^public class AndroidSettings implements Settings {$/;"	c
-Assert	scripting/testhelpers/build/resources/main/JavaWrapper.js	/^var Assert = Packages.org.junit.Assert;$/;"	v
 Assert	scripting/testhelpers/src/main/resources/JavaWrapper.js	/^var Assert = Packages.org.junit.Assert;$/;"	v
 AssetLoader	android/src/main/java/com/spidey01/sxe/android/AssetLoader.java	/^    public AssetLoader(AssetManager assetManager) {$/;"	m	class:AssetLoader
 AssetLoader	android/src/main/java/com/spidey01/sxe/android/AssetLoader.java	/^public class AssetLoader implements ResourceLoader {$/;"	c
 BGRA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        BGRA(4, true),$/;"	e	enum:PNGDecoder.Format	file:
 Bitmap	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^public interface Bitmap {$/;"	i
-BuildConfig	android/build/source/buildConfig/debug/com/spidey01/sxe/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	android/build/source/buildConfig/release/com/spidey01/sxe/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	demos/helloworld/android/build/source/buildConfig/debug/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	demos/helloworld/android/build/source/buildConfig/release/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	demos/snake/android/build/source/buildConfig/debug/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	demos/snake/android/build/source/buildConfig/release/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
+BuildConfig	android/gen/com/spidey01/sxe/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
+BuildConfig	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
+BuildConfig	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
 CLASSPATH	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar$/;"	v
 CLASSPATH	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar$/;"	v
+CLASSPATH	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\pingpong-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\pingpong-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar$/;"	v
+CLASSPATH	demos/snake/pc/build/scripts/snake-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\snake-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\snake-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar$/;"	v
 CLASSTEMPLATE	templates/NewClass.java	/^    public CLASSTEMPLATE() {$/;"	m	class:CLASSTEMPLATE
 CLASSTEMPLATE	templates/NewClass.java	/^public class CLASSTEMPLATE {$/;"	c
 CMD_LINE_ARGS	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
@@ -47,6 +51,12 @@ CMD_LINE_ARGS	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.
 CMD_LINE_ARGS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
 CMD_LINE_ARGS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CMD_LINE_ARGS=%*$/;"	v
 CMD_LINE_ARGS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
+CMD_LINE_ARGS	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
+CMD_LINE_ARGS	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set CMD_LINE_ARGS=%*$/;"	v
+CMD_LINE_ARGS	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
+CMD_LINE_ARGS	demos/snake/pc/build/scripts/snake-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
+CMD_LINE_ARGS	demos/snake/pc/build/scripts/snake-pc.bat	/^set CMD_LINE_ARGS=%*$/;"	v
+CMD_LINE_ARGS	demos/snake/pc/build/scripts/snake-pc.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
 COLOR_GREYALPHA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_GREYALPHA = 4;$/;"	f	class:PNGDecoder	file:
 COLOR_GREYSCALE	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_GREYSCALE = 0;$/;"	f	class:PNGDecoder	file:
 COLOR_INDEXED	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_INDEXED = 3;$/;"	f	class:PNGDecoder	file:
@@ -56,15 +66,14 @@ Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public Conso
 Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public Console(String toggleKey) {$/;"	m	class:Console
 Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^public class Console$/;"	c
 ConsoleCommand	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^public class ConsoleCommand implements Action {$/;"	c
-DEBUG	android/build/source/buildConfig/debug/com/spidey01/sxe/android/BuildConfig.java	/^    public final static boolean DEBUG = true;$/;"	f	class:BuildConfig
-DEBUG	android/build/source/buildConfig/release/com/spidey01/sxe/android/BuildConfig.java	/^    public final static boolean DEBUG = false;$/;"	f	class:BuildConfig
+DEBUG	android/gen/com/spidey01/sxe/android/BuildConfig.java	/^    public final static boolean DEBUG = true;$/;"	f	class:BuildConfig
 DEBUG	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int DEBUG   = 4;$/;"	f	class:Log
-DEBUG	demos/helloworld/android/build/source/buildConfig/debug/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^    public final static boolean DEBUG = true;$/;"	f	class:BuildConfig
-DEBUG	demos/helloworld/android/build/source/buildConfig/release/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^    public final static boolean DEBUG = false;$/;"	f	class:BuildConfig
-DEBUG	demos/snake/android/build/source/buildConfig/debug/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^    public final static boolean DEBUG = true;$/;"	f	class:BuildConfig
-DEBUG	demos/snake/android/build/source/buildConfig/release/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^    public final static boolean DEBUG = false;$/;"	f	class:BuildConfig
-DEFAULT_JVM_OPTS	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set DEFAULT_JVM_OPTS=$/;"	v
-DEFAULT_JVM_OPTS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set DEFAULT_JVM_OPTS=$/;"	v
+DEBUG	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^    public final static boolean DEBUG = true;$/;"	f	class:BuildConfig
+DEBUG	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^    public final static boolean DEBUG = true;$/;"	f	class:BuildConfig
+DEFAULT_JVM_OPTS	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set DEFAULT_JVM_OPTS="-Djava.library.path=..\/lib\/natives"$/;"	v
+DEFAULT_JVM_OPTS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set DEFAULT_JVM_OPTS="-Djava.library.path=..\/lib\/natives"$/;"	v
+DEFAULT_JVM_OPTS	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set DEFAULT_JVM_OPTS=$/;"	v
+DEFAULT_JVM_OPTS	demos/snake/pc/build/scripts/snake-pc.bat	/^set DEFAULT_JVM_OPTS=$/;"	v
 DEFAULT_LOG_LEVEL	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public static final int DEFAULT_LOG_LEVEL = Log.INFO;$/;"	f	class:LogSink
 DEFAULT_MODE	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    private final int DEFAULT_MODE = Context.MODE_PRIVATE;$/;"	f	class:AndroidSettings	file:
 DEFAULT_REPEAT_DELAY	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public static final int DEFAULT_REPEAT_DELAY = 2;$/;"	f	class:Console
@@ -73,6 +82,10 @@ DIRNAME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^
 DIRNAME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set DIRNAME=%~dp0$/;"	v
 DIRNAME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
 DIRNAME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set DIRNAME=%~dp0$/;"	v
+DIRNAME	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
+DIRNAME	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set DIRNAME=%~dp0$/;"	v
+DIRNAME	demos/snake/pc/build/scripts/snake-pc.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
+DIRNAME	demos/snake/pc/build/scripts/snake-pc.bat	/^set DIRNAME=%~dp0$/;"	v
 Display	core/src/main/java/com/spidey01/sxe/core/Display.java	/^public interface Display {$/;"	i
 DummyResourceLoader	core/src/main/java/com/spidey01/sxe/core/DummyResourceLoader.java	/^public class DummyResourceLoader  implements ResourceLoader {$/;"	c
 ERROR	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int ERROR   = 1;$/;"	f	class:Log
@@ -84,23 +97,308 @@ Format	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java
 FrameEndedListener	core/src/main/java/com/spidey01/sxe/core/FrameEndedListener.java	/^public interface FrameEndedListener {$/;"	i
 FrameListener	core/src/main/java/com/spidey01/sxe/core/FrameListener.java	/^public interface FrameListener$/;"	i
 FrameStartedListener	core/src/main/java/com/spidey01/sxe/core/FrameStartedListener.java	/^public interface FrameStartedListener {$/;"	i
-GL_ARRAY_BUFFER	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_ARRAY_BUFFER = 0x8892;$/;"	f	interface:OpenGL
-GL_COLOR_BUFFER_BIT	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_COLOR_BUFFER_BIT = 0x00004000;$/;"	f	interface:OpenGL
-GL_COMPILE_STATUS	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_COMPILE_STATUS = 0x8B81;$/;"	f	interface:OpenGL
-GL_CULL_FACE	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_CULL_FACE = 0x0B44;$/;"	f	interface:OpenGL
-GL_CULL_FACE_MODE	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_CULL_FACE_MODE = 0x0B45;$/;"	f	interface:OpenGL
-GL_DEPTH_TEST	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_DEPTH_TEST = 0x0B71;$/;"	f	interface:OpenGL
-GL_FALSE	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_FALSE = 0x0;$/;"	f	interface:OpenGL
-GL_FLOAT	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_FLOAT = 0x1406;$/;"	f	interface:OpenGL
-GL_FRAGMENT_SHADER	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_FRAGMENT_SHADER = 0x8B30;$/;"	f	interface:OpenGL
-GL_LINK_STATUS	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_LINK_STATUS = 0x8B82;$/;"	f	interface:OpenGL
-GL_RGBA	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_RGBA = 0x00001908;$/;"	f	interface:OpenGL
-GL_STATIC_DRAW	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_STATIC_DRAW = 0x88E4;$/;"	f	interface:OpenGL
-GL_TEXTURE_2D	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_TEXTURE_2D = 0x0de1;$/;"	f	interface:OpenGL
-GL_TRIANGLES	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_TRIANGLES = 0x0004;$/;"	f	interface:OpenGL
-GL_UNSIGNED_BYTE	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_UNSIGNED_BYTE = 0x00001401;$/;"	f	interface:OpenGL
-GL_VALIDATE_STATUS	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_VALIDATE_STATUS = 0x8B83;$/;"	f	interface:OpenGL
-GL_VERTEX_SHADER	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    static final int GL_VERTEX_SHADER = 0x8B31;$/;"	f	interface:OpenGL
+GL_ACTIVE_ATTRIBUTES	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ACTIVE_ATTRIBUTES = 0x8B89;$/;"	f	interface:OpenGLES20
+GL_ACTIVE_ATTRIBUTE_MAX_LENGTH	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ACTIVE_ATTRIBUTE_MAX_LENGTH = 0x8B8A;$/;"	f	interface:OpenGLES20
+GL_ACTIVE_TEXTURE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ACTIVE_TEXTURE = 0x84E0;$/;"	f	interface:OpenGLES20
+GL_ACTIVE_UNIFORMS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ACTIVE_UNIFORMS = 0x8B86;$/;"	f	interface:OpenGLES20
+GL_ACTIVE_UNIFORM_MAX_LENGTH	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ACTIVE_UNIFORM_MAX_LENGTH = 0x8B87;$/;"	f	interface:OpenGLES20
+GL_ALIASED_LINE_WIDTH_RANGE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ALIASED_LINE_WIDTH_RANGE = 0x846E;$/;"	f	interface:OpenGLES20
+GL_ALIASED_POINT_SIZE_RANGE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ALIASED_POINT_SIZE_RANGE = 0x846D;$/;"	f	interface:OpenGLES20
+GL_ALPHA	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ALPHA = 0x1906;$/;"	f	interface:OpenGLES20
+GL_ALPHA_BITS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ALPHA_BITS = 0x0D55;$/;"	f	interface:OpenGLES20
+GL_ALWAYS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ALWAYS = 0x0207;$/;"	f	interface:OpenGLES20
+GL_ARRAY_BUFFER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ARRAY_BUFFER = 0x8892;$/;"	f	interface:OpenGLES20
+GL_ARRAY_BUFFER_BINDING	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ARRAY_BUFFER_BINDING = 0x8894;$/;"	f	interface:OpenGLES20
+GL_ATTACHED_SHADERS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ATTACHED_SHADERS = 0x8B85;$/;"	f	interface:OpenGLES20
+GL_BACK	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BACK = 0x0405;$/;"	f	interface:OpenGLES20
+GL_BLEND	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BLEND = 0x0BE2;$/;"	f	interface:OpenGLES20
+GL_BLEND_COLOR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BLEND_COLOR = 0x8005;$/;"	f	interface:OpenGLES20
+GL_BLEND_DST_ALPHA	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BLEND_DST_ALPHA = 0x80CA;$/;"	f	interface:OpenGLES20
+GL_BLEND_DST_RGB	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BLEND_DST_RGB = 0x80C8;$/;"	f	interface:OpenGLES20
+GL_BLEND_EQUATION	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BLEND_EQUATION = 0x8009;$/;"	f	interface:OpenGLES20
+GL_BLEND_EQUATION_ALPHA	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BLEND_EQUATION_ALPHA = 0x883D;$/;"	f	interface:OpenGLES20
+GL_BLEND_EQUATION_RGB	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BLEND_EQUATION_RGB = 0x8009;$/;"	f	interface:OpenGLES20
+GL_BLEND_SRC_ALPHA	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BLEND_SRC_ALPHA = 0x80CB;$/;"	f	interface:OpenGLES20
+GL_BLEND_SRC_RGB	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BLEND_SRC_RGB = 0x80C9;$/;"	f	interface:OpenGLES20
+GL_BLUE_BITS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BLUE_BITS = 0x0D54;$/;"	f	interface:OpenGLES20
+GL_BOOL	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BOOL = 0x8B56;$/;"	f	interface:OpenGLES20
+GL_BOOL_VEC2	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BOOL_VEC2 = 0x8B57;$/;"	f	interface:OpenGLES20
+GL_BOOL_VEC3	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BOOL_VEC3 = 0x8B58;$/;"	f	interface:OpenGLES20
+GL_BOOL_VEC4	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BOOL_VEC4 = 0x8B59;$/;"	f	interface:OpenGLES20
+GL_BUFFER_SIZE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BUFFER_SIZE = 0x8764;$/;"	f	interface:OpenGLES20
+GL_BUFFER_USAGE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BUFFER_USAGE = 0x8765;$/;"	f	interface:OpenGLES20
+GL_BYTE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_BYTE = 0x1400;$/;"	f	interface:OpenGLES20
+GL_CCW	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_CCW = 0x0901;$/;"	f	interface:OpenGLES20
+GL_CLAMP_TO_EDGE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_CLAMP_TO_EDGE = 0x812F;$/;"	f	interface:OpenGLES20
+GL_COLOR_ATTACHMENT0	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_COLOR_ATTACHMENT0 = 0x8CE0;$/;"	f	interface:OpenGLES20
+GL_COLOR_BUFFER_BIT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_COLOR_BUFFER_BIT = 0x00004000;$/;"	f	interface:OpenGLES20
+GL_COLOR_CLEAR_VALUE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_COLOR_CLEAR_VALUE = 0x0C22;$/;"	f	interface:OpenGLES20
+GL_COLOR_WRITEMASK	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_COLOR_WRITEMASK = 0x0C23;$/;"	f	interface:OpenGLES20
+GL_COMPILE_STATUS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_COMPILE_STATUS = 0x8B81;$/;"	f	interface:OpenGLES20
+GL_COMPRESSED_TEXTURE_FORMATS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_COMPRESSED_TEXTURE_FORMATS = 0x86A3;$/;"	f	interface:OpenGLES20
+GL_CONSTANT_ALPHA	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_CONSTANT_ALPHA = 0x8003;$/;"	f	interface:OpenGLES20
+GL_CONSTANT_COLOR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_CONSTANT_COLOR = 0x8001;$/;"	f	interface:OpenGLES20
+GL_CULL_FACE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_CULL_FACE = 0x0B44;$/;"	f	interface:OpenGLES20
+GL_CULL_FACE_MODE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_CULL_FACE_MODE = 0x0B45;$/;"	f	interface:OpenGLES20
+GL_CURRENT_PROGRAM	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_CURRENT_PROGRAM = 0x8B8D;$/;"	f	interface:OpenGLES20
+GL_CURRENT_VERTEX_ATTRIB	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_CURRENT_VERTEX_ATTRIB = 0x8626;$/;"	f	interface:OpenGLES20
+GL_CW	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_CW = 0x0900;$/;"	f	interface:OpenGLES20
+GL_DECR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DECR = 0x1E03;$/;"	f	interface:OpenGLES20
+GL_DECR_WRAP	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DECR_WRAP = 0x8508;$/;"	f	interface:OpenGLES20
+GL_DELETE_STATUS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DELETE_STATUS = 0x8B80;$/;"	f	interface:OpenGLES20
+GL_DEPTH_ATTACHMENT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DEPTH_ATTACHMENT = 0x8D00;$/;"	f	interface:OpenGLES20
+GL_DEPTH_BITS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DEPTH_BITS = 0x0D56;$/;"	f	interface:OpenGLES20
+GL_DEPTH_BUFFER_BIT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DEPTH_BUFFER_BIT = 0x00000100;$/;"	f	interface:OpenGLES20
+GL_DEPTH_CLEAR_VALUE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DEPTH_CLEAR_VALUE = 0x0B73;$/;"	f	interface:OpenGLES20
+GL_DEPTH_COMPONENT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DEPTH_COMPONENT = 0x1902;$/;"	f	interface:OpenGLES20
+GL_DEPTH_COMPONENT16	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DEPTH_COMPONENT16 = 0x81A5;$/;"	f	interface:OpenGLES20
+GL_DEPTH_FUNC	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DEPTH_FUNC = 0x0B74;$/;"	f	interface:OpenGLES20
+GL_DEPTH_RANGE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DEPTH_RANGE = 0x0B70;$/;"	f	interface:OpenGLES20
+GL_DEPTH_TEST	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DEPTH_TEST = 0x0B71;$/;"	f	interface:OpenGLES20
+GL_DEPTH_WRITEMASK	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DEPTH_WRITEMASK = 0x0B72;$/;"	f	interface:OpenGLES20
+GL_DITHER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DITHER = 0x0BD0;$/;"	f	interface:OpenGLES20
+GL_DONT_CARE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DONT_CARE = 0x1100;$/;"	f	interface:OpenGLES20
+GL_DST_ALPHA	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DST_ALPHA = 0x0304;$/;"	f	interface:OpenGLES20
+GL_DST_COLOR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DST_COLOR = 0x0306;$/;"	f	interface:OpenGLES20
+GL_DYNAMIC_DRAW	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_DYNAMIC_DRAW = 0x88E8;$/;"	f	interface:OpenGLES20
+GL_ELEMENT_ARRAY_BUFFER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ELEMENT_ARRAY_BUFFER = 0x8893;$/;"	f	interface:OpenGLES20
+GL_ELEMENT_ARRAY_BUFFER_BINDING	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ELEMENT_ARRAY_BUFFER_BINDING = 0x8895;$/;"	f	interface:OpenGLES20
+GL_EQUAL	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_EQUAL = 0x0202;$/;"	f	interface:OpenGLES20
+GL_EXTENSIONS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_EXTENSIONS = 0x1F03;$/;"	f	interface:OpenGLES20
+GL_FALSE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FALSE = 0;$/;"	f	interface:OpenGLES20
+GL_FASTEST	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FASTEST = 0x1101;$/;"	f	interface:OpenGLES20
+GL_FIXED	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FIXED = 0x140C;$/;"	f	interface:OpenGLES20
+GL_FLOAT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FLOAT = 0x1406;$/;"	f	interface:OpenGLES20
+GL_FLOAT_MAT2	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FLOAT_MAT2 = 0x8B5A;$/;"	f	interface:OpenGLES20
+GL_FLOAT_MAT3	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FLOAT_MAT3 = 0x8B5B;$/;"	f	interface:OpenGLES20
+GL_FLOAT_MAT4	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FLOAT_MAT4 = 0x8B5C;$/;"	f	interface:OpenGLES20
+GL_FLOAT_VEC2	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FLOAT_VEC2 = 0x8B50;$/;"	f	interface:OpenGLES20
+GL_FLOAT_VEC3	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FLOAT_VEC3 = 0x8B51;$/;"	f	interface:OpenGLES20
+GL_FLOAT_VEC4	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FLOAT_VEC4 = 0x8B52;$/;"	f	interface:OpenGLES20
+GL_FRAGMENT_SHADER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRAGMENT_SHADER = 0x8B30;$/;"	f	interface:OpenGLES20
+GL_FRAMEBUFFER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRAMEBUFFER = 0x8D40;$/;"	f	interface:OpenGLES20
+GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME = 0x8CD1;$/;"	f	interface:OpenGLES20
+GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE = 0x8CD0;$/;"	f	interface:OpenGLES20
+GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE = 0x8CD3;$/;"	f	interface:OpenGLES20
+GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL = 0x8CD2;$/;"	f	interface:OpenGLES20
+GL_FRAMEBUFFER_BINDING	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRAMEBUFFER_BINDING = 0x8CA6;$/;"	f	interface:OpenGLES20
+GL_FRAMEBUFFER_COMPLETE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRAMEBUFFER_COMPLETE = 0x8CD5;$/;"	f	interface:OpenGLES20
+GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT = 0x8CD6;$/;"	f	interface:OpenGLES20
+GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS = 0x8CD9;$/;"	f	interface:OpenGLES20
+GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT = 0x8CD7;$/;"	f	interface:OpenGLES20
+GL_FRAMEBUFFER_UNSUPPORTED	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRAMEBUFFER_UNSUPPORTED = 0x8CDD;$/;"	f	interface:OpenGLES20
+GL_FRONT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRONT = 0x0404;$/;"	f	interface:OpenGLES20
+GL_FRONT_AND_BACK	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRONT_AND_BACK = 0x0408;$/;"	f	interface:OpenGLES20
+GL_FRONT_FACE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FRONT_FACE = 0x0B46;$/;"	f	interface:OpenGLES20
+GL_FUNC_ADD	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FUNC_ADD = 0x8006;$/;"	f	interface:OpenGLES20
+GL_FUNC_REVERSE_SUBTRACT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FUNC_REVERSE_SUBTRACT = 0x800B;$/;"	f	interface:OpenGLES20
+GL_FUNC_SUBTRACT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_FUNC_SUBTRACT = 0x800A;$/;"	f	interface:OpenGLES20
+GL_GENERATE_MIPMAP_HINT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_GENERATE_MIPMAP_HINT = 0x8192;$/;"	f	interface:OpenGLES20
+GL_GEQUAL	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_GEQUAL = 0x0206;$/;"	f	interface:OpenGLES20
+GL_GREATER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_GREATER = 0x0204;$/;"	f	interface:OpenGLES20
+GL_GREEN_BITS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_GREEN_BITS = 0x0D53;$/;"	f	interface:OpenGLES20
+GL_HIGH_FLOAT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_HIGH_FLOAT = 0x8DF2;$/;"	f	interface:OpenGLES20
+GL_HIGH_INT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_HIGH_INT = 0x8DF5;$/;"	f	interface:OpenGLES20
+GL_IMPLEMENTATION_COLOR_READ_FORMAT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_IMPLEMENTATION_COLOR_READ_FORMAT = 0x8B9B;$/;"	f	interface:OpenGLES20
+GL_IMPLEMENTATION_COLOR_READ_TYPE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_IMPLEMENTATION_COLOR_READ_TYPE = 0x8B9A;$/;"	f	interface:OpenGLES20
+GL_INCR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_INCR = 0x1E02;$/;"	f	interface:OpenGLES20
+GL_INCR_WRAP	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_INCR_WRAP = 0x8507;$/;"	f	interface:OpenGLES20
+GL_INFO_LOG_LENGTH	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_INFO_LOG_LENGTH = 0x8B84;$/;"	f	interface:OpenGLES20
+GL_INT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_INT = 0x1404;$/;"	f	interface:OpenGLES20
+GL_INT_VEC2	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_INT_VEC2 = 0x8B53;$/;"	f	interface:OpenGLES20
+GL_INT_VEC3	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_INT_VEC3 = 0x8B54;$/;"	f	interface:OpenGLES20
+GL_INT_VEC4	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_INT_VEC4 = 0x8B55;$/;"	f	interface:OpenGLES20
+GL_INVALID_ENUM	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_INVALID_ENUM = 0x0500;$/;"	f	interface:OpenGLES20
+GL_INVALID_FRAMEBUFFER_OPERATION	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_INVALID_FRAMEBUFFER_OPERATION = 0x0506;$/;"	f	interface:OpenGLES20
+GL_INVALID_OPERATION	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_INVALID_OPERATION = 0x0502;$/;"	f	interface:OpenGLES20
+GL_INVALID_VALUE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_INVALID_VALUE = 0x0501;$/;"	f	interface:OpenGLES20
+GL_INVERT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_INVERT = 0x150A;$/;"	f	interface:OpenGLES20
+GL_KEEP	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_KEEP = 0x1E00;$/;"	f	interface:OpenGLES20
+GL_LEQUAL	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LEQUAL = 0x0203;$/;"	f	interface:OpenGLES20
+GL_LESS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LESS = 0x0201;$/;"	f	interface:OpenGLES20
+GL_LINEAR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LINEAR = 0x2601;$/;"	f	interface:OpenGLES20
+GL_LINEAR_MIPMAP_LINEAR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LINEAR_MIPMAP_LINEAR = 0x2703;$/;"	f	interface:OpenGLES20
+GL_LINEAR_MIPMAP_NEAREST	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LINEAR_MIPMAP_NEAREST = 0x2701;$/;"	f	interface:OpenGLES20
+GL_LINES	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LINES = 0x0001;$/;"	f	interface:OpenGLES20
+GL_LINE_LOOP	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LINE_LOOP = 0x0002;$/;"	f	interface:OpenGLES20
+GL_LINE_STRIP	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LINE_STRIP = 0x0003;$/;"	f	interface:OpenGLES20
+GL_LINE_WIDTH	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LINE_WIDTH = 0x0B21;$/;"	f	interface:OpenGLES20
+GL_LINK_STATUS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LINK_STATUS = 0x8B82;$/;"	f	interface:OpenGLES20
+GL_LOW_FLOAT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LOW_FLOAT = 0x8DF0;$/;"	f	interface:OpenGLES20
+GL_LOW_INT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LOW_INT = 0x8DF3;$/;"	f	interface:OpenGLES20
+GL_LUMINANCE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LUMINANCE = 0x1909;$/;"	f	interface:OpenGLES20
+GL_LUMINANCE_ALPHA	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_LUMINANCE_ALPHA = 0x190A;$/;"	f	interface:OpenGLES20
+GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS = 0x8B4D;$/;"	f	interface:OpenGLES20
+GL_MAX_CUBE_MAP_TEXTURE_SIZE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MAX_CUBE_MAP_TEXTURE_SIZE = 0x851C;$/;"	f	interface:OpenGLES20
+GL_MAX_FRAGMENT_UNIFORM_VECTORS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MAX_FRAGMENT_UNIFORM_VECTORS = 0x8DFD;$/;"	f	interface:OpenGLES20
+GL_MAX_RENDERBUFFER_SIZE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MAX_RENDERBUFFER_SIZE = 0x84E8;$/;"	f	interface:OpenGLES20
+GL_MAX_TEXTURE_IMAGE_UNITS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MAX_TEXTURE_IMAGE_UNITS = 0x8872;$/;"	f	interface:OpenGLES20
+GL_MAX_TEXTURE_SIZE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MAX_TEXTURE_SIZE = 0x0D33;$/;"	f	interface:OpenGLES20
+GL_MAX_VARYING_VECTORS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MAX_VARYING_VECTORS = 0x8DFC;$/;"	f	interface:OpenGLES20
+GL_MAX_VERTEX_ATTRIBS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MAX_VERTEX_ATTRIBS = 0x8869;$/;"	f	interface:OpenGLES20
+GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS = 0x8B4C;$/;"	f	interface:OpenGLES20
+GL_MAX_VERTEX_UNIFORM_VECTORS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MAX_VERTEX_UNIFORM_VECTORS = 0x8DFB;$/;"	f	interface:OpenGLES20
+GL_MAX_VIEWPORT_DIMS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MAX_VIEWPORT_DIMS = 0x0D3A;$/;"	f	interface:OpenGLES20
+GL_MEDIUM_FLOAT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MEDIUM_FLOAT = 0x8DF1;$/;"	f	interface:OpenGLES20
+GL_MEDIUM_INT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MEDIUM_INT = 0x8DF4;$/;"	f	interface:OpenGLES20
+GL_MIRRORED_REPEAT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_MIRRORED_REPEAT = 0x8370;$/;"	f	interface:OpenGLES20
+GL_NEAREST	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_NEAREST = 0x2600;$/;"	f	interface:OpenGLES20
+GL_NEAREST_MIPMAP_LINEAR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_NEAREST_MIPMAP_LINEAR = 0x2702;$/;"	f	interface:OpenGLES20
+GL_NEAREST_MIPMAP_NEAREST	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_NEAREST_MIPMAP_NEAREST = 0x2700;$/;"	f	interface:OpenGLES20
+GL_NEVER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_NEVER = 0x0200;$/;"	f	interface:OpenGLES20
+GL_NICEST	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_NICEST = 0x1102;$/;"	f	interface:OpenGLES20
+GL_NONE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_NONE = 0;$/;"	f	interface:OpenGLES20
+GL_NOTEQUAL	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_NOTEQUAL = 0x0205;$/;"	f	interface:OpenGLES20
+GL_NO_ERROR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_NO_ERROR = 0;$/;"	f	interface:OpenGLES20
+GL_NUM_COMPRESSED_TEXTURE_FORMATS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_NUM_COMPRESSED_TEXTURE_FORMATS = 0x86A2;$/;"	f	interface:OpenGLES20
+GL_NUM_SHADER_BINARY_FORMATS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_NUM_SHADER_BINARY_FORMATS = 0x8DF9;$/;"	f	interface:OpenGLES20
+GL_ONE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ONE = 1;$/;"	f	interface:OpenGLES20
+GL_ONE_MINUS_CONSTANT_ALPHA	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ONE_MINUS_CONSTANT_ALPHA = 0x8004;$/;"	f	interface:OpenGLES20
+GL_ONE_MINUS_CONSTANT_COLOR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ONE_MINUS_CONSTANT_COLOR = 0x8002;$/;"	f	interface:OpenGLES20
+GL_ONE_MINUS_DST_ALPHA	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ONE_MINUS_DST_ALPHA = 0x0305;$/;"	f	interface:OpenGLES20
+GL_ONE_MINUS_DST_COLOR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ONE_MINUS_DST_COLOR = 0x0307;$/;"	f	interface:OpenGLES20
+GL_ONE_MINUS_SRC_ALPHA	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ONE_MINUS_SRC_ALPHA = 0x0303;$/;"	f	interface:OpenGLES20
+GL_ONE_MINUS_SRC_COLOR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ONE_MINUS_SRC_COLOR = 0x0301;$/;"	f	interface:OpenGLES20
+GL_OUT_OF_MEMORY	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_OUT_OF_MEMORY = 0x0505;$/;"	f	interface:OpenGLES20
+GL_PACK_ALIGNMENT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_PACK_ALIGNMENT = 0x0D05;$/;"	f	interface:OpenGLES20
+GL_POINTS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_POINTS = 0x0000;$/;"	f	interface:OpenGLES20
+GL_POLYGON_OFFSET_FACTOR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_POLYGON_OFFSET_FACTOR = 0x8038;$/;"	f	interface:OpenGLES20
+GL_POLYGON_OFFSET_FILL	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_POLYGON_OFFSET_FILL = 0x8037;$/;"	f	interface:OpenGLES20
+GL_POLYGON_OFFSET_UNITS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_POLYGON_OFFSET_UNITS = 0x2A00;$/;"	f	interface:OpenGLES20
+GL_RED_BITS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RED_BITS = 0x0D52;$/;"	f	interface:OpenGLES20
+GL_RENDERBUFFER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RENDERBUFFER = 0x8D41;$/;"	f	interface:OpenGLES20
+GL_RENDERBUFFER_ALPHA_SIZE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RENDERBUFFER_ALPHA_SIZE = 0x8D53;$/;"	f	interface:OpenGLES20
+GL_RENDERBUFFER_BINDING	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RENDERBUFFER_BINDING = 0x8CA7;$/;"	f	interface:OpenGLES20
+GL_RENDERBUFFER_BLUE_SIZE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RENDERBUFFER_BLUE_SIZE = 0x8D52;$/;"	f	interface:OpenGLES20
+GL_RENDERBUFFER_DEPTH_SIZE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RENDERBUFFER_DEPTH_SIZE = 0x8D54;$/;"	f	interface:OpenGLES20
+GL_RENDERBUFFER_GREEN_SIZE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RENDERBUFFER_GREEN_SIZE = 0x8D51;$/;"	f	interface:OpenGLES20
+GL_RENDERBUFFER_HEIGHT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RENDERBUFFER_HEIGHT = 0x8D43;$/;"	f	interface:OpenGLES20
+GL_RENDERBUFFER_INTERNAL_FORMAT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RENDERBUFFER_INTERNAL_FORMAT = 0x8D44;$/;"	f	interface:OpenGLES20
+GL_RENDERBUFFER_RED_SIZE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RENDERBUFFER_RED_SIZE = 0x8D50;$/;"	f	interface:OpenGLES20
+GL_RENDERBUFFER_STENCIL_SIZE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RENDERBUFFER_STENCIL_SIZE = 0x8D55;$/;"	f	interface:OpenGLES20
+GL_RENDERBUFFER_WIDTH	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RENDERBUFFER_WIDTH = 0x8D42;$/;"	f	interface:OpenGLES20
+GL_RENDERER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RENDERER = 0x1F01;$/;"	f	interface:OpenGLES20
+GL_REPEAT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_REPEAT = 0x2901;$/;"	f	interface:OpenGLES20
+GL_REPLACE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_REPLACE = 0x1E01;$/;"	f	interface:OpenGLES20
+GL_RGB	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RGB = 0x1907;$/;"	f	interface:OpenGLES20
+GL_RGB565	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RGB565 = 0x8D62;$/;"	f	interface:OpenGLES20
+GL_RGB5_A1	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RGB5_A1 = 0x8057;$/;"	f	interface:OpenGLES20
+GL_RGBA	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RGBA = 0x1908;$/;"	f	interface:OpenGLES20
+GL_RGBA4	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_RGBA4 = 0x8056;$/;"	f	interface:OpenGLES20
+GL_SAMPLER_2D	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SAMPLER_2D = 0x8B5E;$/;"	f	interface:OpenGLES20
+GL_SAMPLER_CUBE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SAMPLER_CUBE = 0x8B60;$/;"	f	interface:OpenGLES20
+GL_SAMPLES	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SAMPLES = 0x80A9;$/;"	f	interface:OpenGLES20
+GL_SAMPLE_ALPHA_TO_COVERAGE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SAMPLE_ALPHA_TO_COVERAGE = 0x809E;$/;"	f	interface:OpenGLES20
+GL_SAMPLE_BUFFERS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SAMPLE_BUFFERS = 0x80A8;$/;"	f	interface:OpenGLES20
+GL_SAMPLE_COVERAGE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SAMPLE_COVERAGE = 0x80A0;$/;"	f	interface:OpenGLES20
+GL_SAMPLE_COVERAGE_INVERT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SAMPLE_COVERAGE_INVERT = 0x80AB;$/;"	f	interface:OpenGLES20
+GL_SAMPLE_COVERAGE_VALUE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SAMPLE_COVERAGE_VALUE = 0x80AA;$/;"	f	interface:OpenGLES20
+GL_SCISSOR_BOX	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SCISSOR_BOX = 0x0C10;$/;"	f	interface:OpenGLES20
+GL_SCISSOR_TEST	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SCISSOR_TEST = 0x0C11;$/;"	f	interface:OpenGLES20
+GL_SHADER_BINARY_FORMATS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SHADER_BINARY_FORMATS = 0x8DF8;$/;"	f	interface:OpenGLES20
+GL_SHADER_COMPILER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SHADER_COMPILER = 0x8DFA;$/;"	f	interface:OpenGLES20
+GL_SHADER_SOURCE_LENGTH	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SHADER_SOURCE_LENGTH = 0x8B88;$/;"	f	interface:OpenGLES20
+GL_SHADER_TYPE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SHADER_TYPE = 0x8B4F;$/;"	f	interface:OpenGLES20
+GL_SHADING_LANGUAGE_VERSION	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SHADING_LANGUAGE_VERSION = 0x8B8C;$/;"	f	interface:OpenGLES20
+GL_SHORT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SHORT = 0x1402;$/;"	f	interface:OpenGLES20
+GL_SRC_ALPHA	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SRC_ALPHA = 0x0302;$/;"	f	interface:OpenGLES20
+GL_SRC_ALPHA_SATURATE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SRC_ALPHA_SATURATE = 0x0308;$/;"	f	interface:OpenGLES20
+GL_SRC_COLOR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SRC_COLOR = 0x0300;$/;"	f	interface:OpenGLES20
+GL_STATIC_DRAW	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STATIC_DRAW = 0x88E4;$/;"	f	interface:OpenGLES20
+GL_STENCIL_ATTACHMENT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_ATTACHMENT = 0x8D20;$/;"	f	interface:OpenGLES20
+GL_STENCIL_BACK_FAIL	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_BACK_FAIL = 0x8801;$/;"	f	interface:OpenGLES20
+GL_STENCIL_BACK_FUNC	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_BACK_FUNC = 0x8800;$/;"	f	interface:OpenGLES20
+GL_STENCIL_BACK_PASS_DEPTH_FAIL	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_BACK_PASS_DEPTH_FAIL = 0x8802;$/;"	f	interface:OpenGLES20
+GL_STENCIL_BACK_PASS_DEPTH_PASS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_BACK_PASS_DEPTH_PASS = 0x8803;$/;"	f	interface:OpenGLES20
+GL_STENCIL_BACK_REF	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_BACK_REF = 0x8CA3;$/;"	f	interface:OpenGLES20
+GL_STENCIL_BACK_VALUE_MASK	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_BACK_VALUE_MASK = 0x8CA4;$/;"	f	interface:OpenGLES20
+GL_STENCIL_BACK_WRITEMASK	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_BACK_WRITEMASK = 0x8CA5;$/;"	f	interface:OpenGLES20
+GL_STENCIL_BITS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_BITS = 0x0D57;$/;"	f	interface:OpenGLES20
+GL_STENCIL_BUFFER_BIT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_BUFFER_BIT = 0x00000400;$/;"	f	interface:OpenGLES20
+GL_STENCIL_CLEAR_VALUE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_CLEAR_VALUE = 0x0B91;$/;"	f	interface:OpenGLES20
+GL_STENCIL_FAIL	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_FAIL = 0x0B94;$/;"	f	interface:OpenGLES20
+GL_STENCIL_FUNC	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_FUNC = 0x0B92;$/;"	f	interface:OpenGLES20
+GL_STENCIL_INDEX	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_INDEX = 0x1901;$/;"	f	interface:OpenGLES20
+GL_STENCIL_INDEX8	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_INDEX8 = 0x8D48;$/;"	f	interface:OpenGLES20
+GL_STENCIL_PASS_DEPTH_FAIL	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_PASS_DEPTH_FAIL = 0x0B95;$/;"	f	interface:OpenGLES20
+GL_STENCIL_PASS_DEPTH_PASS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_PASS_DEPTH_PASS = 0x0B96;$/;"	f	interface:OpenGLES20
+GL_STENCIL_REF	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_REF = 0x0B97;$/;"	f	interface:OpenGLES20
+GL_STENCIL_TEST	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_TEST = 0x0B90;$/;"	f	interface:OpenGLES20
+GL_STENCIL_VALUE_MASK	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_VALUE_MASK = 0x0B93;$/;"	f	interface:OpenGLES20
+GL_STENCIL_WRITEMASK	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STENCIL_WRITEMASK = 0x0B98;$/;"	f	interface:OpenGLES20
+GL_STREAM_DRAW	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_STREAM_DRAW = 0x88E0;$/;"	f	interface:OpenGLES20
+GL_SUBPIXEL_BITS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_SUBPIXEL_BITS = 0x0D50;$/;"	f	interface:OpenGLES20
+GL_TEXTURE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE = 0x1702;$/;"	f	interface:OpenGLES20
+GL_TEXTURE0	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE0 = 0x84C0;$/;"	f	interface:OpenGLES20
+GL_TEXTURE1	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE1 = 0x84C1;$/;"	f	interface:OpenGLES20
+GL_TEXTURE10	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE10 = 0x84CA;$/;"	f	interface:OpenGLES20
+GL_TEXTURE11	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE11 = 0x84CB;$/;"	f	interface:OpenGLES20
+GL_TEXTURE12	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE12 = 0x84CC;$/;"	f	interface:OpenGLES20
+GL_TEXTURE13	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE13 = 0x84CD;$/;"	f	interface:OpenGLES20
+GL_TEXTURE14	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE14 = 0x84CE;$/;"	f	interface:OpenGLES20
+GL_TEXTURE15	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE15 = 0x84CF;$/;"	f	interface:OpenGLES20
+GL_TEXTURE16	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE16 = 0x84D0;$/;"	f	interface:OpenGLES20
+GL_TEXTURE17	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE17 = 0x84D1;$/;"	f	interface:OpenGLES20
+GL_TEXTURE18	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE18 = 0x84D2;$/;"	f	interface:OpenGLES20
+GL_TEXTURE19	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE19 = 0x84D3;$/;"	f	interface:OpenGLES20
+GL_TEXTURE2	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE2 = 0x84C2;$/;"	f	interface:OpenGLES20
+GL_TEXTURE20	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE20 = 0x84D4;$/;"	f	interface:OpenGLES20
+GL_TEXTURE21	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE21 = 0x84D5;$/;"	f	interface:OpenGLES20
+GL_TEXTURE22	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE22 = 0x84D6;$/;"	f	interface:OpenGLES20
+GL_TEXTURE23	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE23 = 0x84D7;$/;"	f	interface:OpenGLES20
+GL_TEXTURE24	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE24 = 0x84D8;$/;"	f	interface:OpenGLES20
+GL_TEXTURE25	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE25 = 0x84D9;$/;"	f	interface:OpenGLES20
+GL_TEXTURE26	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE26 = 0x84DA;$/;"	f	interface:OpenGLES20
+GL_TEXTURE27	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE27 = 0x84DB;$/;"	f	interface:OpenGLES20
+GL_TEXTURE28	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE28 = 0x84DC;$/;"	f	interface:OpenGLES20
+GL_TEXTURE29	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE29 = 0x84DD;$/;"	f	interface:OpenGLES20
+GL_TEXTURE3	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE3 = 0x84C3;$/;"	f	interface:OpenGLES20
+GL_TEXTURE30	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE30 = 0x84DE;$/;"	f	interface:OpenGLES20
+GL_TEXTURE31	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE31 = 0x84DF;$/;"	f	interface:OpenGLES20
+GL_TEXTURE4	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE4 = 0x84C4;$/;"	f	interface:OpenGLES20
+GL_TEXTURE5	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE5 = 0x84C5;$/;"	f	interface:OpenGLES20
+GL_TEXTURE6	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE6 = 0x84C6;$/;"	f	interface:OpenGLES20
+GL_TEXTURE7	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE7 = 0x84C7;$/;"	f	interface:OpenGLES20
+GL_TEXTURE8	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE8 = 0x84C8;$/;"	f	interface:OpenGLES20
+GL_TEXTURE9	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE9 = 0x84C9;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_2D	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_2D = 0x0DE1;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_BINDING_2D	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_BINDING_2D = 0x8069;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_BINDING_CUBE_MAP	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_BINDING_CUBE_MAP = 0x8514;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_CUBE_MAP	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_CUBE_MAP = 0x8513;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_CUBE_MAP_NEGATIVE_X	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_CUBE_MAP_NEGATIVE_X = 0x8516;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_CUBE_MAP_NEGATIVE_Y	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_CUBE_MAP_NEGATIVE_Y = 0x8518;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_CUBE_MAP_NEGATIVE_Z	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_CUBE_MAP_NEGATIVE_Z = 0x851A;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_CUBE_MAP_POSITIVE_X	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_CUBE_MAP_POSITIVE_X = 0x8515;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_CUBE_MAP_POSITIVE_Y	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_CUBE_MAP_POSITIVE_Y = 0x8517;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_CUBE_MAP_POSITIVE_Z	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_CUBE_MAP_POSITIVE_Z = 0x8519;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_MAG_FILTER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_MAG_FILTER = 0x2800;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_MIN_FILTER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_MIN_FILTER = 0x2801;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_WRAP_S	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_WRAP_S = 0x2802;$/;"	f	interface:OpenGLES20
+GL_TEXTURE_WRAP_T	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TEXTURE_WRAP_T = 0x2803;$/;"	f	interface:OpenGLES20
+GL_TRIANGLES	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TRIANGLES = 0x0004;$/;"	f	interface:OpenGLES20
+GL_TRIANGLE_FAN	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TRIANGLE_FAN = 0x0006;$/;"	f	interface:OpenGLES20
+GL_TRIANGLE_STRIP	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TRIANGLE_STRIP = 0x0005;$/;"	f	interface:OpenGLES20
+GL_TRUE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_TRUE = 1;$/;"	f	interface:OpenGLES20
+GL_UNPACK_ALIGNMENT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_UNPACK_ALIGNMENT = 0x0CF5;$/;"	f	interface:OpenGLES20
+GL_UNSIGNED_BYTE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_UNSIGNED_BYTE = 0x1401;$/;"	f	interface:OpenGLES20
+GL_UNSIGNED_INT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_UNSIGNED_INT = 0x1405;$/;"	f	interface:OpenGLES20
+GL_UNSIGNED_SHORT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_UNSIGNED_SHORT = 0x1403;$/;"	f	interface:OpenGLES20
+GL_UNSIGNED_SHORT_4_4_4_4	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_UNSIGNED_SHORT_4_4_4_4 = 0x8033;$/;"	f	interface:OpenGLES20
+GL_UNSIGNED_SHORT_5_5_5_1	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_UNSIGNED_SHORT_5_5_5_1 = 0x8034;$/;"	f	interface:OpenGLES20
+GL_UNSIGNED_SHORT_5_6_5	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_UNSIGNED_SHORT_5_6_5 = 0x8363;$/;"	f	interface:OpenGLES20
+GL_VALIDATE_STATUS	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_VALIDATE_STATUS = 0x8B83;$/;"	f	interface:OpenGLES20
+GL_VENDOR	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_VENDOR = 0x1F00;$/;"	f	interface:OpenGLES20
+GL_VERSION	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_VERSION = 0x1F02;$/;"	f	interface:OpenGLES20
+GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = 0x889F;$/;"	f	interface:OpenGLES20
+GL_VERTEX_ATTRIB_ARRAY_ENABLED	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_VERTEX_ATTRIB_ARRAY_ENABLED = 0x8622;$/;"	f	interface:OpenGLES20
+GL_VERTEX_ATTRIB_ARRAY_NORMALIZED	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_VERTEX_ATTRIB_ARRAY_NORMALIZED = 0x886A;$/;"	f	interface:OpenGLES20
+GL_VERTEX_ATTRIB_ARRAY_POINTER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_VERTEX_ATTRIB_ARRAY_POINTER = 0x8645;$/;"	f	interface:OpenGLES20
+GL_VERTEX_ATTRIB_ARRAY_SIZE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_VERTEX_ATTRIB_ARRAY_SIZE = 0x8623;$/;"	f	interface:OpenGLES20
+GL_VERTEX_ATTRIB_ARRAY_STRIDE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_VERTEX_ATTRIB_ARRAY_STRIDE = 0x8624;$/;"	f	interface:OpenGLES20
+GL_VERTEX_ATTRIB_ARRAY_TYPE	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_VERTEX_ATTRIB_ARRAY_TYPE = 0x8625;$/;"	f	interface:OpenGLES20
+GL_VERTEX_SHADER	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_VERTEX_SHADER = 0x8B31;$/;"	f	interface:OpenGLES20
+GL_VIEWPORT	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_VIEWPORT = 0x0BA2;$/;"	f	interface:OpenGLES20
+GL_ZERO	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    static final int GL_ZERO = 0;$/;"	f	interface:OpenGLES20
 GZipResourceLoader	core/src/main/java/com/spidey01/sxe/core/GZipResourceLoader.java	/^public class GZipResourceLoader extends PathResourceLoader {$/;"	c
 GZipResourceLoaderTest	core/src/test/java/com/spidey01/sxe/core/GZipResourceLoaderTest.java	/^public class GZipResourceLoaderTest extends UnitTest {$/;"	c
 Game	core/src/main/java/com/spidey01/sxe/core/Game.java	/^public abstract class Game {$/;"	c
@@ -118,6 +416,7 @@ GpuProgram	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public
 GpuProgram	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public GpuProgram(Collection<Shader> shaders) {$/;"	m	class:GpuProgram
 GpuProgram	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public GpuProgram(Shader vertex, Shader fragment) {$/;"	m	class:GpuProgram
 GpuProgram	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^public class GpuProgram {$/;"	c
+HelloJRuby	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/HelloJRuby.java	/^public class HelloJRuby {$/;"	c
 HelloJavaScript	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/HelloJavaScript.java	/^public class HelloJavaScript {$/;"	c
 HelloJsr223	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloJsr223.java	/^public class HelloJsr223 {$/;"	c
 HelloRhino	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/HelloRhino.java	/^public class HelloRhino {$/;"	c
@@ -133,20 +432,36 @@ JAVA_EXE	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/
 JAVA_EXE	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
 JAVA_EXE	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
 JAVA_EXE	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
+JAVA_EXE	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
+JAVA_EXE	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
+JAVA_EXE	demos/snake/pc/build/scripts/snake-pc.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
+JAVA_EXE	demos/snake/pc/build/scripts/snake-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
 JAVA_HOME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
 JAVA_HOME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
-JavaClass	scripting/testhelpers/build/resources/main/JavaWrapper.js	/^var JavaClass = Packages.com.spidey01.sxe.scripting.testhelpers.JavaClass;$/;"	v
+JAVA_HOME	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
+JAVA_HOME	demos/snake/pc/build/scripts/snake-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
+JRubyScript	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^    JRubyScript(ScriptingContainer toWrap) {$/;"	m	class:JRubyScript
+JRubyScript	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^public class JRubyScript implements Script {$/;"	c
+JRubyScriptManager	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    public JRubyScriptManager() {$/;"	m	class:JRubyScriptManager
+JRubyScriptManager	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^public class JRubyScriptManager implements ScriptManager {$/;"	c
 JavaClass	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaClass.java	/^    public JavaClass() {$/;"	m	class:JavaClass
 JavaClass	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaClass.java	/^public class JavaClass {$/;"	c
 JavaClass	scripting/testhelpers/src/main/resources/JavaWrapper.js	/^var JavaClass = Packages.com.spidey01.sxe.scripting.testhelpers.JavaClass;$/;"	v
+JavaToJRuby	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/JavaToJRuby.java	/^public class JavaToJRuby {$/;"	c
 JavaToJavaScript	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToJavaScript.java	/^public class JavaToJavaScript {$/;"	c
 JavaToJsr223	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJsr223.java	/^public class JavaToJsr223 {$/;"	c
+JavaToPython	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToPython.java	/^public class JavaToPython {$/;"	c
 JavaToRhino	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^public class JavaToRhino {$/;"	c
+JavaToRuby	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToRuby.java	/^public class JavaToRuby {$/;"	c
 Jsr223Script	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    Jsr223Script(ScriptContext toWrap) {$/;"	m	class:Jsr223Script
 Jsr223Script	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^public class Jsr223Script implements Script {$/;"	c
 Jsr223ScriptManager	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    private Jsr223ScriptManager(GetBy how, String value) {$/;"	m	class:Jsr223ScriptManager	file:
 Jsr223ScriptManager	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Jsr223ScriptManager() {$/;"	m	class:Jsr223ScriptManager
 Jsr223ScriptManager	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^public class Jsr223ScriptManager implements ScriptManager {$/;"	c
+JythonScript	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScript.java	/^    JythonScript(PythonInterpreter toWrap) {$/;"	m	class:JythonScript
+JythonScript	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScript.java	/^public class JythonScript implements Script {$/;"	c
+JythonScriptManager	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    public JythonScriptManager() {$/;"	m	class:JythonScriptManager
+JythonScriptManager	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^public class JythonScriptManager implements ScriptManager {$/;"	c
 KeyEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public KeyEvent(InputManager source, Object nativeEvent,$/;"	m	class:KeyEvent
 KeyEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public KeyEvent(InputManager source, int keyCode,$/;"	m	class:KeyEvent
 KeyEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^public class KeyEvent {$/;"	c
@@ -166,14 +481,19 @@ MIME_TYPE	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr22
 Main	demos/helloworld/pc/src/main/java/com/spidey01/sxe/helloworld/pc/Main.java	/^class Main {$/;"	c
 Main	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^class Main {$/;"	c
 Main	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^class Main {$/;"	c
+Manifest	android/gen/com/spidey01/sxe/android/Manifest.java	/^public final class Manifest {$/;"	c
+Manifest	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/Manifest.java	/^public final class Manifest {$/;"	c
+Manifest	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/Manifest.java	/^public final class Manifest {$/;"	c
 Mesh	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    public Mesh(GameContext ctx, float[] vertices) {$/;"	m	class:Mesh
 Mesh	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^public class Mesh implements FrameStartedListener {$/;"	c
 NAME	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptManager.GetBy	file:
 Notifier	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^        Notifier(AndroidSettings s) {$/;"	m	class:AndroidSettings.Notifier
 Notifier	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    static class Notifier implements SharedPreferences.OnSharedPreferenceChangeListener {$/;"	c	class:AndroidSettings
 OnChangedListener	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    public interface OnChangedListener {$/;"	i	interface:Settings
-OpenGL	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^public interface OpenGL {$/;"	i
+OpenGL	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^public interface OpenGL extends OpenGLES20 {$/;"	i
+OpenGLES20	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^public interface OpenGLES20 {$/;"	i
 OpenGLES20Renderer	android/src/main/java/com/spidey01/sxe/android/OpenGLES20Renderer.java	/^public class OpenGLES20Renderer implements GLSurfaceView.Renderer {$/;"	c
+OpenGLES30	core/src/main/java/com/spidey01/sxe/core/OpenGLES30.java	/^public interface OpenGLES30 extends OpenGLES20 {$/;"	i
 Opponent	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/Opponent.java	/^    public Opponent() {$/;"	m	class:Opponent
 Opponent	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/Opponent.java	/^public class Opponent {$/;"	c
 PLATFORM_ARCHITECTURE	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static final String PLATFORM_ARCHITECTURE = System.getProperty("os.arch");$/;"	f	class:Utils
@@ -196,10 +516,9 @@ PngBitmap	core/src/main/java/com/spidey01/sxe/core/PngBitmap.java	/^    public P
 PngBitmap	core/src/main/java/com/spidey01/sxe/core/PngBitmap.java	/^public class PngBitmap implements Bitmap {$/;"	c
 QueuedLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^        QueuedLoader(URI uri) {$/;"	m	class:ResourceManager.QueuedLoader
 QueuedLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    private class QueuedLoader implements Callable<ResourceHandle> {$/;"	c	class:ResourceManager
-R	demos/helloworld/android/build/source/r/debug/com/spidey01/sxe/helloworld/android/R.java	/^public final class R {$/;"	c
-R	demos/helloworld/android/build/source/r/release/com/spidey01/sxe/helloworld/android/R.java	/^public final class R {$/;"	c
-R	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^public final class R {$/;"	c
-R	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^public final class R {$/;"	c
+R	android/gen/com/spidey01/sxe/android/R.java	/^public final class R {$/;"	c
+R	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/R.java	/^public final class R {$/;"	c
+R	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/R.java	/^public final class R {$/;"	c
 RAW	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^        RAW,$/;"	e	enum:ResourceHandle.Type	file:
 READER	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^        READER,$/;"	e	enum:ResourceHandle.Type	file:
 RGB	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        RGB(3, false),$/;"	e	enum:PNGDecoder.Format	file:
@@ -288,16 +607,24 @@ TAG	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    private static f
 TAG	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^    private static final String TAG = "PcConfiguration";$/;"	f	class:PcConfiguration	file:
 TAG	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private static final String TAG = "PcDisplay";$/;"	f	class:PcDisplay	file:
 TAG	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    private static final String TAG = "PcInputManager";$/;"	f	class:PcInputManager	file:
+TAG	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^    private final static String TAG = "JRubyScript";$/;"	f	class:JRubyScript	file:
+TAG	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    private final static String TAG = "JRubyScriptManager";$/;"	f	class:JRubyScriptManager	file:
+TAG	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/HelloJRuby.java	/^    private static final String TAG = "HelloJRuby";$/;"	f	class:HelloJRuby	file:
+TAG	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/JavaToJRuby.java	/^    private static final String TAG = "JavaToJRuby";$/;"	f	class:JavaToJRuby	file:
 TAG	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    private final static String TAG = "Jsr223Script";$/;"	f	class:Jsr223Script	file:
 TAG	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    private final static String TAG = "Jsr223ScriptManager";$/;"	f	class:Jsr223ScriptManager	file:
 TAG	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloJsr223.java	/^    private static final String TAG = "HelloJsr223";$/;"	f	class:HelloJsr223	file:
 TAG	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJsr223.java	/^    private static final String TAG = "JavaToJsr223";$/;"	f	class:JavaToJsr223	file:
+TAG	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScript.java	/^    private final static String TAG = "JythonScript";$/;"	f	class:JythonScript	file:
+TAG	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    private final static String TAG = "JythonScriptManager";$/;"	f	class:JythonScriptManager	file:
 TAG	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^    private final static String TAG = "RhinoScript";$/;"	f	class:RhinoScript	file:
 TAG	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private final static String TAG = "RhinoScriptManager";$/;"	f	class:RhinoScriptManager	file:
 TAG	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/HelloRhino.java	/^    private static final String TAG = "HelloRhino";$/;"	f	class:HelloRhino	file:
 TAG	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    private static final String TAG = "JavaToRhino";$/;"	f	class:JavaToRhino	file:
-TAG	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaClass.java	/^    private static final String TAG = "JavaToRhino.JavaClass";$/;"	f	class:JavaClass	file:
+TAG	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaClass.java	/^    private static final String TAG = "JavaClass";$/;"	f	class:JavaClass	file:
 TAG	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToJavaScript.java	/^    private static final String TAG = "JavaToJavaScript";$/;"	f	class:JavaToJavaScript	file:
+TAG	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToPython.java	/^    private static final String TAG = "JavaToPython";$/;"	f	class:JavaToPython	file:
+TAG	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToRuby.java	/^    private static final String TAG = "JavaToRuby";$/;"	f	class:JavaToRuby	file:
 TAG	templates/NewClass.java	/^    private final static String TAG = "CLASSTEMPLATE";$/;"	f	class:CLASSTEMPLATE	file:
 TEXTURE	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^        TEXTURE,$/;"	e	enum:ResourceHandle.Type	file:
 TRACE	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int TRACE   = 10;$/;"	f	class:Log
@@ -334,6 +661,8 @@ ZipResourceLoader	core/src/main/java/com/spidey01/sxe/core/ZipResourceLoader.jav
 ZipResourceLoaderTest	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^public class ZipResourceLoaderTest extends UnitTest {$/;"	c
 _SKIP	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set _SKIP=2$/;"	v
 _SKIP	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set _SKIP=2$/;"	v
+_SKIP	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set _SKIP=2$/;"	v
+_SKIP	demos/snake/pc/build/scripts/snake-pc.bat	/^set _SKIP=2$/;"	v
 add	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void add(LogSink sink) {$/;"	m	class:Log
 addChangeListener	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    public void addChangeListener(OnChangedListener listener) {$/;"	m	class:AndroidSettings
 addChangeListener	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    void addChangeListener(OnChangedListener listener);$/;"	m	interface:Settings
@@ -359,39 +688,18 @@ addResourceLocation	core/src/main/java/com/spidey01/sxe/core/ResourceManager.jav
 allowRepeating	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void allowRepeating(boolean repeating) {$/;"	m	class:Console
 alog	android/src/main/java/com/spidey01/sxe/android/AndroidLogSink.java	/^    private void alog(int level, String tag, String message) {$/;"	m	class:AndroidLogSink	file:
 androidKeyCodeToString	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^    private String androidKeyCodeToString(int keyCode) {$/;"	m	class:AndroidInputManager	file:
-app_name	demos/helloworld/android/build/source/r/debug/com/spidey01/sxe/helloworld/android/R.java	/^        public static final int app_name=0x7f020000;$/;"	f	class:R.string
-app_name	demos/helloworld/android/build/source/r/release/com/spidey01/sxe/helloworld/android/R.java	/^        public static final int app_name=0x7f020000;$/;"	f	class:R.string
-app_name	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^        public static final int app_name=0x7f030000;$/;"	f	class:R.string
-app_name	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^        public static final int app_name=0x7f030000;$/;"	f	class:R.string
 asInputStream	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public InputStream asInputStream() {$/;"	m	class:ResourceHandle
 asReader	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public BufferedReader asReader() throws IOException {$/;"	m	class:ResourceHandle
 asShader	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public Shader asShader(Shader.Type type) throws IOException {$/;"	m	class:ResourceHandle
 asTexture	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public Texture asTexture() throws IOException {$/;"	m	class:ResourceHandle
 attachShader	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void attachShader(OpenGL GL, Shader shader) {$/;"	m	class:GpuProgram
 attachShader	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void attachShader(Shader shader) {$/;"	m	class:GpuProgram
-attr	demos/helloworld/android/build/source/r/debug/com/spidey01/sxe/helloworld/android/R.java	/^    public static final class attr {$/;"	c	class:R
-attr	demos/helloworld/android/build/source/r/release/com/spidey01/sxe/helloworld/android/R.java	/^    public static final class attr {$/;"	c	class:R
-attr	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class attr {$/;"	c	class:R
-attr	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class attr {$/;"	c	class:R
 baseDir	core/src/main/java/com/spidey01/sxe/core/TestUtils.java	/^    public static File baseDir = new File(System.getProperty("user.dir"));$/;"	f	class:TestUtils
 bitdepth	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int bitdepth;$/;"	f	class:PNGDecoder	file:
 booleanValue	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public boolean booleanValue() {$/;"	m	class:Variable
 buffer	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private final byte[] buffer;$/;"	f	class:PNGDecoder	file:
 bytesPerPixel	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int bytesPerPixel;$/;"	f	class:PNGDecoder	file:
 call	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^        public ResourceHandle call() {$/;"	m	class:ResourceManager.QueuedLoader
-changeElementClass	core/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	demos/helloworld/lib/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	demos/helloworld/pc/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	demos/pingpong/lib/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	demos/pingpong/pc/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	demos/snake/lib/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	demos/snake/pc/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	pc/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	scripting/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	scripting/jsr223/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	scripting/rhino/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	scripting/testhelpers/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
-changeElementClass	vendor/pngdecoder/build/reports/tests/report.js	/^function changeElementClass(element, classValue) {$/;"	f
 check	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    private void check() {$/;"	m	class:GpuProgram	file:
 check	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    private void check() {$/;"	m	class:Shader	file:
 check	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    private void check() {$/;"	m	class:VertexBuffer	file:
@@ -408,8 +716,9 @@ closeChunk	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.
 cmap	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 colorType	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int colorType;$/;"	f	class:PNGDecoder	file:
 com.spidey01.sxe.MODULETEMPLATE	templates/NewClass.java	/^package com.spidey01.sxe.MODULETEMPLATE;$/;"	p
-com.spidey01.sxe.android	android/build/source/buildConfig/debug/com/spidey01/sxe/android/BuildConfig.java	/^package com.spidey01.sxe.android;$/;"	p
-com.spidey01.sxe.android	android/build/source/buildConfig/release/com/spidey01/sxe/android/BuildConfig.java	/^package com.spidey01.sxe.android;$/;"	p
+com.spidey01.sxe.android	android/gen/com/spidey01/sxe/android/BuildConfig.java	/^package com.spidey01.sxe.android;$/;"	p
+com.spidey01.sxe.android	android/gen/com/spidey01/sxe/android/Manifest.java	/^package com.spidey01.sxe.android;$/;"	p
+com.spidey01.sxe.android	android/gen/com/spidey01/sxe/android/R.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.android	android/src/main/java/com/spidey01/sxe/android/AndroidConfiguration.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.android	android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.android	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	/^package com.spidey01.sxe.android;$/;"	p
@@ -442,6 +751,8 @@ com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Log.java	/^packag
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/OpenGLES30.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/PathResourceLoader.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/PngBitmap.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^package com.spidey01.sxe.core;$/;"	p
@@ -466,10 +777,9 @@ com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/PathResourceLoade
 com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/TestResources.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.helloworld.android	demos/helloworld/android/build/source/buildConfig/debug/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
-com.spidey01.sxe.helloworld.android	demos/helloworld/android/build/source/buildConfig/release/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
-com.spidey01.sxe.helloworld.android	demos/helloworld/android/build/source/r/debug/com/spidey01/sxe/helloworld/android/R.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
-com.spidey01.sxe.helloworld.android	demos/helloworld/android/build/source/r/release/com/spidey01/sxe/helloworld/android/R.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
+com.spidey01.sxe.helloworld.android	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
+com.spidey01.sxe.helloworld.android	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/Manifest.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
+com.spidey01.sxe.helloworld.android	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/R.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
 com.spidey01.sxe.helloworld.android	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
 com.spidey01.sxe.helloworld.lib	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^package com.spidey01.sxe.helloworld.lib;$/;"	p
 com.spidey01.sxe.helloworld.pc	demos/helloworld/pc/src/main/java/com/spidey01/sxe/helloworld/pc/Main.java	/^package com.spidey01.sxe.helloworld.pc;$/;"	p
@@ -483,6 +793,12 @@ com.spidey01.sxe.pingpong.lib	demos/pingpong/lib/src/main/java/com/spidey01/sxe/
 com.spidey01.sxe.pingpong.pc	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^package com.spidey01.sxe.pingpong.pc;$/;"	p
 com.spidey01.sxe.scripting	scripting/src/main/java/com/spidey01/sxe/scripting/Script.java	/^package com.spidey01.sxe.scripting;$/;"	p
 com.spidey01.sxe.scripting	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^package com.spidey01.sxe.scripting;$/;"	p
+com.spidey01.sxe.scripting.jruby	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^package com.spidey01.sxe.scripting.jruby;$/;"	p
+com.spidey01.sxe.scripting.jruby	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^package com.spidey01.sxe.scripting.jruby;$/;"	p
+com.spidey01.sxe.scripting.jruby	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/HelloJRuby.java	/^package com.spidey01.sxe.scripting.jruby;$/;"	p
+com.spidey01.sxe.scripting.jruby	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/JavaToJRuby.java	/^package com.spidey01.sxe.scripting.jruby;$/;"	p
+com.spidey01.sxe.scripting.jruby	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScript.java	/^package com.spidey01.sxe.scripting.jruby;$/;"	p
+com.spidey01.sxe.scripting.jruby	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^package com.spidey01.sxe.scripting.jruby;$/;"	p
 com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
 com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
 com.spidey01.sxe.scripting.jsr223	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloJsr223.java	/^package com.spidey01.sxe.scripting.jsr223;$/;"	p
@@ -494,13 +810,14 @@ com.spidey01.sxe.scripting.rhino	scripting/rhino/src/test/java/com/spidey01/sxe/
 com.spidey01.sxe.scripting.testhelpers	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/HelloJavaScript.java	/^package com.spidey01.sxe.scripting.testhelpers;$/;"	p
 com.spidey01.sxe.scripting.testhelpers	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaClass.java	/^package com.spidey01.sxe.scripting.testhelpers;$/;"	p
 com.spidey01.sxe.scripting.testhelpers	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToJavaScript.java	/^package com.spidey01.sxe.scripting.testhelpers;$/;"	p
+com.spidey01.sxe.scripting.testhelpers	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToPython.java	/^package com.spidey01.sxe.scripting.testhelpers;$/;"	p
+com.spidey01.sxe.scripting.testhelpers	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToRuby.java	/^package com.spidey01.sxe.scripting.testhelpers;$/;"	p
 com.spidey01.sxe.snake.android	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^package com.spidey01.sxe.snake.android;$/;"	p
 com.spidey01.sxe.snake.lib	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^package com.spidey01.sxe.snake.lib;$/;"	p
 com.spidey01.sxe.snake.pc	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^package com.spidey01.sxe.snake.pc;$/;"	p
-com.spidey01.sxe.snakegame.android	demos/snake/android/build/source/buildConfig/debug/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
-com.spidey01.sxe.snakegame.android	demos/snake/android/build/source/buildConfig/release/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
-com.spidey01.sxe.snakegame.android	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
-com.spidey01.sxe.snakegame.android	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
+com.spidey01.sxe.snakegame.android	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
+com.spidey01.sxe.snakegame.android	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/Manifest.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
+com.spidey01.sxe.snakegame.android	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/R.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
 contains	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    public boolean contains(String key) {$/;"	m	class:AndroidSettings
 contains	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    boolean contains(String key);$/;"	m	interface:Settings
 contains	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public boolean contains(String key) {$/;"	m	class:SettingsFile
@@ -530,7 +847,9 @@ createFloatBuffer	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    pu
 createIntBuffer	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public IntBuffer createIntBuffer(int size) {$/;"	m	class:AndroidOpenGLES
 createIntBuffer	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    IntBuffer createIntBuffer(int size);$/;"	m	interface:OpenGL
 createIntBuffer	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public IntBuffer createIntBuffer(int size) {$/;"	m	class:LwjglOpenGL
+createScript	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    public Script createScript() {$/;"	m	class:JRubyScriptManager
 createScript	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Script createScript() {$/;"	m	class:Jsr223ScriptManager
+createScript	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    public Script createScript() {$/;"	m	class:JythonScriptManager
 createScript	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public Script createScript() {$/;"	m	class:RhinoScriptManager
 createScript	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^    Script createScript();$/;"	m	interface:ScriptManager
 cvt	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
@@ -542,19 +861,6 @@ decodeFlipped	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecod
 deinitialize	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void deinitialize(OpenGL GL) {$/;"	m	class:GpuProgram
 deinitialize	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    public void deinitialize(OpenGL GL) {$/;"	m	class:Shader
 deinitialize	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    public void deinitialize(OpenGL GL) {$/;"	m	class:VertexBuffer
-deselectAll	core/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	demos/helloworld/lib/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	demos/helloworld/pc/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	demos/pingpong/lib/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	demos/pingpong/pc/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	demos/snake/lib/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	demos/snake/pc/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	pc/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	scripting/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	scripting/jsr223/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	scripting/rhino/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	scripting/testhelpers/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
-deselectAll	vendor/pngdecoder/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
 destroy	android/src/main/java/com/spidey01/sxe/android/AndroidDisplay.java	/^    public void destroy() {$/;"	m	class:AndroidDisplay
 destroy	core/src/main/java/com/spidey01/sxe/core/Display.java	/^    void destroy();$/;"	m	interface:Display
 destroy	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void destroy() {$/;"	m	class:PcDisplay
@@ -562,20 +868,28 @@ detachShader	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    publ
 detachShader	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void detachShader(Shader shader) {$/;"	m	class:GpuProgram
 die	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc	/^die ( ) {$/;"	f
 die	demos/helloworld/pc/build/scripts/helloworld-pc	/^die ( ) {$/;"	f
+die	demos/pingpong/pc/build/scripts/pingpong-pc	/^die ( ) {$/;"	f
+die	demos/snake/pc/build/scripts/snake-pc	/^die ( ) {$/;"	f
 directory	core/src/test/java/com/spidey01/sxe/core/TestResources.java	/^    static final String directory = "src\/test\/resources";$/;"	f	class:TestResources
 disableDebugging	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void disableDebugging() {$/;"	m	class:RateCounter
 e	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void e(String tag, Object... messages) {$/;"	m	class:Log
 enableDebugging	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void enableDebugging() {$/;"	m	class:RateCounter
 end	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:end$/;"	l
 end	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:end$/;"	l
+end	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:end$/;"	l
+end	demos/snake/pc/build/scripts/snake-pc.bat	/^:end$/;"	l
 enqueue	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Future<ResourceHandle> enqueue(File path) {$/;"	m	class:ResourceManager
 enqueue	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Future<ResourceHandle> enqueue(String path) {$/;"	m	class:ResourceManager
 enqueue	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Future<ResourceHandle> enqueue(URI uri) {$/;"	m	class:ResourceManager
 enqueue	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public void enqueue() throws Exception {$/;"	m	class:ResourceManagerTest
 equals	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    public boolean equals(ConsoleCommand other) {$/;"	m	class:ConsoleCommand
 equals	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public boolean equals(KeyEvent other) {$/;"	m	class:KeyEvent
+eval	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    public Object eval(Script scope, File sourceFile)$/;"	m	class:JRubyScriptManager
+eval	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    public Object eval(Script scope, String sourceCode) {$/;"	m	class:JRubyScriptManager
 eval	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Object eval(Script scope, File sourceFile)$/;"	m	class:Jsr223ScriptManager
 eval	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Object eval(Script scope, String sourceCode) {$/;"	m	class:Jsr223ScriptManager
+eval	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    public Object eval(Script scope, File sourceFile)$/;"	m	class:JythonScriptManager
+eval	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    public Object eval(Script scope, String sourceCode) {$/;"	m	class:JythonScriptManager
 eval	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public Object eval(Script scope, File sourceFile)$/;"	m	class:RhinoScriptManager
 eval	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public Object eval(Script scope, String sourceCode) {$/;"	m	class:RhinoScriptManager
 eval	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^    Object eval(Script scope, File sourceFile) throws IOException, FileNotFoundException;$/;"	m	interface:ScriptManager
@@ -585,68 +899,22 @@ execute	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void 
 execute	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    public void execute() {$/;"	m	class:ConsoleCommand
 execute	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:execute$/;"	l
 execute	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:execute$/;"	l
+execute	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:execute$/;"	l
+execute	demos/snake/pc/build/scripts/snake-pc.bat	/^:execute$/;"	l
 expand1	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand1(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand2	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand2(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand4	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand4(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 fail	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:fail$/;"	l
 fail	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:fail$/;"	l
+fail	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:fail$/;"	l
+fail	demos/snake/pc/build/scripts/snake-pc.bat	/^:fail$/;"	l
 fftm	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 filter	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Object filter(Object o) {$/;"	m	class:RhinoScriptManager	file:
-findChildElements	core/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	demos/helloworld/lib/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	demos/helloworld/pc/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	demos/pingpong/lib/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	demos/pingpong/pc/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	demos/snake/lib/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	demos/snake/pc/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	pc/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	scripting/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	scripting/jsr223/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	scripting/rhino/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	scripting/testhelpers/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findChildElements	vendor/pngdecoder/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
-findHeaders	core/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	demos/helloworld/lib/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	demos/helloworld/pc/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	demos/pingpong/lib/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	demos/pingpong/pc/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	demos/snake/lib/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	demos/snake/pc/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	pc/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	scripting/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	scripting/jsr223/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	scripting/rhino/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	scripting/testhelpers/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
-findHeaders	vendor/pngdecoder/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
 findJavaFromJavaHome	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:findJavaFromJavaHome$/;"	l
 findJavaFromJavaHome	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:findJavaFromJavaHome$/;"	l
+findJavaFromJavaHome	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:findJavaFromJavaHome$/;"	l
+findJavaFromJavaHome	demos/snake/pc/build/scripts/snake-pc.bat	/^:findJavaFromJavaHome$/;"	l
 findLocation	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    protected String findLocation(URI uri) {$/;"	m	class:ResourceManager
-findTabs	core/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	demos/helloworld/lib/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	demos/helloworld/pc/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	demos/pingpong/lib/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	demos/pingpong/pc/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	demos/snake/lib/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	demos/snake/pc/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	pc/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	scripting/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	scripting/jsr223/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	scripting/rhino/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	scripting/testhelpers/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTabs	vendor/pngdecoder/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
-findTitles	core/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	demos/helloworld/lib/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	demos/helloworld/pc/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	demos/pingpong/lib/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	demos/pingpong/pc/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	demos/snake/lib/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	demos/snake/pc/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	pc/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	scripting/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	scripting/jsr223/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	scripting/rhino/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	scripting/testhelpers/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
-findTitles	vendor/pngdecoder/build/reports/tests/report.js	/^function findTitles(tabs) {$/;"	f
 floatValue	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public float floatValue() {$/;"	m	class:Variable
 fpgm	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 frameEnded	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void frameEnded() {$/;"	m	class:Console
@@ -665,12 +933,17 @@ garbageZipFile	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.ja
 gasp	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 gdef	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 get	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public String get() {$/;"	m	class:Variable
+get	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    public Object get(Script scope, String variable) {$/;"	m	class:JRubyScriptManager
+get	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/JavaToJRuby.java	/^    public void get() {$/;"	m	class:JavaToJRuby
 get	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Object get(Script scope, String variable) {$/;"	m	class:Jsr223ScriptManager
 get	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJsr223.java	/^    public void get() {$/;"	m	class:JavaToJsr223
+get	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    public Object get(Script scope, String variable) {$/;"	m	class:JythonScriptManager
 get	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public Object get(Script scope, String variable) {$/;"	m	class:RhinoScriptManager
 get	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public void get() {$/;"	m	class:JavaToRhino
 get	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^    Object get(Script scope, String variable);$/;"	m	interface:ScriptManager
 get	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToJavaScript.java	/^    public static void get(ScriptManager manager) {$/;"	m	class:JavaToJavaScript
+get	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToPython.java	/^    public static void get(ScriptManager manager) {$/;"	m	class:JavaToPython
+get	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToRuby.java	/^    public static void get(ScriptManager manager) {$/;"	m	class:JavaToRuby
 getAll	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    public Map<String, Object> getAll() {$/;"	m	class:AndroidSettings
 getBitBucketFile	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static File getBitBucketFile() {$/;"	m	class:Utils
 getBitBucketPath	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String getBitBucketPath() {$/;"	m	class:Utils
@@ -689,6 +962,7 @@ getConfigDirs	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        publ
 getConfigHome	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getConfigHome() {$/;"	m	class:Utils.Xdg
 getConfigHomeDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getConfigHomeDir(String relative) {$/;"	m	class:Utils.Xdg
 getConsole	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Console getConsole() {$/;"	m	class:GameContext
+getContainer	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^    ScriptingContainer getContainer() {$/;"	m	class:JRubyScript
 getDataDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getDataDir(String relative) {$/;"	m	class:Utils.Xdg
 getDataDirs	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String[] getDataDirs() {$/;"	m	class:Utils.Xdg
 getDataHome	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getDataHome() {$/;"	m	class:Utils.Xdg
@@ -740,6 +1014,7 @@ getInputStream	core/src/main/java/com/spidey01/sxe/core/ZipResourceLoader.java	/
 getInt	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    public int getInt(String key) {$/;"	m	class:AndroidSettings
 getInt	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    int getInt(String key);$/;"	m	interface:Settings
 getInt	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public int getInt(String key) {$/;"	m	class:SettingsFile
+getInterpreter	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScript.java	/^    PythonInterpreter getInterpreter() {$/;"	m	class:JythonScript
 getKeyCode	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public int getKeyCode() {$/;"	m	class:KeyEvent
 getKeyName	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public String getKeyName() {$/;"	m	class:KeyEvent
 getLevel	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public int getLevel(String tag) {$/;"	m	class:LogSink
@@ -775,6 +1050,8 @@ getResource	core/src/main/java/com/spidey01/sxe/core/TestUtils.java	/^    public
 getResourceManager	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public ResourceManager getResourceManager() {$/;"	m	class:GameEngine
 getResources	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public ResourceManager getResources() {$/;"	m	class:GameContext
 getRuntimeDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static String getRuntimeDir() {$/;"	m	class:Utils.Xdg
+getScope	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    private ScriptingContainer getScope(Script scope) {$/;"	m	class:JRubyScriptManager	file:
+getScope	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    private PythonInterpreter getScope(Script scope) {$/;"	m	class:JythonScriptManager	file:
 getScope	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Scriptable getScope(Script scope) {$/;"	m	class:RhinoScriptManager	file:
 getScriptContext	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    ScriptContext getScriptContext() {$/;"	m	class:Jsr223Script
 getScriptContext	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    private ScriptContext getScriptContext(Script scope) {$/;"	m	class:Jsr223ScriptManager	file:
@@ -800,36 +1077,36 @@ getWidth	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.ja
 getZip	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^    private File getZip() {$/;"	m	class:ZipResourceLoaderTest	file:
 glAttachShader	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glAttachShader(GpuProgram p, Shader s) {$/;"	m	class:AndroidOpenGLES
 glAttachShader	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glAttachShader(int program, int shader) {$/;"	m	class:AndroidOpenGLES
-glAttachShader	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glAttachShader(GpuProgram p, Shader s);$/;"	m	interface:OpenGL
-glAttachShader	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glAttachShader(int program, int shader);$/;"	m	interface:OpenGL
+glAttachShader	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glAttachShader(GpuProgram p, Shader s);$/;"	m	interface:OpenGLES20
+glAttachShader	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glAttachShader(int program, int shader);$/;"	m	interface:OpenGLES20
 glAttachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glAttachShader(GpuProgram p, Shader s) {$/;"	m	class:LwjglOpenGL
 glAttachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glAttachShader(int program, int shader) {$/;"	m	class:LwjglOpenGL
 glBegin	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glBegin(int mode) {$/;"	m	class:AndroidOpenGLES
 glBegin	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glBegin(int mode);$/;"	m	interface:OpenGL
 glBegin	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBegin(int mode) {$/;"	m	class:LwjglOpenGL
 glBindBuffer	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glBindBuffer(int target, int buffer) {$/;"	m	class:AndroidOpenGLES
-glBindBuffer	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glBindBuffer(int target, int buffer);$/;"	m	interface:OpenGL
+glBindBuffer	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glBindBuffer(int target, int buffer);$/;"	m	interface:OpenGLES20
 glBindBuffer	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBindBuffer(int target, int buffer) {$/;"	m	class:LwjglOpenGL
 glBindTexture	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glBindTexture(int target, int texture) {$/;"	m	class:AndroidOpenGLES
-glBindTexture	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glBindTexture(int target, int texture);$/;"	m	interface:OpenGL
+glBindTexture	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glBindTexture(int target, int texture);$/;"	m	interface:OpenGLES20
 glBindTexture	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBindTexture(int target, int texture) {$/;"	m	class:LwjglOpenGL
 glBufferData	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glBufferData(int target, ByteBuffer data, int usage) {$/;"	m	class:AndroidOpenGLES
 glBufferData	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glBufferData(int target, DoubleBuffer data, int usage) {$/;"	m	class:AndroidOpenGLES
 glBufferData	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glBufferData(int target, FloatBuffer data, int usage) {$/;"	m	class:AndroidOpenGLES
 glBufferData	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glBufferData(int target, IntBuffer data, int usage) {$/;"	m	class:AndroidOpenGLES
-glBufferData	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glBufferData(int target, ByteBuffer data, int usage);$/;"	m	interface:OpenGL
-glBufferData	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glBufferData(int target, DoubleBuffer data, int usage);$/;"	m	interface:OpenGL
-glBufferData	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glBufferData(int target, FloatBuffer data, int usage);$/;"	m	interface:OpenGL
-glBufferData	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glBufferData(int target, IntBuffer data, int usage);$/;"	m	interface:OpenGL
+glBufferData	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glBufferData(int target, ByteBuffer data, int usage);$/;"	m	interface:OpenGLES20
+glBufferData	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glBufferData(int target, DoubleBuffer data, int usage);$/;"	m	interface:OpenGLES20
+glBufferData	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glBufferData(int target, FloatBuffer data, int usage);$/;"	m	interface:OpenGLES20
+glBufferData	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glBufferData(int target, IntBuffer data, int usage);$/;"	m	interface:OpenGLES20
 glBufferData	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBufferData(int target, ByteBuffer data, int usage) {$/;"	m	class:LwjglOpenGL
 glBufferData	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBufferData(int target, DoubleBuffer data, int usage) {$/;"	m	class:LwjglOpenGL
 glBufferData	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBufferData(int target, FloatBuffer data, int usage) {$/;"	m	class:LwjglOpenGL
 glBufferData	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBufferData(int target, IntBuffer data, int usage) {$/;"	m	class:LwjglOpenGL
 glClear	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glClear(int mask) {$/;"	m	class:AndroidOpenGLES
-glClear	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glClear(int mask);$/;"	m	interface:OpenGL
+glClear	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glClear(int mask);$/;"	m	interface:OpenGLES20
 glClear	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glClear(int mask) {$/;"	m	class:LwjglOpenGL
 glClearColor	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glClearColor(float red, float green, float blue, float alpha) {$/;"	m	class:AndroidOpenGLES
-glClearColor	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glClearColor(float red, float green, float blue, float alpha);$/;"	m	interface:OpenGL
+glClearColor	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glClearColor(float red, float green, float blue, float alpha);$/;"	m	interface:OpenGLES20
 glClearColor	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glClearColor(float red, float green, float blue, float alpha) {$/;"	m	class:LwjglOpenGL
 glColor3b	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glColor3b(byte red, byte green, byte blue) {$/;"	m	class:AndroidOpenGLES
 glColor3b	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glColor3b(byte red, byte green, byte blue);$/;"	m	interface:OpenGL
@@ -841,172 +1118,172 @@ glColor3f	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^
 glColor3f	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glColor3f(float red, float green, float blue);$/;"	m	interface:OpenGL
 glColor3f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glColor3f(float red, float green, float blue) {$/;"	m	class:LwjglOpenGL
 glCompileShader	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glCompileShader(int shader) {$/;"	m	class:AndroidOpenGLES
-glCompileShader	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glCompileShader(int shader);$/;"	m	interface:OpenGL
+glCompileShader	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glCompileShader(int shader);$/;"	m	interface:OpenGLES20
 glCompileShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glCompileShader(int shader) {$/;"	m	class:LwjglOpenGL
 glCreateProgram	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public int glCreateProgram() {$/;"	m	class:AndroidOpenGLES
-glCreateProgram	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    int glCreateProgram();$/;"	m	interface:OpenGL
+glCreateProgram	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    int glCreateProgram();$/;"	m	interface:OpenGLES20
 glCreateProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glCreateProgram() {$/;"	m	class:LwjglOpenGL
 glCreateShader	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public int glCreateShader(int type) {$/;"	m	class:AndroidOpenGLES
-glCreateShader	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    int glCreateShader(int type);$/;"	m	interface:OpenGL
+glCreateShader	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    int glCreateShader(int type);$/;"	m	interface:OpenGLES20
 glCreateShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glCreateShader(int type) {$/;"	m	class:LwjglOpenGL
 glDeleteProgram	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glDeleteProgram(GpuProgram program) {$/;"	m	class:AndroidOpenGLES
 glDeleteProgram	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glDeleteProgram(int program) {$/;"	m	class:AndroidOpenGLES
-glDeleteProgram	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glDeleteProgram(GpuProgram program);$/;"	m	interface:OpenGL
-glDeleteProgram	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glDeleteProgram(int program);$/;"	m	interface:OpenGL
+glDeleteProgram	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glDeleteProgram(GpuProgram program);$/;"	m	interface:OpenGLES20
+glDeleteProgram	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glDeleteProgram(int program);$/;"	m	interface:OpenGLES20
 glDeleteProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDeleteProgram(GpuProgram program) {$/;"	m	class:LwjglOpenGL
 glDeleteProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDeleteProgram(int program) {$/;"	m	class:LwjglOpenGL
 glDeleteShader	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glDeleteShader(int shader) {$/;"	m	class:AndroidOpenGLES
-glDeleteShader	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glDeleteShader(int shader);$/;"	m	interface:OpenGL
+glDeleteShader	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glDeleteShader(int shader);$/;"	m	interface:OpenGLES20
 glDeleteShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDeleteShader(int shader) {$/;"	m	class:LwjglOpenGL
 glDetachShader	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glDetachShader(GpuProgram program, Shader shader) {$/;"	m	class:AndroidOpenGLES
 glDetachShader	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glDetachShader(int program, int shader) {$/;"	m	class:AndroidOpenGLES
-glDetachShader	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glDetachShader(GpuProgram program, Shader shader);$/;"	m	interface:OpenGL
-glDetachShader	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glDetachShader(int program, int shader);$/;"	m	interface:OpenGL
+glDetachShader	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glDetachShader(GpuProgram program, Shader shader);$/;"	m	interface:OpenGLES20
+glDetachShader	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glDetachShader(int program, int shader);$/;"	m	interface:OpenGLES20
 glDetachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDetachShader(GpuProgram program, Shader shader) {$/;"	m	class:LwjglOpenGL
 glDetachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDetachShader(int program, int shader) {$/;"	m	class:LwjglOpenGL
 glDisable	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glDisable(int cap) {$/;"	m	class:AndroidOpenGLES
-glDisable	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glDisable(int cap);$/;"	m	interface:OpenGL
+glDisable	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glDisable(int cap);$/;"	m	interface:OpenGLES20
 glDisable	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDisable(int cap) {$/;"	m	class:LwjglOpenGL
 glDisableVertexAttribArray	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glDisableVertexAttribArray(int index) {$/;"	m	class:AndroidOpenGLES
-glDisableVertexAttribArray	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glDisableVertexAttribArray(int index);$/;"	m	interface:OpenGL
+glDisableVertexAttribArray	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glDisableVertexAttribArray(int index);$/;"	m	interface:OpenGLES20
 glDisableVertexAttribArray	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDisableVertexAttribArray(int index) {$/;"	m	class:LwjglOpenGL
 glDrawArrays	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glDrawArrays(int mode, int first, int count) {$/;"	m	class:AndroidOpenGLES
-glDrawArrays	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glDrawArrays(int mode, int first, int count);$/;"	m	interface:OpenGL
+glDrawArrays	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glDrawArrays(int mode, int first, int count);$/;"	m	interface:OpenGLES20
 glDrawArrays	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDrawArrays(int mode, int first, int count) {$/;"	m	class:LwjglOpenGL
 glEnable	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glEnable(int cap) {$/;"	m	class:AndroidOpenGLES
-glEnable	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glEnable(int cap);$/;"	m	interface:OpenGL
+glEnable	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glEnable(int cap);$/;"	m	interface:OpenGLES20
 glEnable	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glEnable(int cap) {$/;"	m	class:LwjglOpenGL
 glEnableVertexAttribArray	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glEnableVertexAttribArray(int index) {$/;"	m	class:AndroidOpenGLES
-glEnableVertexAttribArray	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glEnableVertexAttribArray(int index);$/;"	m	interface:OpenGL
+glEnableVertexAttribArray	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glEnableVertexAttribArray(int index);$/;"	m	interface:OpenGLES20
 glEnableVertexAttribArray	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glEnableVertexAttribArray(int index) {$/;"	m	class:LwjglOpenGL
 glEnd	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glEnd() {$/;"	m	class:AndroidOpenGLES
 glEnd	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glEnd();$/;"	m	interface:OpenGL
 glEnd	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glEnd() {$/;"	m	class:LwjglOpenGL
 glGenBuffers	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glGenBuffers(IntBuffer buffers) {$/;"	m	class:AndroidOpenGLES
-glGenBuffers	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glGenBuffers(IntBuffer buffers);$/;"	m	interface:OpenGL
+glGenBuffers	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glGenBuffers(IntBuffer buffers);$/;"	m	interface:OpenGLES20
 glGenBuffers	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGenBuffers(IntBuffer buffers) {$/;"	m	class:LwjglOpenGL
 glGenTextures	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glGenTextures(ByteBuffer buffer) {$/;"	m	class:AndroidOpenGLES
 glGenTextures	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glGenTextures(IntBuffer buffer) {$/;"	m	class:AndroidOpenGLES
-glGenTextures	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glGenTextures(ByteBuffer buffer);$/;"	m	interface:OpenGL
-glGenTextures	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glGenTextures(IntBuffer buffer);$/;"	m	interface:OpenGL
+glGenTextures	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glGenTextures(ByteBuffer buffer);$/;"	m	interface:OpenGLES20
+glGenTextures	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glGenTextures(IntBuffer buffer);$/;"	m	interface:OpenGLES20
 glGenTextures	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGenTextures(ByteBuffer buffer) {$/;"	m	class:LwjglOpenGL
 glGenTextures	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGenTextures(IntBuffer buffer) {$/;"	m	class:LwjglOpenGL
 glGetAttribLocation	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public int glGetAttribLocation(int program, String name) {$/;"	m	class:AndroidOpenGLES
-glGetAttribLocation	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    int glGetAttribLocation(int program, String name);$/;"	m	interface:OpenGL
+glGetAttribLocation	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    int glGetAttribLocation(int program, String name);$/;"	m	interface:OpenGLES20
 glGetAttribLocation	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glGetAttribLocation(int program, String name) {$/;"	m	class:LwjglOpenGL
 glGetProgramInfoLog	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public String glGetProgramInfoLog(int program) {$/;"	m	class:AndroidOpenGLES
-glGetProgramInfoLog	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    String glGetProgramInfoLog(int program);$/;"	m	interface:OpenGL
+glGetProgramInfoLog	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    String glGetProgramInfoLog(int program);$/;"	m	interface:OpenGLES20
 glGetProgramInfoLog	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public String glGetProgramInfoLog(int program) {$/;"	m	class:LwjglOpenGL
 glGetProgramiv	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public int glGetProgramiv(int program, int pname) {$/;"	m	class:AndroidOpenGLES
-glGetProgramiv	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    int glGetProgramiv(int program, int pname);$/;"	m	interface:OpenGL
+glGetProgramiv	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    int glGetProgramiv(int program, int pname);$/;"	m	interface:OpenGLES20
 glGetProgramiv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glGetProgramiv(int program, int pname) {$/;"	m	class:LwjglOpenGL
 glGetShaderInfoLog	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public String glGetShaderInfoLog(int shader) {$/;"	m	class:AndroidOpenGLES
-glGetShaderInfoLog	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    String glGetShaderInfoLog(int shader);$/;"	m	interface:OpenGL
+glGetShaderInfoLog	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    String glGetShaderInfoLog(int shader);$/;"	m	interface:OpenGLES20
 glGetShaderInfoLog	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public String glGetShaderInfoLog(int shader) {$/;"	m	class:LwjglOpenGL
 glGetShaderiv	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public int glGetShaderiv(int shader, int pname) {$/;"	m	class:AndroidOpenGLES
-glGetShaderiv	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    int glGetShaderiv(int shader, int pname);$/;"	m	interface:OpenGL
+glGetShaderiv	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    int glGetShaderiv(int shader, int pname);$/;"	m	interface:OpenGLES20
 glGetShaderiv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glGetShaderiv(int shader, int pname) {$/;"	m	class:LwjglOpenGL
 glGetUniformLocation	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public int glGetUniformLocation(GpuProgram program, String name) {$/;"	m	class:AndroidOpenGLES
 glGetUniformLocation	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public int glGetUniformLocation(int program, String name) {$/;"	m	class:AndroidOpenGLES
-glGetUniformLocation	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    int glGetUniformLocation(GpuProgram program, String name);$/;"	m	interface:OpenGL
-glGetUniformLocation	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    int glGetUniformLocation(int program, String name);$/;"	m	interface:OpenGL
+glGetUniformLocation	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    int glGetUniformLocation(GpuProgram program, String name);$/;"	m	interface:OpenGLES20
+glGetUniformLocation	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    int glGetUniformLocation(int program, String name);$/;"	m	interface:OpenGLES20
 glGetUniformLocation	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glGetUniformLocation(GpuProgram program, String name) {$/;"	m	class:LwjglOpenGL
 glGetUniformLocation	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glGetUniformLocation(int program, String name) {$/;"	m	class:LwjglOpenGL
 glGetUniformfv	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glGetUniformfv(GpuProgram program, int location, FloatBuffer params) {$/;"	m	class:AndroidOpenGLES
 glGetUniformfv	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glGetUniformfv(int program, int location, FloatBuffer params) {$/;"	m	class:AndroidOpenGLES
-glGetUniformfv	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glGetUniformfv(GpuProgram program, int location, FloatBuffer params);$/;"	m	interface:OpenGL
-glGetUniformfv	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glGetUniformfv(int program, int location, FloatBuffer params);$/;"	m	interface:OpenGL
+glGetUniformfv	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glGetUniformfv(GpuProgram program, int location, FloatBuffer params);$/;"	m	interface:OpenGLES20
+glGetUniformfv	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glGetUniformfv(int program, int location, FloatBuffer params);$/;"	m	interface:OpenGLES20
 glGetUniformfv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGetUniformfv(GpuProgram program, int location, FloatBuffer params) {$/;"	m	class:LwjglOpenGL
 glGetUniformfv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGetUniformfv(int program, int location, FloatBuffer params) {$/;"	m	class:LwjglOpenGL
 glGetUniformiv	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glGetUniformiv(GpuProgram program, int location, IntBuffer params) {$/;"	m	class:AndroidOpenGLES
 glGetUniformiv	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glGetUniformiv(int program, int location, IntBuffer params) {$/;"	m	class:AndroidOpenGLES
-glGetUniformiv	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glGetUniformiv(GpuProgram program, int location, IntBuffer params);$/;"	m	interface:OpenGL
-glGetUniformiv	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glGetUniformiv(int program, int location, IntBuffer params);$/;"	m	interface:OpenGL
+glGetUniformiv	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glGetUniformiv(GpuProgram program, int location, IntBuffer params);$/;"	m	interface:OpenGLES20
+glGetUniformiv	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glGetUniformiv(int program, int location, IntBuffer params);$/;"	m	interface:OpenGLES20
 glGetUniformiv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGetUniformiv(GpuProgram program, int location, IntBuffer params) {$/;"	m	class:LwjglOpenGL
 glGetUniformiv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGetUniformiv(int program, int location, IntBuffer params) {$/;"	m	class:LwjglOpenGL
 glLineWidth	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glLineWidth(float width) {$/;"	m	class:AndroidOpenGLES
-glLineWidth	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glLineWidth(float width);$/;"	m	interface:OpenGL
+glLineWidth	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glLineWidth(float width);$/;"	m	interface:OpenGLES20
 glLineWidth	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glLineWidth(float width) {$/;"	m	class:LwjglOpenGL
 glLinkProgram	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glLinkProgram(GpuProgram p) {$/;"	m	class:AndroidOpenGLES
 glLinkProgram	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glLinkProgram(int program) {$/;"	m	class:AndroidOpenGLES
-glLinkProgram	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glLinkProgram(GpuProgram p);$/;"	m	interface:OpenGL
-glLinkProgram	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glLinkProgram(int program);$/;"	m	interface:OpenGL
+glLinkProgram	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glLinkProgram(GpuProgram p);$/;"	m	interface:OpenGLES20
+glLinkProgram	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glLinkProgram(int program);$/;"	m	interface:OpenGLES20
 glLinkProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glLinkProgram(GpuProgram p) {$/;"	m	class:LwjglOpenGL
 glLinkProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glLinkProgram(int program) {$/;"	m	class:LwjglOpenGL
 glShaderSource	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glShaderSource(int shader, String source) {$/;"	m	class:AndroidOpenGLES
-glShaderSource	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glShaderSource(int shader, String source);$/;"	m	interface:OpenGL
+glShaderSource	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glShaderSource(int shader, String source);$/;"	m	interface:OpenGLES20
 glShaderSource	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glShaderSource(int shader, String source) {$/;"	m	class:LwjglOpenGL
 glTexImage2D	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glTexImage2D(int target, int level, int internalFormat,$/;"	m	class:AndroidOpenGLES
-glTexImage2D	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glTexImage2D(int target, int level, int internalFormat, int width, int height, int border, int format, int type, ByteBuffer pixels);$/;"	m	interface:OpenGL
+glTexImage2D	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glTexImage2D(int target, int level, int internalFormat, int width, int height, int border, int format, int type, ByteBuffer pixels);$/;"	m	interface:OpenGLES20
 glTexImage2D	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glTexImage2D(int target, int level, int internalFormat,$/;"	m	class:LwjglOpenGL
 glUniform1f	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glUniform1f(int location, float v0) {$/;"	m	class:AndroidOpenGLES
-glUniform1f	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glUniform1f(int location, float v0);$/;"	m	interface:OpenGL
+glUniform1f	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glUniform1f(int location, float v0);$/;"	m	interface:OpenGLES20
 glUniform1f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform1f(int location, float v0) {$/;"	m	class:LwjglOpenGL
 glUniform1i	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glUniform1i(int location, int v0) {$/;"	m	class:AndroidOpenGLES
-glUniform1i	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glUniform1i(int location, int v0);$/;"	m	interface:OpenGL
+glUniform1i	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glUniform1i(int location, int v0);$/;"	m	interface:OpenGLES20
 glUniform1i	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform1i(int location, int v0) {$/;"	m	class:LwjglOpenGL
 glUniform2f	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glUniform2f(int location, float v0, float v1) {$/;"	m	class:AndroidOpenGLES
-glUniform2f	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glUniform2f(int location, float v0, float v1);$/;"	m	interface:OpenGL
+glUniform2f	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glUniform2f(int location, float v0, float v1);$/;"	m	interface:OpenGLES20
 glUniform2f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform2f(int location, float v0, float v1) {$/;"	m	class:LwjglOpenGL
 glUniform2i	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glUniform2i(int location, int v0, int v1) {$/;"	m	class:AndroidOpenGLES
-glUniform2i	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glUniform2i(int location, int v0, int v1);$/;"	m	interface:OpenGL
+glUniform2i	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glUniform2i(int location, int v0, int v1);$/;"	m	interface:OpenGLES20
 glUniform2i	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform2i(int location, int v0, int v1) {$/;"	m	class:LwjglOpenGL
 glUniform3f	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glUniform3f(int location, float v0, float v1, float v2) {$/;"	m	class:AndroidOpenGLES
-glUniform3f	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glUniform3f(int location, float v0, float v1, float v2);$/;"	m	interface:OpenGL
+glUniform3f	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glUniform3f(int location, float v0, float v1, float v2);$/;"	m	interface:OpenGLES20
 glUniform3f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform3f(int location, float v0, float v1, float v2) {$/;"	m	class:LwjglOpenGL
 glUniform3i	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glUniform3i(int location, int v0, int v1, int v2) {$/;"	m	class:AndroidOpenGLES
-glUniform3i	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glUniform3i(int location, int v0, int v1, int v2);$/;"	m	interface:OpenGL
+glUniform3i	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glUniform3i(int location, int v0, int v1, int v2);$/;"	m	interface:OpenGLES20
 glUniform3i	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform3i(int location, int v0, int v1, int v2) {$/;"	m	class:LwjglOpenGL
 glUniform4f	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glUniform4f(int location, float v0, float v1, float v2, float v3) {$/;"	m	class:AndroidOpenGLES
-glUniform4f	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glUniform4f(int location, float v0, float v1, float v2, float v3);$/;"	m	interface:OpenGL
+glUniform4f	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glUniform4f(int location, float v0, float v1, float v2, float v3);$/;"	m	interface:OpenGLES20
 glUniform4f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform4f(int location, float v0, float v1, float v2, float v3) {$/;"	m	class:LwjglOpenGL
 glUniform4i	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glUniform4i(int location, int v0, int v1, int v2, int v3) {$/;"	m	class:AndroidOpenGLES
-glUniform4i	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glUniform4i(int location, int v0, int v1, int v2, int v3);$/;"	m	interface:OpenGL
+glUniform4i	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glUniform4i(int location, int v0, int v1, int v2, int v3);$/;"	m	interface:OpenGLES20
 glUniform4i	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform4i(int location, int v0, int v1, int v2, int v3) {$/;"	m	class:LwjglOpenGL
 glUseProgram	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glUseProgram(GpuProgram program) {$/;"	m	class:AndroidOpenGLES
 glUseProgram	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glUseProgram(int program) {$/;"	m	class:AndroidOpenGLES
-glUseProgram	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glUseProgram(GpuProgram program);$/;"	m	interface:OpenGL
-glUseProgram	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glUseProgram(int program);$/;"	m	interface:OpenGL
+glUseProgram	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glUseProgram(GpuProgram program);$/;"	m	interface:OpenGLES20
+glUseProgram	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glUseProgram(int program);$/;"	m	interface:OpenGLES20
 glUseProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUseProgram(GpuProgram program) {$/;"	m	class:LwjglOpenGL
 glUseProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUseProgram(int program) {$/;"	m	class:LwjglOpenGL
 glValidateProgram	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glValidateProgram(GpuProgram p) {$/;"	m	class:AndroidOpenGLES
 glValidateProgram	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glValidateProgram(int program) {$/;"	m	class:AndroidOpenGLES
-glValidateProgram	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glValidateProgram(GpuProgram p);$/;"	m	interface:OpenGL
-glValidateProgram	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glValidateProgram(int program);$/;"	m	interface:OpenGL
+glValidateProgram	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glValidateProgram(GpuProgram p);$/;"	m	interface:OpenGLES20
+glValidateProgram	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glValidateProgram(int program);$/;"	m	interface:OpenGLES20
 glValidateProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glValidateProgram(GpuProgram p) {$/;"	m	class:LwjglOpenGL
 glValidateProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glValidateProgram(int program) {$/;"	m	class:LwjglOpenGL
 glVertex2d	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glVertex2d(double x, double y) { $/;"	m	class:AndroidOpenGLES
-glVertex2d	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glVertex2d(double x, double y);$/;"	m	interface:OpenGL
+glVertex2d	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glVertex2d(double x, double y);$/;"	m	interface:OpenGLES20
 glVertex2d	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glVertex2d(double x, double y) { $/;"	m	class:LwjglOpenGL
 glVertex2f	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glVertex2f(float x, float y) { $/;"	m	class:AndroidOpenGLES
-glVertex2f	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glVertex2f(float x, float y);$/;"	m	interface:OpenGL
+glVertex2f	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glVertex2f(float x, float y);$/;"	m	interface:OpenGLES20
 glVertex2f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glVertex2f(float x, float y) { $/;"	m	class:LwjglOpenGL
 glVertex2i	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glVertex2i(int x, int y) { $/;"	m	class:AndroidOpenGLES
-glVertex2i	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glVertex2i(int x, int y);$/;"	m	interface:OpenGL
+glVertex2i	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glVertex2i(int x, int y);$/;"	m	interface:OpenGLES20
 glVertex2i	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glVertex2i(int x, int y) { $/;"	m	class:LwjglOpenGL
 glVertex3d	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glVertex3d(double x, double y, double z) { $/;"	m	class:AndroidOpenGLES
-glVertex3d	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glVertex3d(double x, double y, double z);$/;"	m	interface:OpenGL
+glVertex3d	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glVertex3d(double x, double y, double z);$/;"	m	interface:OpenGLES20
 glVertex3d	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glVertex3d(double x, double y, double z) { $/;"	m	class:LwjglOpenGL
 glVertex3f	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glVertex3f(float x, float y, float z) { $/;"	m	class:AndroidOpenGLES
-glVertex3f	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glVertex3f(float x, float y, float z);$/;"	m	interface:OpenGL
+glVertex3f	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glVertex3f(float x, float y, float z);$/;"	m	interface:OpenGLES20
 glVertex3f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glVertex3f(float x, float y, float z) { $/;"	m	class:LwjglOpenGL
 glVertex3i	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glVertex3i(int x, int y, int z) { $/;"	m	class:AndroidOpenGLES
-glVertex3i	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glVertex3i(int x, int y, int z);$/;"	m	interface:OpenGL
+glVertex3i	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glVertex3i(int x, int y, int z);$/;"	m	interface:OpenGLES20
 glVertex3i	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glVertex3i(int x, int y, int z) { $/;"	m	class:LwjglOpenGL
 glVertex4d	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glVertex4d(double x, double y, double z, double w) { $/;"	m	class:AndroidOpenGLES
-glVertex4d	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glVertex4d(double x, double y, double z, double w);$/;"	m	interface:OpenGL
+glVertex4d	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glVertex4d(double x, double y, double z, double w);$/;"	m	interface:OpenGLES20
 glVertex4d	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glVertex4d(double x, double y, double z, double w) { $/;"	m	class:LwjglOpenGL
 glVertex4f	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glVertex4f(float x, float y, float z, float w) { $/;"	m	class:AndroidOpenGLES
-glVertex4f	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glVertex4f(float x, float y, float z, float w);$/;"	m	interface:OpenGL
+glVertex4f	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glVertex4f(float x, float y, float z, float w);$/;"	m	interface:OpenGLES20
 glVertex4f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glVertex4f(float x, float y, float z, float w) { $/;"	m	class:LwjglOpenGL
 glVertex4i	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glVertex4i(int x, int y, int z, int w) { $/;"	m	class:AndroidOpenGLES
-glVertex4i	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glVertex4i(int x, int y, int z, int w);$/;"	m	interface:OpenGL
+glVertex4i	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glVertex4i(int x, int y, int z, int w);$/;"	m	interface:OpenGLES20
 glVertex4i	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glVertex4i(int x, int y, int z, int w) { $/;"	m	class:LwjglOpenGL
 glVertexAttribPointer	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glVertexAttribPointer(int index, int size, int type,$/;"	m	class:AndroidOpenGLES
-glVertexAttribPointer	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glVertexAttribPointer(int indx, int size, int type, boolean normalized, int stride, int offset);$/;"	m	interface:OpenGL
+glVertexAttribPointer	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glVertexAttribPointer(int indx, int size, int type, boolean normalized, int stride, int offset);$/;"	m	interface:OpenGLES20
 glVertexAttribPointer	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int offset) {$/;"	m	class:LwjglOpenGL
 glViewport	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    public void glViewport(int x, int y, int width, int height) {$/;"	m	class:AndroidOpenGLES
-glViewport	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glViewport(int x, int y, int width, int height);$/;"	m	interface:OpenGL
+glViewport	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void glViewport(int x, int y, int width, int height);$/;"	m	interface:OpenGLES20
 glViewport	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glViewport(int x, int y, int width, int height) {$/;"	m	class:LwjglOpenGL
 glyf	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 gpos	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
@@ -1019,6 +1296,7 @@ hasAlphaChannel	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDec
 head	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 header	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    private void header(int level, String tag) {$/;"	m	class:LogSink	file:
 height	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int height;$/;"	f	class:PNGDecoder	file:
+hello	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/HelloJRuby.java	/^    public void hello() {$/;"	m	class:HelloJRuby
 hello	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloJsr223.java	/^    public void hello() {$/;"	m	class:HelloJsr223
 hello	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/HelloRhino.java	/^    public void hello() {$/;"	m	class:HelloRhino
 hello	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/HelloJavaScript.java	/^    public static void hello(ScriptManager manager) {$/;"	m	class:HelloJavaScript
@@ -1027,19 +1305,8 @@ hmtx	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Ta
 i	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void i(String tag, Object... messages) {$/;"	m	class:Log
 init	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:init$/;"	l
 init	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:init$/;"	l
-initTabs	core/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	demos/helloworld/lib/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	demos/helloworld/pc/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	demos/pingpong/lib/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	demos/pingpong/pc/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	demos/snake/lib/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	demos/snake/pc/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	pc/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	scripting/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	scripting/jsr223/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	scripting/rhino/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	scripting/testhelpers/build/reports/tests/report.js	/^function initTabs() {$/;"	f
-initTabs	vendor/pngdecoder/build/reports/tests/report.js	/^function initTabs() {$/;"	f
+init	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:init$/;"	l
+init	demos/snake/pc/build/scripts/snake-pc.bat	/^:init$/;"	l
 initialize	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void initialize(OpenGL GL) {$/;"	m	class:GpuProgram
 initialize	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    public void initialize(final OpenGL GL20) {$/;"	m	class:Mesh
 initialize	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    public void initialize(OpenGL GL) {$/;"	m	class:Shader
@@ -1060,11 +1327,10 @@ isRGB	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	
 isStopRequested	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean isStopRequested() {$/;"	m	class:Game
 isStopped	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean isStopped() {$/;"	m	class:Game
 isVisable	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public boolean isVisable() {$/;"	m	class:Console
+javaObject	scripting/testhelpers/src/main/resources/JavaWrapper.py	/^javaObject = JavaClass()$/;"	v
 keys	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    public String[] keys() {$/;"	m	class:AndroidSettings
 keys	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    String[] keys();$/;"	m	interface:Settings
 keys	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public String[] keys() {$/;"	m	class:SettingsFile
-layout	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class layout {$/;"	c	class:R
-layout	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class layout {$/;"	c	class:R
 length	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        public final long length;$/;"	f	class:TrueTypeFont.Table
 link	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void link(OpenGL GL) {$/;"	m	class:GpuProgram
 load	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceHandle load(File path) throws IOException {$/;"	m	class:ResourceManager
@@ -1083,6 +1349,7 @@ logf	android/src/main/java/com/spidey01/sxe/android/AndroidLogSink.java	/^    pu
 logf	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void logf(int level, String tag, String format, Object... args) {$/;"	m	class:Log
 logf	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public void logf(int level, String tag, String format, Object... args) {$/;"	m	class:LogSink
 logging	core/src/main/java/com/spidey01/sxe/core/UnitTest.java	/^    public static void logging() {$/;"	m	class:UnitTest
+m	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/JavaToJRuby.java	/^    public JRubyScriptManager m() {$/;"	m	class:JavaToJRuby
 m	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJsr223.java	/^    public Jsr223ScriptManager m() {$/;"	m	class:JavaToJsr223
 m	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public RhinoScriptManager m() {$/;"	m	class:JavaToRhino
 mAssetManager	android/src/main/java/com/spidey01/sxe/android/AssetLoader.java	/^    private AssetManager mAssetManager;$/;"	f	class:AssetLoader	file:
@@ -1092,6 +1359,7 @@ mBytesPerPixel	core/src/main/java/com/spidey01/sxe/core/PngBitmap.java	/^    pri
 mCommands	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private Map<String,ConsoleCommand> mCommands = new HashMap<String,ConsoleCommand>();$/;"	f	class:Console	file:
 mConsole	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private Console mConsole;$/;"	f	class:GameContext	file:
 mConsole	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    private Console mConsole;$/;"	f	class:SnakeGame	file:
+mContainer	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^    private ScriptingContainer mContainer;$/;"	f	class:JRubyScript	file:
 mContext	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Context mContext;$/;"	f	class:RhinoScriptManager	file:
 mCoord2d	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    private int mCoord2d = -1;$/;"	f	class:Mesh	file:
 mCtx	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    protected GameContext mCtx;$/;"	f	class:GameEngine
@@ -1133,6 +1401,7 @@ mInitialized	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    private bo
 mInput	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private InputManager mInput;$/;"	f	class:GameContext	file:
 mInputManager	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private final InputManager mInputManager;$/;"	f	class:GameEngine	file:
 mInputStream	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private InputStream mInputStream;$/;"	f	class:ResourceHandle	file:
+mInterp	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScript.java	/^    private PythonInterpreter mInterp;$/;"	f	class:JythonScript	file:
 mIsDown	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private final boolean mIsDown;$/;"	f	class:KeyEvent	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    private boolean mIsInitialized;$/;"	f	class:GpuProgram	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    private boolean mIsInitialized;$/;"	f	class:Shader	file:
@@ -1215,11 +1484,11 @@ mWidget	android/src/main/java/com/spidey01/sxe/android/AndroidInputManager.java	
 mWidth	core/src/main/java/com/spidey01/sxe/core/PngBitmap.java	/^    private final int mWidth;$/;"	f	class:PngBitmap	file:
 main	demos/helloworld/pc/src/main/java/com/spidey01/sxe/helloworld/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
 main	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
-main	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^        public static final int main=0x7f020000;$/;"	f	class:R.layout
-main	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^        public static final int main=0x7f020000;$/;"	f	class:R.layout
 main	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
 mainEnd	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:mainEnd$/;"	l
 mainEnd	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:mainEnd$/;"	l
+mainEnd	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:mainEnd$/;"	l
+mainEnd	demos/snake/pc/build/scripts/snake-pc.bat	/^:mainEnd$/;"	l
 mainLoop	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void mainLoop() {$/;"	m	class:GameEngine
 makeBufferedReader	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static BufferedReader makeBufferedReader(File file) throws FileNotFoundException {$/;"	m	class:Utils
 makeBufferedReader	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static BufferedReader makeBufferedReader(InputStream in) {$/;"	m	class:Utils
@@ -1228,6 +1497,8 @@ maxp	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Ta
 ms	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private long ms;$/;"	f	class:RateCounter	file:
 name	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        public final String name;$/;"	f	class:TrueTypeFont.Table
 name	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
+newContainer	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    private ScriptingContainer newContainer() {$/;"	m	class:JRubyScriptManager	file:
+newInterpreter	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    private PythonInterpreter newInterpreter() {$/;"	m	class:JythonScriptManager	file:
 newScope	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Scriptable newScope() {$/;"	m	class:RhinoScriptManager	file:
 notifyKeyListeners	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void notifyKeyListeners(KeyEvent event) {$/;"	m	class:InputManager
 notifyListeners	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    private void notifyListeners(String key) {$/;"	m	class:AndroidSettings	file:
@@ -1238,6 +1509,8 @@ numComponents	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecod
 offset	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        public final long offset;$/;"	f	class:TrueTypeFont.Table
 omega	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:omega$/;"	l
 omega	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:omega$/;"	l
+omega	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:omega$/;"	l
+omega	demos/snake/pc/build/scripts/snake-pc.bat	/^:omega$/;"	l
 onChanged	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^        void onChanged(Settings settings, String key);$/;"	m	interface:Settings.OnChangedListener
 onCreate	android/src/main/java/com/spidey01/sxe/android/GameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:GameActivity
 onCreate	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:HelloWorldGameActivity
@@ -1266,12 +1539,17 @@ poll	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public voi
 poll	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    public void poll() {$/;"	m	class:PcInputManager
 post	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 prep	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
+put	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    public Object put(Script scope, String variable, Object value) {$/;"	m	class:JRubyScriptManager
+put	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/JavaToJRuby.java	/^    public void put() {$/;"	m	class:JavaToJRuby
 put	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Object put(Script scope, String variable, Object value) {$/;"	m	class:Jsr223ScriptManager
 put	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJsr223.java	/^    public void put() {$/;"	m	class:JavaToJsr223
+put	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    public Object put(Script scope, String variable, Object value) {$/;"	m	class:JythonScriptManager
 put	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public Object put(Script scope, String variable, Object value) {$/;"	m	class:RhinoScriptManager
 put	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public void put() {$/;"	m	class:JavaToRhino
 put	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^    Object put(Script scope, String variable, Object value);$/;"	m	interface:ScriptManager
 put	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToJavaScript.java	/^    public static void put(ScriptManager manager) {$/;"	m	class:JavaToJavaScript
+put	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToPython.java	/^    public static void put(ScriptManager manager) {$/;"	m	class:JavaToPython
+put	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToRuby.java	/^    public static void put(ScriptManager manager) {$/;"	m	class:JavaToRuby
 rand	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    private static Random rand = new Random();$/;"	f	class:SnakeGame	file:
 readChunk	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int readChunk(byte[] buffer, int offset, int length) throws IOException {$/;"	m	class:PNGDecoder	file:
 readChunkUnzip	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void readChunkUnzip(Inflater inflater, byte[] buffer, int offset, int length) throws IOException {$/;"	m	class:PNGDecoder	file:
@@ -1320,24 +1598,13 @@ sNullFormat	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    private 
 sRequiredTables	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private static String[] sRequiredTables = {$/;"	f	class:TrueTypeFont	file:
 sResourceManager	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    private static ResourceManager sResourceManager;$/;"	f	class:ResourceManagerTest	file:
 sResourceProperty	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToJavaScript.java	/^    private static final String sResourceProperty = "scripting.testhelpers.resources";$/;"	f	class:JavaToJavaScript	file:
+sResourceProperty	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToPython.java	/^    private static final String sResourceProperty = "scripting.testhelpers.resources";$/;"	f	class:JavaToPython	file:
+sResourceProperty	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToRuby.java	/^    private static final String sResourceProperty = "scripting.testhelpers.resources";$/;"	f	class:JavaToRuby	file:
 sTestURIs	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    protected static final String[] sTestURIs = new String[]{$/;"	f	class:ResourceManagerTest
 save	android/src/main/java/com/spidey01/sxe/android/AndroidSettings.java	/^    public boolean save() {$/;"	m	class:AndroidSettings
 save	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    boolean save();$/;"	m	interface:Settings
 save	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public boolean save() {$/;"	m	class:SettingsFile
 schemaRequiredForLoad	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public void schemaRequiredForLoad() throws IOException {$/;"	m	class:ResourceManagerTest
-select	core/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	demos/helloworld/lib/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	demos/helloworld/pc/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	demos/pingpong/lib/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	demos/pingpong/pc/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	demos/snake/lib/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	demos/snake/pc/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	pc/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	scripting/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	scripting/jsr223/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	scripting/rhino/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	scripting/testhelpers/build/reports/tests/report.js	/^function select(i) {$/;"	c
-select	vendor/pngdecoder/build/reports/tests/report.js	/^function select(i) {$/;"	c
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(String value) {$/;"	m	class:Variable
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(boolean value) {$/;"	m	class:Variable
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(float value) {$/;"	m	class:Variable
@@ -1393,16 +1660,21 @@ setup	core/src/test/java/com/spidey01/sxe/core/PathResourceLoaderTest.java	/^   
 setup	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^    public static void setup() {$/;"	m	class:ZipResourceLoaderTest
 setup	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^    public static GameEngine setup(Game game) {$/;"	m	class:PcConfiguration
 setup	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^    public static GameEngine setup(Game game, String displayMode) {$/;"	m	class:PcConfiguration
+setup	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/HelloJRuby.java	/^    public static void setup() {$/;"	m	class:HelloJRuby
 setup	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloJsr223.java	/^    public static void setup() {$/;"	m	class:HelloJsr223
 setup	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/HelloRhino.java	/^    public static void setup() {$/;"	m	class:HelloRhino
+setupClass	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/JavaToJRuby.java	/^    public static void setupClass() {$/;"	m	class:JavaToJRuby
 setupClass	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJsr223.java	/^    public static void setupClass() {$/;"	m	class:JavaToJsr223
 setupClass	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public static void setupClass() {$/;"	m	class:JavaToRhino
 setupConsoleCommands	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public void setupConsoleCommands() {$/;"	m	class:SnakeGame
 setupControls	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public void setupControls() {$/;"	m	class:SnakeGame
 setupLogging	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private void setupLogging() {$/;"	m	class:GameEngine	file:
+simple	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/JavaToJRuby.java	/^    public void simple() throws IOException, FileNotFoundException {$/;"	m	class:JavaToJRuby
 simple	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJsr223.java	/^    public void simple() throws IOException, FileNotFoundException {$/;"	m	class:JavaToJsr223
 simple	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public void simple() throws IOException, FileNotFoundException {$/;"	m	class:JavaToRhino
 simple	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToJavaScript.java	/^    public static void simple(ScriptManager manager) throws IOException, FileNotFoundException {$/;"	m	class:JavaToJavaScript
+simple	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToPython.java	/^    public static void simple(ScriptManager manager) throws IOException, FileNotFoundException {$/;"	m	class:JavaToPython
+simple	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToRuby.java	/^    public static void simple(ScriptManager manager) throws IOException, FileNotFoundException {$/;"	m	class:JavaToRuby
 simplePathTest	core/src/test/java/com/spidey01/sxe/core/GZipResourceLoaderTest.java	/^    public void simplePathTest() throws IOException {$/;"	m	class:GZipResourceLoaderTest
 simplePathTest	core/src/test/java/com/spidey01/sxe/core/PathResourceLoaderTest.java	/^    public void simplePathTest() throws IOException {$/;"	m	class:PathResourceLoaderTest
 skip	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void skip(long amount) throws IOException {$/;"	m	class:PNGDecoder	file:
@@ -1412,6 +1684,8 @@ slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static St
 slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(String path) throws IOException {$/;"	m	class:Utils
 splitJvmOpts	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc	/^function splitJvmOpts() {$/;"	f
 splitJvmOpts	demos/helloworld/pc/build/scripts/helloworld-pc	/^function splitJvmOpts() {$/;"	f
+splitJvmOpts	demos/pingpong/pc/build/scripts/pingpong-pc	/^function splitJvmOpts() {$/;"	f
+splitJvmOpts	demos/snake/pc/build/scripts/snake-pc	/^function splitJvmOpts() {$/;"	f
 start	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:Game
 start	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public boolean start() {$/;"	m	class:GameEngine
 start	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:HelloWorld
@@ -1422,39 +1696,9 @@ stop	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void 
 stop	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public void stop() {$/;"	m	class:HelloWorld
 stop	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/PingPongGame.java	/^    public void stop() {$/;"	m	class:PingPongGame
 stop	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public void stop() {$/;"	m	class:SnakeGame
-string	demos/helloworld/android/build/source/r/debug/com/spidey01/sxe/helloworld/android/R.java	/^    public static final class string {$/;"	c	class:R
-string	demos/helloworld/android/build/source/r/release/com/spidey01/sxe/helloworld/android/R.java	/^    public static final class string {$/;"	c	class:R
-string	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class string {$/;"	c	class:R
-string	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class string {$/;"	c	class:R
-switchTab	core/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	demos/helloworld/lib/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	demos/helloworld/pc/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	demos/pingpong/lib/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	demos/pingpong/pc/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	demos/snake/lib/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	demos/snake/pc/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	pc/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	scripting/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	scripting/jsr223/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	scripting/rhino/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	scripting/testhelpers/build/reports/tests/report.js	/^function switchTab() {$/;"	f
-switchTab	vendor/pngdecoder/build/reports/tests/report.js	/^function switchTab() {$/;"	f
 t	android/src/main/java/com/spidey01/sxe/android/AndroidOpenGLES.java	/^    private static int t(int konst) {$/;"	m	class:AndroidOpenGLES	file:
 t	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    private static int t(int konst) {$/;"	m	class:LwjglOpenGL	file:
 tRNS	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final int tRNS = 0x74524E53;$/;"	f	class:PNGDecoder	file:
-tabs	core/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	demos/helloworld/lib/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	demos/helloworld/pc/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	demos/pingpong/lib/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	demos/pingpong/pc/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	demos/snake/lib/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	demos/snake/pc/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	pc/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	scripting/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	scripting/jsr223/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	scripting/rhino/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	scripting/testhelpers/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
-tabs	vendor/pngdecoder/build/reports/tests/report.js	/^var tabs = new Object();$/;"	c
 test	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^    private void test(String path) throws IOException {$/;"	m	class:ZipResourceLoaderTest	file:
 testResourceHandle	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    private void testResourceHandle(ResourceHandle resource) throws IOException {$/;"	m	class:ResourceManagerTest	file:
 textFileContent	core/src/test/java/com/spidey01/sxe/core/TestResources.java	/^    static final String textFileContent = "Test dummy for PathResourceLoader.\\n";$/;"	f	class:TestResources
@@ -1490,11 +1734,17 @@ validate	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public b
 w	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void w(String tag, Object... messages) {$/;"	m	class:Log
 warn	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc	/^warn ( ) {$/;"	f
 warn	demos/helloworld/pc/build/scripts/helloworld-pc	/^warn ( ) {$/;"	f
+warn	demos/pingpong/pc/build/scripts/pingpong-pc	/^warn ( ) {$/;"	f
+warn	demos/snake/pc/build/scripts/snake-pc	/^warn ( ) {$/;"	f
 width	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int width;$/;"	f	class:PNGDecoder	file:
 win9xME_args	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:win9xME_args$/;"	l
 win9xME_args	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:win9xME_args$/;"	l
+win9xME_args	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:win9xME_args$/;"	l
+win9xME_args	demos/snake/pc/build/scripts/snake-pc.bat	/^:win9xME_args$/;"	l
 win9xME_args_slurp	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:win9xME_args_slurp$/;"	l
 win9xME_args_slurp	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:win9xME_args_slurp$/;"	l
+win9xME_args_slurp	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:win9xME_args_slurp$/;"	l
+win9xME_args_slurp	demos/snake/pc/build/scripts/snake-pc.bat	/^:win9xME_args_slurp$/;"	l
 wtf	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void wtf(String tag, Object... messages) {$/;"	m	class:Log
 xtrace	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void xtrace(String tag, Object... messages) {$/;"	m	class:Log
 zipFileContent	core/src/test/java/com/spidey01/sxe/core/TestResources.java	/^    static final String zipFileContent = "Test dummy for ZipResourceLoader.\\n";$/;"	f	class:TestResources
