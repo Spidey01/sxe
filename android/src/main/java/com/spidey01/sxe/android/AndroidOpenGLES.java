@@ -40,28 +40,6 @@ import java.nio.IntBuffer;
 public class AndroidOpenGLES implements OpenGL {
     private static final String TAG = "AndroidOpenGLES";
 
-    /* Utility functions */
-
-    @Override
-    public ByteBuffer createByteBuffer(int size) {
-        return ByteBuffer.allocateDirect(size).order(ByteOrder.nativeOrder());
-    }
-
-    @Override
-    public DoubleBuffer createDoubleBuffer(int size) {
-        return createByteBuffer(size * Double.SIZE).asDoubleBuffer();
-    }
-
-    @Override
-    public FloatBuffer createFloatBuffer(int size) {
-        return createByteBuffer(size * Float.SIZE).asFloatBuffer();
-    }
-
-    @Override
-    public IntBuffer createIntBuffer(int size) {
-        return createByteBuffer(size * Integer.SIZE).asIntBuffer();
-    }
-
     /* OpenGL functions */
 
     @Override
@@ -179,6 +157,19 @@ public class AndroidOpenGLES implements OpenGL {
     public void glDisableVertexAttribArray(int index) {
         GLES20.glDisableVertexAttribArray(index);
     }
+
+
+    @Override
+    void glDrawElements(int mode, int count, int type, ByteBuffer indices) {
+        GLES20.glDrawElements(mode, count, type, indices);
+    }
+
+
+    @Override
+    void glDrawElements(int mode, int count, int type, long offset) {
+        GLES20.glDrawElements(mode, count, type, offset);
+    }
+
 
     @Override
     public void glDrawArrays(int mode, int first, int count) {

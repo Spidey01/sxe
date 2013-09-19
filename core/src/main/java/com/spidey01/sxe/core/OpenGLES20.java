@@ -366,6 +366,8 @@ public interface OpenGLES20 {
     void glDetachShader(int program, int shader);
     void glDisable(int cap);
     void glDisableVertexAttribArray(int index);
+    void glDrawElements(int mode, int count, int type, ByteBuffer indices);
+    void glDrawElements(int mode, int count, int type, long offset);
     void glDrawArrays(int mode, int first, int count);
 
     void glEnable(int cap);

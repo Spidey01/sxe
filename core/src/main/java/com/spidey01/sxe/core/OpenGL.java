@@ -31,19 +31,13 @@ import java.nio.IntBuffer;
 
 public interface OpenGL extends OpenGLES20 {
 
-    /* Utility functions */
-
-    ByteBuffer createByteBuffer(int size);
-    DoubleBuffer createDoubleBuffer(int size);
-    FloatBuffer createFloatBuffer(int size);
-    IntBuffer createIntBuffer(int size);
-
-
     /** OpenGL functions for the old Fixed Function Pipeline.
      *
      * Implementations may throw an unchecked exception if OpenGL legacy /
      * depreciated functionality is unavailable.  Attempting to intermix things
      * in a bad way may but is not required to throw an IllegalStateException.
+     *
+     * TODO: move these into an OpenGLES10 or OpenGLES11 interface.
      */
 
     void glBegin(int mode);

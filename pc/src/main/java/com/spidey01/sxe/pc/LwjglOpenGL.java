@@ -43,28 +43,6 @@ import org.lwjgl.opengl.GL20;
 public class LwjglOpenGL implements OpenGL {
     private static final String TAG = "LwjglOpenGL";
 
-    /* Utility functions */
-
-    @Override
-    public ByteBuffer createByteBuffer(int size) {
-        return BufferUtils.createByteBuffer(size);
-    }
-
-    @Override
-    public DoubleBuffer createDoubleBuffer(int size) {
-        return BufferUtils.createDoubleBuffer(size);
-    }
-
-    @Override
-    public FloatBuffer createFloatBuffer(int size) {
-        return BufferUtils.createFloatBuffer(size);
-    }
-
-    @Override
-    public IntBuffer createIntBuffer(int size) {
-        return BufferUtils.createIntBuffer(size);
-    }
-
     /* OpenGL functions */
 
     @Override
@@ -171,6 +149,19 @@ public class LwjglOpenGL implements OpenGL {
     public void glDisableVertexAttribArray(int index) {
         GL20.glDisableVertexAttribArray(index);
     }
+
+
+    @Override
+    void glDrawElements(int mode, int count, int type, ByteBuffer indices) {
+        GL11.glDrawElements(mode, count, type, indices);
+    }
+
+
+    @Override
+    void glDrawElements(int mode, int count, int type, long offset) {
+        GL11.glDrawElements(mode, count, type, offset);
+    }
+
 
     @Override
     public void glDrawArrays(int mode, int first, int count) {

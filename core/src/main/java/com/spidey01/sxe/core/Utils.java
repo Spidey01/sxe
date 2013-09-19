@@ -283,5 +283,33 @@ public class Utils {
         return i & 0xffffffffL;
     }
 
+
+    /** Utilities for working with buffers.
+     *
+     * Buffers are created with createByteBuffer in the native byte order (BIG
+     * or little). Direct buffers are allocated for performance. Size of the
+     * buffer is based on the size of Java datatype being allocated, e.g.
+     * Utils.Buffers.createIntBuffer(2) allocates a buffer for 2 Integers which
+     * requires 8 Bytes of space.
+     */
+    public static class Buffers {
+
+        public ByteBuffer createByteBuffer(int size) {
+            return ByteBuffer.allocateDirect(size).order(ByteOrder.nativeOrder());
+        }
+
+        public DoubleBuffer createDoubleBuffer(int size) {
+            return createByteBuffer(size << 3).asDoubleBuffer();
+        }
+
+        public FloatBuffer createFloatBuffer(int size) {
+            return createByteBuffer(size << 2).asFloatBuffer();
+        }
+
+        public IntBuffer createIntBuffer(int size) {
+            return createByteBuffer(size << 2).asIntBuffer();
+        }
+    }
+
 }
 
