@@ -54,7 +54,10 @@ task tags(type: Exec) {
     def pwd = System.getProperty("user.dir")
     if (!pwd.endsWith('/')) { pwd += "/"; }
     project.getSubprojects().each {
-        args it.projectDir.getPath().replace('\\', '/').minus(pwd)+"/src"
+        def p = it.projectDir.getPath().replace('\\', '/').minus(pwd)
+        args p
+        // exclude the gradle build and android gen directories.
+        args "--exclude=${p}/build/", "--exclude=${p}/gen/"
     }
     // also these FWIW:
     args 'gradle', 'templates'
