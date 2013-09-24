@@ -341,6 +341,8 @@ public interface OpenGLES20 {
 
 
     /* OpenGL functions */
+    // TODO: make versions that take e.g. GpuProgram instead of int, for all methods.
+    // TODO: make versions that take e.g. float[] instead of FloatBuffer, for all methods.
 
     void glAttachShader(GpuProgram p, Shader s);
     void glAttachShader(int program, int shader);
@@ -402,7 +404,9 @@ public interface OpenGLES20 {
     void glUniform3f(int location, float v0, float v1, float v2);
     void glUniform3i(int location, int v0, int v1, int v2);
     void glUniform4f(int location, float v0, float v1, float v2, float v3);
+    void glUniform4fv(int location, int count, FloatBuffer v);
     void glUniform4i(int location, int v0, int v1, int v2, int v3);
+    void glUniform4iv(int location, int count, IntBuffer v);
     void glUseProgram(GpuProgram program);
     void glUseProgram(int program);
 
@@ -417,7 +421,7 @@ public interface OpenGLES20 {
     void glVertex4d(double x, double y, double z, double w);
     void glVertex4f(float x, float y, float z, float w);
     void glVertex4i(int x, int y, int z, int w);
-    void glVertexAttribPointer(int indx, int size, int type, boolean normalized, int stride, int offset);
+    void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int offset);
     void glViewport(int x, int y, int width, int height);
 
 }

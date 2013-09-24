@@ -152,14 +152,14 @@ public class LwjglOpenGL implements OpenGL {
 
 
     @Override
-    void glDrawElements(int mode, int count, int type, ByteBuffer indices) {
-        GL11.glDrawElements(mode, count, type, indices);
+    public void glDrawElements(int mode, int count, int type, ByteBuffer indices) {
+        GL11.glDrawElements(mode, indices);
     }
 
 
     @Override
-    void glDrawElements(int mode, int count, int type, long offset) {
-        GL11.glDrawElements(mode, count, type, offset);
+    public void glDrawElements(int mode, int count, int type, long offset) {
+        GL11.glDrawElements(mode, count, type, offset) ;
     }
 
 
@@ -323,8 +323,22 @@ public class LwjglOpenGL implements OpenGL {
 
 
     @Override
+    public void glUniform4fv(int location, int count, FloatBuffer v) {
+            /* I'm not sure if this is the correct function but it's the closest I could find :*/
+        GL20.glUniform4(location, v);
+    }
+
+
+    @Override
     public void glUniform4i(int location, int v0, int v1, int v2, int v3) {
         GL20.glUniform4i(location, v0, v1, v2, v3);
+    }
+
+
+    @Override
+    public void glUniform4iv(int location, int count, IntBuffer v) {
+            /* I'm not sure if this is the correct function but it's the closest I could find :*/
+        GL20.glUniform4(location, v);
     }
 
 

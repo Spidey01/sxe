@@ -32,6 +32,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.DoubleBuffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
 
 public class Utils {
 
@@ -294,19 +300,19 @@ public class Utils {
      */
     public static class Buffers {
 
-        public ByteBuffer createByteBuffer(int size) {
+        public static ByteBuffer createByteBuffer(int size) {
             return ByteBuffer.allocateDirect(size).order(ByteOrder.nativeOrder());
         }
 
-        public DoubleBuffer createDoubleBuffer(int size) {
+        public static DoubleBuffer createDoubleBuffer(int size) {
             return createByteBuffer(size << 3).asDoubleBuffer();
         }
 
-        public FloatBuffer createFloatBuffer(int size) {
+        public static FloatBuffer createFloatBuffer(int size) {
             return createByteBuffer(size << 2).asFloatBuffer();
         }
 
-        public IntBuffer createIntBuffer(int size) {
+        public static IntBuffer createIntBuffer(int size) {
             return createByteBuffer(size << 2).asIntBuffer();
         }
     }

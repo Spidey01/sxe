@@ -335,8 +335,20 @@ public class AndroidOpenGLES implements OpenGL {
 
 
     @Override
+    public void glUniform4fv(int location, int count, FloatBuffer v) {
+        GLES20.glUniform4f(location, count, v);
+    }
+
+
+    @Override
     public void glUniform4i(int location, int v0, int v1, int v2, int v3) {
-        GLES20.glUniform4i(location, v0, v1, v2, v3);
+        GLES20.glUniform4iv(location, v0, v1, v2, v3);
+    }
+
+
+    @Override
+    public void glUniform4iv(int location, int count, IntBuffer v) {
+        GLES20.glUniform4iv(location, count, v);
     }
 
 
