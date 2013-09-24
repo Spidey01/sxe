@@ -24,6 +24,7 @@
 package com.spidey01.sxe.core;
 
 import java.nio.IntBuffer;
+import java.nio.FloatBuffer;
 
 /** Class encapsulating an OpenGL Vertex Buffer Object (VBO).
  */
@@ -34,6 +35,7 @@ public class VertexBuffer {
     private final int mUsage;
     private boolean mIsInitialized;
     private int mVertexBufferId;
+    private int mVertexCount;
 
 
     public VertexBuffer() {
@@ -72,7 +74,7 @@ public class VertexBuffer {
         if (mIsInitialized) return;
         initialize(GL);
         bind(GL);
-        buffer(vertices);
+        buffer(GL, vertices);
     }
 
 
@@ -81,7 +83,7 @@ public class VertexBuffer {
         if (mIsInitialized) return;
         initialize(GL);
         bind(GL);
-        buffer(vertices);
+        buffer(GL, vertices);
     }
 
 
@@ -104,12 +106,12 @@ public class VertexBuffer {
 
     public void buffer(OpenGL GL, float[] vertices) {
         check();
-        FloatBuffer b = BufferUtils.createFloatBuffer(vertices.length);
+        FloatBuffer b = Utils.Buffers.createFloatBuffer(vertices.length);
         b.put(vertices);
         // Basically make sure the bounds is set to vertices.length and rewind the position.
         b.flip();
-        int vertexCount = vertices+1;
-        buffer(b);
+        mVertexCount = vertices.length + 1;
+        buffer(GL, b);
         b.clear();
     }
 
@@ -125,6 +127,11 @@ public class VertexBuffer {
         if (!mIsInitialized) {
             throw new IllegalStateException(TAG+" not initialized!");
         }
+    }
+
+
+    public int getVertexCount() {
+        return mVertexCount;
     }
 
 }
