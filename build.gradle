@@ -54,7 +54,7 @@ task tags(type: Exec) {
     def pwd = System.getProperty("user.dir")
     if (!pwd.endsWith('/')) { pwd += "/"; }
     project.getSubprojects().each {
-        args it.projectDir.getPath().replace('\\', '/').minus(pwd)
+        args it.projectDir.getPath().replace('\\', '/').minus(pwd)+"/src"
     }
     // also these FWIW:
     args 'gradle', 'templates'
