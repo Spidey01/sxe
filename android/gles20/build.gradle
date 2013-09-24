@@ -1,0 +1,42 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.5.6'
+    }
+}
+
+apply plugin: 'android-library'
+
+group = 'com.spidey01.sxe.android.gles20'
+// archivesBaseName = 'sxe-android-gles20'
+version = '0.0.1-SNAPSHOT'
+description = 'Platform library for Android; OpenGL ES 2.0 code.'
+
+dependencies {
+    compile project(':core')
+    releaseCompile project(':core')
+    debugCompile project(':core')
+    compile project(':android:common')
+    releaseCompile project(':android:common')
+    debugCompile project(':android:common')
+}
+
+android {
+    // needed by android-library's :android:compileReleaseAidl task.
+    buildToolsVersion "18.0.1"
+    compileSdkVersion 10
+    defaultConfig {
+        // are these needed for a library project?
+        // versionCode 1
+        // versionName getVersionName()
+        minSdkVersion 10
+        // is this needed in a library project?
+        //targetSdkVersion 17
+    }
+}
+
+

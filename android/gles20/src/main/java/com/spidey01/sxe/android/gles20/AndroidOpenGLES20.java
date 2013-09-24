@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.android;
+package com.spidey01.sxe.android.gles20;
 
 import  com.spidey01.sxe.core.GpuProgram;
 import  com.spidey01.sxe.core.OpenGL;
@@ -37,8 +37,8 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
 
-public class AndroidOpenGLES implements OpenGL {
-    private static final String TAG = "AndroidOpenGLES";
+public class AndroidOpenGLES20 implements OpenGL {
+    private static final String TAG = "AndroidOpenGLES20";
 
     /* OpenGL functions */
 

@@ -11,10 +11,10 @@ buildscript {
 
 apply plugin: 'android-library'
 
-group = 'com.spidey01.sxe.android'
-// archivesBaseName = 'sxe-android'
+group = 'com.spidey01.sxe.android.common'
+// archivesBaseName = 'sxe-android-common'
 version = '0.0.1-SNAPSHOT'
-description = 'Platform library for Android.'
+description = 'Platform library for Android; common code.'
 
 dependencies {
     compile project(':core')
