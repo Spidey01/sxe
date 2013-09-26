@@ -158,7 +158,7 @@ public class LwjglOpenGL implements OpenGL {
 
 
     @Override
-    public void glDrawElements(int mode, int count, int type, long offset) {
+    public void glDrawElements(int mode, int count, int type, int offset) {
         GL11.glDrawElements(mode, count, type, offset) ;
     }
 

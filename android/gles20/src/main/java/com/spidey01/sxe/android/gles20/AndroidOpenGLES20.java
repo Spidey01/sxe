@@ -160,13 +160,13 @@ public class AndroidOpenGLES20 implements OpenGL {
 
 
     @Override
-    void glDrawElements(int mode, int count, int type, ByteBuffer indices) {
+    public void glDrawElements(int mode, int count, int type, ByteBuffer indices) {
         GLES20.glDrawElements(mode, count, type, indices);
     }
 
 
     @Override
-    void glDrawElements(int mode, int count, int type, long offset) {
+    public void glDrawElements(int mode, int count, int type, int offset) {
         GLES20.glDrawElements(mode, count, type, offset);
     }
 
@@ -336,13 +336,13 @@ public class AndroidOpenGLES20 implements OpenGL {
 
     @Override
     public void glUniform4fv(int location, int count, FloatBuffer v) {
-        GLES20.glUniform4f(location, count, v);
+        GLES20.glUniform4fv(location, count, v);
     }
 
 
     @Override
     public void glUniform4i(int location, int v0, int v1, int v2, int v3) {
-        GLES20.glUniform4iv(location, v0, v1, v2, v3);
+        GLES20.glUniform4i(location, v0, v1, v2, v3);
     }
 
 

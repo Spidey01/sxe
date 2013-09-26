@@ -26,10 +26,10 @@ package com.spidey01.sxe.helloworld.android;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.GameEngine;
 
-import com.spidey01.sxe.android.AndroidConfiguration;
-import com.spidey01.sxe.android.AndroidDisplay;
-import com.spidey01.sxe.android.AssetLoader;
-import com.spidey01.sxe.android.GameActivity;
+import com.spidey01.sxe.android.common.AndroidConfiguration;
+import com.spidey01.sxe.android.common.AndroidDisplay;
+import com.spidey01.sxe.android.common.AssetLoader;
+import com.spidey01.sxe.android.common.GameActivity;
 
 import com.spidey01.sxe.helloworld.lib.HelloWorld;
 
