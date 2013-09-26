@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.android;
+package com.spidey01.sxe.android.common;
 
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.ResourceLoader;

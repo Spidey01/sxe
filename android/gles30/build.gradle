@@ -1,0 +1,8 @@
+
+group = 'com.spidey01.sxe.android.gles30'
+// archivesBaseName = 'sxe-android-gles30'
+version = '0.0.1-SNAPSHOT'
+description = 'Platform library for Android; OpenGL ES 3.0 code.'
+
+task build {}
+

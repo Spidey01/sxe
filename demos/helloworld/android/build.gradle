@@ -16,7 +16,8 @@ version = '0.0.1-SNAPSHOT'
 description = 'Hello World demo for android-based devices'
 
 dependencies {
-    compile project(':android')
+    compile project(':android:common')
+    compile project(':android:gles20')
     compile project(':demos:helloworld:lib')
 }
 

@@ -21,9 +21,9 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.android;
+package com.spidey01.sxe.android.common;
 
-import com.spidey01.sxe.android.AndroidDisplay;
+import com.spidey01.sxe.android.common.AndroidDisplay;
 import com.spidey01.sxe.core.Action;
 import com.spidey01.sxe.core.Display;
 import com.spidey01.sxe.core.InputManager;

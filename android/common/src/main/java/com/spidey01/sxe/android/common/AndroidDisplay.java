@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.android;
+package com.spidey01.sxe.android.common;
 
 import com.spidey01.sxe.android.OpenGLES20Renderer;
 import com.spidey01.sxe.core.Display;
@@ -44,7 +44,9 @@ public class AndroidDisplay
     public AndroidDisplay(Context context) {
         super(context);
 
-        mOpenGL = new AndroidOpenGLES();
+        // FIXME
+        // mOpenGL = new AndroidOpenGLES();
+        mOpenGL = null;
 
         // required so OnKey works.
         setFocusable(true);
