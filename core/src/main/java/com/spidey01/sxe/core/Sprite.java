@@ -103,6 +103,7 @@ public class Sprite implements FrameStartedListener {
         GL.glDisableVertexAttribArray(vPosition);
     }
 
+
     public void initialize(OpenGL GL) {
         if (mIsInitialized) throw new IllegalStateException(TAG+": already initialized!");
 
@@ -122,17 +123,19 @@ public class Sprite implements FrameStartedListener {
         */
 
         mTexture.initialize(GL);
-        // mVertexShader.initialize(GL);
-        // mFragmentShader.initialize(GL);
-        // mProgram.initialize(GL);
+        mVertexShader.initialize(GL);
+        mFragmentShader.initialize(GL);
+        mProgram.initialize(GL);
 
         mIsInitialized = true;
     }
+
 
     public void deinitialize(OpenGL GL) {
         if (!mIsInitialized) throw new IllegalStateException(TAG+": not initialized!");
 
         mIsInitialized = false;
     }
+
 }
 
