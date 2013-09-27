@@ -28,6 +28,7 @@ import com.spidey01.sxe.core.GameContext;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.ResourceManager;
+import com.spidey01.sxe.core.SceneManager;
 
 import android.content.Context;
 import android.os.Build;
@@ -47,6 +48,7 @@ public class AndroidConfiguration {
         GameContext c = new GameContext()
             .setConsole(null)
             .setDisplay(d)
+            .setScene(new SceneManager())
             .setGame(game)
             .setInput(new AndroidInputManager(d))
             .setResources(new ResourceManager())

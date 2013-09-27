@@ -71,7 +71,8 @@ public class HelloWorld
             return false;
         }
         sprite = new Sprite(spriteTexture);
-        mGameEngine.getDisplay().addFrameStartedListener(sprite);
+        // mGameEngine.getDisplay().addFrameStartedListener(sprite);
+        mGameEngine.getSceneManager().add(sprite);
 
         return true;
     }

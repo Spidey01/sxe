@@ -50,6 +50,7 @@ public class GameContext {
 
     private Console mConsole;
     private Display mDisplay;
+    private SceneManager mScene;
     private Game mGame;
     private GameEngine mEngine;
     private InputManager mInput;
@@ -80,12 +81,14 @@ public class GameContext {
      * @param opts A Map to use for the *Opt methods. If null, an empty HashMap will be used.
      * @see {@link #getOpt}.
      */
-    public GameContext(Console console, Display display, Game game,
-        GameEngine engine, InputManager input, ResourceManager resources,
-        Settings settings, Map<String, Object> opts)
+    public GameContext(Console console, Display display, SceneManager scene,
+        Game game, GameEngine engine, InputManager input,
+        ResourceManager resources, Settings settings,
+        Map<String, Object> opts)
     {
         mConsole = console;
         mDisplay = display;
+        mScene = scene;
         mGame = game;
         mEngine = engine;
         mInput = input;
@@ -105,6 +108,10 @@ public class GameContext {
 
     public Display getDisplay() {
         return mDisplay;
+    }
+
+    public SceneManager getScene() {
+        return mScene;
     }
 
     public Game getGame() {
@@ -176,6 +183,11 @@ public class GameContext {
 
     public GameContext setDisplay(Display value) {
         mDisplay = value;
+        return this;
+    }
+
+    public GameContext setScene(SceneManager value) {
+        mScene = value;
         return this;
     }
 

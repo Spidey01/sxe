@@ -44,8 +44,9 @@ public class GameEngine {
     @Deprecated 
     protected GameContext mCtx;
 
-    private final Display mDisplay;
     private final Game mGame;
+    private final Display mDisplay;
+    private final SceneManager mSceneManager;
     private final InputManager mInputManager;
     private final ResourceManager mResourceManager;
     // should this be final?
@@ -59,15 +60,16 @@ public class GameEngine {
      * just fill out the documented fields as necessary.
      */
     public GameEngine(GameContext context) {
-        this(context.getDisplay(), context.getGame(), context.getInput(),
+        this(context.getDisplay(), context.getScene(), context.getGame(), context.getInput(),
              context.getResources(), context.getSettings());
         mCtx = context;
     }
 
-    private GameEngine(Display display, Game game, InputManager input,
+    private GameEngine(Display display, SceneManager scene, Game game, InputManager input,
             ResourceManager resources, Settings settings)
     {
         mDisplay = display;
+        mSceneManager = scene;
         mGame = game;
         mInputManager = input;
         mResourceManager = resources;
@@ -135,6 +137,8 @@ public class GameEngine {
         if (!mDisplay.create()) {
             return false;
         }
+        // FIXME: dirty hack for now.
+        mSceneManager.setTechnique(new VertexBufferTechnique(mDisplay.getOpenGL()));
 
         mGameThread = new GameThread(this, mGame);
         mGameThread.start();
@@ -163,6 +167,7 @@ public class GameEngine {
     public void mainLoop() {
 		while (!mGame.isStopRequested() && !mDisplay.isCloseRequested()) {
             mInputManager.poll();
+            mSceneManager.update();
             mDisplay.update();
 		}
     }
@@ -170,6 +175,11 @@ public class GameEngine {
 
     public Display getDisplay() {
         return mDisplay;
+    }
+
+    
+    public SceneManager getSceneManager() {
+        return mSceneManager;
     }
 
 
