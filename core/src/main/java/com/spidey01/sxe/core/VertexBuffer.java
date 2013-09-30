@@ -39,8 +39,8 @@ public class VertexBuffer {
 
 
     public VertexBuffer() {
-        mTarget = OpenGL.GL_ARRAY_BUFFER;
-        mUsage = OpenGL.GL_STATIC_DRAW;
+        mTarget = OpenGLES20.GL_ARRAY_BUFFER;
+        mUsage = OpenGLES20.GL_STATIC_DRAW;
     }
     
 
@@ -58,7 +58,7 @@ public class VertexBuffer {
 
 
     /** Initializes an empty VertexBuffer. */
-    public void initialize(OpenGL GL) {
+    public void initialize(OpenGLES20 GL) {
         if (mIsInitialized) return;
         
         IntBuffer b = Utils.Buffers.createIntBuffer(1);
@@ -70,7 +70,7 @@ public class VertexBuffer {
 
 
     /** Initialize, bind, and buffer vertices from array. */
-    public void initialize(OpenGL GL, float[] vertices) {
+    public void initialize(OpenGLES20 GL, float[] vertices) {
         if (mIsInitialized) return;
         initialize(GL);
         bind(GL);
@@ -79,7 +79,7 @@ public class VertexBuffer {
 
 
     /** Initialize, bind, and buffer vertices from FloatBuffer. */
-    public void initialize(OpenGL GL, FloatBuffer vertices) {
+    public void initialize(OpenGLES20 GL, FloatBuffer vertices) {
         if (mIsInitialized) return;
         initialize(GL);
         bind(GL);
@@ -91,20 +91,20 @@ public class VertexBuffer {
      *
      * I.e. call glBindBuffer.
      */
-    public void bind(OpenGL GL) {
+    public void bind(OpenGLES20 GL) {
         check();
         GL.glBindBuffer(mTarget, mVertexBufferId);
     }
 
 
     /** Buffers vertices to OpenGL memory.  */
-    public void buffer(OpenGL GL, FloatBuffer vertices) {
+    public void buffer(OpenGLES20 GL, FloatBuffer vertices) {
         check();
         GL.glBufferData(mTarget, vertices, mUsage);
     }
 
 
-    public void buffer(OpenGL GL, float[] vertices) {
+    public void buffer(OpenGLES20 GL, float[] vertices) {
         check();
         FloatBuffer b = Utils.Buffers.createFloatBuffer(vertices.length);
         b.put(vertices);
@@ -116,7 +116,7 @@ public class VertexBuffer {
     }
 
 
-    public void deinitialize(OpenGL GL) {
+    public void deinitialize(OpenGLES20 GL) {
         check();
         // TODO: Delete the buffer.
         mIsInitialized = false;

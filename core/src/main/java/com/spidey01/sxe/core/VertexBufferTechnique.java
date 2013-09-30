@@ -63,8 +63,8 @@ public class VertexBufferTechnique implements RenderingTechnique {
 
         Log.d(TAG, "Initilizing client "+client);
 
-        client.getVertexBuffer().initialize((OpenGL)mGL, client.getVertices());
-        client.getProgram().initialize((OpenGL)mGL);
+        client.getVertexBuffer().initialize(mGL, client.getVertices());
+        client.getProgram().initialize(mGL);
 
         mIsInitialized = true;
     }
@@ -86,9 +86,9 @@ public class VertexBufferTechnique implements RenderingTechnique {
         }
         Log.d(TAG, "Drawing client "+client);
 
-        client.getVertexBuffer().bind((OpenGL)mGL);
+        client.getVertexBuffer().bind(mGL);
         GpuProgram p = client.getProgram();
-        p.use((OpenGL)mGL);
+        p.use(mGL);
 
         // get the location (index) of the attribute.
         int vPosition = mGL.glGetAttribLocation(p.getId(), "vPosition");
@@ -97,7 +97,7 @@ public class VertexBufferTechnique implements RenderingTechnique {
 
         // Pass the data for vPosition
         // FIXME: set the numbers dynamically!
-        mGL.glVertexAttribPointer(vPosition, 3, OpenGL.GL_FLOAT, false, 0, 0);
+        mGL.glVertexAttribPointer(vPosition, 3, OpenGLES20.GL_FLOAT, false, 0, 0);
 
         // get the uniform's index/location and set it.
         // FIXME: Yeah!
@@ -110,7 +110,7 @@ public class VertexBufferTechnique implements RenderingTechnique {
         mGL.glUniform4fv(vColor, 1, color_p);
         */
 
-        mGL.glDrawArrays(OpenGL.GL_TRIANGLES, 0, client.getVertexBuffer().getVertexCount());
+        mGL.glDrawArrays(OpenGLES20.GL_TRIANGLES, 0, client.getVertexBuffer().getVertexCount());
 
         mGL.glDisableVertexAttribArray(vPosition);
     }
