@@ -29,9 +29,9 @@ import java.nio.FloatBuffer;
  *
  * The object to be rendered with this technique is expected to do the following:
  * <ol>
+ *  <li>Provide a float[] of vertices to render.</li>
  *  <li>Provide a GpuProgram with shaders attached.</li>
  *  <li>Provide a VertexBuffer</li>
- *  <li></li>
  *  <li></li>
  * </ol>
  *
@@ -63,21 +63,7 @@ public class VertexBufferTechnique implements RenderingTechnique {
 
         Log.d(TAG, "Initilizing client "+client);
 
-        // just for testing
-        float[] vertices = {
-            // Left bottom triangle
-            -0.5f, 0.5f, 0f,
-            -0.5f, -0.5f, 0f,
-            0.5f, -0.5f, 0f,
-            // Right top triangle
-            0.5f, -0.5f, 0f,
-            0.5f, 0.5f, 0f,
-            -0.5f, 0.5f, 0f
-        };
-        client.getVertexBuffer().initialize((OpenGL)mGL, vertices);
-        /*
-        */
-
+        client.getVertexBuffer().initialize((OpenGL)mGL, client.getVertices());
         client.getProgram().initialize((OpenGL)mGL);
 
         mIsInitialized = true;
@@ -91,7 +77,7 @@ public class VertexBufferTechnique implements RenderingTechnique {
      * Current API with Shaders:
      *
      *  vPosition vertex attribute for passing vertices to the vertex shader.
-     *  vColor fragment uniform for passing color to the fragment shader.
+     *  vColor fragment uniform for passing color to the fragment shader. (Removed for right now!)
      */
     @Override
     public void draw(RenderableObject client) {
@@ -115,12 +101,14 @@ public class VertexBufferTechnique implements RenderingTechnique {
 
         // get the uniform's index/location and set it.
         // FIXME: Yeah!
+        /*
         int vColor = mGL.glGetUniformLocation(p, "vColor");
             float[] color_v = { 0.0f, 1.0f, 0.0f, 1.0f };
             FloatBuffer color_p = Utils.Buffers.createFloatBuffer(color_v.length);
             color_p.put(color_v);
             color_p.flip();
         mGL.glUniform4fv(vColor, 1, color_p);
+        */
 
         mGL.glDrawArrays(OpenGL.GL_TRIANGLES, 0, client.getVertexBuffer().getVertexCount());
 

@@ -50,7 +50,8 @@ public class OpenGLES20Renderer implements GLSurfaceView.Renderer {
         }
 
         // 128,0,128 -> for my Firefly.
-        GLES20.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
+        // GLES20.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
+        GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
         for (FrameEndedListener o : mFrameEndedListeners) {
             o.frameEnded();

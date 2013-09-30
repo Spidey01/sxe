@@ -44,8 +44,8 @@ public class Sprite implements RenderableObject {
     private final static String sDefaultFragmentGLSL = ""
         + "uniform vec4 vColor;"
         + "void main() {"
-        // + "  gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);"
-        + "  gl_FragColor = vColor;"
+        + "  gl_FragColor = vec4(0.5, 0.0, 0.5, 1.0);"
+        // + "  gl_FragColor = vColor;"
         + "}"
         +"\n"
         ;
@@ -69,6 +69,21 @@ public class Sprite implements RenderableObject {
         mProgram.attachShader(mVertexShader);
         mProgram.attachShader(mFragmentShader);
         mVertexBuffer = new VertexBuffer();
+    }
+
+
+    public float[] getVertices() {
+        // just for testing
+        return new float[]{
+            // Left bottom triangle
+            -0.5f, 0.5f, 0f,
+            -0.5f, -0.5f, 0f,
+            0.5f, -0.5f, 0f,
+            // Right top triangle
+            0.5f, -0.5f, 0f,
+            0.5f, 0.5f, 0f,
+            -0.5f, 0.5f, 0f
+        };
     }
 
 

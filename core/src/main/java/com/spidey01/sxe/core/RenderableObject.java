@@ -24,6 +24,7 @@
 package com.spidey01.sxe.core;
 
 public interface RenderableObject {
+    float[] getVertices();
     VertexBuffer getVertexBuffer();
     GpuProgram getProgram();
 }
