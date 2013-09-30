@@ -86,6 +86,26 @@ public class LwjglOpenGL implements OpenGL {
     }
 
     @Override
+    void glBufferSubData(int target, int offset, int size, ByteBuffer data) {
+        GL15.glBufferSubData(target, offset, size, data);
+    }
+
+    @Override
+    void glBufferSubData(int target, int offset, int size, DoubleBuffer data) {
+        GL15.glBufferSubData(target, offset, size, data);
+    }
+
+    @Override
+    void glBufferSubData(int target, int offset, int size, FloatBuffer data) {
+        GL15.glBufferSubData(target, offset, size, data);
+    }
+
+    @Override
+    void glBufferSubData(int target, int offset, int size, IntBuffer data) {
+        GL15.glBufferSubData(target, offset, size, data);
+    }
+
+    @Override
     public void glClear(int mask) {
         GL11.glClear(t(mask));
     }
@@ -453,6 +473,7 @@ public class LwjglOpenGL implements OpenGL {
 
     /* Internal functions */
 
+    // FIXME
     private static int t(int konst) {
         // If Java doesn't allow meta programming this away, it can kiss my ass.
         switch (konst) {

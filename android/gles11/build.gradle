@@ -30,12 +30,7 @@ android {
     buildToolsVersion "18.0.1"
     compileSdkVersion 10
     defaultConfig {
-        // are these needed for a library project?
-        // versionCode 1
-        // versionName getVersionName()
-        minSdkVersion 10
-        // is this needed in a library project?
-        //targetSdkVersion 17
+        minSdkVersion 4
     }
 }
 

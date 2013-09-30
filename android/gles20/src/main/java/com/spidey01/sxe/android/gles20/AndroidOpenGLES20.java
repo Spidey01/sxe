@@ -24,20 +24,19 @@
 package com.spidey01.sxe.android.gles20;
 
 import  com.spidey01.sxe.core.GpuProgram;
-import  com.spidey01.sxe.core.OpenGL;
+import  com.spidey01.sxe.core.OpenGLES20;
 import  com.spidey01.sxe.core.Shader;
 
 import android.opengl.GLES20;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
 
-public class AndroidOpenGLES20 implements OpenGL {
+public class AndroidOpenGLES20 implements OpenGLES20 {
     private static final String TAG = "AndroidOpenGLES20";
 
     /* OpenGL functions */
@@ -90,6 +89,26 @@ public class AndroidOpenGLES20 implements OpenGL {
         GLES20.glBufferData(t(target),
             data.capacity() * Integer.SIZE,
             data, t(usage));
+    }
+
+    @Override
+    void glBufferSubData(int target, int offset, int size, ByteBuffer data) {
+        GLES20.glBufferSubData(target, offset, size, data);
+    }
+
+    @Override
+    void glBufferSubData(int target, int offset, int size, DoubleBuffer data) {
+        GLES20.glBufferSubData(target, offset, size, data);
+    }
+
+    @Override
+    void glBufferSubData(int target, int offset, int size, FloatBuffer data) {
+        GLES20.glBufferSubData(target, offset, size, data);
+    }
+
+    @Override
+    void glBufferSubData(int target, int offset, int size, IntBuffer data) {
+        GLES20.glBufferSubData(target, offset, size, data);
     }
 
     @Override

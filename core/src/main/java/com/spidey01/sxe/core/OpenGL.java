@@ -32,12 +32,15 @@ import java.nio.IntBuffer;
 /** Working set of OpenGL functions.
  *
  * This should provide access to the fixed and programmable pipelines where
- * available.  Implementations may throw an unchecked exception if OpenGL
- * legacy / depreciated functionality is unavailable. 
+ * available. Implementations may throw an unchecked exception if OpenGL legacy
+ * / depreciated functionality is unavailable.
  *
  * Attempting to intermix pipelines in a bad way may but is not required to
  * throw an IllegalStateException.
  *
+ * In most cases unless a method is intended to be free to use anything it
+ * wants (such as for ease of testing), you should probably write methods to
+ * use the appropriate type.
  */
 public interface OpenGL extends OpenGLES11, OpenGLES20, OpenGLES30 {
 }

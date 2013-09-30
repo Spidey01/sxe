@@ -353,6 +353,10 @@ public interface OpenGLES20 {
     void glBufferData(int target, DoubleBuffer data, int usage);
     void glBufferData(int target, FloatBuffer data, int usage);
     void glBufferData(int target, IntBuffer data, int usage);
+    void glBufferSubData(int target, int offset, int size, IntBuffer data)
+    void glBufferSubData(int target, int offset, int size, ByteBuffer data)
+    void glBufferSubData(int target, int offset, int size, DoubleBuffer data)
+    void glBufferSubData(int target, int offset, int size, FloatBuffer data)
 
     void glClear(int mask);
     void glClearColor(float red, float green, float blue, float alpha);

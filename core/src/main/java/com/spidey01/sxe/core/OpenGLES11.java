@@ -36,9 +36,20 @@ import java.nio.IntBuffer;
 public interface OpenGLES11 {
 
     void glBegin(int mode);
+    void glBindBuffer(int target, int buffer);
+    void glBufferData(int target, ByteBuffer data, int usage);
+    void glBufferData(int target, DoubleBuffer data, int usage);
+    void glBufferData(int target, FloatBuffer data, int usage);
+    void glBufferData(int target, IntBuffer data, int usage);
+    void glBufferSubData(int target, int offset, int size, IntBuffer data)
+    void glBufferSubData(int target, int offset, int size, ByteBuffer data)
+    void glBufferSubData(int target, int offset, int size, DoubleBuffer data)
+    void glBufferSubData(int target, int offset, int size, FloatBuffer data)
+
     void glColor3b(byte red, byte green, byte blue);
     void glColor3d(double red, double green, double blue);
     void glColor3f(float red, float green, float blue);
+
     void glEnd();
 }
 
