@@ -29,7 +29,7 @@ import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
-public class NullOpenGL implements OpenGLES20, OpenGLES30, OpenGL {
+public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     private final static String TAG = "NullOpenGL";
 
     public NullOpenGL() {

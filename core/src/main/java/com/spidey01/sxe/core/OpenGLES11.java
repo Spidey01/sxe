@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -29,16 +29,16 @@ import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
-/** Working set of OpenGL functions.
+/** OpenGL functions for the old Fixed Function Pipeline.
  *
- * This should provide access to the fixed and programmable pipelines where
- * available.  Implementations may throw an unchecked exception if OpenGL
- * legacy / depreciated functionality is unavailable. 
- *
- * Attempting to intermix pipelines in a bad way may but is not required to
- * throw an IllegalStateException.
- *
+ * TODO: this is mostly a place holder as little code uses the FFP!
  */
-public interface OpenGL extends OpenGLES11, OpenGLES20, OpenGLES30 {
+public interface OpenGLES11 {
+
+    void glBegin(int mode);
+    void glColor3b(byte red, byte green, byte blue);
+    void glColor3d(double red, double green, double blue);
+    void glColor3f(float red, float green, float blue);
+    void glEnd();
 }
 

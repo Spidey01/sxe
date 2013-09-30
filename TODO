@@ -7,3 +7,4 @@
 [X] Clean up GameEngine#setupLogging
 [ ] Some way of addressing the installation root, resource paths, etc.
 [ ] ResourceHandle#asTexture should inspect URI for file extension (.png, .jpg, etc) and act accordingly. Also should have an overload that allows specifying the format.
+[ ] Maybe make GpuProgram able to init from a Program ID #?

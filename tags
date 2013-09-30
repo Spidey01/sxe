@@ -48,8 +48,8 @@ BuildConfig	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/Bui
 BuildConfig	demos/snake/android/build/source/buildConfig/debug/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
 BuildConfig	demos/snake/android/build/source/buildConfig/release/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
 BuildConfig	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-CLASSPATH	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar$/;"	v
-CLASSPATH	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar$/;"	v
+CLASSPATH	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar$/;"	v
+CLASSPATH	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar$/;"	v
 CLASSPATH	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\pingpong-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\pingpong-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar$/;"	v
 CLASSPATH	demos/snake/pc/build/scripts/snake-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\snake-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\snake-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar$/;"	v
 CLASSTEMPLATE	templates/NewClass.java	/^    public CLASSTEMPLATE() {$/;"	m	class:CLASSTEMPLATE
@@ -511,7 +511,8 @@ NullDisplay	core/src/main/java/com/spidey01/sxe/core/NullDisplay.java	/^public c
 NullOpenGL	core/src/main/java/com/spidey01/sxe/core/NullOpenGL.java	/^    public NullOpenGL() {$/;"	m	class:NullOpenGL
 NullOpenGL	core/src/main/java/com/spidey01/sxe/core/NullOpenGL.java	/^public class NullOpenGL implements OpenGLES20, OpenGLES30, OpenGL {$/;"	c
 OnChangedListener	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    public interface OnChangedListener {$/;"	i	interface:Settings
-OpenGL	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^public interface OpenGL extends OpenGLES20 {$/;"	i
+OpenGL	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^public interface OpenGL extends OpenGLES11, OpenGLES20, OpenGLES30 {$/;"	i
+OpenGLES11	core/src/main/java/com/spidey01/sxe/core/OpenGLES11.java	/^public interface OpenGLES11 {$/;"	i
 OpenGLES20	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^public interface OpenGLES20 {$/;"	i
 OpenGLES20Renderer	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^public class OpenGLES20Renderer implements GLSurfaceView.Renderer {$/;"	c
 OpenGLES30	core/src/main/java/com/spidey01/sxe/core/OpenGLES30.java	/^public interface OpenGLES30 extends OpenGLES20 {$/;"	i
@@ -583,7 +584,7 @@ SnakeGame	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.jav
 SnakeGameActivity	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^public class SnakeGameActivity extends GameActivity {$/;"	c
 Sprite	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public Sprite(Texture backing) {$/;"	m	class:Sprite
 Sprite	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public Sprite(Texture backing, Shader vertex, Shader fragment) {$/;"	m	class:Sprite
-Sprite	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^public class Sprite implements FrameStartedListener, RenderableObject {$/;"	c
+Sprite	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^public class Sprite implements RenderableObject {$/;"	c
 State	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public enum State {$/;"	g	class:Game
 TAG	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidConfiguration.java	/^    private static final String TAG = "AndroidConfiguration";$/;"	f	class:AndroidConfiguration	file:
 TAG	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    private static final String TAG = "AndroidDisplay";$/;"	f	class:AndroidDisplay	file:
@@ -809,6 +810,7 @@ com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^packa
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/NullDisplay.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/NullOpenGL.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/OpenGLES11.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/OpenGLES30.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/PathResourceLoader.java	/^package com.spidey01.sxe.core;$/;"	p
@@ -925,7 +927,6 @@ decodeFlipped	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecod
 deinitialize	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void deinitialize(OpenGL GL) {$/;"	m	class:GpuProgram
 deinitialize	core/src/main/java/com/spidey01/sxe/core/RenderingTechnique.java	/^    void deinitialize(RenderableObject client);$/;"	m	interface:RenderingTechnique
 deinitialize	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    public void deinitialize(OpenGL GL) {$/;"	m	class:Shader
-deinitialize	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public void deinitialize(OpenGL GL) {$/;"	m	class:Sprite
 deinitialize	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    public void deinitialize(OpenGL GL) {$/;"	m	class:VertexBuffer
 deinitialize	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^    public void deinitialize(RenderableObject client) {$/;"	m	class:VertexBufferTechnique
 deselectAll	core/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
@@ -1013,7 +1014,6 @@ frameEnded	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.ja
 frameStarted	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void frameStarted(OpenGL GL20) {$/;"	m	class:Console
 frameStarted	core/src/main/java/com/spidey01/sxe/core/FrameStartedListener.java	/^    public void frameStarted(OpenGL GL20);$/;"	m	interface:FrameStartedListener
 frameStarted	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    public void frameStarted(OpenGL GL20) {$/;"	m	class:Mesh
-frameStarted	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public void frameStarted(OpenGL GL) {$/;"	m	class:Sprite
 frameStarted	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public void frameStarted(OpenGL GL20) {$/;"	m	class:SnakeGame
 from	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        protected static Table from(DataInputStream data) throws IOException {$/;"	m	class:TrueTypeFont.Table
 from	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    public static TrueTypeFont from(File path) throws IOException {$/;"	m	class:TrueTypeFont
@@ -1169,6 +1169,8 @@ getVersionAsString	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^
 getVertexBuffer	core/src/main/java/com/spidey01/sxe/core/RenderableObject.java	/^    VertexBuffer getVertexBuffer();$/;"	m	interface:RenderableObject
 getVertexBuffer	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public VertexBuffer getVertexBuffer() {$/;"	m	class:Sprite
 getVertexCount	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    public int getVertexCount() {$/;"	m	class:VertexBuffer
+getVertices	core/src/main/java/com/spidey01/sxe/core/RenderableObject.java	/^    float[] getVertices();$/;"	m	interface:RenderableObject
+getVertices	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public float[] getVertices() {$/;"	m	class:Sprite
 getWidth	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^    int getWidth();$/;"	m	interface:Bitmap
 getWidth	core/src/main/java/com/spidey01/sxe/core/PngBitmap.java	/^    public int getWidth() {$/;"	m	class:PngBitmap
 getWidth	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    public int getWidth() {$/;"	m	class:Texture
@@ -1184,7 +1186,7 @@ glAttachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    publi
 glAttachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glAttachShader(int program, int shader) {$/;"	m	class:LwjglOpenGL
 glBegin	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glBegin(int mode) {$/;"	m	class:AndroidOpenGLES20
 glBegin	core/src/main/java/com/spidey01/sxe/core/NullOpenGL.java	/^    public void glBegin(int mode) {$/;"	m	class:NullOpenGL
-glBegin	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glBegin(int mode);$/;"	m	interface:OpenGL
+glBegin	core/src/main/java/com/spidey01/sxe/core/OpenGLES11.java	/^    void glBegin(int mode);$/;"	m	interface:OpenGLES11
 glBegin	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBegin(int mode) {$/;"	m	class:LwjglOpenGL
 glBindBuffer	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glBindBuffer(int target, int buffer) {$/;"	m	class:AndroidOpenGLES20
 glBindBuffer	core/src/main/java/com/spidey01/sxe/core/NullOpenGL.java	/^    public void glBindBuffer(int target, int buffer) {$/;"	m	class:NullOpenGL
@@ -1220,15 +1222,15 @@ glClearColor	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.java	/^    void
 glClearColor	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glClearColor(float red, float green, float blue, float alpha) {$/;"	m	class:LwjglOpenGL
 glColor3b	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glColor3b(byte red, byte green, byte blue) {$/;"	m	class:AndroidOpenGLES20
 glColor3b	core/src/main/java/com/spidey01/sxe/core/NullOpenGL.java	/^    public void glColor3b(byte red, byte green, byte blue) {$/;"	m	class:NullOpenGL
-glColor3b	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glColor3b(byte red, byte green, byte blue);$/;"	m	interface:OpenGL
+glColor3b	core/src/main/java/com/spidey01/sxe/core/OpenGLES11.java	/^    void glColor3b(byte red, byte green, byte blue);$/;"	m	interface:OpenGLES11
 glColor3b	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glColor3b(byte red, byte green, byte blue) {$/;"	m	class:LwjglOpenGL
 glColor3d	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glColor3d(double red, double green, double blue) {$/;"	m	class:AndroidOpenGLES20
 glColor3d	core/src/main/java/com/spidey01/sxe/core/NullOpenGL.java	/^    public void glColor3d(double red, double green, double blue) {$/;"	m	class:NullOpenGL
-glColor3d	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glColor3d(double red, double green, double blue);$/;"	m	interface:OpenGL
+glColor3d	core/src/main/java/com/spidey01/sxe/core/OpenGLES11.java	/^    void glColor3d(double red, double green, double blue);$/;"	m	interface:OpenGLES11
 glColor3d	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glColor3d(double red, double green, double blue) {$/;"	m	class:LwjglOpenGL
 glColor3f	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glColor3f(float red, float green, float blue) {$/;"	m	class:AndroidOpenGLES20
 glColor3f	core/src/main/java/com/spidey01/sxe/core/NullOpenGL.java	/^    public void glColor3f(float red, float green, float blue) {$/;"	m	class:NullOpenGL
-glColor3f	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glColor3f(float red, float green, float blue);$/;"	m	interface:OpenGL
+glColor3f	core/src/main/java/com/spidey01/sxe/core/OpenGLES11.java	/^    void glColor3f(float red, float green, float blue);$/;"	m	interface:OpenGLES11
 glColor3f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glColor3f(float red, float green, float blue) {$/;"	m	class:LwjglOpenGL
 glCompileShader	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glCompileShader(int shader) {$/;"	m	class:AndroidOpenGLES20
 glCompileShader	core/src/main/java/com/spidey01/sxe/core/NullOpenGL.java	/^    public void glCompileShader(int shader) {$/;"	m	class:NullOpenGL
@@ -1292,7 +1294,7 @@ glEnableVertexAttribArray	core/src/main/java/com/spidey01/sxe/core/OpenGLES20.ja
 glEnableVertexAttribArray	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glEnableVertexAttribArray(int index) {$/;"	m	class:LwjglOpenGL
 glEnd	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glEnd() {$/;"	m	class:AndroidOpenGLES20
 glEnd	core/src/main/java/com/spidey01/sxe/core/NullOpenGL.java	/^    public void glEnd() {$/;"	m	class:NullOpenGL
-glEnd	core/src/main/java/com/spidey01/sxe/core/OpenGL.java	/^    void glEnd();$/;"	m	interface:OpenGL
+glEnd	core/src/main/java/com/spidey01/sxe/core/OpenGLES11.java	/^    void glEnd();$/;"	m	interface:OpenGLES11
 glEnd	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glEnd() {$/;"	m	class:LwjglOpenGL
 glGenBuffers	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glGenBuffers(IntBuffer buffers) {$/;"	m	class:AndroidOpenGLES20
 glGenBuffers	core/src/main/java/com/spidey01/sxe/core/NullOpenGL.java	/^    public void glGenBuffers(IntBuffer buffers) {$/;"	m	class:NullOpenGL
@@ -1500,7 +1502,6 @@ initialize	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public
 initialize	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    public void initialize(final OpenGL GL20) {$/;"	m	class:Mesh
 initialize	core/src/main/java/com/spidey01/sxe/core/RenderingTechnique.java	/^    void initialize(RenderableObject client);$/;"	m	interface:RenderingTechnique
 initialize	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    public void initialize(OpenGL GL) {$/;"	m	class:Shader
-initialize	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public void initialize(OpenGL GL) {$/;"	m	class:Sprite
 initialize	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    public void initialize(OpenGL GL) {$/;"	m	class:Texture
 initialize	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    public void initialize(OpenGL GL) {$/;"	m	class:VertexBuffer
 initialize	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    public void initialize(OpenGL GL, FloatBuffer vertices) {$/;"	m	class:VertexBuffer
@@ -1609,7 +1610,6 @@ mInterp	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonS
 mIsDown	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private final boolean mIsDown;$/;"	f	class:KeyEvent	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    private boolean mIsInitialized;$/;"	f	class:GpuProgram	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    private boolean mIsInitialized;$/;"	f	class:Shader	file:
-mIsInitialized	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private boolean mIsInitialized;$/;"	f	class:Sprite	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    private boolean mIsInitialized;$/;"	f	class:Texture	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    private boolean mIsInitialized;$/;"	f	class:VertexBuffer	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^    private boolean mIsInitialized;$/;"	f	class:VertexBufferTechnique	file:
@@ -1670,7 +1670,7 @@ mStopDone	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private boole
 mStopRequested	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private volatile boolean mStopRequested;$/;"	f	class:Game	file:
 mStream	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private DataInputStream mStream;$/;"	f	class:TrueTypeFont	file:
 mTarget	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    private final int mTarget;$/;"	f	class:VertexBuffer	file:
-mTechnique	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^    private RenderingTechnique mTechnique = new VertexBufferTechnique(new OpenGLES20());$/;"	f	class:SceneManager	file:
+mTechnique	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^    private RenderingTechnique mTechnique;$/;"	f	class:SceneManager	file:
 mText	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    private String mText;$/;"	f	class:Text	file:
 mTexture	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private Texture mTexture;$/;"	f	class:Sprite	file:
 mTextureId	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    private int mTextureId;$/;"	f	class:Texture	file:
@@ -1872,6 +1872,7 @@ setSettings	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    publ
 setString	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public Settings setString(String key, String value) {$/;"	m	class:AndroidSettings
 setString	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    Settings setString(String key, String value);$/;"	m	interface:Settings
 setString	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public Settings setString(String key, String value) {$/;"	m	class:SettingsFile
+setTechnique	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^    void setTechnique(RenderingTechnique t) { mTechnique = t; }$/;"	m	class:SceneManager
 setText	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    public void setText(String newText) {$/;"	m	class:Text
 setUpClass	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public static void setUpClass() {$/;"	m	class:ResourceManagerTest
 setVisable	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void setVisable(boolean visable) {$/;"	m	class:Console
