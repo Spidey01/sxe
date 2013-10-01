@@ -4,8 +4,20 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+4NT_args	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:4NT_args$/;"	l
+4NT_args	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:4NT_args$/;"	l
+4NT_args	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:4NT_args$/;"	l
+4NT_args	demos/snake/pc/build/scripts/snake-pc.bat	/^:4NT_args$/;"	l
 ABGR	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        ABGR(4, true);$/;"	e	enum:PNGDecoder.Format	file:
 ALPHA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        ALPHA(1, true),$/;"	e	enum:PNGDecoder.Format	file:
+APP_BASE_NAME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
+APP_BASE_NAME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
+APP_BASE_NAME	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
+APP_BASE_NAME	demos/snake/pc/build/scripts/snake-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
+APP_HOME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
+APP_HOME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
+APP_HOME	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
+APP_HOME	demos/snake/pc/build/scripts/snake-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
 ASSERT	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int ASSERT  = 0;$/;"	f	class:Log
 Action	core/src/main/java/com/spidey01/sxe/core/Action.java	/^public interface Action {$/;"	i
 AndroidConfiguration	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidConfiguration.java	/^public class AndroidConfiguration {$/;"	c
@@ -28,8 +40,6 @@ AssetLoader	android/common/src/main/java/com/spidey01/sxe/android/common/AssetLo
 BGRA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        BGRA(4, true),$/;"	e	enum:PNGDecoder.Format	file:
 Bitmap	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^public interface Bitmap {$/;"	i
 Buffers	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static class Buffers {$/;"	c	class:Utils
-BuildConfig	android/build/source/buildConfig/debug/com/spidey01/sxe/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	android/build/source/buildConfig/release/com/spidey01/sxe/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
 BuildConfig	android/common/build/source/buildConfig/debug/com/spidey01/sxe/android/common/BuildConfig.java	/^public final class BuildConfig {$/;"	c
 BuildConfig	android/common/build/source/buildConfig/release/com/spidey01/sxe/android/common/BuildConfig.java	/^public final class BuildConfig {$/;"	c
 BuildConfig	android/gles11/build/source/buildConfig/debug/com/spidey01/sxe/android/gles11/BuildConfig.java	/^public final class BuildConfig {$/;"	c
@@ -40,21 +50,38 @@ BuildConfig	android/gles30/build/source/buildConfig/debug/com/spidey01/sxe/andro
 BuildConfig	android/gles30/build/source/buildConfig/release/com/spidey01/sxe/android/gles20/BuildConfig.java	/^public final class BuildConfig {$/;"	c
 BuildConfig	demos/helloworld/android/build/source/buildConfig/debug/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
 BuildConfig	demos/helloworld/android/build/source/buildConfig/release/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
+BuildConfig	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
 BuildConfig	demos/snake/android/build/source/buildConfig/debug/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
 BuildConfig	demos/snake/android/build/source/buildConfig/release/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
+BuildConfig	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
+CLASSPATH	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar$/;"	v
+CLASSPATH	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar$/;"	v
+CLASSPATH	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\pingpong-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\pingpong-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar$/;"	v
+CLASSPATH	demos/snake/pc/build/scripts/snake-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\snake-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\snake-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar$/;"	v
 CLASSTEMPLATE	templates/NewClass.java	/^    public CLASSTEMPLATE() {$/;"	m	class:CLASSTEMPLATE
 CLASSTEMPLATE	templates/NewClass.java	/^public class CLASSTEMPLATE {$/;"	c
+CMD_LINE_ARGS	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
+CMD_LINE_ARGS	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set CMD_LINE_ARGS=%*$/;"	v
+CMD_LINE_ARGS	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
+CMD_LINE_ARGS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
+CMD_LINE_ARGS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CMD_LINE_ARGS=%*$/;"	v
+CMD_LINE_ARGS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
+CMD_LINE_ARGS	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
+CMD_LINE_ARGS	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set CMD_LINE_ARGS=%*$/;"	v
+CMD_LINE_ARGS	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
+CMD_LINE_ARGS	demos/snake/pc/build/scripts/snake-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
+CMD_LINE_ARGS	demos/snake/pc/build/scripts/snake-pc.bat	/^set CMD_LINE_ARGS=%*$/;"	v
+CMD_LINE_ARGS	demos/snake/pc/build/scripts/snake-pc.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
 COLOR_GREYALPHA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_GREYALPHA = 4;$/;"	f	class:PNGDecoder	file:
 COLOR_GREYSCALE	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_GREYSCALE = 0;$/;"	f	class:PNGDecoder	file:
 COLOR_INDEXED	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_INDEXED = 3;$/;"	f	class:PNGDecoder	file:
 COLOR_TRUEALPHA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_TRUEALPHA = 6;  $/;"	f	class:PNGDecoder	file:
 COLOR_TRUECOLOR	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_TRUECOLOR = 2;$/;"	f	class:PNGDecoder	file:
+Capable	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^    public interface Capable extends RenderableObject {$/;"	i	class:VertexBufferTechnique
 Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public Console() {$/;"	m	class:Console
 Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public Console(String toggleKey) {$/;"	m	class:Console
 Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^public class Console$/;"	c
 ConsoleCommand	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^public class ConsoleCommand implements Action {$/;"	c
-DEBUG	android/build/source/buildConfig/debug/com/spidey01/sxe/android/BuildConfig.java	/^    public final static boolean DEBUG = true;$/;"	f	class:BuildConfig
-DEBUG	android/build/source/buildConfig/release/com/spidey01/sxe/android/BuildConfig.java	/^    public final static boolean DEBUG = false;$/;"	f	class:BuildConfig
 DEBUG	android/common/build/source/buildConfig/debug/com/spidey01/sxe/android/common/BuildConfig.java	/^    public static final boolean DEBUG = Boolean.parseBoolean("true");$/;"	f	class:BuildConfig
 DEBUG	android/common/build/source/buildConfig/release/com/spidey01/sxe/android/common/BuildConfig.java	/^    public static final boolean DEBUG = false;$/;"	f	class:BuildConfig
 DEBUG	android/gles11/build/source/buildConfig/debug/com/spidey01/sxe/android/gles11/BuildConfig.java	/^    public static final boolean DEBUG = Boolean.parseBoolean("true");$/;"	f	class:BuildConfig
@@ -66,12 +93,26 @@ DEBUG	android/gles30/build/source/buildConfig/release/com/spidey01/sxe/android/g
 DEBUG	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int DEBUG   = 4;$/;"	f	class:Log
 DEBUG	demos/helloworld/android/build/source/buildConfig/debug/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^    public static final boolean DEBUG = Boolean.parseBoolean("true");$/;"	f	class:BuildConfig
 DEBUG	demos/helloworld/android/build/source/buildConfig/release/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^    public static final boolean DEBUG = false;$/;"	f	class:BuildConfig
+DEBUG	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^    public final static boolean DEBUG = true;$/;"	f	class:BuildConfig
 DEBUG	demos/snake/android/build/source/buildConfig/debug/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^    public static final boolean DEBUG = Boolean.parseBoolean("true");$/;"	f	class:BuildConfig
 DEBUG	demos/snake/android/build/source/buildConfig/release/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^    public static final boolean DEBUG = false;$/;"	f	class:BuildConfig
+DEBUG	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^    public final static boolean DEBUG = true;$/;"	f	class:BuildConfig
+DEFAULT_JVM_OPTS	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set DEFAULT_JVM_OPTS="-Djava.library.path=..\/lib\/natives"$/;"	v
+DEFAULT_JVM_OPTS	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set DEFAULT_JVM_OPTS="-Djava.library.path=..\/lib\/natives"$/;"	v
+DEFAULT_JVM_OPTS	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set DEFAULT_JVM_OPTS=$/;"	v
+DEFAULT_JVM_OPTS	demos/snake/pc/build/scripts/snake-pc.bat	/^set DEFAULT_JVM_OPTS=$/;"	v
 DEFAULT_LOG_LEVEL	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public static final int DEFAULT_LOG_LEVEL = Log.INFO;$/;"	f	class:LogSink
 DEFAULT_MODE	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    private final int DEFAULT_MODE = Context.MODE_PRIVATE;$/;"	f	class:AndroidSettings	file:
 DEFAULT_REPEAT_DELAY	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public static final int DEFAULT_REPEAT_DELAY = 2;$/;"	f	class:Console
 DEFAULT_TOGGLE_KEY	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public static final String DEFAULT_TOGGLE_KEY = "GRAVE";$/;"	f	class:Console
+DIRNAME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
+DIRNAME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set DIRNAME=%~dp0$/;"	v
+DIRNAME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
+DIRNAME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set DIRNAME=%~dp0$/;"	v
+DIRNAME	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
+DIRNAME	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set DIRNAME=%~dp0$/;"	v
+DIRNAME	demos/snake/pc/build/scripts/snake-pc.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
+DIRNAME	demos/snake/pc/build/scripts/snake-pc.bat	/^set DIRNAME=%~dp0$/;"	v
 Display	core/src/main/java/com/spidey01/sxe/core/Display.java	/^public interface Display {$/;"	i
 DummyResourceLoader	core/src/main/java/com/spidey01/sxe/core/DummyResourceLoader.java	/^public class DummyResourceLoader  implements ResourceLoader {$/;"	c
 ERROR	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int ERROR   = 1;$/;"	f	class:Log
@@ -1076,6 +1117,18 @@ IHDR	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/
 INFO	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int INFO    = 3;$/;"	f	class:Log
 INITIAL_BUFFER_SIZE	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    protected static final int INITIAL_BUFFER_SIZE = 160; \/* works for 7-bit SMS *\/$/;"	f	class:Console
 InputManager	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^public abstract class InputManager {$/;"	c
+JAVA_EXE	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
+JAVA_EXE	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
+JAVA_EXE	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
+JAVA_EXE	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
+JAVA_EXE	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
+JAVA_EXE	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
+JAVA_EXE	demos/snake/pc/build/scripts/snake-pc.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
+JAVA_EXE	demos/snake/pc/build/scripts/snake-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
+JAVA_HOME	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
+JAVA_HOME	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
+JAVA_HOME	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
+JAVA_HOME	demos/snake/pc/build/scripts/snake-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
 JRubyScript	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^    JRubyScript(ScriptingContainer toWrap) {$/;"	m	class:JRubyScript
 JRubyScript	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^public class JRubyScript implements Script {$/;"	c
 JRubyScriptManager	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    public JRubyScriptManager() {$/;"	m	class:JRubyScriptManager
@@ -1118,6 +1171,8 @@ MIME_TYPE	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr22
 Main	demos/helloworld/pc/src/main/java/com/spidey01/sxe/helloworld/pc/Main.java	/^class Main {$/;"	c
 Main	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^class Main {$/;"	c
 Main	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^class Main {$/;"	c
+Manifest	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/Manifest.java	/^public final class Manifest {$/;"	c
+Manifest	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/Manifest.java	/^public final class Manifest {$/;"	c
 Mesh	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^    public Mesh(GameContext ctx, float[] vertices) {$/;"	m	class:Mesh
 Mesh	core/src/main/java/com/spidey01/sxe/core/Mesh.java	/^public class Mesh implements FrameStartedListener {$/;"	c
 NAME	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptManager.GetBy	file:
@@ -1158,8 +1213,10 @@ QueuedLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^   
 QueuedLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    private class QueuedLoader implements Callable<ResourceHandle> {$/;"	c	class:ResourceManager
 R	demos/helloworld/android/build/source/r/debug/com/spidey01/sxe/helloworld/android/R.java	/^public final class R {$/;"	c
 R	demos/helloworld/android/build/source/r/release/com/spidey01/sxe/helloworld/android/R.java	/^public final class R {$/;"	c
+R	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/R.java	/^public final class R {$/;"	c
 R	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^public final class R {$/;"	c
 R	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^public final class R {$/;"	c
+R	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/R.java	/^public final class R {$/;"	c
 RAW	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^        RAW,$/;"	e	enum:ResourceHandle.Type	file:
 READER	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^        READER,$/;"	e	enum:ResourceHandle.Type	file:
 RGB	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        RGB(3, false),$/;"	e	enum:PNGDecoder.Format	file:
@@ -1200,7 +1257,7 @@ SnakeGame	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.jav
 SnakeGameActivity	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^public class SnakeGameActivity extends GameActivity {$/;"	c
 Sprite	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public Sprite(Texture backing) {$/;"	m	class:Sprite
 Sprite	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public Sprite(Texture backing, Shader vertex, Shader fragment) {$/;"	m	class:Sprite
-Sprite	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^public class Sprite implements RenderableObject {$/;"	c
+Sprite	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^public class Sprite$/;"	c
 State	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public enum State {$/;"	g	class:Game
 TAG	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidConfiguration.java	/^    private static final String TAG = "AndroidConfiguration";$/;"	f	class:AndroidConfiguration	file:
 TAG	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    private static final String TAG = "AndroidDisplay";$/;"	f	class:AndroidDisplay	file:
@@ -1307,12 +1364,16 @@ Variable	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^public class V
 VertexBuffer	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    public VertexBuffer() {$/;"	m	class:VertexBuffer
 VertexBuffer	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    public VertexBuffer(int target, int usage) {$/;"	m	class:VertexBuffer
 VertexBuffer	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^public class VertexBuffer {$/;"	c
-VertexBufferTechnique	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^    VertexBufferTechnique(OpenGLES20 GLES20) {$/;"	m	class:VertexBufferTechnique
+VertexBufferTechnique	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^    public VertexBufferTechnique(OpenGLES20 GLES20) {$/;"	m	class:VertexBufferTechnique
 VertexBufferTechnique	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^public class VertexBufferTechnique implements RenderingTechnique {$/;"	c
 WARN	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int WARN    = 2;$/;"	f	class:Log
 Xdg	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static class Xdg {$/;"	c	class:Utils
 ZipResourceLoader	core/src/main/java/com/spidey01/sxe/core/ZipResourceLoader.java	/^public class ZipResourceLoader implements ResourceLoader {$/;"	c
 ZipResourceLoaderTest	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^public class ZipResourceLoaderTest extends UnitTest {$/;"	c
+_SKIP	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^set _SKIP=2$/;"	v
+_SKIP	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^set _SKIP=2$/;"	v
+_SKIP	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^set _SKIP=2$/;"	v
+_SKIP	demos/snake/pc/build/scripts/snake-pc.bat	/^set _SKIP=2$/;"	v
 add	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void add(LogSink sink) {$/;"	m	class:Log
 add	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^    public void add(RenderableObject object) {$/;"	m	class:SceneManager
 addChangeListener	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public void addChangeListener(OnChangedListener listener) {$/;"	m	class:AndroidSettings
@@ -1386,8 +1447,6 @@ closeChunk	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.
 cmap	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 colorType	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int colorType;$/;"	f	class:PNGDecoder	file:
 com.spidey01.sxe.MODULETEMPLATE	templates/NewClass.java	/^package com.spidey01.sxe.MODULETEMPLATE;$/;"	p
-com.spidey01.sxe.android	android/build/source/buildConfig/debug/com/spidey01/sxe/android/BuildConfig.java	/^package com.spidey01.sxe.android;$/;"	p
-com.spidey01.sxe.android	android/build/source/buildConfig/release/com/spidey01/sxe/android/BuildConfig.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.android	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.android.common	android/common/build/source/buildConfig/debug/com/spidey01/sxe/android/common/BuildConfig.java	/^package com.spidey01.sxe.android.common;$/;"	p
 com.spidey01.sxe.android.common	android/common/build/source/buildConfig/release/com/spidey01/sxe/android/common/BuildConfig.java	/^package com.spidey01.sxe.android.common;$/;"	p
@@ -1468,6 +1527,9 @@ com.spidey01.sxe.helloworld.android	demos/helloworld/android/build/source/buildC
 com.spidey01.sxe.helloworld.android	demos/helloworld/android/build/source/buildConfig/release/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
 com.spidey01.sxe.helloworld.android	demos/helloworld/android/build/source/r/debug/com/spidey01/sxe/helloworld/android/R.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
 com.spidey01.sxe.helloworld.android	demos/helloworld/android/build/source/r/release/com/spidey01/sxe/helloworld/android/R.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
+com.spidey01.sxe.helloworld.android	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
+com.spidey01.sxe.helloworld.android	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/Manifest.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
+com.spidey01.sxe.helloworld.android	demos/helloworld/android/gen/com/spidey01/sxe/helloworld/android/R.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
 com.spidey01.sxe.helloworld.android	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
 com.spidey01.sxe.helloworld.lib	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^package com.spidey01.sxe.helloworld.lib;$/;"	p
 com.spidey01.sxe.helloworld.pc	demos/helloworld/pc/src/main/java/com/spidey01/sxe/helloworld/pc/Main.java	/^package com.spidey01.sxe.helloworld.pc;$/;"	p
@@ -1507,6 +1569,9 @@ com.spidey01.sxe.snakegame.android	demos/snake/android/build/source/buildConfig/
 com.spidey01.sxe.snakegame.android	demos/snake/android/build/source/buildConfig/release/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
 com.spidey01.sxe.snakegame.android	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
 com.spidey01.sxe.snakegame.android	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
+com.spidey01.sxe.snakegame.android	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
+com.spidey01.sxe.snakegame.android	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/Manifest.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
+com.spidey01.sxe.snakegame.android	demos/snake/android/gen/com/spidey01/sxe/snakegame/android/R.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
 contains	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public boolean contains(String key) {$/;"	m	class:AndroidSettings
 contains	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    boolean contains(String key);$/;"	m	interface:Settings
 contains	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public boolean contains(String key) {$/;"	m	class:SettingsFile
@@ -1541,10 +1606,9 @@ decideTextureFormat	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PN
 decode	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    public void decode(ByteBuffer buffer, int stride, Format fmt) throws IOException {$/;"	m	class:PNGDecoder
 decodeFlipped	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    public void decodeFlipped(ByteBuffer buffer, int stride, Format fmt) throws IOException {$/;"	m	class:PNGDecoder
 deinitialize	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void deinitialize(OpenGLES20 GL) {$/;"	m	class:GpuProgram
-deinitialize	core/src/main/java/com/spidey01/sxe/core/RenderingTechnique.java	/^    void deinitialize(RenderableObject client);$/;"	m	interface:RenderingTechnique
 deinitialize	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    public void deinitialize(OpenGLES20 GL) {$/;"	m	class:Shader
 deinitialize	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    public void deinitialize(OpenGLES20 GL) {$/;"	m	class:VertexBuffer
-deinitialize	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^    public void deinitialize(RenderableObject client) {$/;"	m	class:VertexBufferTechnique
+deinitialize	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^    public void deinitialize(Capable client) {$/;"	m	class:VertexBufferTechnique
 deselectAll	core/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
 deselectAll	scripting/jruby/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
 deselectAll	scripting/jsr223/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
@@ -1555,12 +1619,21 @@ destroy	core/src/main/java/com/spidey01/sxe/core/NullDisplay.java	/^    public v
 destroy	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void destroy() {$/;"	m	class:PcDisplay
 detachShader	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void detachShader(OpenGLES20 GL, Shader shader) {$/;"	m	class:GpuProgram
 detachShader	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void detachShader(Shader shader) {$/;"	m	class:GpuProgram
+die	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc	/^die ( ) {$/;"	f
+die	demos/helloworld/pc/build/scripts/helloworld-pc	/^die ( ) {$/;"	f
+die	demos/pingpong/pc/build/scripts/pingpong-pc	/^die ( ) {$/;"	f
+die	demos/snake/pc/build/scripts/snake-pc	/^die ( ) {$/;"	f
 directory	core/src/test/java/com/spidey01/sxe/core/TestResources.java	/^    static final String directory = "src\/test\/resources";$/;"	f	class:TestResources
 disableDebugging	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void disableDebugging() {$/;"	m	class:RateCounter
-draw	core/src/main/java/com/spidey01/sxe/core/RenderingTechnique.java	/^    void draw(RenderableObject client);$/;"	m	interface:RenderingTechnique
-draw	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^    public void draw(RenderableObject client) {$/;"	m	class:VertexBufferTechnique
+draw	core/src/main/java/com/spidey01/sxe/core/RenderableObject.java	/^    void draw();$/;"	m	interface:RenderableObject
+draw	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public void draw() {$/;"	m	class:Sprite
+draw	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^    public void draw(Capable client) {$/;"	m	class:VertexBufferTechnique
 e	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void e(String tag, Object... messages) {$/;"	m	class:Log
 enableDebugging	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void enableDebugging() {$/;"	m	class:RateCounter
+end	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:end$/;"	l
+end	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:end$/;"	l
+end	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:end$/;"	l
+end	demos/snake/pc/build/scripts/snake-pc.bat	/^:end$/;"	l
 enqueue	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Future<ResourceHandle> enqueue(File path) {$/;"	m	class:ResourceManager
 enqueue	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Future<ResourceHandle> enqueue(String path) {$/;"	m	class:ResourceManager
 enqueue	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Future<ResourceHandle> enqueue(URI uri) {$/;"	m	class:ResourceManager
@@ -1580,9 +1653,17 @@ eval	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^   
 execute	core/src/main/java/com/spidey01/sxe/core/Action.java	/^    void execute();$/;"	m	interface:Action
 execute	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void execute(String line) {$/;"	m	class:Console
 execute	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    public void execute() {$/;"	m	class:ConsoleCommand
+execute	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:execute$/;"	l
+execute	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:execute$/;"	l
+execute	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:execute$/;"	l
+execute	demos/snake/pc/build/scripts/snake-pc.bat	/^:execute$/;"	l
 expand1	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand1(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand2	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand2(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand4	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand4(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
+fail	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:fail$/;"	l
+fail	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:fail$/;"	l
+fail	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:fail$/;"	l
+fail	demos/snake/pc/build/scripts/snake-pc.bat	/^:fail$/;"	l
 fftm	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 filter	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Object filter(Object o) {$/;"	m	class:RhinoScriptManager	file:
 findChildElements	core/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
@@ -1593,6 +1674,10 @@ findHeaders	core/build/reports/tests/report.js	/^function findHeaders(container)
 findHeaders	scripting/jruby/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
 findHeaders	scripting/jsr223/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
 findHeaders	scripting/rhino/build/reports/tests/report.js	/^function findHeaders(container) {$/;"	f
+findJavaFromJavaHome	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:findJavaFromJavaHome$/;"	l
+findJavaFromJavaHome	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:findJavaFromJavaHome$/;"	l
+findJavaFromJavaHome	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:findJavaFromJavaHome$/;"	l
+findJavaFromJavaHome	demos/snake/pc/build/scripts/snake-pc.bat	/^:findJavaFromJavaHome$/;"	l
 findLocation	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    protected String findLocation(URI uri) {$/;"	m	class:ResourceManager
 findTabs	core/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
 findTabs	scripting/jruby/build/reports/tests/report.js	/^function findTabs(container) {$/;"	f
@@ -1733,8 +1818,8 @@ getPlatform	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    publ
 getPlatformArch	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public String getPlatformArch() {$/;"	m	class:GameContext
 getPlatformVersion	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public String getPlatformVersion() {$/;"	m	class:GameContext
 getProgram	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public int getProgram() {$/;"	m	class:GpuProgram
-getProgram	core/src/main/java/com/spidey01/sxe/core/RenderableObject.java	/^    GpuProgram getProgram();$/;"	m	interface:RenderableObject
 getProgram	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public GpuProgram getProgram() {$/;"	m	class:Sprite
+getProgram	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^        GpuProgram getProgram();$/;"	m	interface:VertexBufferTechnique.Capable
 getRepeatDelay	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public int getRepeatDelay() {$/;"	m	class:Console
 getResource	core/src/main/java/com/spidey01/sxe/core/TestUtils.java	/^    public static File getResource(String path) {$/;"	m	class:TestUtils
 getResourceManager	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public ResourceManager getResourceManager() {$/;"	m	class:GameEngine
@@ -1762,11 +1847,11 @@ getURI	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public
 getUserDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String getUserDir() {$/;"	m	class:Utils
 getVersionAsFloat	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    public float getVersionAsFloat() {$/;"	m	class:TrueTypeFont
 getVersionAsString	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    public String getVersionAsString() {$/;"	m	class:TrueTypeFont
-getVertexBuffer	core/src/main/java/com/spidey01/sxe/core/RenderableObject.java	/^    VertexBuffer getVertexBuffer();$/;"	m	interface:RenderableObject
 getVertexBuffer	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public VertexBuffer getVertexBuffer() {$/;"	m	class:Sprite
+getVertexBuffer	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^        VertexBuffer getVertexBuffer();$/;"	m	interface:VertexBufferTechnique.Capable
 getVertexCount	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    public int getVertexCount() {$/;"	m	class:VertexBuffer
-getVertices	core/src/main/java/com/spidey01/sxe/core/RenderableObject.java	/^    float[] getVertices();$/;"	m	interface:RenderableObject
 getVertices	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public float[] getVertices() {$/;"	m	class:Sprite
+getVertices	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^        float[] getVertices();$/;"	m	interface:VertexBufferTechnique.Capable
 getWidth	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^    int getWidth();$/;"	m	interface:Bitmap
 getWidth	core/src/main/java/com/spidey01/sxe/core/PngBitmap.java	/^    public int getWidth() {$/;"	m	class:PngBitmap
 getWidth	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    public int getWidth() {$/;"	m	class:Texture
@@ -2146,18 +2231,21 @@ hello	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers
 hhea	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 hmtx	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 i	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void i(String tag, Object... messages) {$/;"	m	class:Log
+init	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:init$/;"	l
+init	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:init$/;"	l
+init	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:init$/;"	l
+init	demos/snake/pc/build/scripts/snake-pc.bat	/^:init$/;"	l
 initTabs	core/build/reports/tests/report.js	/^function initTabs() {$/;"	f
 initTabs	scripting/jruby/build/reports/tests/report.js	/^function initTabs() {$/;"	f
 initTabs	scripting/jsr223/build/reports/tests/report.js	/^function initTabs() {$/;"	f
 initTabs	scripting/rhino/build/reports/tests/report.js	/^function initTabs() {$/;"	f
 initialize	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void initialize(OpenGLES20 GL) {$/;"	m	class:GpuProgram
-initialize	core/src/main/java/com/spidey01/sxe/core/RenderingTechnique.java	/^    void initialize(RenderableObject client);$/;"	m	interface:RenderingTechnique
 initialize	core/src/main/java/com/spidey01/sxe/core/Shader.java	/^    public void initialize(OpenGLES20 GL) {$/;"	m	class:Shader
 initialize	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    public void initialize(OpenGLES20 GLES20) {$/;"	m	class:Texture
 initialize	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    public void initialize(OpenGLES20 GL) {$/;"	m	class:VertexBuffer
 initialize	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    public void initialize(OpenGLES20 GL, FloatBuffer vertices) {$/;"	m	class:VertexBuffer
 initialize	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    public void initialize(OpenGLES20 GL, float[] vertices) {$/;"	m	class:VertexBuffer
-initialize	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^    public void initialize(RenderableObject client) {$/;"	m	class:VertexBufferTechnique
+initialize	core/src/main/java/com/spidey01/sxe/core/VertexBufferTechnique.java	/^    public void initialize(Capable client) {$/;"	m	class:VertexBufferTechnique
 input	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private final InputStream input;$/;"	f	class:PNGDecoder	file:
 intValue	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public int intValue() {$/;"	m	class:Variable
 isCloseRequested	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public boolean isCloseRequested() {$/;"	m	class:AndroidDisplay
@@ -2322,6 +2410,7 @@ mStopRequested	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private 
 mStream	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private DataInputStream mStream;$/;"	f	class:TrueTypeFont	file:
 mTarget	core/src/main/java/com/spidey01/sxe/core/VertexBuffer.java	/^    private final int mTarget;$/;"	f	class:VertexBuffer	file:
 mTechnique	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^    private RenderingTechnique mTechnique;$/;"	f	class:SceneManager	file:
+mTechnique	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private VertexBufferTechnique mTechnique;$/;"	f	class:Sprite	file:
 mText	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    private String mText;$/;"	f	class:Text	file:
 mTexture	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private Texture mTexture;$/;"	f	class:Sprite	file:
 mTextureId	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    private int mTextureId;$/;"	f	class:Texture	file:
@@ -2350,6 +2439,10 @@ main	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^  
 main	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^        public static final int main=0x7f020000;$/;"	f	class:R.layout
 main	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^        public static final int main=0x7f020000;$/;"	f	class:R.layout
 main	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
+mainEnd	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:mainEnd$/;"	l
+mainEnd	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:mainEnd$/;"	l
+mainEnd	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:mainEnd$/;"	l
+mainEnd	demos/snake/pc/build/scripts/snake-pc.bat	/^:mainEnd$/;"	l
 mainLoop	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void mainLoop() {$/;"	m	class:GameEngine
 makeBufferedReader	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static BufferedReader makeBufferedReader(File file) throws FileNotFoundException {$/;"	m	class:Utils
 makeBufferedReader	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static BufferedReader makeBufferedReader(InputStream in) {$/;"	m	class:Utils
@@ -2368,6 +2461,10 @@ nullFile	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^ 
 nullString	core/src/test/java/com/spidey01/sxe/core/ZipResourceLoaderTest.java	/^    public void nullString() throws IOException {$/;"	m	class:ZipResourceLoaderTest
 numComponents	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        final int numComponents;$/;"	f	class:PNGDecoder.Format
 offset	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        public final long offset;$/;"	f	class:TrueTypeFont.Table
+omega	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:omega$/;"	l
+omega	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:omega$/;"	l
+omega	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:omega$/;"	l
+omega	demos/snake/pc/build/scripts/snake-pc.bat	/^:omega$/;"	l
 onChanged	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^        void onChanged(Settings settings, String key);$/;"	m	interface:Settings.OnChangedListener
 onCreate	android/common/src/main/java/com/spidey01/sxe/android/common/GameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:GameActivity
 onCreate	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:HelloWorldGameActivity
@@ -2516,6 +2613,7 @@ setString	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSe
 setString	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    Settings setString(String key, String value);$/;"	m	interface:Settings
 setString	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public Settings setString(String key, String value) {$/;"	m	class:SettingsFile
 setTechnique	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^    void setTechnique(RenderingTechnique t) { mTechnique = t; }$/;"	m	class:SceneManager
+setTechnique	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public void setTechnique(VertexBufferTechnique technique) {$/;"	m	class:Sprite
 setText	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    public void setText(String newText) {$/;"	m	class:Text
 setUpClass	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public static void setUpClass() {$/;"	m	class:ResourceManagerTest
 setVisable	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void setVisable(boolean visable) {$/;"	m	class:Console
@@ -2549,6 +2647,10 @@ slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static St
 slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(File source) throws IOException {$/;"	m	class:Utils
 slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(InputStream source) throws IOException {$/;"	m	class:Utils
 slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(String path) throws IOException {$/;"	m	class:Utils
+splitJvmOpts	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc	/^function splitJvmOpts() {$/;"	f
+splitJvmOpts	demos/helloworld/pc/build/scripts/helloworld-pc	/^function splitJvmOpts() {$/;"	f
+splitJvmOpts	demos/pingpong/pc/build/scripts/pingpong-pc	/^function splitJvmOpts() {$/;"	f
+splitJvmOpts	demos/snake/pc/build/scripts/snake-pc	/^function splitJvmOpts() {$/;"	f
 start	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:Game
 start	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public boolean start() {$/;"	m	class:GameEngine
 start	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:HelloWorld
@@ -2611,7 +2713,19 @@ use	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public void u
 v	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void v(String tag, Object... messages) {$/;"	m	class:Log
 validate	core/src/main/java/com/spidey01/sxe/core/GpuProgram.java	/^    public boolean validate(OpenGLES20 GL) {$/;"	m	class:GpuProgram
 w	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void w(String tag, Object... messages) {$/;"	m	class:Log
+warn	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc	/^warn ( ) {$/;"	f
+warn	demos/helloworld/pc/build/scripts/helloworld-pc	/^warn ( ) {$/;"	f
+warn	demos/pingpong/pc/build/scripts/pingpong-pc	/^warn ( ) {$/;"	f
+warn	demos/snake/pc/build/scripts/snake-pc	/^warn ( ) {$/;"	f
 width	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int width;$/;"	f	class:PNGDecoder	file:
+win9xME_args	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:win9xME_args$/;"	l
+win9xME_args	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:win9xME_args$/;"	l
+win9xME_args	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:win9xME_args$/;"	l
+win9xME_args	demos/snake/pc/build/scripts/snake-pc.bat	/^:win9xME_args$/;"	l
+win9xME_args_slurp	demos/helloworld/pc/build/install/helloworld-pc/bin/helloworld-pc.bat	/^:win9xME_args_slurp$/;"	l
+win9xME_args_slurp	demos/helloworld/pc/build/scripts/helloworld-pc.bat	/^:win9xME_args_slurp$/;"	l
+win9xME_args_slurp	demos/pingpong/pc/build/scripts/pingpong-pc.bat	/^:win9xME_args_slurp$/;"	l
+win9xME_args_slurp	demos/snake/pc/build/scripts/snake-pc.bat	/^:win9xME_args_slurp$/;"	l
 wtf	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void wtf(String tag, Object... messages) {$/;"	m	class:Log
 xtrace	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void xtrace(String tag, Object... messages) {$/;"	m	class:Log
 zipFileContent	core/src/test/java/com/spidey01/sxe/core/TestResources.java	/^    static final String zipFileContent = "Test dummy for ZipResourceLoader.\\n";$/;"	f	class:TestResources
