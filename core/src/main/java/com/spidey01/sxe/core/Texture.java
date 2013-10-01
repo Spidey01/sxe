@@ -60,18 +60,19 @@ public class Texture {
     }
 
 
-    public void initialize(OpenGL GL) {
+    public void initialize(OpenGLES20 GLES20) {
         if (!mIsInitialized) return;
 
-        GL.glEnable(OpenGL.GL_TEXTURE_2D);
+        GLES20.glEnable(OpenGLES20.GL_TEXTURE_2D);
 
-        GL.glGenTextures(mBitmap.getImageData());
+        GLES20.glGenTextures(mBitmap.getImageData());
         mTextureId = mBitmap.getImageData().get(0);
 
-        bind(GL);
+        bind(GLES20);
 
-        GL.glTexImage2D(OpenGL.GL_TEXTURE_2D, 0, OpenGL.GL_RGBA, mBitmap.getWidth(), mBitmap.getHeight(),
-                        0, OpenGL.GL_RGBA, OpenGL.GL_UNSIGNED_BYTE, mBitmap.getImageData());
+        GLES20.glTexImage2D(OpenGLES20.GL_TEXTURE_2D, 0, OpenGLES20.GL_RGBA, mBitmap.getWidth(), mBitmap.getHeight(),
+                        0, OpenGLES20.GL_RGBA, OpenGLES20.GL_UNSIGNED_BYTE, mBitmap.getImageData());
+ 
 
         // Can we clear() mImageData and set it to null because OpenGL made an
         // internal copy for  it's own business or does OpenGL just take our
@@ -83,8 +84,8 @@ public class Texture {
     }
 
 
-    public void bind(OpenGL GL) {
-        GL.glBindTexture(OpenGL.GL_TEXTURE_2D, mTextureId);
+    public void bind(OpenGLES20 GLES20) {
+        GLES20.glBindTexture(OpenGLES20.GL_TEXTURE_2D, mTextureId);
     }
 }
 

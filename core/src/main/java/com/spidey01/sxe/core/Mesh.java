@@ -64,77 +64,28 @@ public class Mesh implements FrameStartedListener {
         mVertices = vertices;
     }
 
-    public void frameStarted(OpenGL GL20) {
+    public void frameStarted(OpenGL GL) {
         if (!mInitialized) {
-            initialize(GL20);
+            // initialize(GL);
         }
 
         // Clear the background.
-        GL20.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
-        GL20.glClear(OpenGL.GL_COLOR_BUFFER_BIT);
+        GL.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
+        GL.glClear(OpenGLES20.GL_COLOR_BUFFER_BIT);
 
         // Ready the shader program.
-        GL20.glUseProgram(mProgram.getProgram());
+        GL.glUseProgram(mProgram.getProgram());
 
         // Lock and load the coord2d attribute for our fragment shader.
-        GL20.glEnableVertexAttribArray(mCoord2d);
-        GL20.glVertexAttribPointer(mCoord2d, 2, OpenGL.GL_FLOAT, false, 0, 0);
+        GL.glEnableVertexAttribArray(mCoord2d);
+        GL.glVertexAttribPointer(mCoord2d, 2, OpenGLES20.GL_FLOAT, false, 0, 0);
  
         // feed it to our shader to draw.
-        GL20.glBindBuffer(OpenGL.GL_ARRAY_BUFFER, mVBO.get(0));
-        GL20.glDrawArrays(OpenGL.GL_TRIANGLES, 0, 3);
+        GL.glBindBuffer(OpenGLES20.GL_ARRAY_BUFFER, mVBO.get(0));
+        GL.glDrawArrays(OpenGLES20.GL_TRIANGLES, 0, 3);
 
-        GL20.glDisableVertexAttribArray(mCoord2d);
+        GL.glDisableVertexAttribArray(mCoord2d);
     }
 
-    public void initialize(final OpenGL GL20) {
-    /* FIXME
-        // Setup shaders.
-        GlslShader vert = null;
-        GlslShader frag = null;
-        try {
-            ShaderFactory<GlslShader> factory = new ShaderFactory<GlslShader>(){
-                public Shader make(Shader.Type type, InputStream is, final String path) {
-                    return new GlslShader(GL20, type, is, path);
-                }
-            };
-            // vert = (GlslShader)mCtx.getResources().load("shaders/triangle.vert", factory).getObject();
-            // frag = (GlslShader)mCtx.getResources().load("shaders/triangle.frag", factory).getObject();
-            vert = new GlslShader(GL20, "shaders/triangle.vert");
-            frag = new GlslShader(GL20, "shaders/triangle.frag");
-        } catch(Exception fml) {
-            Log.wtf(TAG, "Failed loading shaders", fml);
-            fml.printStackTrace();
-        }
-
-        // Setup shader program.
-        mProgram = new GlslProgram(GL20);
-        mProgram.addShader(vert);
-        mProgram.addShader(frag);
-        if (!mProgram.link() || !mProgram.validate()) {
-            Log.wtf(TAG, "Shader failure: "+mProgram.getInfoLog());
-        }
-        // Setup vertex data to feed into a VBO.
-        FloatBuffer buffer = GL20.createFloatBuffer(mVertices.length);
-        buffer.put(mVertices);
-        buffer.flip();
- 
-        // Generate an ID for our VBO in the video memory and bind it.
-        mVBO = GL20.createIntBuffer(1);
-        GL20.glGenBuffers(mVBO);
-        GL20.glBindBuffer(OpenGL.GL_ARRAY_BUFFER, mVBO.get(0));
-
-        // Buffer it to the GPU.
-        GL20.glBufferData(OpenGL.GL_ARRAY_BUFFER, buffer, OpenGL.GL_STATIC_DRAW);
-
-        // Create coord2d attribute for our fragment shader.
-        mCoord2d = GL20.glGetAttribLocation(mProgram.getProgram(), "coord2d");
-        if (mCoord2d == -1) {
-            Log.wtf(TAG, "Couldn't bind coord2d attribute!");
-        }
-
-        mInitialized = true;
-    */
-    }
 }
 

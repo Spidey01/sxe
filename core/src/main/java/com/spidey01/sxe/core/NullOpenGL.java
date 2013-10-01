@@ -79,6 +79,27 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     }
 
     @Override
+    public void glBufferSubData(int target, int offset, int size, ByteBuffer data) {
+        Log.d(TAG, "glBufferSubData(", target, ", ", offset, ", ", size, ", ", data, ")");
+    }
+
+    @Override
+    public void glBufferSubData(int target, int offset, int size, DoubleBuffer data) {
+        Log.d(TAG, "glBufferSubData(", target, ", ", offset, ", ", size, ", ", data, ")");
+    }
+
+    @Override
+    public void glBufferSubData(int target, int offset, int size, FloatBuffer data) {
+        Log.d(TAG, "glBufferSubData(", target, ", ", offset, ", ", size, ", ", data, ")");
+    }
+
+    @Override
+    public void glBufferSubData(int target, int offset, int size, IntBuffer data) {
+        Log.d(TAG, "glBufferSubData(", target, ", ", offset, ", ", size, ", ", data, ")");
+    }
+
+
+    @Override
     public void glClear(int mask) {
         Log.d(TAG, "glClear(", mask, ")");
     }
@@ -372,36 +393,13 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
     /* Legacy functions */
 
-    @Override
-    public void glBegin(int mode) {
-        Log.d(TAG, "glBegin(", mode, ")");
-    }
-
-    @Override
-    public void glColor3b(byte red, byte green, byte blue) {
-        Log.d(TAG, "glColor3b(", red, ", ",  green, ", ",  blue, ")");
-    }
-
-    @Override
-    public void glColor3d(double red, double green, double blue) {
-        Log.d(TAG, "glColor3d(", red, ", ",  green, ", ",  blue, ")");
-    }
-
-    @Override
-    public void glColor3f(float red, float green, float blue) {
-        Log.d(TAG, "glColor3f(", red, ", ",  green, ", ",  blue, ")");
-    }
-    
-    @Override
-    public void glEnd() {
-        Log.d(TAG, "glEnd()");
-    }
 
     @Override
     public void glLineWidth(float width) {
         Log.d(TAG, "glLineWidth(", width, ")");
     }
 
+    /*
     @Override
     public void glVertex2d(double x, double y) { 
         Log.d(TAG, "glVertex2d(", x, ", ",  y, ")");
@@ -446,6 +444,7 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     public void glVertex4i(int x, int y, int z, int w) { 
         Log.d(TAG, "glVertex4i(", x, ", ",  y, ", ",  z, ", ",  w, ")");
     }
+    */
 
 }
 

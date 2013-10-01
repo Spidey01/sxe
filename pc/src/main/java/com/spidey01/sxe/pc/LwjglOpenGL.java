@@ -25,6 +25,9 @@ package com.spidey01.sxe.pc;
 
 import  com.spidey01.sxe.core.GpuProgram;
 import  com.spidey01.sxe.core.OpenGL;
+import  com.spidey01.sxe.core.OpenGLES11;
+import  com.spidey01.sxe.core.OpenGLES20;
+import  com.spidey01.sxe.core.OpenGLES30;
 import  com.spidey01.sxe.core.Shader;
 
 import java.nio.Buffer;
@@ -40,7 +43,7 @@ import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 
 
-public class LwjglOpenGL implements OpenGL {
+public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     private static final String TAG = "LwjglOpenGL";
 
     /* OpenGL functions */
@@ -86,23 +89,23 @@ public class LwjglOpenGL implements OpenGL {
     }
 
     @Override
-    void glBufferSubData(int target, int offset, int size, ByteBuffer data) {
-        GL15.glBufferSubData(target, offset, size, data);
+    public void glBufferSubData(int target, int offset, int size, ByteBuffer data) {
+        GL15.glBufferSubData(target, offset, data);
     }
 
     @Override
-    void glBufferSubData(int target, int offset, int size, DoubleBuffer data) {
-        GL15.glBufferSubData(target, offset, size, data);
+    public void glBufferSubData(int target, int offset, int size, DoubleBuffer data) {
+        GL15.glBufferSubData(target, offset, data);
     }
 
     @Override
-    void glBufferSubData(int target, int offset, int size, FloatBuffer data) {
-        GL15.glBufferSubData(target, offset, size, data);
+    public void glBufferSubData(int target, int offset, int size, FloatBuffer data) {
+        GL15.glBufferSubData(target, offset, data);
     }
 
     @Override
-    void glBufferSubData(int target, int offset, int size, IntBuffer data) {
-        GL15.glBufferSubData(target, offset, size, data);
+    public void glBufferSubData(int target, int offset, int size, IntBuffer data) {
+        GL15.glBufferSubData(target, offset, data);
     }
 
     @Override
@@ -395,36 +398,12 @@ public class LwjglOpenGL implements OpenGL {
     /* Legacy functions */
 
     @Override
-    public void glBegin(int mode) {
-        // GL11.glBegin(t(mode));
-        GL11.glBegin(mode);
-    }
-
-    @Override
-    public void glColor3b(byte red, byte green, byte blue) {
-        GL11.glColor3b(red, green, blue);
-    }
-
-    @Override
-    public void glColor3d(double red, double green, double blue) {
-        GL11.glColor3d(red, green, blue);
-    }
-
-    @Override
-    public void glColor3f(float red, float green, float blue) {
-        GL11.glColor3f(red, green, blue);
-    }
-    
-    @Override
-    public void glEnd() {
-        GL11.glEnd();
-    }
-
-    @Override
     public void glLineWidth(float width) {
         GL11.glLineWidth(width);
     }
 
+
+    /*
     @Override
     public void glVertex2d(double x, double y) { 
         GL11.glVertex2d(x, y);
@@ -469,68 +448,14 @@ public class LwjglOpenGL implements OpenGL {
     public void glVertex4i(int x, int y, int z, int w) { 
         GL11.glVertex4i(x, y, z, w);
     }
+    */
 
 
     /* Internal functions */
 
-    // FIXME
     private static int t(int konst) {
-        // If Java doesn't allow meta programming this away, it can kiss my ass.
-        switch (konst) {
-            case OpenGL.GL_ARRAY_BUFFER:
-                return GL15.GL_ARRAY_BUFFER;
-
-            case OpenGL.GL_COLOR_BUFFER_BIT:
-                return GL11.GL_COLOR_BUFFER_BIT;
-
-            case OpenGL.GL_COMPILE_STATUS:
-                return GL20.GL_COMPILE_STATUS;
-
-            case OpenGL.GL_CULL_FACE:
-                return GL11.GL_CULL_FACE;
-
-            case OpenGL.GL_CULL_FACE_MODE:
-                return GL11.GL_CULL_FACE_MODE;
-
-            case OpenGL.GL_DEPTH_TEST:
-                return GL11.GL_DEPTH_TEST;
-
-            case OpenGL.GL_FALSE:
-                return GL11.GL_FALSE;
-
-            case OpenGL.GL_FLOAT:
-                return GL11.GL_FLOAT;
-
-            case OpenGL.GL_FRAGMENT_SHADER:
-                return GL20.GL_FRAGMENT_SHADER;
-
-            case OpenGL.GL_LINK_STATUS:
-                return GL20.GL_LINK_STATUS;
-
-            case OpenGL.GL_RGBA:
-                return GL11.GL_RGBA;
-
-            case OpenGL.GL_STATIC_DRAW:
-                return GL15.GL_STATIC_DRAW;
-
-            case OpenGL.GL_TEXTURE_2D:
-                return GL11.GL_TEXTURE_2D;
-
-            case OpenGL.GL_TRIANGLES:
-                return GL11.GL_TRIANGLES;
-
-            case OpenGL.GL_UNSIGNED_BYTE:
-                return GL11.GL_UNSIGNED_BYTE;
-
-            case OpenGL.GL_VALIDATE_STATUS:
-                return GL20.GL_VALIDATE_STATUS;
-
-            case OpenGL.GL_VERTEX_SHADER:
-                return GL20.GL_VERTEX_SHADER;
-
-            default:
-                throw new IllegalArgumentException("Don't know how to remap "+konst+" to a LWJGL OpenGL constant");
-        }
+        // seems LWJGL uses the same constants we're using.
+        return konst;
     }
 }
 

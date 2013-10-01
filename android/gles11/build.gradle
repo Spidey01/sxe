@@ -28,10 +28,9 @@ dependencies {
 android {
     // needed by android-library's :android:compileReleaseAidl task.
     buildToolsVersion "18.0.1"
-    compileSdkVersion 10
+    compileSdkVersion 18
     defaultConfig {
-        minSdkVersion 4
+        minSdkVersion 10 // OpenGL ES 1.1 goes as far back as 4 but we're not!
     }
 }
-
 

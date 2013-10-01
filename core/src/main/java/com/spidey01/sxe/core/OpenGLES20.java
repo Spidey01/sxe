@@ -353,10 +353,10 @@ public interface OpenGLES20 {
     void glBufferData(int target, DoubleBuffer data, int usage);
     void glBufferData(int target, FloatBuffer data, int usage);
     void glBufferData(int target, IntBuffer data, int usage);
-    void glBufferSubData(int target, int offset, int size, IntBuffer data)
-    void glBufferSubData(int target, int offset, int size, ByteBuffer data)
-    void glBufferSubData(int target, int offset, int size, DoubleBuffer data)
-    void glBufferSubData(int target, int offset, int size, FloatBuffer data)
+    void glBufferSubData(int target, int offset, int size, IntBuffer data);
+    void glBufferSubData(int target, int offset, int size, ByteBuffer data);
+    void glBufferSubData(int target, int offset, int size, DoubleBuffer data);
+    void glBufferSubData(int target, int offset, int size, FloatBuffer data);
 
     void glClear(int mask);
     void glClearColor(float red, float green, float blue, float alpha);
@@ -399,6 +399,7 @@ public interface OpenGLES20 {
     void glLinkProgram(int program);
 
     void glShaderSource(int shader, String source);
+
     void glTexImage2D(int target, int level, int internalFormat, int width, int height, int border, int format, int type, ByteBuffer pixels);
 
     void glUniform1f(int location, float v0);
@@ -416,15 +417,6 @@ public interface OpenGLES20 {
 
     void glValidateProgram(GpuProgram p);
     void glValidateProgram(int program);
-    void glVertex2d(double x, double y);
-    void glVertex2f(float x, float y);
-    void glVertex2i(int x, int y);
-    void glVertex3d(double x, double y, double z);
-    void glVertex3f(float x, float y, float z);
-    void glVertex3i(int x, int y, int z);
-    void glVertex4d(double x, double y, double z, double w);
-    void glVertex4f(float x, float y, float z, float w);
-    void glVertex4i(int x, int y, int z, int w);
     void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int offset);
     void glViewport(int x, int y, int width, int height);
 
