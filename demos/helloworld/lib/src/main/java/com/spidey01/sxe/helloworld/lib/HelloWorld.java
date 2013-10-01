@@ -26,6 +26,7 @@ package com.spidey01.sxe.helloworld.lib;
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.VertexBufferTechnique;
 
 import com.spidey01.sxe.core.*;
 import java.io.IOException;
@@ -71,7 +72,9 @@ public class HelloWorld
             return false;
         }
         sprite = new Sprite(spriteTexture);
-        // mGameEngine.getDisplay().addFrameStartedListener(sprite);
+
+        // A better way of doing this might be nice!
+        sprite.setTechnique(new VertexBufferTechnique(engine.getDisplay().getOpenGL()));
         mGameEngine.getSceneManager().add(sprite);
 
         return true;

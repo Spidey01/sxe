@@ -25,7 +25,9 @@ package com.spidey01.sxe.core;
 
 import java.nio.FloatBuffer;
 
-public class Sprite implements RenderableObject {
+public class Sprite
+    implements RenderableObject, VertexBufferTechnique.Capable
+{
     private final static String TAG = "Sprite";
 
     private Texture mTexture;
@@ -56,6 +58,8 @@ public class Sprite implements RenderableObject {
     private Shader mFragmentShader;
     private VertexBuffer mVertexBuffer;
 
+    private VertexBufferTechnique mTechnique;
+
 
     public Sprite(Texture backing) {
         this(backing, sDefaultVertexShader, sDefaultFragmentShader);
@@ -69,6 +73,11 @@ public class Sprite implements RenderableObject {
         mProgram.attachShader(mVertexShader);
         mProgram.attachShader(mFragmentShader);
         mVertexBuffer = new VertexBuffer();
+    }
+
+
+    public void setTechnique(VertexBufferTechnique technique) {
+        mTechnique = technique;
     }
 
 
@@ -94,6 +103,12 @@ public class Sprite implements RenderableObject {
 
     public GpuProgram getProgram() {
         return mProgram;
+    }
+
+
+    public void draw() {
+        Log.xtrace(TAG, "draw() called.");
+        mTechnique.draw(this);
     }
 
 }

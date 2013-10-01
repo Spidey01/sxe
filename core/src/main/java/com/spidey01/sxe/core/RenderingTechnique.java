@@ -29,9 +29,8 @@ package com.spidey01.sxe.core;
  * renderable objects data and state.
  */
 public interface RenderingTechnique extends Technique {
-    void initialize(RenderableObject client);
-    void draw(RenderableObject client);
-    void deinitialize(RenderableObject client);
+    // void initialize(RenderableObject client);
+    // void draw(RenderableObject client);
+    // void deinitialize(RenderableObject client);
 }
-
 

@@ -44,8 +44,14 @@ public class VertexBufferTechnique implements RenderingTechnique {
     private boolean mIsInitialized;
     private OpenGLES20 mGL;
 
+    public interface Capable extends RenderableObject {
+        float[] getVertices();
+        VertexBuffer getVertexBuffer();
+        GpuProgram getProgram();
+    }
 
-    VertexBufferTechnique(OpenGLES20 GLES20) {
+
+    public VertexBufferTechnique(OpenGLES20 GLES20) {
         mGL = GLES20;
     }
 
@@ -57,8 +63,7 @@ public class VertexBufferTechnique implements RenderingTechnique {
      *  <li>Initialize the clients program. Shaders must already be attached.</li>
      * </ol>
      */
-    @Override
-    public void initialize(RenderableObject client) {
+    public void initialize(Capable client) {
         if (mIsInitialized) throw new IllegalStateException(TAG+": already initialized!");
 
         Log.d(TAG, "Initilizing client "+client);
@@ -79,8 +84,7 @@ public class VertexBufferTechnique implements RenderingTechnique {
      *  vPosition vertex attribute for passing vertices to the vertex shader.
      *  vColor fragment uniform for passing color to the fragment shader. (Removed for right now!)
      */
-    @Override
-    public void draw(RenderableObject client) {
+    public void draw(Capable client) {
         if (!mIsInitialized) {
             initialize(client);
         }
@@ -118,8 +122,7 @@ public class VertexBufferTechnique implements RenderingTechnique {
 
     /** WRITEME
      */
-    @Override
-    public void deinitialize(RenderableObject client) {
+    public void deinitialize(Capable client) {
         if (!mIsInitialized) throw new IllegalStateException(TAG+": not initialized!");
 
         Log.d(TAG, "Deinitializing client "+client);

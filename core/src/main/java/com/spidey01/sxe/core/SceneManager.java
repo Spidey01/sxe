@@ -52,7 +52,7 @@ public class SceneManager {
         // try {
             for (RenderableObject o : mRenderableObjects) {
                 Log.xtrace(TAG, "Updating scene member "+o);
-                mTechnique.draw(o);
+                o.draw();
             }
         // } catch(RuntimeException e) {
             // Log.wtf(TAG, "Error updating scene:", e);
