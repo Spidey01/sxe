@@ -23,26 +23,23 @@
 
 package com.spidey01.sxe.core;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Properties;
-import java.util.Set;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /** java.util.Properties XML implementation of Settings.
  */
-public class SettingsXMLFile extends SettingsFile {
-    private final static String TAG = "SettingsXMLFile";
+public class SettingsXMLFile extends AbstractSettingsFile {
+    private static final String TAG = "SettingsXMLFile";
+    private static final String sComment = "Comments and whitespace will not be saved.";
     private final String mName;
-    private Properties mProps = new Properties();
+
 
     public SettingsXMLFile(String name) {
         mName = name;
         try {
-            mProps.loadFromXML(new FileInputStream(mName));
+            load(mName);
         } catch (IOException e) {
             Log.e(TAG, "Couldn't load "+mName+". Using blank Properties.", e);
             mProps.clear();
@@ -50,16 +47,22 @@ public class SettingsXMLFile extends SettingsFile {
     }
 
 
-    public boolean save() {
-        try {
-            mProps.storeToXML(new FileOutputStream(mName),
-                "Comments and whitespace will not be saved.");
-            return true;
-        } catch (Exception e) {
-            Log.e(TAG, "Couldn't save "+mName, e);
-            return false;
-        }
+    @Override
+    public void save() throws IOException {
+        save(new FileOutputStream(mName));
     }
-}
 
+
+    @Override
+    public void save(OutputStream stream) throws IOException {
+        mProps.storeToXML(stream, sComment);
+    }
+
+
+    @Override
+    public void load(InputStream stream) throws IOException {
+        mProps.loadFromXML(stream);
+    }
+
+}
 

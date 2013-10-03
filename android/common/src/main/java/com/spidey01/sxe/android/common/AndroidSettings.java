@@ -28,6 +28,7 @@ import com.spidey01.sxe.core.Settings;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -134,8 +135,16 @@ public class AndroidSettings implements Settings {
         return this;
     }
 
-    public boolean save() {
-        return mPrefs.edit().commit();
+
+    public void clear() {
+        mPrefs.edit().clear();
+    }
+
+
+    public void save() throws IOException {
+        if (!mPrefs.edit().commit()) {
+            throw new IOException("Failed to commit changes");
+        }
     }
 }
 

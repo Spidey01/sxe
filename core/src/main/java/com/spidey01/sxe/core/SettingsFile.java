@@ -23,126 +23,46 @@
 
 package com.spidey01.sxe.core;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Properties;
-import java.util.Set;
+import java.io.InputStream;
+import java.io.OutputStream;
 
-/** java.util.Properties implementation of Settings.
+/** Basic java.util.Properties implementation of Settings.
  */
-public class SettingsFile implements Settings {
-    private final static String TAG = "SettingsFile";
+public class SettingsFile extends AbstractSettingsFile {
+    private static final String TAG = "SettingsFile";
+    private static final String sComment = "Comments and whitespace will not be saved.";
     private final String mName;
-    private List<Settings.OnChangedListener> mListeners =
-        new LinkedList<Settings.OnChangedListener>();
 
-    /* This is package-private to allow SettingsXMLFile to extend us. */
-    Properties mProps = new Properties();
-
-    /* This is package-private to allow SettingsXMLFile to extend us. */
-    SettingsFile() {
-        /*  Only used for save/load and we can't keep mName final if we share
-         *  it with SettingsXMLFile.*/
-        mName = null;
-    }
 
     public SettingsFile(String name) {
         mName = name;
         try {
-            mProps.load(new FileInputStream(mName));
+            load(mName);
         } catch (IOException e) {
             Log.e(TAG, "Couldn't load "+mName+". Using blank Properties.", e);
             mProps.clear();
         }
     }
 
-    public void addChangeListener(OnChangedListener listener) {
-        mListeners.add(listener);
-    }
 
-    public void removeChangeListener(OnChangedListener listener) {
-        mListeners.remove(listener);
-    }
-
-    private void notifyListeners(String key) {
-        for (Settings.OnChangedListener l : mListeners) {
-            l.onChanged(this, key);
-        }
-    }
-
-    public String[] keys() {
-        Set<String> length = mProps.stringPropertyNames();
-        return length.toArray(new String[length.size()]);
-    }
-
-    public boolean contains(String key) {
-        return mProps.containsKey(key);
-    }
-
-    public boolean getBoolean(String key) {
-        return Boolean.valueOf(mProps.getProperty(key, "false"));
-    }
-    
-    public float getFloat(String key) {
-        return Float.valueOf(mProps.getProperty(key, "0.0"));
-    }
-    
-    public int getInt(String key) {
-        return Integer.valueOf(mProps.getProperty(key, "0"));
-    }
-
-    public long getLong(String key) {
-        return Long.valueOf(mProps.getProperty(key, "0"));
-    }
-
-    public String getString(String key) {
-        return mProps.getProperty(key, "");
+    @Override
+    public void save() throws IOException {
+        save(new FileOutputStream(mName));
     }
 
 
-    public Settings setBoolean(String key, boolean value) {
-        notifyListeners(key);
-        mProps.setProperty(key, Boolean.toString(value));
-        return this;
+    @Override
+    public void save(OutputStream stream) throws IOException {
+        mProps.storeToXML(stream, sComment);
     }
 
-    public Settings setFloat(String key, float value) {
-        notifyListeners(key);
-        mProps.setProperty(key, Float.toString(value));
-        return this;
+
+    @Override
+    public void load(InputStream stream) throws IOException {
+        mProps.loadFromXML(stream);
     }
 
-    public Settings setInt(String key, int value) {
-        notifyListeners(key);
-        mProps.setProperty(key, Integer.toString(value));
-        return this;
-    }
-
-    public Settings setLong(String key, long value) {
-        notifyListeners(key);
-        mProps.setProperty(key, Long.toString(value));
-        return this;
-    }
-
-    public Settings setString(String key, String value) {
-        notifyListeners(key);
-        mProps.setProperty(key, value);
-        return this;
-    }
-
-    public boolean save() {
-        try {
-            mProps.store(new FileOutputStream(mName),
-                "Comments and whitespace will not be saved.");
-            return true;
-        } catch (Exception e) {
-            Log.e(TAG, "Couldn't save "+mName, e);
-            return false;
-        }
-    }
 }
 

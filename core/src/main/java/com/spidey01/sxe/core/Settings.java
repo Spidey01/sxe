@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core;
 
+import java.io.IOException;
+
 /** Access to persistent settings.
  *
  * Settings are presented as a simple key/value store. The actual storage
@@ -115,10 +117,12 @@ public interface Settings {
     /** Set key as a String value.  */
     Settings setString(String key, String value);
 
-    /** Commit changes to storage.
-     *
-     * @return true on success; false on failure.
+    /** Clear loaded settings.
      */
-    boolean save();
+    void clear();
+
+    /** Commit changes back to storage. */
+    void save() throws IOException;
+
 }
 
