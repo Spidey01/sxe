@@ -37,9 +37,18 @@ import java.util.Set;
 public class SettingsFile implements Settings {
     private final static String TAG = "SettingsFile";
     private final String mName;
-    private Properties mProps = new Properties();
     private List<Settings.OnChangedListener> mListeners =
         new LinkedList<Settings.OnChangedListener>();
+
+    /* This is package-private to allow SettingsXMLFile to extend us. */
+    Properties mProps = new Properties();
+
+    /* This is package-private to allow SettingsXMLFile to extend us. */
+    SettingsFile() {
+        /*  Only used for save/load and we can't keep mName final if we share
+         *  it with SettingsXMLFile.*/
+        mName = null;
+    }
 
     public SettingsFile(String name) {
         mName = name;
