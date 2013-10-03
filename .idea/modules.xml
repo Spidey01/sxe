@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android/android.iml" filepath="$PROJECT_DIR$/android/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/common/android-common.iml" filepath="$PROJECT_DIR$/android/common/android-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/gles11/android-gles11.iml" filepath="$PROJECT_DIR$/android/gles11/android-gles11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/gles20/android-gles20.iml" filepath="$PROJECT_DIR$/android/gles20/android-gles20.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/gles30/android-gles30.iml" filepath="$PROJECT_DIR$/android/gles30/android-gles30.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/demos/demos.iml" filepath="$PROJECT_DIR$/demos/demos.iml" />
       <module fileurl="file://$PROJECT_DIR$/demos/helloworld/helloworld.iml" filepath="$PROJECT_DIR$/demos/helloworld/helloworld.iml" />
