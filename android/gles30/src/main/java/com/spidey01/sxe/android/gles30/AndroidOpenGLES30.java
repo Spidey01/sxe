@@ -59,6 +59,12 @@ public class AndroidOpenGLES30 implements OpenGLES30 {
         
 
     @Override
+    public void glBindFramebuffer(int target, int framebuffer) {
+        GLES30.glBindFramebuffer(target, framebuffer);
+    }
+
+
+    @Override
     public void glBindTexture(int target, int texture) {
         GLES30.glBindTexture(t(target), texture);
     }

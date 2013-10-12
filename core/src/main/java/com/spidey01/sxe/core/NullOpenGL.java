@@ -53,6 +53,13 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
         Log.d(TAG, "glBindBuffer(", target, ", ", buffer, ")");
     }
 
+
+    @Override
+    public void glBindFramebuffer(int target, int framebuffer) {
+        Log.d(TAG, "glBindFramebuffer(", target, ", ", framebuffer, ")");
+    }
+
+
     @Override
     public void glBindTexture(int target, int texture) {
         Log.d(TAG, "glBindTexture(", target, ", ",  texture, ")");

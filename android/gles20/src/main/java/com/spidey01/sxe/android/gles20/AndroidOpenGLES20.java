@@ -58,6 +58,12 @@ public class AndroidOpenGLES20 implements OpenGLES20 {
         
 
     @Override
+    public void glBindFramebuffer(int target, int framebuffer) {
+        GLES20.glBindFramebuffer(target, framebuffer);
+    }
+
+
+    @Override
     public void glBindTexture(int target, int texture) {
         GLES20.glBindTexture(t(target), texture);
     }

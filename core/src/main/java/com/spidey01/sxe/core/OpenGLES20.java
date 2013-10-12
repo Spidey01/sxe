@@ -348,6 +348,7 @@ public interface OpenGLES20 {
     void glAttachShader(int program, int shader);
 
     void glBindBuffer(int target, int buffer);
+    void glBindFramebuffer(int target, int framebuffer);
     void glBindTexture(int target, int texture);
     void glBufferData(int target, ByteBuffer data, int usage);
     void glBufferData(int target, DoubleBuffer data, int usage);

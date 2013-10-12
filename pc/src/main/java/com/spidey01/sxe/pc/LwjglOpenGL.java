@@ -64,6 +64,13 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
         GL15.glBindBuffer(t(target), buffer);
     }
 
+
+    @Override
+    public void glBindFramebuffer(int target, int framebuffer) {
+        GL30.glBindFramebuffer(target, framebuffer);
+    }
+
+
     @Override
     public void glBindTexture(int target, int texture) {
         GL11.glBindTexture(t(target), texture);
