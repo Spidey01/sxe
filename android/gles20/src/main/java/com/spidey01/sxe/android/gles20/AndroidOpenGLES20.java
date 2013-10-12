@@ -210,6 +210,19 @@ public class AndroidOpenGLES20 implements OpenGLES20 {
         GLES20.glGenBuffers(1, buffers);
     }
 
+
+    @Override
+    public void glGenFramebuffers(IntBuffer framebuffers) {
+        GLES20.glGenFramebuffers(1, framebuffers);
+    }
+
+
+    @Override
+    public void glGenFramebuffers(int n, IntBuffer framebuffers) {
+        GLES20.glGenFramebuffers(n, framebuffers);
+    }
+
+
     @Override
     public void glGenTextures(ByteBuffer buffer) {
         glGenTextures(buffer.asIntBuffer());

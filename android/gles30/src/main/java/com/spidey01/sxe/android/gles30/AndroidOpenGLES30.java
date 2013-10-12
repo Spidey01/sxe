@@ -211,6 +211,19 @@ public class AndroidOpenGLES30 implements OpenGLES30 {
         GLES30.glGenBuffers(1, buffers);
     }
 
+
+    @Override
+    public void glGenFramebuffers(IntBuffer framebuffers) {
+        GLES30.glGenFramebuffers(1, framebuffers);
+    }
+
+
+    @Override
+    public void glGenFramebuffers(int n, IntBuffer framebuffers) {
+        GLES30.glGenFramebuffers(n, framebuffers);
+    }
+
+
     @Override
     public void glGenTextures(ByteBuffer buffer) {
         glGenTextures(buffer.asIntBuffer());

@@ -380,8 +380,11 @@ public interface OpenGLES20 {
     void glEnableVertexAttribArray(int index);
 
     void glGenBuffers(IntBuffer buffers);
+    void glGenFramebuffers(IntBuffer framebuffers);
+    void glGenFramebuffers(int n, IntBuffer framebuffers);
     void glGenTextures(ByteBuffer buffer);
     void glGenTextures(IntBuffer buffer);
+
     int glGetAttribLocation(int program, String name);
     String glGetProgramInfoLog(int program);
     int glGetProgramiv(int program, int pname);

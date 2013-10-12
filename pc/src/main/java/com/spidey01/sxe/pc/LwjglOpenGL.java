@@ -41,6 +41,7 @@ import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
+import org.lwjgl.opengl.GL30;
 
 
 public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
@@ -205,6 +206,19 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     public void glGenBuffers(IntBuffer buffers) {
         GL15.glGenBuffers(buffers);
     }
+
+
+    @Override
+    public void glGenFramebuffers(IntBuffer framebuffers) {
+        GL30.glGenFramebuffers(framebuffers);
+    }
+
+
+    @Override
+    public void glGenFramebuffers(int n, IntBuffer framebuffers) {
+        throw new RuntimeException("Not implemented.");
+    }
+
 
     @Override
     public void glGenTextures(ByteBuffer buffer) {

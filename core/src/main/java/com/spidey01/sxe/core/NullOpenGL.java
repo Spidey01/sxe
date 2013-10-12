@@ -199,6 +199,19 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
         Log.d(TAG, "glGenBuffers(", buffers, ")");
     }
 
+
+    @Override
+    public void glGenFramebuffers(IntBuffer framebuffers) {
+        Log.d(TAG, "glGenFramebuffers(", framebuffers, ")");
+    }
+
+
+    @Override
+    public void glGenFramebuffers(int n, IntBuffer framebuffers) {
+        Log.d(TAG, "glGenFramebuffers(", n, ", ", framebuffers, ")");
+    }
+
+
     @Override
     public void glGenTextures(ByteBuffer buffer) {
         glGenTextures(buffer.asIntBuffer());
@@ -211,7 +224,7 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
     @Override
     public int glGetAttribLocation(int program, String name) {
-        Log.d(TAG, "glGetAttribLocation(", program, ", ",  name, ")");
+        Log.d(TAG, "glGetAttribLocation(", program, ", ", name, ")");
         return -1;
     }
 
