@@ -145,6 +145,18 @@ public class AndroidOpenGLES30 implements OpenGLES30 {
 
 
     @Override
+    public void glDeleteFramebuffers(int n, IntBuffer framebuffers) {
+        GLES30.glDeleteFramebuffers(n, framebuffers);
+    }
+
+
+    @Override
+    public void glDeleteFramebuffers(int n, int[] framebuffers, int offset) {
+        GLES30.glDeleteFramebuffers(n, framebuffers, offset);
+    }
+
+
+    @Override
     public void glDeleteProgram(GpuProgram program) {
         GLES30.glDeleteProgram(program.getProgram());
     }

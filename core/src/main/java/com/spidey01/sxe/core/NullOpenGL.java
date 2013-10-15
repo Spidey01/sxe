@@ -135,6 +135,18 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
+    public void glDeleteFramebuffers(int n, IntBuffer framebuffers) {
+        Log.d(TAG, "glDeleteFramebuffers(", n, ", ",  framebuffers, ")");
+    }
+
+
+    @Override
+    public void glDeleteFramebuffers(int n, int[] framebuffers, int offset) {
+        Log.d(TAG, "glDeleteFramebuffers(", n, ", ",  framebuffers, ",", offset, ")");
+    }
+
+
+    @Override
     public void glDeleteProgram(GpuProgram program) {
         glDeleteProgram(program.getProgram());
     }

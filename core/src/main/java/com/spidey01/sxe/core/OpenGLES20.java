@@ -366,6 +366,8 @@ public interface OpenGLES20 {
     int glCreateShader(int type);
 
 
+    void glDeleteFramebuffers(int n, IntBuffer framebuffers);
+    void glDeleteFramebuffers(int n, int[] framebuffers, int offset);
     void glDeleteProgram(GpuProgram program);
     void glDeleteProgram(int program);
     void glDeleteShader(int shader);

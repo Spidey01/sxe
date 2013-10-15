@@ -143,6 +143,18 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
+    public void glDeleteFramebuffers(int n, IntBuffer framebuffers) {
+        GL30.glDeleteFramebuffers(framebuffers);
+    }
+
+
+    @Override
+    public void glDeleteFramebuffers(int n, int[] framebuffers, int offset) {
+        throw new UnsupportedOperationException("Not implemented on "+TAG);
+    }
+
+
+    @Override
     public void glDeleteProgram(GpuProgram program) {
         GL20.glDeleteProgram(program.getProgram());
     }
@@ -223,7 +235,7 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
     @Override
     public void glGenFramebuffers(int n, IntBuffer framebuffers) {
-        throw new RuntimeException("Not implemented.");
+        throw new UnsupportedOperationException("Not implemented on "+TAG);
     }
 
 

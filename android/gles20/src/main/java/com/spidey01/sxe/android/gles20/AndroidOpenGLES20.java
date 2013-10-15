@@ -144,6 +144,18 @@ public class AndroidOpenGLES20 implements OpenGLES20 {
 
 
     @Override
+    public void glDeleteFramebuffers(int n, IntBuffer framebuffers) {
+        GLES20.glDeleteFramebuffers(n, framebuffers);
+    }
+
+
+    @Override
+    public void glDeleteFramebuffers(int n, int[] framebuffers, int offset) {
+        GLES20.glDeleteFramebuffers(n, framebuffers, offset);
+    }
+
+
+    @Override
     public void glDeleteProgram(GpuProgram program) {
         GLES20.glDeleteProgram(program.getProgram());
     }
