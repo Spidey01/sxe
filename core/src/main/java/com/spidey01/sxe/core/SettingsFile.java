@@ -55,13 +55,13 @@ public class SettingsFile extends AbstractSettingsFile {
 
     @Override
     public void save(OutputStream stream) throws IOException {
-        mProps.storeToXML(stream, sComment);
+        mProps.store(stream, sComment);
     }
 
 
     @Override
     public void load(InputStream stream) throws IOException {
-        mProps.loadFromXML(stream);
+        mProps.load(stream);
     }
 
 }
