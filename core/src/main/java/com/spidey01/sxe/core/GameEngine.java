@@ -290,7 +290,6 @@ public class GameEngine {
         if (!flags.isEmpty()) {
             for (String f : flags.split(",")) {
                 boolean value = f.endsWith("=true");
-                System.out.println("f = |"+f+"| ; endsWith=true =="+value);
                 if (f.startsWith("DisplayThreadId")) {
                     sink.setDisplayThreadId(value);
                 } else if (f.startsWith("DisplayDate")) {
