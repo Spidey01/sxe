@@ -51,7 +51,17 @@ gettop() { # print path to top of the tree.
 
 
 croot() { # cd to top of the tree.
-    cd `gettop`
+    cd "`gettop`"
+}
+
+
+cpushd() { # call pushd with the top of the tree.
+    pushd "`gettop`"
+}
+
+
+mpushd() { # call pushd with a module name.
+    pushd "`gettop`/`echo $1 | sed -e 's/:/\//g'`"
 }
 
 
