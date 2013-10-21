@@ -23,68 +23,77 @@
 
 package com.spidey01.sxe.core;
 
-
-///////////////////////////////////////////////////////////////////////////////
-// Testing stuff
-///////////////////////////////////////////////////////////////////////////////
-
-/* triangle.vert:
-
-// shader for the Triangle rendering test code in SnakeGame
-attribute vec2 coord2d;
-void main(void) {
-  gl_Position = vec4(coord2d, 0.0, 1.0);
-}
- */
-/* triangle.frag:
-
-// shader for the Triangle rendering test code in SnakeGame
-void main(void) {
-  gl_FragColor[0] = 0.0;
-  gl_FragColor[1] = 1.0;
-  gl_FragColor[2] = 0.0;
-}
- */
 import com.spidey01.sxe.core.*;
 import java.nio.*;
 import java.io.*;
 import java.util.*;
 
-public class Mesh implements FrameStartedListener {
-    private GameContext mCtx;
-    private GpuProgram mProgram;
-    private IntBuffer mVBO;
-    private boolean mInitialized = false;
-    private float[] mVertices;
-    private int mCoord2d = -1;
+public class Mesh {
     private static final String TAG = "Mesh";
 
-    public Mesh(GameContext ctx, float[] vertices) {
-        mCtx = ctx;
-        mVertices = vertices;
+    private VertexBuffer mVertexBuffer;
+    private float[] mArrayOfVertices;
+    private FloatBuffer mBufferOfVertices;
+    private boolean mIsInitialized;
+
+
+    private Mesh() {
+        mVertexBuffer = new VertexBuffer();
     }
 
-    public void frameStarted(OpenGL GL) {
-        if (!mInitialized) {
-            // initialize(GL);
+
+    public Mesh(float[] vertices) {
+        this();
+        mArrayOfVertices = vertices;
+    }
+
+
+    public Mesh(FloatBuffer vertices) {
+        this();
+        mBufferOfVertices = vertices;
+    }
+
+    
+    /** Creates a Mesh from a prepared VertexBuffer.
+     */
+    public Mesh(VertexBuffer buffer) {
+        mVertexBuffer = buffer;
+    }
+
+
+    public void initialize(OpenGLES20 GLES20) {
+        if (mIsInitialized) return;
+
+        mVertexBuffer.initialize(GLES20);
+        mVertexBuffer.bind(GLES20);
+
+        if (mArrayOfVertices != null) {
+            Log.xtrace(TAG, "initialized from array of vertices.");
+            mVertexBuffer.buffer(GLES20, mArrayOfVertices);
+        } else if (mBufferOfVertices != null) {
+            Log.xtrace(TAG, "initialized from buffer of vertices.");
+            mVertexBuffer.buffer(GLES20, mBufferOfVertices);
+        } else {
+            // We can't tell if we used the ctor with the vbo.
+            // throw new IllegalStateException("No vertex data.");
+            Log.xtrace(TAG, "initialized from VertexBuffer or state is bad.");
         }
 
-        // Clear the background.
-        GL.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
-        GL.glClear(OpenGLES20.GL_COLOR_BUFFER_BIT);
+        mIsInitialized = true;
+    }
 
-        // Ready the shader program.
-        GL.glUseProgram(mProgram.getProgram());
 
-        // Lock and load the coord2d attribute for our fragment shader.
-        GL.glEnableVertexAttribArray(mCoord2d);
-        GL.glVertexAttribPointer(mCoord2d, 2, OpenGLES20.GL_FLOAT, false, 0, 0);
- 
-        // feed it to our shader to draw.
-        GL.glBindBuffer(OpenGLES20.GL_ARRAY_BUFFER, mVBO.get(0));
-        GL.glDrawArrays(OpenGLES20.GL_TRIANGLES, 0, 3);
+    public void deinitialize(OpenGLES20 GLES20) {
+        if (!mIsInitialized) throw new IllegalStateException(TAG+": not initialized!");
 
-        GL.glDisableVertexAttribArray(mCoord2d);
+        mVertexBuffer.deinitialize(GLES20);
+
+        mIsInitialized = false;
+    }
+
+
+    public VertexBuffer getVertexBuffer() {
+        return mVertexBuffer;
     }
 
 }

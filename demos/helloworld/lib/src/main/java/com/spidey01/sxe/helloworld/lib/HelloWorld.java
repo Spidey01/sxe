@@ -63,15 +63,27 @@ public class HelloWorld
         */
         ResourceHandle spriteResource;
         Texture spriteTexture;
+        Mesh spriteMesh;
         Sprite sprite;
         try {
             spriteResource = mGameEngine.getResourceManager().load("default://Sprite.png");
             spriteTexture = spriteResource.asTexture();
+            spriteMesh = new Mesh(new float[]{
+                // Left bottom triangle
+                -0.5f, 0.5f, 0f,
+                -0.5f, -0.5f, 0f,
+                0.5f, -0.5f, 0f,
+                // Right top triangle
+                0.5f, -0.5f, 0f,
+                0.5f, 0.5f, 0f,
+                -0.5f, 0.5f, 0f
+            });
+
         } catch (IOException e) {
             Log.w(TAG, "Failed loading Sprite:", e);
             return false;
         }
-        sprite = new Sprite(spriteTexture);
+        sprite = new Sprite(spriteMesh, spriteTexture);
 
         // A better way of doing this might be nice!
         sprite.setTechnique(new VertexBufferTechnique(engine.getDisplay().getOpenGL()));

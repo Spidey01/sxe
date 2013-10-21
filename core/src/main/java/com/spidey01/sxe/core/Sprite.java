@@ -30,8 +30,6 @@ public class Sprite
 {
     private final static String TAG = "Sprite";
 
-    private Texture mTexture;
-
     private final static String sDefaultVertexGLSL = ""
         + "attribute vec4 vPosition;"
         + "void main() {"
@@ -53,26 +51,26 @@ public class Sprite
         ;
     private final static Shader sDefaultFragmentShader = new Shader(sDefaultFragmentGLSL, Shader.Type.FRAGMENT);
 
+    private Mesh mMesh;
+    private Texture mTexture;
     private GpuProgram mProgram = new GpuProgram();
     private Shader mVertexShader;
     private Shader mFragmentShader;
-    private VertexBuffer mVertexBuffer;
-
     private VertexBufferTechnique mTechnique;
 
 
-    public Sprite(Texture backing) {
-        this(backing, sDefaultVertexShader, sDefaultFragmentShader);
+    public Sprite(Mesh mesh, Texture texture) {
+        this(mesh, texture, sDefaultVertexShader, sDefaultFragmentShader);
     }
 
 
-    public Sprite(Texture backing, Shader vertex, Shader fragment) {
+    public Sprite(Mesh mesh, Texture backing, Shader vertex, Shader fragment) {
+        mMesh = mesh;
         mTexture = backing;
         mVertexShader = vertex;
         mFragmentShader = fragment;
         mProgram.attachShader(mVertexShader);
         mProgram.attachShader(mFragmentShader);
-        mVertexBuffer = new VertexBuffer();
     }
 
 
@@ -81,23 +79,8 @@ public class Sprite
     }
 
 
-    public float[] getVertices() {
-        // just for testing
-        return new float[]{
-            // Left bottom triangle
-            -0.5f, 0.5f, 0f,
-            -0.5f, -0.5f, 0f,
-            0.5f, -0.5f, 0f,
-            // Right top triangle
-            0.5f, -0.5f, 0f,
-            0.5f, 0.5f, 0f,
-            -0.5f, 0.5f, 0f
-        };
-    }
-
-
-    public VertexBuffer getVertexBuffer() {
-        return mVertexBuffer;
+    public Mesh getMesh() {
+        return mMesh;
     }
 
 

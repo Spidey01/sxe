@@ -45,8 +45,7 @@ public class VertexBufferTechnique implements RenderingTechnique {
     private OpenGLES20 mGL;
 
     public interface Capable extends RenderableObject {
-        float[] getVertices();
-        VertexBuffer getVertexBuffer();
+        Mesh getMesh();
         GpuProgram getProgram();
     }
 
@@ -68,7 +67,7 @@ public class VertexBufferTechnique implements RenderingTechnique {
 
         Log.d(TAG, "Initilizing client "+client);
 
-        client.getVertexBuffer().initialize(mGL, client.getVertices());
+        client.getMesh().initialize(mGL);
         client.getProgram().initialize(mGL);
 
         mIsInitialized = true;
@@ -88,9 +87,10 @@ public class VertexBufferTechnique implements RenderingTechnique {
         if (!mIsInitialized) {
             initialize(client);
         }
-        Log.d(TAG, "Drawing client "+client);
+        Log.xtrace(TAG, "Drawing client "+client);
 
-        client.getVertexBuffer().bind(mGL);
+        VertexBuffer vbo = client.getMesh().getVertexBuffer();
+        vbo.bind(mGL);
         GpuProgram p = client.getProgram();
         p.use(mGL);
 
@@ -114,7 +114,7 @@ public class VertexBufferTechnique implements RenderingTechnique {
         mGL.glUniform4fv(vColor, 1, color_p);
         */
 
-        mGL.glDrawArrays(OpenGLES20.GL_TRIANGLES, 0, client.getVertexBuffer().getVertexCount());
+        mGL.glDrawArrays(OpenGLES20.GL_TRIANGLES, 0, vbo.getVertexCount());
 
         mGL.glDisableVertexAttribArray(vPosition);
     }

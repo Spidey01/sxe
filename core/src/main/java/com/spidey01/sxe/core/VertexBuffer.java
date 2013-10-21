@@ -57,7 +57,7 @@ public class VertexBuffer {
     }
 
 
-    /** Initializes an empty VertexBuffer. */
+    /** Initializes and binds an empty VertexBuffer without binding it. */
     public void initialize(OpenGLES20 GL) {
         if (mIsInitialized) return;
         
