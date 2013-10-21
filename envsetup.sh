@@ -8,7 +8,7 @@ hmm() { # This help.
     # Also this skips funcs with !a-z names (e.g. for internals).
     # It also skips undocumented.
     cat `gettop`/envsetup.sh | grep '^[a-z]*() {' | \
-        sed -e 's/() { # /\t/' -e 's/[a-z]*() {.*$//' -e '/^$/d' -e 's/^/\t/' | sort
+        sed -e 's/() { # /\t/' -e 's/[a-z]*() {.*$//' -e '/^$/d' -e 's/^/\t/' #| sort
 
     echo
     echo "Read the source for further details."
