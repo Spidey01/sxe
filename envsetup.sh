@@ -7,8 +7,8 @@ hmm() { # This help.
     # Supported OS'es include the path here, so >_>.
     # Also this skips funcs with !a-z names (e.g. for internals).
     # It also skips undocumented.
-    cat $0 | grep '^[a-z]*() {' | \
-        sed -e 's/() { # /\t/' -e 's/[a-z]*() {.*$//' -e 's/^/\t/' | sort
+    cat `gettop`/envsetup.sh | grep '^[a-z]*() {' | \
+        sed -e 's/() { # /\t/' -e 's/[a-z]*() {.*$//' -e '/^$/d' -e 's/^/\t/' | sort
 
     echo
     echo "Read the source for further details."
