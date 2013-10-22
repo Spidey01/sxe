@@ -204,8 +204,27 @@ check_android() { # fuzzy helper for ANDROID_HOME.
 }
 
 
-check_android
+_sxe_gradlew() { ## bash completion function for gradle wrapper / functions.
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="$(lsproj)"
 
+    # these commands allow us to complete on :words correctly when compgen'ing
+    # with colons around.
+    _get_comp_words_by_ref -n : cur
+    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))  
+    __ltrim_colon_completions "$cur"
+
+    return 0
+}
+
+
+# complete project names for these commands.
+complete -o nospace -F _sxe_gradlew gradlew ./gradlew m mma
+
+check_android
 
 [ -f "$(gettop)/envsetup.local" ] && "$(gettop)/envsetup.local"
 
