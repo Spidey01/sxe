@@ -31,20 +31,14 @@ import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.KeyEvent;
 import com.spidey01.sxe.core.KeyListener;
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.OpenGL;
-
-// for testing stuff
-import com.spidey01.sxe.core.GpuProgram;
 import com.spidey01.sxe.core.Mesh;
+import com.spidey01.sxe.core.OpenGL;
 import com.spidey01.sxe.core.ResourceManager;
-import com.spidey01.sxe.core.Shader;
-import java.io.InputStream;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
+import com.spidey01.sxe.core.Sprite;
+import com.spidey01.sxe.core.VertexBufferTechnique;
+
 import java.util.Random;
-import com.spidey01.sxe.core.Settings;
-import com.spidey01.sxe.core.SettingsFile;
+
 
 public class SnakeGame
     extends Game
@@ -53,7 +47,7 @@ public class SnakeGame
     private static final String TAG = "SnakeGame";
     private Console mConsole;
     // for testing
-    private Mesh mTriangle;
+    private Sprite mTriangle;
 
 
     @Override
@@ -68,17 +62,24 @@ public class SnakeGame
         Log.v(TAG, "Snake Game is starting.");
 
         mConsole = new Console(/* args we may need from mEngine */);
-        mGameEngine.getGameContext().getDisplay().addFrameStartedListener(mConsole);
-        // mGameEngine.getDisplay().addFrameStartedListener(this);
+        mGameEngine.getDisplay().addFrameStartedListener(mConsole);
+
         setupConsoleCommands();
         setupControls();
 
-        mTriangle = new Mesh(mGameEngine.getGameContext(), new float[]{
-              0.0f,  0.8f,
-              -0.8f, -0.8f,
-              0.8f,  -0.8f,
-        });
-        mGameEngine.getGameContext().getDisplay().addFrameStartedListener(mTriangle);
+        mTriangle = new Sprite(
+                new Mesh(new float[]{
+                    0.0f,  0.8f,
+                    -0.8f, -0.8f,
+                    0.8f,  -0.8f,
+                }),
+                null /* unused for now */
+        );
+
+
+        mTriangle.setTechnique(new VertexBufferTechnique(engine.getDisplay().getOpenGL()));
+        mGameEngine.getSceneManager().add(mTriangle);
+
 
         return true;
     }
@@ -91,7 +92,7 @@ public class SnakeGame
         }
 
         Log.v(TAG, "Snake Game is stopping.");
-        mGameEngine.getGameContext().getDisplay().addFrameStartedListener(this);
+        mGameEngine.getDisplay().addFrameStartedListener(this);
     }
 
     @Override
@@ -134,11 +135,11 @@ public class SnakeGame
             "P", // used to toggle repeating mode on the console for testing.
         };
         for (String k : keys) {
-            mGameEngine.getGameContext().getInput().addKeyListener(k, this);
+            mGameEngine.getInputManager().addKeyListener(k, this);
         }
 
         // the console will only steal key events when it is visable.
-        mGameEngine.getGameContext().getInput().addKeyListener(mConsole);
+        mGameEngine.getInputManager().addKeyListener(mConsole);
     }
 
     // Very simple way of doing some key binds
@@ -151,6 +152,7 @@ public class SnakeGame
 
             // quit game
             if ((event.getKeyName().equals("ESCAPE")
+                || event.getKeyName().equals("Q")
                 || event.getKeyName().equals("BACK")))
             {
                 Log.d(TAG, "Quit");
