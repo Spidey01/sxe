@@ -142,6 +142,30 @@ mma() { # Builds all of the modules in the current directory, and their dependen
 # }
 
 
+rd() { # :run a demo by name
+    m ":demos:${1}:pc:run"
+    # TODO: pass args to app as a property?
+}
+
+
+installdemo() { # :installApp a demo by name
+    m ":demos:${1}:pc:installApp"
+}
+
+
+installrundemo() { # installdemo and execute a demo by name with following args.
+    local demo
+    demo=$1
+    shift
+    installdemo $demo
+    eval \
+        env \
+        XDG_CONFIG_HOME="`gettop`/tmp" \
+        "`echo $demo | awk '{print toupper($0)}'`_PC_OPTS=\"'-Djava.library.path=${croot}/demos/${demo}/pc/build/install/${demo}-pc/lib/natives'\"" \
+            "demos/${demo}/pc/build/install/${demo}-pc/bin/${demo}-pc" "$@"
+}
+
+
 jgrep() { # runs grep on all local Java source files.
     find . -name .git -prune -o -type f -name "*\.java" -print0 | xargs -0 grep --color -n "$@"
 }
@@ -204,7 +228,7 @@ check_android() { # fuzzy helper for ANDROID_HOME.
 }
 
 
-_sxe_gradlew() { ## bash completion function for gradle wrapper / functions.
+_sxe_complete_projects() { ## bash completion function for project names.
     local cur prev opts
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
@@ -221,8 +245,25 @@ _sxe_gradlew() { ## bash completion function for gradle wrapper / functions.
 }
 
 
+_sxe_complete_demos() { ## bash completion function for demo names.
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="$(ls $(gettop)/demos | sed -e 's/\///')"
+
+    COMPREPLY=($(compgen -W "$opts" -- ${cur}))  
+
+    return 0
+
+}
+
+
 # complete project names for these commands.
-complete -o nospace -F _sxe_gradlew gradlew ./gradlew m mma
+complete -o nospace -F _sxe_complete_projects gradlew ./gradlew m mma
+
+# complete demo names for these commands.
+complete -F _sxe_complete_demos rd installdemo installrundemo
 
 check_android
 
