@@ -67,7 +67,7 @@ mpushd() { # call pushd with a module name.
 
 lsproj() { #
     local here dir parent targets task tasks
-    for dir in `find . -name .git -prune -o -type f -name build.gradle`; do
+    for dir in `find ${@:-.} -name .git -prune -o -type f -name build.gradle`; do
         # echo debug dir=$dir dirname dir=`dirname $dir`
         here="`dirname $dir | sed -e 's/build.gradle//' -e 's/^\.\///' -e 's/\//:/g'`"
         # echo "here: $here"
