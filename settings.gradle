@@ -22,4 +22,6 @@ include ':demos:pingpong:android'
 include ':demos:snake:lib'
 include ':demos:snake:pc'
 include ':demos:snake:android'
+include ':tools:modelviewer:lib'
+include ':tools:modelviewer:pc'
 

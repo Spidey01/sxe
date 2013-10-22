@@ -1,0 +1,21 @@
+
+apply plugin: 'java'
+apply plugin:'application'
+
+group = 'com.spidey01.sxe.modelviewer.pc'
+mainClassName = group + '.Main'
+applicationName = archivesBaseName = 'modelviewer-pc'
+version = '0.0.1-SNAPSHOT'
+description = 'Model Viewer tool for x86-based PCs'
+
+dependencies {
+    compile project(':core')
+    compile project(':pc')
+    compile project(':tools:modelviewer:lib')
+}
+
+apply from: '../../../gradle/runDemo.gradle', to: run
+apply from: '../../../gradle/installDemo.gradle'
+applicationDistribution.from(project(':pc').extractLwjglNatives) {
+    into "lib/natives"
+}
