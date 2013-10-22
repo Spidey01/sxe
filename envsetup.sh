@@ -148,12 +148,17 @@ rd() { # :run a demo by name
 }
 
 
-installdemo() { # :installApp a demo by name
+rdemo() { # alias for rd
+    rd $*
+}
+
+
+idemo() { # :installApp a demo by name
     m ":demos:${1}:pc:installApp"
 }
 
 
-installrundemo() { # installdemo and execute a demo by name with following args.
+irdemo() { # installdemo and execute a demo by name with following args.
     local demo
     demo=$1
     shift
@@ -263,7 +268,7 @@ _sxe_complete_demos() { ## bash completion function for demo names.
 complete -o nospace -F _sxe_complete_projects gradlew ./gradlew m mma
 
 # complete demo names for these commands.
-complete -F _sxe_complete_demos rd installdemo installrundemo
+complete -F _sxe_complete_demos rd rdemo idemo irdemo
 
 check_android
 
