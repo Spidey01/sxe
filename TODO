@@ -1,10 +1,7 @@
-[ ] Update documentation, NOTES, etc.
 [ ] Fix sources of brain damage / not enough time to do it well.
-[X] A way to configure things like setting log level separately per tag, from .cfg file.
 [ ] Maybe make OpenGL stuff throw a checked 'GraphicsException' on failures like e.g. bad shader compile?
 [ ] Replace Action with a standard Java type like Callabe?
 [ ] Should SettingsFile be trapping IOException and blanking the contents? I think not.
-[X] Clean up GameEngine#setupLogging
 [ ] Some way of addressing the installation root, resource paths, etc.
 [ ] ResourceHandle#asTexture should inspect URI for file extension (.png, .jpg, etc) and act accordingly. Also should have an overload that allows specifying the format.
 [ ] Maybe make GpuProgram able to init from a Program ID #?
