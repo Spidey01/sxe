@@ -24,29 +24,55 @@
 package com.spidey01.sxe.modelviewer.pc;
 
 // import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.pc.PcConfiguration;
+// import com.spidey01.sxe.pc.PcConfiguration;
 
 import com.spidey01.sxe.modelviewer.lib.*;
 
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.LogSink;
 
+import java.awt.event.WindowEvent;
 import javax.swing.SwingUtilities;
 
-class Main implements Runnable {
+class Main extends java.awt.event.WindowAdapter implements Runnable {
     private static final String TAG = "Main";
 
     private MainWindow mMainWindow;
 
     public static void main(String[] args) {
+        Log.add(new LogSink(System.out, Log.DEBUG));
         SwingUtilities.invokeLater(new Main());
     }
 
     @Override
     public void run() {
         mMainWindow = new MainWindow(TAG);
-        // mMainWindow.setDefaultCloseOperation(MainWindow.DISPOSE_ON_CLOSE);
-        mMainWindow.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE);
+
+        mMainWindow.addWindowListener(this);
+        // mMainWindow.setDefaultCloseOperation(MainWindow.DO_NOTHING_ON_CLOSE);
+        mMainWindow.setDefaultCloseOperation(MainWindow.DISPOSE_ON_CLOSE);
+        // mMainWindow.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE);
         mMainWindow.setVisible(true);
+    }
+
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+        Log.i(TAG, "windowClosed()");
+        if (e.getComponent() == mMainWindow) {
+            Log.i(TAG, "yes, right window!");
+        }
+        super.windowClosed(e);
+    }
+
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        Log.i(TAG, "windowClosing()");
+        if (e.getComponent() == mMainWindow) {
+            Log.i(TAG, "yes, right window!");
+        }
+        super.windowClosed(e);
     }
 }
 

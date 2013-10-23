@@ -33,7 +33,8 @@ class MainWindow extends JFrame {
 
     public MainWindow(String title) {
         super(title);
-        System.out.println("MainWindow - title="+title);
+        Log.i(TAG, "title="+title);
     }
+
 }
 
