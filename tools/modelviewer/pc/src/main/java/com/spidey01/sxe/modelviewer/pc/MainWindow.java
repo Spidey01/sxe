@@ -23,30 +23,17 @@
 
 package com.spidey01.sxe.modelviewer.pc;
 
-// import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.pc.PcConfiguration;
-
-import com.spidey01.sxe.modelviewer.lib.*;
-
 import com.spidey01.sxe.core.Log;
 
-import javax.swing.SwingUtilities;
+import javax.swing.JFrame;
 
-class Main implements Runnable {
-    private static final String TAG = "Main";
+class MainWindow extends JFrame {
+    private static final String TAG = "MainWindow";
 
-    private MainWindow mMainWindow;
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Main());
-    }
-
-    @Override
-    public void run() {
-        mMainWindow = new MainWindow(TAG);
-        // mMainWindow.setDefaultCloseOperation(MainWindow.DISPOSE_ON_CLOSE);
-        mMainWindow.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE);
-        mMainWindow.setVisible(true);
+    public MainWindow(String title) {
+        super(title);
+        System.out.println("MainWindow - title="+title);
     }
 }
 
