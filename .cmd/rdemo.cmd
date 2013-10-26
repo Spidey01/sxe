@@ -1,1 +1,1 @@
-@CALL "%SXE_ROOT%\rd.cmd" %*
+@CALL "%SXE_ROOT%\.cmd\rd.cmd" %*

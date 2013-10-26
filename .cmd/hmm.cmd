@@ -1,1 +1,1 @@
-@TYPE "%SXE_ROOT%\hmm.txt"
+@TYPE "%SXE_ROOT%\.cmd\hmm.txt"

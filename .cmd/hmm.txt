@@ -1,7 +1,6 @@
-@ECHO OFF
-ECHO hmm        this help.
-ECHO croot      cd to top of the tree.
-ECHO cpushd     call pushd with the top of the tree.
-ECHO m          makes from the top of the tree.
-ECHO rd         :run a demo by name
-ECHO rdemo      alias for rd
+hmm        this help.
+croot      cd to top of the tree.
+cpushd     call pushd with the top of the tree.
+m          makes from the top of the tree.
+rd         :run a demo by name
+rdemo      alias for rd
