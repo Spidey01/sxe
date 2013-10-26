@@ -59,38 +59,53 @@ class Main extends WindowAdapter implements Runnable {
         mGameEngine = PcConfiguration.setup(new ModelViewer());
         mMainWindow = new MainWindow(TAG);
 
+        /*
+         * Give us enough control over shutdown.
+         */
         mMainWindow.addWindowListener(this);
+        mMainWindow.setDefaultCloseOperation(
+                // MainWindow.DO_NOTHING_ON_CLOSE
+                MainWindow.DISPOSE_ON_CLOSE
+                // MainWindow.EXIT_ON_CLOSE
+        );
 
-        // mMainWindow.setDefaultCloseOperation(MainWindow.DO_NOTHING_ON_CLOSE);
-        mMainWindow.setDefaultCloseOperation(MainWindow.DISPOSE_ON_CLOSE);
-        // mMainWindow.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE);
-
-        mMainWindow.pack();
+        /*
+         * Parent mus tbe visible before adding Display as a child of the
+         * canvas. Unless you like terrible failures ;).
+         */
         mMainWindow.setVisible(true);
+        try {
+            Display.setParent(mMainWindow.getCanvas());
+        } catch (LWJGLException e) {
+            Log.e(TAG, "Failed setting parentage for LWJGL.", e);
+            e.printStackTrace();
+            return;
+        }
+        mMainWindow.pack();
 
+        mGameEngine.start();
     }
 
 
     @Override
     public void windowClosed(WindowEvent e) {
         Log.i(TAG, "windowClosed()");
-        if (e.getComponent() == mMainWindow) {
-            Log.i(TAG, "yes, right window!");
-        }
         super.windowClosed(e);
-        Log.i(TAG, "Exiting now");
-        System.exit(0);
+        if (e.getComponent() == mMainWindow) {
+            Log.i(TAG, "Exiting now");
+            System.exit(0);
+        }
     }
 
 
     @Override
     public void windowClosing(WindowEvent e) {
         Log.i(TAG, "windowClosing()");
-        if (e.getComponent() == mMainWindow) {
-            Log.i(TAG, "yes, right window!");
-            // mGameEngine.stop();
-        }
         super.windowClosed(e);
+        if (e.getComponent() == mMainWindow) {
+            Log.v(TAG, "Window is closing, killing the engine.");
+            mGameEngine.stop();
+        }
     }
 }
 
