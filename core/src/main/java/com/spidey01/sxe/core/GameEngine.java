@@ -40,12 +40,6 @@ import java.io.PrintStream;
 public class GameEngine {
     private static final String TAG = "GameEngine";
 
-    /**
-     * @deprecated Go through GameEngine manually.
-     */
-    @Deprecated 
-    protected GameContext mCtx;
-
     private final Game mGame;
     private final Display mDisplay;
     private final SceneManager mSceneManager;
@@ -55,24 +49,22 @@ public class GameEngine {
     private final Settings mSettings;
     private GameThread mGameThread;
 
-    /** Initializes the engine for use.
-     *
-     * If you have little interest in providing more than "Game" yourself. You
-     * can use your platforms configuration class to setup a GameContext or
-     * just fill out the documented fields as necessary.
-     */
-    public GameEngine(GameContext context) {
-        this(context.getDisplay(), context.getScene(), context.getGame(), context.getInput(),
-             context.getResources(), context.getSettings());
-        mCtx = context;
-    }
 
+    /** Initializes the engine for use.
     /** Initializes the engine for use.
      *
      * This is the primary chunk-o-code constructor.
+     *
+     * @param display Display implementation.
+     * @param scene  Manager of the scene.
+     * @param game Game implementation.
+     * @param input All that input stuff.
+     * @param resources Resource manager.
+     * @param settings Source of configuration infomation.
      */
-    private GameEngine(Display display, SceneManager scene, Game game, InputManager input,
-            ResourceManager resources, Settings settings)
+    public GameEngine(Display display, SceneManager scene, Game game,
+                      InputManager input, ResourceManager resources,
+                      Settings settings)
     {
         mDisplay = display;
         mSceneManager = scene;
@@ -94,6 +86,7 @@ public class GameEngine {
             throw new IllegalArgumentException(p+" can't be null!");
         }
     }
+
 
     /** Start up the game.
      *
@@ -182,12 +175,6 @@ public class GameEngine {
 
     public Settings getSettings() {
         return mSettings;
-    }
-
-
-    @Deprecated
-    public GameContext getGameContext() {
-        return mCtx;
     }
 
 

@@ -44,17 +44,14 @@ public class PcConfiguration {
 
     public static GameEngine setup(Game game, String displayMode) {
 
-        GameContext c = new GameContext()
-            .setConsole(null)
-            .setDisplay(new PcDisplay(displayMode))
-            .setScene(new SceneManager())
-            .setGame(game)
-            .setInput(new PcInputManager())
-            .setResources(new ResourceManager())
-            .setSettings(PcConfiguration.settings(game))
-            .setPlatform("pc");
-
-        return new GameEngine(c);
+        return new GameEngine(
+            new PcDisplay(displayMode)
+            , new SceneManager()
+            , game
+            , new PcInputManager()
+            , new ResourceManager()
+            , PcConfiguration.settings(game)
+        );
     }
 
     public static Settings settings(Game game) {

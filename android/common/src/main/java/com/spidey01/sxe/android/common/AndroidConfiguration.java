@@ -44,19 +44,16 @@ public class AndroidConfiguration {
         // TODO for release builds lower this to WARN or INFO.
         Log.add(new AndroidLogSink(Log.VERBOSE));
 
-        AndroidDisplay d = new AndroidDisplay(context);
-        GameContext c = new GameContext()
-            .setConsole(null)
-            .setDisplay(d)
-            .setScene(new SceneManager())
-            .setGame(game)
-            .setInput(new AndroidInputManager(d))
-            .setResources(new ResourceManager())
-            .setSettings(new AndroidSettings(context, game.getName()))
-            .setPlatform("android")
-            .setPlatformVersion("android "+Build.VERSION.RELEASE);
+        AndroidDisplay display = new AndroidDisplay(context);
 
-        return new GameEngine(c);
+        return new GameEngine(
+                display
+                , new SceneManager()
+                , game
+                , new AndroidInputManager(display)
+                , new ResourceManager()
+                , new AndroidSettings(context, game.getName())
+        );
     }
 }
 
