@@ -33,9 +33,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 
-/** Class implementing the game engine for PC/Mac hardware. */
+/** Class implementing the core game engine.
+ *
+ *
+ */
 public class GameEngine {
-
     private static final String TAG = "GameEngine";
 
     /**
@@ -65,6 +67,10 @@ public class GameEngine {
         mCtx = context;
     }
 
+    /** Initializes the engine for use.
+     *
+     * This is the primary chunk-o-code constructor.
+     */
     private GameEngine(Display display, SceneManager scene, Game game, InputManager input,
             ResourceManager resources, Settings settings)
     {
@@ -75,11 +81,7 @@ public class GameEngine {
         mResourceManager = resources;
         mSettings = settings;
 
-        setupLogging();
-
-        Log.i(TAG, "platform=\""+System.getProperty("os.name")+"\"",
-                "version=\""+Utils.PLATFORM_VERSION+"\"",
-                "arch=\""+Utils.PLATFORM_ARCHITECTURE+"\"");
+        configure();
 
         // ternary abuse, yeah.
         final String p;
@@ -102,6 +104,10 @@ public class GameEngine {
     public boolean start() {
         Log.v(TAG, "start()");
 
+        Log.i(TAG, "platform=\""+System.getProperty("os.name")+"\"",
+                "version=\""+Utils.PLATFORM_VERSION+"\"",
+                "arch=\""+Utils.PLATFORM_ARCHITECTURE+"\"");
+
         Log.d(TAG, "XDG_DATA_HOME=\""+System.getenv("XDG_DATA_HOME")+"\"");
         Log.d(TAG, "XDG_CONFIG_HOME=\""+System.getenv("XDG_CONFIG_HOME")+"\"");
         Log.d(TAG, "XDG_CACHE_DIR=\""+System.getenv("XDG_CACHE_DIR")+"\"");
@@ -109,42 +115,17 @@ public class GameEngine {
         Log.d(TAG, "XDG_DATA_DIRS=\""+System.getenv("XDG_DATA_DIRS")+"\"");
         Log.d(TAG, "XDG_CONFIG_DIRS=\""+System.getenv("XDG_CONFIG_DIRS")+"\"");
 
-        // doStartConfiguration();
-
-        final String game = mGame.getName();
-        String name;
-        String x;
-
-        /* Register resource search path via configuration file. */
-        name = game+".resources.path";
-        x = mSettings.getString(name);
-        if (!x.isEmpty()) {
-            for (String dir : x.split(":")) {
-                mResourceManager.addResourceLocation(dir);
-            }
-        }
-        
-
-        /* Support setting resolution from configuration file. */
-        name = game+".display.resolution";
-        x = mSettings.getString(name);
-        if (!x.isEmpty()) {
-            Log.d(TAG, name, "=", x);
-            mDisplay.setMode(x);
-        }
-
 
         if (!mDisplay.create()) {
             return false;
         }
-        // FIXME: dirty hack for now.
-        mSceneManager.setTechnique(new VertexBufferTechnique(mDisplay.getOpenGL()));
 
         mGameThread = new GameThread(this, mGame);
         mGameThread.start();
 
         return true;
     }
+
 
     /** Stop the game.
      *
@@ -156,6 +137,7 @@ public class GameEngine {
 		mDisplay.destroy();
         Log.v(TAG, "stop() done");
     }
+
 
     /** Convenience method that can serve as a simple main loop.
      *
@@ -209,8 +191,12 @@ public class GameEngine {
     }
 
 
-    private void setupLogging() {
-        Settings s = mSettings; // lazy git.
+    public void configure() {
+        configure(mSettings);
+    }
+
+
+    public void configure(Settings s) {
 
         if (s.getBoolean("debug")) {
             // Make sure that we have a log file.
@@ -228,6 +214,28 @@ public class GameEngine {
             if (i != -1) {
                 makeLogSink(key.substring(0, i));
             }
+        }
+
+        final String game = mGame.getName();
+        String name;
+        String x;
+
+        /* Register resource search path via configuration file. */
+        name = game+".resources.path";
+        x = mSettings.getString(name);
+        if (!x.isEmpty()) {
+            for (String dir : x.split(":")) {
+                mResourceManager.addResourceLocation(dir);
+            }
+        }
+        
+
+        /* Support setting resolution from configuration file. */
+        name = game+".display.resolution";
+        x = mSettings.getString(name);
+        if (!x.isEmpty()) {
+            Log.d(TAG, name, "=", x);
+            mDisplay.setMode(x);
         }
     }
 

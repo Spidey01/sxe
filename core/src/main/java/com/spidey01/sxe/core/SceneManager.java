@@ -31,10 +31,6 @@ public class SceneManager {
 
     private List<RenderableObject> mRenderableObjects = new ArrayList<RenderableObject>();
 
-    // This might be kinda dirty but we're stuffing it here for now.
-    private RenderingTechnique mTechnique;
-    void setTechnique(RenderingTechnique t) { mTechnique = t; }
-
     public SceneManager() {
     }
 
