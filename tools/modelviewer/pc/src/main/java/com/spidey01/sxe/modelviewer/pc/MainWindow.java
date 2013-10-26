@@ -25,16 +25,24 @@ package com.spidey01.sxe.modelviewer.pc;
 
 import com.spidey01.sxe.core.Log;
 
+import java.awt.Canvas;
 import javax.swing.JFrame;
 
 class MainWindow extends JFrame {
     private static final String TAG = "MainWindow";
 
+    private Canvas mCanvas = new Canvas();
+
 
     public MainWindow(String title) {
         super(title);
         Log.i(TAG, "title="+title);
+        add(mCanvas);
     }
 
+
+    public Canvas getCanvas() {
+        return mCanvas;
+    }
 }
 

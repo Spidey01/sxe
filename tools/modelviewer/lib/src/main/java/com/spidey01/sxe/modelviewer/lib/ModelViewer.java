@@ -25,6 +25,8 @@ package com.spidey01.sxe.modelviewer.lib;
 
 import com.spidey01.sxe.core.*;
 
+import java.io.IOException;
+
 
 /** ModelViewer.
  */
@@ -45,6 +47,23 @@ public class ModelViewer
         Log.v(TAG, "ModelViewer is starting.");
 
         mGameEngine.getInputManager().addKeyListener("Q", this);
+
+        { // debug
+            Sprite sprite = new Sprite(new Mesh(new float[]{
+                // Left bottom triangle
+                -0.5f, 0.5f, 0f,
+                -0.5f, -0.5f, 0f,
+                0.5f, -0.5f, 0f,
+                // Right top triangle
+                0.5f, -0.5f, 0f,
+                0.5f, 0.5f, 0f,
+                -0.5f, 0.5f, 0f
+            }), null);
+
+            // A better way of doing this might be nice!
+            sprite.setTechnique(new VertexBufferTechnique(engine.getDisplay().getOpenGL()));
+            mGameEngine.getSceneManager().add(sprite);
+        }
 
         return true;
     }

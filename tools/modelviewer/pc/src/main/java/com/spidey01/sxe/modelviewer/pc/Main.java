@@ -23,36 +23,51 @@
 
 package com.spidey01.sxe.modelviewer.pc;
 
-// import com.spidey01.sxe.core.GameEngine;
-// import com.spidey01.sxe.pc.PcConfiguration;
+import com.spidey01.sxe.modelviewer.lib.ModelViewer;
 
-import com.spidey01.sxe.modelviewer.lib.*;
+import com.spidey01.sxe.pc.PcConfiguration;
 
+import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.LogSink;
 
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.Display;
+
 import java.awt.event.WindowEvent;
+import java.awt.event.WindowAdapter;
 import javax.swing.SwingUtilities;
 
-class Main extends java.awt.event.WindowAdapter implements Runnable {
+/** Main controller of things outside the Game.
+ *
+ * Chiefly this deals with Swing UI.
+ */
+class Main extends WindowAdapter implements Runnable {
     private static final String TAG = "Main";
 
+    private GameEngine mGameEngine;
     private MainWindow mMainWindow;
 
     public static void main(String[] args) {
-        Log.add(new LogSink(System.out, Log.DEBUG));
+        // Log.add(new LogSink(System.out, Log.DEBUG));
         SwingUtilities.invokeLater(new Main());
     }
 
+
     @Override
     public void run() {
+        mGameEngine = PcConfiguration.setup(new ModelViewer());
         mMainWindow = new MainWindow(TAG);
 
         mMainWindow.addWindowListener(this);
+
         // mMainWindow.setDefaultCloseOperation(MainWindow.DO_NOTHING_ON_CLOSE);
         mMainWindow.setDefaultCloseOperation(MainWindow.DISPOSE_ON_CLOSE);
         // mMainWindow.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE);
+
+        mMainWindow.pack();
         mMainWindow.setVisible(true);
+
     }
 
 
@@ -63,6 +78,8 @@ class Main extends java.awt.event.WindowAdapter implements Runnable {
             Log.i(TAG, "yes, right window!");
         }
         super.windowClosed(e);
+        Log.i(TAG, "Exiting now");
+        System.exit(0);
     }
 
 
@@ -71,6 +88,7 @@ class Main extends java.awt.event.WindowAdapter implements Runnable {
         Log.i(TAG, "windowClosing()");
         if (e.getComponent() == mMainWindow) {
             Log.i(TAG, "yes, right window!");
+            // mGameEngine.stop();
         }
         super.windowClosed(e);
     }
