@@ -146,6 +146,10 @@ public class LogSink {
 
 
     public void log(int level, String tag, Object... messages) {
+        if (messages.length == 0) {
+            throw new IllegalArgumentException("No messages to log. Did you forget the TAG?");
+        }
+
         if (level > getLevel(tag)) {
             return;
         }
