@@ -56,13 +56,13 @@ public class GameEngine {
      *
      * This is the primary chunk-o-code constructor.
      *
-     * @param display Display implementation.
+     * @param display Display complicata.
      * @param scene  Manager of the scene.
      * @param game Game implementation.
-     * @param input All that input stuff.
-     * @param resources Resource manager.
+     * @param input All that input related stuff.
+     * @param resources Resource management.
      * @param settings Source of configuration infomation.
-     * @param platform Platform specific information. This can be null.
+     * @param platform Platform specific information.
      */
     public GameEngine(Display display, SceneManager scene, Game game,
                       InputManager input, ResourceManager resources,
@@ -79,12 +79,15 @@ public class GameEngine {
         configure();
 
         // ternary abuse, yeah.
-        final String p;
-        p = mDisplay == null ?
-            "display" :
-                (mInputManager == null ?
-                    "input" : null);
- 
+        final String p = 
+            (mDisplay == null ? "display"
+             : (mSceneManager == null ? "scene
+                 : (mGame == null ? "game"
+                     : (mInputManager == null ? "input"
+                         : (mResourceManager == null ? "resources"
+                             : (mSettings == null ? "settings"
+                                 : (mPlatform == null ? "platform" : null)))))))
+
         if (p != null) {
             throw new IllegalArgumentException(p+" can't be null!");
         }
