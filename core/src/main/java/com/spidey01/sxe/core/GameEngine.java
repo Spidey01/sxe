@@ -107,6 +107,7 @@ public class GameEngine {
                    "version=\""+Utils.PLATFORM_VERSION+"\"",
                    "arch=\""+Utils.PLATFORM_ARCHITECTURE+"\"");
 
+        Log.d(TAG, "APP_HOME=\""+System.getenv("APP_HOME")+"\"");
         Log.d(TAG, "XDG_DATA_HOME=\""+System.getenv("XDG_DATA_HOME")+"\"");
         Log.d(TAG, "XDG_CONFIG_HOME=\""+System.getenv("XDG_CONFIG_HOME")+"\"");
         Log.d(TAG, "XDG_CACHE_DIR=\""+System.getenv("XDG_CACHE_DIR")+"\"");
