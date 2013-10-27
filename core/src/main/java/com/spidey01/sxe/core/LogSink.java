@@ -46,6 +46,7 @@ public class LogSink {
     protected HashMap<String, Integer> mFilters = new HashMap<String, Integer>();
     protected boolean mDisplayThreadId = true;
     protected boolean mDisplayDate = true;
+    protected boolean mDisplayTime = true;
 
     private PrintStream mOutput;
     private static final String TAG = "LogSink";
@@ -201,7 +202,11 @@ public class LogSink {
             mOutput.print(c.get(Calendar.MONTH));
             mOutput.print("-");
             mOutput.print(c.get(Calendar.DAY_OF_WEEK));
-            mOutput.print(", time=");
+        }
+        if (mDisplayTime) {
+            if (mDisplayThreadId || mDisplayDate) { mOutput.print(","); }
+            Calendar c = Calendar.getInstance();
+            mOutput.print(" time=");
             mOutput.print(c.get(Calendar.HOUR_OF_DAY));
             mOutput.print(":");
             mOutput.print(c.get(Calendar.MINUTE));
@@ -230,5 +235,14 @@ public class LogSink {
         mDisplayDate = x;
     }
 
+
+    public boolean getDisplayTime(boolean x) {
+        return mDisplayTime;
+    }
+
+
+    public void setDisplayTime(boolean x) {
+        mDisplayTime = x;
+    }
 }
 
