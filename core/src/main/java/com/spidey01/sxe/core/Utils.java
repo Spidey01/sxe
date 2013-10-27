@@ -43,6 +43,9 @@ public class Utils {
 
     private static final String TAG = "Utils";
 
+    // Used by getUserDir() to memorize it's return value.
+    private static String sUserDir;
+
     // PLATFORM_NAME?
     public static final String PLATFORM_ARCHITECTURE = System.getProperty("os.arch");
     public static final String PLATFORM_VERSION = System.getProperty("os.name")+" "+System.getProperty("os.version");
@@ -118,20 +121,25 @@ public class Utils {
         return sb.toString();
     }
 
+
     /** Get the users personal directory.
      *
      * This is assumed to be HOME or USERPROFILE, which ever is found first.
      */
     public static String getUserDir() {
-        String e = System.getenv("HOME");
-        if (e == null) {
-            e = System.getenv("USERPROFILE");
+        if (sUserDir == null) {
+            String e = System.getenv("HOME");
             if (e == null) {
-                throw new
-                    RuntimeException("Can't determine users home directory.");
+                e = System.getenv("USERPROFILE");
+                if (e == null) {
+                    throw new
+                        RuntimeException("Can't determine users home directory.");
+                }
             }
+            sUserDir = e;
         }
-        return e;
+
+        return sUserDir;
     }
 
     /** Return the systems bit bucket as a File. */
