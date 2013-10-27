@@ -83,6 +83,11 @@ public class Platform {
         return name.startsWith(WINDOWS);
     }
 
+
+    public String toString() {
+        return "platform: name=\""+name+"\" version=\""+version+"\" arch=\""+arch+"\"";
+    }
+
     
     /** Guess the current platform name.
      */

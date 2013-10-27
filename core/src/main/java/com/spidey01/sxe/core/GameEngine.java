@@ -103,9 +103,7 @@ public class GameEngine {
     public boolean start() {
         Log.v(TAG, "start()");
 
-        Log.i(TAG, "platform=\""+System.getProperty("os.name")+"\"",
-                   "version=\""+Utils.PLATFORM_VERSION+"\"",
-                   "arch=\""+Utils.PLATFORM_ARCHITECTURE+"\"");
+        Log.i(TAG, mPlatform);
 
         Log.d(TAG, "APP_HOME=\""+System.getenv("APP_HOME")+"\"");
         Log.d(TAG, "XDG_DATA_HOME=\""+System.getenv("XDG_DATA_HOME")+"\"");
