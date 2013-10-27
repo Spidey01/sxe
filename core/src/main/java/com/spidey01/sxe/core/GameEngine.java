@@ -81,12 +81,12 @@ public class GameEngine {
         // ternary abuse, yeah.
         final String p = 
             (mDisplay == null ? "display"
-             : (mSceneManager == null ? "scene
+             : (mSceneManager == null ? "scene"
                  : (mGame == null ? "game"
                      : (mInputManager == null ? "input"
                          : (mResourceManager == null ? "resources"
                              : (mSettings == null ? "settings"
-                                 : (mPlatform == null ? "platform" : null)))))))
+                                 : (mPlatform == null ? "platform" : null)))))));
 
         if (p != null) {
             throw new IllegalArgumentException(p+" can't be null!");
