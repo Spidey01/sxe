@@ -104,8 +104,8 @@ public class GameEngine {
         Log.v(TAG, "start()");
 
         Log.i(TAG, "platform=\""+System.getProperty("os.name")+"\"",
-                "version=\""+Utils.PLATFORM_VERSION+"\"",
-                "arch=\""+Utils.PLATFORM_ARCHITECTURE+"\"");
+                   "version=\""+Utils.PLATFORM_VERSION+"\"",
+                   "arch=\""+Utils.PLATFORM_ARCHITECTURE+"\"");
 
         Log.d(TAG, "XDG_DATA_HOME=\""+System.getenv("XDG_DATA_HOME")+"\"");
         Log.d(TAG, "XDG_CONFIG_HOME=\""+System.getenv("XDG_CONFIG_HOME")+"\"");
@@ -190,7 +190,7 @@ public class GameEngine {
 
 
     public void configure(Settings s) {
-
+        /* Key used for general debugging. */
         if (s.getBoolean("debug")) {
             // Make sure that we have a log file.
             if (!s.contains("debug.log_level"))
@@ -201,7 +201,7 @@ public class GameEngine {
                 s.setString("debug.log_file", "debug.log");
         }
 
-        // Setup log sinks for every matching config tree.
+        /* Setup log sinks for every matching config tree. */
         for (String key : s.keys()) {
             int i = key.lastIndexOf(".log_type");
             if (i != -1) {
