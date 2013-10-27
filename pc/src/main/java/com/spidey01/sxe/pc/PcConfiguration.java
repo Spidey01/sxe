@@ -27,6 +27,7 @@ import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameContext;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.Platform;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.SceneManager;
 import com.spidey01.sxe.core.Settings;
@@ -51,6 +52,7 @@ public class PcConfiguration {
             , new PcInputManager()
             , new ResourceManager()
             , PcConfiguration.settings(game)
+            , new Platform(Platform.guess())
         );
     }
 

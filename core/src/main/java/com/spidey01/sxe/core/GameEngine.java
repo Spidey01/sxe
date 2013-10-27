@@ -47,6 +47,7 @@ public class GameEngine {
     private final ResourceManager mResourceManager;
     // should this be final?
     private final Settings mSettings;
+    private final Platform mPlatform;
     private GameThread mGameThread;
 
 
@@ -61,10 +62,11 @@ public class GameEngine {
      * @param input All that input stuff.
      * @param resources Resource manager.
      * @param settings Source of configuration infomation.
+     * @param platform Platform specific information. This can be null.
      */
     public GameEngine(Display display, SceneManager scene, Game game,
                       InputManager input, ResourceManager resources,
-                      Settings settings)
+                      Settings settings, Platform platform)
     {
         mDisplay = display;
         mSceneManager = scene;
@@ -72,6 +74,7 @@ public class GameEngine {
         mInputManager = input;
         mResourceManager = resources;
         mSettings = settings;
+        mPlatform = platform;
 
         configure();
 
