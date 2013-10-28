@@ -33,85 +33,84 @@ package com.spidey01.sxe.core;
  */
 public class Xdg {
     private static final String TAG = "Xdg";
-    private static Xdg sInstance;
 
-    public static String APP_HOME;
+    /** Used by static initializers. */
+    private static String e;
 
-    public static String HOME;
+    public static String APP_HOME = System.getenv("APP_HOME");
+
+    public static String HOME = Utils.getUserDir();
     public static String USER_DIR = HOME;
 
-    public static String XDG_DATA_HOME;
+
+    public static String XDG_DATA_HOME = System.getenv("XDG_DATA_HOME");
+    static {
+        if (XDG_DATA_HOME == null) {
+            XDG_DATA_HOME = USER_DIR+"/.local/share";
+        }
+    }
+
+
     public static String[] XDG_DATA_DIRS;
-
-    public static String XDG_CONFIG_HOME;
-    public static String[] XDG_CONFIG_DIRS;
-
-    public static String XDG_CACHE_HOME;
-    public static String XDG_RUNTIME_DIR;
-
-
-    protected Xdg() {
-        String e;
-
-        APP_HOME = System.getenv("APP_HOME");
-
-        USER_DIR = HOME = Utils.getUserDir();
-
-        e = System.getenv("XDG_DATA_HOME");
-        XDG_DATA_HOME = e == null ? USER_DIR+"/.local/share" : e;
-        
-        e = System.getenv("XDG_CONFIG_HOME");
-        XDG_CONFIG_HOME = e == null ? USER_DIR+"/.config" : e;
-
-        e = System.getenv("XDG_CACHE_HOME");
-        XDG_CACHE_HOME = e == null ? USER_DIR+"/.cache" : e;
-
-        // no other default.
-        XDG_RUNTIME_DIR = System.getenv("XDG_RUNTIME_DIR");
-
-
+    static {
         e = System.getenv("XDG_DATA_DIRS");
-        XDG_DATA_DIRS = e == null ?  e.split(":")
+        XDG_DATA_DIRS = (e != null) ?  e.split(":")
             : new String[]{
                 "/usr/local/share/",
                 "/usr/share/"
             };
+    }
 
 
+    public static String XDG_CONFIG_HOME = System.getenv("XDG_CONFIG_HOME");
+    static {
+        if (XDG_CONFIG_HOME == null) {
+            XDG_CONFIG_HOME = USER_DIR+"/.config";
+        }
+    }
+
+
+    public static String[] XDG_CONFIG_DIRS;
+    static {
         e = System.getenv("XDG_CONFIG_DIRS");
-        XDG_CONFIG_DIRS = e == null ?  e.split(":")
+        XDG_CONFIG_DIRS = e != null ?  e.split(":")
             : new String[]{ "/etc/xdg" };
-
-        sInstance = this;
     }
 
 
-    public static Xdg getInstance() {
-        return sInstance == null ? new Xdg() : sInstance;
+    public static String XDG_CACHE_HOME = System.getenv("XDG_CACHE_HOME");
+    static {
+        if (XDG_CACHE_HOME == null) {
+            XDG_CACHE_HOME = USER_DIR+"/.cache";
+        }
     }
 
 
-    public String getDataHomeDir(String relative) {
+    // no other default.
+    public static String XDG_RUNTIME_DIR = System.getenv("XDG_RUNTIME_DIR");
+
+
+    public static String getDataHomeDir(String relative) {
         return Xdg.XDG_DATA_HOME+"/"+relative;
     }
 
 
-    public String getConfigHomeDir(String relative) {
+    public static String getConfigHomeDir(String relative) {
         return Xdg.XDG_CONFIG_HOME+"/"+relative;
     }
 
 
-    public String getCacheDir(String relative) {
+    public static String getCacheDir(String relative) {
         return Xdg.XDG_CACHE_HOME+"/"+relative;
     }
 
 
-    public String getDataDir(String relative) {
+    public static String getDataDir(String relative) {
         return Utils.find(Xdg.XDG_DATA_DIRS, relative);
     }
 
 
-    public String getConfigDir(String relative) {
+    public static String getConfigDir(String relative) {
         return Utils.find(Xdg.XDG_CONFIG_DIRS, relative);
     }
 
