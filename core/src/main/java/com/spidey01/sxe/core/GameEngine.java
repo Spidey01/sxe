@@ -108,10 +108,10 @@ public class GameEngine {
         Log.d(TAG, "APP_HOME=\""+Xdg.APP_HOME+"\"");
         Log.d(TAG, "XDG_DATA_HOME=\""+Xdg.XDG_DATA_HOME+"\"");
         Log.d(TAG, "XDG_CONFIG_HOME=\""+Xdg.XDG_CONFIG_HOME+"\"");
-        Log.d(TAG, "XDG_CACHE_DIR=\""+Xdg.XDG_CACHE_HOME+"\"");
+        Log.d(TAG, "XDG_CACHE_HOME=\""+Xdg.XDG_CACHE_HOME+"\"");
         Log.d(TAG, "XDG_RUNTIME_DIR=\""+Xdg.XDG_RUNTIME_DIR+"\"");
-        Log.d(TAG, "XDG_DATA_DIRS=\""+Xdg.XDG_DATA_DIRS+"\"");
-        Log.d(TAG, "XDG_CONFIG_DIRS=\""+Xdg.XDG_CONFIG_DIRS+"\"");
+        Log.d(TAG, "XDG_DATA_DIRS=\""+Utils.join(Xdg.XDG_DATA_DIRS, ':')+"\"");
+        Log.d(TAG, "XDG_CONFIG_DIRS=\""+Utils.join(Xdg.XDG_CONFIG_DIRS, ':')+"\"");
 
 
         if (!mDisplay.create()) {

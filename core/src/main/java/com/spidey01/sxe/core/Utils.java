@@ -189,6 +189,20 @@ public class Utils {
     }
 
 
+    public static String join(String[] array, char separator) {
+        StringBuilder buf = new StringBuilder(array.length * 16);
+        for (int i=0; i < array.length; ++i) {
+            if (i > 0) {
+                buf.append(separator);
+            }
+            if (array[i] != null) {
+                buf.append(array[i]);
+            }
+        }
+        return buf.toString();
+    }
+
+
     // conversions to unsigned integers.
     // http://jessicarbrown.com/resources/unsignedtojava.html
 
