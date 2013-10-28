@@ -4,11 +4,21 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+4NT_args	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^:4NT_args$/;"	l
+4NT_args	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^:4NT_args$/;"	l
+4NT_args	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^:4NT_args$/;"	l
 ABGR	C:/Users/terry/Programs/workspace/sxe/vendor/pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^        ABGR(4, true);$/;"	e	enum:PNGDecoder.Format	file:
 ABGR	C:/Users/terry/Programs/workspace/sxe/vendor\pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^        ABGR(4, true);$/;"	e	enum:PNGDecoder.Format	file:
 ALPHA	C:/Users/terry/Programs/workspace/sxe/vendor/pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^        ALPHA(1, true),$/;"	e	enum:PNGDecoder.Format	file:
 ALPHA	C:/Users/terry/Programs/workspace/sxe/vendor\pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^        ALPHA(1, true),$/;"	e	enum:PNGDecoder.Format	file:
 ANDROID	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Platform.java	/^    public static final String ANDROID = "Android";$/;"	f	class:Platform
+APP_BASE_NAME	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
+APP_BASE_NAME	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
+APP_BASE_NAME	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^set APP_BASE_NAME=%~n0$/;"	v
+APP_HOME	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String APP_HOME = System.getenv("APP_HOME");$/;"	f	class:Xdg
+APP_HOME	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
+APP_HOME	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
+APP_HOME	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^set APP_HOME=%DIRNAME%..$/;"	v
 ASSERT	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Log.java	/^    public static final int ASSERT  = 0;$/;"	f	class:Log
 AbstractSettingsFile	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\AbstractSettingsFile.java	/^public abstract class AbstractSettingsFile implements Settings {$/;"	c
 Action	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Action.java	/^public interface Action {$/;"	i
@@ -96,8 +106,20 @@ BuildConfig	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\android\gen\c
 BuildConfig	C:/Users/terry/Programs/workspace/sxe/demos\snake\android\build\source\buildConfig\debug\com\spidey01\sxe\snakegame\android\BuildConfig.java	/^public final class BuildConfig {$/;"	c
 BuildConfig	C:/Users/terry/Programs/workspace/sxe/demos\snake\android\build\source\buildConfig\release\com\spidey01\sxe\snakegame\android\BuildConfig.java	/^public final class BuildConfig {$/;"	c
 BuildConfig	C:/Users/terry/Programs/workspace/sxe/demos\snake\android\gen\com\spidey01\sxe\snakegame\android\BuildConfig.java	/^public final class BuildConfig {$/;"	c
+CLASSPATH	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar$/;"	v
+CLASSPATH	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar$/;"	v
+CLASSPATH	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^set CLASSPATH=%APP_HOME%\\lib\\helloworld-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-core-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\sxe-pc-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\helloworld-lib-0.0.1-SNAPSHOT.jar;%APP_HOME%\\lib\\twl-pngdecoder-e78c533a0e67.jar;%APP_HOME%\\lib\\lwjgl-2.9.0.jar;%APP_HOME%\\lib\\lwjgl_util-2.9.0.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-windows.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-linux.jar;%APP_HOME%\\lib\\lwjgl-platform-2.9.0-natives-osx.jar;%APP_HOME%\\lib\\jinput-2.0.5.jar;%APP_HOME%\\lib\\jutils-1.0.0.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-linux.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-windows.jar;%APP_HOME%\\lib\\jinput-platform-2.0.5-natives-osx.jar$/;"	v
 CLASSTEMPLATE	templates\NewClass.java	/^    public CLASSTEMPLATE() {$/;"	m	class:CLASSTEMPLATE
 CLASSTEMPLATE	templates\NewClass.java	/^public class CLASSTEMPLATE {$/;"	c
+CMD_LINE_ARGS	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
+CMD_LINE_ARGS	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^set CMD_LINE_ARGS=%*$/;"	v
+CMD_LINE_ARGS	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
+CMD_LINE_ARGS	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
+CMD_LINE_ARGS	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^set CMD_LINE_ARGS=%*$/;"	v
+CMD_LINE_ARGS	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
+CMD_LINE_ARGS	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^set CMD_LINE_ARGS=$/;"	v
+CMD_LINE_ARGS	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^set CMD_LINE_ARGS=%*$/;"	v
+CMD_LINE_ARGS	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
 COLOR_GREYALPHA	C:/Users/terry/Programs/workspace/sxe/vendor/pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private static final byte COLOR_GREYALPHA = 4;$/;"	f	class:PNGDecoder	file:
 COLOR_GREYALPHA	C:/Users/terry/Programs/workspace/sxe/vendor\pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private static final byte COLOR_GREYALPHA = 4;$/;"	f	class:PNGDecoder	file:
 COLOR_GREYSCALE	C:/Users/terry/Programs/workspace/sxe/vendor/pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private static final byte COLOR_GREYSCALE = 0;$/;"	f	class:PNGDecoder	file:
@@ -156,11 +178,20 @@ DEBUG	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\android\gen\com\spi
 DEBUG	C:/Users/terry/Programs/workspace/sxe/demos\snake\android\build\source\buildConfig\debug\com\spidey01\sxe\snakegame\android\BuildConfig.java	/^    public static final boolean DEBUG = Boolean.parseBoolean("true");$/;"	f	class:BuildConfig
 DEBUG	C:/Users/terry/Programs/workspace/sxe/demos\snake\android\build\source\buildConfig\release\com\spidey01\sxe\snakegame\android\BuildConfig.java	/^    public static final boolean DEBUG = false;$/;"	f	class:BuildConfig
 DEBUG	C:/Users/terry/Programs/workspace/sxe/demos\snake\android\gen\com\spidey01\sxe\snakegame\android\BuildConfig.java	/^  public final static boolean DEBUG = Boolean.parseBoolean(null);$/;"	f	class:BuildConfig
+DEFAULT_JVM_OPTS	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^set DEFAULT_JVM_OPTS="-Djava.library.path=..\/lib\/natives"$/;"	v
+DEFAULT_JVM_OPTS	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^set DEFAULT_JVM_OPTS="-Djava.library.path=..\/lib\/natives"$/;"	v
+DEFAULT_JVM_OPTS	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^set DEFAULT_JVM_OPTS="-Djava.library.path=..\/lib\/natives"$/;"	v
 DEFAULT_LOG_LEVEL	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\LogSink.java	/^    public static final int DEFAULT_LOG_LEVEL = Log.INFO;$/;"	f	class:LogSink
 DEFAULT_MODE	C:/Users/terry/Programs/workspace/sxe/android/common\src\main\java\com\spidey01\sxe\android\common\AndroidSettings.java	/^    private final int DEFAULT_MODE = Context.MODE_PRIVATE;$/;"	f	class:AndroidSettings	file:
 DEFAULT_MODE	C:/Users/terry/Programs/workspace/sxe/android\common\src\main\java\com\spidey01\sxe\android\common\AndroidSettings.java	/^    private final int DEFAULT_MODE = Context.MODE_PRIVATE;$/;"	f	class:AndroidSettings	file:
 DEFAULT_REPEAT_DELAY	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Console.java	/^    public static final int DEFAULT_REPEAT_DELAY = 2;$/;"	f	class:Console
 DEFAULT_TOGGLE_KEY	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Console.java	/^    public static final String DEFAULT_TOGGLE_KEY = "GRAVE";$/;"	f	class:Console
+DIRNAME	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
+DIRNAME	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^set DIRNAME=%~dp0$/;"	v
+DIRNAME	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
+DIRNAME	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^set DIRNAME=%~dp0$/;"	v
+DIRNAME	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
+DIRNAME	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^set DIRNAME=%~dp0$/;"	v
 Display	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Display.java	/^public interface Display {$/;"	i
 DummyResourceLoader	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\DummyResourceLoader.java	/^public class DummyResourceLoader  implements ResourceLoader {$/;"	c
 ERROR	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Log.java	/^    public static final int ERROR   = 1;$/;"	f	class:Log
@@ -1157,6 +1188,7 @@ GpuProgram	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01
 GpuProgram	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GpuProgram.java	/^    public GpuProgram(Collection<Shader> shaders) {$/;"	m	class:GpuProgram
 GpuProgram	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GpuProgram.java	/^    public GpuProgram(Shader vertex, Shader fragment) {$/;"	m	class:GpuProgram
 GpuProgram	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GpuProgram.java	/^public class GpuProgram {$/;"	c
+HOME	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String HOME = Utils.getUserDir();$/;"	f	class:Xdg
 HelloJRuby	C:/Users/terry/Programs/workspace/sxe/scripting/jruby\src\test\java\com\spidey01\sxe\scripting\jruby\HelloJRuby.java	/^public class HelloJRuby {$/;"	c
 HelloJRuby	C:/Users/terry/Programs/workspace/sxe/scripting\jruby\src\test\java\com\spidey01\sxe\scripting\jruby\HelloJRuby.java	/^public class HelloJRuby {$/;"	c
 HelloJavaScript	C:/Users/terry/Programs/workspace/sxe/scripting/testhelpers\src\main\java\com\spidey01\sxe\scripting\testhelpers\HelloJavaScript.java	/^public class HelloJavaScript {$/;"	c
@@ -1180,6 +1212,15 @@ IHDR	C:/Users/terry/Programs/workspace/sxe/vendor\pngdecoder\src\main\java\de\ma
 INFO	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Log.java	/^    public static final int INFO    = 3;$/;"	f	class:Log
 INITIAL_BUFFER_SIZE	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Console.java	/^    protected static final int INITIAL_BUFFER_SIZE = 160; \/* works for 7-bit SMS *\/$/;"	f	class:Console
 InputManager	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\InputManager.java	/^public abstract class InputManager {$/;"	c
+JAVA_EXE	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
+JAVA_EXE	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
+JAVA_EXE	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
+JAVA_EXE	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
+JAVA_EXE	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
+JAVA_EXE	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^set JAVA_EXE=java.exe$/;"	v
+JAVA_HOME	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
+JAVA_HOME	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
+JAVA_HOME	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
 JRubyScript	C:/Users/terry/Programs/workspace/sxe/scripting/jruby\src\main\java\com\spidey01\sxe\scripting\jruby\JRubyScript.java	/^    JRubyScript(ScriptingContainer toWrap) {$/;"	m	class:JRubyScript
 JRubyScript	C:/Users/terry/Programs/workspace/sxe/scripting/jruby\src\main\java\com\spidey01\sxe\scripting\jruby\JRubyScript.java	/^public class JRubyScript implements Script {$/;"	c
 JRubyScript	C:/Users/terry/Programs/workspace/sxe/scripting\jruby\src\main\java\com\spidey01\sxe\scripting\jruby\JRubyScript.java	/^    JRubyScript(ScriptingContainer toWrap) {$/;"	m	class:JRubyScript
@@ -1397,8 +1438,10 @@ SceneManager	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey
 Script	C:/Users/terry/Programs/workspace/sxe/scripting\src\main\java\com\spidey01\sxe\scripting\Script.java	/^public interface Script {$/;"	i
 ScriptManager	C:/Users/terry/Programs/workspace/sxe/scripting\src\main\java\com\spidey01\sxe\scripting\ScriptManager.java	/^public interface ScriptManager {$/;"	i
 Settings	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Settings.java	/^public interface Settings {$/;"	i
+SettingsFile	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\SettingsFile.java	/^    public SettingsFile(File path) {$/;"	m	class:SettingsFile
 SettingsFile	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\SettingsFile.java	/^    public SettingsFile(String name) {$/;"	m	class:SettingsFile
 SettingsFile	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\SettingsFile.java	/^public class SettingsFile extends AbstractSettingsFile {$/;"	c
+SettingsXMLFile	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\SettingsXMLFile.java	/^    public SettingsXMLFile(File path) {$/;"	m	class:SettingsXMLFile
 SettingsXMLFile	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\SettingsXMLFile.java	/^    public SettingsXMLFile(String name) {$/;"	m	class:SettingsXMLFile
 SettingsXMLFile	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\SettingsXMLFile.java	/^public class SettingsXMLFile extends AbstractSettingsFile {$/;"	c
 Shader	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Shader.java	/^    public Shader(BufferedReader reader, Type type) throws IOException {$/;"	m	class:Shader
@@ -1473,6 +1516,7 @@ TAG	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\co
 TAG	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Variable.java	/^    private static final String TAG = "Variable";$/;"	f	class:Variable	file:
 TAG	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\VertexBuffer.java	/^    private static final String TAG = "VertexBuffer";$/;"	f	class:VertexBuffer	file:
 TAG	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\VertexBufferTechnique.java	/^    private static final String TAG = "VertexBufferTechnique";$/;"	f	class:VertexBufferTechnique	file:
+TAG	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    private static final String TAG = "Xdg";$/;"	f	class:Xdg	file:
 TAG	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\ZipResourceLoader.java	/^    private final static String TAG = "ZipResourceLoader";$/;"	f	class:ZipResourceLoader	file:
 TAG	C:/Users/terry/Programs/workspace/sxe/core\src\test\java\com\spidey01\sxe\core\ResourceManagerTest.java	/^    private static final String TAG = "ResourceManagerTest";$/;"	f	class:ResourceManagerTest	file:
 TAG	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/android\src\main\java\com\spidey01\sxe\helloworld\android\HelloWorldGameActivity.java	/^    private static final String TAG = "HelloWorldGameActivity";$/;"	f	class:HelloWorldGameActivity	file:
@@ -1553,6 +1597,7 @@ TrueTypeFont	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey
 TrueTypeFont	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\TrueTypeFont.java	/^public class TrueTypeFont implements Font {$/;"	c
 Type	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\ResourceHandle.java	/^    private enum Type {$/;"	g	class:ResourceHandle
 Type	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Shader.java	/^    public enum Type {$/;"	g	class:Shader
+USER_DIR	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String USER_DIR = HOME;$/;"	f	class:Xdg
 UnitTest	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\UnitTest.java	/^public class UnitTest {$/;"	c
 Utils	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^public class Utils {$/;"	c
 VALID_SYMBOLS	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Console.java	/^    public static final String VALID_SYMBOLS = $/;"	f	class:Console
@@ -1571,9 +1616,18 @@ VertexBufferTechnique	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\c
 VertexBufferTechnique	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\VertexBufferTechnique.java	/^public class VertexBufferTechnique implements RenderingTechnique {$/;"	c
 WARN	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Log.java	/^    public static final int WARN    = 2;$/;"	f	class:Log
 WINDOWS	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Platform.java	/^    public static final String WINDOWS = "Windows";$/;"	f	class:Platform
-Xdg	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^    public static class Xdg {$/;"	c	class:Utils
+XDG_CACHE_HOME	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String XDG_CACHE_HOME = System.getenv("XDG_CACHE_HOME");$/;"	f	class:Xdg
+XDG_CONFIG_DIRS	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String[] XDG_CONFIG_DIRS;$/;"	f	class:Xdg
+XDG_CONFIG_HOME	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String XDG_CONFIG_HOME = System.getenv("XDG_CONFIG_HOME");$/;"	f	class:Xdg
+XDG_DATA_DIRS	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String[] XDG_DATA_DIRS;$/;"	f	class:Xdg
+XDG_DATA_HOME	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String XDG_DATA_HOME = System.getenv("XDG_DATA_HOME");$/;"	f	class:Xdg
+XDG_RUNTIME_DIR	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String XDG_RUNTIME_DIR = System.getenv("XDG_RUNTIME_DIR");$/;"	f	class:Xdg
+Xdg	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^public class Xdg {$/;"	c
 ZipResourceLoader	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\ZipResourceLoader.java	/^public class ZipResourceLoader implements ResourceLoader {$/;"	c
 ZipResourceLoaderTest	C:/Users/terry/Programs/workspace/sxe/core\src\test\java\com\spidey01\sxe\core\ZipResourceLoaderTest.java	/^public class ZipResourceLoaderTest extends UnitTest {$/;"	c
+_SKIP	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^set _SKIP=2$/;"	v
+_SKIP	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^set _SKIP=2$/;"	v
+_SKIP	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^set _SKIP=2$/;"	v
 add	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Log.java	/^    public static void add(LogSink sink) {$/;"	m	class:Log
 add	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\SceneManager.java	/^    public void add(RenderableObject object) {$/;"	m	class:SceneManager
 addChangeListener	C:/Users/terry/Programs/workspace/sxe/android/common\src\main\java\com\spidey01\sxe\android\common\AndroidSettings.java	/^    public void addChangeListener(OnChangedListener listener) {$/;"	m	class:AndroidSettings
@@ -1806,6 +1860,7 @@ com.spidey01.sxe.core	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\c
 com.spidey01.sxe.core	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Variable.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\VertexBuffer.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\VertexBufferTechnique.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.core	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\ZipResourceLoader.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	C:/Users/terry/Programs/workspace/sxe/core\src\test\java\com\spidey01\sxe\core\GZipResourceLoaderTest.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	C:/Users/terry/Programs/workspace/sxe/core\src\test\java\com\spidey01\sxe\core\PathResourceLoaderTest.java	/^package com.spidey01.sxe.core;$/;"	p
@@ -2009,7 +2064,11 @@ draw	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\c
 draw	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Sprite.java	/^    public void draw() {$/;"	m	class:Sprite
 draw	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\VertexBufferTechnique.java	/^    public void draw(Capable client) {$/;"	m	class:VertexBufferTechnique
 e	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Log.java	/^    public static void e(String tag, Object... messages) {$/;"	m	class:Log
+e	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    private static String e;$/;"	f	class:Xdg	file:
 enableDebugging	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\RateCounter.java	/^    public void enableDebugging() {$/;"	m	class:RateCounter
+end	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^:end$/;"	l
+end	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^:end$/;"	l
+end	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^:end$/;"	l
 enqueue	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\ResourceManager.java	/^    public Future<ResourceHandle> enqueue(File path) {$/;"	m	class:ResourceManager
 enqueue	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\ResourceManager.java	/^    public Future<ResourceHandle> enqueue(String path) {$/;"	m	class:ResourceManager
 enqueue	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\ResourceManager.java	/^    public Future<ResourceHandle> enqueue(URI uri) {$/;"	m	class:ResourceManager
@@ -2037,15 +2096,22 @@ eval	C:/Users/terry/Programs/workspace/sxe/scripting\src\main\java\com\spidey01\
 execute	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Action.java	/^    void execute();$/;"	m	interface:Action
 execute	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Console.java	/^    public void execute(String line) {$/;"	m	class:Console
 execute	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\ConsoleCommand.java	/^    public void execute() {$/;"	m	class:ConsoleCommand
+execute	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^:execute$/;"	l
+execute	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^:execute$/;"	l
+execute	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^:execute$/;"	l
 expand1	C:/Users/terry/Programs/workspace/sxe/vendor/pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private void expand1(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand1	C:/Users/terry/Programs/workspace/sxe/vendor\pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private void expand1(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand2	C:/Users/terry/Programs/workspace/sxe/vendor/pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private void expand2(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand2	C:/Users/terry/Programs/workspace/sxe/vendor\pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private void expand2(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand4	C:/Users/terry/Programs/workspace/sxe/vendor/pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private void expand4(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand4	C:/Users/terry/Programs/workspace/sxe/vendor\pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private void expand4(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
+fail	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^:fail$/;"	l
+fail	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^:fail$/;"	l
+fail	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^:fail$/;"	l
 fftm	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 filter	C:/Users/terry/Programs/workspace/sxe/scripting/rhino\src\main\java\com\spidey01\sxe\scripting\rhino\RhinoScriptManager.java	/^    private Object filter(Object o) {$/;"	m	class:RhinoScriptManager	file:
 filter	C:/Users/terry/Programs/workspace/sxe/scripting\rhino\src\main\java\com\spidey01\sxe\scripting\rhino\RhinoScriptManager.java	/^    private Object filter(Object o) {$/;"	m	class:RhinoScriptManager	file:
+find	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^    public static String find(String[] dirs, String name) {$/;"	m	class:Utils
 findChildElements	C:/Users/terry/Programs/workspace/sxe/core\build\reports\tests\report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
 findChildElements	C:/Users/terry/Programs/workspace/sxe/scripting/jruby\build\reports\tests\report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
 findChildElements	C:/Users/terry/Programs/workspace/sxe/scripting/jsr223\build\reports\tests\report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
@@ -2060,6 +2126,9 @@ findHeaders	C:/Users/terry/Programs/workspace/sxe/scripting/rhino\build\reports\
 findHeaders	C:/Users/terry/Programs/workspace/sxe/scripting\jruby\build\reports\tests\report.js	/^function findHeaders(container) {$/;"	f
 findHeaders	C:/Users/terry/Programs/workspace/sxe/scripting\jsr223\build\reports\tests\report.js	/^function findHeaders(container) {$/;"	f
 findHeaders	C:/Users/terry/Programs/workspace/sxe/scripting\rhino\build\reports\tests\report.js	/^function findHeaders(container) {$/;"	f
+findJavaFromJavaHome	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^:findJavaFromJavaHome$/;"	l
+findJavaFromJavaHome	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^:findJavaFromJavaHome$/;"	l
+findJavaFromJavaHome	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^:findJavaFromJavaHome$/;"	l
 findLocation	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\ResourceManager.java	/^    protected String findLocation(URI uri) {$/;"	m	class:ResourceManager
 findTabs	C:/Users/terry/Programs/workspace/sxe/core\build\reports\tests\report.js	/^function findTabs(container) {$/;"	f
 findTabs	C:/Users/terry/Programs/workspace/sxe/scripting/jruby\build\reports\tests\report.js	/^function findTabs(container) {$/;"	f
@@ -2132,24 +2201,20 @@ getByName	C:/Users/terry/Programs/workspace/sxe/scripting/jsr223\src\main\java\c
 getByName	C:/Users/terry/Programs/workspace/sxe/scripting\jsr223\src\main\java\com\spidey01\sxe\scripting\jsr223\Jsr223ScriptManager.java	/^    public static Jsr223ScriptManager getByName(String shortName) {$/;"	m	class:Jsr223ScriptManager
 getBytesPerPixel	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Bitmap.java	/^    int getBytesPerPixel();$/;"	m	interface:Bitmap
 getBytesPerPixel	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\PngBitmap.java	/^    public int getBytesPerPixel() {$/;"	m	class:PngBitmap
-getCacheDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        public static String getCacheDir() {$/;"	m	class:Utils.Xdg
-getCacheDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        public static String getCacheDir(String relative) {$/;"	m	class:Utils.Xdg
-getConfigDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        public static String getConfigDir(String relative) {$/;"	m	class:Utils.Xdg
-getConfigDirs	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        public static String[] getConfigDirs() {$/;"	m	class:Utils.Xdg
-getConfigHome	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        public static String getConfigHome() {$/;"	m	class:Utils.Xdg
-getConfigHomeDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        public static String getConfigHomeDir(String relative) {$/;"	m	class:Utils.Xdg
+getCacheDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String getCacheDir(String relative) {$/;"	m	class:Xdg
+getConfigDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String getConfigDir(String relative) {$/;"	m	class:Xdg
+getConfigHomeDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String getConfigHomeDir(String relative) {$/;"	m	class:Xdg
 getConsole	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameContext.java	/^    public Console getConsole() {$/;"	m	class:GameContext
 getContainer	C:/Users/terry/Programs/workspace/sxe/scripting/jruby\src\main\java\com\spidey01\sxe\scripting\jruby\JRubyScript.java	/^    ScriptingContainer getContainer() {$/;"	m	class:JRubyScript
 getContainer	C:/Users/terry/Programs/workspace/sxe/scripting\jruby\src\main\java\com\spidey01\sxe\scripting\jruby\JRubyScript.java	/^    ScriptingContainer getContainer() {$/;"	m	class:JRubyScript
-getDataDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        public static String getDataDir(String relative) {$/;"	m	class:Utils.Xdg
-getDataDirs	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        public static String[] getDataDirs() {$/;"	m	class:Utils.Xdg
-getDataHome	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        public static String getDataHome() {$/;"	m	class:Utils.Xdg
-getDataHomeDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        public static String getDataHomeDir(String relative) {$/;"	m	class:Utils.Xdg
+getDataDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String getDataDir(String relative) {$/;"	m	class:Xdg
+getDataHomeDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Xdg.java	/^    public static String getDataHomeDir(String relative) {$/;"	m	class:Xdg
 getDefaultLoader	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\ResourceManager.java	/^    public ResourceLoader getDefaultLoader() {$/;"	m	class:ResourceManager
 getDisplay	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameContext.java	/^    public Display getDisplay() {$/;"	m	class:GameContext
 getDisplay	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameEngine.java	/^    public Display getDisplay() {$/;"	m	class:GameEngine
 getDisplayDate	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\LogSink.java	/^    public boolean getDisplayDate(boolean x) {$/;"	m	class:LogSink
 getDisplayThreadId	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\LogSink.java	/^    public boolean getDisplayThreadId(boolean x) {$/;"	m	class:LogSink
+getDisplayTime	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\LogSink.java	/^    public boolean getDisplayTime(boolean x) {$/;"	m	class:LogSink
 getEngine	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameContext.java	/^    public GameEngine getEngine() {$/;"	m	class:GameContext
 getFloat	C:/Users/terry/Programs/workspace/sxe/android/common\src\main\java\com\spidey01\sxe\android\common\AndroidSettings.java	/^    public float getFloat(String key) {$/;"	m	class:AndroidSettings
 getFloat	C:/Users/terry/Programs/workspace/sxe/android\common\src\main\java\com\spidey01\sxe\android\common\AndroidSettings.java	/^    public float getFloat(String key) {$/;"	m	class:AndroidSettings
@@ -2253,7 +2318,6 @@ getRepeatDelay	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spid
 getResource	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\TestUtils.java	/^    public static File getResource(String path) {$/;"	m	class:TestUtils
 getResourceManager	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameEngine.java	/^    public ResourceManager getResourceManager() {$/;"	m	class:GameEngine
 getResources	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameContext.java	/^    public ResourceManager getResources() {$/;"	m	class:GameContext
-getRuntimeDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        public static String getRuntimeDir() {$/;"	m	class:Utils.Xdg
 getScene	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameContext.java	/^    public SceneManager getScene() {$/;"	m	class:GameContext
 getSceneManager	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameEngine.java	/^    public SceneManager getSceneManager() {$/;"	m	class:GameEngine
 getScope	C:/Users/terry/Programs/workspace/sxe/scripting/jruby\src\main\java\com\spidey01\sxe\scripting\jruby\JRubyScriptManager.java	/^    private ScriptingContainer getScope(Script scope) {$/;"	m	class:JRubyScriptManager	file:
@@ -2857,6 +2921,9 @@ hello	C:/Users/terry/Programs/workspace/sxe/scripting\testhelpers\src\main\java\
 hhea	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 hmtx	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 i	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Log.java	/^    public static void i(String tag, Object... messages) {$/;"	m	class:Log
+init	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^:init$/;"	l
+init	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^:init$/;"	l
+init	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^:init$/;"	l
 initTabs	C:/Users/terry/Programs/workspace/sxe/core\build\reports\tests\report.js	/^function initTabs() {$/;"	f
 initTabs	C:/Users/terry/Programs/workspace/sxe/scripting/jruby\build\reports\tests\report.js	/^function initTabs() {$/;"	f
 initTabs	C:/Users/terry/Programs/workspace/sxe/scripting/jsr223\build\reports\tests\report.js	/^function initTabs() {$/;"	f
@@ -2900,6 +2967,7 @@ javaObject	C:/Users/terry/Programs/workspace/sxe/scripting/testhelpers\build\res
 javaObject	C:/Users/terry/Programs/workspace/sxe/scripting/testhelpers\src\main\resources\JavaWrapper.py	/^javaObject = JavaClass()$/;"	v
 javaObject	C:/Users/terry/Programs/workspace/sxe/scripting\testhelpers\build\resources\main\JavaWrapper.py	/^javaObject = JavaClass()$/;"	v
 javaObject	C:/Users/terry/Programs/workspace/sxe/scripting\testhelpers\src\main\resources\JavaWrapper.py	/^javaObject = JavaClass()$/;"	v
+join	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^    public static String join(String[] array, char separator) {$/;"	m	class:Utils
 keys	C:/Users/terry/Programs/workspace/sxe/android/common\src\main\java\com\spidey01\sxe\android\common\AndroidSettings.java	/^    public String[] keys() {$/;"	m	class:AndroidSettings
 keys	C:/Users/terry/Programs/workspace/sxe/android\common\src\main\java\com\spidey01\sxe\android\common\AndroidSettings.java	/^    public String[] keys() {$/;"	m	class:AndroidSettings
 keys	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\AbstractSettingsFile.java	/^    public String[] keys() {$/;"	m	class:AbstractSettingsFile
@@ -2968,6 +3036,7 @@ mDisplayDate	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey
 mDisplayMode	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\NullDisplay.java	/^    private String mDisplayMode = "640 x 480";$/;"	f	class:NullDisplay	file:
 mDisplayMode	C:/Users/terry/Programs/workspace/sxe/pc\src\main\java\com\spidey01\sxe\pc\PcDisplay.java	/^    private DisplayMode mDisplayMode = new DisplayMode(640, 480);$/;"	f	class:PcDisplay	file:
 mDisplayThreadId	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\LogSink.java	/^    protected boolean mDisplayThreadId = true;$/;"	f	class:LogSink
+mDisplayTime	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\LogSink.java	/^    protected boolean mDisplayTime = true;$/;"	f	class:LogSink
 mEngine	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameContext.java	/^    private GameEngine mEngine;$/;"	f	class:GameContext	file:
 mEngine	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameThread.java	/^    protected GameEngine mEngine;$/;"	f	class:GameThread
 mEngine	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/android\src\main\java\com\spidey01\sxe\helloworld\android\HelloWorldGameActivity.java	/^    protected GameEngine mEngine;$/;"	f	class:HelloWorldGameActivity
@@ -3123,6 +3192,9 @@ main	C:/Users/terry/Programs/workspace/sxe/demos\pingpong\pc\src\main\java\com\s
 main	C:/Users/terry/Programs/workspace/sxe/demos\snake\android\build\source\r\debug\com\spidey01\sxe\snakegame\android\R.java	/^        public static final int main=0x7f020000;$/;"	f	class:R.layout
 main	C:/Users/terry/Programs/workspace/sxe/demos\snake\android\build\source\r\release\com\spidey01\sxe\snakegame\android\R.java	/^        public static final int main=0x7f020000;$/;"	f	class:R.layout
 main	C:/Users/terry/Programs/workspace/sxe/demos\snake\pc\src\main\java\com\spidey01\sxe\snake\pc\Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
+mainEnd	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^:mainEnd$/;"	l
+mainEnd	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^:mainEnd$/;"	l
+mainEnd	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^:mainEnd$/;"	l
 mainLoop	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameEngine.java	/^    public void mainLoop() {$/;"	m	class:GameEngine
 makeBufferedReader	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^    public static BufferedReader makeBufferedReader(File file) throws FileNotFoundException {$/;"	m	class:Utils
 makeBufferedReader	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^    public static BufferedReader makeBufferedReader(InputStream in) {$/;"	m	class:Utils
@@ -3147,6 +3219,9 @@ nullString	C:/Users/terry/Programs/workspace/sxe/core\src\test\java\com\spidey01
 numComponents	C:/Users/terry/Programs/workspace/sxe/vendor/pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^        final int numComponents;$/;"	f	class:PNGDecoder.Format
 numComponents	C:/Users/terry/Programs/workspace/sxe/vendor\pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^        final int numComponents;$/;"	f	class:PNGDecoder.Format
 offset	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\TrueTypeFont.java	/^        public final long offset;$/;"	f	class:TrueTypeFont.Table
+omega	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^:omega$/;"	l
+omega	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^:omega$/;"	l
+omega	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^:omega$/;"	l
 onChanged	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Settings.java	/^        void onChanged(Settings settings, String key);$/;"	m	interface:Settings.OnChangedListener
 onCreate	C:/Users/terry/Programs/workspace/sxe/android/common\src\main\java\com\spidey01\sxe\android\common\GameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:GameActivity
 onCreate	C:/Users/terry/Programs/workspace/sxe/android\common\src\main\java\com\spidey01\sxe\android\common\GameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:GameActivity
@@ -3188,7 +3263,6 @@ paletteA	C:/Users/terry/Programs/workspace/sxe/vendor\pngdecoder\src\main\java\d
 parseFontDirectory	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\TrueTypeFont.java	/^    private void parseFontDirectory(DataInputStream data) throws IOException {$/;"	m	class:TrueTypeFont	file:
 parseOffsetTable	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\TrueTypeFont.java	/^    private void parseOffsetTable(DataInputStream data) throws IOException {$/;"	m	class:TrueTypeFont	file:
 parseTableDirectory	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\TrueTypeFont.java	/^    private void parseTableDirectory(DataInputStream data) throws IOException {$/;"	m	class:TrueTypeFont	file:
-pick	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^        private static String pick(String[] dirs, String relative) {$/;"	m	class:Utils.Xdg	file:
 poll	C:/Users/terry/Programs/workspace/sxe/android/common\src\main\java\com\spidey01\sxe\android\common\AndroidInputManager.java	/^    public void poll() {$/;"	m	class:AndroidInputManager
 poll	C:/Users/terry/Programs/workspace/sxe/android\common\src\main\java\com\spidey01\sxe\android\common\AndroidInputManager.java	/^    public void poll() {$/;"	m	class:AndroidInputManager
 poll	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\InputManager.java	/^    public void poll() {$/;"	m	class:InputManager
@@ -3295,6 +3369,7 @@ sResourceProperty	C:/Users/terry/Programs/workspace/sxe/scripting\testhelpers\sr
 sResourceProperty	C:/Users/terry/Programs/workspace/sxe/scripting\testhelpers\src\main\java\com\spidey01\sxe\scripting\testhelpers\JavaToPython.java	/^    private static final String sResourceProperty = "scripting.testhelpers.resources";$/;"	f	class:JavaToPython	file:
 sResourceProperty	C:/Users/terry/Programs/workspace/sxe/scripting\testhelpers\src\main\java\com\spidey01\sxe\scripting\testhelpers\JavaToRuby.java	/^    private static final String sResourceProperty = "scripting.testhelpers.resources";$/;"	f	class:JavaToRuby	file:
 sTestURIs	C:/Users/terry/Programs/workspace/sxe/core\src\test\java\com\spidey01\sxe\core\ResourceManagerTest.java	/^    protected static final String[] sTestURIs = new String[]{$/;"	f	class:ResourceManagerTest
+sUserDir	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Utils.java	/^    private static String sUserDir;$/;"	f	class:Utils	file:
 save	C:/Users/terry/Programs/workspace/sxe/android/common\src\main\java\com\spidey01\sxe\android\common\AndroidSettings.java	/^    public void save() throws IOException {$/;"	m	class:AndroidSettings
 save	C:/Users/terry/Programs/workspace/sxe/android\common\src\main\java\com\spidey01\sxe\android\common\AndroidSettings.java	/^    public void save() throws IOException {$/;"	m	class:AndroidSettings
 save	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\AbstractSettingsFile.java	/^    public abstract void save() throws IOException;$/;"	m	class:AbstractSettingsFile
@@ -3327,6 +3402,7 @@ setDefaultLevel	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spi
 setDisplay	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameContext.java	/^    public GameContext setDisplay(Display value) {$/;"	m	class:GameContext
 setDisplayDate	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\LogSink.java	/^    public void setDisplayDate(boolean x) {$/;"	m	class:LogSink
 setDisplayThreadId	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\LogSink.java	/^    public void setDisplayThreadId(boolean x) {$/;"	m	class:LogSink
+setDisplayTime	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\LogSink.java	/^    public void setDisplayTime(boolean x) {$/;"	m	class:LogSink
 setEngine	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\GameContext.java	/^    public GameContext setEngine(GameEngine value) {$/;"	m	class:GameContext
 setFloat	C:/Users/terry/Programs/workspace/sxe/android/common\src\main\java\com\spidey01\sxe\android\common\AndroidSettings.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:AndroidSettings
 setFloat	C:/Users/terry/Programs/workspace/sxe/android\common\src\main\java\com\spidey01\sxe\android\common\AndroidSettings.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:AndroidSettings
@@ -3489,6 +3565,7 @@ tick	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\lib\src\main\java\co
 tick	C:/Users/terry/Programs/workspace/sxe/demos\pingpong\lib\src\main\java\com\spidey01\sxe\pingpong\lib\PingPongGame.java	/^    public void tick() {$/;"	m	class:PingPongGame
 tick	C:/Users/terry/Programs/workspace/sxe/demos\snake\lib\src\main\java\com\spidey01\sxe\snake\lib\SnakeGame.java	/^    public void tick() {$/;"	m	class:SnakeGame
 toString	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\KeyEvent.java	/^    public String toString() {$/;"	m	class:KeyEvent
+toString	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Platform.java	/^    public String toString() {$/;"	m	class:Platform
 toString	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Variable.java	/^    public String toString() {$/;"	m	class:Variable
 transPixel	C:/Users/terry/Programs/workspace/sxe/vendor/pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private byte[] transPixel;$/;"	f	class:PNGDecoder	file:
 transPixel	C:/Users/terry/Programs/workspace/sxe/vendor\pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private byte[] transPixel;$/;"	f	class:PNGDecoder	file:
@@ -3527,6 +3604,12 @@ version	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sx
 w	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Log.java	/^    public static void w(String tag, Object... messages) {$/;"	m	class:Log
 width	C:/Users/terry/Programs/workspace/sxe/vendor/pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private int width;$/;"	f	class:PNGDecoder	file:
 width	C:/Users/terry/Programs/workspace/sxe/vendor\pngdecoder\src\main\java\de\matthiasmann\twl\utils\PNGDecoder.java	/^    private int width;$/;"	f	class:PNGDecoder	file:
+win9xME_args	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^:win9xME_args$/;"	l
+win9xME_args	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^:win9xME_args$/;"	l
+win9xME_args	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^:win9xME_args$/;"	l
+win9xME_args_slurp	C:/Users/terry/Programs/workspace/sxe/demos/helloworld/pc\build\scripts\helloworld-pc.bat	/^:win9xME_args_slurp$/;"	l
+win9xME_args_slurp	C:/Users/terry/Programs/workspace/sxe/demos/helloworld\pc\build\scripts\helloworld-pc.bat	/^:win9xME_args_slurp$/;"	l
+win9xME_args_slurp	C:/Users/terry/Programs/workspace/sxe/demos\helloworld\pc\build\scripts\helloworld-pc.bat	/^:win9xME_args_slurp$/;"	l
 wtf	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Log.java	/^    public static void wtf(String tag, Object... messages) {$/;"	m	class:Log
 xtrace	C:/Users/terry/Programs/workspace/sxe/core\src\main\java\com\spidey01\sxe\core\Log.java	/^    public static void xtrace(String tag, Object... messages) {$/;"	m	class:Log
 zipFileContent	C:/Users/terry/Programs/workspace/sxe/core\src\test\java\com\spidey01\sxe\core\TestResources.java	/^    static final String zipFileContent = "Test dummy for ZipResourceLoader.\\n";$/;"	f	class:TestResources
