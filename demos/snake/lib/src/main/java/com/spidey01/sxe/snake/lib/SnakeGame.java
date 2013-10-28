@@ -32,10 +32,11 @@ import com.spidey01.sxe.core.KeyEvent;
 import com.spidey01.sxe.core.KeyListener;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.Mesh;
-import com.spidey01.sxe.core.OpenGL;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.Sprite;
 import com.spidey01.sxe.core.VertexBufferTechnique;
+
+import com.spidey01.sxe.core.gl.OpenGL;
 
 import java.util.Random;
 

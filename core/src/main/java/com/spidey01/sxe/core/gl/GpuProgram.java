@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.gl;
 
 import java.util.Collection;
 import java.util.LinkedList;

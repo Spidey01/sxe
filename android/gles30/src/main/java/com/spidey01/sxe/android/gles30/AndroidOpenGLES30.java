@@ -23,9 +23,9 @@
 
 package com.spidey01.sxe.android.gles30;
 
-import  com.spidey01.sxe.core.GpuProgram;
-import  com.spidey01.sxe.core.OpenGLES30;
-import  com.spidey01.sxe.core.Shader;
+import  com.spidey01.sxe.core.gl.GpuProgram;
+import  com.spidey01.sxe.core.gl.OpenGLES30;
+import  com.spidey01.sxe.core.gl.Shader;
 
 import android.opengl.GLES30;
 

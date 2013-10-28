@@ -24,6 +24,8 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.*;
+import com.spidey01.sxe.core.gl.*;
+
 import java.nio.*;
 import java.io.*;
 import java.util.*;

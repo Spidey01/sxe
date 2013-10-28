@@ -23,9 +23,9 @@
 
 package com.spidey01.sxe.android.gles20;
 
-import  com.spidey01.sxe.core.GpuProgram;
-import  com.spidey01.sxe.core.OpenGLES20;
-import  com.spidey01.sxe.core.Shader;
+import  com.spidey01.sxe.core.gl.GpuProgram;
+import  com.spidey01.sxe.core.gl.OpenGLES20;
+import  com.spidey01.sxe.core.gl.Shader;
 
 import android.opengl.GLES20;
 

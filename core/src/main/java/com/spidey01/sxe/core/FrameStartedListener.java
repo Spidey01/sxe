@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.gl.OpenGL;
+
 public interface FrameStartedListener {
 
     /** Called before updating the display.

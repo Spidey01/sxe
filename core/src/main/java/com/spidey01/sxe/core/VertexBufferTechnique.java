@@ -23,6 +23,9 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.gl.GpuProgram;
+import com.spidey01.sxe.core.gl.OpenGLES20;
+
 import java.nio.FloatBuffer;
 
 /** Technique for rendering via vertex buffer.

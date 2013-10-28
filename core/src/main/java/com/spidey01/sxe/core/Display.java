@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.gl.OpenGL;
+
 /** Interface to the games Display.
  *
  * Every game must be rendered to a display for the user. Details are fairly

@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.android.gles11;
 
-import  com.spidey01.sxe.core.OpenGLES11;
+import  com.spidey01.sxe.core.gl.OpenGLES11;
 
 import android.opengl.GLES11;
 

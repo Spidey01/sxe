@@ -27,8 +27,9 @@ import com.spidey01.sxe.core.FrameEndedListener;
 import com.spidey01.sxe.core.FrameListener;
 import com.spidey01.sxe.core.FrameStartedListener;
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.OpenGL;
 import com.spidey01.sxe.core.RateCounter;
+
+import com.spidey01.sxe.core.gl.OpenGL;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.ContextCapabilities;

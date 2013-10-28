@@ -23,6 +23,9 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.gl.GpuProgram;
+import com.spidey01.sxe.core.gl.Shader;
+
 import java.nio.FloatBuffer;
 
 public class Sprite

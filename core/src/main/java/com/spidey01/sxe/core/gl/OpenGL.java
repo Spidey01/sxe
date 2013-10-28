@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.gl;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
