@@ -23,6 +23,7 @@
 
 package com.spidey01.sxe.core;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,6 +45,11 @@ public class SettingsXMLFile extends AbstractSettingsFile {
             Log.e(TAG, "Couldn't load "+mName+". Using blank Properties.", e);
             mProps.clear();
         }
+    }
+
+
+    public SettingsXMLFile(File path) {
+        this(path.getPath());
     }
 
 

@@ -24,7 +24,6 @@
 package com.spidey01.sxe.pc;
 
 import com.spidey01.sxe.core.Game;
-import com.spidey01.sxe.core.GameContext;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.Platform;
@@ -32,8 +31,12 @@ import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.SceneManager;
 import com.spidey01.sxe.core.Settings;
 import com.spidey01.sxe.core.SettingsFile;
+import com.spidey01.sxe.core.Utils;
+import com.spidey01.sxe.core.Xdg;
 
-/** Utility class to setup a GameContext to the configuration for PC.
+import java.io.File;
+
+/** Utility class to setup a GameEngine configured for PC.
  */
 public class PcConfiguration {
     private static final String TAG = "PcConfiguration";
@@ -42,6 +45,7 @@ public class PcConfiguration {
     public static GameEngine setup(Game game) {
         return setup(game, "640 x 480");
     }
+
 
     public static GameEngine setup(Game game, String displayMode) {
 
@@ -56,26 +60,23 @@ public class PcConfiguration {
         );
     }
 
-    public static Settings settings(Game game) {
-        String dir = System.getenv("XDG_CONFIG_HOME");
 
-        if (dir == null) {
-            final String os = System.getProperty("os.name");
-            if (os.startsWith("Windows")) {
-                final String localAppData = System.getenv("LocalAppData");
-                if (localAppData == null) {
-                    Log.e(TAG, "This appears to be a Microsoft Windows OS but %LocalAppData% is not set!");
-                    throw new
-                        RuntimeException("%LocalAppData% or %XDG_*% must be set on Windows.");
-                }
-                dir = localAppData+"/"/*+game.getPublisher()+"/"*/;
-            } else {
-                // go with unix style as default.
-                dir = System.getProperty("user.home")+"/.config";
-            }
+    public static Settings settings(Game game) {
+        for (String extension : new String[]{ ".cfg", ".xml" }) {
         }
 
-        return new SettingsFile(dir+"/"+game.getName()+".cfg");
+        File local = new File(Xdg.XDG_CONFIG_HOME, game.getName()+".cfg");
+        if (local.exists()) {
+            return new SettingsFile(local);
+        }
+
+        File system = new File(Utils.find(Xdg.XDG_CONFIG_DIRS, game.getName()+".cfg"));
+        if (system.exists()) {
+            return new SettingsFile(system);
+        }
+
+        /** A checked FileNotFoundException would be better, IMHO. */
+        return null;
     }
 }
 
