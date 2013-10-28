@@ -25,11 +25,12 @@ package com.spidey01.sxe.core;
 
 /** Helper for XDG Base Directory Specification (version 0.7).
  *
- * Environment variables like <samp>XDG_WHAT_EVER</samp> are exported as static
- * fields, along with a few helpers. To find a file/dir located in one of
- * these directories, you will want <code>getWhatEver("your/path")</code>.
+ * Environment variables referenced by the specification are exported as static
+ * fields, along with a few helpers. To find a file/dir located in one of these
+ * directories, use one of the provided static methods.
  *
- * You can obtain an instance of the data with Xdg.getInstance().
+ * No guarantee is made that the directories exist. Only that the values are
+ * appropriate with regard to the specification.
  */
 public class Xdg {
     private static final String TAG = "Xdg";
@@ -37,12 +38,25 @@ public class Xdg {
     /** Used by static initializers. */
     private static String e;
 
+    /** Application installation prefix.
+     *
+     * This environment variable should be set by the wrapper scripts installed
+     * with the application.  If you use the Gradle application plugin like the
+     * demos do, this is taken care of for you.
+     */
     public static String APP_HOME = System.getenv("APP_HOME");
 
+    /** What passes for the useres home directory.
+     *
+     * @see Utils.getUserDir
+     */
     public static String HOME = Utils.getUserDir();
+
+    /** Alias for HOME. */
     public static String USER_DIR = HOME;
 
 
+    /** Base directory for user-specific data files. */
     public static String XDG_DATA_HOME = System.getenv("XDG_DATA_HOME");
     static {
         if (XDG_DATA_HOME == null) {
@@ -51,6 +65,10 @@ public class Xdg {
     }
 
 
+    /** Preference-ordered set of base directories to search for data files. 
+     *
+     * This is the system search path version of XDG_DATA_HOME.
+     */
     public static String[] XDG_DATA_DIRS;
     static {
         e = System.getenv("XDG_DATA_DIRS");
@@ -62,6 +80,7 @@ public class Xdg {
     }
 
 
+    /** Base directory for user specific configuration files. */
     public static String XDG_CONFIG_HOME = System.getenv("XDG_CONFIG_HOME");
     static {
         if (XDG_CONFIG_HOME == null) {
@@ -70,6 +89,10 @@ public class Xdg {
     }
 
 
+    /** Preference-ordered set of base directories to search for configuration files.
+     *
+     * This is the system search path version of XDG_CONFIG_HOME.
+     */
     public static String[] XDG_CONFIG_DIRS;
     static {
         e = System.getenv("XDG_CONFIG_DIRS");
@@ -78,6 +101,7 @@ public class Xdg {
     }
 
 
+    /** Base directory for user specific non-essential data files. */
     public static String XDG_CACHE_HOME = System.getenv("XDG_CACHE_HOME");
     static {
         if (XDG_CACHE_HOME == null) {
@@ -86,7 +110,10 @@ public class Xdg {
     }
 
 
-    // no other default.
+    /** Base directory for user-specific non-essential runtime files and other file objects.
+     *
+     * There is no default value. So this likely will be null.
+     */
     public static String XDG_RUNTIME_DIR = System.getenv("XDG_RUNTIME_DIR");
 
 
