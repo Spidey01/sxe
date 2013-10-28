@@ -41,7 +41,7 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     /* OpenGL functions */
 
     @Override
-    public void glAttachShader(GpuProgram p, Shader s) {
+    public void glAttachShader(Program p, Shader s) {
         glAttachShader(p.getProgram(), s.getId());
     }
 
@@ -149,7 +149,7 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public void glDeleteProgram(GpuProgram program) {
+    public void glDeleteProgram(Program program) {
         glDeleteProgram(program.getProgram());
     }
 
@@ -166,7 +166,7 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public void glDetachShader(GpuProgram program, Shader shader) {
+    public void glDetachShader(Program program, Shader shader) {
         glDetachShader(program.getProgram(), shader.getId());
     }
 
@@ -275,7 +275,7 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public int glGetUniformLocation(GpuProgram program, String name) {
+    public int glGetUniformLocation(Program program, String name) {
         return glGetUniformLocation(program.getProgram(), name);
     }
 
@@ -288,7 +288,7 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public void glGetUniformfv(GpuProgram program, int location, FloatBuffer params) {
+    public void glGetUniformfv(Program program, int location, FloatBuffer params) {
         glGetUniformfv(program.getProgram(), location, params);
     }
 
@@ -300,7 +300,7 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public void glGetUniformiv(GpuProgram program, int location, IntBuffer params) {
+    public void glGetUniformiv(Program program, int location, IntBuffer params) {
         glGetUniformiv(program.getProgram(), location,  params);
     }
 
@@ -312,7 +312,7 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public void glLinkProgram(GpuProgram p) {
+    public void glLinkProgram(Program p) {
         glLinkProgram(p.getProgram());
     }
 
@@ -395,7 +395,7 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public void glUseProgram(GpuProgram program) {
+    public void glUseProgram(Program program) {
         glUseProgram(program.getProgram());
     }
 
@@ -410,7 +410,7 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     }
 
     @Override
-    public void glValidateProgram(GpuProgram p) {
+    public void glValidateProgram(Program p) {
         glValidateProgram(p.getProgram());
     }
 

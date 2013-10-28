@@ -341,10 +341,10 @@ public interface OpenGLES20 {
 
 
     /* OpenGL functions */
-    // TODO: make versions that take e.g. GpuProgram instead of int, for all methods.
+    // TODO: make versions that take e.g. Program instead of int, for all methods.
     // TODO: make versions that take e.g. float[] instead of FloatBuffer, for all methods.
 
-    void glAttachShader(GpuProgram p, Shader s);
+    void glAttachShader(Program p, Shader s);
     void glAttachShader(int program, int shader);
 
     void glBindBuffer(int target, int buffer);
@@ -368,10 +368,10 @@ public interface OpenGLES20 {
 
     void glDeleteFramebuffers(int n, IntBuffer framebuffers);
     void glDeleteFramebuffers(int n, int[] framebuffers, int offset);
-    void glDeleteProgram(GpuProgram program);
+    void glDeleteProgram(Program program);
     void glDeleteProgram(int program);
     void glDeleteShader(int shader);
-    void glDetachShader(GpuProgram program, Shader shader);
+    void glDetachShader(Program program, Shader shader);
     void glDetachShader(int program, int shader);
     void glDisable(int cap);
     void glDisableVertexAttribArray(int index);
@@ -393,15 +393,15 @@ public interface OpenGLES20 {
     int glGetProgramiv(int program, int pname);
     String glGetShaderInfoLog(int shader);
     int glGetShaderiv(int shader, int pname);
-    int glGetUniformLocation(GpuProgram program, String name);
+    int glGetUniformLocation(Program program, String name);
     int glGetUniformLocation(int program, String name);
-    void glGetUniformfv(GpuProgram program, int location, FloatBuffer params);
+    void glGetUniformfv(Program program, int location, FloatBuffer params);
     void glGetUniformfv(int program, int location, FloatBuffer params);
-    void glGetUniformiv(GpuProgram program, int location, IntBuffer params);
+    void glGetUniformiv(Program program, int location, IntBuffer params);
     void glGetUniformiv(int program, int location, IntBuffer params);
 
     void glLineWidth(float width);
-    void glLinkProgram(GpuProgram p);
+    void glLinkProgram(Program p);
     void glLinkProgram(int program);
 
     void glShaderSource(int shader, String source);
@@ -418,10 +418,10 @@ public interface OpenGLES20 {
     void glUniform4fv(int location, int count, FloatBuffer v);
     void glUniform4i(int location, int v0, int v1, int v2, int v3);
     void glUniform4iv(int location, int count, IntBuffer v);
-    void glUseProgram(GpuProgram program);
+    void glUseProgram(Program program);
     void glUseProgram(int program);
 
-    void glValidateProgram(GpuProgram p);
+    void glValidateProgram(Program p);
     void glValidateProgram(int program);
     void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int offset);
     void glViewport(int x, int y, int width, int height);

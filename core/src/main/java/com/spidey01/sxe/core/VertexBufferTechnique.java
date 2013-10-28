@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.core;
 
-import com.spidey01.sxe.core.gl.GpuProgram;
+import com.spidey01.sxe.core.gl.Program;
 import com.spidey01.sxe.core.gl.OpenGLES20;
 
 import java.nio.FloatBuffer;
@@ -33,7 +33,7 @@ import java.nio.FloatBuffer;
  * The object to be rendered with this technique is expected to do the following:
  * <ol>
  *  <li>Provide a float[] of vertices to render.</li>
- *  <li>Provide a GpuProgram with shaders attached.</li>
+ *  <li>Provide a Program with shaders attached.</li>
  *  <li>Provide a VertexBuffer</li>
  *  <li></li>
  * </ol>
@@ -49,7 +49,7 @@ public class VertexBufferTechnique implements RenderingTechnique {
 
     public interface Capable extends RenderableObject {
         Mesh getMesh();
-        GpuProgram getProgram();
+        Program getProgram();
     }
 
 
@@ -94,7 +94,7 @@ public class VertexBufferTechnique implements RenderingTechnique {
 
         VertexBuffer vbo = client.getMesh().getVertexBuffer();
         vbo.bind(mGL);
-        GpuProgram p = client.getProgram();
+        Program p = client.getProgram();
         p.use(mGL);
 
         // get the location (index) of the attribute.

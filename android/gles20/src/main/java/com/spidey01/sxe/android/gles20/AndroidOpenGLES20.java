@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.android.gles20;
 
-import  com.spidey01.sxe.core.gl.GpuProgram;
+import  com.spidey01.sxe.core.gl.Program;
 import  com.spidey01.sxe.core.gl.OpenGLES20;
 import  com.spidey01.sxe.core.gl.Shader;
 
@@ -42,7 +42,7 @@ public class AndroidOpenGLES20 implements OpenGLES20 {
     /* OpenGL functions */
 
     @Override
-    public void glAttachShader(GpuProgram p, Shader s) {
+    public void glAttachShader(Program p, Shader s) {
         glAttachShader(p.getProgram(), s.getId());
     }
 
@@ -156,7 +156,7 @@ public class AndroidOpenGLES20 implements OpenGLES20 {
 
 
     @Override
-    public void glDeleteProgram(GpuProgram program) {
+    public void glDeleteProgram(Program program) {
         GLES20.glDeleteProgram(program.getProgram());
     }
 
@@ -174,7 +174,7 @@ public class AndroidOpenGLES20 implements OpenGLES20 {
 
 
     @Override
-    public void glDetachShader(GpuProgram program, Shader shader) {
+    public void glDetachShader(Program program, Shader shader) {
         GLES20.glDetachShader(program.getProgram(), shader.getId());
     }
 
@@ -282,7 +282,7 @@ public class AndroidOpenGLES20 implements OpenGLES20 {
 
 
     @Override
-    public int glGetUniformLocation(GpuProgram program, String name) {
+    public int glGetUniformLocation(Program program, String name) {
         return GLES20.glGetUniformLocation(program.getProgram(), name);
     }
 
@@ -294,7 +294,7 @@ public class AndroidOpenGLES20 implements OpenGLES20 {
 
 
     @Override
-    public void glGetUniformfv(GpuProgram program, int location, FloatBuffer params) {
+    public void glGetUniformfv(Program program, int location, FloatBuffer params) {
         GLES20.glGetUniformfv(program.getProgram(), location, params);
     }
 
@@ -306,7 +306,7 @@ public class AndroidOpenGLES20 implements OpenGLES20 {
 
 
     @Override
-    public void glGetUniformiv(GpuProgram program, int location, IntBuffer params) {
+    public void glGetUniformiv(Program program, int location, IntBuffer params) {
         GLES20.glGetUniformiv(program.getProgram(), location, params);
     }
 
@@ -324,7 +324,7 @@ public class AndroidOpenGLES20 implements OpenGLES20 {
 
 
     @Override
-    public void glLinkProgram(GpuProgram p) {
+    public void glLinkProgram(Program p) {
         glLinkProgram(p.getProgram());
     }
 
@@ -411,7 +411,7 @@ public class AndroidOpenGLES20 implements OpenGLES20 {
 
 
     @Override
-    public void glUseProgram(GpuProgram program) {
+    public void glUseProgram(Program program) {
         GLES20.glUseProgram(program.getProgram());
     }
 
@@ -423,7 +423,7 @@ public class AndroidOpenGLES20 implements OpenGLES20 {
 
 
     @Override
-    public void glValidateProgram(GpuProgram p) {
+    public void glValidateProgram(Program p) {
         glValidateProgram(p.getProgram());
     }
 

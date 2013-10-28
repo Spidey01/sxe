@@ -32,25 +32,25 @@ import java.util.LinkedList;
  * Direct access to the program (int) is provided with getId(). Most methods
  * will have little value until initinitized with an OpenGL instance.
  */
-public class GpuProgram {
-    private static final String TAG = "GpuProgram";
+public class Program {
+    private static final String TAG = "g";
 
     private boolean mIsInitialized;
     private int mProgramId;
     private Collection<Shader> mShaders = new LinkedList<Shader>();
 
 
-    public GpuProgram() {
+    public Program() {
     }
 
 
     /** Convenience constructor when you just want a vert/frag shader pair. */
-    public GpuProgram(Shader vertex, Shader fragment) {
+    public Program(Shader vertex, Shader fragment) {
         mShaders.add(vertex);
         mShaders.add(fragment);
     }
 
-    public GpuProgram(Collection<Shader> shaders) {
+    public Program(Collection<Shader> shaders) {
         mShaders.addAll(shaders);
     }
 
@@ -140,7 +140,7 @@ public class GpuProgram {
     }
 
 
-    /** Installs this GpuProgram as part of the OpenGL rendering state. */
+    /** Installs this g as part of the OpenGL rendering state. */
     public void use(OpenGLES20 GL) {
         GL.glUseProgram(mProgramId);
     }
