@@ -13,11 +13,11 @@ enableAssertions true
 
 environment(
     // Not quite true but the overlay is close enough for this.
-    APP_HOME:        [ project.rootDir, "src", "dist" ].join(File.separator),
+    APP_HOME:        [ project.projectDir, "src", "dist" ].join(File.separator),
 
     // ...
-    XDG_DATA_DIRS:   [ project.rootDir, "src", "dist", "share" ].join(File.separator),
-    XDG_CONFIG_DIRS: [ project.rootDir, "src", "dist", "etc" ].join(File.separator),
+    XDG_DATA_DIRS:   [ project.projectDir, "src", "dist", "share" ].join(File.separator),
+    XDG_CONFIG_DIRS: [ project.projectDir, "src", "dist", "etc" ].join(File.separator),
 
     // For testing purposes, these is better than the actual value.
     XDG_DATA_HOME:   [ project.rootDir, "tmp", "share" ].join(File.separator),
