@@ -11,9 +11,20 @@ dependsOn project.project(":pc").extractLwjglNatives
 // Probably want assertions for :run.
 enableAssertions true
 
-// For testing purposes, this is the best place to drop log files and
-// configuration.
-environment XDG_CONFIG_HOME: "${project.rootDir}/tmp"
+environment(
+    // Not quite true but the overlay is close enough for this.
+    APP_HOME:        "${project.rootDir}/src/dist",
+
+    // ...
+    XDG_DATA_DIRS:   "${project.rootDir}/src/dist/share",
+    XDG_CONFIG_DIRS: "${project.rootDir}/src/dist/etc",
+
+    // For testing purposes, these is better than the actual value.
+    XDG_DATA_HOME:   "${project.rootDir}/tmp/share",
+    XDG_CONFIG_HOME: "${project.rootDir}/tmp/config",
+    XDG_CACHE_HOME:  "${project.rootDir}/tmp/cache",
+)
 
 // :run executes from the root project, not the demo project.
 workingDir project.rootDir
+

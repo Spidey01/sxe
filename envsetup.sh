@@ -165,9 +165,14 @@ irdemo() { # installdemo and execute a demo by name with following args.
     installdemo $demo
     eval \
         env \
-        XDG_CONFIG_HOME="`gettop`/tmp" \
-        "`echo $demo | awk '{print toupper($0)}'`_PC_OPTS=\"'-Djava.library.path=${croot}/demos/${demo}/pc/build/install/${demo}-pc/lib/natives'\"" \
-            "demos/${demo}/pc/build/install/${demo}-pc/bin/${demo}-pc" "$@"
+            XDG_DATA_DIRS="`gettop`/demos/$demo/pc/src/dist/share" \
+            XDG_CONFIG_DIRS="`gettop`/demos/$demo/pc/src/dist/share" \
+            XDG_DATA_HOME="`gettop`/tmp/share" \
+            XDG_CONFIG_HOME="`gettop`/tmp/config" \
+            XDG_CACHE_HOME="`gettop`/tmp/cache" \
+            "`echo $demo | awk '{print toupper($0)}'`_PC_OPTS=\"'-Djava.library.path=${croot}/demos/${demo}/pc/build/install/${demo}-pc/lib/natives'\"" \
+            \
+                "demos/${demo}/pc/build/install/${demo}-pc/bin/${demo}-pc" "$@"
 }
 
 

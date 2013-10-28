@@ -14,7 +14,9 @@ IF NOT DEFINED ANDROID_HOME (
 	GOTO :eof
 )
 
-SET "XDG_CONFIG_HOME=%SXE_ROOT%\tmp"
+SET "XDG_DATA_HOME=%SXE_ROOT%\tmp\share"
+SET "XDG_CONFIG_HOME=%SXE_ROOT%\tmp\config"
+SET "XDG_CACHE_HOME=%SXE_ROOT%\tmp\cache"
 SET "PATH=%SXE_ROOT%\.cmd;%PATH%"
 
 IF EXIST "%SXE_ROOT%\envsetup.local.cmd" CALL "%SXE_ROOT%\envsetup.local.cmd"
