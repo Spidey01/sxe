@@ -26,6 +26,9 @@ package com.spidey01.sxe.core;
 import com.spidey01.sxe.core.gl.Program;
 import com.spidey01.sxe.core.gl.Shader;
 
+import com.spidey01.sxe.core.graphics.Mesh;
+import com.spidey01.sxe.core.graphics.RenderableObject;
+
 import java.nio.FloatBuffer;
 
 public class Sprite

@@ -25,18 +25,19 @@ package com.spidey01.sxe.snake.lib;
 
 import com.spidey01.sxe.core.Console;
 import com.spidey01.sxe.core.ConsoleCommand;
-import com.spidey01.sxe.core.FrameListener;
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.KeyEvent;
 import com.spidey01.sxe.core.KeyListener;
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.Mesh;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.Sprite;
 import com.spidey01.sxe.core.VertexBufferTechnique;
 
 import com.spidey01.sxe.core.gl.OpenGL;
+
+import com.spidey01.sxe.core.graphics.FrameListener;
+import com.spidey01.sxe.core.graphics.Mesh;
 
 import java.util.Random;
 

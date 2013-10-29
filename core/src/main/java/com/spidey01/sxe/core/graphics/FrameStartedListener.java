@@ -21,13 +21,15 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.graphics;
 
-public interface FrameEndedListener {
+import com.spidey01.sxe.core.gl.OpenGL;
 
-    /** Called just after updating the display.
+public interface FrameStartedListener {
+
+    /** Called before updating the display.
      */
-    public void frameEnded();
+    public void frameStarted(OpenGL GL20);
 }
 
 

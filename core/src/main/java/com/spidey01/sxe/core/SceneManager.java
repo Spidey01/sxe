@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.graphics.RenderableObject;
+
 import java.util.List;
 import java.util.ArrayList;
 

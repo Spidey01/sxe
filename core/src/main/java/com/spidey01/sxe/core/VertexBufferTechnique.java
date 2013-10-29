@@ -26,6 +26,10 @@ package com.spidey01.sxe.core;
 import com.spidey01.sxe.core.gl.Program;
 import com.spidey01.sxe.core.gl.OpenGLES20;
 
+import com.spidey01.sxe.core.graphics.Mesh;
+import com.spidey01.sxe.core.graphics.RenderableObject;
+import com.spidey01.sxe.core.graphics.Technique;
+
 import java.nio.FloatBuffer;
 
 /** Technique for rendering via vertex buffer.
@@ -39,7 +43,7 @@ import java.nio.FloatBuffer;
  * </ol>
  *
  */
-public class VertexBufferTechnique implements RenderingTechnique {
+public class VertexBufferTechnique implements Technique {
 
     private static final String TAG = "VertexBufferTechnique";
 

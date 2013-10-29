@@ -21,10 +21,13 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.graphics;
 
-// Just a place holder for right now.
-// Will we ever need more "Techniques" than just a RenderingTechnique?
-public interface Technique {
+public interface FrameEndedListener {
+
+    /** Called just after updating the display.
+     */
+    public void frameEnded();
 }
+
 

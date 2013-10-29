@@ -21,14 +21,14 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.graphics;
 
 /** Interface for rendering techniques.
  *
  * This will be used to seperate the rendering method from the
  * renderable objects data and state.
  */
-public interface RenderingTechnique extends Technique {
+public interface Technique {
     // void initialize(RenderableObject client);
     // void draw(RenderableObject client);
     // void deinitialize(RenderableObject client);

@@ -25,6 +25,8 @@ package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.gl.OpenGL;
 
+import com.spidey01.sxe.core.graphics.FrameListener;
+
 import java.util.Map;
 import java.util.HashMap;
 
