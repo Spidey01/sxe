@@ -21,29 +21,31 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.io;
+
+import com.spidey01.sxe.core.ResourceLoader;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
+import java.util.zip.GZIPInputStream;
 
-/** Dummy ResourceLoader that returns the bitbucket. */
-public class DummyResourceLoader  implements ResourceLoader {
+public class GZipResourceLoader extends PathResourceLoader {
+    private final static String TAG = "GZipResourceLoader";
+
 
     public InputStream getInputStream(File from, File what)
         throws IOException
     {
-        return new FileInputStream(Utils.getBitBucketPath());
+        return new GZIPInputStream(super.getInputStream(from, what));
     }
 
 
     public InputStream getInputStream(String from, String what)
         throws IOException
     {
-        return new FileInputStream(Utils.getBitBucketPath());
+        return new GZIPInputStream(super.getInputStream(from, what));
     }
+
 }
 

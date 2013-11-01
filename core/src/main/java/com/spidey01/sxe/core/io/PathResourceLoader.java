@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -21,34 +21,33 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.io;
 
-import org.junit.*;
+import com.spidey01.sxe.core.ResourceLoader;
 
-import java.io.File;
+import java.io.InputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.File;
+import java.net.URI;
 
-public class GZipResourceLoaderTest extends UnitTest {
-    private static GZipResourceLoader sLoader = new GZipResourceLoader();
+/** Loads an InputStream out of a file path */
+public class PathResourceLoader implements ResourceLoader {
+    private final static String TAG = "PathResourceLoader";
 
-    @BeforeClass
-    public static void setup() {
-        UnitTest.setup();
+
+    public InputStream getInputStream(File from, File what)
+        throws IOException
+    {
+        return new FileInputStream(new File(from, what.getPath()));
     }
 
 
-    @Test
-    public void simplePathTest() throws IOException {
-        String from = TestResources.directory;
-        String what = TestResources.gzipFileName;
-        File txt = new File(from, what);
-        Assume.assumeTrue(txt.exists());
-
-
-        Assert.assertEquals("Loading a gzip compressed text file.",
-                            TestResources.gzipFileContent,
-                            Utils.slurp(sLoader.getInputStream(from, what)));
+    public InputStream getInputStream(String from, String what)
+        throws IOException
+    {
+        return new FileInputStream(new File(from, what));
     }
-
 }
+
 

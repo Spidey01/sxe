@@ -21,9 +21,13 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.io;
 
 import org.junit.*;
+
+import com.spidey01.sxe.core.UnitTest;
+import com.spidey01.sxe.core.TestResources;
+import com.spidey01.sxe.core.Utils;
 
 import java.io.File;
 import java.io.IOException;

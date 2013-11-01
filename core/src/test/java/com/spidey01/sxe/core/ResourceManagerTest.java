@@ -26,6 +26,11 @@ package com.spidey01.sxe.core;
 import org.hamcrest.CoreMatchers;
 import org.junit.*;
 
+import com.spidey01.sxe.core.io.DummyResourceLoader;
+import com.spidey01.sxe.core.io.GZipResourceLoader;
+import com.spidey01.sxe.core.io.PathResourceLoader;
+import com.spidey01.sxe.core.io.ZipResourceLoader;
+
 import java.io.File;
 import java.io.InputStream;
 import java.io.IOException;

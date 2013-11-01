@@ -21,7 +21,10 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.io;
+
+import com.spidey01.sxe.core.ResourceLoader;
+import com.spidey01.sxe.core.Log;
 
 import java.util.zip.ZipFile;
 import java.util.zip.ZipEntry;

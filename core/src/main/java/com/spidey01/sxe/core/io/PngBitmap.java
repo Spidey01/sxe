@@ -21,7 +21,9 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.io;
+
+import com.spidey01.sxe.core.Bitmap;
 
 import de.matthiasmann.twl.utils.PNGDecoder;
 

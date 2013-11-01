@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -21,31 +21,33 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.io;
 
-import java.io.InputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
+
+import com.spidey01.sxe.core.ResourceLoader;
+import com.spidey01.sxe.core.Utils;
+
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 
-/** Loads an InputStream out of a file path */
-public class PathResourceLoader implements ResourceLoader {
-    private final static String TAG = "PathResourceLoader";
-
+/** Dummy ResourceLoader that returns the bitbucket. */
+public class DummyResourceLoader implements ResourceLoader {
 
     public InputStream getInputStream(File from, File what)
         throws IOException
     {
-        return new FileInputStream(new File(from, what.getPath()));
+        return new FileInputStream(Utils.getBitBucketPath());
     }
 
 
     public InputStream getInputStream(String from, String what)
         throws IOException
     {
-        return new FileInputStream(new File(from, what));
+        return new FileInputStream(Utils.getBitBucketPath());
     }
 }
-
 
