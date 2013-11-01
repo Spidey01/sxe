@@ -21,7 +21,9 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.testing;
+
+import com.spidey01.sxe.core.Log;
 
 import java.io.File;
 
