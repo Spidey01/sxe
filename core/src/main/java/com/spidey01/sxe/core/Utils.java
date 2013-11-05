@@ -251,6 +251,9 @@ public class Utils {
      * Or basically, a implement your Settings.merge() method free.
      */
     public static void merge(Settings parent, Settings child) {
+        assert parent != null : "parent=null";
+        assert child != null : "child=null";
+
         for (String key : child.keys()) {
             parent.setString(key, child.getString(key));
         }

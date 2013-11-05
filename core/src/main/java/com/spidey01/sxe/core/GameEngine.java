@@ -45,9 +45,33 @@ public class GameEngine {
     private final SceneManager mSceneManager;
     private final InputManager mInputManager;
     private final ResourceManager mResourceManager;
+
+    /** Master source of Settings.
+     *
+     * From lowest to highest priority, this will contain the following sources
+     * of Settings data.
+     *
+     * <ol>
+     *      <li>Platform settings.</li>
+     *      <li>System settings file.</li>
+     *      <li>User settings file.</li>
+     *      <li>Command line arguments</li>
+     * </ol>
+     */
+    private Settings mRuntimeSettings = new SettingsMap();
+
+    /** Platform settings loaded from the ctor. */
+    private Settings mPlatformSettings;
+
+    /** System settings loaded from $XDG_CONFIG_DIRS. */
+    private Settings mSystemSettings;
+
+    /** User settings loaded from $XDG_CONFIG_HOME. */
+    private Settings mUserSettings;
+
+    /** Settings provided at the command line. */
     private final SettingsArgs mCommandLineSettings;
-    // should this be final?
-    private final Settings mSettings;
+
     private final Platform mPlatform;
     private GameThread mGameThread;
 
@@ -63,7 +87,7 @@ public class GameEngine {
      * @param game Game implementation.
      * @param input All that input related stuff.
      * @param resources Resource management.
-     * @param settings Source of configuration infomation.
+     * @param settings Platform specific settings.
      * @param platform Platform specific information.
      */
     public GameEngine(SettingsArgs args, Display display, SceneManager scene,
@@ -76,8 +100,56 @@ public class GameEngine {
         mGame = game;
         mInputManager = input;
         mResourceManager = resources;
-        mSettings = settings;
+        mPlatformSettings = settings;
         mPlatform = platform;
+
+
+        {
+            assert mRuntimeSettings != null : "Programmer failure.";
+
+            String cfgName = game.getName()+".cfg";
+            String xmlName = game.getName()+".xml";
+            String[] names = new String[]{ cfgName, xmlName };
+            File path;
+
+            /*
+             * System settings:
+             *
+             *      Look for the first GameName.cfg file in $XDG_CONFIG_DIRS.
+             *      If not found, try GameName.xml by same method.
+             */
+            for (String n : names) {
+                path = new File(Utils.find(Xdg.XDG_CONFIG_DIRS, n));
+                if (path.exists()) {
+                    mSystemSettings = new SettingsFile(path);
+                    break;
+                }
+            }
+
+            /*
+             * User settings:
+             *
+             *      Look for $XDG_CONFIG_HOME/|game name|cfg.
+             *      If not found, try $XDG_CONFIG_HOME/|game name|.xml
+             */
+            for (String n : names) {
+                path = new File(Xdg.XDG_CONFIG_HOME, n);
+                if (path.exists()) {
+                    mUserSettings = new SettingsFile(path);
+                    break;
+                }
+            }
+
+        }
+
+
+        /*
+         * Process the various sources of Settings.
+         */
+        if (mPlatformSettings != null)      mRuntimeSettings.merge(mPlatformSettings);
+        if (mSystemSettings != null)        mRuntimeSettings.merge(mSystemSettings);
+        if (mUserSettings != null)          mRuntimeSettings.merge(mUserSettings);
+        if (mCommandLineSettings != null)   mRuntimeSettings.merge(mCommandLineSettings);
 
         configure();
 
@@ -88,8 +160,7 @@ public class GameEngine {
                  : (mGame == null ? "game"
                      : (mInputManager == null ? "input"
                          : (mResourceManager == null ? "resources"
-                             : (mSettings == null ? "settings"
-                                 : (mPlatform == null ? "platform" : null)))))));
+                             : (mPlatform == null ? "platform" : null))))));
 
         if (p != null) {
             throw new IllegalArgumentException(p+" can't be null!");
@@ -182,12 +253,12 @@ public class GameEngine {
 
 
     public Settings getSettings() {
-        return mSettings;
+        return mRuntimeSettings;
     }
 
 
     public void configure() {
-        configure(mSettings);
+        configure(mRuntimeSettings);
     }
 
 
@@ -217,7 +288,7 @@ public class GameEngine {
 
         /* Register resource search path via configuration file. */
         name = game+".resources.path";
-        x = mSettings.getString(name);
+        x = mRuntimeSettings.getString(name);
         if (!x.isEmpty()) {
             for (String dir : x.split(":")) {
                 mResourceManager.addResourceLocation(dir);
@@ -227,7 +298,7 @@ public class GameEngine {
 
         /* Support setting resolution from configuration file. */
         name = game+".display.resolution";
-        x = mSettings.getString(name);
+        x = mRuntimeSettings.getString(name);
         if (!x.isEmpty()) {
             Log.d(TAG, name, "=", x);
             mDisplay.setMode(x);
@@ -237,7 +308,7 @@ public class GameEngine {
 
     private void makeLogSink(String top) {
         System.err.println("Setting up logging for "+top);
-        Settings s = mSettings; // lazy git.
+        Settings s = mRuntimeSettings; // lazy git.
         LogSink sink = null;
 
         /* this will default to ASSERT(0). */
