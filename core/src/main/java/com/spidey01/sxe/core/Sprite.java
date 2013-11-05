@@ -28,6 +28,7 @@ import com.spidey01.sxe.core.gl.Shader;
 
 import com.spidey01.sxe.core.graphics.Mesh;
 import com.spidey01.sxe.core.graphics.RenderableObject;
+import com.spidey01.sxe.core.graphics.VertexBufferTechnique;
 
 import java.nio.FloatBuffer;
 
