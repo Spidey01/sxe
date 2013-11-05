@@ -85,6 +85,8 @@ lsproj() { #
 
 
 m() { # Makes from the top of the tree.
+    [ -f "$(gettop)/tmp/.m-clears-screen" ] && clear
+
     if [ -f "$(gettop)/tmp/.m-uses-script" ] && type script >/dev/null; then
         script -c "\"$(gettop)/gradlew\" --daemon \"${@:-build}\"" tmp/gradlew.log
     else
