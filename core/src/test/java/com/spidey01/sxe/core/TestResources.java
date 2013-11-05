@@ -46,5 +46,7 @@ public class TestResources {
     /** String of text used for testing with zipFileName. */
     static final String zipFileContent = "Test dummy for ZipResourceLoader.\n";
 
+    /** File name of settings file used for testing. */
+    static final String settingsFileName = "SettingsFile.properties";
 }
 
