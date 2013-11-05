@@ -47,9 +47,9 @@ public class TestResources {
     public static final String zipFileContent = "Test dummy for ZipResourceLoader.\n";
 
     /** File name of settings file used for testing. */
-    static final String settingsFileName = "SettingsFile.properties";
+    public static final String settingsFileName = "SettingsFile.properties";
 
     /** File name of settings xml file used for testing. */
-    static final String settingsXmlFileName = "SettingsXMLFile.xml";
+    public static final String settingsXmlFileName = "SettingsXMLFile.xml";
 }
 

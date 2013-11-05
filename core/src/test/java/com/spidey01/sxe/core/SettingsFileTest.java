@@ -25,6 +25,8 @@ package com.spidey01.sxe.core;
 
 import org.junit.*;
 
+import com.spidey01.sxe.core.testing.TestResources;
+
 import java.io.File;
 import java.io.IOException;
 
