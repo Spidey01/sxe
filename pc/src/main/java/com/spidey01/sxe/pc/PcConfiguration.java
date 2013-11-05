@@ -68,15 +68,15 @@ public class PcConfiguration {
 
 
     public static Settings settings(Game game) {
-        for (String extension : new String[]{ ".cfg", ".xml" }) {
-        }
+        String cfgName = game.getName()+".cfg";
+        String xmlName = game.getName()+".xml";
 
-        File local = new File(Xdg.XDG_CONFIG_HOME, game.getName()+".cfg");
+        File local = new File(Xdg.XDG_CONFIG_HOME, cfgName);
         if (local.exists()) {
             return new SettingsFile(local);
         }
 
-        File system = new File(Utils.find(Xdg.XDG_CONFIG_DIRS, game.getName()+".cfg"));
+        File system = new File(Utils.find(Xdg.XDG_CONFIG_DIRS, cfgName));
         if (system.exists()) {
             return new SettingsFile(system);
         }

@@ -45,7 +45,7 @@ public class GameEngine {
     private final SceneManager mSceneManager;
     private final InputManager mInputManager;
     private final ResourceManager mResourceManager;
-    private final SettingsArgs mArgs;
+    private final SettingsArgs mCommandLineSettings;
     // should this be final?
     private final Settings mSettings;
     private final Platform mPlatform;
@@ -70,7 +70,7 @@ public class GameEngine {
                       Game game, InputManager input, ResourceManager resources,
                       Settings settings, Platform platform)
     {
-        mArgs = args;
+        mCommandLineSettings = args;
         mDisplay = display;
         mSceneManager = scene;
         mGame = game;
