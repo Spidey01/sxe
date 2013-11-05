@@ -150,6 +150,7 @@ public class PcDisplay implements com.spidey01.sxe.core.Display {
         if (p != null) {
             return setMode(p);
         }
+        Log.w(TAG, "Failed setting Display Mode to", mode);
         return false;
     }
 
