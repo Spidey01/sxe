@@ -124,5 +124,7 @@ public interface Settings {
     /** Commit changes back to storage. */
     void save() throws IOException;
 
+    /** Merge contents of other Settings. */
+    void merge(Settings s);
 }
 

@@ -161,6 +161,12 @@ public class SettingsMap implements Settings {
 
 
     @Override
+    public void merge(Settings s) {
+    }
+
+
+
+    @Override
     public void addChangeListener(OnChangedListener listener) {
         mListeners.add(listener);
     }
@@ -177,7 +183,6 @@ public class SettingsMap implements Settings {
         }
     }
 
+
 }
-
-
 

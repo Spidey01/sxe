@@ -197,5 +197,9 @@ public abstract class AbstractSettingsFile implements Settings {
         load(path.getPath());
     }
 
+
+    @Override
+    public void merge(Settings s) {
+    }
 }
 

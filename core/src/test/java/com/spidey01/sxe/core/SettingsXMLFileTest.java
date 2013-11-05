@@ -56,6 +56,11 @@ public class SettingsXMLFileTest extends AbstractSettingsTest {
         fieldsAreClear(makeSettings());
     }
 
+
+    @Test
+    public void merge() {
+        mergeSettings(makeSettings(), makeSettings());
+    }
 }
 
 

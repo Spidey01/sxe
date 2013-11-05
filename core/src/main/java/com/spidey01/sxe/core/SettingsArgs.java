@@ -162,6 +162,11 @@ public class SettingsArgs implements Settings {
 
 
     @Override
+    public void merge(Settings s) {
+    }
+
+
+    @Override
     public void addChangeListener(OnChangedListener listener) {
         mListeners.add(listener);
     }

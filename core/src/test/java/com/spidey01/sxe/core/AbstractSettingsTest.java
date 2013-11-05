@@ -69,5 +69,14 @@ public abstract class AbstractSettingsTest extends UnitTest {
         Assert.assertEquals(0, test.getInt(getTag()+".log_level"));
     }
 
+
+    public void mergeSettings(Settings p, Settings c) {
+        Assert.assertFalse(p.contains("merge.c"));
+        c.setBoolean("merge.c", true);
+        p.merge(c);
+        Assert.assertTrue(p.contains("merge.c"));
+        Assert.assertTrue(p.getBoolean("merge.c"));
+    }
+
 }
 

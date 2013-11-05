@@ -56,5 +56,11 @@ public class SettingsFileTest extends AbstractSettingsTest {
         fieldsAreClear(makeSettings());
     }
 
+
+    @Test
+    public void merge() {
+        mergeSettings(makeSettings(), makeSettings());
+    }
+
 }
 
