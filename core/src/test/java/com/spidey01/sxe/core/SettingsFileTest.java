@@ -28,14 +28,8 @@ import org.junit.*;
 import java.io.File;
 import java.io.IOException;
 
-public class SettingsFileTest extends UnitTest {
+public class SettingsFileTest extends AbstractSettingsTest {
     private static final String TAG = "SettingsFileTest";
-
-
-    @BeforeClass
-    public static void setup() {
-        UnitTest.setup();
-    }
 
 
     private SettingsFile makeSettings() {
@@ -43,36 +37,21 @@ public class SettingsFileTest extends UnitTest {
     }
 
 
-    @Test
-    public void ctor() {
-        SettingsFile test = makeSettings();
-
-        Assert.assertTrue(test.contains("debug"));
-        Assert.assertTrue(test.getBoolean("debug"));
-
-        Assert.assertTrue(test.contains("SettingsFile.display.resolution"));
-        Assert.assertEquals("1280x720", test.getString("SettingsFile.display.resolution"));
-
-        Assert.assertTrue(test.contains("SettingsFile.log_level"));
-        Assert.assertEquals(10, test.getInt("SettingsFile.log_level"));
+    @Override
+    protected String getTag() {
+        return TAG;
     }
 
+
+    @Test
+    public void ctor() {
+        fieldsAreSet(makeSettings());
+    }
 
 
     @Test
     public void clear() {
-        SettingsFile test = makeSettings();
-
-        test.clear();
-
-        Assert.assertFalse(test.contains("debug"));
-        Assert.assertFalse(test.getBoolean("debug"));
-
-        Assert.assertFalse(test.contains("SettingsFile.display.resolution"));
-        Assert.assertEquals("", test.getString("SettingsFile.display.resolution"));
-
-        Assert.assertFalse(test.contains("SettingsFile.log_level"));
-        Assert.assertEquals(0, test.getInt("SettingsFile.log_level"));
+        fieldsAreClear(makeSettings());
     }
 
 }

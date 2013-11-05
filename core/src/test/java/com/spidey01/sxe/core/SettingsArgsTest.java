@@ -27,62 +27,41 @@ import org.junit.*;
 
 import java.io.IOException;
 
-public class SettingsArgsTest extends UnitTest {
+public class SettingsArgsTest extends AbstractSettingsTest {
     private static final String TAG = "SettingsArgsTest";
 
 
     private static final String[] sArgs = new String[]{
         "debug=true",
-        "HelloWorld.display.resolution=1280x720",
-        "HelloWorld.resources.path=tmp/",
-        "HelloWorld.log_level=10",
-        "HelloWorld.log_type=file",
-        "HelloWorld.log_file=tmp/HelloWorld.log",
-        "HelloWorld.log_flags=DisplayThreadId=true,DisplayDate=true,DisplayTime=true"
+        TAG+".display.resolution=1280x720",
+        TAG+".resources.path=tmp/",
+        TAG+".log_level=10",
+        TAG+".log_type=file",
+        TAG+".log_file=tmp/"+TAG+".log",
+        TAG+".log_flags=DisplayThreadId=true,DisplayDate=true,DisplayTime=true"
     };
 
 
-    @BeforeClass
-    public static void setup() {
-        UnitTest.setup();
+    @Override
+    protected String getTag() {
+        return TAG;
     }
 
 
     @Test
     public void ctor() {
-        SettingsArgs test = new SettingsArgs(sArgs);
-
-        Assert.assertTrue(test.contains("debug"));
-        Assert.assertTrue(test.getBoolean("debug"));
-
-        Assert.assertTrue(test.contains("HelloWorld.display.resolution"));
-        Assert.assertEquals("1280x720", test.getString("HelloWorld.display.resolution"));
-
-        Assert.assertTrue(test.contains("HelloWorld.log_level"));
-        Assert.assertEquals(10, test.getInt("HelloWorld.log_level"));
+        fieldsAreSet(new SettingsArgs(sArgs));
     }
-
 
 
     @Test
     public void clear() {
-        SettingsArgs test = new SettingsArgs(sArgs);
-
-        test.clear();
-
-        Assert.assertFalse(test.contains("debug"));
-        Assert.assertFalse(test.getBoolean("debug"));
-
-        Assert.assertFalse(test.contains("HelloWorld.display.resolution"));
-        Assert.assertEquals("", test.getString("HelloWorld.display.resolution"));
-
-        Assert.assertFalse(test.contains("HelloWorld.log_level"));
-        Assert.assertEquals(0, test.getInt("HelloWorld.log_level"));
+        fieldsAreClear(new SettingsArgs(sArgs));
     }
 
 
     @Test(expected = IOException.class)
-    public void noSave() throws IOException {
+    public void save() throws IOException {
         SettingsArgs p = new SettingsArgs(sArgs);
         p.save();
     }

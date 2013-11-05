@@ -3,6 +3,6 @@
 <properties>
 <comment>Comments and whitespace will not be saved.</comment>
 <entry key="debug">true</entry>
-<entry key="SettingsXMLFile.log_level">10</entry>
-<entry key="SettingsXMLFile.display.resolution">1280x720</entry>
+<entry key="SettingsXMLFileTest.log_level">10</entry>
+<entry key="SettingsXMLFileTest.display.resolution">1280x720</entry>
 </properties>

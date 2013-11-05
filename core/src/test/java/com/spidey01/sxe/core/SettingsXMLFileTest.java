@@ -28,14 +28,8 @@ import org.junit.*;
 import java.io.File;
 import java.io.IOException;
 
-public class SettingsXMLFileTest extends UnitTest {
+public class SettingsXMLFileTest extends AbstractSettingsTest {
     private static final String TAG = "SettingsXMLFileTest";
-
-
-    @BeforeClass
-    public static void setup() {
-        UnitTest.setup();
-    }
 
 
     private SettingsXMLFile makeSettings() {
@@ -43,36 +37,21 @@ public class SettingsXMLFileTest extends UnitTest {
     }
 
 
-    @Test
-    public void ctor() {
-        SettingsXMLFile test = makeSettings();
-
-        Assert.assertTrue(test.contains("debug"));
-        Assert.assertTrue(test.getBoolean("debug"));
-
-        Assert.assertTrue(test.contains("SettingsXMLFile.display.resolution"));
-        Assert.assertEquals("1280x720", test.getString("SettingsXMLFile.display.resolution"));
-
-        Assert.assertTrue(test.contains("SettingsXMLFile.log_level"));
-        Assert.assertEquals(10, test.getInt("SettingsXMLFile.log_level"));
+    @Override
+    protected String getTag() {
+        return TAG;
     }
 
+
+    @Test
+    public void ctor() {
+        fieldsAreSet(makeSettings());
+    }
 
 
     @Test
     public void clear() {
-        SettingsXMLFile test = makeSettings();
-
-        test.clear();
-
-        Assert.assertFalse(test.contains("debug"));
-        Assert.assertFalse(test.getBoolean("debug"));
-
-        Assert.assertFalse(test.contains("SettingsXMLFile.display.resolution"));
-        Assert.assertEquals("", test.getString("SettingsXMLFile.display.resolution"));
-
-        Assert.assertFalse(test.contains("SettingsXMLFile.log_level"));
-        Assert.assertEquals(0, test.getInt("SettingsXMLFile.log_level"));
+        fieldsAreClear(makeSettings());
     }
 
 }
