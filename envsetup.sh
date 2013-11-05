@@ -277,5 +277,5 @@ complete -F _sxe_complete_demos rd rdemo idemo irdemo
 
 check_android
 
-[ -f "$(gettop)/envsetup.sh.local" ] && . "$(gettop)/envsetup.sh.local"
+[ -f "$(gettop)/envsetup.local.sh" ] && . "$(gettop)/envsetup.local.sh"
 
