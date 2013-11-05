@@ -246,5 +246,14 @@ public class Utils {
         }
     }
 
+    /** Helper for merging Settings instances.
+     *
+     * Or basically, a implement your Settings.merge() method free.
+     */
+    public static void merge(Settings parent, Settings child) {
+        for (String key : child.keys()) {
+            parent.setString(key, child.getString(key));
+        }
+    }
 }
 

@@ -162,8 +162,8 @@ public class SettingsMap implements Settings {
 
     @Override
     public void merge(Settings s) {
+        Utils.merge(this, s);
     }
-
 
 
     @Override

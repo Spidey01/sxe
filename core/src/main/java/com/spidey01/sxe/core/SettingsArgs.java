@@ -163,6 +163,7 @@ public class SettingsArgs implements Settings {
 
     @Override
     public void merge(Settings s) {
+        Utils.merge(this, s);
     }
 
 
