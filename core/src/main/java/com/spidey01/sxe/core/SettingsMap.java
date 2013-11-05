@@ -40,11 +40,17 @@ public class SettingsMap implements Settings {
         new LinkedList<Settings.OnChangedListener>();
 
 
-    private Map<String, String> mMap = new HashMap<String, String>();
+    private Map<String, String> mMap;
+
+
+
+    public SettingsMap() {
+        mMap = new HashMap<String, String>();
+    }
 
 
     public SettingsMap(Map<String, String> map) {
-        mMap = map;
+        mMap = new HashMap<String, String>(map);
     }
 
 
