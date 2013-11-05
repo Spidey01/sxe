@@ -34,7 +34,8 @@ public class SettingsXMLFileTest extends AbstractSettingsTest {
     private static final String TAG = "SettingsXMLFileTest";
 
 
-    private SettingsXMLFile makeSettings() {
+    @Override
+    protected Settings makeSettings() {
         return new SettingsXMLFile(new File(TestResources.directory, TestResources.settingsXmlFileName));
     }
 
@@ -45,22 +46,5 @@ public class SettingsXMLFileTest extends AbstractSettingsTest {
     }
 
 
-    @Test
-    public void ctor() {
-        fieldsAreSet(makeSettings());
-    }
-
-
-    @Test
-    public void clear() {
-        fieldsAreClear(makeSettings());
-    }
-
-
-    @Test
-    public void merge() {
-        mergeSettings(makeSettings(), makeSettings());
-    }
 }
-
 

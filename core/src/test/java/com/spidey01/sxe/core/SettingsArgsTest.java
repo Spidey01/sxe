@@ -48,15 +48,9 @@ public class SettingsArgsTest extends AbstractSettingsTest {
     }
 
 
-    @Test
-    public void ctor() {
-        fieldsAreSet(new SettingsArgs(sArgs));
-    }
-
-
-    @Test
-    public void clear() {
-        fieldsAreClear(new SettingsArgs(sArgs));
+    @Override
+    protected Settings makeSettings() {
+        return new SettingsArgs(sArgs);
     }
 
 
@@ -66,15 +60,6 @@ public class SettingsArgsTest extends AbstractSettingsTest {
         p.save();
     }
 
-    @Test
-    public void merge() {
-        SettingsArgs p = new SettingsArgs(sArgs);
-        SettingsArgs c = new SettingsArgs(new String[] {"merge.c=true"});
-        Assert.assertFalse(p.contains("merge.c"));
-        p.merge(c);
-        Assert.assertTrue(p.contains("merge.c"));
-        Assert.assertTrue(p.getBoolean("merge.c"));
-    }
 
 }
 

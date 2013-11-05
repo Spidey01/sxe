@@ -42,9 +42,13 @@ public abstract class AbstractSettingsTest extends UnitTest {
 
 
     protected abstract String getTag();
+    protected abstract Settings makeSettings();
 
 
-    public void fieldsAreSet(Settings test) {
+    @Test
+    public void load() {
+        Settings test = makeSettings();
+
         Assert.assertTrue(test.contains("debug"));
         Assert.assertTrue(test.getBoolean("debug"));
 
@@ -56,7 +60,9 @@ public abstract class AbstractSettingsTest extends UnitTest {
     }
 
 
-    public void fieldsAreClear(Settings test) {
+    @Test
+    public void clear() {
+        Settings test = makeSettings();
         test.clear();
 
         Assert.assertFalse(test.contains("debug"));
@@ -70,7 +76,11 @@ public abstract class AbstractSettingsTest extends UnitTest {
     }
 
 
-    public void mergeSettings(Settings p, Settings c) {
+    @Test
+    public void merge() {
+        Settings p = makeSettings();
+        Settings c = makeSettings();
+
         Assert.assertFalse(p.contains("merge.c"));
         c.setBoolean("merge.c", true);
         p.merge(c);

@@ -34,7 +34,8 @@ public class SettingsFileTest extends AbstractSettingsTest {
     private static final String TAG = "SettingsFileTest";
 
 
-    private SettingsFile makeSettings() {
+    @Override
+    protected Settings makeSettings() {
         return new SettingsFile(new File(TestResources.directory, TestResources.settingsFileName));
     }
 
@@ -44,23 +45,6 @@ public class SettingsFileTest extends AbstractSettingsTest {
         return TAG;
     }
 
-
-    @Test
-    public void ctor() {
-        fieldsAreSet(makeSettings());
-    }
-
-
-    @Test
-    public void clear() {
-        fieldsAreClear(makeSettings());
-    }
-
-
-    @Test
-    public void merge() {
-        mergeSettings(makeSettings(), makeSettings());
-    }
 
 }
 
