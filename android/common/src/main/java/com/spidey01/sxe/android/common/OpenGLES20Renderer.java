@@ -23,10 +23,11 @@
 
 package com.spidey01.sxe.android;
 
-import com.spidey01.sxe.core.FrameEndedListener;
-import com.spidey01.sxe.core.FrameListener;
-import com.spidey01.sxe.core.FrameStartedListener;
 import com.spidey01.sxe.core.RateCounter;
+
+import com.spidey01.sxe.core.graphics.FrameEndedListener;
+import com.spidey01.sxe.core.graphics.FrameListener;
+import com.spidey01.sxe.core.graphics.FrameStartedListener;
 
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;

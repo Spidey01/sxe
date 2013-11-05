@@ -21,7 +21,10 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.testing;
+
+import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.LogSink;
 
 /** Base class for unit tests.
  *

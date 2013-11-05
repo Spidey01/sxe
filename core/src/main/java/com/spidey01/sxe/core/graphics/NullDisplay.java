@@ -23,6 +23,16 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.gl.NullOpenGL;
+import com.spidey01.sxe.core.gl.OpenGL;
+import com.spidey01.sxe.core.gl.OpenGLES11;
+import com.spidey01.sxe.core.gl.OpenGLES20;
+import com.spidey01.sxe.core.gl.OpenGLES30;
+
+import com.spidey01.sxe.core.graphics.FrameEndedListener;
+import com.spidey01.sxe.core.graphics.FrameListener;
+import com.spidey01.sxe.core.graphics.FrameStartedListener;
+
 import java.util.List;
 import java.util.ArrayList;
 

@@ -26,7 +26,7 @@ package com.spidey01.sxe.scripting.jsr223;
 import org.junit.*;
 
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.UnitTest;
+import com.spidey01.sxe.core.testing.UnitTest;
 
 import com.spidey01.sxe.scripting.*;
 

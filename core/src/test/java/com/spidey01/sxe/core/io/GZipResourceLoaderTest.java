@@ -21,16 +21,38 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.io;
 
-/** Interface for rendering techniques.
- *
- * This will be used to seperate the rendering method from the
- * renderable objects data and state.
- */
-public interface RenderingTechnique extends Technique {
-    // void initialize(RenderableObject client);
-    // void draw(RenderableObject client);
-    // void deinitialize(RenderableObject client);
+import org.junit.*;
+
+import com.spidey01.sxe.core.Utils;
+import com.spidey01.sxe.core.testing.TestResources;
+import com.spidey01.sxe.core.testing.UnitTest;
+
+import java.io.File;
+import java.io.IOException;
+
+public class GZipResourceLoaderTest extends UnitTest {
+    private static GZipResourceLoader sLoader = new GZipResourceLoader();
+
+    @BeforeClass
+    public static void setup() {
+        UnitTest.setup();
+    }
+
+
+    @Test
+    public void simplePathTest() throws IOException {
+        String from = TestResources.directory;
+        String what = TestResources.gzipFileName;
+        File txt = new File(from, what);
+        Assume.assumeTrue(txt.exists());
+
+
+        Assert.assertEquals("Loading a gzip compressed text file.",
+                            TestResources.gzipFileContent,
+                            Utils.slurp(sLoader.getInputStream(from, what)));
+    }
+
 }
 

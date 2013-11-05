@@ -21,28 +21,37 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.io;
+
+import org.junit.*;
+
+import com.spidey01.sxe.core.Utils;
+import com.spidey01.sxe.core.testing.TestResources;
+import com.spidey01.sxe.core.testing.UnitTest;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.zip.GZIPInputStream;
 
-public class GZipResourceLoader extends PathResourceLoader {
-    private final static String TAG = "GZipResourceLoader";
+public class PathResourceLoaderTest extends UnitTest {
+    private static PathResourceLoader sLoader = new PathResourceLoader();
 
 
-    public InputStream getInputStream(File from, File what)
-        throws IOException
-    {
-        return new GZIPInputStream(super.getInputStream(from, what));
+    @BeforeClass
+    public static void setup() {
+        UnitTest.setup();
     }
 
 
-    public InputStream getInputStream(String from, String what)
-        throws IOException
-    {
-        return new GZIPInputStream(super.getInputStream(from, what));
+    @Test
+    public void simplePathTest() throws IOException {
+        String from = TestResources.directory;
+        String what = TestResources.textFileName;
+        File txt = new File(from, what);
+        Assume.assumeTrue(txt.exists());
+
+        Assert.assertEquals("Loading a text file.", 
+                            TestResources.textFileContent,
+                            Utils.slurp(sLoader.getInputStream(from, what)));
     }
 
 }

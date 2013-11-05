@@ -23,6 +23,10 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.io.PathResourceLoader;
+import com.spidey01.sxe.core.io.ZipResourceLoader;
+import com.spidey01.sxe.core.io.GZipResourceLoader;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;

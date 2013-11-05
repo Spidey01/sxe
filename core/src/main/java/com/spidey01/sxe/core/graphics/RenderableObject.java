@@ -21,34 +21,9 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.graphics;
 
-import org.junit.*;
-
-import java.io.File;
-import java.io.IOException;
-
-public class GZipResourceLoaderTest extends UnitTest {
-    private static GZipResourceLoader sLoader = new GZipResourceLoader();
-
-    @BeforeClass
-    public static void setup() {
-        UnitTest.setup();
-    }
-
-
-    @Test
-    public void simplePathTest() throws IOException {
-        String from = TestResources.directory;
-        String what = TestResources.gzipFileName;
-        File txt = new File(from, what);
-        Assume.assumeTrue(txt.exists());
-
-
-        Assert.assertEquals("Loading a gzip compressed text file.",
-                            TestResources.gzipFileContent,
-                            Utils.slurp(sLoader.getInputStream(from, what)));
-    }
-
+public interface RenderableObject {
+    void draw();
 }
 

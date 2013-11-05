@@ -21,13 +21,13 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.graphics;
 
-public interface FrameEndedListener {
-
-    /** Called just after updating the display.
-     */
-    public void frameEnded();
+/** Listen for when frames are rendered.
+ *
+ */
+public interface FrameListener
+    extends FrameStartedListener, FrameEndedListener
+{
 }
-
 

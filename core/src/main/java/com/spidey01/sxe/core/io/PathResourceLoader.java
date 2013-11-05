@@ -21,7 +21,9 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.io;
+
+import com.spidey01.sxe.core.ResourceLoader;
 
 import java.io.InputStream;
 import java.io.FileInputStream;

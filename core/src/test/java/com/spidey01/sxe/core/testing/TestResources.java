@@ -21,30 +21,30 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.testing;
 
 public class TestResources {
 
     /** Directory containing test resources. */
-    static final String directory = "src/test/resources";
+    public static final String directory = "src/test/resources";
 
     /** File name of text file used for testing. */
-    static final String textFileName = "PathResourceLoader.txt";
+    public static final String textFileName = "PathResourceLoader.txt";
 
     /** String of text used for testing with textFileName. */
-    static final String textFileContent = "Test dummy for PathResourceLoader.\n";
+    public static final String textFileContent = "Test dummy for PathResourceLoader.\n";
 
     /** File name of GZip'd text file used for testing. */
-    static final String gzipFileName = "PathResourceLoader.txt.gz";
+    public static final String gzipFileName = "PathResourceLoader.txt.gz";
 
     /** String of text used for testing with gzipFileName. */
-    static final String gzipFileContent = textFileContent;
+    public static final String gzipFileContent = textFileContent;
 
     /** File name of Zip archive used for testing. */
-    static final String zipFileName = "ZipResourceLoader.zip";
+    public static final String zipFileName = "ZipResourceLoader.zip";
 
     /** String of text used for testing with zipFileName. */
-    static final String zipFileContent = "Test dummy for ZipResourceLoader.\n";
+    public static final String zipFileContent = "Test dummy for ZipResourceLoader.\n";
 
     /** File name of settings file used for testing. */
     static final String settingsFileName = "SettingsFile.properties";

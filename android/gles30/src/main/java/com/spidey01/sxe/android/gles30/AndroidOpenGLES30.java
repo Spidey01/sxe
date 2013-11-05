@@ -23,9 +23,9 @@
 
 package com.spidey01.sxe.android.gles30;
 
-import  com.spidey01.sxe.core.GpuProgram;
-import  com.spidey01.sxe.core.OpenGLES30;
-import  com.spidey01.sxe.core.Shader;
+import  com.spidey01.sxe.core.gl.Program;
+import  com.spidey01.sxe.core.gl.OpenGLES30;
+import  com.spidey01.sxe.core.gl.Shader;
 
 import android.opengl.GLES30;
 
@@ -43,7 +43,7 @@ public class AndroidOpenGLES30 implements OpenGLES30 {
     /* OpenGL functions */
 
     @Override
-    public void glAttachShader(GpuProgram p, Shader s) {
+    public void glAttachShader(Program p, Shader s) {
         glAttachShader(p.getProgram(), s.getId());
     }
 
@@ -157,7 +157,7 @@ public class AndroidOpenGLES30 implements OpenGLES30 {
 
 
     @Override
-    public void glDeleteProgram(GpuProgram program) {
+    public void glDeleteProgram(Program program) {
         GLES30.glDeleteProgram(program.getProgram());
     }
 
@@ -175,7 +175,7 @@ public class AndroidOpenGLES30 implements OpenGLES30 {
 
 
     @Override
-    public void glDetachShader(GpuProgram program, Shader shader) {
+    public void glDetachShader(Program program, Shader shader) {
         GLES30.glDetachShader(program.getProgram(), shader.getId());
     }
 
@@ -283,7 +283,7 @@ public class AndroidOpenGLES30 implements OpenGLES30 {
 
 
     @Override
-    public int glGetUniformLocation(GpuProgram program, String name) {
+    public int glGetUniformLocation(Program program, String name) {
         return GLES30.glGetUniformLocation(program.getProgram(), name);
     }
 
@@ -295,7 +295,7 @@ public class AndroidOpenGLES30 implements OpenGLES30 {
 
 
     @Override
-    public void glGetUniformfv(GpuProgram program, int location, FloatBuffer params) {
+    public void glGetUniformfv(Program program, int location, FloatBuffer params) {
         GLES30.glGetUniformfv(program.getProgram(), location, params);
     }
 
@@ -307,7 +307,7 @@ public class AndroidOpenGLES30 implements OpenGLES30 {
 
 
     @Override
-    public void glGetUniformiv(GpuProgram program, int location, IntBuffer params) {
+    public void glGetUniformiv(Program program, int location, IntBuffer params) {
         GLES30.glGetUniformiv(program.getProgram(), location, params);
     }
 
@@ -323,7 +323,7 @@ public class AndroidOpenGLES30 implements OpenGLES30 {
     }
 
     @Override
-    public void glLinkProgram(GpuProgram p) {
+    public void glLinkProgram(Program p) {
         glLinkProgram(p.getProgram());
     }
 
@@ -408,7 +408,7 @@ public class AndroidOpenGLES30 implements OpenGLES30 {
 
 
     @Override
-    public void glUseProgram(GpuProgram program) {
+    public void glUseProgram(Program program) {
         GLES30.glUseProgram(program.getProgram());
     }
 
@@ -418,7 +418,7 @@ public class AndroidOpenGLES30 implements OpenGLES30 {
     }
 
     @Override
-    public void glValidateProgram(GpuProgram p) {
+    public void glValidateProgram(Program p) {
         glValidateProgram(p.getProgram());
     }
 

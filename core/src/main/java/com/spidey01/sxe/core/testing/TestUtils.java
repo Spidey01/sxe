@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -21,13 +21,24 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.testing;
 
-public interface FrameStartedListener {
+import com.spidey01.sxe.core.Log;
 
-    /** Called before updating the display.
-     */
-    public void frameStarted(OpenGL GL20);
+import java.io.File;
+
+/** Utilties for JUnit tests.
+ */
+public class TestUtils {
+    public static File baseDir = new File(System.getProperty("user.dir"));
+    public static File resourcesDir = new File(baseDir,
+        "src" + File.separator + "test" + File.separator + "resources");
+
+    public static File getResource(String path) {
+
+        File f = new File(resourcesDir, path);
+        Log.v("TestUtils.getResource", f.getPath());
+        return f;
+    }
 }
-
 

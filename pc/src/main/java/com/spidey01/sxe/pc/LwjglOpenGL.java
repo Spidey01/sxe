@@ -23,12 +23,12 @@
 
 package com.spidey01.sxe.pc;
 
-import  com.spidey01.sxe.core.GpuProgram;
-import  com.spidey01.sxe.core.OpenGL;
-import  com.spidey01.sxe.core.OpenGLES11;
-import  com.spidey01.sxe.core.OpenGLES20;
-import  com.spidey01.sxe.core.OpenGLES30;
-import  com.spidey01.sxe.core.Shader;
+import  com.spidey01.sxe.core.gl.Program;
+import  com.spidey01.sxe.core.gl.OpenGL;
+import  com.spidey01.sxe.core.gl.OpenGLES11;
+import  com.spidey01.sxe.core.gl.OpenGLES20;
+import  com.spidey01.sxe.core.gl.OpenGLES30;
+import  com.spidey01.sxe.core.gl.Shader;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -50,7 +50,7 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     /* OpenGL functions */
 
     @Override
-    public void glAttachShader(GpuProgram p, Shader s) {
+    public void glAttachShader(Program p, Shader s) {
         GL20.glAttachShader(p.getProgram(), s.getId());
     }
 
@@ -155,7 +155,7 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public void glDeleteProgram(GpuProgram program) {
+    public void glDeleteProgram(Program program) {
         GL20.glDeleteProgram(program.getProgram());
     }
 
@@ -172,7 +172,7 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public void glDetachShader(GpuProgram program, Shader shader) {
+    public void glDetachShader(Program program, Shader shader) {
         GL20.glDetachShader(program.getProgram(), shader.getId());
     }
 
@@ -278,7 +278,7 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public int glGetUniformLocation(GpuProgram program, String name) {
+    public int glGetUniformLocation(Program program, String name) {
         return GL20.glGetUniformLocation(program.getProgram(), name);
     }
 
@@ -290,7 +290,7 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public void glGetUniformfv(GpuProgram program, int location, FloatBuffer params) {
+    public void glGetUniformfv(Program program, int location, FloatBuffer params) {
         GL20.glGetUniform(program.getProgram(), location, params);
     }
 
@@ -302,7 +302,7 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public void glGetUniformiv(GpuProgram program, int location, IntBuffer params) {
+    public void glGetUniformiv(Program program, int location, IntBuffer params) {
         GL20.glGetUniform(program.getProgram(), location, params);
     }
 
@@ -314,7 +314,7 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public void glLinkProgram(GpuProgram p) {
+    public void glLinkProgram(Program p) {
         glLinkProgram(p.getProgram());
     }
 
@@ -399,7 +399,7 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
 
 
     @Override
-    public void glUseProgram(GpuProgram program) {
+    public void glUseProgram(Program program) {
         GL20.glUseProgram(program.getProgram());
     }
 
@@ -414,7 +414,7 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     }
 
     @Override
-    public void glValidateProgram(GpuProgram p) {
+    public void glValidateProgram(Program p) {
         glValidateProgram(p.getProgram());
     }
 

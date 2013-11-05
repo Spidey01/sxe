@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -21,27 +21,16 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.graphics;
 
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.DoubleBuffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-
-/** Working set of OpenGL functions.
+/** Interface for rendering techniques.
  *
- * This should provide access to the fixed and programmable pipelines where
- * available. Implementations may throw an unchecked exception if OpenGL legacy
- * / depreciated functionality is unavailable.
- *
- * Attempting to intermix pipelines in a bad way may but is not required to
- * throw an IllegalStateException.
- *
- * In most cases unless a method is intended to be free to use anything it
- * wants (such as for ease of testing), you should probably write methods to
- * use the appropriate type.
+ * This will be used to seperate the rendering method from the
+ * renderable objects data and state.
  */
-public interface OpenGL extends OpenGLES11, OpenGLES20, OpenGLES30 {
+public interface Technique {
+    // void initialize(RenderableObject client);
+    // void draw(RenderableObject client);
+    // void deinitialize(RenderableObject client);
 }
 

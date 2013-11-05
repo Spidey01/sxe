@@ -23,6 +23,13 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.gl.Program;
+import com.spidey01.sxe.core.gl.Shader;
+
+import com.spidey01.sxe.core.graphics.Mesh;
+import com.spidey01.sxe.core.graphics.RenderableObject;
+import com.spidey01.sxe.core.graphics.VertexBufferTechnique;
+
 import java.nio.FloatBuffer;
 
 public class Sprite
@@ -53,7 +60,7 @@ public class Sprite
 
     private Mesh mMesh;
     private Texture mTexture;
-    private GpuProgram mProgram = new GpuProgram();
+    private Program mProgram = new Program();
     private Shader mVertexShader;
     private Shader mFragmentShader;
     private VertexBufferTechnique mTechnique;
@@ -84,7 +91,7 @@ public class Sprite
     }
 
 
-    public GpuProgram getProgram() {
+    public Program getProgram() {
         return mProgram;
     }
 

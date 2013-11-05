@@ -23,12 +23,14 @@
 
 package com.spidey01.sxe.pc;
 
-import com.spidey01.sxe.core.FrameEndedListener;
-import com.spidey01.sxe.core.FrameListener;
-import com.spidey01.sxe.core.FrameStartedListener;
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.OpenGL;
 import com.spidey01.sxe.core.RateCounter;
+
+import com.spidey01.sxe.core.gl.OpenGL;
+
+import com.spidey01.sxe.core.graphics.FrameEndedListener;
+import com.spidey01.sxe.core.graphics.FrameListener;
+import com.spidey01.sxe.core.graphics.FrameStartedListener;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.ContextCapabilities;
