@@ -48,7 +48,8 @@ public class AndroidConfiguration {
         AndroidDisplay display = new AndroidDisplay(context);
 
         return new GameEngine(
-                display
+                null
+                , display
                 , new SceneManager()
                 , game
                 , new AndroidInputManager(display)

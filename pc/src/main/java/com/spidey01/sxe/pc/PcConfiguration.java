@@ -30,6 +30,7 @@ import com.spidey01.sxe.core.Platform;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.SceneManager;
 import com.spidey01.sxe.core.Settings;
+import com.spidey01.sxe.core.SettingsArgs;
 import com.spidey01.sxe.core.SettingsFile;
 import com.spidey01.sxe.core.Utils;
 import com.spidey01.sxe.core.Xdg;
@@ -43,14 +44,19 @@ public class PcConfiguration {
 
     /** The defaults */
     public static GameEngine setup(Game game) {
-        return setup(game, "640 x 480");
+        return setup(
+                new String[]{ game.getName()+".display.resolution=640x480" },
+                game);
     }
 
 
-    public static GameEngine setup(Game game, String displayMode) {
+    public static GameEngine setup(String[] args, Game game) {
+        SettingsArgs cliSettings = new SettingsArgs(args);
+        // Settings userSettings = 
 
         return new GameEngine(
-            new PcDisplay(displayMode)
+            cliSettings
+            , new PcDisplay()
             , new SceneManager()
             , game
             , new PcInputManager()

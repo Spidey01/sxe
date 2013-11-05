@@ -45,6 +45,7 @@ public class GameEngine {
     private final SceneManager mSceneManager;
     private final InputManager mInputManager;
     private final ResourceManager mResourceManager;
+    private final SettingsArgs mArgs;
     // should this be final?
     private final Settings mSettings;
     private final Platform mPlatform;
@@ -56,6 +57,7 @@ public class GameEngine {
      *
      * This is the primary chunk-o-code constructor.
      *
+     * @param args Command line arguments.
      * @param display Display complicata.
      * @param scene  Manager of the scene.
      * @param game Game implementation.
@@ -64,10 +66,11 @@ public class GameEngine {
      * @param settings Source of configuration infomation.
      * @param platform Platform specific information.
      */
-    public GameEngine(Display display, SceneManager scene, Game game,
-                      InputManager input, ResourceManager resources,
+    public GameEngine(SettingsArgs args, Display display, SceneManager scene,
+                      Game game, InputManager input, ResourceManager resources,
                       Settings settings, Platform platform)
     {
+        mArgs = args;
         mDisplay = display;
         mSceneManager = scene;
         mGame = game;

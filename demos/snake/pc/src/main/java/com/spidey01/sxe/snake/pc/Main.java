@@ -39,9 +39,7 @@ import java.io.*;
 class Main {
 
     public static void main(String[] args) {
-        GameEngine g =
-            args.length > 0 ? PcConfiguration.setup(new SnakeGame(), args[0])
-                            : PcConfiguration.setup(new SnakeGame());
+        GameEngine g = PcConfiguration.setup(args, new SnakeGame());
         g.start();
         g.mainLoop();
         g.stop();

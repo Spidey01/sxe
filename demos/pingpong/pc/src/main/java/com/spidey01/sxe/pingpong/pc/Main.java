@@ -31,9 +31,7 @@ import com.spidey01.sxe.pingpong.lib.PingPongGame;
 class Main {
 
     public static void main(String[] args) {
-        GameEngine g =
-            args.length > 0 ? PcConfiguration.setup(new PingPongGame(), args[0])
-                            : PcConfiguration.setup(new PingPongGame());
+        GameEngine g = PcConfiguration.setup(args, new PingPongGame());
         g.start();
         g.mainLoop();
         g.stop();

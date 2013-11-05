@@ -31,7 +31,7 @@ import com.spidey01.sxe.helloworld.lib.HelloWorld;
 class Main {
 
     public static void main(String[] args) {
-        GameEngine g = PcConfiguration.setup(new HelloWorld());
+        GameEngine g = PcConfiguration.setup(args, new HelloWorld());
         g.start();
         g.mainLoop();
         g.stop();
