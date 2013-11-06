@@ -24,10 +24,11 @@
 package com.spidey01.sxe.android.common;
 
 import com.spidey01.sxe.android.common.AndroidDisplay;
+
 import com.spidey01.sxe.core.Action;
-import com.spidey01.sxe.core.Display;
 import com.spidey01.sxe.core.InputManager;
 import com.spidey01.sxe.core.KeyListener;
+import com.spidey01.sxe.core.graphics.Display;
 
 import android.view.KeyEvent;
 import android.view.View.OnKeyListener;

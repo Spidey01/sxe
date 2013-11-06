@@ -23,11 +23,8 @@
 
 package com.spidey01.sxe.android.common;
 
-import com.spidey01.sxe.android.OpenGLES20Renderer;
-import com.spidey01.sxe.core.Display;
-
 import com.spidey01.sxe.core.gl.OpenGL;
-
+import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.graphics.FrameEndedListener;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.FrameStartedListener;

@@ -24,6 +24,7 @@
 package com.spidey01.sxe.android.common;
 
 import com.spidey01.sxe.core.Settings;
+import com.spidey01.sxe.core.Utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -63,13 +64,18 @@ public class AndroidSettings implements Settings {
         mPrefs.registerOnSharedPreferenceChangeListener(new Notifier(this));
     }
 
+
+    @Override
     public void addChangeListener(OnChangedListener listener) {
         mListeners.add(listener);
     }
 
+
+    @Override
     public void removeChangeListener(OnChangedListener listener) {
         mListeners.remove(listener);
     }
+
 
     private void notifyListeners(String key) {
         for (Settings.OnChangedListener l : mListeners) {
@@ -77,10 +83,14 @@ public class AndroidSettings implements Settings {
         }
     }
 
+
+    @Override
     public String[] keys() {
         return (String[])getAll().keySet().toArray();
     }
 
+
+    @Override
     public boolean contains(String key) {
         return mPrefs.contains(key);
     }
@@ -89,62 +99,89 @@ public class AndroidSettings implements Settings {
         return (Map<String, Object>)mPrefs.getAll();
     }
 
+
+    @Override
     public boolean getBoolean(String key) {
         return mPrefs.getBoolean(key, false);
     }
     
+
+    @Override
     public float getFloat(String key) {
         return mPrefs.getFloat(key, 0.0f);
     }
     
+
+    @Override
     public int getInt(String key) {
         return mPrefs.getInt(key, 0);
     }
 
+
+    @Override
     public long getLong(String key) {
         return mPrefs.getLong(key, 0);
     }
 
+
+    @Override
     public String getString(String key) {
         return mPrefs.getString(key, "");
     }
 
 
+    @Override
     public Settings setBoolean(String key, boolean value) {
         mPrefs.edit().putBoolean(key, value);
         return this;
     }
 
+
+    @Override
     public Settings setFloat(String key, float value) {
         mPrefs.edit().putFloat(key, value);
         return this;
     }
 
+
+    @Override
     public Settings setInt(String key, int value) {
         mPrefs.edit().putInt(key, value);
         return this;
     }
 
+
+    @Override
     public Settings setLong(String key, long value) {
         mPrefs.edit().putLong(key, value);
         return this;
     }
 
+
+    @Override
     public Settings setString(String key, String value) {
         mPrefs.edit().putString(key, value);
         return this;
     }
 
 
+    @Override
     public void clear() {
         mPrefs.edit().clear();
     }
 
 
+    @Override
     public void save() throws IOException {
         if (!mPrefs.edit().commit()) {
             throw new IOException("Failed to commit changes");
         }
+    }
+
+
+    @Override
+    public void merge(Settings s) {
+        Utils.merge(this, s);
     }
 }
 
