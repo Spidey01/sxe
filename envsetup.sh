@@ -166,22 +166,21 @@ idemo() { # :installApp a demo by name
 }
 
 
-# TODO: last path assumes pwd=gettop
 irdemo() { # installdemo and execute a demo by name with following args.
     local demo
     demo=$1
     shift
-    installdemo $demo
+    idemo $demo
     eval \
         env \
             XDG_DATA_DIRS="`gettop`/demos/$demo/pc/src/dist/share" \
-            XDG_CONFIG_DIRS="`gettop`/demos/$demo/pc/src/dist/share" \
+            XDG_CONFIG_DIRS="`gettop`/demos/$demo/pc/src/dist/etc" \
             XDG_DATA_HOME="`gettop`/tmp/share" \
             XDG_CONFIG_HOME="`gettop`/tmp/config" \
             XDG_CACHE_HOME="`gettop`/tmp/cache" \
-            "`echo $demo | awk '{print toupper($0)}'`_PC_OPTS=\"'-Djava.library.path=${croot}/demos/${demo}/pc/build/install/${demo}-pc/lib/natives'\"" \
+            "`echo $demo | awk '{print toupper($0)}'`_PC_OPTS=\"'-Djava.library.path=$(gettop)/demos/${demo}/pc/build/install/${demo}-pc/lib/natives'\"" \
             \
-                "demos/${demo}/pc/build/install/${demo}-pc/bin/${demo}-pc" "$@"
+                "$(gettop)/demos/${demo}/pc/build/install/${demo}-pc/bin/${demo}-pc" "$@"
 }
 
 
