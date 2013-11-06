@@ -24,9 +24,9 @@
 package com.spidey01.sxe.testing;
 
 import com.spidey01.sxe.core.Game;
-import com.spidey01.sxe.core.graphics.NullDisplay;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.NullInputManager;
 import com.spidey01.sxe.core.Platform;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.SceneManager;
@@ -35,6 +35,8 @@ import com.spidey01.sxe.core.SettingsArgs;
 import com.spidey01.sxe.core.SettingsFile;
 import com.spidey01.sxe.core.Utils;
 import com.spidey01.sxe.core.Xdg;
+import com.spidey01.sxe.core.gl.NullOpenGL;
+import com.spidey01.sxe.core.graphics.NullDisplay;
 
 import java.io.File;
 
@@ -45,14 +47,14 @@ public class NullConfiguration {
 
     /** The defaults */
     public static GameEngine setup(Game game) {
-        setup(null, game);
+        return setup(null, game);
     }
 
 
     public static GameEngine setup(String[] args, Game game) {
         return new GameEngine(
-            new SettingsArgs(args);
-            , new NullDisplay()
+            new SettingsArgs(args)
+            , new NullDisplay(new NullOpenGL(), true)
             , new SceneManager()
             , game
             , new NullInputManager()

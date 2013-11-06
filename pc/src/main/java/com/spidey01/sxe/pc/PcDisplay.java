@@ -44,7 +44,7 @@ import java.util.ArrayList;
 
 
 
-public class PcDisplay implements com.spidey01.sxe.core.Display {
+public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
 
     private RateCounter mFrameCounter = new RateCounter("Frames");
     /** default to VGA */

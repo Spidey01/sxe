@@ -153,7 +153,7 @@ public abstract class InputManager {
      */
     public void inject(String keyName, boolean isDown) {
         // TODO: figure out a key code for the event. -1 shouldn't be on the kb.
-        inject(new KeyEvent(this, -1, keyName, bDown));
+        inject(new KeyEvent(this, -1, keyName, isDown));
     }
 
 

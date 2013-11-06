@@ -56,6 +56,12 @@ public abstract class Game {
 
     public abstract String getName();
 
+
+    public String getPublisher() {
+        return null;
+    }
+
+
     /** Starts the game running.
      *
      * @param engine a GameEngine to execute the game within.

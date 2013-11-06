@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.graphics.Display;
+
 import java.util.Map;
 import java.util.HashMap;
 

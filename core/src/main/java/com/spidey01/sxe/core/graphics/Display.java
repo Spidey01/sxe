@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.graphics;
 
 import com.spidey01.sxe.core.gl.OpenGL;
 
