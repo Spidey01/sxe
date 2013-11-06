@@ -24,7 +24,6 @@
 package com.spidey01.sxe.android.common;
 
 import com.spidey01.sxe.core.Game;
-import com.spidey01.sxe.core.GameContext;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.Platform;
@@ -34,7 +33,7 @@ import com.spidey01.sxe.core.SceneManager;
 import android.content.Context;
 import android.os.Build;
 
-/** Utility class to setup a GameContext to the configuration for Android.
+/** Utility class to setup a GameEngine on Android.
  */
 public class AndroidConfiguration {
 
