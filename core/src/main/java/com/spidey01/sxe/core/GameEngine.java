@@ -112,6 +112,7 @@ public class GameEngine {
             String cfgName = game.getName()+".cfg";
             String xmlName = game.getName()+".xml";
             String[] names = new String[]{ cfgName, xmlName };
+            String p;
             File path;
 
             /*
@@ -121,7 +122,9 @@ public class GameEngine {
              *      If not found, try GameName.xml by same method.
              */
             for (String n : names) {
-                path = new File(Utils.find(Xdg.XDG_CONFIG_DIRS, n));
+                p = Utils.find(Xdg.XDG_CONFIG_DIRS, n);
+                if (p == null) continue;
+                path = new File(p);
                 if (path.exists()) {
                     mSystemSettings = new SettingsFile(path);
                     break;
