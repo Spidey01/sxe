@@ -21,7 +21,10 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.testing;
+
+import com.spidey01.sxe.core.InputManager;
+import com.spidey01.sxe.core.Log;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -35,6 +38,10 @@ import java.util.LinkedList;
 public class NullInputManager extends InputManager {
     private static final String TAG = "NullInputManager";
     
+    public NullInputManager() {
+        Log.d(TAG, "Default ctor.");
+    }
+
 
     public void poll() {
         Log.xtrace(TAG,  "poll()");

@@ -21,9 +21,15 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core.gl;
+package com.spidey01.sxe.core.testing;
 
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.gl.OpenGL;
+import com.spidey01.sxe.core.gl.OpenGLES11;
+import com.spidey01.sxe.core.gl.OpenGLES20;
+import com.spidey01.sxe.core.gl.OpenGLES30;
+import com.spidey01.sxe.core.gl.Program;
+import com.spidey01.sxe.core.gl.Shader;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;

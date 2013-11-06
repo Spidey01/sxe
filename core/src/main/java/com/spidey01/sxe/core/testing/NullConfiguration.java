@@ -21,12 +21,11 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.testing;
+package com.spidey01.sxe.core.testing;
 
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.NullInputManager;
 import com.spidey01.sxe.core.Platform;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.SceneManager;
@@ -35,8 +34,6 @@ import com.spidey01.sxe.core.SettingsArgs;
 import com.spidey01.sxe.core.SettingsFile;
 import com.spidey01.sxe.core.Utils;
 import com.spidey01.sxe.core.Xdg;
-import com.spidey01.sxe.core.gl.NullOpenGL;
-import com.spidey01.sxe.core.graphics.NullDisplay;
 
 import java.io.File;
 
