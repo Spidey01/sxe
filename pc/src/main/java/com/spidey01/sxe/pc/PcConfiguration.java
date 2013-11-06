@@ -32,6 +32,7 @@ import com.spidey01.sxe.core.SceneManager;
 import com.spidey01.sxe.core.Settings;
 import com.spidey01.sxe.core.SettingsArgs;
 import com.spidey01.sxe.core.SettingsFile;
+import com.spidey01.sxe.core.SettingsXMLFile;
 import com.spidey01.sxe.core.Utils;
 import com.spidey01.sxe.core.Xdg;
 
@@ -51,38 +52,50 @@ public class PcConfiguration {
 
 
     public static GameEngine setup(String[] args, Game game) {
-        SettingsArgs cliSettings = new SettingsArgs(args);
-        // Settings userSettings = 
-
+        Platform platform = new Platform(Platform.guess());
         return new GameEngine(
-            cliSettings
+            new SettingsArgs(args)
             , new PcDisplay()
             , new SceneManager()
             , game
             , new PcInputManager()
             , new ResourceManager()
-            , PcConfiguration.settings(game)
-            , new Platform(Platform.guess())
+            , PcConfiguration.settings(game, platform)
+            , platform
         );
     }
 
 
-    public static Settings settings(Game game) {
-        String cfgName = game.getName()+".cfg";
-        String xmlName = game.getName()+".xml";
+    /** PC specific settings.
+     *
+     * On Windows, we look at %LOCALAPPDATA%\Publisher\Gamename.{cfg,xml}.
+     *
+     */
+    public static Settings settings(Game game, Platform platform) {
+        if (platform.isWindows()) {
+            String localAppData = System.getenv("LOCALAPPDATA");
+            String publisher = game.getPublisher();
+            if (localAppData == null || publisher == null) {
+                return null;
+            }
 
-        File local = new File(Xdg.XDG_CONFIG_HOME, cfgName);
-        if (local.exists()) {
-            return new SettingsFile(local);
+            File dir = new File(localAppData, publisher);
+            File path;
+
+            path = new File(dir, game.getName()+".cfg");
+            System.err.println(TAG+" Looking for Windows config in "+path.getPath());
+            if (path.exists()) {
+                return new SettingsFile(path);
+            }
+
+            path = new File(dir, game.getName()+".xml");
+            if (path.exists()) {
+                return new SettingsXMLFile(path);
+            }
         }
 
-        File system = new File(Utils.find(Xdg.XDG_CONFIG_DIRS, cfgName));
-        if (system.exists()) {
-            return new SettingsFile(system);
-        }
-
-        /** A checked FileNotFoundException would be better, IMHO. */
         return null;
     }
 }
+
 
