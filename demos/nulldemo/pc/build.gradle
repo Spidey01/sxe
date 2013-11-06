@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin:'application'
+
+group = 'com.spidey01.sxe.nulldemo.pc'
+mainClassName = group + '.Main'
+applicationName = archivesBaseName = 'nulldemo-pc'
+version = '0.0.1-SNAPSHOT'
+description = 'Null demo for x86-based PCs'
+
+dependencies {
+    compile project(':core')
+    compile project(':pc')
+    compile project(':demos:nulldemo:lib')
+}
+
+apply from: '../../../gradle/runDemo.gradle', to: run
+apply from: '../../../gradle/installDemo.gradle'
+applicationDistribution.from(project(':pc').extractLwjglNatives) {
+    into "lib/natives"
+}
