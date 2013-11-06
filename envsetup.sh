@@ -85,6 +85,7 @@ lsproj() { #
 
 
 m() { # Makes from the top of the tree.
+    cpushd > /dev/null
     [ -f "$(gettop)/tmp/.m-clears-screen" ] && clear
 
     if [ -f "$(gettop)/tmp/.m-uses-script" ] && type script >/dev/null; then
@@ -92,6 +93,7 @@ m() { # Makes from the top of the tree.
     else
         "$(gettop)/gradlew" --daemon "${@:-build}"
     fi
+    popd
 }
 
 
@@ -164,6 +166,7 @@ idemo() { # :installApp a demo by name
 }
 
 
+# TODO: last path assumes pwd=gettop
 irdemo() { # installdemo and execute a demo by name with following args.
     local demo
     demo=$1
