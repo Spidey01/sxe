@@ -70,11 +70,26 @@ public class PcConfiguration {
      *
      * On Windows, we look at %LOCALAPPDATA%\Publisher\Gamename.{cfg,xml}.
      *
+     *
+     * Note:
+     * 
+     *      On some systems we may substutie other values for version
+     *      compatability. E.g. on XP, there is no %LocalAppData% there is only
+     *      <strike>Zuul</strike> %AppData%.
      */
     public static Settings settings(Game game, Platform platform) {
         if (platform.isWindows()) {
             String localAppData = System.getenv("LOCALAPPDATA");
             String publisher = game.getPublisher();
+
+
+            // Compat for Windows XP / 2K. Love and hate y'all!
+            if (platform.version.startsWith("Windows XP 5.1")
+                || platform.version.startsWith("Windows 2000 5.0"))
+            {
+                localAppData = System.getenv("APPDATA");
+            }
+
             if (localAppData == null || publisher == null) {
                 return null;
             }
@@ -97,5 +112,4 @@ public class PcConfiguration {
         return null;
     }
 }
-
 
