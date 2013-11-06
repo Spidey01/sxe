@@ -299,7 +299,7 @@ public class GameEngine {
         
 
         /* Support setting resolution from configuration file. */
-        name = game+".display.resolution";
+        name = game+".display.mode";
         x = mRuntimeSettings.getString(name);
         if (!x.isEmpty()) {
             Log.d(TAG, name, "=", x);
