@@ -133,5 +133,29 @@ public abstract class InputManager {
             }
         }
     }
+
+
+
+    /** Inject key events.
+     *
+     * Note that this injects the event to key listeners, not the host
+     * operating system or hardware environment.
+     */
+    public void inject(KeyEvent event) {
+        notifyKeyListeners(event);
+    }
+
+
+    /** Inject key event by name.
+     *
+     * @param keyName key name of the event.
+     * @param isDown whether this is a key down or up event.
+     */
+    public void inject(String keyName, boolean isDown) {
+        // TODO: figure out a key code for the event. -1 shouldn't be on the kb.
+        inject(new KeyEvent(this, -1, keyName, bDown));
+    }
+
+
 }
 
