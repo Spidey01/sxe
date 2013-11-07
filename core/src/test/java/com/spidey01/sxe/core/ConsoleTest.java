@@ -60,7 +60,7 @@ public class ConsoleTest extends UnitTest {
 
 
     protected void sendToggle() {
-        mInputManager.inject("GRAVE", false);
+        mInputManager.inject(Console.DEFAULT_TOGGLE_KEY, false);
     }
 
 

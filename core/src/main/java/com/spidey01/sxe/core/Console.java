@@ -95,7 +95,7 @@ public class Console
 
         // House keeping for toggling the console
         if (event.isKeyUp()) {
-            if (event.getKeyName().equals("GRAVE")) {
+            if (event.getKeyName().equals(mToggleKey)) {
                 setVisible(!isVisible());
                 return true;
             }
