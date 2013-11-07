@@ -142,6 +142,7 @@ public abstract class InputManager {
      * operating system or hardware environment.
      */
     public void inject(KeyEvent event) {
+        Log.xtrace(TAG, "inject(", event, ")");
         notifyKeyListeners(event);
     }
 
