@@ -30,16 +30,14 @@ import com.spidey01.sxe.core.testing.NullOpenGL;
 
 import org.junit.*;
 
-import java.util.Random;
 
 public class ConsoleTest extends UnitTest {
     private static final String TAG = "ConsoleTest";
 
 
-    // private TextConsole mConsole = new TextConsole();
-    private Console mConsole; // = new Console();
-    private NullInputManager mInputManager; // = new NullInputManager();
-    private NullDisplay mDisplay; // = new NullDisplay(new NullOpenGL(), true);
+    private Console mConsole;
+    private NullInputManager mInputManager;
+    private NullDisplay mDisplay;
 
 
     @BeforeClass
