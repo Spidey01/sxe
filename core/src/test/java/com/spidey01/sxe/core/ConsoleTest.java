@@ -30,9 +30,10 @@ import com.spidey01.sxe.core.testing.NullOpenGL;
 
 import org.junit.*;
 
+import java.util.Random;
 
 public class ConsoleTest extends UnitTest {
-    private static final String TAG = "SettingsMapTest";
+    private static final String TAG = "ConsoleTest";
 
 
     // private TextConsole mConsole = new TextConsole();
@@ -77,6 +78,7 @@ public class ConsoleTest extends UnitTest {
         mInputManager.inject("RETURN", false);
     }
 
+
     protected void sendKeys(String line) {
         sendKeys(line.split("\\s"));
     }
@@ -110,6 +112,17 @@ public class ConsoleTest extends UnitTest {
         mConsole.setVisible(true);
         sendKeys("echo \"This is a simple command\"");
     }
+
+
+    @Test
+    public void linear() {
+        Log.i(TAG, "linear()");
+        mConsole.setVisible(true);
+        for (int i=0; i < Console.VALID_SYMBOLS.length(); ++i) {
+            mInputManager.inject(String.valueOf(Console.VALID_SYMBOLS.charAt(i)), true);
+        }
+    }
+
 
 }
 
