@@ -51,7 +51,7 @@ public class Console
     private int mRepeatDelay = DEFAULT_REPEAT_DELAY;
     private long mRepeatCount = 0;
 
-    private boolean mVisable = false;
+    private boolean mVisible = false;
 
     private StringBuilder mBuffer = new StringBuilder(INITIAL_BUFFER_SIZE);
     private Map<String,ConsoleCommand> mCommands = new HashMap<String,ConsoleCommand>();
@@ -65,13 +65,13 @@ public class Console
         mToggleKey = toggleKey;
     }
 
-    public boolean isVisable() {
-        return mVisable;
+    public boolean isVisible() {
+        return mVisible;
     }
 
-    public void setVisable(boolean visable) {
+    public void setVisible(boolean visable) {
         Log.v(TAG, "console " + (visable ? "opened" : "closed"));
-        mVisable = visable;
+        mVisible = visable;
     }
 
     /** Whether or not holding down a key repeats the input character */
@@ -96,11 +96,11 @@ public class Console
         // House keeping for toggling the console
         if (event.isKeyUp()) {
             if (event.getKeyName().equals("GRAVE")) {
-                setVisable(!isVisable());
+                setVisible(!isVisible());
                 return true;
             }
         }
-        if (!isVisable()) {
+        if (!isVisible()) {
             return false;
         }
 
@@ -136,7 +136,6 @@ public class Console
         } else if (mHandleRepeat) {
             // house keeping for repeat
             mLastKeyEvent = event;
-            assert (!mLastKeyEvent.equals(event)) : "The key events are supposed to be equal here";
 
             if (event.isKeyDown()) {
 
@@ -201,7 +200,7 @@ public class Console
     }
 
     public void frameStarted(OpenGL GL20) {
-        if (!isVisable()) {
+        if (!isVisible()) {
             return;
         }
     }
