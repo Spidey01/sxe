@@ -71,6 +71,8 @@ public class ConsoleTest extends UnitTest {
                 mInputManager.inject(l, true);
                 mInputManager.inject(l, false);
             }
+            mInputManager.inject("SPACE", true);
+            mInputManager.inject("SPACE", false);
         }
         mInputManager.inject("RETURN", true);
         mInputManager.inject("RETURN", false);
