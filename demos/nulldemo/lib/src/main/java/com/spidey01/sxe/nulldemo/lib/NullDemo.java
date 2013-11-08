@@ -43,10 +43,12 @@ public class NullDemo
 {
     private static final String TAG = "NullDemo";
 
+
     @Override
     public String getName() {
         return TAG;
     }
+
 
     @Override
     public boolean start(GameEngine engine) {
@@ -59,6 +61,7 @@ public class NullDemo
         return true;
     }
 
+
     @Override
     public void stop() {
         super.stop();
@@ -67,6 +70,12 @@ public class NullDemo
         }
 
         Log.v(TAG, "Null demo is stopping.");
+    }
+
+
+    @Override
+    public void tick() {
+        Log.xtrace(TAG, "tick()");
     }
 
 
