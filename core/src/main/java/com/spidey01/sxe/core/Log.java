@@ -59,19 +59,19 @@ public class Log {
 
 
     /** Add log sink. */
-    public static void add(LogSink sink) {
+    public synchronized static void add(LogSink sink) {
         mSinks.add(sink);
     }
 
 
     /** Remove log sink. */
-    public static void remove(LogSink sink) {
+    public synchronized static void remove(LogSink sink) {
         mSinks.remove(sink);
     }
 
 
     /** Return if tag is loggable at level. */
-    public static boolean isLoggable(String tag, int level) {
+    public synchronized static boolean isLoggable(String tag, int level) {
         for (LogSink sink : mSinks) {
             if (sink.isLoggable(tag, level)) {
                 return true;
@@ -83,7 +83,7 @@ public class Log {
 
 
     /** Convenience method that sets the level of tag for every sink. */
-    public static void setLevel(String tag, int level) {
+    public synchronized static void setLevel(String tag, int level) {
         for (LogSink sink : mSinks) {
             sink.setLevel(tag, level);
         }
@@ -148,7 +148,7 @@ public class Log {
 
     /** Send a message to all sinks.
      */
-    public static void log(int level, String tag, Object... messages) {
+    public synchronized static void log(int level, String tag, Object... messages) {
         for (LogSink sink : mSinks) {
             sink.log(level, tag, messages);
         }
@@ -157,7 +157,7 @@ public class Log {
 
     /** Send a formatted message to all sinks.
      */
-    public static void logf(int level, String tag, String format, Object... args) {
+    public synchronized static void logf(int level, String tag, String format, Object... args) {
         for (LogSink sink : mSinks) {
             sink.logf(level, tag, format, args);
         }
