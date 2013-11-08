@@ -33,17 +33,6 @@ BGRA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/
 Bitmap	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^public interface Bitmap {$/;"	i
 Buffers	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static class Buffers {$/;"	c	class:Utils
 BuildConfig	android/common/build/source/buildConfig/debug/com/spidey01/sxe/android/common/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	android/common/build/source/buildConfig/release/com/spidey01/sxe/android/common/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	android/gles11/build/source/buildConfig/debug/com/spidey01/sxe/android/gles11/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	android/gles11/build/source/buildConfig/release/com/spidey01/sxe/android/gles11/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	android/gles20/build/source/buildConfig/debug/com/spidey01/sxe/android/gles20/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	android/gles20/build/source/buildConfig/release/com/spidey01/sxe/android/gles20/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	android/gles30/build/source/buildConfig/debug/com/spidey01/sxe/android/gles20/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	android/gles30/build/source/buildConfig/release/com/spidey01/sxe/android/gles20/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	demos/helloworld/android/build/source/buildConfig/debug/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	demos/helloworld/android/build/source/buildConfig/release/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	demos/snake/android/build/source/buildConfig/debug/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
-BuildConfig	demos/snake/android/build/source/buildConfig/release/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^public final class BuildConfig {$/;"	c
 CLASSTEMPLATE	templates/NewClass.java	/^    public CLASSTEMPLATE() {$/;"	m	class:CLASSTEMPLATE
 CLASSTEMPLATE	templates/NewClass.java	/^public class CLASSTEMPLATE {$/;"	c
 COLOR_GREYALPHA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_GREYALPHA = 4;$/;"	f	class:PNGDecoder	file:
@@ -56,19 +45,9 @@ Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public Conso
 Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public Console(String toggleKey) {$/;"	m	class:Console
 Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^public class Console$/;"	c
 ConsoleCommand	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^public class ConsoleCommand implements Action {$/;"	c
+ConsoleTest	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^public class ConsoleTest extends UnitTest {$/;"	c
 DEBUG	android/common/build/source/buildConfig/debug/com/spidey01/sxe/android/common/BuildConfig.java	/^    public static final boolean DEBUG = Boolean.parseBoolean("true");$/;"	f	class:BuildConfig
-DEBUG	android/common/build/source/buildConfig/release/com/spidey01/sxe/android/common/BuildConfig.java	/^    public static final boolean DEBUG = false;$/;"	f	class:BuildConfig
-DEBUG	android/gles11/build/source/buildConfig/debug/com/spidey01/sxe/android/gles11/BuildConfig.java	/^    public static final boolean DEBUG = Boolean.parseBoolean("true");$/;"	f	class:BuildConfig
-DEBUG	android/gles11/build/source/buildConfig/release/com/spidey01/sxe/android/gles11/BuildConfig.java	/^    public static final boolean DEBUG = false;$/;"	f	class:BuildConfig
-DEBUG	android/gles20/build/source/buildConfig/debug/com/spidey01/sxe/android/gles20/BuildConfig.java	/^    public static final boolean DEBUG = Boolean.parseBoolean("true");$/;"	f	class:BuildConfig
-DEBUG	android/gles20/build/source/buildConfig/release/com/spidey01/sxe/android/gles20/BuildConfig.java	/^    public static final boolean DEBUG = false;$/;"	f	class:BuildConfig
-DEBUG	android/gles30/build/source/buildConfig/debug/com/spidey01/sxe/android/gles20/BuildConfig.java	/^    public static final boolean DEBUG = Boolean.parseBoolean("true");$/;"	f	class:BuildConfig
-DEBUG	android/gles30/build/source/buildConfig/release/com/spidey01/sxe/android/gles20/BuildConfig.java	/^    public static final boolean DEBUG = false;$/;"	f	class:BuildConfig
 DEBUG	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int DEBUG   = 4;$/;"	f	class:Log
-DEBUG	demos/helloworld/android/build/source/buildConfig/debug/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^    public static final boolean DEBUG = Boolean.parseBoolean("true");$/;"	f	class:BuildConfig
-DEBUG	demos/helloworld/android/build/source/buildConfig/release/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^    public static final boolean DEBUG = false;$/;"	f	class:BuildConfig
-DEBUG	demos/snake/android/build/source/buildConfig/debug/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^    public static final boolean DEBUG = Boolean.parseBoolean("true");$/;"	f	class:BuildConfig
-DEBUG	demos/snake/android/build/source/buildConfig/release/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^    public static final boolean DEBUG = false;$/;"	f	class:BuildConfig
 DEFAULT_LOG_LEVEL	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public static final int DEFAULT_LOG_LEVEL = Log.INFO;$/;"	f	class:LogSink
 DEFAULT_MODE	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    private final int DEFAULT_MODE = Context.MODE_PRIVATE;$/;"	f	class:AndroidSettings	file:
 DEFAULT_REPEAT_DELAY	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public static final int DEFAULT_REPEAT_DELAY = 2;$/;"	f	class:Console
@@ -1052,9 +1031,6 @@ GZipResourceLoader	core/src/main/java/com/spidey01/sxe/core/io/GZipResourceLoade
 GZipResourceLoaderTest	core/src/test/java/com/spidey01/sxe/core/io/GZipResourceLoaderTest.java	/^public class GZipResourceLoaderTest extends UnitTest {$/;"	c
 Game	core/src/main/java/com/spidey01/sxe/core/Game.java	/^public abstract class Game {$/;"	c
 GameActivity	android/common/src/main/java/com/spidey01/sxe/android/common/GameActivity.java	/^public abstract class GameActivity extends Activity {$/;"	c
-GameContext	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext() {$/;"	m	class:GameContext
-GameContext	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext(Console console, Display display, SceneManager scene,$/;"	m	class:GameContext
-GameContext	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^public class GameContext {$/;"	c
 GameEngine	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public GameEngine(SettingsArgs args, Display display, SceneManager scene,$/;"	m	class:GameEngine
 GameEngine	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^public class GameEngine {$/;"	c
 GameThread	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    public GameThread(GameEngine e, Game g) {$/;"	m	class:GameThread
@@ -1115,6 +1091,7 @@ LwjglOpenGL	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^public class
 MAC_OS	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public static final String MAC_OS = "Mac OS";$/;"	f	class:Platform
 MIME_TYPE	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptManager.GetBy	file:
 Main	demos/helloworld/pc/src/main/java/com/spidey01/sxe/helloworld/pc/Main.java	/^class Main {$/;"	c
+Main	demos/nulldemo/pc/src/main/java/com/spidey01/sxe/nulldemo/pc/Main.java	/^class Main {$/;"	c
 Main	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^class Main {$/;"	c
 Main	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^class Main {$/;"	c
 Mesh	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    private Mesh() {$/;"	m	class:Mesh	file:
@@ -1125,11 +1102,16 @@ Mesh	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^public class 
 NAME	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptManager.GetBy	file:
 Notifier	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^        Notifier(AndroidSettings s) {$/;"	m	class:AndroidSettings.Notifier
 Notifier	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    static class Notifier implements SharedPreferences.OnSharedPreferenceChangeListener {$/;"	c	class:AndroidSettings
-NullDisplay	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public NullDisplay(OpenGL GL, boolean answer) {$/;"	m	class:NullDisplay
-NullDisplay	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public NullDisplay(boolean answer) {$/;"	m	class:NullDisplay
-NullDisplay	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^public class NullDisplay implements Display {$/;"	c
-NullOpenGL	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public NullOpenGL() {$/;"	m	class:NullOpenGL
-NullOpenGL	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {$/;"	c
+NullConfiguration	core/src/main/java/com/spidey01/sxe/core/testing/NullConfiguration.java	/^public class NullConfiguration {$/;"	c
+NullDemo	demos/nulldemo/lib/src/main/java/com/spidey01/sxe/nulldemo/lib/NullDemo.java	/^public class NullDemo$/;"	c
+NullDemoActivity	demos/nulldemo/android/src/main/java/com/spidey01/sxe/nulldemo/android/NullDemoActivity.java	/^public class NullDemoActivity extends GameActivity {$/;"	c
+NullDisplay	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public NullDisplay(OpenGL GL, boolean answer) {$/;"	m	class:NullDisplay
+NullDisplay	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public NullDisplay(boolean answer) {$/;"	m	class:NullDisplay
+NullDisplay	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^public class NullDisplay implements Display {$/;"	c
+NullInputManager	core/src/main/java/com/spidey01/sxe/core/testing/NullInputManager.java	/^    public NullInputManager() {$/;"	m	class:NullInputManager
+NullInputManager	core/src/main/java/com/spidey01/sxe/core/testing/NullInputManager.java	/^public class NullInputManager extends InputManager {$/;"	c
+NullOpenGL	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public NullOpenGL() {$/;"	m	class:NullOpenGL
+NullOpenGL	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {$/;"	c
 OnChangedListener	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    public interface OnChangedListener {$/;"	i	interface:Settings
 OpenGL	core/src/main/java/com/spidey01/sxe/core/gl/OpenGL.java	/^public interface OpenGL extends OpenGLES11, OpenGLES20, OpenGLES30 {$/;"	i
 OpenGLES11	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^public interface OpenGLES11 {$/;"	i
@@ -1148,7 +1130,7 @@ PathResourceLoaderTest	core/src/test/java/com/spidey01/sxe/core/io/PathResourceL
 PcConfiguration	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^public class PcConfiguration {$/;"	c
 PcDisplay	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public PcDisplay() {$/;"	m	class:PcDisplay
 PcDisplay	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public PcDisplay(String desired) {$/;"	m	class:PcDisplay
-PcDisplay	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^public class PcDisplay implements com.spidey01.sxe.core.Display {$/;"	c
+PcDisplay	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {$/;"	c
 PcInputManager	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    public PcInputManager() {$/;"	m	class:PcInputManager
 PcInputManager	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^public class PcInputManager extends InputManager {$/;"	c
 PingPongGame	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/PingPongGame.java	/^public class PingPongGame$/;"	c
@@ -1165,10 +1147,6 @@ Program	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public Pr
 Program	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^public class Program {$/;"	c
 QueuedLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^        QueuedLoader(URI uri) {$/;"	m	class:ResourceManager.QueuedLoader
 QueuedLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    private class QueuedLoader implements Callable<ResourceHandle> {$/;"	c	class:ResourceManager
-R	demos/helloworld/android/build/source/r/debug/com/spidey01/sxe/helloworld/android/R.java	/^public final class R {$/;"	c
-R	demos/helloworld/android/build/source/r/release/com/spidey01/sxe/helloworld/android/R.java	/^public final class R {$/;"	c
-R	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^public final class R {$/;"	c
-R	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^public final class R {$/;"	c
 RAW	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^        RAW,$/;"	e	enum:ResourceHandle.Type	file:
 READER	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^        READER,$/;"	e	enum:ResourceHandle.Type	file:
 RGB	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        RGB(3, false),$/;"	e	enum:PNGDecoder.Format	file:
@@ -1204,8 +1182,10 @@ SettingsFile	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    pu
 SettingsFile	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public SettingsFile(String name) {$/;"	m	class:SettingsFile
 SettingsFile	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^public class SettingsFile extends AbstractSettingsFile {$/;"	c
 SettingsFileTest	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^public class SettingsFileTest extends AbstractSettingsTest {$/;"	c
+SettingsMap	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public SettingsMap() {$/;"	m	class:SettingsMap
 SettingsMap	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public SettingsMap(Map<String, String> map) {$/;"	m	class:SettingsMap
 SettingsMap	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^public class SettingsMap implements Settings {$/;"	c
+SettingsMapTest	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^public class SettingsMapTest extends AbstractSettingsTest {$/;"	c
 SettingsXMLFile	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    public SettingsXMLFile(File path) {$/;"	m	class:SettingsXMLFile
 SettingsXMLFile	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    public SettingsXMLFile(String name) {$/;"	m	class:SettingsXMLFile
 SettingsXMLFile	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^public class SettingsXMLFile extends AbstractSettingsFile {$/;"	c
@@ -1236,7 +1216,6 @@ TAG	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    pri
 TAG	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private static final String TAG = "Console";$/;"	f	class:Console	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    private static final String TAG = "ConsoleCommand";$/;"	f	class:ConsoleCommand	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private static final String TAG = "Game";$/;"	f	class:Game	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private static final String TAG = "Context";$/;"	f	class:GameContext	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private static final String TAG = "GameEngine";$/;"	f	class:GameEngine	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    private static final String TAG = "GameThread";$/;"	f	class:GameThread	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    private static final String TAG = "InputManager";$/;"	f	class:InputManager	file:
@@ -1260,24 +1239,30 @@ TAG	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private fin
 TAG	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    private static final String TAG = "Utils";$/;"	f	class:Utils	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    private static final String TAG = "Variable";$/;"	f	class:Variable	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    private static final String TAG = "Xdg";$/;"	f	class:Xdg	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    private final static String TAG = "NullOpenGL";$/;"	f	class:NullOpenGL	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    private static final String TAG = "g";$/;"	f	class:Program	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    private static final String TAG = "Shader";$/;"	f	class:Shader	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    private static final String TAG = "VertexBuffer";$/;"	f	class:VertexBuffer	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    private static final String TAG = "Mesh";$/;"	f	class:Mesh	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    private static final String TAG = "NullDisplay";$/;"	f	class:NullDisplay	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^    private static final String TAG = "VertexBufferTechnique";$/;"	f	class:VertexBufferTechnique	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/io/GZipResourceLoader.java	/^    private final static String TAG = "GZipResourceLoader";$/;"	f	class:GZipResourceLoader	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/io/PathResourceLoader.java	/^    private final static String TAG = "PathResourceLoader";$/;"	f	class:PathResourceLoader	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    private final static String TAG = "PngBitmap";$/;"	f	class:PngBitmap	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/io/ZipResourceLoader.java	/^    private final static String TAG = "ZipResourceLoader";$/;"	f	class:ZipResourceLoader	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/testing/NullConfiguration.java	/^    private static final String TAG = "NullConfiguration";$/;"	f	class:NullConfiguration	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    private static final String TAG = "NullDisplay";$/;"	f	class:NullDisplay	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/testing/NullInputManager.java	/^    private static final String TAG = "NullInputManager";$/;"	f	class:NullInputManager	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    private final static String TAG = "NullOpenGL";$/;"	f	class:NullOpenGL	file:
 TAG	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    private static final String TAG = "AbstractSettingsTest";$/;"	f	class:AbstractSettingsTest	file:
+TAG	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    private static final String TAG = "ConsoleTest";$/;"	f	class:ConsoleTest	file:
 TAG	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    private static final String TAG = "ResourceManagerTest";$/;"	f	class:ResourceManagerTest	file:
 TAG	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^    private static final String TAG = "SettingsArgsTest";$/;"	f	class:SettingsArgsTest	file:
 TAG	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^    private static final String TAG = "SettingsFileTest";$/;"	f	class:SettingsFileTest	file:
+TAG	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^    private static final String TAG = "SettingsMapTest";$/;"	f	class:SettingsMapTest	file:
 TAG	core/src/test/java/com/spidey01/sxe/core/SettingsXMLFileTest.java	/^    private static final String TAG = "SettingsXMLFileTest";$/;"	f	class:SettingsXMLFileTest	file:
 TAG	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^    private static final String TAG = "HelloWorldGameActivity";$/;"	f	class:HelloWorldGameActivity	file:
 TAG	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    private static final String TAG = "HelloWorld";$/;"	f	class:HelloWorld	file:
+TAG	demos/nulldemo/android/src/main/java/com/spidey01/sxe/nulldemo/android/NullDemoActivity.java	/^    private static final String TAG = "NullDemoActivity";$/;"	f	class:NullDemoActivity	file:
+TAG	demos/nulldemo/lib/src/main/java/com/spidey01/sxe/nulldemo/lib/NullDemo.java	/^    private static final String TAG = "NullDemo";$/;"	f	class:NullDemo	file:
 TAG	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/Opponent.java	/^    private static final String TAG = "Opponent";$/;"	f	class:Opponent	file:
 TAG	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/PingPongGame.java	/^    private static final String TAG = "PingPongGame";$/;"	f	class:PingPongGame	file:
 TAG	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/Player.java	/^    private static final String TAG = "Player";$/;"	f	class:Player	file:
@@ -1361,17 +1346,17 @@ addCommand	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public vo
 addFrameEndedListener	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public void addFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:AndroidDisplay
 addFrameEndedListener	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    public void addFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:OpenGLES20Renderer
 addFrameEndedListener	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    void addFrameEndedListener(FrameEndedListener listener);$/;"	m	interface:Display
-addFrameEndedListener	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public void addFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:NullDisplay
+addFrameEndedListener	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public void addFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:NullDisplay
 addFrameEndedListener	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void addFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:PcDisplay
 addFrameListener	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public void addFrameListener(FrameListener listener) {$/;"	m	class:AndroidDisplay
 addFrameListener	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    public void addFrameListener(FrameListener listener) {$/;"	m	class:OpenGLES20Renderer
 addFrameListener	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    void addFrameListener(FrameListener listener);$/;"	m	interface:Display
-addFrameListener	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public void addFrameListener(FrameListener listener) {$/;"	m	class:NullDisplay
+addFrameListener	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public void addFrameListener(FrameListener listener) {$/;"	m	class:NullDisplay
 addFrameListener	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void addFrameListener(FrameListener listener) {$/;"	m	class:PcDisplay
 addFrameStartedListener	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public void addFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:AndroidDisplay
 addFrameStartedListener	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    public void addFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:OpenGLES20Renderer
 addFrameStartedListener	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    void addFrameStartedListener(FrameStartedListener listener);$/;"	m	interface:Display
-addFrameStartedListener	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public void addFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:NullDisplay
+addFrameStartedListener	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public void addFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:NullDisplay
 addFrameStartedListener	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void addFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:PcDisplay
 addKeyListener	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void addKeyListener(KeyListener listener) {$/;"	m	class:InputManager
 addKeyListener	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void addKeyListener(String keyName, KeyListener listener) {$/;"	m	class:InputManager
@@ -1381,10 +1366,6 @@ addResourceLocation	core/src/main/java/com/spidey01/sxe/core/ResourceManager.jav
 allowRepeating	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void allowRepeating(boolean repeating) {$/;"	m	class:Console
 alog	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidLogSink.java	/^    private void alog(int level, String tag, String message) {$/;"	m	class:AndroidLogSink	file:
 androidKeyCodeToString	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^    private String androidKeyCodeToString(int keyCode) {$/;"	m	class:AndroidInputManager	file:
-app_name	demos/helloworld/android/build/source/r/debug/com/spidey01/sxe/helloworld/android/R.java	/^        public static final int app_name=0x7f020000;$/;"	f	class:R.string
-app_name	demos/helloworld/android/build/source/r/release/com/spidey01/sxe/helloworld/android/R.java	/^        public static final int app_name=0x7f020000;$/;"	f	class:R.string
-app_name	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^        public static final int app_name=0x7f030000;$/;"	f	class:R.string
-app_name	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^        public static final int app_name=0x7f030000;$/;"	f	class:R.string
 arch	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public final String arch = System.getProperty("os.arch");$/;"	f	class:Platform
 asInputStream	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public InputStream asInputStream() {$/;"	m	class:ResourceHandle
 asReader	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public BufferedReader asReader() throws IOException {$/;"	m	class:ResourceHandle
@@ -1392,11 +1373,9 @@ asShader	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    publ
 asTexture	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public Texture asTexture() throws IOException {$/;"	m	class:ResourceHandle
 attachShader	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public void attachShader(OpenGLES20 GL, Shader shader) {$/;"	m	class:Program
 attachShader	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public void attachShader(Shader shader) {$/;"	m	class:Program
-attr	demos/helloworld/android/build/source/r/debug/com/spidey01/sxe/helloworld/android/R.java	/^    public static final class attr {$/;"	c	class:R
-attr	demos/helloworld/android/build/source/r/release/com/spidey01/sxe/helloworld/android/R.java	/^    public static final class attr {$/;"	c	class:R
-attr	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class attr {$/;"	c	class:R
-attr	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class attr {$/;"	c	class:R
 baseDir	core/src/main/java/com/spidey01/sxe/core/testing/TestUtils.java	/^    public static File baseDir = new File(System.getProperty("user.dir"));$/;"	f	class:TestUtils
+before	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    public void before() {$/;"	m	class:ConsoleTest
+beforeClass	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    public static void beforeClass() {$/;"	m	class:ConsoleTest
 bind	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    public void bind(OpenGLES20 GLES20) {$/;"	m	class:Texture
 bind	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    public void bind(OpenGLES20 GL) {$/;"	m	class:VertexBuffer
 bitdepth	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int bitdepth;$/;"	f	class:PNGDecoder	file:
@@ -1426,17 +1405,13 @@ clear	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    p
 clear	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    void clear();$/;"	m	interface:Settings
 clear	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public void clear() {$/;"	m	class:SettingsArgs
 clear	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public void clear() {$/;"	m	class:SettingsMap
-clear	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^    public void clear() {$/;"	m	class:SettingsArgsTest
-clear	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^    public void clear() {$/;"	m	class:SettingsFileTest
-clear	core/src/test/java/com/spidey01/sxe/core/SettingsXMLFileTest.java	/^    public void clear() {$/;"	m	class:SettingsXMLFileTest
+clear	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    public void clear() {$/;"	m	class:AbstractSettingsTest
 close	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public void close() throws IOException {$/;"	m	class:ResourceHandle
 closeChunk	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void closeChunk() throws IOException {$/;"	m	class:PNGDecoder	file:
 cmap	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 colorType	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int colorType;$/;"	f	class:PNGDecoder	file:
 com.spidey01.sxe.MODULETEMPLATE	templates/NewClass.java	/^package com.spidey01.sxe.MODULETEMPLATE;$/;"	p
-com.spidey01.sxe.android	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^package com.spidey01.sxe.android;$/;"	p
 com.spidey01.sxe.android.common	android/common/build/source/buildConfig/debug/com/spidey01/sxe/android/common/BuildConfig.java	/^package com.spidey01.sxe.android.common;$/;"	p
-com.spidey01.sxe.android.common	android/common/build/source/buildConfig/release/com/spidey01/sxe/android/common/BuildConfig.java	/^package com.spidey01.sxe.android.common;$/;"	p
 com.spidey01.sxe.android.common	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidConfiguration.java	/^package com.spidey01.sxe.android.common;$/;"	p
 com.spidey01.sxe.android.common	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^package com.spidey01.sxe.android.common;$/;"	p
 com.spidey01.sxe.android.common	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^package com.spidey01.sxe.android.common;$/;"	p
@@ -1444,14 +1419,9 @@ com.spidey01.sxe.android.common	android/common/src/main/java/com/spidey01/sxe/an
 com.spidey01.sxe.android.common	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^package com.spidey01.sxe.android.common;$/;"	p
 com.spidey01.sxe.android.common	android/common/src/main/java/com/spidey01/sxe/android/common/AssetLoader.java	/^package com.spidey01.sxe.android.common;$/;"	p
 com.spidey01.sxe.android.common	android/common/src/main/java/com/spidey01/sxe/android/common/GameActivity.java	/^package com.spidey01.sxe.android.common;$/;"	p
-com.spidey01.sxe.android.gles11	android/gles11/build/source/buildConfig/debug/com/spidey01/sxe/android/gles11/BuildConfig.java	/^package com.spidey01.sxe.android.gles11;$/;"	p
-com.spidey01.sxe.android.gles11	android/gles11/build/source/buildConfig/release/com/spidey01/sxe/android/gles11/BuildConfig.java	/^package com.spidey01.sxe.android.gles11;$/;"	p
+com.spidey01.sxe.android.common	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^package com.spidey01.sxe.android.common;$/;"	p
 com.spidey01.sxe.android.gles11	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^package com.spidey01.sxe.android.gles11;$/;"	p
-com.spidey01.sxe.android.gles20	android/gles20/build/source/buildConfig/debug/com/spidey01/sxe/android/gles20/BuildConfig.java	/^package com.spidey01.sxe.android.gles20;$/;"	p
-com.spidey01.sxe.android.gles20	android/gles20/build/source/buildConfig/release/com/spidey01/sxe/android/gles20/BuildConfig.java	/^package com.spidey01.sxe.android.gles20;$/;"	p
 com.spidey01.sxe.android.gles20	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^package com.spidey01.sxe.android.gles20;$/;"	p
-com.spidey01.sxe.android.gles20	android/gles30/build/source/buildConfig/debug/com/spidey01/sxe/android/gles20/BuildConfig.java	/^package com.spidey01.sxe.android.gles20;$/;"	p
-com.spidey01.sxe.android.gles20	android/gles30/build/source/buildConfig/release/com/spidey01/sxe/android/gles20/BuildConfig.java	/^package com.spidey01.sxe.android.gles20;$/;"	p
 com.spidey01.sxe.android.gles30	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^package com.spidey01.sxe.android.gles30;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Action.java	/^package com.spidey01.sxe.core;$/;"	p
@@ -1460,7 +1430,6 @@ com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Console.java	/^pa
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Font.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Game.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^package com.spidey01.sxe.core;$/;"	p
@@ -1486,14 +1455,13 @@ com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/SettingsXMLFileTest.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^package com.spidey01.sxe.core.gl;$/;"	p
 com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/OpenGL.java	/^package com.spidey01.sxe.core.gl;$/;"	p
 com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^package com.spidey01.sxe.core.gl;$/;"	p
 com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^package com.spidey01.sxe.core.gl;$/;"	p
@@ -1501,6 +1469,7 @@ com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES30.
 com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^package com.spidey01.sxe.core.gl;$/;"	p
 com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^package com.spidey01.sxe.core.gl;$/;"	p
 com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^package com.spidey01.sxe.core.gl;$/;"	p
+com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
 com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/FrameEndedListener.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
 com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/FrameListener.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
 com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/FrameStartedListener.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
@@ -1516,16 +1485,19 @@ com.spidey01.sxe.core.io	core/src/main/java/com/spidey01/sxe/core/io/ZipResource
 com.spidey01.sxe.core.io	core/src/test/java/com/spidey01/sxe/core/io/GZipResourceLoaderTest.java	/^package com.spidey01.sxe.core.io;$/;"	p
 com.spidey01.sxe.core.io	core/src/test/java/com/spidey01/sxe/core/io/PathResourceLoaderTest.java	/^package com.spidey01.sxe.core.io;$/;"	p
 com.spidey01.sxe.core.io	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^package com.spidey01.sxe.core.io;$/;"	p
+com.spidey01.sxe.core.testing	core/src/main/java/com/spidey01/sxe/core/testing/NullConfiguration.java	/^package com.spidey01.sxe.core.testing;$/;"	p
+com.spidey01.sxe.core.testing	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^package com.spidey01.sxe.core.testing;$/;"	p
+com.spidey01.sxe.core.testing	core/src/main/java/com/spidey01/sxe/core/testing/NullInputManager.java	/^package com.spidey01.sxe.core.testing;$/;"	p
+com.spidey01.sxe.core.testing	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^package com.spidey01.sxe.core.testing;$/;"	p
 com.spidey01.sxe.core.testing	core/src/main/java/com/spidey01/sxe/core/testing/TestUtils.java	/^package com.spidey01.sxe.core.testing;$/;"	p
 com.spidey01.sxe.core.testing	core/src/main/java/com/spidey01/sxe/core/testing/UnitTest.java	/^package com.spidey01.sxe.core.testing;$/;"	p
 com.spidey01.sxe.core.testing	core/src/test/java/com/spidey01/sxe/core/testing/TestResources.java	/^package com.spidey01.sxe.core.testing;$/;"	p
-com.spidey01.sxe.helloworld.android	demos/helloworld/android/build/source/buildConfig/debug/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
-com.spidey01.sxe.helloworld.android	demos/helloworld/android/build/source/buildConfig/release/com/spidey01/sxe/helloworld/android/BuildConfig.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
-com.spidey01.sxe.helloworld.android	demos/helloworld/android/build/source/r/debug/com/spidey01/sxe/helloworld/android/R.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
-com.spidey01.sxe.helloworld.android	demos/helloworld/android/build/source/r/release/com/spidey01/sxe/helloworld/android/R.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
 com.spidey01.sxe.helloworld.android	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
 com.spidey01.sxe.helloworld.lib	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^package com.spidey01.sxe.helloworld.lib;$/;"	p
 com.spidey01.sxe.helloworld.pc	demos/helloworld/pc/src/main/java/com/spidey01/sxe/helloworld/pc/Main.java	/^package com.spidey01.sxe.helloworld.pc;$/;"	p
+com.spidey01.sxe.nulldemo.android	demos/nulldemo/android/src/main/java/com/spidey01/sxe/nulldemo/android/NullDemoActivity.java	/^package com.spidey01.sxe.nulldemo.android;$/;"	p
+com.spidey01.sxe.nulldemo.lib	demos/nulldemo/lib/src/main/java/com/spidey01/sxe/nulldemo/lib/NullDemo.java	/^package com.spidey01.sxe.nulldemo.lib;$/;"	p
+com.spidey01.sxe.nulldemo.pc	demos/nulldemo/pc/src/main/java/com/spidey01/sxe/nulldemo/pc/Main.java	/^package com.spidey01.sxe.nulldemo.pc;$/;"	p
 com.spidey01.sxe.pc	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^package com.spidey01.sxe.pc;$/;"	p
 com.spidey01.sxe.pc	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^package com.spidey01.sxe.pc;$/;"	p
 com.spidey01.sxe.pc	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^package com.spidey01.sxe.pc;$/;"	p
@@ -1558,10 +1530,6 @@ com.spidey01.sxe.scripting.testhelpers	scripting/testhelpers/src/main/java/com/s
 com.spidey01.sxe.snake.android	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^package com.spidey01.sxe.snake.android;$/;"	p
 com.spidey01.sxe.snake.lib	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^package com.spidey01.sxe.snake.lib;$/;"	p
 com.spidey01.sxe.snake.pc	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^package com.spidey01.sxe.snake.pc;$/;"	p
-com.spidey01.sxe.snakegame.android	demos/snake/android/build/source/buildConfig/debug/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
-com.spidey01.sxe.snakegame.android	demos/snake/android/build/source/buildConfig/release/com/spidey01/sxe/snakegame/android/BuildConfig.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
-com.spidey01.sxe.snakegame.android	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
-com.spidey01.sxe.snakegame.android	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^package com.spidey01.sxe.snakegame.android;$/;"	p
 configure	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void configure() {$/;"	m	class:GameEngine
 configure	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void configure(Settings s) {$/;"	m	class:GameEngine
 contains	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public boolean contains(String key) {$/;"	m	class:AndroidSettings
@@ -1582,7 +1550,7 @@ copyRGBtoRGBA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecod
 crc	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private final CRC32 crc;$/;"	f	class:PNGDecoder	file:
 create	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public boolean create() {$/;"	m	class:AndroidDisplay
 create	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    boolean create();$/;"	m	interface:Display
-create	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public boolean create() {$/;"	m	class:NullDisplay
+create	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public boolean create() {$/;"	m	class:NullDisplay
 create	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public boolean create() {$/;"	m	class:PcDisplay
 createByteBuffer	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static ByteBuffer createByteBuffer(int size) {$/;"	m	class:Utils.Buffers
 createDoubleBuffer	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static DoubleBuffer createDoubleBuffer(int size) {$/;"	m	class:Utils.Buffers
@@ -1593,9 +1561,6 @@ createScript	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Js
 createScript	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    public Script createScript() {$/;"	m	class:JythonScriptManager
 createScript	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public Script createScript() {$/;"	m	class:RhinoScriptManager
 createScript	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^    Script createScript();$/;"	m	interface:ScriptManager
-ctor	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^    public void ctor() {$/;"	m	class:SettingsArgsTest
-ctor	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^    public void ctor() {$/;"	m	class:SettingsFileTest
-ctor	core/src/test/java/com/spidey01/sxe/core/SettingsXMLFileTest.java	/^    public void ctor() {$/;"	m	class:SettingsXMLFileTest
 cvt	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 d	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void d(String tag, Object... messages) {$/;"	m	class:Log
 de.matthiasmann.twl.utils	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^package de.matthiasmann.twl.utils;$/;"	p
@@ -1613,7 +1578,7 @@ deselectAll	scripting/jsr223/build/reports/tests/report.js	/^function deselectAl
 deselectAll	scripting/rhino/build/reports/tests/report.js	/^function deselectAll() {$/;"	f
 destroy	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public void destroy() {$/;"	m	class:AndroidDisplay
 destroy	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    void destroy();$/;"	m	interface:Display
-destroy	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public void destroy() {$/;"	m	class:NullDisplay
+destroy	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public void destroy() {$/;"	m	class:NullDisplay
 destroy	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void destroy() {$/;"	m	class:PcDisplay
 detachShader	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public void detachShader(OpenGLES20 GL, Shader shader) {$/;"	m	class:Program
 detachShader	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public void detachShader(Shader shader) {$/;"	m	class:Program
@@ -1648,8 +1613,6 @@ expand1	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.jav
 expand2	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand2(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand4	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand4(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 fftm	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
-fieldsAreClear	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    public void fieldsAreClear(Settings test) {$/;"	m	class:AbstractSettingsTest
-fieldsAreSet	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    public void fieldsAreSet(Settings test) {$/;"	m	class:AbstractSettingsTest
 filter	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Object filter(Object o) {$/;"	m	class:RhinoScriptManager	file:
 find	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String find(String[] dirs, String name) {$/;"	m	class:Utils
 findChildElements	core/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
@@ -1712,28 +1675,25 @@ getBytesPerPixel	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^  
 getCacheDir	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String getCacheDir(String relative) {$/;"	m	class:Xdg
 getConfigDir	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String getConfigDir(String relative) {$/;"	m	class:Xdg
 getConfigHomeDir	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String getConfigHomeDir(String relative) {$/;"	m	class:Xdg
-getConsole	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Console getConsole() {$/;"	m	class:GameContext
 getContainer	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^    ScriptingContainer getContainer() {$/;"	m	class:JRubyScript
 getDataDir	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String getDataDir(String relative) {$/;"	m	class:Xdg
 getDataHomeDir	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String getDataHomeDir(String relative) {$/;"	m	class:Xdg
 getDefaultLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceLoader getDefaultLoader() {$/;"	m	class:ResourceManager
-getDisplay	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Display getDisplay() {$/;"	m	class:GameContext
 getDisplay	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public Display getDisplay() {$/;"	m	class:GameEngine
 getDisplayDate	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public boolean getDisplayDate(boolean x) {$/;"	m	class:LogSink
 getDisplayThreadId	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public boolean getDisplayThreadId(boolean x) {$/;"	m	class:LogSink
 getDisplayTime	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public boolean getDisplayTime(boolean x) {$/;"	m	class:LogSink
-getEngine	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameEngine getEngine() {$/;"	m	class:GameContext
 getFloat	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public float getFloat(String key) {$/;"	m	class:AndroidSettings
 getFloat	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public float getFloat(String key) {$/;"	m	class:AbstractSettingsFile
 getFloat	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    float getFloat(String key);$/;"	m	interface:Settings
 getFloat	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public float getFloat(String key) {$/;"	m	class:SettingsArgs
 getFloat	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public float getFloat(String key) {$/;"	m	class:SettingsMap
 getFont	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    public Font getFont() {$/;"	m	class:Text
-getGame	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Game getGame() {$/;"	m	class:GameContext
 getGame	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public Game getGame() {$/;"	m	class:GameEngine
 getGameEngine	android/common/src/main/java/com/spidey01/sxe/android/common/GameActivity.java	/^    public abstract GameEngine getGameEngine();$/;"	m	class:GameActivity
 getGameEngine	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public GameEngine getGameEngine() {$/;"	m	class:Game
 getGameEngine	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^    public GameEngine getGameEngine() {$/;"	m	class:HelloWorldGameActivity
+getGameEngine	demos/nulldemo/android/src/main/java/com/spidey01/sxe/nulldemo/android/NullDemoActivity.java	/^    public GameEngine getGameEngine() {$/;"	m	class:NullDemoActivity
 getGameEngine	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^    public GameEngine getGameEngine() {$/;"	m	class:SnakeGameActivity
 getHeight	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^    int getHeight();$/;"	m	interface:Bitmap
 getHeight	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    public int getHeight() {$/;"	m	class:Texture
@@ -1747,7 +1707,6 @@ getImageData	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^    ByteBuff
 getImageData	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    public ByteBuffer getImageData() {$/;"	m	class:PngBitmap
 getInfoLog	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    private String getInfoLog(OpenGLES20 GL) {$/;"	m	class:Program	file:
 getInfoLog	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    private String getInfoLog(OpenGLES20 GL) {$/;"	m	class:Shader	file:
-getInput	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public InputManager getInput() {$/;"	m	class:GameContext
 getInputManager	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public InputManager getInputManager() {$/;"	m	class:GameEngine
 getInputStream	android/common/src/main/java/com/spidey01/sxe/android/common/AssetLoader.java	/^    public InputStream getInputStream(File from, File what) throws IOException {$/;"	m	class:AssetLoader
 getInputStream	android/common/src/main/java/com/spidey01/sxe/android/common/AssetLoader.java	/^    public InputStream getInputStream(String from, String what) throws IOException {$/;"	m	class:AssetLoader
@@ -1788,29 +1747,24 @@ getName	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    publi
 getName	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public abstract String getName();$/;"	m	class:Game
 getName	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public String getName() {$/;"	m	class:RateCounter
 getName	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public String getName() {$/;"	m	class:HelloWorld
+getName	demos/nulldemo/lib/src/main/java/com/spidey01/sxe/nulldemo/lib/NullDemo.java	/^    public String getName() {$/;"	m	class:NullDemo
 getName	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/PingPongGame.java	/^    public String getName() {$/;"	m	class:PingPongGame
 getName	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public String getName() {$/;"	m	class:SnakeGame
 getNativeEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public Object getNativeEvent() {$/;"	m	class:KeyEvent
 getNumComponents	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        public int getNumComponents() {$/;"	m	class:PNGDecoder.Format
 getOpenGL	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public OpenGL getOpenGL() {$/;"	m	class:AndroidDisplay
 getOpenGL	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    OpenGL getOpenGL();$/;"	m	interface:Display
-getOpenGL	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public OpenGL getOpenGL() {$/;"	m	class:NullDisplay
+getOpenGL	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public OpenGL getOpenGL() {$/;"	m	class:NullDisplay
 getOpenGL	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public OpenGL getOpenGL() {$/;"	m	class:PcDisplay
-getOpenGLVersion	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public String getOpenGLVersion() {$/;"	m	class:NullDisplay
+getOpenGLVersion	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public String getOpenGLVersion() {$/;"	m	class:NullDisplay
 getOpenGLVersion	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public String getOpenGLVersion() {$/;"	m	class:PcDisplay
-getOpt	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Object getOpt(String name) {$/;"	m	class:GameContext
-getOptions	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Map<String, Object> getOptions() {$/;"	m	class:GameContext
-getPlatform	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public String getPlatform() {$/;"	m	class:GameContext
-getPlatformArch	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public String getPlatformArch() {$/;"	m	class:GameContext
-getPlatformVersion	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public String getPlatformVersion() {$/;"	m	class:GameContext
 getProgram	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public Program getProgram() {$/;"	m	class:Sprite
 getProgram	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public int getProgram() {$/;"	m	class:Program
 getProgram	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^        Program getProgram();$/;"	m	interface:VertexBufferTechnique.Capable
+getPublisher	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public String getPublisher() {$/;"	m	class:Game
 getRepeatDelay	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public int getRepeatDelay() {$/;"	m	class:Console
 getResource	core/src/main/java/com/spidey01/sxe/core/testing/TestUtils.java	/^    public static File getResource(String path) {$/;"	m	class:TestUtils
 getResourceManager	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public ResourceManager getResourceManager() {$/;"	m	class:GameEngine
-getResources	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public ResourceManager getResources() {$/;"	m	class:GameContext
-getScene	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public SceneManager getScene() {$/;"	m	class:GameContext
 getSceneManager	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public SceneManager getSceneManager() {$/;"	m	class:GameEngine
 getScope	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    private ScriptingContainer getScope(Script scope) {$/;"	m	class:JRubyScriptManager	file:
 getScope	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    private PythonInterpreter getScope(Script scope) {$/;"	m	class:JythonScriptManager	file:
@@ -1818,7 +1772,6 @@ getScope	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScr
 getScriptContext	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    ScriptContext getScriptContext() {$/;"	m	class:Jsr223Script
 getScriptContext	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    private ScriptContext getScriptContext(Script scope) {$/;"	m	class:Jsr223ScriptManager	file:
 getScriptable	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^    Scriptable getScriptable() {$/;"	m	class:RhinoScript
-getSettings	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public Settings getSettings() {$/;"	m	class:GameContext
 getSettings	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public Settings getSettings() {$/;"	m	class:GameEngine
 getSource	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public InputManager getSource() {$/;"	m	class:KeyEvent
 getString	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public String getString(String key) {$/;"	m	class:AndroidSettings
@@ -1829,6 +1782,7 @@ getString	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public
 getTag	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    protected abstract String getTag();$/;"	m	class:AbstractSettingsTest
 getTag	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^    protected String getTag() {$/;"	m	class:SettingsArgsTest
 getTag	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^    protected String getTag() {$/;"	m	class:SettingsFileTest
+getTag	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^    protected String getTag() {$/;"	m	class:SettingsMapTest
 getTag	core/src/test/java/com/spidey01/sxe/core/SettingsXMLFileTest.java	/^    protected String getTag() {$/;"	m	class:SettingsXMLFileTest
 getText	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    public String getText() {$/;"	m	class:Text
 getTickRate	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public int getTickRate() {$/;"	m	class:Game
@@ -1849,28 +1803,28 @@ glAttachShader	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/Andr
 glAttachShader	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glAttachShader(int program, int shader) {$/;"	m	class:AndroidOpenGLES20
 glAttachShader	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glAttachShader(Program p, Shader s) {$/;"	m	class:AndroidOpenGLES30
 glAttachShader	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glAttachShader(int program, int shader) {$/;"	m	class:AndroidOpenGLES30
-glAttachShader	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glAttachShader(Program p, Shader s) {$/;"	m	class:NullOpenGL
-glAttachShader	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glAttachShader(int program, int shader) {$/;"	m	class:NullOpenGL
 glAttachShader	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glAttachShader(Program p, Shader s);$/;"	m	interface:OpenGLES20
 glAttachShader	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glAttachShader(int program, int shader);$/;"	m	interface:OpenGLES20
+glAttachShader	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glAttachShader(Program p, Shader s) {$/;"	m	class:NullOpenGL
+glAttachShader	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glAttachShader(int program, int shader) {$/;"	m	class:NullOpenGL
 glAttachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glAttachShader(Program p, Shader s) {$/;"	m	class:LwjglOpenGL
 glAttachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glAttachShader(int program, int shader) {$/;"	m	class:LwjglOpenGL
 glBindBuffer	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    public void glBindBuffer(int target, int buffer) {$/;"	m	class:AndroidOpenGLES11
 glBindBuffer	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glBindBuffer(int target, int buffer) {$/;"	m	class:AndroidOpenGLES20
 glBindBuffer	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glBindBuffer(int target, int buffer) {$/;"	m	class:AndroidOpenGLES30
-glBindBuffer	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glBindBuffer(int target, int buffer) {$/;"	m	class:NullOpenGL
 glBindBuffer	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glBindBuffer(int target, int buffer);$/;"	m	interface:OpenGLES11
 glBindBuffer	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glBindBuffer(int target, int buffer);$/;"	m	interface:OpenGLES20
+glBindBuffer	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glBindBuffer(int target, int buffer) {$/;"	m	class:NullOpenGL
 glBindBuffer	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBindBuffer(int target, int buffer) {$/;"	m	class:LwjglOpenGL
 glBindFramebuffer	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glBindFramebuffer(int target, int framebuffer) {$/;"	m	class:AndroidOpenGLES20
 glBindFramebuffer	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glBindFramebuffer(int target, int framebuffer) {$/;"	m	class:AndroidOpenGLES30
-glBindFramebuffer	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glBindFramebuffer(int target, int framebuffer) {$/;"	m	class:NullOpenGL
 glBindFramebuffer	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glBindFramebuffer(int target, int framebuffer);$/;"	m	interface:OpenGLES20
+glBindFramebuffer	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glBindFramebuffer(int target, int framebuffer) {$/;"	m	class:NullOpenGL
 glBindFramebuffer	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBindFramebuffer(int target, int framebuffer) {$/;"	m	class:LwjglOpenGL
 glBindTexture	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glBindTexture(int target, int texture) {$/;"	m	class:AndroidOpenGLES20
 glBindTexture	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glBindTexture(int target, int texture) {$/;"	m	class:AndroidOpenGLES30
-glBindTexture	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glBindTexture(int target, int texture) {$/;"	m	class:NullOpenGL
 glBindTexture	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glBindTexture(int target, int texture);$/;"	m	interface:OpenGLES20
+glBindTexture	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glBindTexture(int target, int texture) {$/;"	m	class:NullOpenGL
 glBindTexture	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBindTexture(int target, int texture) {$/;"	m	class:LwjglOpenGL
 glBufferData	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    public void glBufferData(int target, ByteBuffer data, int usage) {$/;"	m	class:AndroidOpenGLES11
 glBufferData	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    public void glBufferData(int target, DoubleBuffer data, int usage) {$/;"	m	class:AndroidOpenGLES11
@@ -1884,10 +1838,6 @@ glBufferData	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/Androi
 glBufferData	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glBufferData(int target, DoubleBuffer data, int usage) {$/;"	m	class:AndroidOpenGLES30
 glBufferData	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glBufferData(int target, FloatBuffer data, int usage) {$/;"	m	class:AndroidOpenGLES30
 glBufferData	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glBufferData(int target, IntBuffer data, int usage) {$/;"	m	class:AndroidOpenGLES30
-glBufferData	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glBufferData(int target, ByteBuffer data, int usage) {$/;"	m	class:NullOpenGL
-glBufferData	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glBufferData(int target, DoubleBuffer data, int usage) {$/;"	m	class:NullOpenGL
-glBufferData	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glBufferData(int target, FloatBuffer data, int usage) {$/;"	m	class:NullOpenGL
-glBufferData	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glBufferData(int target, IntBuffer data, int usage) {$/;"	m	class:NullOpenGL
 glBufferData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glBufferData(int target, ByteBuffer data, int usage);$/;"	m	interface:OpenGLES11
 glBufferData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glBufferData(int target, DoubleBuffer data, int usage);$/;"	m	interface:OpenGLES11
 glBufferData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glBufferData(int target, FloatBuffer data, int usage);$/;"	m	interface:OpenGLES11
@@ -1896,6 +1846,10 @@ glBufferData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    v
 glBufferData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glBufferData(int target, DoubleBuffer data, int usage);$/;"	m	interface:OpenGLES20
 glBufferData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glBufferData(int target, FloatBuffer data, int usage);$/;"	m	interface:OpenGLES20
 glBufferData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glBufferData(int target, IntBuffer data, int usage);$/;"	m	interface:OpenGLES20
+glBufferData	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glBufferData(int target, ByteBuffer data, int usage) {$/;"	m	class:NullOpenGL
+glBufferData	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glBufferData(int target, DoubleBuffer data, int usage) {$/;"	m	class:NullOpenGL
+glBufferData	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glBufferData(int target, FloatBuffer data, int usage) {$/;"	m	class:NullOpenGL
+glBufferData	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glBufferData(int target, IntBuffer data, int usage) {$/;"	m	class:NullOpenGL
 glBufferData	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBufferData(int target, ByteBuffer data, int usage) {$/;"	m	class:LwjglOpenGL
 glBufferData	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBufferData(int target, DoubleBuffer data, int usage) {$/;"	m	class:LwjglOpenGL
 glBufferData	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBufferData(int target, FloatBuffer data, int usage) {$/;"	m	class:LwjglOpenGL
@@ -1912,10 +1866,6 @@ glBufferSubData	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/And
 glBufferSubData	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glBufferSubData(int target, int offset, int size, DoubleBuffer data) {$/;"	m	class:AndroidOpenGLES30
 glBufferSubData	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glBufferSubData(int target, int offset, int size, FloatBuffer data) {$/;"	m	class:AndroidOpenGLES30
 glBufferSubData	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glBufferSubData(int target, int offset, int size, IntBuffer data) {$/;"	m	class:AndroidOpenGLES30
-glBufferSubData	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glBufferSubData(int target, int offset, int size, ByteBuffer data) {$/;"	m	class:NullOpenGL
-glBufferSubData	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glBufferSubData(int target, int offset, int size, DoubleBuffer data) {$/;"	m	class:NullOpenGL
-glBufferSubData	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glBufferSubData(int target, int offset, int size, FloatBuffer data) {$/;"	m	class:NullOpenGL
-glBufferSubData	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glBufferSubData(int target, int offset, int size, IntBuffer data) {$/;"	m	class:NullOpenGL
 glBufferSubData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glBufferSubData(int target, int offset, int size, ByteBuffer data);$/;"	m	interface:OpenGLES11
 glBufferSubData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glBufferSubData(int target, int offset, int size, DoubleBuffer data);$/;"	m	interface:OpenGLES11
 glBufferSubData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glBufferSubData(int target, int offset, int size, FloatBuffer data);$/;"	m	interface:OpenGLES11
@@ -1924,6 +1874,10 @@ glBufferSubData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^  
 glBufferSubData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glBufferSubData(int target, int offset, int size, DoubleBuffer data);$/;"	m	interface:OpenGLES20
 glBufferSubData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glBufferSubData(int target, int offset, int size, FloatBuffer data);$/;"	m	interface:OpenGLES20
 glBufferSubData	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glBufferSubData(int target, int offset, int size, IntBuffer data);$/;"	m	interface:OpenGLES20
+glBufferSubData	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glBufferSubData(int target, int offset, int size, ByteBuffer data) {$/;"	m	class:NullOpenGL
+glBufferSubData	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glBufferSubData(int target, int offset, int size, DoubleBuffer data) {$/;"	m	class:NullOpenGL
+glBufferSubData	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glBufferSubData(int target, int offset, int size, FloatBuffer data) {$/;"	m	class:NullOpenGL
+glBufferSubData	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glBufferSubData(int target, int offset, int size, IntBuffer data) {$/;"	m	class:NullOpenGL
 glBufferSubData	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBufferSubData(int target, int offset, int size, ByteBuffer data) {$/;"	m	class:LwjglOpenGL
 glBufferSubData	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBufferSubData(int target, int offset, int size, DoubleBuffer data) {$/;"	m	class:LwjglOpenGL
 glBufferSubData	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glBufferSubData(int target, int offset, int size, FloatBuffer data) {$/;"	m	class:LwjglOpenGL
@@ -1931,85 +1885,85 @@ glBufferSubData	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    publ
 glClear	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    public void glClear(int mask) {$/;"	m	class:AndroidOpenGLES11
 glClear	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glClear(int mask) {$/;"	m	class:AndroidOpenGLES20
 glClear	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glClear(int mask) {$/;"	m	class:AndroidOpenGLES30
-glClear	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glClear(int mask) {$/;"	m	class:NullOpenGL
 glClear	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glClear(int mask);$/;"	m	interface:OpenGLES11
 glClear	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glClear(int mask);$/;"	m	interface:OpenGLES20
+glClear	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glClear(int mask) {$/;"	m	class:NullOpenGL
 glClear	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glClear(int mask) {$/;"	m	class:LwjglOpenGL
 glClearColor	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    public void glClearColor(float red, float green, float blue, float alpha) {$/;"	m	class:AndroidOpenGLES11
 glClearColor	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glClearColor(float red, float green, float blue, float alpha) {$/;"	m	class:AndroidOpenGLES20
 glClearColor	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glClearColor(float red, float green, float blue, float alpha) {$/;"	m	class:AndroidOpenGLES30
-glClearColor	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glClearColor(float red, float green, float blue, float alpha) {$/;"	m	class:NullOpenGL
 glClearColor	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glClearColor(float red, float green, float blue, float alpha);$/;"	m	interface:OpenGLES11
 glClearColor	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glClearColor(float red, float green, float blue, float alpha);$/;"	m	interface:OpenGLES20
+glClearColor	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glClearColor(float red, float green, float blue, float alpha) {$/;"	m	class:NullOpenGL
 glClearColor	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glClearColor(float red, float green, float blue, float alpha) {$/;"	m	class:LwjglOpenGL
 glCompileShader	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glCompileShader(int shader) {$/;"	m	class:AndroidOpenGLES20
 glCompileShader	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glCompileShader(int shader) {$/;"	m	class:AndroidOpenGLES30
-glCompileShader	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glCompileShader(int shader) {$/;"	m	class:NullOpenGL
 glCompileShader	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glCompileShader(int shader);$/;"	m	interface:OpenGLES20
+glCompileShader	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glCompileShader(int shader) {$/;"	m	class:NullOpenGL
 glCompileShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glCompileShader(int shader) {$/;"	m	class:LwjglOpenGL
 glCreateProgram	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public int glCreateProgram() {$/;"	m	class:AndroidOpenGLES20
 glCreateProgram	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public int glCreateProgram() {$/;"	m	class:AndroidOpenGLES30
-glCreateProgram	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public int glCreateProgram() {$/;"	m	class:NullOpenGL
 glCreateProgram	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    int glCreateProgram();$/;"	m	interface:OpenGLES20
+glCreateProgram	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public int glCreateProgram() {$/;"	m	class:NullOpenGL
 glCreateProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glCreateProgram() {$/;"	m	class:LwjglOpenGL
 glCreateShader	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public int glCreateShader(int type) {$/;"	m	class:AndroidOpenGLES20
 glCreateShader	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public int glCreateShader(int type) {$/;"	m	class:AndroidOpenGLES30
-glCreateShader	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public int glCreateShader(int type) {$/;"	m	class:NullOpenGL
 glCreateShader	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    int glCreateShader(int type);$/;"	m	interface:OpenGLES20
+glCreateShader	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public int glCreateShader(int type) {$/;"	m	class:NullOpenGL
 glCreateShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glCreateShader(int type) {$/;"	m	class:LwjglOpenGL
 glDeleteFramebuffers	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glDeleteFramebuffers(int n, IntBuffer framebuffers) {$/;"	m	class:AndroidOpenGLES20
 glDeleteFramebuffers	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glDeleteFramebuffers(int n, int[] framebuffers, int offset) {$/;"	m	class:AndroidOpenGLES20
 glDeleteFramebuffers	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glDeleteFramebuffers(int n, IntBuffer framebuffers) {$/;"	m	class:AndroidOpenGLES30
 glDeleteFramebuffers	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glDeleteFramebuffers(int n, int[] framebuffers, int offset) {$/;"	m	class:AndroidOpenGLES30
-glDeleteFramebuffers	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glDeleteFramebuffers(int n, IntBuffer framebuffers) {$/;"	m	class:NullOpenGL
-glDeleteFramebuffers	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glDeleteFramebuffers(int n, int[] framebuffers, int offset) {$/;"	m	class:NullOpenGL
 glDeleteFramebuffers	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glDeleteFramebuffers(int n, IntBuffer framebuffers);$/;"	m	interface:OpenGLES20
 glDeleteFramebuffers	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glDeleteFramebuffers(int n, int[] framebuffers, int offset);$/;"	m	interface:OpenGLES20
+glDeleteFramebuffers	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glDeleteFramebuffers(int n, IntBuffer framebuffers) {$/;"	m	class:NullOpenGL
+glDeleteFramebuffers	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glDeleteFramebuffers(int n, int[] framebuffers, int offset) {$/;"	m	class:NullOpenGL
 glDeleteFramebuffers	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDeleteFramebuffers(int n, IntBuffer framebuffers) {$/;"	m	class:LwjglOpenGL
 glDeleteFramebuffers	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDeleteFramebuffers(int n, int[] framebuffers, int offset) {$/;"	m	class:LwjglOpenGL
 glDeleteProgram	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glDeleteProgram(Program program) {$/;"	m	class:AndroidOpenGLES20
 glDeleteProgram	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glDeleteProgram(int program) {$/;"	m	class:AndroidOpenGLES20
 glDeleteProgram	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glDeleteProgram(Program program) {$/;"	m	class:AndroidOpenGLES30
 glDeleteProgram	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glDeleteProgram(int program) {$/;"	m	class:AndroidOpenGLES30
-glDeleteProgram	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glDeleteProgram(Program program) {$/;"	m	class:NullOpenGL
-glDeleteProgram	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glDeleteProgram(int program) {$/;"	m	class:NullOpenGL
 glDeleteProgram	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glDeleteProgram(Program program);$/;"	m	interface:OpenGLES20
 glDeleteProgram	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glDeleteProgram(int program);$/;"	m	interface:OpenGLES20
+glDeleteProgram	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glDeleteProgram(Program program) {$/;"	m	class:NullOpenGL
+glDeleteProgram	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glDeleteProgram(int program) {$/;"	m	class:NullOpenGL
 glDeleteProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDeleteProgram(Program program) {$/;"	m	class:LwjglOpenGL
 glDeleteProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDeleteProgram(int program) {$/;"	m	class:LwjglOpenGL
 glDeleteShader	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glDeleteShader(int shader) {$/;"	m	class:AndroidOpenGLES20
 glDeleteShader	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glDeleteShader(int shader) {$/;"	m	class:AndroidOpenGLES30
-glDeleteShader	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glDeleteShader(int shader) {$/;"	m	class:NullOpenGL
 glDeleteShader	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glDeleteShader(int shader);$/;"	m	interface:OpenGLES20
+glDeleteShader	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glDeleteShader(int shader) {$/;"	m	class:NullOpenGL
 glDeleteShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDeleteShader(int shader) {$/;"	m	class:LwjglOpenGL
 glDetachShader	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glDetachShader(Program program, Shader shader) {$/;"	m	class:AndroidOpenGLES20
 glDetachShader	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glDetachShader(int program, int shader) {$/;"	m	class:AndroidOpenGLES20
 glDetachShader	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glDetachShader(Program program, Shader shader) {$/;"	m	class:AndroidOpenGLES30
 glDetachShader	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glDetachShader(int program, int shader) {$/;"	m	class:AndroidOpenGLES30
-glDetachShader	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glDetachShader(Program program, Shader shader) {$/;"	m	class:NullOpenGL
-glDetachShader	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glDetachShader(int program, int shader) {$/;"	m	class:NullOpenGL
 glDetachShader	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glDetachShader(Program program, Shader shader);$/;"	m	interface:OpenGLES20
 glDetachShader	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glDetachShader(int program, int shader);$/;"	m	interface:OpenGLES20
+glDetachShader	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glDetachShader(Program program, Shader shader) {$/;"	m	class:NullOpenGL
+glDetachShader	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glDetachShader(int program, int shader) {$/;"	m	class:NullOpenGL
 glDetachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDetachShader(Program program, Shader shader) {$/;"	m	class:LwjglOpenGL
 glDetachShader	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDetachShader(int program, int shader) {$/;"	m	class:LwjglOpenGL
 glDisable	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    public void glDisable(int cap) {$/;"	m	class:AndroidOpenGLES11
 glDisable	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glDisable(int cap) {$/;"	m	class:AndroidOpenGLES20
 glDisable	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glDisable(int cap) {$/;"	m	class:AndroidOpenGLES30
-glDisable	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glDisable(int cap) {$/;"	m	class:NullOpenGL
 glDisable	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glDisable(int cap);$/;"	m	interface:OpenGLES11
 glDisable	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glDisable(int cap);$/;"	m	interface:OpenGLES20
+glDisable	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glDisable(int cap) {$/;"	m	class:NullOpenGL
 glDisable	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDisable(int cap) {$/;"	m	class:LwjglOpenGL
 glDisableVertexAttribArray	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glDisableVertexAttribArray(int index) {$/;"	m	class:AndroidOpenGLES20
 glDisableVertexAttribArray	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glDisableVertexAttribArray(int index) {$/;"	m	class:AndroidOpenGLES30
-glDisableVertexAttribArray	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glDisableVertexAttribArray(int index) {$/;"	m	class:NullOpenGL
 glDisableVertexAttribArray	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glDisableVertexAttribArray(int index);$/;"	m	interface:OpenGLES20
+glDisableVertexAttribArray	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glDisableVertexAttribArray(int index) {$/;"	m	class:NullOpenGL
 glDisableVertexAttribArray	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDisableVertexAttribArray(int index) {$/;"	m	class:LwjglOpenGL
 glDrawArrays	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    public void glDrawArrays(int mode, int first, int count) {$/;"	m	class:AndroidOpenGLES11
 glDrawArrays	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glDrawArrays(int mode, int first, int count) {$/;"	m	class:AndroidOpenGLES20
 glDrawArrays	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glDrawArrays(int mode, int first, int count) {$/;"	m	class:AndroidOpenGLES30
-glDrawArrays	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glDrawArrays(int mode, int first, int count) {$/;"	m	class:NullOpenGL
 glDrawArrays	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glDrawArrays(int mode, int first, int count);$/;"	m	interface:OpenGLES11
 glDrawArrays	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glDrawArrays(int mode, int first, int count);$/;"	m	interface:OpenGLES20
+glDrawArrays	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glDrawArrays(int mode, int first, int count) {$/;"	m	class:NullOpenGL
 glDrawArrays	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDrawArrays(int mode, int first, int count) {$/;"	m	class:LwjglOpenGL
 glDrawElements	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    public void glDrawElements(int mode, int count, int type, ByteBuffer indices) {$/;"	m	class:AndroidOpenGLES11
 glDrawElements	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    public void glDrawElements(int mode, int count, int type, int offset) {$/;"	m	class:AndroidOpenGLES11
@@ -2017,214 +1971,214 @@ glDrawElements	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/Andr
 glDrawElements	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glDrawElements(int mode, int count, int type, int offset) {$/;"	m	class:AndroidOpenGLES20
 glDrawElements	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glDrawElements(int mode, int count, int type, ByteBuffer indices) {$/;"	m	class:AndroidOpenGLES30
 glDrawElements	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glDrawElements(int mode, int count, int type, int offset) {$/;"	m	class:AndroidOpenGLES30
-glDrawElements	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glDrawElements(int mode, int count, int type, ByteBuffer indices) {$/;"	m	class:NullOpenGL
-glDrawElements	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glDrawElements(int mode, int count, int type, int offset) {$/;"	m	class:NullOpenGL
 glDrawElements	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glDrawElements(int mode, int count, int type, ByteBuffer indices);$/;"	m	interface:OpenGLES11
 glDrawElements	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glDrawElements(int mode, int count, int type, int offset);$/;"	m	interface:OpenGLES11
 glDrawElements	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glDrawElements(int mode, int count, int type, ByteBuffer indices);$/;"	m	interface:OpenGLES20
 glDrawElements	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glDrawElements(int mode, int count, int type, int offset);$/;"	m	interface:OpenGLES20
+glDrawElements	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glDrawElements(int mode, int count, int type, ByteBuffer indices) {$/;"	m	class:NullOpenGL
+glDrawElements	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glDrawElements(int mode, int count, int type, int offset) {$/;"	m	class:NullOpenGL
 glDrawElements	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDrawElements(int mode, int count, int type, ByteBuffer indices) {$/;"	m	class:LwjglOpenGL
 glDrawElements	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glDrawElements(int mode, int count, int type, int offset) {$/;"	m	class:LwjglOpenGL
 glEnable	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    public void glEnable(int cap) {$/;"	m	class:AndroidOpenGLES11
 glEnable	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glEnable(int cap) {$/;"	m	class:AndroidOpenGLES20
 glEnable	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glEnable(int cap) {$/;"	m	class:AndroidOpenGLES30
-glEnable	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glEnable(int cap) {$/;"	m	class:NullOpenGL
 glEnable	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glEnable(int cap);$/;"	m	interface:OpenGLES11
 glEnable	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glEnable(int cap);$/;"	m	interface:OpenGLES20
+glEnable	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glEnable(int cap) {$/;"	m	class:NullOpenGL
 glEnable	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glEnable(int cap) {$/;"	m	class:LwjglOpenGL
 glEnableVertexAttribArray	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glEnableVertexAttribArray(int index) {$/;"	m	class:AndroidOpenGLES20
 glEnableVertexAttribArray	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glEnableVertexAttribArray(int index) {$/;"	m	class:AndroidOpenGLES30
-glEnableVertexAttribArray	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glEnableVertexAttribArray(int index) {$/;"	m	class:NullOpenGL
 glEnableVertexAttribArray	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glEnableVertexAttribArray(int index);$/;"	m	interface:OpenGLES20
+glEnableVertexAttribArray	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glEnableVertexAttribArray(int index) {$/;"	m	class:NullOpenGL
 glEnableVertexAttribArray	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glEnableVertexAttribArray(int index) {$/;"	m	class:LwjglOpenGL
 glGenBuffers	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    public void glGenBuffers(IntBuffer buffers) {$/;"	m	class:AndroidOpenGLES11
 glGenBuffers	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glGenBuffers(IntBuffer buffers) {$/;"	m	class:AndroidOpenGLES20
 glGenBuffers	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glGenBuffers(IntBuffer buffers) {$/;"	m	class:AndroidOpenGLES30
-glGenBuffers	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glGenBuffers(IntBuffer buffers) {$/;"	m	class:NullOpenGL
 glGenBuffers	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glGenBuffers(IntBuffer buffers);$/;"	m	interface:OpenGLES11
 glGenBuffers	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glGenBuffers(IntBuffer buffers);$/;"	m	interface:OpenGLES20
+glGenBuffers	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glGenBuffers(IntBuffer buffers) {$/;"	m	class:NullOpenGL
 glGenBuffers	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGenBuffers(IntBuffer buffers) {$/;"	m	class:LwjglOpenGL
 glGenFramebuffers	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glGenFramebuffers(IntBuffer framebuffers) {$/;"	m	class:AndroidOpenGLES20
 glGenFramebuffers	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glGenFramebuffers(int n, IntBuffer framebuffers) {$/;"	m	class:AndroidOpenGLES20
 glGenFramebuffers	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glGenFramebuffers(IntBuffer framebuffers) {$/;"	m	class:AndroidOpenGLES30
 glGenFramebuffers	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glGenFramebuffers(int n, IntBuffer framebuffers) {$/;"	m	class:AndroidOpenGLES30
-glGenFramebuffers	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glGenFramebuffers(IntBuffer framebuffers) {$/;"	m	class:NullOpenGL
-glGenFramebuffers	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glGenFramebuffers(int n, IntBuffer framebuffers) {$/;"	m	class:NullOpenGL
 glGenFramebuffers	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glGenFramebuffers(IntBuffer framebuffers);$/;"	m	interface:OpenGLES20
 glGenFramebuffers	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glGenFramebuffers(int n, IntBuffer framebuffers);$/;"	m	interface:OpenGLES20
+glGenFramebuffers	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glGenFramebuffers(IntBuffer framebuffers) {$/;"	m	class:NullOpenGL
+glGenFramebuffers	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glGenFramebuffers(int n, IntBuffer framebuffers) {$/;"	m	class:NullOpenGL
 glGenFramebuffers	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGenFramebuffers(IntBuffer framebuffers) {$/;"	m	class:LwjglOpenGL
 glGenFramebuffers	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGenFramebuffers(int n, IntBuffer framebuffers) {$/;"	m	class:LwjglOpenGL
 glGenTextures	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glGenTextures(ByteBuffer buffer) {$/;"	m	class:AndroidOpenGLES20
 glGenTextures	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glGenTextures(IntBuffer buffer) {$/;"	m	class:AndroidOpenGLES20
 glGenTextures	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glGenTextures(ByteBuffer buffer) {$/;"	m	class:AndroidOpenGLES30
 glGenTextures	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glGenTextures(IntBuffer buffer) {$/;"	m	class:AndroidOpenGLES30
-glGenTextures	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glGenTextures(ByteBuffer buffer) {$/;"	m	class:NullOpenGL
-glGenTextures	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glGenTextures(IntBuffer buffer) {$/;"	m	class:NullOpenGL
 glGenTextures	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glGenTextures(ByteBuffer buffer);$/;"	m	interface:OpenGLES20
 glGenTextures	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glGenTextures(IntBuffer buffer);$/;"	m	interface:OpenGLES20
+glGenTextures	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glGenTextures(ByteBuffer buffer) {$/;"	m	class:NullOpenGL
+glGenTextures	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glGenTextures(IntBuffer buffer) {$/;"	m	class:NullOpenGL
 glGenTextures	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGenTextures(ByteBuffer buffer) {$/;"	m	class:LwjglOpenGL
 glGenTextures	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGenTextures(IntBuffer buffer) {$/;"	m	class:LwjglOpenGL
 glGetAttribLocation	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public int glGetAttribLocation(int program, String name) {$/;"	m	class:AndroidOpenGLES20
 glGetAttribLocation	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public int glGetAttribLocation(int program, String name) {$/;"	m	class:AndroidOpenGLES30
-glGetAttribLocation	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public int glGetAttribLocation(int program, String name) {$/;"	m	class:NullOpenGL
 glGetAttribLocation	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    int glGetAttribLocation(int program, String name);$/;"	m	interface:OpenGLES20
+glGetAttribLocation	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public int glGetAttribLocation(int program, String name) {$/;"	m	class:NullOpenGL
 glGetAttribLocation	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glGetAttribLocation(int program, String name) {$/;"	m	class:LwjglOpenGL
 glGetProgramInfoLog	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public String glGetProgramInfoLog(int program) {$/;"	m	class:AndroidOpenGLES20
 glGetProgramInfoLog	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public String glGetProgramInfoLog(int program) {$/;"	m	class:AndroidOpenGLES30
-glGetProgramInfoLog	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public String glGetProgramInfoLog(int program) {$/;"	m	class:NullOpenGL
 glGetProgramInfoLog	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    String glGetProgramInfoLog(int program);$/;"	m	interface:OpenGLES20
+glGetProgramInfoLog	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public String glGetProgramInfoLog(int program) {$/;"	m	class:NullOpenGL
 glGetProgramInfoLog	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public String glGetProgramInfoLog(int program) {$/;"	m	class:LwjglOpenGL
 glGetProgramiv	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public int glGetProgramiv(int program, int pname) {$/;"	m	class:AndroidOpenGLES20
 glGetProgramiv	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public int glGetProgramiv(int program, int pname) {$/;"	m	class:AndroidOpenGLES30
-glGetProgramiv	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public int glGetProgramiv(int program, int pname) {$/;"	m	class:NullOpenGL
 glGetProgramiv	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    int glGetProgramiv(int program, int pname);$/;"	m	interface:OpenGLES20
+glGetProgramiv	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public int glGetProgramiv(int program, int pname) {$/;"	m	class:NullOpenGL
 glGetProgramiv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glGetProgramiv(int program, int pname) {$/;"	m	class:LwjglOpenGL
 glGetShaderInfoLog	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public String glGetShaderInfoLog(int shader) {$/;"	m	class:AndroidOpenGLES20
 glGetShaderInfoLog	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public String glGetShaderInfoLog(int shader) {$/;"	m	class:AndroidOpenGLES30
-glGetShaderInfoLog	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public String glGetShaderInfoLog(int shader) {$/;"	m	class:NullOpenGL
 glGetShaderInfoLog	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    String glGetShaderInfoLog(int shader);$/;"	m	interface:OpenGLES20
+glGetShaderInfoLog	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public String glGetShaderInfoLog(int shader) {$/;"	m	class:NullOpenGL
 glGetShaderInfoLog	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public String glGetShaderInfoLog(int shader) {$/;"	m	class:LwjglOpenGL
 glGetShaderiv	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public int glGetShaderiv(int shader, int pname) {$/;"	m	class:AndroidOpenGLES20
 glGetShaderiv	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public int glGetShaderiv(int shader, int pname) {$/;"	m	class:AndroidOpenGLES30
-glGetShaderiv	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public int glGetShaderiv(int shader, int pname) {$/;"	m	class:NullOpenGL
 glGetShaderiv	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    int glGetShaderiv(int shader, int pname);$/;"	m	interface:OpenGLES20
+glGetShaderiv	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public int glGetShaderiv(int shader, int pname) {$/;"	m	class:NullOpenGL
 glGetShaderiv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glGetShaderiv(int shader, int pname) {$/;"	m	class:LwjglOpenGL
 glGetUniformLocation	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public int glGetUniformLocation(Program program, String name) {$/;"	m	class:AndroidOpenGLES20
 glGetUniformLocation	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public int glGetUniformLocation(int program, String name) {$/;"	m	class:AndroidOpenGLES20
 glGetUniformLocation	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public int glGetUniformLocation(Program program, String name) {$/;"	m	class:AndroidOpenGLES30
 glGetUniformLocation	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public int glGetUniformLocation(int program, String name) {$/;"	m	class:AndroidOpenGLES30
-glGetUniformLocation	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public int glGetUniformLocation(Program program, String name) {$/;"	m	class:NullOpenGL
-glGetUniformLocation	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public int glGetUniformLocation(int program, String name) {$/;"	m	class:NullOpenGL
 glGetUniformLocation	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    int glGetUniformLocation(Program program, String name);$/;"	m	interface:OpenGLES20
 glGetUniformLocation	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    int glGetUniformLocation(int program, String name);$/;"	m	interface:OpenGLES20
+glGetUniformLocation	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public int glGetUniformLocation(Program program, String name) {$/;"	m	class:NullOpenGL
+glGetUniformLocation	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public int glGetUniformLocation(int program, String name) {$/;"	m	class:NullOpenGL
 glGetUniformLocation	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glGetUniformLocation(Program program, String name) {$/;"	m	class:LwjglOpenGL
 glGetUniformLocation	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public int glGetUniformLocation(int program, String name) {$/;"	m	class:LwjglOpenGL
 glGetUniformfv	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glGetUniformfv(Program program, int location, FloatBuffer params) {$/;"	m	class:AndroidOpenGLES20
 glGetUniformfv	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glGetUniformfv(int program, int location, FloatBuffer params) {$/;"	m	class:AndroidOpenGLES20
 glGetUniformfv	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glGetUniformfv(Program program, int location, FloatBuffer params) {$/;"	m	class:AndroidOpenGLES30
 glGetUniformfv	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glGetUniformfv(int program, int location, FloatBuffer params) {$/;"	m	class:AndroidOpenGLES30
-glGetUniformfv	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glGetUniformfv(Program program, int location, FloatBuffer params) {$/;"	m	class:NullOpenGL
-glGetUniformfv	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glGetUniformfv(int program, int location, FloatBuffer params) {$/;"	m	class:NullOpenGL
 glGetUniformfv	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glGetUniformfv(Program program, int location, FloatBuffer params);$/;"	m	interface:OpenGLES20
 glGetUniformfv	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glGetUniformfv(int program, int location, FloatBuffer params);$/;"	m	interface:OpenGLES20
+glGetUniformfv	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glGetUniformfv(Program program, int location, FloatBuffer params) {$/;"	m	class:NullOpenGL
+glGetUniformfv	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glGetUniformfv(int program, int location, FloatBuffer params) {$/;"	m	class:NullOpenGL
 glGetUniformfv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGetUniformfv(Program program, int location, FloatBuffer params) {$/;"	m	class:LwjglOpenGL
 glGetUniformfv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGetUniformfv(int program, int location, FloatBuffer params) {$/;"	m	class:LwjglOpenGL
 glGetUniformiv	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glGetUniformiv(Program program, int location, IntBuffer params) {$/;"	m	class:AndroidOpenGLES20
 glGetUniformiv	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glGetUniformiv(int program, int location, IntBuffer params) {$/;"	m	class:AndroidOpenGLES20
 glGetUniformiv	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glGetUniformiv(Program program, int location, IntBuffer params) {$/;"	m	class:AndroidOpenGLES30
 glGetUniformiv	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glGetUniformiv(int program, int location, IntBuffer params) {$/;"	m	class:AndroidOpenGLES30
-glGetUniformiv	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glGetUniformiv(Program program, int location, IntBuffer params) {$/;"	m	class:NullOpenGL
-glGetUniformiv	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glGetUniformiv(int program, int location, IntBuffer params) {$/;"	m	class:NullOpenGL
 glGetUniformiv	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glGetUniformiv(Program program, int location, IntBuffer params);$/;"	m	interface:OpenGLES20
 glGetUniformiv	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glGetUniformiv(int program, int location, IntBuffer params);$/;"	m	interface:OpenGLES20
+glGetUniformiv	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glGetUniformiv(Program program, int location, IntBuffer params) {$/;"	m	class:NullOpenGL
+glGetUniformiv	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glGetUniformiv(int program, int location, IntBuffer params) {$/;"	m	class:NullOpenGL
 glGetUniformiv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGetUniformiv(Program program, int location, IntBuffer params) {$/;"	m	class:LwjglOpenGL
 glGetUniformiv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glGetUniformiv(int program, int location, IntBuffer params) {$/;"	m	class:LwjglOpenGL
 glLineWidth	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    public void glLineWidth(float width) {$/;"	m	class:AndroidOpenGLES11
 glLineWidth	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glLineWidth(float width) {$/;"	m	class:AndroidOpenGLES20
 glLineWidth	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glLineWidth(float width) {$/;"	m	class:AndroidOpenGLES30
-glLineWidth	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glLineWidth(float width) {$/;"	m	class:NullOpenGL
 glLineWidth	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^    void glLineWidth(float width);$/;"	m	interface:OpenGLES11
 glLineWidth	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glLineWidth(float width);$/;"	m	interface:OpenGLES20
+glLineWidth	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glLineWidth(float width) {$/;"	m	class:NullOpenGL
 glLineWidth	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glLineWidth(float width) {$/;"	m	class:LwjglOpenGL
 glLinkProgram	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glLinkProgram(Program p) {$/;"	m	class:AndroidOpenGLES20
 glLinkProgram	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glLinkProgram(int program) {$/;"	m	class:AndroidOpenGLES20
 glLinkProgram	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glLinkProgram(Program p) {$/;"	m	class:AndroidOpenGLES30
 glLinkProgram	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glLinkProgram(int program) {$/;"	m	class:AndroidOpenGLES30
-glLinkProgram	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glLinkProgram(Program p) {$/;"	m	class:NullOpenGL
-glLinkProgram	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glLinkProgram(int program) {$/;"	m	class:NullOpenGL
 glLinkProgram	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glLinkProgram(Program p);$/;"	m	interface:OpenGLES20
 glLinkProgram	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glLinkProgram(int program);$/;"	m	interface:OpenGLES20
+glLinkProgram	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glLinkProgram(Program p) {$/;"	m	class:NullOpenGL
+glLinkProgram	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glLinkProgram(int program) {$/;"	m	class:NullOpenGL
 glLinkProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glLinkProgram(Program p) {$/;"	m	class:LwjglOpenGL
 glLinkProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glLinkProgram(int program) {$/;"	m	class:LwjglOpenGL
 glShaderSource	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glShaderSource(int shader, String source) {$/;"	m	class:AndroidOpenGLES20
 glShaderSource	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glShaderSource(int shader, String source) {$/;"	m	class:AndroidOpenGLES30
-glShaderSource	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glShaderSource(int shader, String source) {$/;"	m	class:NullOpenGL
 glShaderSource	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glShaderSource(int shader, String source);$/;"	m	interface:OpenGLES20
+glShaderSource	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glShaderSource(int shader, String source) {$/;"	m	class:NullOpenGL
 glShaderSource	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glShaderSource(int shader, String source) {$/;"	m	class:LwjglOpenGL
 glTexImage2D	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glTexImage2D(int target, int level, int internalFormat,$/;"	m	class:AndroidOpenGLES20
 glTexImage2D	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glTexImage2D(int target, int level, int internalFormat,$/;"	m	class:AndroidOpenGLES30
-glTexImage2D	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glTexImage2D(int target, int level, int internalFormat,$/;"	m	class:NullOpenGL
 glTexImage2D	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glTexImage2D(int target, int level, int internalFormat, int width, int height, int border, int format, int type, ByteBuffer pixels);$/;"	m	interface:OpenGLES20
+glTexImage2D	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glTexImage2D(int target, int level, int internalFormat,$/;"	m	class:NullOpenGL
 glTexImage2D	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glTexImage2D(int target, int level, int internalFormat,$/;"	m	class:LwjglOpenGL
 glUniform1f	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glUniform1f(int location, float v0) {$/;"	m	class:AndroidOpenGLES20
 glUniform1f	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glUniform1f(int location, float v0) {$/;"	m	class:AndroidOpenGLES30
-glUniform1f	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glUniform1f(int location, float v0) {$/;"	m	class:NullOpenGL
 glUniform1f	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glUniform1f(int location, float v0);$/;"	m	interface:OpenGLES20
+glUniform1f	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glUniform1f(int location, float v0) {$/;"	m	class:NullOpenGL
 glUniform1f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform1f(int location, float v0) {$/;"	m	class:LwjglOpenGL
 glUniform1i	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glUniform1i(int location, int v0) {$/;"	m	class:AndroidOpenGLES20
 glUniform1i	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glUniform1i(int location, int v0) {$/;"	m	class:AndroidOpenGLES30
-glUniform1i	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glUniform1i(int location, int v0) {$/;"	m	class:NullOpenGL
 glUniform1i	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glUniform1i(int location, int v0);$/;"	m	interface:OpenGLES20
+glUniform1i	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glUniform1i(int location, int v0) {$/;"	m	class:NullOpenGL
 glUniform1i	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform1i(int location, int v0) {$/;"	m	class:LwjglOpenGL
 glUniform2f	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glUniform2f(int location, float v0, float v1) {$/;"	m	class:AndroidOpenGLES20
 glUniform2f	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glUniform2f(int location, float v0, float v1) {$/;"	m	class:AndroidOpenGLES30
-glUniform2f	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glUniform2f(int location, float v0, float v1) {$/;"	m	class:NullOpenGL
 glUniform2f	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glUniform2f(int location, float v0, float v1);$/;"	m	interface:OpenGLES20
+glUniform2f	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glUniform2f(int location, float v0, float v1) {$/;"	m	class:NullOpenGL
 glUniform2f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform2f(int location, float v0, float v1) {$/;"	m	class:LwjglOpenGL
 glUniform2i	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glUniform2i(int location, int v0, int v1) {$/;"	m	class:AndroidOpenGLES20
 glUniform2i	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glUniform2i(int location, int v0, int v1) {$/;"	m	class:AndroidOpenGLES30
-glUniform2i	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glUniform2i(int location, int v0, int v1) {$/;"	m	class:NullOpenGL
 glUniform2i	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glUniform2i(int location, int v0, int v1);$/;"	m	interface:OpenGLES20
+glUniform2i	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glUniform2i(int location, int v0, int v1) {$/;"	m	class:NullOpenGL
 glUniform2i	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform2i(int location, int v0, int v1) {$/;"	m	class:LwjglOpenGL
 glUniform3f	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glUniform3f(int location, float v0, float v1, float v2) {$/;"	m	class:AndroidOpenGLES20
 glUniform3f	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glUniform3f(int location, float v0, float v1, float v2) {$/;"	m	class:AndroidOpenGLES30
-glUniform3f	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glUniform3f(int location, float v0, float v1, float v2) {$/;"	m	class:NullOpenGL
 glUniform3f	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glUniform3f(int location, float v0, float v1, float v2);$/;"	m	interface:OpenGLES20
+glUniform3f	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glUniform3f(int location, float v0, float v1, float v2) {$/;"	m	class:NullOpenGL
 glUniform3f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform3f(int location, float v0, float v1, float v2) {$/;"	m	class:LwjglOpenGL
 glUniform3i	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glUniform3i(int location, int v0, int v1, int v2) {$/;"	m	class:AndroidOpenGLES20
 glUniform3i	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glUniform3i(int location, int v0, int v1, int v2) {$/;"	m	class:AndroidOpenGLES30
-glUniform3i	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glUniform3i(int location, int v0, int v1, int v2) {$/;"	m	class:NullOpenGL
 glUniform3i	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glUniform3i(int location, int v0, int v1, int v2);$/;"	m	interface:OpenGLES20
+glUniform3i	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glUniform3i(int location, int v0, int v1, int v2) {$/;"	m	class:NullOpenGL
 glUniform3i	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform3i(int location, int v0, int v1, int v2) {$/;"	m	class:LwjglOpenGL
 glUniform4f	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glUniform4f(int location, float v0, float v1, float v2, float v3) {$/;"	m	class:AndroidOpenGLES20
 glUniform4f	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glUniform4f(int location, float v0, float v1, float v2, float v3) {$/;"	m	class:AndroidOpenGLES30
-glUniform4f	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glUniform4f(int location, float v0, float v1, float v2, float v3) {$/;"	m	class:NullOpenGL
 glUniform4f	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glUniform4f(int location, float v0, float v1, float v2, float v3);$/;"	m	interface:OpenGLES20
+glUniform4f	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glUniform4f(int location, float v0, float v1, float v2, float v3) {$/;"	m	class:NullOpenGL
 glUniform4f	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform4f(int location, float v0, float v1, float v2, float v3) {$/;"	m	class:LwjglOpenGL
 glUniform4fv	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glUniform4fv(int location, int count, FloatBuffer v) {$/;"	m	class:AndroidOpenGLES20
 glUniform4fv	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glUniform4fv(int location, int count, FloatBuffer v) {$/;"	m	class:AndroidOpenGLES30
-glUniform4fv	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glUniform4fv(int location, int count, FloatBuffer v) {$/;"	m	class:NullOpenGL
 glUniform4fv	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glUniform4fv(int location, int count, FloatBuffer v);$/;"	m	interface:OpenGLES20
+glUniform4fv	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glUniform4fv(int location, int count, FloatBuffer v) {$/;"	m	class:NullOpenGL
 glUniform4fv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform4fv(int location, int count, FloatBuffer v) {$/;"	m	class:LwjglOpenGL
 glUniform4i	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glUniform4i(int location, int v0, int v1, int v2, int v3) {$/;"	m	class:AndroidOpenGLES20
 glUniform4i	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glUniform4i(int location, int v0, int v1, int v2, int v3) {$/;"	m	class:AndroidOpenGLES30
-glUniform4i	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glUniform4i(int location, int v0, int v1, int v2, int v3) {$/;"	m	class:NullOpenGL
 glUniform4i	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glUniform4i(int location, int v0, int v1, int v2, int v3);$/;"	m	interface:OpenGLES20
+glUniform4i	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glUniform4i(int location, int v0, int v1, int v2, int v3) {$/;"	m	class:NullOpenGL
 glUniform4i	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform4i(int location, int v0, int v1, int v2, int v3) {$/;"	m	class:LwjglOpenGL
 glUniform4iv	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glUniform4iv(int location, int count, IntBuffer v) {$/;"	m	class:AndroidOpenGLES20
 glUniform4iv	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glUniform4iv(int location, int count, IntBuffer v) {$/;"	m	class:AndroidOpenGLES30
-glUniform4iv	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glUniform4iv(int location, int count, IntBuffer v) {$/;"	m	class:NullOpenGL
 glUniform4iv	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glUniform4iv(int location, int count, IntBuffer v);$/;"	m	interface:OpenGLES20
+glUniform4iv	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glUniform4iv(int location, int count, IntBuffer v) {$/;"	m	class:NullOpenGL
 glUniform4iv	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUniform4iv(int location, int count, IntBuffer v) {$/;"	m	class:LwjglOpenGL
 glUseProgram	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glUseProgram(Program program) {$/;"	m	class:AndroidOpenGLES20
 glUseProgram	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glUseProgram(int program) {$/;"	m	class:AndroidOpenGLES20
 glUseProgram	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glUseProgram(Program program) {$/;"	m	class:AndroidOpenGLES30
 glUseProgram	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glUseProgram(int program) {$/;"	m	class:AndroidOpenGLES30
-glUseProgram	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glUseProgram(Program program) {$/;"	m	class:NullOpenGL
-glUseProgram	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glUseProgram(int program) {$/;"	m	class:NullOpenGL
 glUseProgram	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glUseProgram(Program program);$/;"	m	interface:OpenGLES20
 glUseProgram	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glUseProgram(int program);$/;"	m	interface:OpenGLES20
+glUseProgram	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glUseProgram(Program program) {$/;"	m	class:NullOpenGL
+glUseProgram	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glUseProgram(int program) {$/;"	m	class:NullOpenGL
 glUseProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUseProgram(Program program) {$/;"	m	class:LwjglOpenGL
 glUseProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glUseProgram(int program) {$/;"	m	class:LwjglOpenGL
 glValidateProgram	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glValidateProgram(Program p) {$/;"	m	class:AndroidOpenGLES20
 glValidateProgram	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glValidateProgram(int program) {$/;"	m	class:AndroidOpenGLES20
 glValidateProgram	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glValidateProgram(Program p) {$/;"	m	class:AndroidOpenGLES30
 glValidateProgram	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glValidateProgram(int program) {$/;"	m	class:AndroidOpenGLES30
-glValidateProgram	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glValidateProgram(Program p) {$/;"	m	class:NullOpenGL
-glValidateProgram	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glValidateProgram(int program) {$/;"	m	class:NullOpenGL
 glValidateProgram	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glValidateProgram(Program p);$/;"	m	interface:OpenGLES20
 glValidateProgram	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glValidateProgram(int program);$/;"	m	interface:OpenGLES20
+glValidateProgram	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glValidateProgram(Program p) {$/;"	m	class:NullOpenGL
+glValidateProgram	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glValidateProgram(int program) {$/;"	m	class:NullOpenGL
 glValidateProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glValidateProgram(Program p) {$/;"	m	class:LwjglOpenGL
 glValidateProgram	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glValidateProgram(int program) {$/;"	m	class:LwjglOpenGL
 glVertexAttribPointer	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glVertexAttribPointer(int index, int size, int type,$/;"	m	class:AndroidOpenGLES20
 glVertexAttribPointer	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glVertexAttribPointer(int index, int size, int type,$/;"	m	class:AndroidOpenGLES30
-glVertexAttribPointer	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int offset) {$/;"	m	class:NullOpenGL
 glVertexAttribPointer	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int offset);$/;"	m	interface:OpenGLES20
+glVertexAttribPointer	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int offset) {$/;"	m	class:NullOpenGL
 glVertexAttribPointer	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int offset) {$/;"	m	class:LwjglOpenGL
 glViewport	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    public void glViewport(int x, int y, int width, int height) {$/;"	m	class:AndroidOpenGLES20
 glViewport	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    public void glViewport(int x, int y, int width, int height) {$/;"	m	class:AndroidOpenGLES30
-glViewport	core/src/main/java/com/spidey01/sxe/core/gl/NullOpenGL.java	/^    public void glViewport(int x, int y, int width, int height) {$/;"	m	class:NullOpenGL
 glViewport	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^    void glViewport(int x, int y, int width, int height);$/;"	m	interface:OpenGLES20
+glViewport	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public void glViewport(int x, int y, int width, int height) {$/;"	m	class:NullOpenGL
 glViewport	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public void glViewport(int x, int y, int width, int height) {$/;"	m	class:LwjglOpenGL
 glyf	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 gpos	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
@@ -2257,12 +2211,14 @@ initialize	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    p
 initialize	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    public void initialize(OpenGLES20 GL, float[] vertices) {$/;"	m	class:VertexBuffer
 initialize	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    public void initialize(OpenGLES20 GLES20) {$/;"	m	class:Mesh
 initialize	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^    public void initialize(Capable client) {$/;"	m	class:VertexBufferTechnique
+inject	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void inject(KeyEvent event) {$/;"	m	class:InputManager
+inject	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void inject(String keyName, boolean isDown) {$/;"	m	class:InputManager
 input	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private final InputStream input;$/;"	f	class:PNGDecoder	file:
 intValue	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public int intValue() {$/;"	m	class:Variable
 isAndroid	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public boolean isAndroid() {$/;"	m	class:Platform
 isCloseRequested	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public boolean isCloseRequested() {$/;"	m	class:AndroidDisplay
 isCloseRequested	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    boolean isCloseRequested();$/;"	m	interface:Display
-isCloseRequested	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public boolean isCloseRequested() {$/;"	m	class:NullDisplay
+isCloseRequested	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public boolean isCloseRequested() {$/;"	m	class:NullDisplay
 isCloseRequested	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public boolean isCloseRequested() {$/;"	m	class:PcDisplay
 isDebuggingEnabled	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public boolean isDebuggingEnabled() {$/;"	m	class:RateCounter
 isHasAlpha	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        public boolean isHasAlpha() {$/;"	m	class:PNGDecoder.Format
@@ -2275,7 +2231,7 @@ isRGB	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	
 isStopRequested	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean isStopRequested() {$/;"	m	class:Game
 isStopped	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean isStopped() {$/;"	m	class:Game
 isUnix	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public boolean isUnix() {$/;"	m	class:Platform
-isVisable	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public boolean isVisable() {$/;"	m	class:Console
+isVisible	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public boolean isVisible() {$/;"	m	class:Console
 isWindows	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public boolean isWindows() {$/;"	m	class:Platform
 javaObject	scripting/testhelpers/build/resources/main/JavaWrapper.py	/^javaObject = JavaClass()$/;"	v
 javaObject	scripting/testhelpers/src/main/resources/JavaWrapper.py	/^javaObject = JavaClass()$/;"	v
@@ -2285,9 +2241,8 @@ keys	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    pu
 keys	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    String[] keys();$/;"	m	interface:Settings
 keys	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public String[] keys() {$/;"	m	class:SettingsArgs
 keys	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public String[] keys() {$/;"	m	class:SettingsMap
-layout	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class layout {$/;"	c	class:R
-layout	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class layout {$/;"	c	class:R
 length	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        public final long length;$/;"	f	class:TrueTypeFont.Table
+linear	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    public void linear() {$/;"	m	class:ConsoleTest
 link	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public void link(OpenGLES20 GL) {$/;"	m	class:Program
 load	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public abstract void load(InputStream stream) throws IOException;$/;"	m	class:AbstractSettingsFile
 load	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public void load(File path) throws IOException {$/;"	m	class:AbstractSettingsFile
@@ -2297,6 +2252,7 @@ load	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public 
 load	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceHandle load(URI uri) throws IOException {$/;"	m	class:ResourceManager
 load	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public void load(InputStream stream) throws IOException {$/;"	m	class:SettingsFile
 load	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    public void load(InputStream stream) throws IOException {$/;"	m	class:SettingsXMLFile
+load	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    public void load() {$/;"	m	class:AbstractSettingsTest
 load	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public void load() throws IOException {$/;"	m	class:ResourceManagerTest
 loadDirectory	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^    public void loadDirectory() throws IOException {$/;"	m	class:ZipResourceLoaderTest
 loadFileInSubDir	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^    public void loadFileInSubDir() throws IOException {$/;"	m	class:ZipResourceLoaderTest
@@ -2322,41 +2278,40 @@ mBufferOfVertices	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^
 mBytesPerPixel	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    private final int mBytesPerPixel;$/;"	f	class:PngBitmap	file:
 mCommandLineSettings	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private final SettingsArgs mCommandLineSettings;$/;"	f	class:GameEngine	file:
 mCommands	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private Map<String,ConsoleCommand> mCommands = new HashMap<String,ConsoleCommand>();$/;"	f	class:Console	file:
-mConsole	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private Console mConsole;$/;"	f	class:GameContext	file:
+mConsole	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    private Console mConsole;$/;"	f	class:ConsoleTest	file:
 mConsole	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    private Console mConsole;$/;"	f	class:SnakeGame	file:
 mContainer	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^    private ScriptingContainer mContainer;$/;"	f	class:JRubyScript	file:
 mContext	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Context mContext;$/;"	f	class:RhinoScriptManager	file:
 mData	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private Object mData;$/;"	f	class:ResourceHandle	file:
 mDebuggingEnabled	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private boolean mDebuggingEnabled;$/;"	f	class:RateCounter	file:
-mDefaultAnswer	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    private final boolean mDefaultAnswer;$/;"	f	class:NullDisplay	file:
+mDefaultAnswer	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    private final boolean mDefaultAnswer;$/;"	f	class:NullDisplay	file:
 mDefaultLevel	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    protected int mDefaultLevel = DEFAULT_LOG_LEVEL;$/;"	f	class:LogSink
 mDefaultLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    private ResourceLoader mDefaultLoader;$/;"	f	class:ResourceManager	file:
-mDisplay	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private Display mDisplay;$/;"	f	class:GameContext	file:
 mDisplay	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private final Display mDisplay;$/;"	f	class:GameEngine	file:
+mDisplay	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    private NullDisplay mDisplay;$/;"	f	class:ConsoleTest	file:
 mDisplayDate	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    protected boolean mDisplayDate = true;$/;"	f	class:LogSink
-mDisplayMode	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    private String mDisplayMode = "640 x 480";$/;"	f	class:NullDisplay	file:
+mDisplayMode	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    private String mDisplayMode = "640 x 480";$/;"	f	class:NullDisplay	file:
 mDisplayMode	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private DisplayMode mDisplayMode = new DisplayMode(640, 480);$/;"	f	class:PcDisplay	file:
 mDisplayThreadId	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    protected boolean mDisplayThreadId = true;$/;"	f	class:LogSink
 mDisplayTime	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    protected boolean mDisplayTime = true;$/;"	f	class:LogSink
-mEngine	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private GameEngine mEngine;$/;"	f	class:GameContext	file:
 mEngine	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    protected GameEngine mEngine;$/;"	f	class:GameThread
 mEngine	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^    protected GameEngine mEngine;$/;"	f	class:HelloWorldGameActivity
+mEngine	demos/nulldemo/android/src/main/java/com/spidey01/sxe/nulldemo/android/NullDemoActivity.java	/^    protected GameEngine mEngine;$/;"	f	class:NullDemoActivity
 mEngine	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^    protected GameEngine mEngine;$/;"	f	class:SnakeGameActivity
 mEntrySelector	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private int mEntrySelector;$/;"	f	class:TrueTypeFont	file:
 mFilters	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    protected HashMap<String, Integer> mFilters = new HashMap<String, Integer>();$/;"	f	class:LogSink
 mFont	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    private Font mFont;$/;"	f	class:Text	file:
 mFragmentShader	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private Shader mFragmentShader;$/;"	f	class:Sprite	file:
 mFrameCounter	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    private RateCounter mFrameCounter = new RateCounter("Frames");$/;"	f	class:OpenGLES20Renderer	file:
-mFrameCounter	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    private RateCounter mFrameCounter = new RateCounter("NullFrames");$/;"	f	class:NullDisplay	file:
+mFrameCounter	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    private RateCounter mFrameCounter = new RateCounter("NullFrames");$/;"	f	class:NullDisplay	file:
 mFrameCounter	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private RateCounter mFrameCounter = new RateCounter("Frames");$/;"	f	class:PcDisplay	file:
 mFrameEndedListeners	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    private List<FrameEndedListener> mFrameEndedListeners = new ArrayList<FrameEndedListener>();$/;"	f	class:OpenGLES20Renderer	file:
-mFrameEndedListeners	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    private List<FrameEndedListener> mFrameEndedListeners = new ArrayList<FrameEndedListener>();$/;"	f	class:NullDisplay	file:
+mFrameEndedListeners	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    private List<FrameEndedListener> mFrameEndedListeners = new ArrayList<FrameEndedListener>();$/;"	f	class:NullDisplay	file:
 mFrameEndedListeners	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private List<FrameEndedListener> mFrameEndedListeners = new ArrayList<FrameEndedListener>();$/;"	f	class:PcDisplay	file:
 mFrameStartedListeners	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    private List<FrameStartedListener> mFrameStartedListeners = new ArrayList<FrameStartedListener>();$/;"	f	class:OpenGLES20Renderer	file:
-mFrameStartedListeners	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    private List<FrameStartedListener> mFrameStartedListeners = new ArrayList<FrameStartedListener>();$/;"	f	class:NullDisplay	file:
+mFrameStartedListeners	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    private List<FrameStartedListener> mFrameStartedListeners = new ArrayList<FrameStartedListener>();$/;"	f	class:NullDisplay	file:
 mFrameStartedListeners	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private List<FrameStartedListener> mFrameStartedListeners = new ArrayList<FrameStartedListener>();$/;"	f	class:PcDisplay	file:
 mGL	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^    private OpenGLES20 mGL;$/;"	f	class:VertexBufferTechnique	file:
-mGame	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private Game mGame;$/;"	f	class:GameContext	file:
 mGame	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private final Game mGame;$/;"	f	class:GameEngine	file:
 mGame	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    protected Game mGame;$/;"	f	class:GameThread
 mGameEngine	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    protected GameEngine mGameEngine;$/;"	f	class:Game
@@ -2366,8 +2321,8 @@ mHandleRepeat	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    privat
 mHandles	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    private Map<URI, ResourceHandle> mHandles = new HashMap<URI, ResourceHandle>();$/;"	f	class:ResourceManager	file:
 mHeight	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    private final int mHeight;$/;"	f	class:PngBitmap	file:
 mImageData	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    private ByteBuffer mImageData;$/;"	f	class:PngBitmap	file:
-mInput	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private InputManager mInput;$/;"	f	class:GameContext	file:
 mInputManager	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private final InputManager mInputManager;$/;"	f	class:GameEngine	file:
+mInputManager	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    private NullInputManager mInputManager;$/;"	f	class:ConsoleTest	file:
 mInputStream	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private InputStream mInputStream;$/;"	f	class:ResourceHandle	file:
 mInterp	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScript.java	/^    private PythonInterpreter mInterp;$/;"	f	class:JythonScript	file:
 mIsDown	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private final boolean mIsDown;$/;"	f	class:KeyEvent	file:
@@ -2387,7 +2342,7 @@ mListeners	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^
 mListeners	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    private List<Settings.OnChangedListener> mListeners =$/;"	f	class:SettingsArgs	file:
 mListeners	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    private List<Settings.OnChangedListener> mListeners =$/;"	f	class:SettingsMap	file:
 mLoaders	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    private Map<String, ResourceLoader> mLoaders = new HashMap<String, ResourceLoader>();$/;"	f	class:ResourceManager	file:
-mMap	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    private Map<String, String> mMap = new HashMap<String, String>();$/;"	f	class:SettingsMap	file:
+mMap	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    private Map<String, String> mMap;$/;"	f	class:SettingsMap	file:
 mMaxTickRate	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private static final int mMaxTickRate = 250;$/;"	f	class:Game	file:
 mMesh	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private Mesh mMesh;$/;"	f	class:Sprite	file:
 mName	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    private String mName = "";$/;"	f	class:ConsoleCommand	file:
@@ -2399,15 +2354,12 @@ mNative	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private Obj
 mNumTables	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private int mNumTables;$/;"	f	class:TrueTypeFont	file:
 mOffsetMap	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Map<String, Table> mOffsetMap = new HashMap<String, Table>();$/;"	f	class:TrueTypeFont	file:
 mOpenGL	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    private OpenGL mOpenGL;$/;"	f	class:AndroidDisplay	file:
-mOpenGL	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    private OpenGL mOpenGL;$/;"	f	class:NullDisplay	file:
+mOpenGL	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    private OpenGL mOpenGL;$/;"	f	class:NullDisplay	file:
 mOpenGL	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private OpenGL mOpenGL;$/;"	f	class:PcDisplay	file:
-mOptions	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private Map<String, Object> mOptions;$/;"	f	class:GameContext	file:
 mOutput	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    private PrintStream mOutput;$/;"	f	class:LogSink	file:
 mPerSecond	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private long mPerSecond;$/;"	f	class:RateCounter	file:
 mPlatform	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private final Platform mPlatform;$/;"	f	class:GameEngine	file:
-mPlatformArch	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private String mPlatformArch = System.getProperty("os.arch");$/;"	f	class:GameContext	file:
-mPlatformName	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private String mPlatformName;$/;"	f	class:GameContext	file:
-mPlatformVersion	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private String mPlatformVersion = System.getProperty("os.name")+" "+System.getProperty("os.version");$/;"	f	class:GameContext	file:
+mPlatformSettings	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private Settings mPlatformSettings;$/;"	f	class:GameEngine	file:
 mPrefs	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    private SharedPreferences mPrefs = null;$/;"	f	class:AndroidSettings	file:
 mProgram	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private Program mProgram = new Program();$/;"	f	class:Sprite	file:
 mProgramId	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    private int mProgramId;$/;"	f	class:Program	file:
@@ -2418,8 +2370,7 @@ mRenderer	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDi
 mRepeatCount	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private long mRepeatCount = 0;$/;"	f	class:Console	file:
 mRepeatDelay	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private int mRepeatDelay = DEFAULT_REPEAT_DELAY;$/;"	f	class:Console	file:
 mResourceManager	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private final ResourceManager mResourceManager;$/;"	f	class:GameEngine	file:
-mResources	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private ResourceManager mResources;$/;"	f	class:GameContext	file:
-mScene	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private SceneManager mScene;$/;"	f	class:GameContext	file:
+mRuntimeSettings	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private Settings mRuntimeSettings = new SettingsMap();$/;"	f	class:GameEngine	file:
 mSceneManager	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private final SceneManager mSceneManager;$/;"	f	class:GameEngine	file:
 mScript	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223Script.java	/^    private ScriptContext mScript;$/;"	f	class:Jsr223Script	file:
 mScript	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^    private Scriptable mScript;$/;"	f	class:RhinoScript	file:
@@ -2427,8 +2378,6 @@ mScriptEngine	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/J
 mSearchLocations	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    private List<String> mSearchLocations = new LinkedList<String>();$/;"	f	class:ResourceManager	file:
 mSearchRange	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private int mSearchRange;$/;"	f	class:TrueTypeFont	file:
 mSettings	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^        private AndroidSettings mSettings;$/;"	f	class:AndroidSettings.Notifier	file:
-mSettings	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    private Settings mSettings;$/;"	f	class:GameContext	file:
-mSettings	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private final Settings mSettings;$/;"	f	class:GameEngine	file:
 mShaderId	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    private int mShaderId;$/;"	f	class:Shader	file:
 mShaders	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    private Collection<Shader> mShaders = new LinkedList<Shader>();$/;"	f	class:Program	file:
 mSinks	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    private static List<LogSink> mSinks = new LinkedList<LogSink>();$/;"	f	class:Log	file:
@@ -2438,6 +2387,7 @@ mState	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    protected State 
 mStopDone	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private boolean mStopDone = false;$/;"	f	class:Game	file:
 mStopRequested	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private volatile boolean mStopRequested;$/;"	f	class:Game	file:
 mStream	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private DataInputStream mStream;$/;"	f	class:TrueTypeFont	file:
+mSystemSettings	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private Settings mSystemSettings;$/;"	f	class:GameEngine	file:
 mTarget	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    private final int mTarget;$/;"	f	class:VertexBuffer	file:
 mTechnique	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private VertexBufferTechnique mTechnique;$/;"	f	class:Sprite	file:
 mText	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    private String mText;$/;"	f	class:Text	file:
@@ -2451,6 +2401,7 @@ mType	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    private fina
 mURI	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private final URI mURI;$/;"	f	class:ResourceHandle	file:
 mURI	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^        private URI mURI;$/;"	f	class:ResourceManager.QueuedLoader	file:
 mUsage	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    private final int mUsage;$/;"	f	class:VertexBuffer	file:
+mUserSettings	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private Settings mUserSettings;$/;"	f	class:GameEngine	file:
 mValue	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    private String mValue;$/;"	f	class:Variable	file:
 mVersionNumber	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private int mVersionNumber;$/;"	f	class:TrueTypeFont	file:
 mVersionString	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private String mVersionString;$/;"	f	class:TrueTypeFont	file:
@@ -2458,21 +2409,30 @@ mVertexBuffer	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    
 mVertexBufferId	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    private int mVertexBufferId;$/;"	f	class:VertexBuffer	file:
 mVertexCount	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    private int mVertexCount;$/;"	f	class:VertexBuffer	file:
 mVertexShader	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private Shader mVertexShader;$/;"	f	class:Sprite	file:
-mVisable	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private boolean mVisable = false;$/;"	f	class:Console	file:
+mVisible	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private boolean mVisible = false;$/;"	f	class:Console	file:
 mWidget	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^    private AndroidDisplay mWidget;$/;"	f	class:AndroidInputManager	file:
 mWidth	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    private final int mWidth;$/;"	f	class:PngBitmap	file:
 main	demos/helloworld/pc/src/main/java/com/spidey01/sxe/helloworld/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
+main	demos/nulldemo/pc/src/main/java/com/spidey01/sxe/nulldemo/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
 main	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
-main	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^        public static final int main=0x7f020000;$/;"	f	class:R.layout
-main	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^        public static final int main=0x7f020000;$/;"	f	class:R.layout
 main	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
 mainLoop	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void mainLoop() {$/;"	m	class:GameEngine
 makeBufferedReader	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static BufferedReader makeBufferedReader(File file) throws FileNotFoundException {$/;"	m	class:Utils
 makeBufferedReader	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static BufferedReader makeBufferedReader(InputStream in) {$/;"	m	class:Utils
 makeLogSink	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private void makeLogSink(String top) {$/;"	m	class:GameEngine	file:
-makeSettings	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^    private SettingsFile makeSettings() {$/;"	m	class:SettingsFileTest	file:
-makeSettings	core/src/test/java/com/spidey01/sxe/core/SettingsXMLFileTest.java	/^    private SettingsXMLFile makeSettings() {$/;"	m	class:SettingsXMLFileTest	file:
+makeSettings	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    protected abstract Settings makeSettings();$/;"	m	class:AbstractSettingsTest
+makeSettings	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^    protected Settings makeSettings() {$/;"	m	class:SettingsArgsTest
+makeSettings	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^    protected Settings makeSettings() {$/;"	m	class:SettingsFileTest
+makeSettings	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^    protected Settings makeSettings() {$/;"	m	class:SettingsMapTest
+makeSettings	core/src/test/java/com/spidey01/sxe/core/SettingsXMLFileTest.java	/^    protected Settings makeSettings() {$/;"	m	class:SettingsXMLFileTest
 maxp	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
+merge	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public void merge(Settings s) {$/;"	m	class:AndroidSettings
+merge	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public void merge(Settings s) {$/;"	m	class:AbstractSettingsFile
+merge	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    void merge(Settings s);$/;"	m	interface:Settings
+merge	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public void merge(Settings s) {$/;"	m	class:SettingsArgs
+merge	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public void merge(Settings s) {$/;"	m	class:SettingsMap
+merge	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static void merge(Settings parent, Settings child) {$/;"	m	class:Utils
+merge	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    public void merge() {$/;"	m	class:AbstractSettingsTest
 ms	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private long ms;$/;"	f	class:RateCounter	file:
 name	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public final String name;$/;"	f	class:Platform
 name	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        public final String name;$/;"	f	class:TrueTypeFont.Table
@@ -2492,12 +2452,14 @@ offset	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        publ
 onChanged	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^        void onChanged(Settings settings, String key);$/;"	m	interface:Settings.OnChangedListener
 onCreate	android/common/src/main/java/com/spidey01/sxe/android/common/GameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:GameActivity
 onCreate	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:HelloWorldGameActivity
+onCreate	demos/nulldemo/android/src/main/java/com/spidey01/sxe/nulldemo/android/NullDemoActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:NullDemoActivity
 onCreate	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:SnakeGameActivity
 onDestroy	android/common/src/main/java/com/spidey01/sxe/android/common/GameActivity.java	/^    protected void onDestroy() {$/;"	m	class:GameActivity
 onDrawFrame	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    public void onDrawFrame(GL10 unused) {$/;"	m	class:OpenGLES20Renderer
 onKey	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public boolean onKey(KeyEvent event) {$/;"	m	class:Console
 onKey	core/src/main/java/com/spidey01/sxe/core/KeyListener.java	/^    boolean onKey(KeyEvent event);$/;"	m	interface:KeyListener
 onKey	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public boolean onKey(KeyEvent event) {$/;"	m	class:HelloWorld
+onKey	demos/nulldemo/lib/src/main/java/com/spidey01/sxe/nulldemo/lib/NullDemo.java	/^    public boolean onKey(KeyEvent event) {$/;"	m	class:NullDemo
 onKey	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public boolean onKey(KeyEvent event) {$/;"	m	class:SnakeGame
 onSharedPreferenceChanged	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^        public void onSharedPreferenceChanged(SharedPreferences sp, String key) {$/;"	m	class:AndroidSettings.Notifier
 onSurfaceChanged	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    public void onSurfaceChanged(GL10 unused, int width, int height) {$/;"	m	class:OpenGLES20Renderer
@@ -2513,6 +2475,7 @@ parseOffsetTable	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^  
 parseTableDirectory	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private void parseTableDirectory(DataInputStream data) throws IOException {$/;"	m	class:TrueTypeFont	file:
 poll	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^    public void poll() {$/;"	m	class:AndroidInputManager
 poll	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void poll() {$/;"	m	class:InputManager
+poll	core/src/main/java/com/spidey01/sxe/core/testing/NullInputManager.java	/^    public void poll() {$/;"	m	class:NullInputManager
 poll	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    public void poll() {$/;"	m	class:PcInputManager
 post	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 prep	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
@@ -2547,20 +2510,19 @@ removeCommand	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public
 removeFrameEndedListener	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public void removeFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:AndroidDisplay
 removeFrameEndedListener	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    public void removeFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:OpenGLES20Renderer
 removeFrameEndedListener	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    void removeFrameEndedListener(FrameEndedListener listener);$/;"	m	interface:Display
-removeFrameEndedListener	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public void removeFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:NullDisplay
+removeFrameEndedListener	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public void removeFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:NullDisplay
 removeFrameEndedListener	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void removeFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:PcDisplay
 removeFrameListener	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public void removeFrameListener(FrameListener listener) {$/;"	m	class:AndroidDisplay
 removeFrameListener	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    public void removeFrameListener(FrameListener listener) {$/;"	m	class:OpenGLES20Renderer
 removeFrameListener	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    void removeFrameListener(FrameListener listener);$/;"	m	interface:Display
-removeFrameListener	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public void removeFrameListener(FrameListener listener) {$/;"	m	class:NullDisplay
+removeFrameListener	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public void removeFrameListener(FrameListener listener) {$/;"	m	class:NullDisplay
 removeFrameListener	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void removeFrameListener(FrameListener listener) {$/;"	m	class:PcDisplay
 removeFrameStartedListener	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public void removeFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:AndroidDisplay
 removeFrameStartedListener	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    public void removeFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:OpenGLES20Renderer
 removeFrameStartedListener	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    void removeFrameStartedListener(FrameStartedListener listener);$/;"	m	interface:Display
-removeFrameStartedListener	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public void removeFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:NullDisplay
+removeFrameStartedListener	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public void removeFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:NullDisplay
 removeFrameStartedListener	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void removeFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:PcDisplay
 removeLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public void removeLoader(String scheme) {$/;"	m	class:ResourceManager
-removeOpt	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public void removeOpt(String name) {$/;"	m	class:GameContext
 repeatingAllowed	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public boolean repeatingAllowed() {$/;"	m	class:Console
 requestStop	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public void requestStop() {$/;"	m	class:Game
 resourcesDir	core/src/main/java/com/spidey01/sxe/core/testing/TestUtils.java	/^    public static File resourcesDir = new File(baseDir,$/;"	f	class:TestUtils
@@ -2579,6 +2541,7 @@ sIsLoggingReady	core/src/main/java/com/spidey01/sxe/core/testing/UnitTest.java	/
 sLoader	core/src/test/java/com/spidey01/sxe/core/io/GZipResourceLoaderTest.java	/^    private static GZipResourceLoader sLoader = new GZipResourceLoader();$/;"	f	class:GZipResourceLoaderTest	file:
 sLoader	core/src/test/java/com/spidey01/sxe/core/io/PathResourceLoaderTest.java	/^    private static PathResourceLoader sLoader = new PathResourceLoader();$/;"	f	class:PathResourceLoaderTest	file:
 sLoader	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^    private static ZipResourceLoader sLoader = new ZipResourceLoader();$/;"	f	class:ZipResourceLoaderTest	file:
+sMap	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^    private static final HashMap<String, String> sMap = new HashMap<String, String>();$/;"	f	class:SettingsMapTest	file:
 sNullFormat	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    private static final String sNullFormat = "(null)";$/;"	f	class:LogSink	file:
 sRequiredTables	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private static String[] sRequiredTables = {$/;"	f	class:TrueTypeFont	file:
 sResourceManager	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    private static ResourceManager sResourceManager;$/;"	f	class:ResourceManagerTest	file:
@@ -2600,11 +2563,15 @@ save	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public void
 save	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    public void save() throws IOException {$/;"	m	class:SettingsXMLFile
 save	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    public void save(OutputStream stream) throws IOException {$/;"	m	class:SettingsXMLFile
 save	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^    public void save() throws IOException {$/;"	m	class:SettingsArgsTest
+save	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^    public void save() throws IOException {$/;"	m	class:SettingsMapTest
 schemaRequiredForLoad	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public void schemaRequiredForLoad() throws IOException {$/;"	m	class:ResourceManagerTest
 select	core/build/reports/tests/report.js	/^function select(i) {$/;"	c
 select	scripting/jruby/build/reports/tests/report.js	/^function select(i) {$/;"	c
 select	scripting/jsr223/build/reports/tests/report.js	/^function select(i) {$/;"	c
 select	scripting/rhino/build/reports/tests/report.js	/^function select(i) {$/;"	c
+sendKeys	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    protected void sendKeys(String line) {$/;"	m	class:ConsoleTest
+sendKeys	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    protected void sendKeys(String[] words) {$/;"	m	class:ConsoleTest
+sendToggle	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    protected void sendToggle() {$/;"	m	class:ConsoleTest
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(String value) {$/;"	m	class:Variable
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(boolean value) {$/;"	m	class:Variable
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(float value) {$/;"	m	class:Variable
@@ -2614,21 +2581,16 @@ setBoolean	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^
 setBoolean	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    Settings setBoolean(String key, boolean value);$/;"	m	interface:Settings
 setBoolean	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public Settings setBoolean(String key, boolean value) {$/;"	m	class:SettingsArgs
 setBoolean	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public Settings setBoolean(String key, boolean value) {$/;"	m	class:SettingsMap
-setConsole	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext setConsole(Console value) {$/;"	m	class:GameContext
 setDefaultLevel	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public void setDefaultLevel(int level) {$/;"	m	class:LogSink
-setDisplay	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext setDisplay(Display value) {$/;"	m	class:GameContext
 setDisplayDate	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public void setDisplayDate(boolean x) {$/;"	m	class:LogSink
 setDisplayThreadId	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public void setDisplayThreadId(boolean x) {$/;"	m	class:LogSink
 setDisplayTime	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public void setDisplayTime(boolean x) {$/;"	m	class:LogSink
-setEngine	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext setEngine(GameEngine value) {$/;"	m	class:GameContext
 setFloat	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:AndroidSettings
 setFloat	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:AbstractSettingsFile
 setFloat	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    Settings setFloat(String key, float value);$/;"	m	interface:Settings
 setFloat	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:SettingsArgs
 setFloat	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:SettingsMap
 setFont	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    public void setFont(Font newFont) {$/;"	m	class:Text
-setGame	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext setGame(Game value) {$/;"	m	class:GameContext
-setInput	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext setInput(InputManager value) {$/;"	m	class:GameContext
 setInt	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public Settings setInt(String key, int value) {$/;"	m	class:AndroidSettings
 setInt	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public Settings setInt(String key, int value) {$/;"	m	class:AbstractSettingsFile
 setInt	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    Settings setInt(String key, int value);$/;"	m	interface:Settings
@@ -2645,18 +2607,10 @@ setLong	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public 
 setLong	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public Settings setLong(String key, long value) {$/;"	m	class:SettingsMap
 setMode	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public boolean setMode(String mode) {$/;"	m	class:AndroidDisplay
 setMode	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    boolean setMode(String mode);$/;"	m	interface:Display
-setMode	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public boolean setMode(String mode) {$/;"	m	class:NullDisplay
+setMode	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public boolean setMode(String mode) {$/;"	m	class:NullDisplay
 setMode	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private boolean setMode(DisplayMode mode) {$/;"	m	class:PcDisplay	file:
 setMode	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public boolean setMode(String mode) {$/;"	m	class:PcDisplay
-setOpt	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public void setOpt(String name, Object o) {$/;"	m	class:GameContext
-setOptions	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext setOptions(Map<String, Object> value) {$/;"	m	class:GameContext
-setPlatform	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext setPlatform(String value) {$/;"	m	class:GameContext
-setPlatformArch	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext setPlatformArch(String value) {$/;"	m	class:GameContext
-setPlatformVersion	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext setPlatformVersion(String value) {$/;"	m	class:GameContext
 setRepeatDelay	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void setRepeatDelay(int count) {$/;"	m	class:Console
-setResources	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext setResources(ResourceManager value) {$/;"	m	class:GameContext
-setScene	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext setScene(SceneManager value) {$/;"	m	class:GameContext
-setSettings	core/src/main/java/com/spidey01/sxe/core/GameContext.java	/^    public GameContext setSettings(Settings value) {$/;"	m	class:GameContext
 setString	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public Settings setString(String key, String value) {$/;"	m	class:AndroidSettings
 setString	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public Settings setString(String key, String value) {$/;"	m	class:AbstractSettingsFile
 setString	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    Settings setString(String key, String value);$/;"	m	interface:Settings
@@ -2665,11 +2619,13 @@ setString	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public
 setTechnique	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public void setTechnique(VertexBufferTechnique technique) {$/;"	m	class:Sprite
 setText	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    public void setText(String newText) {$/;"	m	class:Text
 setUpClass	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public static void setUpClass() {$/;"	m	class:ResourceManagerTest
-setVisable	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void setVisable(boolean visable) {$/;"	m	class:Console
-settings	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^    public static Settings settings(Game game) {$/;"	m	class:PcConfiguration
+setVisible	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void setVisible(boolean visable) {$/;"	m	class:Console
+settings	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^    public static Settings settings(Game game, Platform platform) {$/;"	m	class:PcConfiguration
 settingsFileName	core/src/test/java/com/spidey01/sxe/core/testing/TestResources.java	/^    public static final String settingsFileName = "SettingsFile.properties";$/;"	f	class:TestResources
 settingsXmlFileName	core/src/test/java/com/spidey01/sxe/core/testing/TestResources.java	/^    public static final String settingsXmlFileName = "SettingsXMLFile.xml";$/;"	f	class:TestResources
 setup	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidConfiguration.java	/^    public static GameEngine setup(Game game, Context context) {$/;"	m	class:AndroidConfiguration
+setup	core/src/main/java/com/spidey01/sxe/core/testing/NullConfiguration.java	/^    public static GameEngine setup(Game game) {$/;"	m	class:NullConfiguration
+setup	core/src/main/java/com/spidey01/sxe/core/testing/NullConfiguration.java	/^    public static GameEngine setup(String[] args, Game game) {$/;"	m	class:NullConfiguration
 setup	core/src/main/java/com/spidey01/sxe/core/testing/UnitTest.java	/^    public static void setup() {$/;"	m	class:UnitTest
 setup	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    public static void setup() {$/;"	m	class:AbstractSettingsTest
 setup	core/src/test/java/com/spidey01/sxe/core/io/GZipResourceLoaderTest.java	/^    public static void setup() {$/;"	m	class:GZipResourceLoaderTest
@@ -2691,6 +2647,7 @@ simple	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhin
 simple	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToJavaScript.java	/^    public static void simple(ScriptManager manager) throws IOException, FileNotFoundException {$/;"	m	class:JavaToJavaScript
 simple	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToPython.java	/^    public static void simple(ScriptManager manager) throws IOException, FileNotFoundException {$/;"	m	class:JavaToPython
 simple	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToRuby.java	/^    public static void simple(ScriptManager manager) throws IOException, FileNotFoundException {$/;"	m	class:JavaToRuby
+simpleCommand	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    public void simpleCommand() {$/;"	m	class:ConsoleTest
 simplePathTest	core/src/test/java/com/spidey01/sxe/core/io/GZipResourceLoaderTest.java	/^    public void simplePathTest() throws IOException {$/;"	m	class:GZipResourceLoaderTest
 simplePathTest	core/src/test/java/com/spidey01/sxe/core/io/PathResourceLoaderTest.java	/^    public void simplePathTest() throws IOException {$/;"	m	class:PathResourceLoaderTest
 skip	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void skip(long amount) throws IOException {$/;"	m	class:PNGDecoder	file:
@@ -2701,17 +2658,15 @@ slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static St
 start	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:Game
 start	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public boolean start() {$/;"	m	class:GameEngine
 start	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:HelloWorld
+start	demos/nulldemo/lib/src/main/java/com/spidey01/sxe/nulldemo/lib/NullDemo.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:NullDemo
 start	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/PingPongGame.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:PingPongGame
 start	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:SnakeGame
 stop	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public void stop() {$/;"	m	class:Game
 stop	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void stop() {$/;"	m	class:GameEngine
 stop	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public void stop() {$/;"	m	class:HelloWorld
+stop	demos/nulldemo/lib/src/main/java/com/spidey01/sxe/nulldemo/lib/NullDemo.java	/^    public void stop() {$/;"	m	class:NullDemo
 stop	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/PingPongGame.java	/^    public void stop() {$/;"	m	class:PingPongGame
 stop	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public void stop() {$/;"	m	class:SnakeGame
-string	demos/helloworld/android/build/source/r/debug/com/spidey01/sxe/helloworld/android/R.java	/^    public static final class string {$/;"	c	class:R
-string	demos/helloworld/android/build/source/r/release/com/spidey01/sxe/helloworld/android/R.java	/^    public static final class string {$/;"	c	class:R
-string	demos/snake/android/build/source/r/debug/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class string {$/;"	c	class:R
-string	demos/snake/android/build/source/r/release/com/spidey01/sxe/snakegame/android/R.java	/^    public static final class string {$/;"	c	class:R
 switchTab	core/build/reports/tests/report.js	/^function switchTab() {$/;"	f
 switchTab	scripting/jruby/build/reports/tests/report.js	/^function switchTab() {$/;"	f
 switchTab	scripting/jsr223/build/reports/tests/report.js	/^function switchTab() {$/;"	f
@@ -2731,11 +2686,14 @@ textFileContent	core/src/test/java/com/spidey01/sxe/core/testing/TestResources.j
 textFileName	core/src/test/java/com/spidey01/sxe/core/testing/TestResources.java	/^    public static final String textFileName = "PathResourceLoader.txt";$/;"	f	class:TestResources
 tick	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public void tick() {$/;"	m	class:Game
 tick	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public void tick() {$/;"	m	class:HelloWorld
+tick	demos/nulldemo/lib/src/main/java/com/spidey01/sxe/nulldemo/lib/NullDemo.java	/^    public void tick() {$/;"	m	class:NullDemo
 tick	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/PingPongGame.java	/^    public void tick() {$/;"	m	class:PingPongGame
 tick	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public void tick() {$/;"	m	class:SnakeGame
 toString	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public String toString() {$/;"	m	class:KeyEvent
 toString	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public String toString() {$/;"	m	class:Platform
 toString	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public String toString() {$/;"	m	class:Variable
+toggleByCode	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    public void toggleByCode() {$/;"	m	class:ConsoleTest
+toggleByKey	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    public void toggleByKey() {$/;"	m	class:ConsoleTest
 transPixel	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private byte[] transPixel;$/;"	f	class:PNGDecoder	file:
 translate	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    private static String translate(int level) {$/;"	m	class:LogSink	file:
 translateKeyName	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^    protected String translateKeyName(String keyName) {$/;"	m	class:AndroidInputManager
@@ -2755,7 +2713,7 @@ update	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDispl
 update	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void update() {$/;"	m	class:RateCounter
 update	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^    public void update() {$/;"	m	class:SceneManager
 update	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    void update();$/;"	m	interface:Display
-update	core/src/main/java/com/spidey01/sxe/core/graphics/NullDisplay.java	/^    public void update() {$/;"	m	class:NullDisplay
+update	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public void update() {$/;"	m	class:NullDisplay
 update	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void update() {$/;"	m	class:PcDisplay
 use	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public void use(OpenGLES20 GL) {$/;"	m	class:Program
 v	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void v(String tag, Object... messages) {$/;"	m	class:Log
