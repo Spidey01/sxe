@@ -218,9 +218,17 @@ public class GameEngine {
 
     /** Convenience method that can serve as a simple main loop. */
     public void mainLoop() {
-		while (isRunning()) {
-            update();
-		}
+        try {
+            while (isRunning()) {
+                update();
+            }
+        } catch(Exception e) {
+            Log.e(TAG, "Unhandled exception in mainLoop().", e);
+            // Don't call stop. We don't know if it's that recoverable.
+            // Dump a stack trace and force an exit NOW.
+            e.printStackTrace();
+            System.exit(1);
+        }
     }
 
 
