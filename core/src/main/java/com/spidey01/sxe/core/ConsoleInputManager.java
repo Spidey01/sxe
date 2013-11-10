@@ -31,7 +31,7 @@ import java.io.Console;
  * Read, Eval, Print, Loop (REPL) type of program. Such as a server process
  * with it's own console interface.
  */
-public class ConsoleInputManager extends InputManager {
+public class ConsoleInputManager extends AbstractInputManager {
     private static final String TAG = "ConsoleInputManager";
     private final Console mTerminal;
     private String mPrompt;

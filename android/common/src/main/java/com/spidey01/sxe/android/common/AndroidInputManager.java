@@ -25,8 +25,8 @@ package com.spidey01.sxe.android.common;
 
 import com.spidey01.sxe.android.common.AndroidDisplay;
 
+import com.spidey01.sxe.core.AbstractInputManager;
 import com.spidey01.sxe.core.Action;
-import com.spidey01.sxe.core.InputManager;
 import com.spidey01.sxe.core.KeyListener;
 import com.spidey01.sxe.core.graphics.Display;
 
@@ -37,7 +37,7 @@ import android.view.MotionEvent;
     import android.content.Context;
     import android.widget.Toast;
 
-public class AndroidInputManager extends InputManager {
+public class AndroidInputManager extends AbstractInputManager {
 
     private AndroidDisplay mWidget;
     private static final String TAG = "AndroidInputManager";

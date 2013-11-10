@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.LinkedList;
 
-/** Class for managing game input.
+/** Interface for managing game input.
  *
  * Allows registering listeners for key events, etc. The input manager will
  * only pass on input to the listeners when the appropriate notify method is
@@ -36,28 +36,18 @@ import java.util.LinkedList;
  *
  * Platform specific implementations of this class will provide the backend for
  * obtaining input that can then be passed on to an appropriate notify method.
- * The reccomended way to do this is overriding poll(), the default mainLoop for
- * GameEngine expects it.
+ * The reccomended way to implement this is through poll(), which is the how
+ * GameEngine.mainLoop() expects it.
+ *
+ * @see AbstractInputManager
+ * @see NullInputManager
  */
-public abstract class InputManager {
-// TODO maybe make key listeners be Map<String, List<KeyListener>>
+public interface InputManager {
     
-    /** List of listeners who wish to receive a broad cast of any key event */
-    protected List<KeyListener> mKeyBroadcastReceivers =
-        new LinkedList<KeyListener>();
-
-    /** Map of keys to listeners for bound keys */
-    protected Map<String, List<KeyListener>> mKeyListeners =
-        new HashMap<String, List<KeyListener>>();
-
-    private static final String TAG = "InputManager";
-
     /** Poll for new input and notify listeners.
      *
-     * The default implementation does nothing.
      */
-    public void poll() {
-    }
+    void poll();
 
     /** Add a KeyListener to recieve all KeyEvent.
      *
@@ -70,9 +60,7 @@ public abstract class InputManager {
      * @see #notifyKeyListeners
      * @see KeyEvent
      */
-    public void addKeyListener(KeyListener listener) {
-        mKeyBroadcastReceivers.add(listener);
-    }
+    void addKeyListener(KeyListener listener);
 
     /** Add a KeyListener for a specified key.
      *
@@ -86,17 +74,7 @@ public abstract class InputManager {
      * @param listener the KeyListener for keyName.
      * @see KeyEvent
      */
-    public void addKeyListener(String keyName, KeyListener listener) {
-        List<KeyListener> bindings = mKeyListeners.get(keyName);
-        if (bindings == null) {
-            bindings = new LinkedList<KeyListener>();
-            mKeyListeners.put(keyName, bindings);
-            Log.v(TAG, "created list of KeyListener for '"+keyName+"'");
-        }
-
-        bindings.add(listener);
-        Log.v(TAG, listener+" is now listening for '"+keyName+"'");
-    }
+    void addKeyListener(String keyName, KeyListener listener);
 
     /** Dispatch KeyEvent to registered listeners.
      *
@@ -114,26 +92,7 @@ public abstract class InputManager {
      * @see KeyListener
      * @see KeyEvent
      */
-    public void notifyKeyListeners(KeyEvent event) {
-        // broadcast receivers get first dibs on any event.
-        for (KeyListener listener : mKeyBroadcastReceivers) {
-            if (listener.onKey(event)) {
-                return;
-            }
-        }
-
-        List<KeyListener> bindings = mKeyListeners.get(event.getKeyName());
-        if (bindings == null) {
-            return;
-        }
-
-        for (KeyListener listener : bindings) {
-            if (listener.onKey(event)) {
-                break;
-            }
-        }
-    }
-
+    void notifyKeyListeners(KeyEvent event);
 
 
     /** Inject key events.
@@ -141,10 +100,7 @@ public abstract class InputManager {
      * Note that this injects the event to key listeners, not the host
      * operating system or hardware environment.
      */
-    public void inject(KeyEvent event) {
-        Log.xtrace(TAG, "inject(", event, ")");
-        notifyKeyListeners(event);
-    }
+    void inject(KeyEvent event);
 
 
     /** Inject key event by name.
@@ -152,26 +108,12 @@ public abstract class InputManager {
      * @param keyName key name of the event.
      * @param isDown whether this is a key down or up event.
      */
-    public void inject(String keyName, boolean isDown) {
-        // TODO: figure out a key code for the event. -1 shouldn't be on the kb.
-        inject(new KeyEvent(this, -1, keyName, isDown));
-    }
+    void inject(String keyName, boolean isDown);
 
 
     /** Inject key events for an entire String. */
-    public void inject(String line) {
-        for (String word : line.split("\\s")) {
-            for (int i=0; i < word.length(); ++i) {
-                String l = String.valueOf(word.charAt(i));
-                inject(l, true);
-                inject(l, false);
-            }
-            inject("SPACE", true);
-            inject("SPACE", false);
-        }
-        inject("RETURN", true);
-        inject("RETURN", false);
-    }
+    void inject(String line);
+
 
 }
 

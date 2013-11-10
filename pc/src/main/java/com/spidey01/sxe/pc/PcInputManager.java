@@ -23,15 +23,14 @@
 
 package com.spidey01.sxe.pc;
 
-import com.spidey01.sxe.core.Action;
-import com.spidey01.sxe.core.KeyListener;
+import com.spidey01.sxe.core.AbstractInputManager;
 import com.spidey01.sxe.core.KeyEvent;
-import com.spidey01.sxe.core.InputManager;
+import com.spidey01.sxe.core.KeyListener;
 import com.spidey01.sxe.core.Log;
 
 import org.lwjgl.input.Keyboard;
 
-public class PcInputManager extends InputManager {
+public class PcInputManager extends AbstractInputManager {
 
     private static final String TAG = "PcInputManager";
 

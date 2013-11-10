@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.core.testing;
 
-import com.spidey01.sxe.core.InputManager;
+import com.spidey01.sxe.core.AbstractInputManager;
 import com.spidey01.sxe.core.Log;
 
 import java.util.Map;
@@ -35,7 +35,7 @@ import java.util.LinkedList;
  *
  * No input events are generated unless injected.
  */
-public class NullInputManager extends InputManager {
+public class NullInputManager extends AbstractInputManager {
     private static final String TAG = "NullInputManager";
     
     public NullInputManager() {
