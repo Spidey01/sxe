@@ -24,8 +24,9 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.gl.OpenGL;
-
 import com.spidey01.sxe.core.graphics.FrameListener;
+import com.spidey01.sxe.core.input.KeyEvent;
+import com.spidey01.sxe.core.input.KeyListener;
 
 import java.util.Map;
 import java.util.HashMap;

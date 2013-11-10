@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.input;
 
 public interface KeyListener {
     boolean onKey(KeyEvent event);

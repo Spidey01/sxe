@@ -21,7 +21,9 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.input;
+
+import com.spidey01.sxe.core.Log;
 
 import java.util.Map;
 import java.util.HashMap;

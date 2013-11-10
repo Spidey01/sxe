@@ -23,8 +23,8 @@
 
 package com.spidey01.sxe.core.testing;
 
-import com.spidey01.sxe.core.AbstractInputManager;
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.input.AbstractInputManager;
 
 import java.util.Map;
 import java.util.HashMap;

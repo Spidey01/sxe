@@ -23,10 +23,10 @@
 
 package com.spidey01.sxe.pc;
 
-import com.spidey01.sxe.core.AbstractInputManager;
-import com.spidey01.sxe.core.KeyEvent;
-import com.spidey01.sxe.core.KeyListener;
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.input.AbstractInputManager;
+import com.spidey01.sxe.core.input.KeyEvent;
+import com.spidey01.sxe.core.input.KeyListener;
 
 import org.lwjgl.input.Keyboard;
 

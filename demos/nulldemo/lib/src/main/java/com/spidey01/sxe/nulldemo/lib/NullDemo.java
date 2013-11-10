@@ -27,9 +27,8 @@ import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 
-import com.spidey01.sxe.core.*;
-import com.spidey01.sxe.core.gl.*;
-import com.spidey01.sxe.core.graphics.*;
+import com.spidey01.sxe.core.input.KeyEvent;
+import com.spidey01.sxe.core.input.KeyListener;
 
 import java.io.IOException;
 

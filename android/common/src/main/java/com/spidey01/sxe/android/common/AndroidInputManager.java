@@ -25,10 +25,10 @@ package com.spidey01.sxe.android.common;
 
 import com.spidey01.sxe.android.common.AndroidDisplay;
 
-import com.spidey01.sxe.core.AbstractInputManager;
 import com.spidey01.sxe.core.Action;
-import com.spidey01.sxe.core.KeyListener;
 import com.spidey01.sxe.core.graphics.Display;
+import com.spidey01.sxe.core.input.AbstractInputManager;
+import com.spidey01.sxe.core.input.KeyListener;
 
 import android.view.KeyEvent;
 import android.view.View.OnKeyListener;
@@ -55,8 +55,8 @@ public class AndroidInputManager extends AbstractInputManager {
 
                 String keyName = translateKeyName(keyCode);
 
-                com.spidey01.sxe.core.KeyEvent e =
-                    new com.spidey01.sxe.core.KeyEvent(
+                com.spidey01.sxe.core.input.KeyEvent e =
+                    new com.spidey01.sxe.core.input.KeyEvent(
                         AndroidInputManager.this,   // cool trick!
                         event,
                         keyCode,

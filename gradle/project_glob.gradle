@@ -40,7 +40,11 @@ def project_glob = { glob ->
                         temp << project(name)
                     } catch (org.gradle.api.UnknownProjectException e) {
                         // project's not in settings.gradle.
-                        logger.warn("For glob ${glob}: ${name} is not in settings.gradle.")
+                        if ((new File(name[1 .. name.length()-1]
+                            .replace(":", "/"))).exists())
+                        {
+                            logger.warn("For glob ${glob}: ${name} is not in settings.gradle.")
+                        }
                     }
                 }
                 nodes = temp

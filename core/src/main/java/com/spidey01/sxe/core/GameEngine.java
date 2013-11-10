@@ -24,6 +24,7 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.graphics.Display;
+import com.spidey01.sxe.core.input.InputManager;
 
 import java.io.BufferedReader;
 import java.io.File;
