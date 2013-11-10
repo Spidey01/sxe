@@ -64,23 +64,8 @@ public class ConsoleTest extends UnitTest {
     }
 
 
-    protected void sendKeys(String[] words) {
-        for (String word : words) {
-            for (int i=0; i < word.length(); ++i) {
-                String l = String.valueOf(word.charAt(i));
-                mInputManager.inject(l, true);
-                mInputManager.inject(l, false);
-            }
-            mInputManager.inject("SPACE", true);
-            mInputManager.inject("SPACE", false);
-        }
-        mInputManager.inject("RETURN", true);
-        mInputManager.inject("RETURN", false);
-    }
-
-
     protected void sendKeys(String line) {
-        sendKeys(line.split("\\s"));
+        mInputManager.inject(line);
     }
 
 

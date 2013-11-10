@@ -158,5 +158,20 @@ public abstract class InputManager {
     }
 
 
+    /** Inject key events for an entire String. */
+    public void inject(String line) {
+        for (String word : line.split("\\s")) {
+            for (int i=0; i < word.length(); ++i) {
+                String l = String.valueOf(word.charAt(i));
+                inject(l, true);
+                inject(l, false);
+            }
+            inject("SPACE", true);
+            inject("SPACE", false);
+        }
+        inject("RETURN", true);
+        inject("RETURN", false);
+    }
+
 }
 
