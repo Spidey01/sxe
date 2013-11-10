@@ -216,22 +216,37 @@ public class GameEngine {
     }
 
 
-    /** Convenience method that can serve as a simple main loop.
+    /** Convenience method that can serve as a simple main loop. */
+    public void mainLoop() {
+		while (isRunning()) {
+            update();
+		}
+    }
+
+
+    /** Determine if the Game environment is running. */
+    public boolean isRunning() {
+        return (!mGame.isStopRequested()
+                && !mDisplay.isCloseRequested()
+                && mGameThread.isAlive());
+    }
+
+
+    /** Update Game engine state.
      *
      * <ol>
-     *  <li>Calls poll() on the InputManager.</li>
+     *  <li>Polls the InputManager.</li>
+     *  <li>Updates the SceneManager.</li>
      *  <li>Updates the Display.</li>
      * </ol>
+     *
+     * Game implementations update independantly of GameEngine, as it runs on a
+     * seperate thread.
      */
-    public void mainLoop() {
-		while (!mGame.isStopRequested()
-               && !mDisplay.isCloseRequested()
-               && mGameThread.isAlive())
-        {
+    public void update() {
             mInputManager.poll();
             mSceneManager.update();
             mDisplay.update();
-		}
     }
 
 
