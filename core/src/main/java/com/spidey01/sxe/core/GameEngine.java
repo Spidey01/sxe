@@ -224,7 +224,10 @@ public class GameEngine {
      * </ol>
      */
     public void mainLoop() {
-		while (!mGame.isStopRequested() && !mDisplay.isCloseRequested()) {
+		while (!mGame.isStopRequested()
+               && !mDisplay.isCloseRequested()
+               && mGameThread.isAlive())
+        {
             mInputManager.poll();
             mSceneManager.update();
             mDisplay.update();
