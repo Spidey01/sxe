@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.core;
 
-public class ConsoleCommand implements Action {
+public class ConsoleCommand {
     private static final String TAG = "ConsoleCommand";
 
     private String mName = "";

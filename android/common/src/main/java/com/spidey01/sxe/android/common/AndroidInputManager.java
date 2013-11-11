@@ -25,7 +25,6 @@ package com.spidey01.sxe.android.common;
 
 import com.spidey01.sxe.android.common.AndroidDisplay;
 
-import com.spidey01.sxe.core.Action;
 import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.input.AbstractInputManager;
 import com.spidey01.sxe.core.input.KeyListener;
