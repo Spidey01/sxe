@@ -41,7 +41,7 @@ public class Console
     public static final String DEFAULT_TOGGLE_KEY = "GRAVE";
     /** Sequence of valid characters that can be used in a console command. */
     public static final String VALID_SYMBOLS = 
-        "~!@#$%^&*()_+-={}[]:;\"'<,>.?/\\ ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        "~!@#$%^&*()_+-={}[]:;\"'`<,>.?/\\ ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     protected static final int INITIAL_BUFFER_SIZE = 160; /* works for 7-bit SMS */
 
