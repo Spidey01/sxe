@@ -176,9 +176,12 @@ public class Console
             args = line.substring(split).trim();
         }
 
+        // Log.xtrace(TAG, "Command is", "|"+line.substring(0, split)+"|");
+        // Log.xtrace(TAG, "Args are", "|"+args+"|");
         Command c = mCommands.get(line.substring(0, split));
+        // Log.xtrace(TAG, "Command object:", c);
         if (c != null) {
-            c.setArgs(new String[]{args});
+            c.setArgs(args);
             c.run();
         }
     }
@@ -190,6 +193,7 @@ public class Console
         {
             throw new IllegalArgumentException("Console doesn't allow null or empty command names");
         }
+        Log.xtrace(TAG, "add command", command.getName(), "to console", this);
         mCommands.put(command.getName(), command);
     }
 

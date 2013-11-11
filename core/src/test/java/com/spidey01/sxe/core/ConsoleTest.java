@@ -135,5 +135,42 @@ public class ConsoleTest extends UnitTest {
         sendCommandLine("quit");
         Assert.assertEquals("quit", mConsole.command);
     }
+
+
+    @Test
+    public void echoCommand() {
+        Log.i(TAG, "echoCommand()");
+        mConsole.setVisible(true);
+        EchoCommand echoCommand = new EchoCommand();
+        mConsole.addCommand(echoCommand);
+
+
+        String echo;
+        String[] args;
+
+
+        echo = "echo foo bar";
+        args = new String[] { "foo", "bar" };
+        sendCommandLine(echo);
+        Assert.assertEquals(args, echoCommand.getArgs());
+
+        echo = "echo 'foo bar'";
+        args = new String[] { "foo bar" };
+        sendCommandLine(echo);
+        Assert.assertEquals(args, echoCommand.getArgs());
+
+        echo = "echo \"foo bar\"";
+        sendCommandLine(echo);
+        Assert.assertEquals(args, echoCommand.getArgs());
+
+        echo = "echo `foo bar`";
+        sendCommandLine(echo);
+        Assert.assertEquals(args, echoCommand.getArgs());
+
+        echo = "echo \\\"foo bar\\\"";
+        args = new String[] { "\\\"foo", "bar\\\"" };
+        sendCommandLine(echo);
+        Assert.assertEquals(args, echoCommand.getArgs());
+    }
 }
 
