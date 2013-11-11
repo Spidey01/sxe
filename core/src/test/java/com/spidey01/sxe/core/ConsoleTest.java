@@ -34,8 +34,26 @@ import org.junit.*;
 public class ConsoleTest extends UnitTest {
     private static final String TAG = "ConsoleTest";
 
+    /** Helper class for test.
+     *
+     * This just extends Console so that we can inspect the command.
+     */
+    private class MyConsole extends Console {
+        private static final String TAG = "MyConsole";
+        public String command;
 
-    private Console mConsole;
+
+        @Override
+        public void execute(String line) {
+            command = line;
+            Log.xtrace(TAG, "proof: ", "|"+command+"|");
+            super.execute(line);
+        }
+
+
+    }
+
+    private MyConsole mConsole;
     private NullInputManager mInputManager;
     private NullDisplay mDisplay;
 
@@ -52,7 +70,7 @@ public class ConsoleTest extends UnitTest {
         mInputManager = new NullInputManager();
         mDisplay = new NullDisplay(new NullOpenGL(), true);
 
-        mConsole = new Console();
+        mConsole = new MyConsole();
 
         mDisplay.addFrameListener(mConsole);
         mInputManager.addKeyListener(mConsole);
@@ -64,7 +82,7 @@ public class ConsoleTest extends UnitTest {
     }
 
 
-    protected void sendKeys(String line) {
+    protected void sendCommandLine(String line) {
         mInputManager.inject(line);
     }
 
@@ -95,7 +113,8 @@ public class ConsoleTest extends UnitTest {
     public void simpleCommand() {
         Log.i(TAG, "simpleCommand()");
         mConsole.setVisible(true);
-        sendKeys("echo \"This is a simple command\"");
+        sendCommandLine("echo \"This is a simple command\"");
+        Assert.assertEquals("echo \"This is a simple command\"", mConsole.command);
     }
 
 
