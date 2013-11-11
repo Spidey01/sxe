@@ -23,6 +23,7 @@
 
 package com.spidey01.sxe.core;
 
+
 /** Generic command execution.
  *
  * This is used by the Console to implement console commands. A Command is a
@@ -37,12 +38,19 @@ public class Command implements Runnable {
 
     public Command(String name) {
         mName = name;
+        Log.i(TAG, "Created Command for", mName);
     }
 
 
     public Command(String name, String[] args) {
         mName = name;
         mArgs = args;
+    }
+
+
+    public Command(String name, String args) {
+        mName = name;
+        mArgs = tokenize(args);
     }
 
 
@@ -69,6 +77,15 @@ public class Command implements Runnable {
         mArgs = args;
     }
 
+
+    public void setArgs(String args) {
+        mArgs = tokenize(args);
+    }
+
+
+    public String[] tokenize(String s) {
+        return Utils.tokenize(s);
+    }
 
 }
 
