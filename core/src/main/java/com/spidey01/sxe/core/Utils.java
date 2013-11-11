@@ -38,6 +38,11 @@ import java.nio.ByteOrder;
 import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class Utils {
 
@@ -257,6 +262,48 @@ public class Utils {
         for (String key : child.keys()) {
             parent.setString(key, child.getString(key));
         }
+    }
+
+
+    /** Tokenize quoted strings similar to code.
+     *
+     * <pre>
+     *      foo bar     == { "foo", "bar" }
+     *      'foo bar'   == { "foo bar" }
+     *      "foo bar"   == { "foo bar" }
+     *      \"foo bar\" == { "\"foo", "bar\"" }
+     *      `foo bar`   == { "foo bar" }
+     * </pre>
+     *
+     * Adapted from http://stackoverflow.com/a/7804472/352455 because Java
+     * regexp usage in String makes my Perl brain hurt.
+     */
+    public static String[] tokenize(String s) {
+        String q;
+        List<String> list = new ArrayList<String>();
+        /*
+         * For the less regexp literate:
+         *
+         *      (           -> start grouping.
+         *      [^\"'`]     -> not ', ", ` quote char.
+         *      \\S*        -> >= 1 non space char.
+         *      |           -> or
+         *      (           -> Another grouping (so we can know what to replace).
+         *      [\"'`]      -> see above
+         *      )           -> end of another grouping.
+         *      .+?         -> whatever until next thingy.
+         *      [\"'`]      -> see above
+         *      )           -> end grouping
+         *      \\s*"
+         */
+        Matcher m = Pattern.compile("([^\"'`]\\S*|([\"'`]).+?[\"'`])\\s*").matcher(s);
+        while (m.find()) {
+            // Log.d(TAG, "group 1:", m.group(1));
+            // Log.d(TAG, "group 2:", m.group(2));
+            q = m.group(2);
+            list.add(q == null ? m.group(1) : m.group(1).replace(q, ""));
+        }
+        return list.toArray(new String[list.size()]);
     }
 }
 
