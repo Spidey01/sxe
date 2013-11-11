@@ -32,10 +32,17 @@ public class Command implements Runnable {
     private static final String TAG = "Command";
 
     private final String mName;
+    private String[] mArgs;
 
 
     public Command(String name) {
         mName = name;
+    }
+
+
+    public Command(String name, String[] args) {
+        mName = name;
+        mArgs = args;
     }
 
 
@@ -52,5 +59,16 @@ public class Command implements Runnable {
     public boolean equals(Command other) {
         return mName.equals(other.getName());
     }
+
+
+    public String[] getArgs() {
+        return mArgs;
+    }
+
+    public void setArgs(String[] args) {
+        mArgs = args;
+    }
+
+
 }
 

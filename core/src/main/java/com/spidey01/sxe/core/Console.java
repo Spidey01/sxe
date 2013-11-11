@@ -178,6 +178,7 @@ public class Console
 
         Command c = mCommands.get(line.substring(0, split));
         if (c != null) {
+            c.setArgs(new String[]{args});
             c.run();
         }
     }

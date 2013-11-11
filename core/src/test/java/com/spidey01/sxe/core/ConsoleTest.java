@@ -128,5 +128,12 @@ public class ConsoleTest extends UnitTest {
     }
 
 
+    @Test
+    public void unaryCommand() {
+        Log.i(TAG, "unaryCommand()");
+        mConsole.setVisible(true);
+        sendCommandLine("quit");
+        Assert.assertEquals("quit", mConsole.command);
+    }
 }
 
