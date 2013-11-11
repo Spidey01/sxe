@@ -24,7 +24,7 @@
 package com.spidey01.sxe.snake.lib;
 
 import com.spidey01.sxe.core.Console;
-import com.spidey01.sxe.core.ConsoleCommand;
+import com.spidey01.sxe.core.Command;
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
@@ -117,16 +117,24 @@ public class SnakeGame
         }
     }
 
+
+    private class QuitCommand extends Command {
+        public QuitCommand(String name) {
+            super(name);
+        }
+
+
+        public void run() {
+            super.run();
+            requestStop();
+        }
+
+        public String getName() {
+            return "EXIT";
+        }
+    }
     public void setupConsoleCommands() {
-        mConsole.addCommand(new ConsoleCommand(){
-            public void execute() {
-                super.execute();
-                requestStop();
-            }
-            public String getName() {
-                return "EXIT";
-            }
-        });
+        mConsole.addCommand(new QuitCommand("EXIT"));
     }
 
     public void setupControls() {

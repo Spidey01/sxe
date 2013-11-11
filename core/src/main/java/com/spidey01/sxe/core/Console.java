@@ -55,7 +55,7 @@ public class Console
     private boolean mVisible = false;
 
     private StringBuilder mBuffer = new StringBuilder(INITIAL_BUFFER_SIZE);
-    private Map<String,ConsoleCommand> mCommands = new HashMap<String,ConsoleCommand>();
+    private Map<String,Command> mCommands = new HashMap<String,Command>();
 
     private static final String TAG = "Console";
 
@@ -176,13 +176,13 @@ public class Console
             args = line.substring(split).trim();
         }
 
-        ConsoleCommand c = mCommands.get(line.substring(0, split));
+        Command c = mCommands.get(line.substring(0, split));
         if (c != null) {
-            c.execute();
+            c.run();
         }
     }
 
-    public void addCommand(ConsoleCommand command) {
+    public void addCommand(Command command) {
         if (command == null
             || command.getName() == null
             || command.getName().equals(""))
@@ -192,7 +192,7 @@ public class Console
         mCommands.put(command.getName(), command);
     }
 
-    public void removeCommand(ConsoleCommand command) {
+    public void removeCommand(Command command) {
         removeCommand(command.getName());
     }
 

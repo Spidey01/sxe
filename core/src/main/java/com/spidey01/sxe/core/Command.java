@@ -23,22 +23,34 @@
 
 package com.spidey01.sxe.core;
 
-public class ConsoleCommand {
-    private static final String TAG = "ConsoleCommand";
+/** Generic command execution.
+ *
+ * This is used by the Console to implement console commands. A Command is a
+ * Runnable that includes extra data useful to Commands.
+ */
+public class Command implements Runnable {
+    private static final String TAG = "Command";
 
-    private String mName = "";
+    private final String mName;
 
-    public void execute() {
+
+    public Command(String name) {
+        mName = name;
+    }
+
+
+    public void run() {
         Log.v(TAG, getName()+" executed");
     }
+
 
     public String getName() {
         return mName;
     }
 
-    public boolean equals(ConsoleCommand other) {
+
+    public boolean equals(Command other) {
         return mName.equals(other.getName());
     }
 }
-
 
