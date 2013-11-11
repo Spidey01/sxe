@@ -104,14 +104,20 @@ public abstract class AbstractInputManager implements InputManager {
 
 
     public void inject(String line) {
-        for (String word : line.split("\\s")) {
-            for (int i=0; i < word.length(); ++i) {
-                String l = String.valueOf(word.charAt(i));
-                inject(l, true);
-                inject(l, false);
+        String[] words = line.split("\\s");
+        String word;
+
+        for (int w=0; w < words.length; ++w) {
+            word = words[w];
+            for (int ch=0; ch < word.length(); ++ch) {
+                String letter = String.valueOf(word.charAt(ch));
+                inject(letter, true);
+                inject(letter, false);
             }
-            inject("SPACE", true);
-            inject("SPACE", false);
+            if (w < words.length - 1) { // only if not the last letter.
+                inject("SPACE", true);
+                inject("SPACE", false);
+            }
         }
         inject("RETURN", true);
         inject("RETURN", false);
