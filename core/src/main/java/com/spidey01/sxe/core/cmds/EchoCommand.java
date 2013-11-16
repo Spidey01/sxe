@@ -21,12 +21,11 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.cmds;
 
-/** Generic command execution.
- *
- * This is used by the Console to implement console commands. A Command is a
- * Runnable that includes extra data useful to Commands.
+import com.spidey01.sxe.core.Log;
+
+/** Echo command.
  */
 public class EchoCommand extends Command {
     private static final String TAG = "EchoCommand";
@@ -38,7 +37,7 @@ public class EchoCommand extends Command {
 
 
     public void run() {
-        Log.i(TAG, getName(), "executed");
+        super.run();
         for (String s : getArgs()) {
             Log.i(TAG, "arg =>", s);
         }

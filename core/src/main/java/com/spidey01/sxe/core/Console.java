@@ -23,6 +23,7 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.cmds.Command;
 import com.spidey01.sxe.core.gl.OpenGL;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.input.KeyEvent;
