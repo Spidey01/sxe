@@ -44,40 +44,6 @@ public class Utils {
 
     private static final String TAG = "Utils";
 
-    // PLATFORM_NAME?
-    public static final String PLATFORM_ARCHITECTURE = System.getProperty("os.arch");
-    public static final String PLATFORM_VERSION = System.getProperty("os.name")+" "+System.getProperty("os.version");
-
-
-    /* XXX clean up as necessarily.
-    public static Shader.Type resourceTypeToShaderType(Resource.Type type) {
-        return type == Resource.Type.VERTEX_SHADER ? Shader.Type.VERTEX
-            : Shader.Type.FRAGMENT;
-    }
-
-    public static Resource.Type shaderTypeToResourceType(Shader.Type type) {
-        return type == Shader.Type.VERTEX ? Resource.Type.VERTEX_SHADER
-            : Resource.Type.FRAGMENT_SHADER;
-    }
-
-    public static Resource.Type getShaderResourceType(String fileName) {
-        if (fileName.endsWith(".vert")) {
-            return Resource.Type.VERTEX_SHADER;
-        } else if (fileName.endsWith(".frag")) {
-            return Resource.Type.FRAGMENT_SHADER;
-        }
-        throw new RuntimeException("Unknown shader type for "+fileName);
-    }
-
-    public static Shader.Type getShaderType(String fileName) {
-        if (fileName.endsWith(".vert")) {
-            return Shader.Type.VERTEX;
-        } else if (fileName.endsWith(".frag")) {
-            return Shader.Type.FRAGMENT;
-        }
-        throw new RuntimeException("Unknown shader type for "+fileName);
-    }
-    */
 
     /** Slurps a File into a String. */
     public static String slurp(File source) throws IOException {
