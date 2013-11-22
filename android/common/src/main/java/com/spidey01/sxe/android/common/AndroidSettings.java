@@ -24,7 +24,7 @@
 package com.spidey01.sxe.android.common;
 
 import com.spidey01.sxe.core.Settings;
-import com.spidey01.sxe.core.Utils;
+import com.spidey01.sxe.core.common.Utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

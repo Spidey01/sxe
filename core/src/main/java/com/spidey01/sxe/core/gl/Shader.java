@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.core.gl;
 
-import com.spidey01.sxe.core.Utils;
+import com.spidey01.sxe.core.common.Utils;
 
 import java.io.BufferedReader;
 import java.io.File;
