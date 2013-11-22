@@ -24,6 +24,7 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.common.FileSystem;
+import com.spidey01.sxe.core.common.Xdg;
 import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.input.InputManager;
 

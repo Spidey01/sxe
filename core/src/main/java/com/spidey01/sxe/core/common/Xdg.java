@@ -21,9 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
-
-import com.spidey01.sxe.core.common.FileSystem;
+package com.spidey01.sxe.core.common;
 
 /** Helper for XDG Base Directory Specification (version 0.7).
  *

@@ -32,8 +32,6 @@ import com.spidey01.sxe.core.SceneManager;
 import com.spidey01.sxe.core.Settings;
 import com.spidey01.sxe.core.SettingsArgs;
 import com.spidey01.sxe.core.SettingsFile;
-import com.spidey01.sxe.core.Utils;
-import com.spidey01.sxe.core.Xdg;
 
 import java.io.File;
 
