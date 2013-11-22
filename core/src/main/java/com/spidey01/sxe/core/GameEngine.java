@@ -23,6 +23,7 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.common.FileSystem;
 import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.input.InputManager;
 
@@ -123,7 +124,7 @@ public class GameEngine {
              *      If not found, try GameName.xml by same method.
              */
             for (String n : names) {
-                p = Utils.find(Xdg.XDG_CONFIG_DIRS, n);
+                p = FileSystem.find(Xdg.XDG_CONFIG_DIRS, n);
                 if (p == null) continue;
                 path = new File(p);
                 if (path.exists()) {

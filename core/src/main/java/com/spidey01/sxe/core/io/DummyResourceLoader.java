@@ -25,14 +25,14 @@ package com.spidey01.sxe.core.io;
 
 
 import com.spidey01.sxe.core.ResourceLoader;
-import com.spidey01.sxe.core.Utils;
+import com.spidey01.sxe.core.common.FileSystem;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
+
 
 /** Dummy ResourceLoader that returns the bitbucket. */
 public class DummyResourceLoader implements ResourceLoader {
@@ -40,14 +40,14 @@ public class DummyResourceLoader implements ResourceLoader {
     public InputStream getInputStream(File from, File what)
         throws IOException
     {
-        return new FileInputStream(Utils.getBitBucketPath());
+        return new FileInputStream(FileSystem.getBitBucketPath());
     }
 
 
     public InputStream getInputStream(String from, String what)
         throws IOException
     {
-        return new FileInputStream(Utils.getBitBucketPath());
+        return new FileInputStream(FileSystem.getBitBucketPath());
     }
 }
 

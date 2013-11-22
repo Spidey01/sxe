@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.common.FileSystem;
+
 /** Helper for XDG Base Directory Specification (version 0.7).
  *
  * Environment variables referenced by the specification are exported as static
@@ -48,9 +50,9 @@ public class Xdg {
 
     /** What passes for the useres home directory.
      *
-     * @see Utils.getUserDir
+     * @see FileSystem.getUserDir
      */
-    public static String HOME = Utils.getUserDir();
+    public static String HOME = FileSystem.getUserDir();
 
     /** Alias for HOME. */
     public static String USER_DIR = HOME;
@@ -133,12 +135,12 @@ public class Xdg {
 
 
     public static String getDataDir(String relative) {
-        return Utils.find(Xdg.XDG_DATA_DIRS, relative);
+        return FileSystem.find(Xdg.XDG_DATA_DIRS, relative);
     }
 
 
     public static String getConfigDir(String relative) {
-        return Utils.find(Xdg.XDG_CONFIG_DIRS, relative);
+        return FileSystem.find(Xdg.XDG_CONFIG_DIRS, relative);
     }
 
 }

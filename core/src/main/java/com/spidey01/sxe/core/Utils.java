@@ -48,9 +48,6 @@ public class Utils {
 
     private static final String TAG = "Utils";
 
-    // Used by getUserDir() to memorize it's return value.
-    private static String sUserDir;
-
     // PLATFORM_NAME?
     public static final String PLATFORM_ARCHITECTURE = System.getProperty("os.arch");
     public static final String PLATFORM_VERSION = System.getProperty("os.name")+" "+System.getProperty("os.version");
@@ -124,73 +121,6 @@ public class Utils {
         }
 
         return sb.toString();
-    }
-
-
-    /** Get the users personal directory.
-     *
-     * This is assumed to be HOME or USERPROFILE, which ever is found first.
-     */
-    public static String getUserDir() {
-        if (sUserDir == null) {
-            String e = System.getenv("HOME");
-            if (e == null) {
-                e = System.getenv("USERPROFILE");
-                if (e == null) {
-                    throw new
-                        RuntimeException("Can't determine users home directory.");
-                }
-            }
-            sUserDir = e;
-        }
-
-        return sUserDir;
-    }
-
-    /** Return the systems bit bucket as a File. */
-    public static File getBitBucketFile() {
-        /*
-        String[] bitBuckets = { "/dev/null", "nul" };
-
-        for (String p : bitBuckets) {
-            File device = new File(p);
-            if (!device.exists()) {
-                continue;
-            }
-            return device;
-        }
-        throw new RuntimeException("Can't find a bit bucket.");
-        */
-        /********** I HATE WINDOWS **********/
-        /**
-         * Just return /dev/null because Windows/Java is dumb and won't
-         * File#exists() for nul. So just assume that the user doesn't have a
-         * \dev\null on the current directory. Bastards!
-         */
-        return new File("/dev/null");
-    }
-
-    /** Return the path to the systems bit bucket. */
-    public static String getBitBucketPath() {
-        return getBitBucketFile().getPath();
-    }
-
-
-    /** Search list of directories for a file.
-     *
-     * @param dirs The list of directories to search.
-     * @param name File or directory to find in dirs.
-     *
-     * @return Absolute path to name if found; else null.
-     */
-    public static String find(String[] dirs, String name) {
-        for (String d : dirs) {
-            File p = new File(d, name);
-            if (p.isFile() || p.isDirectory()) {
-                return p.getAbsolutePath();
-            }
-        }
-        return null;
     }
 
 

@@ -26,6 +26,7 @@ package com.spidey01.sxe.core.io;
 import org.junit.*;
 
 import com.spidey01.sxe.core.Utils;
+import com.spidey01.sxe.core.common.FileSystem;
 import com.spidey01.sxe.core.testing.TestResources;
 import com.spidey01.sxe.core.testing.UnitTest;
 
@@ -69,7 +70,7 @@ public class ZipResourceLoaderTest extends UnitTest {
 
     @Test(expected = IOException.class)
     public void garbageZipFile() throws IOException {
-        sLoader.getInputStream(Utils.getBitBucketPath(), "foo");
+        sLoader.getInputStream(FileSystem.getBitBucketPath(), "foo");
     }
 
 
