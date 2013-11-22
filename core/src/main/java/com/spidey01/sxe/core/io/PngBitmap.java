@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.core.io;
 
-import com.spidey01.sxe.core.Bitmap;
+import com.spidey01.sxe.core.graphics.Bitmap;
 
 import de.matthiasmann.twl.utils.PNGDecoder;
 

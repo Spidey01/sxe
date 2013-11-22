@@ -24,6 +24,7 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.gl.OpenGLES20;
+import com.spidey01.sxe.core.graphics.Bitmap;
 
 import de.matthiasmann.twl.utils.PNGDecoder;
 
