@@ -21,14 +21,12 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.graphics;
 
+import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.Texture;
 import com.spidey01.sxe.core.gl.Program;
 import com.spidey01.sxe.core.gl.Shader;
-
-import com.spidey01.sxe.core.graphics.Mesh;
-import com.spidey01.sxe.core.graphics.RenderableObject;
-import com.spidey01.sxe.core.graphics.VertexBufferTechnique;
 
 import java.nio.FloatBuffer;
 

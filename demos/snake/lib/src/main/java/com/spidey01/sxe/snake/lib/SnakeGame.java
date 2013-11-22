@@ -28,7 +28,6 @@ import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.ResourceManager;
-import com.spidey01.sxe.core.Sprite;
 
 import com.spidey01.sxe.core.cmds.Command;
 import com.spidey01.sxe.core.cmds.QuitCommand;
@@ -37,6 +36,7 @@ import com.spidey01.sxe.core.gl.OpenGL;
 
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.Mesh;
+import com.spidey01.sxe.core.graphics.Sprite;
 import com.spidey01.sxe.core.graphics.VertexBufferTechnique;
 
 import com.spidey01.sxe.core.input.KeyEvent;
