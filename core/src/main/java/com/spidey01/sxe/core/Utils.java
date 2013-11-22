@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.io.Buffers;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,12 +34,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.DoubleBuffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -52,19 +48,6 @@ public class Utils {
     public static final String PLATFORM_ARCHITECTURE = System.getProperty("os.arch");
     public static final String PLATFORM_VERSION = System.getProperty("os.name")+" "+System.getProperty("os.version");
 
-
-    /** InputStream to something with .readLine() :-).
-     *
-     * Often I need to deal with InputStream but of course, all I reallly want
-     * to do is get data out of it line by line.
-     */
-    public static BufferedReader makeBufferedReader(InputStream in) {
-        return new BufferedReader(new InputStreamReader(in));
-    }
-
-    public static BufferedReader makeBufferedReader(File file) throws FileNotFoundException {
-        return new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-    }
 
     /* XXX clean up as necessarily.
     public static Shader.Type resourceTypeToShaderType(Resource.Type type) {
@@ -108,7 +91,7 @@ public class Utils {
 
     /** Slurps a InputStream into a String. */
     public static String slurp(InputStream source) throws IOException {
-        return Utils.slurp(Utils.makeBufferedReader(source));
+        return Utils.slurp(Buffers.makeReader(source));
     }
 
     /** Slurps a Reader into a String. */
@@ -153,33 +136,6 @@ public class Utils {
         return i & 0xffffffffL;
     }
 
-
-    /** Utilities for working with buffers.
-     *
-     * Buffers are created with createByteBuffer in the native byte order (BIG
-     * or little). Direct buffers are allocated for performance. Size of the
-     * buffer is based on the size of Java datatype being allocated, e.g.
-     * Utils.Buffers.createIntBuffer(2) allocates a buffer for 2 Integers which
-     * requires 8 Bytes of space.
-     */
-    public static class Buffers {
-
-        public static ByteBuffer createByteBuffer(int size) {
-            return ByteBuffer.allocateDirect(size).order(ByteOrder.nativeOrder());
-        }
-
-        public static DoubleBuffer createDoubleBuffer(int size) {
-            return createByteBuffer(size << 3).asDoubleBuffer();
-        }
-
-        public static FloatBuffer createFloatBuffer(int size) {
-            return createByteBuffer(size << 2).asFloatBuffer();
-        }
-
-        public static IntBuffer createIntBuffer(int size) {
-            return createByteBuffer(size << 2).asIntBuffer();
-        }
-    }
 
     /** Helper for merging Settings instances.
      *

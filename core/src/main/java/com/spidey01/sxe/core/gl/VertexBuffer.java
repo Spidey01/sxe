@@ -24,7 +24,7 @@
 package com.spidey01.sxe.core.gl;
 
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.Utils;
+import com.spidey01.sxe.core.io.Buffers;
 
 import java.nio.IntBuffer;
 import java.nio.FloatBuffer;
@@ -64,7 +64,7 @@ public class VertexBuffer {
     public void initialize(OpenGLES20 GL) {
         if (mIsInitialized) return;
         
-        IntBuffer b = Utils.Buffers.createIntBuffer(1);
+        IntBuffer b = Buffers.makeInt(1);
         GL.glGenBuffers(b);
         mVertexBufferId = b.get(0);
 
@@ -109,7 +109,7 @@ public class VertexBuffer {
 
     public void buffer(OpenGLES20 GL, float[] vertices) {
         check();
-        FloatBuffer b = Utils.Buffers.createFloatBuffer(vertices.length);
+        FloatBuffer b = Buffers.makeFloat(vertices.length);
         b.put(vertices);
         // Basically make sure the bounds is set to vertices.length and rewind the position.
         b.flip();

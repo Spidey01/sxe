@@ -31,7 +31,7 @@ import javax.script.ScriptException;
 import javax.script.SimpleScriptContext;
 
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.Utils;
+import com.spidey01.sxe.core.io.Buffers;
 import com.spidey01.sxe.scripting.Script;
 import com.spidey01.sxe.scripting.ScriptManager;
 
@@ -102,7 +102,7 @@ public class Jsr223ScriptManager implements ScriptManager {
         throws IOException, FileNotFoundException
     {
         try {
-            return mScriptEngine.eval(Utils.makeBufferedReader(sourceFile),
+            return mScriptEngine.eval(Buffers.makeReader(sourceFile),
                                       getScriptContext(scope));
         } catch(ScriptException e) {
             Log.e(TAG, "ScriptException wrapped.", e);
