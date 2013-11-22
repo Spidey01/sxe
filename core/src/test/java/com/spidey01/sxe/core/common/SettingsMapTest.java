@@ -21,23 +21,29 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.common;
+
+import com.spidey01.sxe.core.testing.AbstractSettingsTest;
 
 import org.junit.*;
 
-import com.spidey01.sxe.core.testing.TestResources;
-
-import java.io.File;
+import java.util.HashMap;
 import java.io.IOException;
 
-public class SettingsXMLFileTest extends AbstractSettingsTest {
-    private static final String TAG = "SettingsXMLFileTest";
+public class SettingsMapTest extends AbstractSettingsTest {
+    private static final String TAG = "SettingsMapTest";
 
 
-    @Override
-    protected Settings makeSettings() {
-        return new SettingsXMLFile(new File(TestResources.directory, TestResources.settingsXmlFileName));
-    }
+    private static final HashMap<String, String> sMap = new HashMap<String, String>();
+    static {
+        sMap.put("debug", "true");
+        sMap.put(TAG+".display.resolution", "1280x720");
+        sMap.put(TAG+".resources.path", "tmp/");
+        sMap.put(TAG+".log_level", "10");
+        sMap.put(TAG+".log_type", "file");
+        sMap.put(TAG+".log_file", "tmp/"+TAG+".log");
+        sMap.put(TAG+".log_flags", "DisplayThreadId=true,DisplayDate=true,DisplayTime=true");
+    };
 
 
     @Override
@@ -46,5 +52,18 @@ public class SettingsXMLFileTest extends AbstractSettingsTest {
     }
 
 
+    @Override
+    protected Settings makeSettings() {
+        return new SettingsMap(sMap);
+    }
+
+
+    @Test(expected = IOException.class)
+    public void save() throws IOException {
+        makeSettings().save();
+    }
+
+
 }
+
 

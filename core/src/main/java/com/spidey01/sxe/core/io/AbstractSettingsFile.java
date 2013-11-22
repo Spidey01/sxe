@@ -21,8 +21,10 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.io;
 
+import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.common.Settings;
 import com.spidey01.sxe.core.common.Utils;
 
 import java.io.File;

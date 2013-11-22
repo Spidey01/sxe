@@ -21,28 +21,45 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.common;
+
+import com.spidey01.sxe.core.testing.AbstractSettingsTest;
 
 import org.junit.*;
 
-import com.spidey01.sxe.core.testing.TestResources;
-
-import java.io.File;
 import java.io.IOException;
 
-public class SettingsFileTest extends AbstractSettingsTest {
-    private static final String TAG = "SettingsFileTest";
+public class SettingsArgsTest extends AbstractSettingsTest {
+    private static final String TAG = "SettingsArgsTest";
 
 
-    @Override
-    protected Settings makeSettings() {
-        return new SettingsFile(new File(TestResources.directory, TestResources.settingsFileName));
-    }
+    private static final String[] sArgs = new String[]{
+        "debug=true",
+        TAG+".display.resolution=1280x720",
+        TAG+".resources.path=tmp/",
+        TAG+".log_level=10",
+        TAG+".log_type=file",
+        TAG+".log_file=tmp/"+TAG+".log",
+        TAG+".log_flags=DisplayThreadId=true,DisplayDate=true,DisplayTime=true"
+    };
 
 
     @Override
     protected String getTag() {
         return TAG;
+    }
+
+
+    @Override
+    protected Settings makeSettings() {
+        return new SettingsArgs(sArgs);
+    }
+
+
+    @Test(expected = IOException.class)
+    public void save() throws IOException {
+        SettingsArgs p = new SettingsArgs(sArgs);
+        p.save();
     }
 
 

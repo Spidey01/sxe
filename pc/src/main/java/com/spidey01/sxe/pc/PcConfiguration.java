@@ -29,11 +29,11 @@ import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.Platform;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.SceneManager;
-import com.spidey01.sxe.core.Settings;
-import com.spidey01.sxe.core.SettingsArgs;
-import com.spidey01.sxe.core.SettingsFile;
-import com.spidey01.sxe.core.SettingsXMLFile;
+import com.spidey01.sxe.core.common.Settings;
+import com.spidey01.sxe.core.common.SettingsArgs;
 import com.spidey01.sxe.core.common.Xdg;
+import com.spidey01.sxe.core.io.SettingsFile;
+import com.spidey01.sxe.core.io.SettingsXMLFile;
 
 import java.io.File;
 

@@ -24,10 +24,15 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.common.FileSystem;
+import com.spidey01.sxe.core.common.Settings;
+import com.spidey01.sxe.core.common.SettingsArgs;
+import com.spidey01.sxe.core.common.SettingsMap;
 import com.spidey01.sxe.core.common.Utils;
 import com.spidey01.sxe.core.common.Xdg;
 import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.input.InputManager;
+import com.spidey01.sxe.core.io.SettingsFile;
+import com.spidey01.sxe.core.io.SettingsXMLFile;
 
 import java.io.BufferedReader;
 import java.io.File;

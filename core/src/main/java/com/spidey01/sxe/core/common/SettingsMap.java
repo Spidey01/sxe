@@ -21,9 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
-
-import com.spidey01.sxe.core.common.Utils;
+package com.spidey01.sxe.core.common;
 
 import java.io.IOException;
 import java.util.HashMap;

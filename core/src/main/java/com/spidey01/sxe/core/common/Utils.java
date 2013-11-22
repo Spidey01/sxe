@@ -23,7 +23,6 @@
 
 package com.spidey01.sxe.core.common;
 
-import com.spidey01.sxe.core.Settings;
 import com.spidey01.sxe.core.io.Buffers;
 
 import java.io.BufferedReader;
