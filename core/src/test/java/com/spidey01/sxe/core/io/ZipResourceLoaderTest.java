@@ -26,7 +26,7 @@ package com.spidey01.sxe.core.io;
 import org.junit.*;
 
 import com.spidey01.sxe.core.common.Utils;
-import com.spidey01.sxe.core.common.FileSystem;
+import com.spidey01.sxe.core.sys.FileSystem;
 import com.spidey01.sxe.core.testing.TestResources;
 import com.spidey01.sxe.core.testing.UnitTest;
 

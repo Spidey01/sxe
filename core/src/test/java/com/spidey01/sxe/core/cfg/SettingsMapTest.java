@@ -21,26 +21,28 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core.common;
+package com.spidey01.sxe.core.cfg;
 
 import com.spidey01.sxe.core.testing.AbstractSettingsTest;
 
 import org.junit.*;
 
+import java.util.HashMap;
 import java.io.IOException;
 
-public class SettingsArgsTest extends AbstractSettingsTest {
-    private static final String TAG = "SettingsArgsTest";
+public class SettingsMapTest extends AbstractSettingsTest {
+    private static final String TAG = "SettingsMapTest";
 
 
-    private static final String[] sArgs = new String[]{
-        "debug=true",
-        TAG+".display.resolution=1280x720",
-        TAG+".resources.path=tmp/",
-        TAG+".log_level=10",
-        TAG+".log_type=file",
-        TAG+".log_file=tmp/"+TAG+".log",
-        TAG+".log_flags=DisplayThreadId=true,DisplayDate=true,DisplayTime=true"
+    private static final HashMap<String, String> sMap = new HashMap<String, String>();
+    static {
+        sMap.put("debug", "true");
+        sMap.put(TAG+".display.resolution", "1280x720");
+        sMap.put(TAG+".resources.path", "tmp/");
+        sMap.put(TAG+".log_level", "10");
+        sMap.put(TAG+".log_type", "file");
+        sMap.put(TAG+".log_file", "tmp/"+TAG+".log");
+        sMap.put(TAG+".log_flags", "DisplayThreadId=true,DisplayDate=true,DisplayTime=true");
     };
 
 
@@ -52,16 +54,16 @@ public class SettingsArgsTest extends AbstractSettingsTest {
 
     @Override
     protected Settings makeSettings() {
-        return new SettingsArgs(sArgs);
+        return new SettingsMap(sMap);
     }
 
 
     @Test(expected = IOException.class)
     public void save() throws IOException {
-        SettingsArgs p = new SettingsArgs(sArgs);
-        p.save();
+        makeSettings().save();
     }
 
 
 }
+
 

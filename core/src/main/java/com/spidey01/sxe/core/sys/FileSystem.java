@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core.common;
+package com.spidey01.sxe.core.sys;
 
 import com.spidey01.sxe.core.Log;
 

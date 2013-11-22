@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.android.common;
 
-import com.spidey01.sxe.core.common.Settings;
+import com.spidey01.sxe.core.cfg.Settings;
 import com.spidey01.sxe.core.common.Utils;
 
 import android.content.Context;

@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core.common;
+package com.spidey01.sxe.core.cfg;
 
 import java.io.IOException;
 

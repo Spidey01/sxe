@@ -25,7 +25,7 @@ package com.spidey01.sxe.core.io;
 
 
 import com.spidey01.sxe.core.ResourceLoader;
-import com.spidey01.sxe.core.common.FileSystem;
+import com.spidey01.sxe.core.sys.FileSystem;
 
 import java.io.File;
 import java.io.FileInputStream;

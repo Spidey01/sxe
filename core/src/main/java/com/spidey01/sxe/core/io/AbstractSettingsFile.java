@@ -24,8 +24,9 @@
 package com.spidey01.sxe.core.io;
 
 import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.common.Settings;
+import com.spidey01.sxe.core.cfg.Settings;
 import com.spidey01.sxe.core.common.Utils;
+import com.spidey01.sxe.core.sys.FileSystem;
 
 import java.io.File;
 import java.io.FileInputStream;

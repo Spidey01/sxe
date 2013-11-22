@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.core.io;
 
-import com.spidey01.sxe.core.common.Settings;
+import com.spidey01.sxe.core.cfg.Settings;
 import com.spidey01.sxe.core.testing.AbstractSettingsTest;
 
 import org.junit.*;
