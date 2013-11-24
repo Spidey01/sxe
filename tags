@@ -6,17 +6,17 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 ABGR	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        ABGR(4, true);$/;"	e	enum:PNGDecoder.Format	file:
 ALPHA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        ALPHA(1, true),$/;"	e	enum:PNGDecoder.Format	file:
-ANDROID	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public static final String ANDROID = "Android";$/;"	f	class:Platform
-APP_HOME	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String APP_HOME = System.getenv("APP_HOME");$/;"	f	class:Xdg
+ANDROID	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public static final String ANDROID = "Android";$/;"	f	class:Platform
+APP_HOME	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String APP_HOME = System.getenv("APP_HOME");$/;"	f	class:Xdg
 ASSERT	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int ASSERT  = 0;$/;"	f	class:Log
-AbstractSettingsFile	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^public abstract class AbstractSettingsFile implements Settings {$/;"	c
-AbstractSettingsTest	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^public abstract class AbstractSettingsTest extends UnitTest {$/;"	c
-Action	core/src/main/java/com/spidey01/sxe/core/Action.java	/^public interface Action {$/;"	i
+AbstractInputManager	core/src/main/java/com/spidey01/sxe/core/input/AbstractInputManager.java	/^public abstract class AbstractInputManager implements InputManager {$/;"	c
+AbstractSettingsFile	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^public abstract class AbstractSettingsFile implements Settings {$/;"	c
+AbstractSettingsTest	core/src/test/java/com/spidey01/sxe/core/testing/AbstractSettingsTest.java	/^public abstract class AbstractSettingsTest extends UnitTest {$/;"	c
 AndroidConfiguration	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidConfiguration.java	/^public class AndroidConfiguration {$/;"	c
 AndroidDisplay	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public AndroidDisplay(Context context) {$/;"	m	class:AndroidDisplay
 AndroidDisplay	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^public class AndroidDisplay $/;"	c
 AndroidInputManager	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^    public AndroidInputManager(AndroidDisplay display) {$/;"	m	class:AndroidInputManager
-AndroidInputManager	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^public class AndroidInputManager extends InputManager {$/;"	c
+AndroidInputManager	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^public class AndroidInputManager extends AbstractInputManager {$/;"	c
 AndroidLogSink	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidLogSink.java	/^    public AndroidLogSink() {$/;"	m	class:AndroidLogSink
 AndroidLogSink	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidLogSink.java	/^    public AndroidLogSink(int level) {$/;"	m	class:AndroidLogSink
 AndroidLogSink	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidLogSink.java	/^public class AndroidLogSink extends LogSink {$/;"	c
@@ -30,8 +30,8 @@ Assert	scripting/testhelpers/src/main/resources/JavaWrapper.js	/^var Assert = Pa
 AssetLoader	android/common/src/main/java/com/spidey01/sxe/android/common/AssetLoader.java	/^    public AssetLoader(AssetManager assetManager) {$/;"	m	class:AssetLoader
 AssetLoader	android/common/src/main/java/com/spidey01/sxe/android/common/AssetLoader.java	/^public class AssetLoader implements ResourceLoader {$/;"	c
 BGRA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        BGRA(4, true),$/;"	e	enum:PNGDecoder.Format	file:
-Bitmap	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^public interface Bitmap {$/;"	i
-Buffers	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static class Buffers {$/;"	c	class:Utils
+Bitmap	core/src/main/java/com/spidey01/sxe/core/graphics/Bitmap.java	/^public interface Bitmap {$/;"	i
+Buffers	core/src/main/java/com/spidey01/sxe/core/io/Buffers.java	/^public class Buffers {$/;"	c
 BuildConfig	android/common/build/source/buildConfig/debug/com/spidey01/sxe/android/common/BuildConfig.java	/^public final class BuildConfig {$/;"	c
 CLASSTEMPLATE	templates/NewClass.java	/^    public CLASSTEMPLATE() {$/;"	m	class:CLASSTEMPLATE
 CLASSTEMPLATE	templates/NewClass.java	/^public class CLASSTEMPLATE {$/;"	c
@@ -41,10 +41,16 @@ COLOR_INDEXED	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecod
 COLOR_TRUEALPHA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_TRUEALPHA = 6;  $/;"	f	class:PNGDecoder	file:
 COLOR_TRUECOLOR	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final byte COLOR_TRUECOLOR = 2;$/;"	f	class:PNGDecoder	file:
 Capable	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^    public interface Capable extends RenderableObject {$/;"	i	class:VertexBufferTechnique
+Command	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    public Command(String name) {$/;"	m	class:Command
+Command	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    public Command(String name, String args) {$/;"	m	class:Command
+Command	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    public Command(String name, String[] args) {$/;"	m	class:Command
+Command	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^public class Command implements Runnable {$/;"	c
 Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public Console() {$/;"	m	class:Console
 Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public Console(String toggleKey) {$/;"	m	class:Console
 Console	core/src/main/java/com/spidey01/sxe/core/Console.java	/^public class Console$/;"	c
-ConsoleCommand	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^public class ConsoleCommand implements Action {$/;"	c
+ConsoleInputManager	core/src/main/java/com/spidey01/sxe/core/input/ConsoleInputManager.java	/^    public ConsoleInputManager() {$/;"	m	class:ConsoleInputManager
+ConsoleInputManager	core/src/main/java/com/spidey01/sxe/core/input/ConsoleInputManager.java	/^    public ConsoleInputManager(Console terminal, String prompt) {$/;"	m	class:ConsoleInputManager
+ConsoleInputManager	core/src/main/java/com/spidey01/sxe/core/input/ConsoleInputManager.java	/^public class ConsoleInputManager extends AbstractInputManager {$/;"	c
 ConsoleTest	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^public class ConsoleTest extends UnitTest {$/;"	c
 DEBUG	android/common/build/source/buildConfig/debug/com/spidey01/sxe/android/common/BuildConfig.java	/^    public static final boolean DEBUG = Boolean.parseBoolean("true");$/;"	f	class:BuildConfig
 DEBUG	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int DEBUG   = 4;$/;"	f	class:Log
@@ -56,7 +62,10 @@ Display	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^public 
 DummyResourceLoader	core/src/main/java/com/spidey01/sxe/core/io/DummyResourceLoader.java	/^public class DummyResourceLoader implements ResourceLoader {$/;"	c
 ERROR	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int ERROR   = 1;$/;"	f	class:Log
 EXTENSION	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptManager.GetBy	file:
+EchoCommand	core/src/main/java/com/spidey01/sxe/core/cmds/EchoCommand.java	/^    public EchoCommand() {$/;"	m	class:EchoCommand
+EchoCommand	core/src/main/java/com/spidey01/sxe/core/cmds/EchoCommand.java	/^public class EchoCommand extends Command {$/;"	c
 FRAGMENT	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^        VERTEX, FRAGMENT$/;"	e	enum:Shader.Type	file:
+FileSystem	core/src/main/java/com/spidey01/sxe/core/sys/FileSystem.java	/^public class FileSystem {$/;"	c
 Font	core/src/main/java/com/spidey01/sxe/core/Font.java	/^public interface Font {$/;"	i
 Format	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        private Format(int numComponents, boolean hasAlpha) {$/;"	m	class:PNGDecoder.Format	file:
 Format	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    public enum Format {$/;"	g	class:PNGDecoder
@@ -1036,7 +1045,7 @@ GameEngine	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^public cla
 GameThread	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    public GameThread(GameEngine e, Game g) {$/;"	m	class:GameThread
 GameThread	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^public class GameThread extends Thread {$/;"	c
 GetBy	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    private enum GetBy {$/;"	g	class:Jsr223ScriptManager
-HOME	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String HOME = Utils.getUserDir();$/;"	f	class:Xdg
+HOME	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String HOME = FileSystem.getUserDir();$/;"	f	class:Xdg
 HelloJRuby	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/HelloJRuby.java	/^public class HelloJRuby {$/;"	c
 HelloJavaScript	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/HelloJavaScript.java	/^public class HelloJavaScript {$/;"	c
 HelloJsr223	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/HelloJsr223.java	/^public class HelloJsr223 {$/;"	c
@@ -1048,7 +1057,7 @@ IEND	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/
 IHDR	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final int IHDR = 0x49484452;$/;"	f	class:PNGDecoder	file:
 INFO	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int INFO    = 3;$/;"	f	class:Log
 INITIAL_BUFFER_SIZE	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    protected static final int INITIAL_BUFFER_SIZE = 160; \/* works for 7-bit SMS *\/$/;"	f	class:Console
-InputManager	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^public abstract class InputManager {$/;"	c
+InputManager	core/src/main/java/com/spidey01/sxe/core/input/InputManager.java	/^public interface InputManager {$/;"	i
 JRubyScript	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^    JRubyScript(ScriptingContainer toWrap) {$/;"	m	class:JRubyScript
 JRubyScript	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^public class JRubyScript implements Script {$/;"	c
 JRubyScriptManager	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    public JRubyScriptManager() {$/;"	m	class:JRubyScriptManager
@@ -1072,11 +1081,11 @@ JythonScript	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/Jy
 JythonScript	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScript.java	/^public class JythonScript implements Script {$/;"	c
 JythonScriptManager	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    public JythonScriptManager() {$/;"	m	class:JythonScriptManager
 JythonScriptManager	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^public class JythonScriptManager implements ScriptManager {$/;"	c
-KeyEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public KeyEvent(InputManager source, Object nativeEvent,$/;"	m	class:KeyEvent
-KeyEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public KeyEvent(InputManager source, int keyCode,$/;"	m	class:KeyEvent
-KeyEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^public class KeyEvent {$/;"	c
-KeyListener	core/src/main/java/com/spidey01/sxe/core/KeyListener.java	/^public interface KeyListener {$/;"	i
-LINUX	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public static final String LINUX = "Linux";$/;"	f	class:Platform
+KeyEvent	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    public KeyEvent(InputManager source, Object nativeEvent,$/;"	m	class:KeyEvent
+KeyEvent	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    public KeyEvent(InputManager source, int keyCode,$/;"	m	class:KeyEvent
+KeyEvent	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^public class KeyEvent {$/;"	c
+KeyListener	core/src/main/java/com/spidey01/sxe/core/input/KeyListener.java	/^public interface KeyListener {$/;"	i
+LINUX	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public static final String LINUX = "Linux";$/;"	f	class:Platform
 LUMINANCE	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        LUMINANCE(1, false),$/;"	e	enum:PNGDecoder.Format	file:
 LUMINANCE_ALPHA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        LUMINANCE_ALPHA(2, true),$/;"	e	enum:PNGDecoder.Format	file:
 Log	core/src/main/java/com/spidey01/sxe/core/Log.java	/^public class Log {$/;"	c
@@ -1088,7 +1097,7 @@ LogSink	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public LogSi
 LogSink	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public LogSink(int level) {$/;"	m	class:LogSink
 LogSink	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^public class LogSink {$/;"	c
 LwjglOpenGL	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {$/;"	c
-MAC_OS	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public static final String MAC_OS = "Mac OS";$/;"	f	class:Platform
+MAC_OS	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public static final String MAC_OS = "Mac OS";$/;"	f	class:Platform
 MIME_TYPE	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptManager.GetBy	file:
 Main	demos/helloworld/pc/src/main/java/com/spidey01/sxe/helloworld/pc/Main.java	/^class Main {$/;"	c
 Main	demos/nulldemo/pc/src/main/java/com/spidey01/sxe/nulldemo/pc/Main.java	/^class Main {$/;"	c
@@ -1099,6 +1108,7 @@ Mesh	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    public Me
 Mesh	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    public Mesh(VertexBuffer buffer) {$/;"	m	class:Mesh
 Mesh	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    public Mesh(float[] vertices) {$/;"	m	class:Mesh
 Mesh	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^public class Mesh {$/;"	c
+MyConsole	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    private class MyConsole extends Console {$/;"	c	class:ConsoleTest
 NAME	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^        NAME, EXTENSION, MIME_TYPE$/;"	e	enum:Jsr223ScriptManager.GetBy	file:
 Notifier	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^        Notifier(AndroidSettings s) {$/;"	m	class:AndroidSettings.Notifier
 Notifier	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    static class Notifier implements SharedPreferences.OnSharedPreferenceChangeListener {$/;"	c	class:AndroidSettings
@@ -1109,10 +1119,10 @@ NullDisplay	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^
 NullDisplay	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public NullDisplay(boolean answer) {$/;"	m	class:NullDisplay
 NullDisplay	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^public class NullDisplay implements Display {$/;"	c
 NullInputManager	core/src/main/java/com/spidey01/sxe/core/testing/NullInputManager.java	/^    public NullInputManager() {$/;"	m	class:NullInputManager
-NullInputManager	core/src/main/java/com/spidey01/sxe/core/testing/NullInputManager.java	/^public class NullInputManager extends InputManager {$/;"	c
+NullInputManager	core/src/main/java/com/spidey01/sxe/core/testing/NullInputManager.java	/^public class NullInputManager extends AbstractInputManager {$/;"	c
 NullOpenGL	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    public NullOpenGL() {$/;"	m	class:NullOpenGL
 NullOpenGL	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {$/;"	c
-OnChangedListener	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    public interface OnChangedListener {$/;"	i	interface:Settings
+OnChangedListener	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    public interface OnChangedListener {$/;"	i	interface:Settings
 OpenGL	core/src/main/java/com/spidey01/sxe/core/gl/OpenGL.java	/^public interface OpenGL extends OpenGLES11, OpenGLES20, OpenGLES30 {$/;"	i
 OpenGLES11	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^public interface OpenGLES11 {$/;"	i
 OpenGLES20	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^public interface OpenGLES20 {$/;"	i
@@ -1120,8 +1130,6 @@ OpenGLES20Renderer	android/common/src/main/java/com/spidey01/sxe/android/common/
 OpenGLES30	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES30.java	/^public interface OpenGLES30 extends OpenGLES20 {$/;"	i
 Opponent	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/Opponent.java	/^    public Opponent() {$/;"	m	class:Opponent
 Opponent	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/Opponent.java	/^public class Opponent {$/;"	c
-PLATFORM_ARCHITECTURE	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static final String PLATFORM_ARCHITECTURE = System.getProperty("os.arch");$/;"	f	class:Utils
-PLATFORM_VERSION	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static final String PLATFORM_VERSION = System.getProperty("os.name")+" "+System.getProperty("os.version");$/;"	f	class:Utils
 PLTE	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private static final int PLTE = 0x504C5445;$/;"	f	class:PNGDecoder	file:
 PNGDecoder	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    public PNGDecoder(InputStream input) throws IOException {$/;"	m	class:PNGDecoder
 PNGDecoder	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^public class PNGDecoder {$/;"	c
@@ -1132,11 +1140,11 @@ PcDisplay	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public PcDis
 PcDisplay	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public PcDisplay(String desired) {$/;"	m	class:PcDisplay
 PcDisplay	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {$/;"	c
 PcInputManager	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    public PcInputManager() {$/;"	m	class:PcInputManager
-PcInputManager	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^public class PcInputManager extends InputManager {$/;"	c
+PcInputManager	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^public class PcInputManager extends AbstractInputManager {$/;"	c
 PingPongGame	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/PingPongGame.java	/^public class PingPongGame$/;"	c
-Platform	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public Platform() {$/;"	m	class:Platform
-Platform	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public Platform(String name) {$/;"	m	class:Platform
-Platform	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^public class Platform {$/;"	c
+Platform	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public Platform() {$/;"	m	class:Platform
+Platform	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public Platform(String name) {$/;"	m	class:Platform
+Platform	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^public class Platform {$/;"	c
 Player	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/Player.java	/^    public Player() {$/;"	m	class:Player
 Player	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/Player.java	/^public class Player {$/;"	c
 PngBitmap	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    public PngBitmap(InputStream source) throws IOException {$/;"	m	class:PngBitmap
@@ -1147,6 +1155,8 @@ Program	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public Pr
 Program	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^public class Program {$/;"	c
 QueuedLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^        QueuedLoader(URI uri) {$/;"	m	class:ResourceManager.QueuedLoader
 QueuedLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    private class QueuedLoader implements Callable<ResourceHandle> {$/;"	c	class:ResourceManager
+QuitCommand	core/src/main/java/com/spidey01/sxe/core/cmds/QuitCommand.java	/^    public QuitCommand(GameEngine engine) {$/;"	m	class:QuitCommand
+QuitCommand	core/src/main/java/com/spidey01/sxe/core/cmds/QuitCommand.java	/^public class QuitCommand extends Command {$/;"	c
 RAW	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^        RAW,$/;"	e	enum:ResourceHandle.Type	file:
 READER	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^        READER,$/;"	e	enum:ResourceHandle.Type	file:
 RGB	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        RGB(3, false),$/;"	e	enum:PNGDecoder.Format	file:
@@ -1174,22 +1184,22 @@ SceneManager	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^    pu
 SceneManager	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^public class SceneManager {$/;"	c
 Script	scripting/src/main/java/com/spidey01/sxe/scripting/Script.java	/^public interface Script {$/;"	i
 ScriptManager	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^public interface ScriptManager {$/;"	i
-Settings	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^public interface Settings {$/;"	i
-SettingsArgs	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public SettingsArgs(String[] args) {$/;"	m	class:SettingsArgs
-SettingsArgs	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^public class SettingsArgs implements Settings {$/;"	c
-SettingsArgsTest	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^public class SettingsArgsTest extends AbstractSettingsTest {$/;"	c
-SettingsFile	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public SettingsFile(File path) {$/;"	m	class:SettingsFile
-SettingsFile	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public SettingsFile(String name) {$/;"	m	class:SettingsFile
-SettingsFile	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^public class SettingsFile extends AbstractSettingsFile {$/;"	c
-SettingsFileTest	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^public class SettingsFileTest extends AbstractSettingsTest {$/;"	c
-SettingsMap	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public SettingsMap() {$/;"	m	class:SettingsMap
-SettingsMap	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public SettingsMap(Map<String, String> map) {$/;"	m	class:SettingsMap
-SettingsMap	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^public class SettingsMap implements Settings {$/;"	c
-SettingsMapTest	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^public class SettingsMapTest extends AbstractSettingsTest {$/;"	c
-SettingsXMLFile	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    public SettingsXMLFile(File path) {$/;"	m	class:SettingsXMLFile
-SettingsXMLFile	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    public SettingsXMLFile(String name) {$/;"	m	class:SettingsXMLFile
-SettingsXMLFile	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^public class SettingsXMLFile extends AbstractSettingsFile {$/;"	c
-SettingsXMLFileTest	core/src/test/java/com/spidey01/sxe/core/SettingsXMLFileTest.java	/^public class SettingsXMLFileTest extends AbstractSettingsTest {$/;"	c
+Settings	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^public interface Settings {$/;"	i
+SettingsArgs	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public SettingsArgs(String[] args) {$/;"	m	class:SettingsArgs
+SettingsArgs	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^public class SettingsArgs implements Settings {$/;"	c
+SettingsArgsTest	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsArgsTest.java	/^public class SettingsArgsTest extends AbstractSettingsTest {$/;"	c
+SettingsFile	core/src/main/java/com/spidey01/sxe/core/io/SettingsFile.java	/^    public SettingsFile(File path) {$/;"	m	class:SettingsFile
+SettingsFile	core/src/main/java/com/spidey01/sxe/core/io/SettingsFile.java	/^    public SettingsFile(String name) {$/;"	m	class:SettingsFile
+SettingsFile	core/src/main/java/com/spidey01/sxe/core/io/SettingsFile.java	/^public class SettingsFile extends AbstractSettingsFile {$/;"	c
+SettingsFileTest	core/src/test/java/com/spidey01/sxe/core/io/SettingsFileTest.java	/^public class SettingsFileTest extends AbstractSettingsTest {$/;"	c
+SettingsMap	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public SettingsMap() {$/;"	m	class:SettingsMap
+SettingsMap	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public SettingsMap(Map<String, String> map) {$/;"	m	class:SettingsMap
+SettingsMap	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^public class SettingsMap implements Settings {$/;"	c
+SettingsMapTest	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsMapTest.java	/^public class SettingsMapTest extends AbstractSettingsTest {$/;"	c
+SettingsXMLFile	core/src/main/java/com/spidey01/sxe/core/io/SettingsXMLFile.java	/^    public SettingsXMLFile(File path) {$/;"	m	class:SettingsXMLFile
+SettingsXMLFile	core/src/main/java/com/spidey01/sxe/core/io/SettingsXMLFile.java	/^    public SettingsXMLFile(String name) {$/;"	m	class:SettingsXMLFile
+SettingsXMLFile	core/src/main/java/com/spidey01/sxe/core/io/SettingsXMLFile.java	/^public class SettingsXMLFile extends AbstractSettingsFile {$/;"	c
+SettingsXMLFileTest	core/src/test/java/com/spidey01/sxe/core/io/SettingsXMLFileTest.java	/^public class SettingsXMLFileTest extends AbstractSettingsTest {$/;"	c
 Shader	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    public Shader(BufferedReader reader, Type type) throws IOException {$/;"	m	class:Shader
 Shader	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    public Shader(File file, Type type) throws IOException {$/;"	m	class:Shader
 Shader	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    public Shader(InputStream stream, Type type) throws IOException {$/;"	m	class:Shader
@@ -1197,9 +1207,9 @@ Shader	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    public Shad
 Shader	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^public class Shader {$/;"	c
 SnakeGame	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^public class SnakeGame$/;"	c
 SnakeGameActivity	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^public class SnakeGameActivity extends GameActivity {$/;"	c
-Sprite	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public Sprite(Mesh mesh, Texture backing, Shader vertex, Shader fragment) {$/;"	m	class:Sprite
-Sprite	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public Sprite(Mesh mesh, Texture texture) {$/;"	m	class:Sprite
-Sprite	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^public class Sprite$/;"	c
+Sprite	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    public Sprite(Mesh mesh, Texture backing, Shader vertex, Shader fragment) {$/;"	m	class:Sprite
+Sprite	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    public Sprite(Mesh mesh, Texture texture) {$/;"	m	class:Sprite
+Sprite	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^public class Sprite$/;"	c
 State	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public enum State {$/;"	g	class:Game
 TAG	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidConfiguration.java	/^    private static final String TAG = "AndroidConfiguration";$/;"	f	class:AndroidConfiguration	file:
 TAG	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    private static final String TAG = "AndroidDisplay";$/;"	f	class:AndroidDisplay	file:
@@ -1212,53 +1222,57 @@ TAG	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Rende
 TAG	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^    private static final String TAG = "AndroidOpenGLES11";$/;"	f	class:AndroidOpenGLES11	file:
 TAG	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^    private static final String TAG = "AndroidOpenGLES20";$/;"	f	class:AndroidOpenGLES20	file:
 TAG	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^    private static final String TAG = "AndroidOpenGLES30";$/;"	f	class:AndroidOpenGLES30	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    private final static String TAG = "AbstractSettingsFile";$/;"	f	class:AbstractSettingsFile	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private static final String TAG = "Console";$/;"	f	class:Console	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    private static final String TAG = "ConsoleCommand";$/;"	f	class:ConsoleCommand	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private static final String TAG = "Game";$/;"	f	class:Game	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private static final String TAG = "GameEngine";$/;"	f	class:GameEngine	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    private static final String TAG = "GameThread";$/;"	f	class:GameThread	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    private static final String TAG = "InputManager";$/;"	f	class:InputManager	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private static final String TAG = "KeyEvent";$/;"	f	class:KeyEvent	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    private static final String TAG = "Log";$/;"	f	class:Log	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    private static final String TAG = "LogSink";$/;"	f	class:LogSink	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    private static final String TAG = "Platform";$/;"	f	class:Platform	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private static final String TAG = "RateCounter";$/;"	f	class:RateCounter	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private final static String TAG = "ResourceHandle";$/;"	f	class:ResourceHandle	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^        private static final String TAG = "ResourceManager.QueuedLoader";$/;"	f	class:ResourceManager.QueuedLoader	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    private final static String TAG = "ResourceManager";$/;"	f	class:ResourceManager	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^    private final static String TAG = "SceneManager";$/;"	f	class:SceneManager	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    private static final String TAG = "Args";$/;"	f	class:SettingsArgs	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    private static final String TAG = "SettingsFile";$/;"	f	class:SettingsFile	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    private static final String TAG = "SettingsMap";$/;"	f	class:SettingsMap	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    private static final String TAG = "SettingsXMLFile";$/;"	f	class:SettingsXMLFile	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private final static String TAG = "Sprite";$/;"	f	class:Sprite	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    private final static String TAG = "Text";$/;"	f	class:Text	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        private static final String TAG = "TrueTypeFont.Table";$/;"	f	class:TrueTypeFont.Table	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private final static String TAG = "TrueTypeFont";$/;"	f	class:TrueTypeFont	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    private static final String TAG = "Utils";$/;"	f	class:Utils	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    private static final String TAG = "Variable";$/;"	f	class:Variable	file:
-TAG	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    private static final String TAG = "Xdg";$/;"	f	class:Xdg	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    private static final String TAG = "Args";$/;"	f	class:SettingsArgs	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    private static final String TAG = "SettingsMap";$/;"	f	class:SettingsMap	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    private static final String TAG = "Command";$/;"	f	class:Command	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/cmds/EchoCommand.java	/^    private static final String TAG = "EchoCommand";$/;"	f	class:EchoCommand	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/cmds/QuitCommand.java	/^    private static final String TAG = "QuitCommand";$/;"	f	class:QuitCommand	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^    private static final String TAG = "Utils";$/;"	f	class:Utils	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    private static final String TAG = "g";$/;"	f	class:Program	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    private static final String TAG = "Shader";$/;"	f	class:Shader	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    private static final String TAG = "VertexBuffer";$/;"	f	class:VertexBuffer	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    private static final String TAG = "Mesh";$/;"	f	class:Mesh	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    private final static String TAG = "Sprite";$/;"	f	class:Sprite	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^    private static final String TAG = "VertexBufferTechnique";$/;"	f	class:VertexBufferTechnique	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/input/AbstractInputManager.java	/^    private static final String TAG = "AbstractInputManager";$/;"	f	class:AbstractInputManager	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/input/ConsoleInputManager.java	/^    private static final String TAG = "ConsoleInputManager";$/;"	f	class:ConsoleInputManager	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    private static final String TAG = "KeyEvent";$/;"	f	class:KeyEvent	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    private final static String TAG = "AbstractSettingsFile";$/;"	f	class:AbstractSettingsFile	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/io/GZipResourceLoader.java	/^    private final static String TAG = "GZipResourceLoader";$/;"	f	class:GZipResourceLoader	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/io/PathResourceLoader.java	/^    private final static String TAG = "PathResourceLoader";$/;"	f	class:PathResourceLoader	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    private final static String TAG = "PngBitmap";$/;"	f	class:PngBitmap	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/io/SettingsFile.java	/^    private static final String TAG = "SettingsFile";$/;"	f	class:SettingsFile	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/io/SettingsXMLFile.java	/^    private static final String TAG = "SettingsXMLFile";$/;"	f	class:SettingsXMLFile	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/io/ZipResourceLoader.java	/^    private final static String TAG = "ZipResourceLoader";$/;"	f	class:ZipResourceLoader	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    private static final String TAG = "Platform";$/;"	f	class:Platform	file:
+TAG	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    private static final String TAG = "Xdg";$/;"	f	class:Xdg	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/testing/NullConfiguration.java	/^    private static final String TAG = "NullConfiguration";$/;"	f	class:NullConfiguration	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    private static final String TAG = "NullDisplay";$/;"	f	class:NullDisplay	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/testing/NullInputManager.java	/^    private static final String TAG = "NullInputManager";$/;"	f	class:NullInputManager	file:
 TAG	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^    private final static String TAG = "NullOpenGL";$/;"	f	class:NullOpenGL	file:
-TAG	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    private static final String TAG = "AbstractSettingsTest";$/;"	f	class:AbstractSettingsTest	file:
+TAG	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^        private static final String TAG = "MyConsole";$/;"	f	class:ConsoleTest.MyConsole	file:
 TAG	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    private static final String TAG = "ConsoleTest";$/;"	f	class:ConsoleTest	file:
 TAG	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    private static final String TAG = "ResourceManagerTest";$/;"	f	class:ResourceManagerTest	file:
-TAG	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^    private static final String TAG = "SettingsArgsTest";$/;"	f	class:SettingsArgsTest	file:
-TAG	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^    private static final String TAG = "SettingsFileTest";$/;"	f	class:SettingsFileTest	file:
-TAG	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^    private static final String TAG = "SettingsMapTest";$/;"	f	class:SettingsMapTest	file:
-TAG	core/src/test/java/com/spidey01/sxe/core/SettingsXMLFileTest.java	/^    private static final String TAG = "SettingsXMLFileTest";$/;"	f	class:SettingsXMLFileTest	file:
+TAG	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsArgsTest.java	/^    private static final String TAG = "SettingsArgsTest";$/;"	f	class:SettingsArgsTest	file:
+TAG	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsMapTest.java	/^    private static final String TAG = "SettingsMapTest";$/;"	f	class:SettingsMapTest	file:
+TAG	core/src/test/java/com/spidey01/sxe/core/io/SettingsFileTest.java	/^    private static final String TAG = "SettingsFileTest";$/;"	f	class:SettingsFileTest	file:
+TAG	core/src/test/java/com/spidey01/sxe/core/io/SettingsXMLFileTest.java	/^    private static final String TAG = "SettingsXMLFileTest";$/;"	f	class:SettingsXMLFileTest	file:
+TAG	core/src/test/java/com/spidey01/sxe/core/testing/AbstractSettingsTest.java	/^    private static final String TAG = "AbstractSettingsTest";$/;"	f	class:AbstractSettingsTest	file:
 TAG	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^    private static final String TAG = "HelloWorldGameActivity";$/;"	f	class:HelloWorldGameActivity	file:
 TAG	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    private static final String TAG = "HelloWorld";$/;"	f	class:HelloWorld	file:
 TAG	demos/nulldemo/android/src/main/java/com/spidey01/sxe/nulldemo/android/NullDemoActivity.java	/^    private static final String TAG = "NullDemoActivity";$/;"	f	class:NullDemoActivity	file:
@@ -1307,9 +1321,9 @@ TrueTypeFont	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    pu
 TrueTypeFont	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^public class TrueTypeFont implements Font {$/;"	c
 Type	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private enum Type {$/;"	g	class:ResourceHandle
 Type	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    public enum Type {$/;"	g	class:Shader
-USER_DIR	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String USER_DIR = HOME;$/;"	f	class:Xdg
+USER_DIR	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String USER_DIR = HOME;$/;"	f	class:Xdg
 UnitTest	core/src/main/java/com/spidey01/sxe/core/testing/UnitTest.java	/^public class UnitTest {$/;"	c
-Utils	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^public class Utils {$/;"	c
+Utils	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^public class Utils {$/;"	c
 VALID_SYMBOLS	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public static final String VALID_SYMBOLS = $/;"	f	class:Console
 VERBOSE	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int VERBOSE = 5;$/;"	f	class:Log
 VERTEX	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^        VERTEX, FRAGMENT$/;"	e	enum:Shader.Type	file:
@@ -1325,24 +1339,24 @@ VertexBuffer	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^pub
 VertexBufferTechnique	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^    public VertexBufferTechnique(OpenGLES20 GLES20) {$/;"	m	class:VertexBufferTechnique
 VertexBufferTechnique	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^public class VertexBufferTechnique implements Technique {$/;"	c
 WARN	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static final int WARN    = 2;$/;"	f	class:Log
-WINDOWS	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public static final String WINDOWS = "Windows";$/;"	f	class:Platform
-XDG_CACHE_HOME	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String XDG_CACHE_HOME = System.getenv("XDG_CACHE_HOME");$/;"	f	class:Xdg
-XDG_CONFIG_DIRS	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String[] XDG_CONFIG_DIRS;$/;"	f	class:Xdg
-XDG_CONFIG_HOME	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String XDG_CONFIG_HOME = System.getenv("XDG_CONFIG_HOME");$/;"	f	class:Xdg
-XDG_DATA_DIRS	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String[] XDG_DATA_DIRS;$/;"	f	class:Xdg
-XDG_DATA_HOME	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String XDG_DATA_HOME = System.getenv("XDG_DATA_HOME");$/;"	f	class:Xdg
-XDG_RUNTIME_DIR	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String XDG_RUNTIME_DIR = System.getenv("XDG_RUNTIME_DIR");$/;"	f	class:Xdg
-Xdg	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^public class Xdg {$/;"	c
+WINDOWS	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public static final String WINDOWS = "Windows";$/;"	f	class:Platform
+XDG_CACHE_HOME	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String XDG_CACHE_HOME = System.getenv("XDG_CACHE_HOME");$/;"	f	class:Xdg
+XDG_CONFIG_DIRS	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String[] XDG_CONFIG_DIRS;$/;"	f	class:Xdg
+XDG_CONFIG_HOME	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String XDG_CONFIG_HOME = System.getenv("XDG_CONFIG_HOME");$/;"	f	class:Xdg
+XDG_DATA_DIRS	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String[] XDG_DATA_DIRS;$/;"	f	class:Xdg
+XDG_DATA_HOME	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String XDG_DATA_HOME = System.getenv("XDG_DATA_HOME");$/;"	f	class:Xdg
+XDG_RUNTIME_DIR	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String XDG_RUNTIME_DIR = System.getenv("XDG_RUNTIME_DIR");$/;"	f	class:Xdg
+Xdg	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^public class Xdg {$/;"	c
 ZipResourceLoader	core/src/main/java/com/spidey01/sxe/core/io/ZipResourceLoader.java	/^public class ZipResourceLoader implements ResourceLoader {$/;"	c
 ZipResourceLoaderTest	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^public class ZipResourceLoaderTest extends UnitTest {$/;"	c
-add	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void add(LogSink sink) {$/;"	m	class:Log
+add	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public synchronized static void add(LogSink sink) {$/;"	m	class:Log
 add	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^    public void add(RenderableObject object) {$/;"	m	class:SceneManager
 addChangeListener	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public void addChangeListener(OnChangedListener listener) {$/;"	m	class:AndroidSettings
-addChangeListener	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public void addChangeListener(OnChangedListener listener) {$/;"	m	class:AbstractSettingsFile
-addChangeListener	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    void addChangeListener(OnChangedListener listener);$/;"	m	interface:Settings
-addChangeListener	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public void addChangeListener(OnChangedListener listener) {$/;"	m	class:SettingsArgs
-addChangeListener	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public void addChangeListener(OnChangedListener listener) {$/;"	m	class:SettingsMap
-addCommand	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void addCommand(ConsoleCommand command) {$/;"	m	class:Console
+addChangeListener	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    void addChangeListener(OnChangedListener listener);$/;"	m	interface:Settings
+addChangeListener	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public void addChangeListener(OnChangedListener listener) {$/;"	m	class:SettingsArgs
+addChangeListener	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public void addChangeListener(OnChangedListener listener) {$/;"	m	class:SettingsMap
+addChangeListener	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public void addChangeListener(OnChangedListener listener) {$/;"	m	class:AbstractSettingsFile
+addCommand	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void addCommand(Command command) {$/;"	m	class:Console
 addFrameEndedListener	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public void addFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:AndroidDisplay
 addFrameEndedListener	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    public void addFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:OpenGLES20Renderer
 addFrameEndedListener	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    void addFrameEndedListener(FrameEndedListener listener);$/;"	m	interface:Display
@@ -1358,15 +1372,17 @@ addFrameStartedListener	android/common/src/main/java/com/spidey01/sxe/android/co
 addFrameStartedListener	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    void addFrameStartedListener(FrameStartedListener listener);$/;"	m	interface:Display
 addFrameStartedListener	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public void addFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:NullDisplay
 addFrameStartedListener	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void addFrameStartedListener(FrameStartedListener listener) {$/;"	m	class:PcDisplay
-addKeyListener	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void addKeyListener(KeyListener listener) {$/;"	m	class:InputManager
-addKeyListener	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void addKeyListener(String keyName, KeyListener listener) {$/;"	m	class:InputManager
+addKeyListener	core/src/main/java/com/spidey01/sxe/core/input/AbstractInputManager.java	/^    public void addKeyListener(KeyListener listener) {$/;"	m	class:AbstractInputManager
+addKeyListener	core/src/main/java/com/spidey01/sxe/core/input/AbstractInputManager.java	/^    public void addKeyListener(String keyName, KeyListener listener) {$/;"	m	class:AbstractInputManager
+addKeyListener	core/src/main/java/com/spidey01/sxe/core/input/InputManager.java	/^    void addKeyListener(KeyListener listener);$/;"	m	interface:InputManager
+addKeyListener	core/src/main/java/com/spidey01/sxe/core/input/InputManager.java	/^    void addKeyListener(String keyName, KeyListener listener);$/;"	m	interface:InputManager
 addLoader	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public void addLoader() {$/;"	m	class:ResourceManagerTest
 addResourceLocation	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public void addResourceLocation(File path) {$/;"	m	class:ResourceManager
 addResourceLocation	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public void addResourceLocation(String path) {$/;"	m	class:ResourceManager
 allowRepeating	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void allowRepeating(boolean repeating) {$/;"	m	class:Console
 alog	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidLogSink.java	/^    private void alog(int level, String tag, String message) {$/;"	m	class:AndroidLogSink	file:
 androidKeyCodeToString	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^    private String androidKeyCodeToString(int keyCode) {$/;"	m	class:AndroidInputManager	file:
-arch	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public final String arch = System.getProperty("os.arch");$/;"	f	class:Platform
+arch	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public final String arch = System.getProperty("os.arch");$/;"	f	class:Platform
 asInputStream	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public InputStream asInputStream() {$/;"	m	class:ResourceHandle
 asReader	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public BufferedReader asReader() throws IOException {$/;"	m	class:ResourceHandle
 asShader	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public Shader asShader(Shader.Type type) throws IOException {$/;"	m	class:ResourceHandle
@@ -1401,11 +1417,11 @@ chunkLength	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder
 chunkRemaining	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int chunkRemaining;$/;"	f	class:PNGDecoder	file:
 chunkType	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int chunkType;$/;"	f	class:PNGDecoder	file:
 clear	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public void clear() {$/;"	m	class:AndroidSettings
-clear	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public void clear() {$/;"	m	class:AbstractSettingsFile
-clear	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    void clear();$/;"	m	interface:Settings
-clear	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public void clear() {$/;"	m	class:SettingsArgs
-clear	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public void clear() {$/;"	m	class:SettingsMap
-clear	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    public void clear() {$/;"	m	class:AbstractSettingsTest
+clear	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    void clear();$/;"	m	interface:Settings
+clear	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public void clear() {$/;"	m	class:SettingsArgs
+clear	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public void clear() {$/;"	m	class:SettingsMap
+clear	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public void clear() {$/;"	m	class:AbstractSettingsFile
+clear	core/src/test/java/com/spidey01/sxe/core/testing/AbstractSettingsTest.java	/^    public void clear() {$/;"	m	class:AbstractSettingsTest
 close	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public void close() throws IOException {$/;"	m	class:ResourceHandle
 closeChunk	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void closeChunk() throws IOException {$/;"	m	class:PNGDecoder	file:
 cmap	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
@@ -1423,45 +1439,33 @@ com.spidey01.sxe.android.common	android/common/src/main/java/com/spidey01/sxe/an
 com.spidey01.sxe.android.gles11	android/gles11/src/main/java/com/spidey01/sxe/android/gles11/AndroidOpenGLES11.java	/^package com.spidey01.sxe.android.gles11;$/;"	p
 com.spidey01.sxe.android.gles20	android/gles20/src/main/java/com/spidey01/sxe/android/gles20/AndroidOpenGLES20.java	/^package com.spidey01.sxe.android.gles20;$/;"	p
 com.spidey01.sxe.android.gles30	android/gles30/src/main/java/com/spidey01/sxe/android/gles30/AndroidOpenGLES30.java	/^package com.spidey01.sxe.android.gles30;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Action.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Console.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Font.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Game.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/KeyListener.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Log.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/ResourceLoader.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Text.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^package com.spidey01.sxe.core;$/;"	p
 com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^package com.spidey01.sxe.core;$/;"	p
-com.spidey01.sxe.core	core/src/test/java/com/spidey01/sxe/core/SettingsXMLFileTest.java	/^package com.spidey01.sxe.core;$/;"	p
+com.spidey01.sxe.core.cfg	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^package com.spidey01.sxe.core.cfg;$/;"	p
+com.spidey01.sxe.core.cfg	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^package com.spidey01.sxe.core.cfg;$/;"	p
+com.spidey01.sxe.core.cfg	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^package com.spidey01.sxe.core.cfg;$/;"	p
+com.spidey01.sxe.core.cfg	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsArgsTest.java	/^package com.spidey01.sxe.core.cfg;$/;"	p
+com.spidey01.sxe.core.cfg	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsMapTest.java	/^package com.spidey01.sxe.core.cfg;$/;"	p
+com.spidey01.sxe.core.cmds	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^package com.spidey01.sxe.core.cmds;$/;"	p
+com.spidey01.sxe.core.cmds	core/src/main/java/com/spidey01/sxe/core/cmds/EchoCommand.java	/^package com.spidey01.sxe.core.cmds;$/;"	p
+com.spidey01.sxe.core.cmds	core/src/main/java/com/spidey01/sxe/core/cmds/QuitCommand.java	/^package com.spidey01.sxe.core.cmds;$/;"	p
+com.spidey01.sxe.core.common	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^package com.spidey01.sxe.core.common;$/;"	p
 com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/OpenGL.java	/^package com.spidey01.sxe.core.gl;$/;"	p
 com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES11.java	/^package com.spidey01.sxe.core.gl;$/;"	p
 com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES20.java	/^package com.spidey01.sxe.core.gl;$/;"	p
@@ -1469,28 +1473,45 @@ com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/OpenGLES30.
 com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^package com.spidey01.sxe.core.gl;$/;"	p
 com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^package com.spidey01.sxe.core.gl;$/;"	p
 com.spidey01.sxe.core.gl	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^package com.spidey01.sxe.core.gl;$/;"	p
+com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/Bitmap.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
 com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
 com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/FrameEndedListener.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
 com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/FrameListener.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
 com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/FrameStartedListener.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
 com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
 com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/RenderableObject.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
+com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
 com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/Technique.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
 com.spidey01.sxe.core.graphics	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^package com.spidey01.sxe.core.graphics;$/;"	p
+com.spidey01.sxe.core.input	core/src/main/java/com/spidey01/sxe/core/input/AbstractInputManager.java	/^package com.spidey01.sxe.core.input;$/;"	p
+com.spidey01.sxe.core.input	core/src/main/java/com/spidey01/sxe/core/input/ConsoleInputManager.java	/^package com.spidey01.sxe.core.input;$/;"	p
+com.spidey01.sxe.core.input	core/src/main/java/com/spidey01/sxe/core/input/InputManager.java	/^package com.spidey01.sxe.core.input;$/;"	p
+com.spidey01.sxe.core.input	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^package com.spidey01.sxe.core.input;$/;"	p
+com.spidey01.sxe.core.input	core/src/main/java/com/spidey01/sxe/core/input/KeyListener.java	/^package com.spidey01.sxe.core.input;$/;"	p
+com.spidey01.sxe.core.io	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^package com.spidey01.sxe.core.io;$/;"	p
+com.spidey01.sxe.core.io	core/src/main/java/com/spidey01/sxe/core/io/Buffers.java	/^package com.spidey01.sxe.core.io;$/;"	p
 com.spidey01.sxe.core.io	core/src/main/java/com/spidey01/sxe/core/io/DummyResourceLoader.java	/^package com.spidey01.sxe.core.io;$/;"	p
 com.spidey01.sxe.core.io	core/src/main/java/com/spidey01/sxe/core/io/GZipResourceLoader.java	/^package com.spidey01.sxe.core.io;$/;"	p
 com.spidey01.sxe.core.io	core/src/main/java/com/spidey01/sxe/core/io/PathResourceLoader.java	/^package com.spidey01.sxe.core.io;$/;"	p
 com.spidey01.sxe.core.io	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^package com.spidey01.sxe.core.io;$/;"	p
+com.spidey01.sxe.core.io	core/src/main/java/com/spidey01/sxe/core/io/SettingsFile.java	/^package com.spidey01.sxe.core.io;$/;"	p
+com.spidey01.sxe.core.io	core/src/main/java/com/spidey01/sxe/core/io/SettingsXMLFile.java	/^package com.spidey01.sxe.core.io;$/;"	p
 com.spidey01.sxe.core.io	core/src/main/java/com/spidey01/sxe/core/io/ZipResourceLoader.java	/^package com.spidey01.sxe.core.io;$/;"	p
 com.spidey01.sxe.core.io	core/src/test/java/com/spidey01/sxe/core/io/GZipResourceLoaderTest.java	/^package com.spidey01.sxe.core.io;$/;"	p
 com.spidey01.sxe.core.io	core/src/test/java/com/spidey01/sxe/core/io/PathResourceLoaderTest.java	/^package com.spidey01.sxe.core.io;$/;"	p
+com.spidey01.sxe.core.io	core/src/test/java/com/spidey01/sxe/core/io/SettingsFileTest.java	/^package com.spidey01.sxe.core.io;$/;"	p
+com.spidey01.sxe.core.io	core/src/test/java/com/spidey01/sxe/core/io/SettingsXMLFileTest.java	/^package com.spidey01.sxe.core.io;$/;"	p
 com.spidey01.sxe.core.io	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^package com.spidey01.sxe.core.io;$/;"	p
+com.spidey01.sxe.core.sys	core/src/main/java/com/spidey01/sxe/core/sys/FileSystem.java	/^package com.spidey01.sxe.core.sys;$/;"	p
+com.spidey01.sxe.core.sys	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^package com.spidey01.sxe.core.sys;$/;"	p
+com.spidey01.sxe.core.sys	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^package com.spidey01.sxe.core.sys;$/;"	p
 com.spidey01.sxe.core.testing	core/src/main/java/com/spidey01/sxe/core/testing/NullConfiguration.java	/^package com.spidey01.sxe.core.testing;$/;"	p
 com.spidey01.sxe.core.testing	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^package com.spidey01.sxe.core.testing;$/;"	p
 com.spidey01.sxe.core.testing	core/src/main/java/com/spidey01/sxe/core/testing/NullInputManager.java	/^package com.spidey01.sxe.core.testing;$/;"	p
 com.spidey01.sxe.core.testing	core/src/main/java/com/spidey01/sxe/core/testing/NullOpenGL.java	/^package com.spidey01.sxe.core.testing;$/;"	p
 com.spidey01.sxe.core.testing	core/src/main/java/com/spidey01/sxe/core/testing/TestUtils.java	/^package com.spidey01.sxe.core.testing;$/;"	p
 com.spidey01.sxe.core.testing	core/src/main/java/com/spidey01/sxe/core/testing/UnitTest.java	/^package com.spidey01.sxe.core.testing;$/;"	p
+com.spidey01.sxe.core.testing	core/src/test/java/com/spidey01/sxe/core/testing/AbstractSettingsTest.java	/^package com.spidey01.sxe.core.testing;$/;"	p
 com.spidey01.sxe.core.testing	core/src/test/java/com/spidey01/sxe/core/testing/TestResources.java	/^package com.spidey01.sxe.core.testing;$/;"	p
 com.spidey01.sxe.helloworld.android	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^package com.spidey01.sxe.helloworld.android;$/;"	p
 com.spidey01.sxe.helloworld.lib	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^package com.spidey01.sxe.helloworld.lib;$/;"	p
@@ -1530,13 +1551,14 @@ com.spidey01.sxe.scripting.testhelpers	scripting/testhelpers/src/main/java/com/s
 com.spidey01.sxe.snake.android	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^package com.spidey01.sxe.snake.android;$/;"	p
 com.spidey01.sxe.snake.lib	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^package com.spidey01.sxe.snake.lib;$/;"	p
 com.spidey01.sxe.snake.pc	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^package com.spidey01.sxe.snake.pc;$/;"	p
+command	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^        public String command;$/;"	f	class:ConsoleTest.MyConsole
 configure	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void configure() {$/;"	m	class:GameEngine
 configure	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void configure(Settings s) {$/;"	m	class:GameEngine
 contains	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public boolean contains(String key) {$/;"	m	class:AndroidSettings
-contains	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public boolean contains(String key) {$/;"	m	class:AbstractSettingsFile
-contains	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    boolean contains(String key);$/;"	m	interface:Settings
-contains	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public boolean contains(String key) {$/;"	m	class:SettingsArgs
-contains	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public boolean contains(String key) {$/;"	m	class:SettingsMap
+contains	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    boolean contains(String key);$/;"	m	interface:Settings
+contains	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public boolean contains(String key) {$/;"	m	class:SettingsArgs
+contains	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public boolean contains(String key) {$/;"	m	class:SettingsMap
+contains	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public boolean contains(String key) {$/;"	m	class:AbstractSettingsFile
 copy	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void copy(ByteBuffer buffer, byte[] curLine) {$/;"	m	class:PNGDecoder	file:
 copyPALtoABGR	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void copyPALtoABGR(ByteBuffer buffer, byte[] curLine) {$/;"	m	class:PNGDecoder	file:
 copyPALtoBGRA	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void copyPALtoBGRA(ByteBuffer buffer, byte[] curLine) {$/;"	m	class:PNGDecoder	file:
@@ -1552,10 +1574,6 @@ create	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDispl
 create	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    boolean create();$/;"	m	interface:Display
 create	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public boolean create() {$/;"	m	class:NullDisplay
 create	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public boolean create() {$/;"	m	class:PcDisplay
-createByteBuffer	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static ByteBuffer createByteBuffer(int size) {$/;"	m	class:Utils.Buffers
-createDoubleBuffer	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static DoubleBuffer createDoubleBuffer(int size) {$/;"	m	class:Utils.Buffers
-createFloatBuffer	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static FloatBuffer createFloatBuffer(int size) {$/;"	m	class:Utils.Buffers
-createIntBuffer	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^        public static IntBuffer createIntBuffer(int size) {$/;"	m	class:Utils.Buffers
 createScript	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    public Script createScript() {$/;"	m	class:JRubyScriptManager
 createScript	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Script createScript() {$/;"	m	class:Jsr223ScriptManager
 createScript	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    public Script createScript() {$/;"	m	class:JythonScriptManager
@@ -1584,18 +1602,19 @@ detachShader	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    publ
 detachShader	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public void detachShader(Shader shader) {$/;"	m	class:Program
 directory	core/src/test/java/com/spidey01/sxe/core/testing/TestResources.java	/^    public static final String directory = "src\/test\/resources";$/;"	f	class:TestResources
 disableDebugging	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void disableDebugging() {$/;"	m	class:RateCounter
-draw	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public void draw() {$/;"	m	class:Sprite
 draw	core/src/main/java/com/spidey01/sxe/core/graphics/RenderableObject.java	/^    void draw();$/;"	m	interface:RenderableObject
+draw	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    public void draw() {$/;"	m	class:Sprite
 draw	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^    public void draw(Capable client) {$/;"	m	class:VertexBufferTechnique
 e	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void e(String tag, Object... messages) {$/;"	m	class:Log
-e	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    private static String e;$/;"	f	class:Xdg	file:
+e	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    private static String e;$/;"	f	class:Xdg	file:
+echoCommand	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    public void echoCommand() {$/;"	m	class:ConsoleTest
 enableDebugging	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void enableDebugging() {$/;"	m	class:RateCounter
 enqueue	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Future<ResourceHandle> enqueue(File path) {$/;"	m	class:ResourceManager
 enqueue	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Future<ResourceHandle> enqueue(String path) {$/;"	m	class:ResourceManager
 enqueue	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Future<ResourceHandle> enqueue(URI uri) {$/;"	m	class:ResourceManager
 enqueue	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public void enqueue() throws Exception {$/;"	m	class:ResourceManagerTest
-equals	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    public boolean equals(ConsoleCommand other) {$/;"	m	class:ConsoleCommand
-equals	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public boolean equals(KeyEvent other) {$/;"	m	class:KeyEvent
+equals	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    public boolean equals(Command other) {$/;"	m	class:Command
+equals	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    public boolean equals(KeyEvent other) {$/;"	m	class:KeyEvent
 eval	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    public Object eval(Script scope, File sourceFile)$/;"	m	class:JRubyScriptManager
 eval	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    public Object eval(Script scope, String sourceCode) {$/;"	m	class:JRubyScriptManager
 eval	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public Object eval(Script scope, File sourceFile)$/;"	m	class:Jsr223ScriptManager
@@ -1606,15 +1625,14 @@ eval	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptM
 eval	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    public Object eval(Script scope, String sourceCode) {$/;"	m	class:RhinoScriptManager
 eval	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^    Object eval(Script scope, File sourceFile) throws IOException, FileNotFoundException;$/;"	m	interface:ScriptManager
 eval	scripting/src/main/java/com/spidey01/sxe/scripting/ScriptManager.java	/^    Object eval(Script scope, String sourceCode);$/;"	m	interface:ScriptManager
-execute	core/src/main/java/com/spidey01/sxe/core/Action.java	/^    void execute();$/;"	m	interface:Action
 execute	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void execute(String line) {$/;"	m	class:Console
-execute	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    public void execute() {$/;"	m	class:ConsoleCommand
+execute	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^        public void execute(String line) {$/;"	m	class:ConsoleTest.MyConsole
 expand1	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand1(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand2	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand2(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 expand4	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void expand4(byte[] src, byte[] dst) {$/;"	m	class:PNGDecoder	file:
 fftm	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 filter	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Object filter(Object o) {$/;"	m	class:RhinoScriptManager	file:
-find	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String find(String[] dirs, String name) {$/;"	m	class:Utils
+find	core/src/main/java/com/spidey01/sxe/core/sys/FileSystem.java	/^    public static String find(String[] dirs, String name) {$/;"	m	class:FileSystem
 findChildElements	core/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
 findChildElements	scripting/jruby/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
 findChildElements	scripting/jsr223/build/reports/tests/report.js	/^function findChildElements(container, name, targetClass) {$/;"	f
@@ -1660,34 +1678,35 @@ get	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/J
 get	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToPython.java	/^    public static void get(ScriptManager manager) {$/;"	m	class:JavaToPython
 get	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToRuby.java	/^    public static void get(ScriptManager manager) {$/;"	m	class:JavaToRuby
 getAll	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public Map<String, Object> getAll() {$/;"	m	class:AndroidSettings
-getBitBucketFile	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static File getBitBucketFile() {$/;"	m	class:Utils
-getBitBucketPath	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String getBitBucketPath() {$/;"	m	class:Utils
+getArgs	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    public String[] getArgs() {$/;"	m	class:Command
+getBitBucketFile	core/src/main/java/com/spidey01/sxe/core/sys/FileSystem.java	/^    public static File getBitBucketFile() {$/;"	m	class:FileSystem
+getBitBucketPath	core/src/main/java/com/spidey01/sxe/core/sys/FileSystem.java	/^    public static String getBitBucketPath() {$/;"	m	class:FileSystem
 getBoolean	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public boolean getBoolean(String key) {$/;"	m	class:AndroidSettings
-getBoolean	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public boolean getBoolean(String key) {$/;"	m	class:AbstractSettingsFile
-getBoolean	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    boolean getBoolean(String key);$/;"	m	interface:Settings
-getBoolean	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public boolean getBoolean(String key) {$/;"	m	class:SettingsArgs
-getBoolean	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public boolean getBoolean(String key) {$/;"	m	class:SettingsMap
+getBoolean	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    boolean getBoolean(String key);$/;"	m	interface:Settings
+getBoolean	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public boolean getBoolean(String key) {$/;"	m	class:SettingsArgs
+getBoolean	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public boolean getBoolean(String key) {$/;"	m	class:SettingsMap
+getBoolean	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public boolean getBoolean(String key) {$/;"	m	class:AbstractSettingsFile
 getByExtension	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public static Jsr223ScriptManager getByExtension(String extension) {$/;"	m	class:Jsr223ScriptManager
 getByMimeType	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public static Jsr223ScriptManager getByMimeType(String mimeType) {$/;"	m	class:Jsr223ScriptManager
 getByName	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    public static Jsr223ScriptManager getByName(String shortName) {$/;"	m	class:Jsr223ScriptManager
-getBytesPerPixel	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^    int getBytesPerPixel();$/;"	m	interface:Bitmap
+getBytesPerPixel	core/src/main/java/com/spidey01/sxe/core/graphics/Bitmap.java	/^    int getBytesPerPixel();$/;"	m	interface:Bitmap
 getBytesPerPixel	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    public int getBytesPerPixel() {$/;"	m	class:PngBitmap
-getCacheDir	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String getCacheDir(String relative) {$/;"	m	class:Xdg
-getConfigDir	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String getConfigDir(String relative) {$/;"	m	class:Xdg
-getConfigHomeDir	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String getConfigHomeDir(String relative) {$/;"	m	class:Xdg
+getCacheDir	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String getCacheDir(String relative) {$/;"	m	class:Xdg
+getConfigDir	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String getConfigDir(String relative) {$/;"	m	class:Xdg
+getConfigHomeDir	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String getConfigHomeDir(String relative) {$/;"	m	class:Xdg
 getContainer	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^    ScriptingContainer getContainer() {$/;"	m	class:JRubyScript
-getDataDir	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String getDataDir(String relative) {$/;"	m	class:Xdg
-getDataHomeDir	core/src/main/java/com/spidey01/sxe/core/Xdg.java	/^    public static String getDataHomeDir(String relative) {$/;"	m	class:Xdg
+getDataDir	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String getDataDir(String relative) {$/;"	m	class:Xdg
+getDataHomeDir	core/src/main/java/com/spidey01/sxe/core/sys/Xdg.java	/^    public static String getDataHomeDir(String relative) {$/;"	m	class:Xdg
 getDefaultLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceLoader getDefaultLoader() {$/;"	m	class:ResourceManager
 getDisplay	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public Display getDisplay() {$/;"	m	class:GameEngine
 getDisplayDate	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public boolean getDisplayDate(boolean x) {$/;"	m	class:LogSink
 getDisplayThreadId	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public boolean getDisplayThreadId(boolean x) {$/;"	m	class:LogSink
 getDisplayTime	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public boolean getDisplayTime(boolean x) {$/;"	m	class:LogSink
 getFloat	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public float getFloat(String key) {$/;"	m	class:AndroidSettings
-getFloat	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public float getFloat(String key) {$/;"	m	class:AbstractSettingsFile
-getFloat	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    float getFloat(String key);$/;"	m	interface:Settings
-getFloat	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public float getFloat(String key) {$/;"	m	class:SettingsArgs
-getFloat	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public float getFloat(String key) {$/;"	m	class:SettingsMap
+getFloat	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    float getFloat(String key);$/;"	m	interface:Settings
+getFloat	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public float getFloat(String key) {$/;"	m	class:SettingsArgs
+getFloat	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public float getFloat(String key) {$/;"	m	class:SettingsMap
+getFloat	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public float getFloat(String key) {$/;"	m	class:AbstractSettingsFile
 getFont	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    public Font getFont() {$/;"	m	class:Text
 getGame	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public Game getGame() {$/;"	m	class:GameEngine
 getGameEngine	android/common/src/main/java/com/spidey01/sxe/android/common/GameActivity.java	/^    public abstract GameEngine getGameEngine();$/;"	m	class:GameActivity
@@ -1695,15 +1714,15 @@ getGameEngine	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public Ga
 getGameEngine	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^    public GameEngine getGameEngine() {$/;"	m	class:HelloWorldGameActivity
 getGameEngine	demos/nulldemo/android/src/main/java/com/spidey01/sxe/nulldemo/android/NullDemoActivity.java	/^    public GameEngine getGameEngine() {$/;"	m	class:NullDemoActivity
 getGameEngine	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/SnakeGameActivity.java	/^    public GameEngine getGameEngine() {$/;"	m	class:SnakeGameActivity
-getHeight	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^    int getHeight();$/;"	m	interface:Bitmap
 getHeight	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    public int getHeight() {$/;"	m	class:Texture
+getHeight	core/src/main/java/com/spidey01/sxe/core/graphics/Bitmap.java	/^    int getHeight();$/;"	m	interface:Bitmap
 getHeight	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    public int getHeight() {$/;"	m	class:PngBitmap
 getHeight	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    public int getHeight() {$/;"	m	class:PNGDecoder
 getId	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    public int getId() {$/;"	m	class:Texture
 getId	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public int getId() {$/;"	m	class:Program
 getId	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    public int getId() {$/;"	m	class:Shader
 getId	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    public int getId() {$/;"	m	class:VertexBuffer
-getImageData	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^    ByteBuffer getImageData();$/;"	m	interface:Bitmap
+getImageData	core/src/main/java/com/spidey01/sxe/core/graphics/Bitmap.java	/^    ByteBuffer getImageData();$/;"	m	interface:Bitmap
 getImageData	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    public ByteBuffer getImageData() {$/;"	m	class:PngBitmap
 getInfoLog	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    private String getInfoLog(OpenGLES20 GL) {$/;"	m	class:Program	file:
 getInfoLog	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    private String getInfoLog(OpenGLES20 GL) {$/;"	m	class:Shader	file:
@@ -1722,35 +1741,34 @@ getInputStream	core/src/main/java/com/spidey01/sxe/core/io/PathResourceLoader.ja
 getInputStream	core/src/main/java/com/spidey01/sxe/core/io/ZipResourceLoader.java	/^    public InputStream getInputStream(File from, File what)$/;"	m	class:ZipResourceLoader
 getInputStream	core/src/main/java/com/spidey01/sxe/core/io/ZipResourceLoader.java	/^    public InputStream getInputStream(String from, String what)$/;"	m	class:ZipResourceLoader
 getInt	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public int getInt(String key) {$/;"	m	class:AndroidSettings
-getInt	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public int getInt(String key) {$/;"	m	class:AbstractSettingsFile
-getInt	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    int getInt(String key);$/;"	m	interface:Settings
-getInt	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public int getInt(String key) {$/;"	m	class:SettingsArgs
-getInt	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public int getInt(String key) {$/;"	m	class:SettingsMap
+getInt	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    int getInt(String key);$/;"	m	interface:Settings
+getInt	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public int getInt(String key) {$/;"	m	class:SettingsArgs
+getInt	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public int getInt(String key) {$/;"	m	class:SettingsMap
+getInt	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public int getInt(String key) {$/;"	m	class:AbstractSettingsFile
 getInterpreter	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScript.java	/^    PythonInterpreter getInterpreter() {$/;"	m	class:JythonScript
-getKeyCode	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public int getKeyCode() {$/;"	m	class:KeyEvent
-getKeyName	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public String getKeyName() {$/;"	m	class:KeyEvent
+getKeyCode	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    public int getKeyCode() {$/;"	m	class:KeyEvent
+getKeyName	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    public String getKeyName() {$/;"	m	class:KeyEvent
 getLevel	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public int getLevel(String tag) {$/;"	m	class:LogSink
 getLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceLoader getLoader(String path) {$/;"	m	class:ResourceManager
 getLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceLoader getLoader(URI uri) {$/;"	m	class:ResourceManager
 getLoaders	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public Map<String, ResourceLoader> getLoaders() {$/;"	m	class:ResourceManager
 getLong	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public long getLong(String key) {$/;"	m	class:AndroidSettings
-getLong	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public long getLong(String key) {$/;"	m	class:AbstractSettingsFile
-getLong	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    long getLong(String key);$/;"	m	interface:Settings
-getLong	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public long getLong(String key) {$/;"	m	class:SettingsArgs
-getLong	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public long getLong(String key) {$/;"	m	class:SettingsMap
+getLong	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    long getLong(String key);$/;"	m	interface:Settings
+getLong	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public long getLong(String key) {$/;"	m	class:SettingsArgs
+getLong	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public long getLong(String key) {$/;"	m	class:SettingsMap
+getLong	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public long getLong(String key) {$/;"	m	class:AbstractSettingsFile
 getMaxFpsRate	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public int getMaxFpsRate() {$/;"	m	class:Game
 getMaxTickRate	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public int getMaxTickRate() {$/;"	m	class:Game
-getMesh	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public Mesh getMesh() {$/;"	m	class:Sprite
+getMesh	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    public Mesh getMesh() {$/;"	m	class:Sprite
 getMesh	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^        Mesh getMesh();$/;"	m	interface:VertexBufferTechnique.Capable
-getName	core/src/main/java/com/spidey01/sxe/core/Action.java	/^    String getName();$/;"	m	interface:Action
-getName	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    public String getName() {$/;"	m	class:ConsoleCommand
 getName	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public abstract String getName();$/;"	m	class:Game
 getName	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public String getName() {$/;"	m	class:RateCounter
+getName	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    public String getName() {$/;"	m	class:Command
 getName	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public String getName() {$/;"	m	class:HelloWorld
 getName	demos/nulldemo/lib/src/main/java/com/spidey01/sxe/nulldemo/lib/NullDemo.java	/^    public String getName() {$/;"	m	class:NullDemo
 getName	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/PingPongGame.java	/^    public String getName() {$/;"	m	class:PingPongGame
 getName	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public String getName() {$/;"	m	class:SnakeGame
-getNativeEvent	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public Object getNativeEvent() {$/;"	m	class:KeyEvent
+getNativeEvent	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    public Object getNativeEvent() {$/;"	m	class:KeyEvent
 getNumComponents	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        public int getNumComponents() {$/;"	m	class:PNGDecoder.Format
 getOpenGL	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public OpenGL getOpenGL() {$/;"	m	class:AndroidDisplay
 getOpenGL	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    OpenGL getOpenGL();$/;"	m	interface:Display
@@ -1758,9 +1776,10 @@ getOpenGL	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^  
 getOpenGL	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public OpenGL getOpenGL() {$/;"	m	class:PcDisplay
 getOpenGLVersion	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public String getOpenGLVersion() {$/;"	m	class:NullDisplay
 getOpenGLVersion	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public String getOpenGLVersion() {$/;"	m	class:PcDisplay
-getProgram	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public Program getProgram() {$/;"	m	class:Sprite
 getProgram	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public int getProgram() {$/;"	m	class:Program
+getProgram	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    public Program getProgram() {$/;"	m	class:Sprite
 getProgram	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^        Program getProgram();$/;"	m	interface:VertexBufferTechnique.Capable
+getPrompt	core/src/main/java/com/spidey01/sxe/core/input/ConsoleInputManager.java	/^    public String getPrompt() {$/;"	m	class:ConsoleInputManager
 getPublisher	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public String getPublisher() {$/;"	m	class:Game
 getRepeatDelay	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public int getRepeatDelay() {$/;"	m	class:Console
 getResource	core/src/main/java/com/spidey01/sxe/core/testing/TestUtils.java	/^    public static File getResource(String path) {$/;"	m	class:TestUtils
@@ -1773,29 +1792,29 @@ getScriptContext	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr22
 getScriptContext	scripting/jsr223/src/main/java/com/spidey01/sxe/scripting/jsr223/Jsr223ScriptManager.java	/^    private ScriptContext getScriptContext(Script scope) {$/;"	m	class:Jsr223ScriptManager	file:
 getScriptable	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScript.java	/^    Scriptable getScriptable() {$/;"	m	class:RhinoScript
 getSettings	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public Settings getSettings() {$/;"	m	class:GameEngine
-getSource	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public InputManager getSource() {$/;"	m	class:KeyEvent
+getSource	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    public InputManager getSource() {$/;"	m	class:KeyEvent
 getString	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public String getString(String key) {$/;"	m	class:AndroidSettings
-getString	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public String getString(String key) {$/;"	m	class:AbstractSettingsFile
-getString	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    String getString(String key);$/;"	m	interface:Settings
-getString	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public String getString(String key) {$/;"	m	class:SettingsArgs
-getString	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public String getString(String key) {$/;"	m	class:SettingsMap
-getTag	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    protected abstract String getTag();$/;"	m	class:AbstractSettingsTest
-getTag	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^    protected String getTag() {$/;"	m	class:SettingsArgsTest
-getTag	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^    protected String getTag() {$/;"	m	class:SettingsFileTest
-getTag	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^    protected String getTag() {$/;"	m	class:SettingsMapTest
-getTag	core/src/test/java/com/spidey01/sxe/core/SettingsXMLFileTest.java	/^    protected String getTag() {$/;"	m	class:SettingsXMLFileTest
+getString	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    String getString(String key);$/;"	m	interface:Settings
+getString	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public String getString(String key) {$/;"	m	class:SettingsArgs
+getString	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public String getString(String key) {$/;"	m	class:SettingsMap
+getString	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public String getString(String key) {$/;"	m	class:AbstractSettingsFile
+getTag	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsArgsTest.java	/^    protected String getTag() {$/;"	m	class:SettingsArgsTest
+getTag	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsMapTest.java	/^    protected String getTag() {$/;"	m	class:SettingsMapTest
+getTag	core/src/test/java/com/spidey01/sxe/core/io/SettingsFileTest.java	/^    protected String getTag() {$/;"	m	class:SettingsFileTest
+getTag	core/src/test/java/com/spidey01/sxe/core/io/SettingsXMLFileTest.java	/^    protected String getTag() {$/;"	m	class:SettingsXMLFileTest
+getTag	core/src/test/java/com/spidey01/sxe/core/testing/AbstractSettingsTest.java	/^    protected abstract String getTag();$/;"	m	class:AbstractSettingsTest
 getText	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    public String getText() {$/;"	m	class:Text
 getTickRate	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public int getTickRate() {$/;"	m	class:Game
 getTickRate	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public int getTickRate() {$/;"	m	class:SnakeGame
 getType	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    public Type getType() {$/;"	m	class:Shader
 getURI	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    public URI getURI() {$/;"	m	class:ResourceHandle
-getUserDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String getUserDir() {$/;"	m	class:Utils
+getUserDir	core/src/main/java/com/spidey01/sxe/core/sys/FileSystem.java	/^    public static String getUserDir() {$/;"	m	class:FileSystem
 getVersionAsFloat	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    public float getVersionAsFloat() {$/;"	m	class:TrueTypeFont
 getVersionAsString	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    public String getVersionAsString() {$/;"	m	class:TrueTypeFont
 getVertexBuffer	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    public VertexBuffer getVertexBuffer() {$/;"	m	class:Mesh
 getVertexCount	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    public int getVertexCount() {$/;"	m	class:VertexBuffer
-getWidth	core/src/main/java/com/spidey01/sxe/core/Bitmap.java	/^    int getWidth();$/;"	m	interface:Bitmap
 getWidth	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    public int getWidth() {$/;"	m	class:Texture
+getWidth	core/src/main/java/com/spidey01/sxe/core/graphics/Bitmap.java	/^    int getWidth();$/;"	m	interface:Bitmap
 getWidth	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    public int getWidth() {$/;"	m	class:PngBitmap
 getWidth	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    public int getWidth() {$/;"	m	class:PNGDecoder
 getZip	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^    private File getZip() {$/;"	m	class:ZipResourceLoaderTest	file:
@@ -2183,7 +2202,7 @@ glViewport	pc/src/main/java/com/spidey01/sxe/pc/LwjglOpenGL.java	/^    public vo
 glyf	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 gpos	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 gsub	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
-guess	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public static String guess() {$/;"	m	class:Platform
+guess	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public static String guess() {$/;"	m	class:Platform
 gzipFileContent	core/src/test/java/com/spidey01/sxe/core/testing/TestResources.java	/^    public static final String gzipFileContent = textFileContent;$/;"	f	class:TestResources
 gzipFileName	core/src/test/java/com/spidey01/sxe/core/testing/TestResources.java	/^    public static final String gzipFileName = "PathResourceLoader.txt.gz";$/;"	f	class:TestResources
 hasAlpha	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        final boolean hasAlpha;$/;"	f	class:PNGDecoder.Format
@@ -2211,65 +2230,71 @@ initialize	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    p
 initialize	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    public void initialize(OpenGLES20 GL, float[] vertices) {$/;"	m	class:VertexBuffer
 initialize	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    public void initialize(OpenGLES20 GLES20) {$/;"	m	class:Mesh
 initialize	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^    public void initialize(Capable client) {$/;"	m	class:VertexBufferTechnique
-inject	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void inject(KeyEvent event) {$/;"	m	class:InputManager
-inject	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void inject(String keyName, boolean isDown) {$/;"	m	class:InputManager
+inject	core/src/main/java/com/spidey01/sxe/core/input/AbstractInputManager.java	/^    public void inject(KeyEvent event) {$/;"	m	class:AbstractInputManager
+inject	core/src/main/java/com/spidey01/sxe/core/input/AbstractInputManager.java	/^    public void inject(String keyName, boolean isDown) {$/;"	m	class:AbstractInputManager
+inject	core/src/main/java/com/spidey01/sxe/core/input/AbstractInputManager.java	/^    public void inject(String line) {$/;"	m	class:AbstractInputManager
+inject	core/src/main/java/com/spidey01/sxe/core/input/InputManager.java	/^    void inject(KeyEvent event);$/;"	m	interface:InputManager
+inject	core/src/main/java/com/spidey01/sxe/core/input/InputManager.java	/^    void inject(String keyName, boolean isDown);$/;"	m	interface:InputManager
+inject	core/src/main/java/com/spidey01/sxe/core/input/InputManager.java	/^    void inject(String line);$/;"	m	interface:InputManager
 input	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private final InputStream input;$/;"	f	class:PNGDecoder	file:
 intValue	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public int intValue() {$/;"	m	class:Variable
-isAndroid	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public boolean isAndroid() {$/;"	m	class:Platform
+isAndroid	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public boolean isAndroid() {$/;"	m	class:Platform
 isCloseRequested	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public boolean isCloseRequested() {$/;"	m	class:AndroidDisplay
 isCloseRequested	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    boolean isCloseRequested();$/;"	m	interface:Display
 isCloseRequested	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public boolean isCloseRequested() {$/;"	m	class:NullDisplay
 isCloseRequested	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public boolean isCloseRequested() {$/;"	m	class:PcDisplay
 isDebuggingEnabled	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public boolean isDebuggingEnabled() {$/;"	m	class:RateCounter
 isHasAlpha	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        public boolean isHasAlpha() {$/;"	m	class:PNGDecoder.Format
-isKeyDown	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public boolean isKeyDown() {$/;"	m	class:KeyEvent
-isKeyUp	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public boolean isKeyUp() {$/;"	m	class:KeyEvent
-isLoggable	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static boolean isLoggable(String tag, int level) {$/;"	m	class:Log
+isKeyDown	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    public boolean isKeyDown() {$/;"	m	class:KeyEvent
+isKeyUp	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    public boolean isKeyUp() {$/;"	m	class:KeyEvent
+isLoggable	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public synchronized static boolean isLoggable(String tag, int level) {$/;"	m	class:Log
 isLoggable	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public boolean isLoggable(String tag, int level) {$/;"	m	class:LogSink
-isMacOS	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public boolean isMacOS() {$/;"	m	class:Platform
+isMacOS	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public boolean isMacOS() {$/;"	m	class:Platform
 isRGB	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    public boolean isRGB() {$/;"	m	class:PNGDecoder
+isRunning	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public boolean isRunning() {$/;"	m	class:GameEngine
 isStopRequested	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean isStopRequested() {$/;"	m	class:Game
 isStopped	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean isStopped() {$/;"	m	class:Game
-isUnix	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public boolean isUnix() {$/;"	m	class:Platform
+isUnix	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public boolean isUnix() {$/;"	m	class:Platform
 isVisible	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public boolean isVisible() {$/;"	m	class:Console
-isWindows	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public boolean isWindows() {$/;"	m	class:Platform
+isWindows	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public boolean isWindows() {$/;"	m	class:Platform
 javaObject	scripting/testhelpers/build/resources/main/JavaWrapper.py	/^javaObject = JavaClass()$/;"	v
 javaObject	scripting/testhelpers/src/main/resources/JavaWrapper.py	/^javaObject = JavaClass()$/;"	v
-join	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String join(String[] array, char separator) {$/;"	m	class:Utils
+join	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^    public static String join(String[] array, char separator) {$/;"	m	class:Utils
 keys	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public String[] keys() {$/;"	m	class:AndroidSettings
-keys	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public String[] keys() {$/;"	m	class:AbstractSettingsFile
-keys	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    String[] keys();$/;"	m	interface:Settings
-keys	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public String[] keys() {$/;"	m	class:SettingsArgs
-keys	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public String[] keys() {$/;"	m	class:SettingsMap
+keys	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    String[] keys();$/;"	m	interface:Settings
+keys	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public String[] keys() {$/;"	m	class:SettingsArgs
+keys	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public String[] keys() {$/;"	m	class:SettingsMap
+keys	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public String[] keys() {$/;"	m	class:AbstractSettingsFile
 length	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        public final long length;$/;"	f	class:TrueTypeFont.Table
 linear	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    public void linear() {$/;"	m	class:ConsoleTest
 link	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public void link(OpenGLES20 GL) {$/;"	m	class:Program
-load	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public abstract void load(InputStream stream) throws IOException;$/;"	m	class:AbstractSettingsFile
-load	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public void load(File path) throws IOException {$/;"	m	class:AbstractSettingsFile
-load	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public void load(String name) throws IOException {$/;"	m	class:AbstractSettingsFile
 load	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceHandle load(File path) throws IOException {$/;"	m	class:ResourceManager
 load	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceHandle load(String path) throws IOException {$/;"	m	class:ResourceManager
 load	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceHandle load(URI uri) throws IOException {$/;"	m	class:ResourceManager
-load	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public void load(InputStream stream) throws IOException {$/;"	m	class:SettingsFile
-load	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    public void load(InputStream stream) throws IOException {$/;"	m	class:SettingsXMLFile
-load	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    public void load() {$/;"	m	class:AbstractSettingsTest
+load	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public abstract void load(InputStream stream) throws IOException;$/;"	m	class:AbstractSettingsFile
+load	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public void load(File path) throws IOException {$/;"	m	class:AbstractSettingsFile
+load	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public void load(String name) throws IOException {$/;"	m	class:AbstractSettingsFile
+load	core/src/main/java/com/spidey01/sxe/core/io/SettingsFile.java	/^    public void load(InputStream stream) throws IOException {$/;"	m	class:SettingsFile
+load	core/src/main/java/com/spidey01/sxe/core/io/SettingsXMLFile.java	/^    public void load(InputStream stream) throws IOException {$/;"	m	class:SettingsXMLFile
 load	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public void load() throws IOException {$/;"	m	class:ResourceManagerTest
+load	core/src/test/java/com/spidey01/sxe/core/testing/AbstractSettingsTest.java	/^    public void load() {$/;"	m	class:AbstractSettingsTest
 loadDirectory	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^    public void loadDirectory() throws IOException {$/;"	m	class:ZipResourceLoaderTest
 loadFileInSubDir	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^    public void loadFileInSubDir() throws IOException {$/;"	m	class:ZipResourceLoaderTest
 loadNonExistantFile	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^    public void loadNonExistantFile() throws IOException {$/;"	m	class:ZipResourceLoaderTest
 loadTopLevelFile	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^    public void loadTopLevelFile() throws IOException {$/;"	m	class:ZipResourceLoaderTest
 loca	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 log	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidLogSink.java	/^    public void log(int level, String tag, Object... messages) {$/;"	m	class:AndroidLogSink
-log	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void log(int level, String tag, Object... messages) {$/;"	m	class:Log
+log	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public synchronized static void log(int level, String tag, Object... messages) {$/;"	m	class:Log
 log	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public void log(int level, String tag, Object... messages) {$/;"	m	class:LogSink
 logf	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidLogSink.java	/^    public void logf(int level, String tag, String format, Object... args) {$/;"	m	class:AndroidLogSink
-logf	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void logf(int level, String tag, String format, Object... args) {$/;"	m	class:Log
+logf	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public synchronized static void logf(int level, String tag, String format, Object... args) {$/;"	m	class:Log
 logf	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public void logf(int level, String tag, String format, Object... args) {$/;"	m	class:LogSink
 logging	core/src/main/java/com/spidey01/sxe/core/testing/UnitTest.java	/^    public static void logging() {$/;"	m	class:UnitTest
 m	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/JavaToJRuby.java	/^    public JRubyScriptManager m() {$/;"	m	class:JavaToJRuby
 m	scripting/jsr223/src/test/java/com/spidey01/sxe/scripting/jsr223/JavaToJsr223.java	/^    public Jsr223ScriptManager m() {$/;"	m	class:JavaToJsr223
 m	scripting/rhino/src/test/java/com/spidey01/sxe/scripting/rhino/JavaToRhino.java	/^    public RhinoScriptManager m() {$/;"	m	class:JavaToRhino
-mArgs	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    private Map<String, String> mArgs = new HashMap<String, String>();$/;"	f	class:SettingsArgs	file:
+mArgs	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    private Map<String, String> mArgs = new HashMap<String, String>();$/;"	f	class:SettingsArgs	file:
+mArgs	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    private String[] mArgs;$/;"	f	class:Command	file:
 mArrayOfVertices	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    private float[] mArrayOfVertices;$/;"	f	class:Mesh	file:
 mAssetManager	android/common/src/main/java/com/spidey01/sxe/android/common/AssetLoader.java	/^    private AssetManager mAssetManager;$/;"	f	class:AssetLoader	file:
 mBitmap	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    private Bitmap mBitmap;$/;"	f	class:Texture	file:
@@ -2277,8 +2302,8 @@ mBuffer	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private Stri
 mBufferOfVertices	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    private FloatBuffer mBufferOfVertices;$/;"	f	class:Mesh	file:
 mBytesPerPixel	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    private final int mBytesPerPixel;$/;"	f	class:PngBitmap	file:
 mCommandLineSettings	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private final SettingsArgs mCommandLineSettings;$/;"	f	class:GameEngine	file:
-mCommands	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private Map<String,ConsoleCommand> mCommands = new HashMap<String,ConsoleCommand>();$/;"	f	class:Console	file:
-mConsole	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    private Console mConsole;$/;"	f	class:ConsoleTest	file:
+mCommands	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private Map<String,Command> mCommands = new HashMap<String,Command>();$/;"	f	class:Console	file:
+mConsole	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    private MyConsole mConsole;$/;"	f	class:ConsoleTest	file:
 mConsole	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    private Console mConsole;$/;"	f	class:SnakeGame	file:
 mContainer	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScript.java	/^    private ScriptingContainer mContainer;$/;"	f	class:JRubyScript	file:
 mContext	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Context mContext;$/;"	f	class:RhinoScriptManager	file:
@@ -2301,7 +2326,7 @@ mEngine	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/Sna
 mEntrySelector	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private int mEntrySelector;$/;"	f	class:TrueTypeFont	file:
 mFilters	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    protected HashMap<String, Integer> mFilters = new HashMap<String, Integer>();$/;"	f	class:LogSink
 mFont	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    private Font mFont;$/;"	f	class:Text	file:
-mFragmentShader	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private Shader mFragmentShader;$/;"	f	class:Sprite	file:
+mFragmentShader	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    private Shader mFragmentShader;$/;"	f	class:Sprite	file:
 mFrameCounter	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    private RateCounter mFrameCounter = new RateCounter("Frames");$/;"	f	class:OpenGLES20Renderer	file:
 mFrameCounter	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    private RateCounter mFrameCounter = new RateCounter("NullFrames");$/;"	f	class:NullDisplay	file:
 mFrameCounter	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private RateCounter mFrameCounter = new RateCounter("Frames");$/;"	f	class:PcDisplay	file:
@@ -2315,6 +2340,7 @@ mGL	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java
 mGame	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private final Game mGame;$/;"	f	class:GameEngine	file:
 mGame	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    protected Game mGame;$/;"	f	class:GameThread
 mGameEngine	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    protected GameEngine mGameEngine;$/;"	f	class:Game
+mGameEngine	core/src/main/java/com/spidey01/sxe/core/cmds/QuitCommand.java	/^    private final GameEngine mGameEngine;$/;"	f	class:QuitCommand	file:
 mGameThread	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private GameThread mGameThread;$/;"	f	class:GameEngine	file:
 mGlobalScope	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Scriptable mGlobalScope;$/;"	f	class:RhinoScriptManager	file:
 mHandleRepeat	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private boolean mHandleRepeat = true;$/;"	f	class:Console	file:
@@ -2325,32 +2351,32 @@ mInputManager	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    pri
 mInputManager	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    private NullInputManager mInputManager;$/;"	f	class:ConsoleTest	file:
 mInputStream	core/src/main/java/com/spidey01/sxe/core/ResourceHandle.java	/^    private InputStream mInputStream;$/;"	f	class:ResourceHandle	file:
 mInterp	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScript.java	/^    private PythonInterpreter mInterp;$/;"	f	class:JythonScript	file:
-mIsDown	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private final boolean mIsDown;$/;"	f	class:KeyEvent	file:
+mIsDown	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    private final boolean mIsDown;$/;"	f	class:KeyEvent	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    private boolean mIsInitialized;$/;"	f	class:Texture	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    private boolean mIsInitialized;$/;"	f	class:Program	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    private boolean mIsInitialized;$/;"	f	class:Shader	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    private boolean mIsInitialized;$/;"	f	class:VertexBuffer	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    private boolean mIsInitialized;$/;"	f	class:Mesh	file:
 mIsInitialized	core/src/main/java/com/spidey01/sxe/core/graphics/VertexBufferTechnique.java	/^    private boolean mIsInitialized;$/;"	f	class:VertexBufferTechnique	file:
-mKeyBroadcastReceivers	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    protected List<KeyListener> mKeyBroadcastReceivers =$/;"	f	class:InputManager
-mKeyCode	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private final int mKeyCode;$/;"	f	class:KeyEvent	file:
-mKeyListeners	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    protected Map<String, List<KeyListener>> mKeyListeners =$/;"	f	class:InputManager
-mKeyName	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private final String mKeyName;$/;"	f	class:KeyEvent	file:
+mKeyBroadcastReceivers	core/src/main/java/com/spidey01/sxe/core/input/AbstractInputManager.java	/^    protected List<KeyListener> mKeyBroadcastReceivers =$/;"	f	class:AbstractInputManager
+mKeyCode	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    private final int mKeyCode;$/;"	f	class:KeyEvent	file:
+mKeyListeners	core/src/main/java/com/spidey01/sxe/core/input/AbstractInputManager.java	/^    protected Map<String, List<KeyListener>> mKeyListeners =$/;"	f	class:AbstractInputManager
+mKeyName	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    private final String mKeyName;$/;"	f	class:KeyEvent	file:
 mLastKeyEvent	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private KeyEvent mLastKeyEvent = null;$/;"	f	class:Console	file:
 mListeners	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    private List<Settings.OnChangedListener> mListeners =$/;"	f	class:AndroidSettings	file:
-mListeners	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    private List<Settings.OnChangedListener> mListeners =$/;"	f	class:AbstractSettingsFile	file:
-mListeners	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    private List<Settings.OnChangedListener> mListeners =$/;"	f	class:SettingsArgs	file:
-mListeners	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    private List<Settings.OnChangedListener> mListeners =$/;"	f	class:SettingsMap	file:
+mListeners	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    private List<Settings.OnChangedListener> mListeners =$/;"	f	class:SettingsArgs	file:
+mListeners	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    private List<Settings.OnChangedListener> mListeners =$/;"	f	class:SettingsMap	file:
+mListeners	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    private List<Settings.OnChangedListener> mListeners =$/;"	f	class:AbstractSettingsFile	file:
 mLoaders	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    private Map<String, ResourceLoader> mLoaders = new HashMap<String, ResourceLoader>();$/;"	f	class:ResourceManager	file:
-mMap	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    private Map<String, String> mMap;$/;"	f	class:SettingsMap	file:
+mMap	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    private Map<String, String> mMap;$/;"	f	class:SettingsMap	file:
 mMaxTickRate	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private static final int mMaxTickRate = 250;$/;"	f	class:Game	file:
-mMesh	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private Mesh mMesh;$/;"	f	class:Sprite	file:
-mName	core/src/main/java/com/spidey01/sxe/core/ConsoleCommand.java	/^    private String mName = "";$/;"	f	class:ConsoleCommand	file:
+mMesh	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    private Mesh mMesh;$/;"	f	class:Sprite	file:
 mName	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private String mName;$/;"	f	class:RateCounter	file:
-mName	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    private final String mName;$/;"	f	class:SettingsFile	file:
-mName	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    private final String mName;$/;"	f	class:SettingsXMLFile	file:
 mName	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    private String mName;$/;"	f	class:Variable	file:
-mNative	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private Object mNative;$/;"	f	class:KeyEvent	file:
+mName	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    private final String mName;$/;"	f	class:Command	file:
+mName	core/src/main/java/com/spidey01/sxe/core/io/SettingsFile.java	/^    private final String mName;$/;"	f	class:SettingsFile	file:
+mName	core/src/main/java/com/spidey01/sxe/core/io/SettingsXMLFile.java	/^    private final String mName;$/;"	f	class:SettingsXMLFile	file:
+mNative	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    private Object mNative;$/;"	f	class:KeyEvent	file:
 mNumTables	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private int mNumTables;$/;"	f	class:TrueTypeFont	file:
 mOffsetMap	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Map<String, Table> mOffsetMap = new HashMap<String, Table>();$/;"	f	class:TrueTypeFont	file:
 mOpenGL	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    private OpenGL mOpenGL;$/;"	f	class:AndroidDisplay	file:
@@ -2361,9 +2387,10 @@ mPerSecond	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    priva
 mPlatform	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private final Platform mPlatform;$/;"	f	class:GameEngine	file:
 mPlatformSettings	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private Settings mPlatformSettings;$/;"	f	class:GameEngine	file:
 mPrefs	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    private SharedPreferences mPrefs = null;$/;"	f	class:AndroidSettings	file:
-mProgram	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private Program mProgram = new Program();$/;"	f	class:Sprite	file:
+mProgram	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    private Program mProgram = new Program();$/;"	f	class:Sprite	file:
 mProgramId	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    private int mProgramId;$/;"	f	class:Program	file:
-mProps	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    protected Properties mProps = new Properties();$/;"	f	class:AbstractSettingsFile
+mPrompt	core/src/main/java/com/spidey01/sxe/core/input/ConsoleInputManager.java	/^    private String mPrompt;$/;"	f	class:ConsoleInputManager	file:
+mProps	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    protected Properties mProps = new Properties();$/;"	f	class:AbstractSettingsFile
 mRangeShift	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private int mRangeShift;$/;"	f	class:TrueTypeFont	file:
 mRenderableObjects	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^    private List<RenderableObject> mRenderableObjects = new ArrayList<RenderableObject>();$/;"	f	class:SceneManager	file:
 mRenderer	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    private OpenGLES20Renderer mRenderer = new OpenGLES20Renderer();$/;"	f	class:AndroidDisplay	file:
@@ -2381,7 +2408,7 @@ mSettings	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSe
 mShaderId	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    private int mShaderId;$/;"	f	class:Shader	file:
 mShaders	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    private Collection<Shader> mShaders = new LinkedList<Shader>();$/;"	f	class:Program	file:
 mSinks	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    private static List<LogSink> mSinks = new LinkedList<LogSink>();$/;"	f	class:Log	file:
-mSource	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    private InputManager mSource;$/;"	f	class:KeyEvent	file:
+mSource	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    private InputManager mSource;$/;"	f	class:KeyEvent	file:
 mSourceCode	core/src/main/java/com/spidey01/sxe/core/gl/Shader.java	/^    private final String mSourceCode;$/;"	f	class:Shader	file:
 mState	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    protected State mState;$/;"	f	class:Game
 mStopDone	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private boolean mStopDone = false;$/;"	f	class:Game	file:
@@ -2389,9 +2416,10 @@ mStopRequested	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private 
 mStream	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private DataInputStream mStream;$/;"	f	class:TrueTypeFont	file:
 mSystemSettings	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private Settings mSystemSettings;$/;"	f	class:GameEngine	file:
 mTarget	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    private final int mTarget;$/;"	f	class:VertexBuffer	file:
-mTechnique	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private VertexBufferTechnique mTechnique;$/;"	f	class:Sprite	file:
+mTechnique	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    private VertexBufferTechnique mTechnique;$/;"	f	class:Sprite	file:
+mTerminal	core/src/main/java/com/spidey01/sxe/core/input/ConsoleInputManager.java	/^    private final Console mTerminal;$/;"	f	class:ConsoleInputManager	file:
 mText	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    private String mText;$/;"	f	class:Text	file:
-mTexture	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private Texture mTexture;$/;"	f	class:Sprite	file:
+mTexture	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    private Texture mTexture;$/;"	f	class:Sprite	file:
 mTextureId	core/src/main/java/com/spidey01/sxe/core/Texture.java	/^    private int mTextureId;$/;"	f	class:Texture	file:
 mTickCounter	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    private RateCounter mTickCounter = new RateCounter("Ticks");$/;"	f	class:Game	file:
 mToggleKey	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private String mToggleKey = DEFAULT_TOGGLE_KEY ;$/;"	f	class:Console	file:
@@ -2408,7 +2436,7 @@ mVersionString	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    
 mVertexBuffer	core/src/main/java/com/spidey01/sxe/core/graphics/Mesh.java	/^    private VertexBuffer mVertexBuffer;$/;"	f	class:Mesh	file:
 mVertexBufferId	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    private int mVertexBufferId;$/;"	f	class:VertexBuffer	file:
 mVertexCount	core/src/main/java/com/spidey01/sxe/core/gl/VertexBuffer.java	/^    private int mVertexCount;$/;"	f	class:VertexBuffer	file:
-mVertexShader	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private Shader mVertexShader;$/;"	f	class:Sprite	file:
+mVertexShader	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    private Shader mVertexShader;$/;"	f	class:Sprite	file:
 mVisible	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    private boolean mVisible = false;$/;"	f	class:Console	file:
 mWidget	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^    private AndroidDisplay mWidget;$/;"	f	class:AndroidInputManager	file:
 mWidth	core/src/main/java/com/spidey01/sxe/core/io/PngBitmap.java	/^    private final int mWidth;$/;"	f	class:PngBitmap	file:
@@ -2417,39 +2445,44 @@ main	demos/nulldemo/pc/src/main/java/com/spidey01/sxe/nulldemo/pc/Main.java	/^  
 main	demos/pingpong/pc/src/main/java/com/spidey01/sxe/pingpong/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
 main	demos/snake/pc/src/main/java/com/spidey01/sxe/snake/pc/Main.java	/^    public static void main(String[] args) {$/;"	m	class:Main
 mainLoop	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void mainLoop() {$/;"	m	class:GameEngine
-makeBufferedReader	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static BufferedReader makeBufferedReader(File file) throws FileNotFoundException {$/;"	m	class:Utils
-makeBufferedReader	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static BufferedReader makeBufferedReader(InputStream in) {$/;"	m	class:Utils
+makeByte	core/src/main/java/com/spidey01/sxe/core/io/Buffers.java	/^    public static ByteBuffer makeByte(int size) {$/;"	m	class:Buffers
+makeDouble	core/src/main/java/com/spidey01/sxe/core/io/Buffers.java	/^    public static DoubleBuffer makeDouble(int size) {$/;"	m	class:Buffers
+makeFloat	core/src/main/java/com/spidey01/sxe/core/io/Buffers.java	/^    public static FloatBuffer makeFloat(int size) {$/;"	m	class:Buffers
+makeInt	core/src/main/java/com/spidey01/sxe/core/io/Buffers.java	/^    public static IntBuffer makeInt(int size) {$/;"	m	class:Buffers
 makeLogSink	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    private void makeLogSink(String top) {$/;"	m	class:GameEngine	file:
-makeSettings	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    protected abstract Settings makeSettings();$/;"	m	class:AbstractSettingsTest
-makeSettings	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^    protected Settings makeSettings() {$/;"	m	class:SettingsArgsTest
-makeSettings	core/src/test/java/com/spidey01/sxe/core/SettingsFileTest.java	/^    protected Settings makeSettings() {$/;"	m	class:SettingsFileTest
-makeSettings	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^    protected Settings makeSettings() {$/;"	m	class:SettingsMapTest
-makeSettings	core/src/test/java/com/spidey01/sxe/core/SettingsXMLFileTest.java	/^    protected Settings makeSettings() {$/;"	m	class:SettingsXMLFileTest
+makeReader	core/src/main/java/com/spidey01/sxe/core/io/Buffers.java	/^    public static BufferedReader makeReader(File file) throws FileNotFoundException {$/;"	m	class:Buffers
+makeReader	core/src/main/java/com/spidey01/sxe/core/io/Buffers.java	/^    public static BufferedReader makeReader(InputStream in) {$/;"	m	class:Buffers
+makeSettings	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsArgsTest.java	/^    protected Settings makeSettings() {$/;"	m	class:SettingsArgsTest
+makeSettings	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsMapTest.java	/^    protected Settings makeSettings() {$/;"	m	class:SettingsMapTest
+makeSettings	core/src/test/java/com/spidey01/sxe/core/io/SettingsFileTest.java	/^    protected Settings makeSettings() {$/;"	m	class:SettingsFileTest
+makeSettings	core/src/test/java/com/spidey01/sxe/core/io/SettingsXMLFileTest.java	/^    protected Settings makeSettings() {$/;"	m	class:SettingsXMLFileTest
+makeSettings	core/src/test/java/com/spidey01/sxe/core/testing/AbstractSettingsTest.java	/^    protected abstract Settings makeSettings();$/;"	m	class:AbstractSettingsTest
 maxp	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
 merge	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public void merge(Settings s) {$/;"	m	class:AndroidSettings
-merge	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public void merge(Settings s) {$/;"	m	class:AbstractSettingsFile
-merge	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    void merge(Settings s);$/;"	m	interface:Settings
-merge	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public void merge(Settings s) {$/;"	m	class:SettingsArgs
-merge	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public void merge(Settings s) {$/;"	m	class:SettingsMap
-merge	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static void merge(Settings parent, Settings child) {$/;"	m	class:Utils
-merge	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    public void merge() {$/;"	m	class:AbstractSettingsTest
+merge	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    void merge(Settings s);$/;"	m	interface:Settings
+merge	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public void merge(Settings s) {$/;"	m	class:SettingsArgs
+merge	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public void merge(Settings s) {$/;"	m	class:SettingsMap
+merge	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^    public static void merge(Settings parent, Settings child) {$/;"	m	class:Utils
+merge	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public void merge(Settings s) {$/;"	m	class:AbstractSettingsFile
+merge	core/src/test/java/com/spidey01/sxe/core/testing/AbstractSettingsTest.java	/^    public void merge() {$/;"	m	class:AbstractSettingsTest
 ms	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    private long ms;$/;"	f	class:RateCounter	file:
-name	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public final String name;$/;"	f	class:Platform
 name	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        public final String name;$/;"	f	class:TrueTypeFont.Table
 name	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
+name	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public final String name;$/;"	f	class:Platform
 newContainer	scripting/jruby/src/main/java/com/spidey01/sxe/scripting/jruby/JRubyScriptManager.java	/^    private ScriptingContainer newContainer() {$/;"	m	class:JRubyScriptManager	file:
 newInterpreter	scripting/jython/src/main/java/com/spidey01/sxe/scripting/jython/JythonScriptManager.java	/^    private PythonInterpreter newInterpreter() {$/;"	m	class:JythonScriptManager	file:
 newScope	scripting/rhino/src/main/java/com/spidey01/sxe/scripting/rhino/RhinoScriptManager.java	/^    private Scriptable newScope() {$/;"	m	class:RhinoScriptManager	file:
-notifyKeyListeners	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void notifyKeyListeners(KeyEvent event) {$/;"	m	class:InputManager
+notifyKeyListeners	core/src/main/java/com/spidey01/sxe/core/input/AbstractInputManager.java	/^    public void notifyKeyListeners(KeyEvent event) {$/;"	m	class:AbstractInputManager
+notifyKeyListeners	core/src/main/java/com/spidey01/sxe/core/input/InputManager.java	/^    void notifyKeyListeners(KeyEvent event);$/;"	m	interface:InputManager
 notifyListeners	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    private void notifyListeners(String key) {$/;"	m	class:AndroidSettings	file:
-notifyListeners	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    private void notifyListeners(String key) {$/;"	m	class:AbstractSettingsFile	file:
-notifyListeners	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    private void notifyListeners(String key) {$/;"	m	class:SettingsArgs	file:
-notifyListeners	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    private void notifyListeners(String key) {$/;"	m	class:SettingsMap	file:
+notifyListeners	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    private void notifyListeners(String key) {$/;"	m	class:SettingsArgs	file:
+notifyListeners	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    private void notifyListeners(String key) {$/;"	m	class:SettingsMap	file:
+notifyListeners	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    private void notifyListeners(String key) {$/;"	m	class:AbstractSettingsFile	file:
 nullFile	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^    public void nullFile() throws IOException {$/;"	m	class:ZipResourceLoaderTest
 nullString	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^    public void nullString() throws IOException {$/;"	m	class:ZipResourceLoaderTest
 numComponents	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^        final int numComponents;$/;"	f	class:PNGDecoder.Format
 offset	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^        public final long offset;$/;"	f	class:TrueTypeFont.Table
-onChanged	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^        void onChanged(Settings settings, String key);$/;"	m	interface:Settings.OnChangedListener
+onChanged	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^        void onChanged(Settings settings, String key);$/;"	m	interface:Settings.OnChangedListener
 onCreate	android/common/src/main/java/com/spidey01/sxe/android/common/GameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:GameActivity
 onCreate	demos/helloworld/android/src/main/java/com/spidey01/sxe/helloworld/android/HelloWorldGameActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:HelloWorldGameActivity
 onCreate	demos/nulldemo/android/src/main/java/com/spidey01/sxe/nulldemo/android/NullDemoActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:NullDemoActivity
@@ -2457,7 +2490,7 @@ onCreate	demos/snake/android/src/main/java/com/spidey01/sxe/snakegame/android/Sn
 onDestroy	android/common/src/main/java/com/spidey01/sxe/android/common/GameActivity.java	/^    protected void onDestroy() {$/;"	m	class:GameActivity
 onDrawFrame	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    public void onDrawFrame(GL10 unused) {$/;"	m	class:OpenGLES20Renderer
 onKey	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public boolean onKey(KeyEvent event) {$/;"	m	class:Console
-onKey	core/src/main/java/com/spidey01/sxe/core/KeyListener.java	/^    boolean onKey(KeyEvent event);$/;"	m	interface:KeyListener
+onKey	core/src/main/java/com/spidey01/sxe/core/input/KeyListener.java	/^    boolean onKey(KeyEvent event);$/;"	m	interface:KeyListener
 onKey	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public boolean onKey(KeyEvent event) {$/;"	m	class:HelloWorld
 onKey	demos/nulldemo/lib/src/main/java/com/spidey01/sxe/nulldemo/lib/NullDemo.java	/^    public boolean onKey(KeyEvent event) {$/;"	m	class:NullDemo
 onKey	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public boolean onKey(KeyEvent event) {$/;"	m	class:SnakeGame
@@ -2474,7 +2507,9 @@ parseFontDirectory	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^
 parseOffsetTable	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private void parseOffsetTable(DataInputStream data) throws IOException {$/;"	m	class:TrueTypeFont	file:
 parseTableDirectory	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private void parseTableDirectory(DataInputStream data) throws IOException {$/;"	m	class:TrueTypeFont	file:
 poll	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^    public void poll() {$/;"	m	class:AndroidInputManager
-poll	core/src/main/java/com/spidey01/sxe/core/InputManager.java	/^    public void poll() {$/;"	m	class:InputManager
+poll	core/src/main/java/com/spidey01/sxe/core/input/AbstractInputManager.java	/^    public abstract void poll();$/;"	m	class:AbstractInputManager
+poll	core/src/main/java/com/spidey01/sxe/core/input/ConsoleInputManager.java	/^    public void poll() {$/;"	m	class:ConsoleInputManager
+poll	core/src/main/java/com/spidey01/sxe/core/input/InputManager.java	/^    void poll();$/;"	m	interface:InputManager
 poll	core/src/main/java/com/spidey01/sxe/core/testing/NullInputManager.java	/^    public void poll() {$/;"	m	class:NullInputManager
 poll	pc/src/main/java/com/spidey01/sxe/pc/PcInputManager.java	/^    public void poll() {$/;"	m	class:PcInputManager
 post	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private Table fftm, gdef, gpos, gsub, os2, cmap, cvt, fpgm, gasp, glyf, head, hhea, hmtx, loca, maxp, name, post, prep;$/;"	f	class:TrueTypeFont	file:
@@ -2499,13 +2534,13 @@ readInt	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.jav
 readPLTE	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void readPLTE() throws IOException {$/;"	m	class:PNGDecoder	file:
 readtRNS	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void readtRNS() throws IOException {$/;"	m	class:PNGDecoder	file:
 refillInflater	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void refillInflater(Inflater inflater) throws IOException {$/;"	m	class:PNGDecoder	file:
-remove	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void remove(LogSink sink) {$/;"	m	class:Log
+remove	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public synchronized static void remove(LogSink sink) {$/;"	m	class:Log
 removeChangeListener	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public void removeChangeListener(OnChangedListener listener) {$/;"	m	class:AndroidSettings
-removeChangeListener	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public void removeChangeListener(OnChangedListener listener) {$/;"	m	class:AbstractSettingsFile
-removeChangeListener	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    void removeChangeListener(OnChangedListener listener);$/;"	m	interface:Settings
-removeChangeListener	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public void removeChangeListener(OnChangedListener listener) {$/;"	m	class:SettingsArgs
-removeChangeListener	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public void removeChangeListener(OnChangedListener listener) {$/;"	m	class:SettingsMap
-removeCommand	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void removeCommand(ConsoleCommand command) {$/;"	m	class:Console
+removeChangeListener	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    void removeChangeListener(OnChangedListener listener);$/;"	m	interface:Settings
+removeChangeListener	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public void removeChangeListener(OnChangedListener listener) {$/;"	m	class:SettingsArgs
+removeChangeListener	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public void removeChangeListener(OnChangedListener listener) {$/;"	m	class:SettingsMap
+removeChangeListener	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public void removeChangeListener(OnChangedListener listener) {$/;"	m	class:AbstractSettingsFile
+removeCommand	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void removeCommand(Command command) {$/;"	m	class:Console
 removeCommand	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void removeCommand(String command) {$/;"	m	class:Console
 removeFrameEndedListener	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public void removeFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:AndroidDisplay
 removeFrameEndedListener	android/common/src/main/java/com/spidey01/sxe/android/common/OpenGLES20Renderer.java	/^    public void removeFrameEndedListener(FrameEndedListener listener) {$/;"	m	class:OpenGLES20Renderer
@@ -2530,18 +2565,21 @@ returnsStrCat	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/tes
 returnsSum	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaClass.java	/^    public int returnsSum(int a, int b) {$/;"	m	class:JavaClass
 returnsTrue	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaClass.java	/^    public boolean returnsTrue() {$/;"	m	class:JavaClass
 run	core/src/main/java/com/spidey01/sxe/core/GameThread.java	/^    public void run() {$/;"	m	class:GameThread
-sArgs	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^    private static final String[] sArgs = new String[]{$/;"	f	class:SettingsArgsTest	file:
-sComment	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    private static final String sComment = "Comments and whitespace will not be saved.";$/;"	f	class:SettingsFile	file:
-sComment	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    private static final String sComment = "Comments and whitespace will not be saved.";$/;"	f	class:SettingsXMLFile	file:
-sDefaultFragmentGLSL	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private final static String sDefaultFragmentGLSL = ""$/;"	f	class:Sprite	file:
-sDefaultFragmentShader	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private final static Shader sDefaultFragmentShader = new Shader(sDefaultFragmentGLSL, Shader.Type.FRAGMENT);$/;"	f	class:Sprite	file:
-sDefaultVertexGLSL	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private final static String sDefaultVertexGLSL = ""$/;"	f	class:Sprite	file:
-sDefaultVertexShader	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    private final static Shader sDefaultVertexShader = new Shader(sDefaultVertexGLSL, Shader.Type.VERTEX);$/;"	f	class:Sprite	file:
+run	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    public void run() {$/;"	m	class:Command
+run	core/src/main/java/com/spidey01/sxe/core/cmds/EchoCommand.java	/^    public void run() {$/;"	m	class:EchoCommand
+run	core/src/main/java/com/spidey01/sxe/core/cmds/QuitCommand.java	/^    public void run() {$/;"	m	class:QuitCommand
+sArgs	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsArgsTest.java	/^    private static final String[] sArgs = new String[]{$/;"	f	class:SettingsArgsTest	file:
+sComment	core/src/main/java/com/spidey01/sxe/core/io/SettingsFile.java	/^    private static final String sComment = "Comments and whitespace will not be saved.";$/;"	f	class:SettingsFile	file:
+sComment	core/src/main/java/com/spidey01/sxe/core/io/SettingsXMLFile.java	/^    private static final String sComment = "Comments and whitespace will not be saved.";$/;"	f	class:SettingsXMLFile	file:
+sDefaultFragmentGLSL	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    private final static String sDefaultFragmentGLSL = ""$/;"	f	class:Sprite	file:
+sDefaultFragmentShader	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    private final static Shader sDefaultFragmentShader = new Shader(sDefaultFragmentGLSL, Shader.Type.FRAGMENT);$/;"	f	class:Sprite	file:
+sDefaultVertexGLSL	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    private final static String sDefaultVertexGLSL = ""$/;"	f	class:Sprite	file:
+sDefaultVertexShader	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    private final static Shader sDefaultVertexShader = new Shader(sDefaultVertexGLSL, Shader.Type.VERTEX);$/;"	f	class:Sprite	file:
 sIsLoggingReady	core/src/main/java/com/spidey01/sxe/core/testing/UnitTest.java	/^    private static boolean sIsLoggingReady = false;$/;"	f	class:UnitTest	file:
 sLoader	core/src/test/java/com/spidey01/sxe/core/io/GZipResourceLoaderTest.java	/^    private static GZipResourceLoader sLoader = new GZipResourceLoader();$/;"	f	class:GZipResourceLoaderTest	file:
 sLoader	core/src/test/java/com/spidey01/sxe/core/io/PathResourceLoaderTest.java	/^    private static PathResourceLoader sLoader = new PathResourceLoader();$/;"	f	class:PathResourceLoaderTest	file:
 sLoader	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^    private static ZipResourceLoader sLoader = new ZipResourceLoader();$/;"	f	class:ZipResourceLoaderTest	file:
-sMap	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^    private static final HashMap<String, String> sMap = new HashMap<String, String>();$/;"	f	class:SettingsMapTest	file:
+sMap	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsMapTest.java	/^    private static final HashMap<String, String> sMap = new HashMap<String, String>();$/;"	f	class:SettingsMapTest	file:
 sNullFormat	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    private static final String sNullFormat = "(null)";$/;"	f	class:LogSink	file:
 sRequiredTables	core/src/main/java/com/spidey01/sxe/core/TrueTypeFont.java	/^    private static String[] sRequiredTables = {$/;"	f	class:TrueTypeFont	file:
 sResourceManager	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    private static ResourceManager sResourceManager;$/;"	f	class:ResourceManagerTest	file:
@@ -2549,74 +2587,76 @@ sResourceProperty	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting
 sResourceProperty	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToPython.java	/^    private static final String sResourceProperty = "scripting.testhelpers.resources";$/;"	f	class:JavaToPython	file:
 sResourceProperty	scripting/testhelpers/src/main/java/com/spidey01/sxe/scripting/testhelpers/JavaToRuby.java	/^    private static final String sResourceProperty = "scripting.testhelpers.resources";$/;"	f	class:JavaToRuby	file:
 sTestURIs	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    protected static final String[] sTestURIs = new String[]{$/;"	f	class:ResourceManagerTest
-sUserDir	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    private static String sUserDir;$/;"	f	class:Utils	file:
+sUserDir	core/src/main/java/com/spidey01/sxe/core/sys/FileSystem.java	/^    private static String sUserDir;$/;"	f	class:FileSystem	file:
 save	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public void save() throws IOException {$/;"	m	class:AndroidSettings
-save	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public abstract void save() throws IOException;$/;"	m	class:AbstractSettingsFile
-save	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public abstract void save(OutputStream stream) throws IOException;$/;"	m	class:AbstractSettingsFile
-save	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public void save(File path) throws IOException {$/;"	m	class:AbstractSettingsFile
-save	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public void save(String name) throws IOException {$/;"	m	class:AbstractSettingsFile
-save	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    void save() throws IOException;$/;"	m	interface:Settings
-save	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public void save() throws IOException {$/;"	m	class:SettingsArgs
-save	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public void save() throws IOException {$/;"	m	class:SettingsFile
-save	core/src/main/java/com/spidey01/sxe/core/SettingsFile.java	/^    public void save(OutputStream stream) throws IOException {$/;"	m	class:SettingsFile
-save	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public void save() throws IOException {$/;"	m	class:SettingsMap
-save	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    public void save() throws IOException {$/;"	m	class:SettingsXMLFile
-save	core/src/main/java/com/spidey01/sxe/core/SettingsXMLFile.java	/^    public void save(OutputStream stream) throws IOException {$/;"	m	class:SettingsXMLFile
-save	core/src/test/java/com/spidey01/sxe/core/SettingsArgsTest.java	/^    public void save() throws IOException {$/;"	m	class:SettingsArgsTest
-save	core/src/test/java/com/spidey01/sxe/core/SettingsMapTest.java	/^    public void save() throws IOException {$/;"	m	class:SettingsMapTest
+save	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    void save() throws IOException;$/;"	m	interface:Settings
+save	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public void save() throws IOException {$/;"	m	class:SettingsArgs
+save	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public void save() throws IOException {$/;"	m	class:SettingsMap
+save	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public abstract void save() throws IOException;$/;"	m	class:AbstractSettingsFile
+save	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public abstract void save(OutputStream stream) throws IOException;$/;"	m	class:AbstractSettingsFile
+save	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public void save(File path) throws IOException {$/;"	m	class:AbstractSettingsFile
+save	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public void save(String name) throws IOException {$/;"	m	class:AbstractSettingsFile
+save	core/src/main/java/com/spidey01/sxe/core/io/SettingsFile.java	/^    public void save() throws IOException {$/;"	m	class:SettingsFile
+save	core/src/main/java/com/spidey01/sxe/core/io/SettingsFile.java	/^    public void save(OutputStream stream) throws IOException {$/;"	m	class:SettingsFile
+save	core/src/main/java/com/spidey01/sxe/core/io/SettingsXMLFile.java	/^    public void save() throws IOException {$/;"	m	class:SettingsXMLFile
+save	core/src/main/java/com/spidey01/sxe/core/io/SettingsXMLFile.java	/^    public void save(OutputStream stream) throws IOException {$/;"	m	class:SettingsXMLFile
+save	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsArgsTest.java	/^    public void save() throws IOException {$/;"	m	class:SettingsArgsTest
+save	core/src/test/java/com/spidey01/sxe/core/cfg/SettingsMapTest.java	/^    public void save() throws IOException {$/;"	m	class:SettingsMapTest
 schemaRequiredForLoad	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public void schemaRequiredForLoad() throws IOException {$/;"	m	class:ResourceManagerTest
 select	core/build/reports/tests/report.js	/^function select(i) {$/;"	c
 select	scripting/jruby/build/reports/tests/report.js	/^function select(i) {$/;"	c
 select	scripting/jsr223/build/reports/tests/report.js	/^function select(i) {$/;"	c
 select	scripting/rhino/build/reports/tests/report.js	/^function select(i) {$/;"	c
-sendKeys	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    protected void sendKeys(String line) {$/;"	m	class:ConsoleTest
-sendKeys	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    protected void sendKeys(String[] words) {$/;"	m	class:ConsoleTest
+sendCommandLine	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    protected void sendCommandLine(String line) {$/;"	m	class:ConsoleTest
 sendToggle	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    protected void sendToggle() {$/;"	m	class:ConsoleTest
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(String value) {$/;"	m	class:Variable
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(boolean value) {$/;"	m	class:Variable
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(float value) {$/;"	m	class:Variable
 set	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public void set(int value) {$/;"	m	class:Variable
+setArgs	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    public void setArgs(String args) {$/;"	m	class:Command
+setArgs	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    public void setArgs(String[] args) {$/;"	m	class:Command
 setBoolean	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public Settings setBoolean(String key, boolean value) {$/;"	m	class:AndroidSettings
-setBoolean	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public Settings setBoolean(String key, boolean value) {$/;"	m	class:AbstractSettingsFile
-setBoolean	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    Settings setBoolean(String key, boolean value);$/;"	m	interface:Settings
-setBoolean	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public Settings setBoolean(String key, boolean value) {$/;"	m	class:SettingsArgs
-setBoolean	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public Settings setBoolean(String key, boolean value) {$/;"	m	class:SettingsMap
+setBoolean	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    Settings setBoolean(String key, boolean value);$/;"	m	interface:Settings
+setBoolean	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public Settings setBoolean(String key, boolean value) {$/;"	m	class:SettingsArgs
+setBoolean	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public Settings setBoolean(String key, boolean value) {$/;"	m	class:SettingsMap
+setBoolean	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public Settings setBoolean(String key, boolean value) {$/;"	m	class:AbstractSettingsFile
 setDefaultLevel	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public void setDefaultLevel(int level) {$/;"	m	class:LogSink
 setDisplayDate	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public void setDisplayDate(boolean x) {$/;"	m	class:LogSink
 setDisplayThreadId	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public void setDisplayThreadId(boolean x) {$/;"	m	class:LogSink
 setDisplayTime	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public void setDisplayTime(boolean x) {$/;"	m	class:LogSink
 setFloat	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:AndroidSettings
-setFloat	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:AbstractSettingsFile
-setFloat	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    Settings setFloat(String key, float value);$/;"	m	interface:Settings
-setFloat	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:SettingsArgs
-setFloat	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:SettingsMap
+setFloat	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    Settings setFloat(String key, float value);$/;"	m	interface:Settings
+setFloat	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:SettingsArgs
+setFloat	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:SettingsMap
+setFloat	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public Settings setFloat(String key, float value) {$/;"	m	class:AbstractSettingsFile
 setFont	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    public void setFont(Font newFont) {$/;"	m	class:Text
 setInt	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public Settings setInt(String key, int value) {$/;"	m	class:AndroidSettings
-setInt	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public Settings setInt(String key, int value) {$/;"	m	class:AbstractSettingsFile
-setInt	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    Settings setInt(String key, int value);$/;"	m	interface:Settings
-setInt	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public Settings setInt(String key, int value) {$/;"	m	class:SettingsArgs
-setInt	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public Settings setInt(String key, int value) {$/;"	m	class:SettingsMap
-setLevel	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void setLevel(String tag, int level) {$/;"	m	class:Log
+setInt	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    Settings setInt(String key, int value);$/;"	m	interface:Settings
+setInt	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public Settings setInt(String key, int value) {$/;"	m	class:SettingsArgs
+setInt	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public Settings setInt(String key, int value) {$/;"	m	class:SettingsMap
+setInt	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public Settings setInt(String key, int value) {$/;"	m	class:AbstractSettingsFile
+setLevel	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public synchronized static void setLevel(String tag, int level) {$/;"	m	class:Log
 setLevel	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    public void setLevel(String tag, int level) {$/;"	m	class:LogSink
 setLoader	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public ResourceLoader setLoader(String container, ResourceLoader loader) {$/;"	m	class:ResourceManager
 setLoader	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public void setLoader() {$/;"	m	class:ResourceManagerTest
 setLong	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public Settings setLong(String key, long value) {$/;"	m	class:AndroidSettings
-setLong	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public Settings setLong(String key, long value) {$/;"	m	class:AbstractSettingsFile
-setLong	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    Settings setLong(String key, long value);$/;"	m	interface:Settings
-setLong	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public Settings setLong(String key, long value) {$/;"	m	class:SettingsArgs
-setLong	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public Settings setLong(String key, long value) {$/;"	m	class:SettingsMap
+setLong	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    Settings setLong(String key, long value);$/;"	m	interface:Settings
+setLong	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public Settings setLong(String key, long value) {$/;"	m	class:SettingsArgs
+setLong	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public Settings setLong(String key, long value) {$/;"	m	class:SettingsMap
+setLong	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public Settings setLong(String key, long value) {$/;"	m	class:AbstractSettingsFile
 setMode	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public boolean setMode(String mode) {$/;"	m	class:AndroidDisplay
 setMode	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    boolean setMode(String mode);$/;"	m	interface:Display
 setMode	core/src/main/java/com/spidey01/sxe/core/testing/NullDisplay.java	/^    public boolean setMode(String mode) {$/;"	m	class:NullDisplay
 setMode	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    private boolean setMode(DisplayMode mode) {$/;"	m	class:PcDisplay	file:
 setMode	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public boolean setMode(String mode) {$/;"	m	class:PcDisplay
+setPrompt	core/src/main/java/com/spidey01/sxe/core/input/ConsoleInputManager.java	/^    public void setPrompt(String newPrompt) {$/;"	m	class:ConsoleInputManager
 setRepeatDelay	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void setRepeatDelay(int count) {$/;"	m	class:Console
 setString	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidSettings.java	/^    public Settings setString(String key, String value) {$/;"	m	class:AndroidSettings
-setString	core/src/main/java/com/spidey01/sxe/core/AbstractSettingsFile.java	/^    public Settings setString(String key, String value) {$/;"	m	class:AbstractSettingsFile
-setString	core/src/main/java/com/spidey01/sxe/core/Settings.java	/^    Settings setString(String key, String value);$/;"	m	interface:Settings
-setString	core/src/main/java/com/spidey01/sxe/core/SettingsArgs.java	/^    public Settings setString(String key, String value) {$/;"	m	class:SettingsArgs
-setString	core/src/main/java/com/spidey01/sxe/core/SettingsMap.java	/^    public Settings setString(String key, String value) {$/;"	m	class:SettingsMap
-setTechnique	core/src/main/java/com/spidey01/sxe/core/Sprite.java	/^    public void setTechnique(VertexBufferTechnique technique) {$/;"	m	class:Sprite
+setString	core/src/main/java/com/spidey01/sxe/core/cfg/Settings.java	/^    Settings setString(String key, String value);$/;"	m	interface:Settings
+setString	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsArgs.java	/^    public Settings setString(String key, String value) {$/;"	m	class:SettingsArgs
+setString	core/src/main/java/com/spidey01/sxe/core/cfg/SettingsMap.java	/^    public Settings setString(String key, String value) {$/;"	m	class:SettingsMap
+setString	core/src/main/java/com/spidey01/sxe/core/io/AbstractSettingsFile.java	/^    public Settings setString(String key, String value) {$/;"	m	class:AbstractSettingsFile
+setTechnique	core/src/main/java/com/spidey01/sxe/core/graphics/Sprite.java	/^    public void setTechnique(VertexBufferTechnique technique) {$/;"	m	class:Sprite
 setText	core/src/main/java/com/spidey01/sxe/core/Text.java	/^    public void setText(String newText) {$/;"	m	class:Text
 setUpClass	core/src/test/java/com/spidey01/sxe/core/ResourceManagerTest.java	/^    public static void setUpClass() {$/;"	m	class:ResourceManagerTest
 setVisible	core/src/main/java/com/spidey01/sxe/core/Console.java	/^    public void setVisible(boolean visable) {$/;"	m	class:Console
@@ -2627,10 +2667,10 @@ setup	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidConfig
 setup	core/src/main/java/com/spidey01/sxe/core/testing/NullConfiguration.java	/^    public static GameEngine setup(Game game) {$/;"	m	class:NullConfiguration
 setup	core/src/main/java/com/spidey01/sxe/core/testing/NullConfiguration.java	/^    public static GameEngine setup(String[] args, Game game) {$/;"	m	class:NullConfiguration
 setup	core/src/main/java/com/spidey01/sxe/core/testing/UnitTest.java	/^    public static void setup() {$/;"	m	class:UnitTest
-setup	core/src/test/java/com/spidey01/sxe/core/AbstractSettingsTest.java	/^    public static void setup() {$/;"	m	class:AbstractSettingsTest
 setup	core/src/test/java/com/spidey01/sxe/core/io/GZipResourceLoaderTest.java	/^    public static void setup() {$/;"	m	class:GZipResourceLoaderTest
 setup	core/src/test/java/com/spidey01/sxe/core/io/PathResourceLoaderTest.java	/^    public static void setup() {$/;"	m	class:PathResourceLoaderTest
 setup	core/src/test/java/com/spidey01/sxe/core/io/ZipResourceLoaderTest.java	/^    public static void setup() {$/;"	m	class:ZipResourceLoaderTest
+setup	core/src/test/java/com/spidey01/sxe/core/testing/AbstractSettingsTest.java	/^    public static void setup() {$/;"	m	class:AbstractSettingsTest
 setup	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^    public static GameEngine setup(Game game) {$/;"	m	class:PcConfiguration
 setup	pc/src/main/java/com/spidey01/sxe/pc/PcConfiguration.java	/^    public static GameEngine setup(String[] args, Game game) {$/;"	m	class:PcConfiguration
 setup	scripting/jruby/src/test/java/com/spidey01/sxe/scripting/jruby/HelloJRuby.java	/^    public static void setup() {$/;"	m	class:HelloJRuby
@@ -2651,10 +2691,10 @@ simpleCommand	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    pu
 simplePathTest	core/src/test/java/com/spidey01/sxe/core/io/GZipResourceLoaderTest.java	/^    public void simplePathTest() throws IOException {$/;"	m	class:GZipResourceLoaderTest
 simplePathTest	core/src/test/java/com/spidey01/sxe/core/io/PathResourceLoaderTest.java	/^    public void simplePathTest() throws IOException {$/;"	m	class:PathResourceLoaderTest
 skip	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void skip(long amount) throws IOException {$/;"	m	class:PNGDecoder	file:
-slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(BufferedReader source) throws IOException {$/;"	m	class:Utils
-slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(File source) throws IOException {$/;"	m	class:Utils
-slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(InputStream source) throws IOException {$/;"	m	class:Utils
-slurp	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static String slurp(String path) throws IOException {$/;"	m	class:Utils
+slurp	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^    public static String slurp(BufferedReader source) throws IOException {$/;"	m	class:Utils
+slurp	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^    public static String slurp(File source) throws IOException {$/;"	m	class:Utils
+slurp	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^    public static String slurp(InputStream source) throws IOException {$/;"	m	class:Utils
+slurp	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^    public static String slurp(String path) throws IOException {$/;"	m	class:Utils
 start	core/src/main/java/com/spidey01/sxe/core/Game.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:Game
 start	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public boolean start() {$/;"	m	class:GameEngine
 start	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWorld.java	/^    public boolean start(GameEngine engine) {$/;"	m	class:HelloWorld
@@ -2689,18 +2729,21 @@ tick	demos/helloworld/lib/src/main/java/com/spidey01/sxe/helloworld/lib/HelloWor
 tick	demos/nulldemo/lib/src/main/java/com/spidey01/sxe/nulldemo/lib/NullDemo.java	/^    public void tick() {$/;"	m	class:NullDemo
 tick	demos/pingpong/lib/src/main/java/com/spidey01/sxe/pingpong/lib/PingPongGame.java	/^    public void tick() {$/;"	m	class:PingPongGame
 tick	demos/snake/lib/src/main/java/com/spidey01/sxe/snake/lib/SnakeGame.java	/^    public void tick() {$/;"	m	class:SnakeGame
-toString	core/src/main/java/com/spidey01/sxe/core/KeyEvent.java	/^    public String toString() {$/;"	m	class:KeyEvent
-toString	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public String toString() {$/;"	m	class:Platform
 toString	core/src/main/java/com/spidey01/sxe/core/Variable.java	/^    public String toString() {$/;"	m	class:Variable
+toString	core/src/main/java/com/spidey01/sxe/core/input/KeyEvent.java	/^    public String toString() {$/;"	m	class:KeyEvent
+toString	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public String toString() {$/;"	m	class:Platform
 toggleByCode	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    public void toggleByCode() {$/;"	m	class:ConsoleTest
 toggleByKey	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    public void toggleByKey() {$/;"	m	class:ConsoleTest
+tokenize	core/src/main/java/com/spidey01/sxe/core/cmds/Command.java	/^    public String[] tokenize(String s) {$/;"	m	class:Command
+tokenize	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^    public static String[] tokenize(String s) {$/;"	m	class:Utils
 transPixel	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private byte[] transPixel;$/;"	f	class:PNGDecoder	file:
 translate	core/src/main/java/com/spidey01/sxe/core/LogSink.java	/^    private static String translate(int level) {$/;"	m	class:LogSink	file:
 translateKeyName	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^    protected String translateKeyName(String keyName) {$/;"	m	class:AndroidInputManager
 translateKeyName	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidInputManager.java	/^    protected String translateKeyName(int keyCode) {$/;"	m	class:AndroidInputManager
-uint16	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static int uint16(short i) {$/;"	m	class:Utils
-uint32	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static long uint32(int i) {$/;"	m	class:Utils
-uint8	core/src/main/java/com/spidey01/sxe/core/Utils.java	/^    public static short uint8(byte i) {$/;"	m	class:Utils
+uint16	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^    public static int uint16(short i) {$/;"	m	class:Utils
+uint32	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^    public static long uint32(int i) {$/;"	m	class:Utils
+uint8	core/src/main/java/com/spidey01/sxe/core/common/Utils.java	/^    public static short uint8(byte i) {$/;"	m	class:Utils
+unaryCommand	core/src/test/java/com/spidey01/sxe/core/ConsoleTest.java	/^    public void unaryCommand() {$/;"	m	class:ConsoleTest
 unfilter	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void unfilter(byte[] curLine, byte[] prevLine) throws IOException {$/;"	m	class:PNGDecoder	file:
 unfilterAverage	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void unfilterAverage(byte[] curLine, byte[] prevLine) {$/;"	m	class:PNGDecoder	file:
 unfilterPaeth	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private void unfilterPaeth(byte[] curLine, byte[] prevLine) {$/;"	m	class:PNGDecoder	file:
@@ -2710,6 +2753,7 @@ unload	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    publi
 unload	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public void unload(String uri) throws IOException {$/;"	m	class:ResourceManager
 unload	core/src/main/java/com/spidey01/sxe/core/ResourceManager.java	/^    public void unload(URI uri) throws IOException {$/;"	m	class:ResourceManager
 update	android/common/src/main/java/com/spidey01/sxe/android/common/AndroidDisplay.java	/^    public void update() {$/;"	m	class:AndroidDisplay
+update	core/src/main/java/com/spidey01/sxe/core/GameEngine.java	/^    public void update() {$/;"	m	class:GameEngine
 update	core/src/main/java/com/spidey01/sxe/core/RateCounter.java	/^    public void update() {$/;"	m	class:RateCounter
 update	core/src/main/java/com/spidey01/sxe/core/SceneManager.java	/^    public void update() {$/;"	m	class:SceneManager
 update	core/src/main/java/com/spidey01/sxe/core/graphics/Display.java	/^    void update();$/;"	m	interface:Display
@@ -2718,7 +2762,7 @@ update	pc/src/main/java/com/spidey01/sxe/pc/PcDisplay.java	/^    public void upd
 use	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public void use(OpenGLES20 GL) {$/;"	m	class:Program
 v	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void v(String tag, Object... messages) {$/;"	m	class:Log
 validate	core/src/main/java/com/spidey01/sxe/core/gl/Program.java	/^    public boolean validate(OpenGLES20 GL) {$/;"	m	class:Program
-version	core/src/main/java/com/spidey01/sxe/core/Platform.java	/^    public final String version = System.getProperty("os.name")+" "+System.getProperty("os.version");$/;"	f	class:Platform
+version	core/src/main/java/com/spidey01/sxe/core/sys/Platform.java	/^    public final String version = System.getProperty("os.name")+" "+System.getProperty("os.version");$/;"	f	class:Platform
 w	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void w(String tag, Object... messages) {$/;"	m	class:Log
 width	vendor/pngdecoder/src/main/java/de/matthiasmann/twl/utils/PNGDecoder.java	/^    private int width;$/;"	f	class:PNGDecoder	file:
 wtf	core/src/main/java/com/spidey01/sxe/core/Log.java	/^    public static void wtf(String tag, Object... messages) {$/;"	m	class:Log
