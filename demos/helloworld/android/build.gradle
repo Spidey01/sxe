@@ -1,28 +1,18 @@
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.5.7'
-    }
-}
-
-apply plugin: 'android'
-
 group = 'com.spidey01.sxe.helloworld.android'
 version = '0.0.1-SNAPSHOT'
 description = 'Hello World demo for android-based devices'
 
-dependencies {
-    compile project(':android:common')
-    compile project(':android:gles20')
-    compile project(':demos:helloworld:lib')
+buildscript {
+    apply from: project.relativePath(
+        new File(project.rootProject.projectDir,
+                 '/gradle/projects/android/buildscript.gradle'))
 }
-
+apply plugin: 'android'
 android {
-    buildToolsVersion "18.1.0"
+    apply from: project.relativePath(
+        new File(project.rootProject.projectDir,
+                 '/gradle/projects/android/android.gradle'))
     compileSdkVersion 10
     defaultConfig {
         versionCode 1
@@ -30,5 +20,11 @@ android {
         minSdkVersion 10
         targetSdkVersion 18
     }
+}
+
+dependencies {
+    compile project(':android:common')
+    compile project(':android:gles20')
+    compile project(':demos:helloworld:lib')
 }
 

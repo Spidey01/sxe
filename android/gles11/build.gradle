@@ -1,20 +1,25 @@
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.5.7'
-    }
-}
-
-apply plugin: 'android-library'
-
 group = 'com.spidey01.sxe.android.gles11'
 // archivesBaseName = 'sxe-android-gles11'
 version = '0.0.1-SNAPSHOT'
 description = 'Platform library for Android; OpenGL ES 1.1 code.'
+
+buildscript {
+    apply from: project.relativePath(
+        new File(project.rootProject.projectDir,
+                 '/gradle/projects/android/buildscript.gradle'))
+}
+apply plugin: 'android-library'
+android {
+    apply from: project.relativePath(
+        new File(project.rootProject.projectDir,
+                 '/gradle/projects/android/android.gradle'))
+    compileSdkVersion 18
+    defaultConfig {
+        minSdkVersion 10 // OpenGL ES 1.1 goes as far back as 4 but we're not!
+    }
+}
+
 
 dependencies {
     compile project(':core')
@@ -23,14 +28,5 @@ dependencies {
     compile project(':android:common')
     releaseCompile project(':android:common')
     debugCompile project(':android:common')
-}
-
-android {
-    // needed by android-library's :android:compileReleaseAidl task.
-    buildToolsVersion "18.0.1"
-    compileSdkVersion 18
-    defaultConfig {
-        minSdkVersion 10 // OpenGL ES 1.1 goes as far back as 4 but we're not!
-    }
 }
 

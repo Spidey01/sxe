@@ -1,0 +1,5 @@
+
+project.android {
+    buildToolsVersion "18.1.0"
+}
+
