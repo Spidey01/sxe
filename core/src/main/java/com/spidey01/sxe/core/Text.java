@@ -24,7 +24,13 @@
 
 package com.spidey01.sxe.core;
 
-public class Text {
+import com.spidey01.sxe.core.graphics.FrameStartedListener;
+import com.spidey01.sxe.core.gl.OpenGL;
+
+
+public class Text
+    implements FrameStartedListener
+{
     private final static String TAG = "Text";
 
     private String mText;
@@ -52,6 +58,12 @@ public class Text {
 
     public void setFont(Font newFont) {
         mFont = newFont;
+    }
+
+    /** Done just for testing atm. */
+    @Override
+    public void frameStarted(OpenGL GL20) {
+        Log.v(TAG, mText);
     }
 }
 
