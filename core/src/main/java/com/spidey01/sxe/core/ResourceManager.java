@@ -81,7 +81,7 @@ public class ResourceManager implements Subsystem {
     private Map<String, ResourceLoader> mLoaders = new HashMap<String, ResourceLoader>();
 
     /** Default loader for default://. */
-    private ResourceLoader mDefaultLoader = new PathResourceLoader();
+    private static final ResourceLoader sDefaultLoader = new PathResourceLoader();
 
     /** Locations to load resources from. */
     private List<String> mSearchLocations = new LinkedList<String>();
@@ -105,8 +105,8 @@ public class ResourceManager implements Subsystem {
         Log.d(TAG, "initialize(", engine, ")");
 
         // Setup standard resource loaders
-        mLoaders.put("default", mDefaultLoader);
-        mLoaders.put("file", mDefaultLoader);
+        mLoaders.put("default", sDefaultLoader);
+        mLoaders.put("file", sDefaultLoader);
         mLoaders.put("zip", new ZipResourceLoader());
         mLoaders.put("gzip", new GZipResourceLoader());
 
@@ -200,7 +200,7 @@ public class ResourceManager implements Subsystem {
 
 
     public ResourceLoader getDefaultLoader() {
-        return mDefaultLoader;
+        return sDefaultLoader;
     }
 
 
