@@ -80,8 +80,8 @@ public class ResourceManager implements Subsystem {
     /** Map of loaders to container types, e.g. .zip */
     private Map<String, ResourceLoader> mLoaders = new HashMap<String, ResourceLoader>();
 
-    /** Loader used when there isn't a container */
-    private ResourceLoader mDefaultLoader;
+    /** Default loader for default://. */
+    private ResourceLoader mDefaultLoader = new PathResourceLoader();
 
     /** Locations to load resources from. */
     private List<String> mSearchLocations = new LinkedList<String>();
@@ -91,12 +91,6 @@ public class ResourceManager implements Subsystem {
 
 
     public ResourceManager() {
-        // Setup standard resource loaders
-        mDefaultLoader = new PathResourceLoader();
-        mLoaders.put("default", mDefaultLoader);
-        mLoaders.put("file", mDefaultLoader);
-        mLoaders.put("zip", new ZipResourceLoader());
-        mLoaders.put("gzip", new GZipResourceLoader());
     }
 
 
@@ -109,6 +103,26 @@ public class ResourceManager implements Subsystem {
     @Override
     public void initialize(GameEngine engine) {
         Log.d(TAG, "initialize(", engine, ")");
+
+        // Setup standard resource loaders
+        mLoaders.put("default", mDefaultLoader);
+        mLoaders.put("file", mDefaultLoader);
+        mLoaders.put("zip", new ZipResourceLoader());
+        mLoaders.put("gzip", new GZipResourceLoader());
+
+        if (engine == null) {
+            /* Nothing more we can do. */
+            return;
+        }
+
+        /* Register resource search path via runtime configuration. */
+        String name = engine.getGame().getName()+".resources.path";
+        String x = engine.getSettings().getString(name);
+        if (!x.isEmpty()) {
+            for (String dir : x.split(":")) {
+                addResourceLocation(dir);
+            }
+        }
     }
 
 
@@ -119,9 +133,35 @@ public class ResourceManager implements Subsystem {
     }
 
 
+    /** Uninitialize the resource manager and all handles.
+     *
+     * <ol>
+     *  <li>All ResourceLoaders will be removed.</li>
+     *  <li>Search locations will be cleared.</li>
+     *  <li>All ResourceHandle will be invalidated.</li>
+     * </ol>
+     */
     @Override
     public void uninitialize() {
         Log.d(TAG, "uninitialize()");
+
+        mLoaders.clear();
+        assert mLoaders.size() == 0 : "mLoaders was not really cleared!";
+
+        mSearchLocations.clear();
+        assert mSearchLocations.size() == 0 : "mSearchLocations was not really cleared!";
+
+        for (ResourceHandle h : mHandles.values()) {
+            // I wonder if the compiler is able to runroll this?
+            try {
+                // FIXME
+                h.close();
+            } catch (IOException e) {
+                Log.w(TAG, "Error closing file handle:", h, e);
+            }
+        }
+        mHandles.clear();
+        assert mHandles.size() == 0 : "mHandes was not really cleared!";
     }
 
 

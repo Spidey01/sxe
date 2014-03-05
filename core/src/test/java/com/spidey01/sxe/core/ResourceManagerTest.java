@@ -60,6 +60,7 @@ public class ResourceManagerTest extends UnitTest {
     public static void setUpClass() {
         UnitTest.setup();
         sResourceManager = new ResourceManager();
+        sResourceManager.initialize(null);
         sResourceManager.addResourceLocation(TestResources.directory);
     }
 
