@@ -18,33 +18,13 @@ buildscript {
 
 allprojects {
 
-    /** So all projects  have this in one place.
+    /** So all projects have this in one place.
      */
     repositories {
         mavenLocal()
         mavenCentral()
     }
 
-}
-
-
-
-
-tasks.create(name: "core-demos", description: "build :demos:*:lib" ) {
-    project_glob(":demos:*:lib").each { demo ->
-        dependsOn demo.path+':build'
-    }
-}
-
-
-// makes pc-demos, android-demos, ...
-[ 'pc', 'android' ].each { t ->
-    def deps = []
-    project_glob(":demos:*:${t}").each { p -> deps << p.path+':build' }
-
-    tasks.create(name: "${t}-demos",
-              description: "build :demos:*:${t}",
-              dependsOn: deps) { }
 }
 
 
