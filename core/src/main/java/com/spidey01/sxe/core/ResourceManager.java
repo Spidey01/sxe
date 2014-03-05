@@ -74,7 +74,7 @@ import java.util.concurrent.FutureTask;
  *
  * @see URI
  */
-public class ResourceManager {
+public class ResourceManager implements Subsystem {
     private final static String TAG = "ResourceManager";
 
     /** Map of loaders to container types, e.g. .zip */

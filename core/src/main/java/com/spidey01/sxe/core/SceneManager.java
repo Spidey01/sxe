@@ -30,7 +30,7 @@ import com.spidey01.sxe.core.graphics.RenderableObject;
 import java.util.List;
 import java.util.ArrayList;
 
-public class SceneManager {
+public class SceneManager implements Subsystem {
     private final static String TAG = "SceneManager";
 
     private List<RenderableObject> mRenderableObjects = new ArrayList<RenderableObject>();
