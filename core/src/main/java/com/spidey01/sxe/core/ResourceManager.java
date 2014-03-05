@@ -45,34 +45,6 @@ import java.util.concurrent.FutureTask;
 
 /** Class to manage game resources.
  *
- * Resources to be loaded from storage are identified using Uniform Resource
- * Identifiers (URIs). This means that a resource takes the format of
- * <samp>[scheme][scheme-specific part][//authority][path][?query][#fragment]</samp>.
- *
- * For ease of resource loading, scheme is taken as a way to specify which
- * ResourceLoader should be used to load the URI. For example file://foo or
- * zip://bar. You specify how schemes should be handled by registering
- * instances of ResourceLoader with the ResourceManager#setLoader() instance
- * method.
- *
- * The authority (or host) portion is used by the ResourceLoader to determine
- * the source to load from. In the case of the zip scheme, we would use a URI
- * like <samp>zip://my.zip/foo/bar</samp> to refer to the file bar in directory
- * foo inside of my.zip; it would be loaded using whatever ResourceLoader is
- * set for "zip".
- *
- * A scheme called "default" is provided. This allows mapping URIs to
- * whatever the platforms local convention is, either manually or through a
- * configuration class.
- *
- * Handling of file://, zip://, and gzip:// will be setup by the constructor
- * for the obvious loaders. By default, default:// is setan alias to file://.
- *
- * TODO: tar://; maybe http://, ftp:// etc.
- *
- * Resources will be searched for in locations registered with #addResourceLocation().
- *
- * @see URI
  */
 public class ResourceManager implements Subsystem {
     private final static String TAG = "ResourceManager";
@@ -100,9 +72,22 @@ public class ResourceManager implements Subsystem {
     }
 
 
-    @Override
-    public void initialize(GameEngine engine) {
-        Log.d(TAG, "initialize(", engine, ")");
+    /** Initialize the ResourceManager Subsystem for use.
+     *
+     * Handling of file://, zip://, and gzip:// will be setup with the obvious
+     * loaders.
+     *
+     * A scheme called "default" is also provided. This may be freely mapped to
+     * whatever the platforms local convention is or your game prefers: either
+     * manually or through a configuration directive.
+     *
+     * By default, default:// is set as an alias for file://. This is
+     * appropriate for most platforms.
+     *
+     * @see ResourceManager.load
+     */
+    @Override public void initialize(GameEngine engine) { Log.d(TAG,
+            "initialize(", engine, ")");
 
         // Setup standard resource loaders
         mLoaders.put("default", sDefaultLoader);
@@ -123,6 +108,8 @@ public class ResourceManager implements Subsystem {
                 addResourceLocation(dir);
             }
         }
+
+        // TODO: a way of overriding default loader?
     }
 
 
@@ -281,8 +268,28 @@ public class ResourceManager implements Subsystem {
 
     /** Load URI as a ResourceHandle.
      *
+     * Resources to be loaded from storage are identified using Uniform Resource
+     * Identifiers (URIs). This means that a resource takes the format of
+     * <samp>[scheme][scheme-specific part][//authority][path][?query][#fragment]</samp>.
+     *
+     * The scheme portion is taken as a way to specify which ResourceLoader
+     * should be used to load the URI. For example <samp>file://foo</samp> or
+     * <samp>zip://bar</samp>.
+     *
+     * You specify the schemes should be loaded by registering instances of
+     * ResourceLoader with the ResourceManager#setLoader() instance method.
+     *
+     * The authority (or host) portion is used by the ResourceLoader to
+     * determine the actual source to load from. In the case of the zip scheme,
+     * we would use a URI like <samp>zip://my.zip/foo/bar</samp> to refer to
+     * the file bar in directory foo inside of my.zip; it would be loaded using
+     * whatever ResourceLoader is set for "zip".
+     *
+     * Resources will be searched for in locations registered with #addResourceLocation().
+     *
      * @throws IllegalArgumentException if no scheme given in URI.
      *
+     * @see URI
      */
     public ResourceHandle load(URI uri) throws IOException {
         Log.v(TAG, "load(): URI => "+uri);
