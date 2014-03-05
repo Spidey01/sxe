@@ -100,22 +100,26 @@ public class ResourceManager {
     }
 
 
+    @Override
     public String name() {
         return TAG;
     }
 
 
+    @Override
     public void initialize(GameEngine engine) {
         Log.d(TAG, "initialize(", engine, ")");
     }
 
 
+    @Override
     public void reinitialize(GameEngine engine) {
         uninitialize();
         initialize(engine);
     }
 
 
+    @Override
     public void uninitialize() {
         Log.d(TAG, "uninitialize()");
     }
