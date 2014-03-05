@@ -84,6 +84,15 @@ public class ResourceManager implements Subsystem {
      * By default, default:// is set as an alias for file://. This is
      * appropriate for most platforms.
      *
+     *
+     * Runtime configuration values from engine will be evaluated for the
+     * following purposes:
+     *
+     * <dl>
+     *  <dt>${game name}.resources.path</dt>
+     *      <dd>Colon delimited list of paths to addResourceLocation().</dd>
+     * </dl>
+     *
      * @see ResourceManager.load
      */
     @Override public void initialize(GameEngine engine) { Log.d(TAG,
