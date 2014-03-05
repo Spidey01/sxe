@@ -23,8 +23,8 @@
 
 package com.spidey01.sxe.core.graphics;
 
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.gl.OpenGL;
-
 import com.spidey01.sxe.core.graphics.FrameEndedListener;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.FrameStartedListener;
@@ -37,7 +37,7 @@ import com.spidey01.sxe.core.graphics.FrameStartedListener;
  *
  *
  */
-public interface Display {
+public interface Display extends Subsystem {
 
     /** Create OpenGL context for the current Display.
      *

@@ -23,8 +23,11 @@
 
 package com.spidey01.sxe.core.testing;
 
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.input.AbstractInputManager;
+import com.spidey01.sxe.core.common.Subsystem;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -35,7 +38,10 @@ import java.util.LinkedList;
  *
  * No input events are generated unless injected.
  */
-public class NullInputManager extends AbstractInputManager {
+public class NullInputManager
+    extends AbstractInputManager
+    implements Subsystem
+{
     private static final String TAG = "NullInputManager";
     
     public NullInputManager() {
@@ -47,6 +53,26 @@ public class NullInputManager extends AbstractInputManager {
         Log.xtrace(TAG,  "poll()");
     }
 
+
+    public String name() {
+        return TAG;
+    }
+
+
+    public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
+    }
+
+
+    public void reinitialize(GameEngine engine) {
+        uninitialize();
+        initialize(engine);
+    }
+
+
+    public void uninitialize() {
+        Log.d(TAG, "uninitialize()");
+    }
 }
 
 

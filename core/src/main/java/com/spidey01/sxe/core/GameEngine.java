@@ -26,6 +26,7 @@ package com.spidey01.sxe.core;
 import com.spidey01.sxe.core.cfg.Settings;
 import com.spidey01.sxe.core.cfg.SettingsArgs;
 import com.spidey01.sxe.core.cfg.SettingsMap;
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.common.Utils;
 import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.input.InputManager;
@@ -39,11 +40,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Map;
 
 /** Class implementing the core game engine.
  *
@@ -87,8 +88,9 @@ public class GameEngine {
     private final Platform mPlatform;
     private GameThread mGameThread;
 
+    private Map<String, Subsystem> mSubsystems = new HashMap<String, Subsystem>();
 
-    /** Initializes the engine for use.
+
     /** Initializes the engine for use.
      *
      * This is the primary chunk-o-code constructor.
@@ -168,14 +170,16 @@ public class GameEngine {
 
         configure();
 
+        mDisplay.initialize(this);
+        mSceneManager.initialize(this);
+        mInputManager.initialize(this);
+        mResourceManager.initialize(this);
+
         // ternary abuse, yeah.
         final String p = 
-            (mDisplay == null ? "display"
-             : (mSceneManager == null ? "scene"
-                 : (mGame == null ? "game"
-                     : (mInputManager == null ? "input"
-                         : (mResourceManager == null ? "resources"
-                             : (mPlatform == null ? "platform" : null))))));
+            (mGame == null ? "game" :
+                (mPlatform == null ? "platform"
+                    : null));
 
         if (p != null) {
             throw new IllegalArgumentException(p+" can't be null!");

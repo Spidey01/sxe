@@ -24,11 +24,14 @@
 package com.spidey01.sxe.core.input;
 
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.common.Subsystem;
 
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.LinkedList;
+
 
 /** Abstract base for managing game input.
  *
@@ -123,6 +126,26 @@ public abstract class AbstractInputManager implements InputManager {
         inject("RETURN", false);
     }
 
+
+    public String name() {
+        return TAG;
+    }
+
+
+    public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
+    }
+
+
+    public void reinitialize(GameEngine engine) {
+        uninitialize();
+        initialize(engine);
+    }
+
+
+    public void uninitialize() {
+        Log.d(TAG, "uninitialize()");
+    }
 }
 
 

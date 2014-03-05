@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.io.PathResourceLoader;
 import com.spidey01.sxe.core.io.ZipResourceLoader;
 import com.spidey01.sxe.core.io.GZipResourceLoader;
@@ -95,6 +97,27 @@ public class ResourceManager {
         mLoaders.put("file", mDefaultLoader);
         mLoaders.put("zip", new ZipResourceLoader());
         mLoaders.put("gzip", new GZipResourceLoader());
+    }
+
+
+    public String name() {
+        return TAG;
+    }
+
+
+    public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
+    }
+
+
+    public void reinitialize(GameEngine engine) {
+        uninitialize();
+        initialize(engine);
+    }
+
+
+    public void uninitialize() {
+        Log.d(TAG, "uninitialize()");
     }
 
 

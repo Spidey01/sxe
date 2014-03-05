@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core.testing;
 
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.RateCounter;
 import com.spidey01.sxe.core.gl.OpenGL;
@@ -154,5 +156,25 @@ public class NullDisplay implements Display {
         return "wtf";
     }
 
+
+    public String name() {
+        return TAG;
+    }
+
+
+    public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
+    }
+
+
+    public void reinitialize(GameEngine engine) {
+        uninitialize();
+        initialize(engine);
+    }
+
+
+    public void uninitialize() {
+        Log.d(TAG, "uninitialize()");
+    }
 }
 

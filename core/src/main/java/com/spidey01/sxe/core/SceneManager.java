@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.graphics.RenderableObject;
 
 import java.util.List;
@@ -35,6 +37,28 @@ public class SceneManager {
 
     public SceneManager() {
     }
+
+
+    public String name() {
+        return TAG;
+    }
+
+
+    public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
+    }
+
+
+    public void reinitialize(GameEngine engine) {
+        uninitialize();
+        initialize(engine);
+    }
+
+
+    public void uninitialize() {
+        Log.d(TAG, "uninitialize()");
+    }
+
 
     /** Adds a renderable object to the scene.
      */
