@@ -27,6 +27,7 @@ package com.spidey01.sxe.pc;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.RateCounter;
+import com.spidey01.sxe.core.cfg.Settings;
 import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.gl.OpenGL;
 import com.spidey01.sxe.core.graphics.FrameEndedListener;
@@ -50,8 +51,7 @@ import java.util.ArrayList;
 public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
 
     private RateCounter mFrameCounter = new RateCounter("Frames");
-    /** default to VGA */
-    private DisplayMode mDisplayMode = new DisplayMode(640, 480);
+    private DisplayMode mDisplayMode;
     private List<FrameStartedListener> mFrameStartedListeners = new ArrayList<FrameStartedListener>();
     private List<FrameEndedListener> mFrameEndedListeners = new ArrayList<FrameEndedListener>();
     private OpenGL mOpenGL;
@@ -91,12 +91,31 @@ public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
     public void initialize(GameEngine engine) {
         Log.d(TAG, "initialize(", engine, ")");
 
+        /** default to VGA */
+        mDisplayMode = new DisplayMode(640, 480);
+
         /* Support setting resolution from runtime configuration. */
-        String name = engine.getGame().getName()+".display.mode";
-        String x = engine.getSettings().getString(name);
-        if (!x.isEmpty()) {
-            Log.d(TAG, name, "=", x);
-            mDisplay.setMode(x);
+        Settings settings = engine.getSettings();
+        String game = engine.getGame().getName();
+        String name;
+        String value;
+        
+        name = game+".display.mode";
+        value = settings.getString(name);
+        if (!value.isEmpty()) {
+            Log.d(TAG, name, "=", value);
+            setMode(value);
+        }
+
+        name = game+".display.fps";
+        value = settings.getString(name).toLowerCase();
+        if (!value.isEmpty()) {
+            Log.d(TAG, name, "=", value);
+            if (value.equals("true") || value.equals("1") || value.equals("on")) {
+                mFrameCounter.enableDebugging();
+            } else if (value.equals("false") || value.equals("0") || value.equals("off")) {
+                mFrameCounter.disableDebugging();
+            }
         }
     }
 
