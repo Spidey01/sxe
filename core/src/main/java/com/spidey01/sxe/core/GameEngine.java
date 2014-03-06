@@ -327,19 +327,6 @@ public class GameEngine {
                 makeLogSink(key.substring(0, i));
             }
         }
-
-        final String game = mGame.getName();
-        String name;
-        String x;
-
-        /* Register resource search path via configuration file. */
-        name = game+".resources.path";
-        x = mRuntimeSettings.getString(name);
-        if (!x.isEmpty()) {
-            for (String dir : x.split(":")) {
-                mResourceManager.addResourceLocation(dir);
-            }
-        }
     }
 
 
