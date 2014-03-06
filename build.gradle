@@ -29,7 +29,7 @@ task tags(type: Exec) {
         args "--exclude=${p}/build/", "--exclude=${p}/gen/"
     }
     // also these FWIW:
-    args 'gradle', 'templates'
+    args 'gradle'
 }
 
 
