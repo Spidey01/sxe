@@ -90,6 +90,14 @@ public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
     @Override
     public void initialize(GameEngine engine) {
         Log.d(TAG, "initialize(", engine, ")");
+
+        /* Support setting resolution from runtime configuration. */
+        String name = engine.getGame().getName()+".display.mode";
+        String x = engine.getSettings().getString(name);
+        if (!x.isEmpty()) {
+            Log.d(TAG, name, "=", x);
+            mDisplay.setMode(x);
+        }
     }
 
 

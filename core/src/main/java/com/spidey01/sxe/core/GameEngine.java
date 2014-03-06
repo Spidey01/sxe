@@ -340,15 +340,6 @@ public class GameEngine {
                 mResourceManager.addResourceLocation(dir);
             }
         }
-        
-
-        /* Support setting resolution from configuration file. */
-        name = game+".display.mode";
-        x = mRuntimeSettings.getString(name);
-        if (!x.isEmpty()) {
-            Log.d(TAG, name, "=", x);
-            mDisplay.setMode(x);
-        }
     }
 
 
