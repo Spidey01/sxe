@@ -1,4 +1,6 @@
 
+apply from: '../../../gradle/projects/repositories.gradle'
+
 group = 'com.spidey01.sxe.nulldemo.android'
 version = '0.0.1-SNAPSHOT'
 description = 'Null demo for android-based devices'

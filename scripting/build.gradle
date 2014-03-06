@@ -1,5 +1,7 @@
 
+apply from: '../gradle/projects/repositories.gradle'
 apply plugin: 'java'
+
 group = 'com.spidey01.sxe.scripting'
 archivesBaseName = 'sxe-scripting'
 version = '0.0.1-SNAPSHOT'

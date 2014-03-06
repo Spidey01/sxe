@@ -16,18 +16,6 @@ buildscript {
 }
 
 
-allprojects {
-
-    /** So all projects have this in one place.
-     */
-    repositories {
-        mavenLocal()
-        mavenCentral()
-    }
-
-}
-
-
 task tags(type: Exec) {
     executable 'ctags'
     args '-R'

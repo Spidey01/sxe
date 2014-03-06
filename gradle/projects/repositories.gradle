@@ -1,0 +1,6 @@
+
+project.repositories {
+    mavenLocal()
+    mavenCentral()
+}
+

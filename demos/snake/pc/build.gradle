@@ -1,4 +1,5 @@
 
+apply from: '../../../gradle/projects/repositories.gradle'
 apply plugin: 'java'
 apply plugin:'application'
 

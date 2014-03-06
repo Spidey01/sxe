@@ -1,3 +1,4 @@
+apply from: '../../../gradle/projects/repositories.gradle'
 
 group = 'com.spidey01.sxe.pingpong.android'
 version = '0.0.1-SNAPSHOT'
