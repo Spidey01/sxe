@@ -37,7 +37,7 @@ task wrapper(type: Wrapper) {
 }
 
 
-task fromTemplate(description: "See templates/README") << {
+task fromTemplate(description: "See gradle/templates/README") << {
 
     def dest = ''
     if (project.hasProperty('templateDestination')) {
@@ -55,18 +55,18 @@ task fromTemplate(description: "See templates/README") << {
     if (dest =~ /\.java$/) {
         new File(dest).withWriter() { output ->
             copyLines("COPYING", output)
-            copyLines("templates/NewClass.java", output)
+            copyLines("gradle/templates/NewClass.java", output)
         }
 
     }
     else if (dest.endsWith("build.gradle")) {
         new File(dest).withWriter() { output ->
-            copyLines("templates/build.gradle", output)
+            copyLines("gradle/templates/build.gradle", output)
         }
     }
     else if (dest.isEmpty()) {
         println "Must set property templateDestination."
-        println "See templates/README."
+        println "See gradle/templates/README."
         return
     }
 }
