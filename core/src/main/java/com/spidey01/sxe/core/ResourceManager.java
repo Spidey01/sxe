@@ -24,10 +24,11 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.cfg.Settings;
 import com.spidey01.sxe.core.common.Subsystem;
+import com.spidey01.sxe.core.io.GZipResourceLoader;
 import com.spidey01.sxe.core.io.PathResourceLoader;
 import com.spidey01.sxe.core.io.ZipResourceLoader;
-import com.spidey01.sxe.core.io.GZipResourceLoader;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,11 +44,17 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
+
 /** Class to manage game resources.
  *
  */
-public class ResourceManager implements Subsystem {
+public class ResourceManager
+    implements Subsystem, Settings.OnChangedListener
+{
     private final static String TAG = "ResourceManager";
+
+    /** The GameEngine we're initialized for use with. */
+    private GameEngine mGameEngine;
 
     /** Map of loaders to container types, e.g. .zip */
     private Map<String, ResourceLoader> mLoaders = new HashMap<String, ResourceLoader>();
@@ -104,21 +111,11 @@ public class ResourceManager implements Subsystem {
         mLoaders.put("zip", new ZipResourceLoader());
         mLoaders.put("gzip", new GZipResourceLoader());
 
-        if (engine == null) {
-            /* Nothing more we can do. */
-            return;
-        }
+        mGameEngine = engine;
 
-        /* Register resource search path via runtime configuration. */
-        String name = engine.getGame().getName()+".resources.path";
-        String x = engine.getSettings().getString(name);
-        if (!x.isEmpty()) {
-            for (String dir : x.split(":")) {
-                addResourceLocation(dir);
-            }
+        if (mGameEngine != null) {
+            mGameEngine.getSettings().addChangeListener(this);
         }
-
-        // TODO: a way of overriding default loader?
     }
 
 
@@ -140,6 +137,10 @@ public class ResourceManager implements Subsystem {
     @Override
     public void uninitialize() {
         Log.d(TAG, "uninitialize()");
+
+        if (mGameEngine != null) {
+            mGameEngine.getSettings().removeChangeListener(this);
+        }
 
         mLoaders.clear();
         assert mLoaders.size() == 0 : "mLoaders was not really cleared!";
@@ -387,5 +388,19 @@ public class ResourceManager implements Subsystem {
         return task;
     }
 
+
+    public void onChanged(Settings settings, String key) {
+
+        /* Register resource search path via runtime configuration. */
+        String name = mGameEngine.getGame().getName()+".resources.path";
+        String x = mGameEngine.getSettings().getString(name);
+        if (!x.isEmpty()) {
+            for (String dir : x.split(":")) {
+                addResourceLocation(dir);
+            }
+        }
+
+        // TODO: a way of overriding default loader?
+    }
 }
 
