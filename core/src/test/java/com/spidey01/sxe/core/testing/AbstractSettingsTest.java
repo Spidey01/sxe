@@ -33,9 +33,11 @@ import java.io.File;
 import java.io.IOException;
 
 
-public abstract class AbstractSettingsTest extends UnitTest {
+public abstract class AbstractSettingsTest
+    extends UnitTest
+    implements Settings.OnChangedListener
+{
     private static final String TAG = "AbstractSettingsTest";
-
 
     @BeforeClass
     public static void setup() {
@@ -88,6 +90,33 @@ public abstract class AbstractSettingsTest extends UnitTest {
         p.merge(c);
         Assert.assertTrue(p.contains("merge.c"));
         Assert.assertTrue(p.getBoolean("merge.c"));
+    }
+
+
+    private boolean mOnChanged_called;
+
+
+    @Test
+    public void onChangedListener_onChanged() {
+        Settings p = makeSettings();
+        mOnChanged_called = false;
+
+        p.addChangeListener(this);
+        p.setInt("foo", 1);
+        Assert.assertTrue(mOnChanged_called);
+
+        mOnChanged_called = false;
+        p.removeChangeListener(this);
+        p.setInt("foo", 0);
+        Assert.assertFalse(mOnChanged_called);
+    }
+
+
+    public void onChanged(Settings settings, String key) {
+        Assert.assertNotNull(settings);
+        Assert.assertNotNull(key);
+        Assert.assertFalse(key.isEmpty());
+        mOnChanged_called = true;
     }
 
 }
