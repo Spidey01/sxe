@@ -145,6 +145,9 @@ public class ResourceManager
         mLoaders.put("gzip", new GZipResourceLoader());
 
         mGameEngine = engine;
+        if (mGameEngine == null) {
+            return;
+        }
 
         /* Handle runtime configuration Settings. */
         mSettingsListener = new ResourceSettingsListener(mGameEngine);
