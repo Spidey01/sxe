@@ -25,6 +25,7 @@ package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.cfg.Settings;
+import com.spidey01.sxe.core.cfg.SettingsListener;
 import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.io.GZipResourceLoader;
 import com.spidey01.sxe.core.io.PathResourceLoader;
@@ -49,12 +50,45 @@ import java.util.concurrent.FutureTask;
  *
  */
 public class ResourceManager
-    implements Subsystem, Settings.OnChangedListener
+    implements Subsystem
 {
+
+    /** Settings.OnChangedListener implementation for ResourceManager.
+     */
+    private class ResourceSettingsListener extends SettingsListener {
+        private static final String TAG = ResourceManager.TAG+".SettingsListener";
+        private final GameEngine mEngine;
+
+        public ResourceSettingsListener(GameEngine engine) {
+            super(engine.getSettings(), engine.getGame().getName()+".resources");
+        }
+
+
+        @Override
+        public void onChanged(Settings settings, String key) {
+            super.onChanged(settings, key);
+            Log.xtrace(TAG, "onChanged(Settings =>", settings, ", String =>", key);
+
+            String name;
+            String value;
+
+            name = mPrefix+".path";
+            value = settings.getString(name);
+            if (!value.isEmpty()) {
+                for (String dir : value.split(":")) {
+                    ResourceManager.this.addResourceLocation(dir);
+                }
+            }
+        }
+    }
+
+
     private final static String TAG = "ResourceManager";
 
     /** The GameEngine we're initialized for use with. */
     private GameEngine mGameEngine;
+
+    private ResourceSettingsListener mSettingsListener;
 
     /** Map of loaders to container types, e.g. .zip */
     private Map<String, ResourceLoader> mLoaders = new HashMap<String, ResourceLoader>();
@@ -113,9 +147,8 @@ public class ResourceManager
 
         mGameEngine = engine;
 
-        if (mGameEngine != null) {
-            mGameEngine.getSettings().addChangeListener(this);
-        }
+        /* Handle runtime configuration Settings. */
+        mSettingsListener = new ResourceSettingsListener(mGameEngine);
     }
 
 
@@ -138,9 +171,8 @@ public class ResourceManager
     public void uninitialize() {
         Log.d(TAG, "uninitialize()");
 
-        if (mGameEngine != null) {
-            mGameEngine.getSettings().removeChangeListener(this);
-        }
+        mSettingsListener.clear();
+        mSettingsListener = null;
 
         mLoaders.clear();
         assert mLoaders.size() == 0 : "mLoaders was not really cleared!";
@@ -389,18 +421,5 @@ public class ResourceManager
     }
 
 
-    public void onChanged(Settings settings, String key) {
-
-        /* Register resource search path via runtime configuration. */
-        String name = mGameEngine.getGame().getName()+".resources.path";
-        String x = mGameEngine.getSettings().getString(name);
-        if (!x.isEmpty()) {
-            for (String dir : x.split(":")) {
-                addResourceLocation(dir);
-            }
-        }
-
-        // TODO: a way of overriding default loader?
-    }
 }
 
