@@ -28,6 +28,7 @@ import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.RateCounter;
 import com.spidey01.sxe.core.cfg.Settings;
+import com.spidey01.sxe.core.cfg.SettingsListener;
 import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.gl.OpenGL;
 import com.spidey01.sxe.core.graphics.FrameEndedListener;
@@ -48,14 +49,60 @@ import java.util.ArrayList;
 
 
 
-public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
+public class PcDisplay
+    implements com.spidey01.sxe.core.graphics.Display
+{
+    /** Settings.OnChangedListener implementation for PcDisplay.
+     */
+    private class DisplaySettingsListener extends SettingsListener {
+        private static final String TAG = PcDisplay.TAG+".SettingsListener";
 
+
+        public DisplaySettingsListener(GameEngine engine) {
+            super(engine.getSettings(), engine.getGame().getName()+".display");
+        }
+
+
+        @Override
+        public void onChanged(Settings settings, String key) {
+            super.onChanged(settings, key);
+            Log.xtrace(TAG, "onChanged(Settings =>", settings, ", String =>", key);
+
+            String name;
+            String value;
+
+            /* Support setting resolution from runtime configuration. */
+            name = mPrefix+".mode";
+            value = settings.getString(name);
+            if (!value.isEmpty()) {
+                Log.d(TAG, name, "=", value);
+                PcDisplay.this.setMode(value);
+            }
+
+            /* Support toggling display of FPS from runtime configuration. */
+            name = mPrefix+".fps";
+            value = settings.getString(name).toLowerCase();
+            if (!value.isEmpty()) {
+                Log.d(TAG, name, "=", value);
+                if (value.equals("true") || value.equals("1") || value.equals("on")) {
+                    PcDisplay.this.mFrameCounter.enableDebugging();
+                } else if (value.equals("false") || value.equals("0") || value.equals("off")) {
+                    PcDisplay.this.mFrameCounter.disableDebugging();
+                }
+            }
+        }
+    }
+
+
+    private static final String TAG = "PcDisplay";
+
+
+    private DisplaySettingsListener mSettingsListener;
     private RateCounter mFrameCounter = new RateCounter("Frames");
     private DisplayMode mDisplayMode;
     private List<FrameStartedListener> mFrameStartedListeners = new ArrayList<FrameStartedListener>();
     private List<FrameEndedListener> mFrameEndedListeners = new ArrayList<FrameEndedListener>();
     private OpenGL mOpenGL;
-    private static final String TAG = "PcDisplay";
 
 
     /** Create the display based on the desired parameters.
@@ -91,32 +138,11 @@ public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
     public void initialize(GameEngine engine) {
         Log.d(TAG, "initialize(", engine, ")");
 
-        /** default to VGA */
+        /* default to VGA */
         mDisplayMode = new DisplayMode(640, 480);
-
-        /* Support setting resolution from runtime configuration. */
-        Settings settings = engine.getSettings();
-        String game = engine.getGame().getName();
-        String name;
-        String value;
         
-        name = game+".display.mode";
-        value = settings.getString(name);
-        if (!value.isEmpty()) {
-            Log.d(TAG, name, "=", value);
-            setMode(value);
-        }
-
-        name = game+".display.fps";
-        value = settings.getString(name).toLowerCase();
-        if (!value.isEmpty()) {
-            Log.d(TAG, name, "=", value);
-            if (value.equals("true") || value.equals("1") || value.equals("on")) {
-                mFrameCounter.enableDebugging();
-            } else if (value.equals("false") || value.equals("0") || value.equals("off")) {
-                mFrameCounter.disableDebugging();
-            }
-        }
+        /* Handle runtime configuration Settings. */
+        mSettingsListener = new DisplaySettingsListener(engine);
     }
 
 
@@ -130,6 +156,8 @@ public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
     @Override
     public void uninitialize() {
         Log.d(TAG, "uninitialize()");
+        mSettingsListener.clear();
+        mSettingsListener = null;
     }
 
 
@@ -293,6 +321,7 @@ public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
                                                                    : (ctx.OpenGL11 ? "1.1"
                                                                         : "wtf"))))))))))))));
     }
+
 
 }
 
