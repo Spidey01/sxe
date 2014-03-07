@@ -57,7 +57,6 @@ public class ResourceManager
      */
     private class ResourceSettingsListener extends SettingsListener {
         private static final String TAG = ResourceManager.TAG+".SettingsListener";
-        private final GameEngine mEngine;
 
         public ResourceSettingsListener(GameEngine engine) {
             super(engine.getSettings(), engine.getGame().getName()+".resources");
