@@ -57,6 +57,7 @@ public class NotificationManager<Receiver_T, Message_T> {
     /** Add receiver to broadcast list. */
     public void subscribe(Receiver_T receiver) {
         mNotificationReceivers.add(receiver);
+        Log.v(TAG, receiver, " has subscribed.");
     }
 
 
@@ -70,16 +71,18 @@ public class NotificationManager<Receiver_T, Message_T> {
         }
 
         bindings.add(subscriber);
-        Log.v(TAG, subscriber, " is now listening for ", key);
+        Log.v(TAG, subscriber, " has subscribed to", key);
     }
 
 
     /** Add receiver for specific message.
      *
+     * This method is provided as a convenient way to use Message_T's as the index key.
+     *
      * @param key toString() will be called to create a String key for an internal Map.
      */
-    public void subscribe(Message_T key, Receiver_T subscriber) {
-        subscribe(key.toString(), subscriber);
+    public void subscribe(Object o, Receiver_T subscriber) {
+        subscribe(o.toString(), subscriber);
     }
 
 
@@ -99,7 +102,7 @@ public class NotificationManager<Receiver_T, Message_T> {
             invoke(rx, message);
         }
 
-        List<Receiver_T> bindings = mSubscribers.get(message.toString());
+        List<Receiver_T> bindings = mSubscribers.get(asString(message));
         if (bindings == null) {
             return;
         }
@@ -123,6 +126,7 @@ public class NotificationManager<Receiver_T, Message_T> {
      *  class MyEventManager extends NotificationManager<MyEventListener, MyEvent> {
      *      @Override
      *      protected invoke(MyEventListener listener, MyEvent event) {
+     *          super.invoke(listener, event);
      *          listener.onMyEvent(event);
      *      }
      *  }
@@ -131,4 +135,26 @@ public class NotificationManager<Receiver_T, Message_T> {
     protected void invoke(Receiver_T rx, Message_T message) {
     }
 
+    /** Adapter method for custom messages.
+     *
+     * Override this message in a subclass to handle mapping the message to a
+     * subscription String. By default toString() is called on the message.
+     *
+     * Example:
+     * <samp>
+     *  interface MyEventListener {
+     *      void onMyEvent(MyEvent e);
+     *  }
+     *
+     *  class MyEventManager extends NotificationManager<MyEventListener, MyEvent> {
+     *      @Override
+     *      protected String asString(MyEvent event) {
+     *          return event.getName();
+     *      }
+     *  }
+     * </samp>
+     */
+    protected String asString(Message_T message) {
+        return message.toString();
+    }
 }

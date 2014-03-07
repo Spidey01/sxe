@@ -46,7 +46,14 @@ public abstract class AbstractInputManager implements InputManager {
     protected class KeyEventManager extends NotificationManager<KeyListener, KeyEvent> {
         @Override
         protected void invoke(KeyListener listener, KeyEvent event) {
+            super.invoke(listener, event);
             listener.onKey(event);
+        }
+
+
+        @Override
+        protected String asString(KeyEvent event) {
+            return event.getKeyName();
         }
     }
     
@@ -63,6 +70,7 @@ public abstract class AbstractInputManager implements InputManager {
 
 
     public void addKeyListener(String keyName, KeyListener listener) {
+        mKeyEventManager.subscribe(listener);
         mKeyEventManager.subscribe(keyName, listener);
     }
 
