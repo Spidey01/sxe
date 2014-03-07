@@ -65,9 +65,12 @@ public class NotificationManager<Receiver_T, Message_T> {
         if (bindings == null) {
             bindings = new LinkedList<Receiver_T>();
             mSubscribers.put(key, bindings);
+            Log.v(TAG, "created list of subscribers for ", key);
+
         }
 
         bindings.add(subscriber);
+        Log.v(TAG, subscriber, " is now listening for ", key);
     }
 
 
