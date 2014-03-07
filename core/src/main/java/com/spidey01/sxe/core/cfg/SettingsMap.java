@@ -61,6 +61,8 @@ public class SettingsMap implements Settings {
      * <samp>"key=value"</samp>.
      */
     public SettingsMap(String[] args) {
+        mMap = new HashMap<String, String>();
+
         for (String arg : args) {
             int sep = arg.lastIndexOf("=");
             mMap.put(arg.substring(0, sep), arg.substring(sep+1));
