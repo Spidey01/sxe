@@ -162,6 +162,16 @@ public class GameEngine {
 
 
         /*
+         * These initialize functions will subscribe to whatever runtime
+         * settings they want. As well as perform any pre start() setup.
+         */
+        mDisplay.initialize(this);
+        mSceneManager.initialize(this);
+        mInputManager.initialize(this);
+        mResourceManager.initialize(this);
+
+
+        /*
          * Process the various sources of Settings.
          */
         if (mPlatformSettings != null)      mRuntimeSettings.merge(mPlatformSettings);
@@ -170,11 +180,6 @@ public class GameEngine {
         if (mCommandLineSettings != null)   mRuntimeSettings.merge(mCommandLineSettings);
 
         configure();
-
-        mDisplay.initialize(this);
-        mSceneManager.initialize(this);
-        mInputManager.initialize(this);
-        mResourceManager.initialize(this);
 
         // ternary abuse, yeah.
         final String p = 
