@@ -45,7 +45,6 @@ public class SettingsMap implements Settings {
     private Map<String, String> mMap;
 
 
-
     public SettingsMap() {
         mMap = new HashMap<String, String>();
     }
@@ -53,6 +52,19 @@ public class SettingsMap implements Settings {
 
     public SettingsMap(Map<String, String> map) {
         mMap = new HashMap<String, String>(map);
+    }
+
+
+    /** Create SettingsMap from a String[].
+     *
+     * This is in the format of command line arguments. Namely
+     * <samp>"key=value"</samp>.
+     */
+    public SettingsMap(String[] args) {
+        for (String arg : args) {
+            int sep = arg.lastIndexOf("=");
+            mMap.put(arg.substring(0, sep), arg.substring(sep+1));
+        }
     }
 
 

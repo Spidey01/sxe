@@ -29,7 +29,7 @@ import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.SceneManager;
 import com.spidey01.sxe.core.cfg.Settings;
-import com.spidey01.sxe.core.cfg.SettingsArgs;
+import com.spidey01.sxe.core.cfg.SettingsMap;
 import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.io.SettingsFile;
 import com.spidey01.sxe.core.sys.Platform;
@@ -49,7 +49,7 @@ public class NullConfiguration {
 
     public static GameEngine setup(String[] args, Game game) {
         return new GameEngine(
-            new SettingsArgs(args)
+            new SettingsMap(args)
             , new NullDisplay(new NullOpenGL(), true)
             , new SceneManager()
             , game

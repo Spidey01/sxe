@@ -29,7 +29,7 @@ import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.SceneManager;
 import com.spidey01.sxe.core.cfg.Settings;
-import com.spidey01.sxe.core.cfg.SettingsArgs;
+import com.spidey01.sxe.core.cfg.SettingsMap;
 import com.spidey01.sxe.core.io.SettingsFile;
 import com.spidey01.sxe.core.io.SettingsXMLFile;
 import com.spidey01.sxe.core.sys.Platform;
@@ -53,7 +53,7 @@ public class PcConfiguration {
     public static GameEngine setup(String[] args, Game game) {
         Platform platform = new Platform(Platform.guess());
         return new GameEngine(
-            new SettingsArgs(args)
+            new SettingsMap(args)
             , new PcDisplay()
             , new SceneManager()
             , game

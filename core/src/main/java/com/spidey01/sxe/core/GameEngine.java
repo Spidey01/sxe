@@ -24,7 +24,6 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.cfg.Settings;
-import com.spidey01.sxe.core.cfg.SettingsArgs;
 import com.spidey01.sxe.core.cfg.SettingsMap;
 import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.common.Utils;
@@ -84,7 +83,7 @@ public class GameEngine {
     private Settings mUserSettings;
 
     /** Settings provided at the command line. */
-    private final SettingsArgs mCommandLineSettings;
+    private final SettingsMap mCommandLineSettings;
 
     private final Platform mPlatform;
     private GameThread mGameThread;
@@ -105,7 +104,7 @@ public class GameEngine {
      * @param settings Platform specific settings.
      * @param platform Platform specific information.
      */
-    public GameEngine(SettingsArgs args, Display display, SceneManager scene,
+    public GameEngine(SettingsMap args, Display display, SceneManager scene,
                       Game game, InputManager input, ResourceManager resources,
                       Settings settings, Platform platform)
     {
