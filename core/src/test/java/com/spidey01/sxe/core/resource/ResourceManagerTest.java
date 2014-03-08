@@ -20,16 +20,11 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.resource;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.*;
 
-import com.spidey01.sxe.core.io.DummyResourceLoader;
-import com.spidey01.sxe.core.io.GZipResourceLoader;
-import com.spidey01.sxe.core.io.PathResourceLoader;
-import com.spidey01.sxe.core.io.ZipResourceLoader;
 import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.testing.TestResources;
 import com.spidey01.sxe.core.testing.UnitTest;
@@ -39,6 +34,7 @@ import java.io.InputStream;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.Future;
+
 
 public class ResourceManagerTest extends UnitTest {
     private static final String TAG = "ResourceManagerTest";

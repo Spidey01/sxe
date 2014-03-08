@@ -20,39 +20,33 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
+package com.spidey01.sxe.core.config;
 
-package com.spidey01.sxe.core.io;
+import com.spidey01.sxe.core.testing.AbstractSettingsTest;
 
 import org.junit.*;
 
-import com.spidey01.sxe.core.common.Utils;
 import com.spidey01.sxe.core.testing.TestResources;
-import com.spidey01.sxe.core.testing.UnitTest;
 
 import java.io.File;
 import java.io.IOException;
 
-public class PathResourceLoaderTest extends UnitTest {
-    private static PathResourceLoader sLoader = new PathResourceLoader();
+
+public class SettingsFileTest extends AbstractSettingsTest {
+    private static final String TAG = "SettingsFileTest";
 
 
-    @BeforeClass
-    public static void setup() {
-        UnitTest.setup();
+    @Override
+    protected Settings makeSettings() {
+        return new SettingsFile(new File(TestResources.directory, TestResources.settingsFileName));
     }
 
 
-    @Test
-    public void simplePathTest() throws IOException {
-        String from = TestResources.directory;
-        String what = TestResources.textFileName;
-        File txt = new File(from, what);
-        Assume.assumeTrue(txt.exists());
-
-        Assert.assertEquals("Loading a text file.", 
-                            TestResources.textFileContent,
-                            Utils.slurp(sLoader.getInputStream(from, what)));
+    @Override
+    protected String getTag() {
+        return TAG;
     }
+
 
 }
 

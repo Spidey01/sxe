@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.core.testing;
 
-import com.spidey01.sxe.core.cfg.Settings;
+import com.spidey01.sxe.core.config.Settings;
 import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.testing.UnitTest;
 

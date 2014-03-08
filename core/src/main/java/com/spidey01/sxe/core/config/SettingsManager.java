@@ -20,40 +20,31 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-package com.spidey01.sxe.core.cfg;
+package com.spidey01.sxe.core.config;
 
+import com.spidey01.sxe.core.common.NotificationManager;
 import com.spidey01.sxe.core.logging.Log;
 
-
-/** Helper class for creating a Settings.OnChangedListener.
- *
- * Simply pass the correct data through the constructor with super() and
- * override the onChanged() method.
- */
-public class SettingsListener implements Settings.OnChangedListener {
-    private static final String TAG = "SettingsListener";
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 
-    protected final Settings mSettings;
+public class SettingsManager extends NotificationManager<Settings.OnChangedListener, String> {
+    private static final String TAG = "SettingsManager";
+
+    private final Settings mOwner;
 
 
-    /** Creates a listener for changes to settings.
-     *
-     * Only settings marked with prefix are of interest.
-     * You can then make use of mPrefix in onChanged().
-     */
-    public SettingsListener(Settings settings) {
-        mSettings = settings;
+    public SettingsManager(Settings owner) {
+        mOwner = owner;
     }
 
 
-    public void clear() {
-        mSettings.removeChangeListener(this);
-    }
-
-
-    public void onChanged(String key) {
-        Log.xtrace(TAG, "onChanged(String key =>", key);
+    @Override
+    protected void invoke(Settings.OnChangedListener listener, String message) {
+        listener.onChanged(message);
     }
 }
 

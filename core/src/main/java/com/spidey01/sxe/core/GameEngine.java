@@ -23,12 +23,12 @@
 
 package com.spidey01.sxe.core;
 
-import com.spidey01.sxe.core.cfg.Settings;
-import com.spidey01.sxe.core.cfg.SettingsFile;
-import com.spidey01.sxe.core.cfg.SettingsMap;
-import com.spidey01.sxe.core.cfg.SettingsXMLFile;
 import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.common.Utils;
+import com.spidey01.sxe.core.config.Settings;
+import com.spidey01.sxe.core.config.SettingsFile;
+import com.spidey01.sxe.core.config.SettingsMap;
+import com.spidey01.sxe.core.config.SettingsXMLFile;
 import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.input.InputManager;
 import com.spidey01.sxe.core.logging.Log;

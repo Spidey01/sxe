@@ -23,8 +23,8 @@
 package com.spidey01.sxe.core.logging;
 
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.cfg.Settings;
-import com.spidey01.sxe.core.cfg.SettingsListener;
+import com.spidey01.sxe.core.config.Settings;
+import com.spidey01.sxe.core.config.SettingsListener;
 
 import java.io.File;
 import java.io.FileNotFoundException;

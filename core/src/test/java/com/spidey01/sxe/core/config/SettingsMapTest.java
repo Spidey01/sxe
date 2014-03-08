@@ -20,8 +20,7 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-
-package com.spidey01.sxe.core.cfg;
+package com.spidey01.sxe.core.config;
 
 import com.spidey01.sxe.core.testing.AbstractSettingsTest;
 
@@ -29,6 +28,7 @@ import org.junit.*;
 
 import java.util.HashMap;
 import java.io.IOException;
+
 
 public class SettingsMapTest extends AbstractSettingsTest {
     private static final String TAG = "SettingsMapTest";

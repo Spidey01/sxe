@@ -20,7 +20,7 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-package com.spidey01.sxe.core.cfg;
+package com.spidey01.sxe.core.config;
 
 import java.io.IOException;
 import java.util.EventListener;

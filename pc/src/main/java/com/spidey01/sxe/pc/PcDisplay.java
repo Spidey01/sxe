@@ -25,15 +25,15 @@ package com.spidey01.sxe.pc;
 
 
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.RateCounter;
-import com.spidey01.sxe.core.cfg.Settings;
-import com.spidey01.sxe.core.cfg.SettingsListener;
 import com.spidey01.sxe.core.common.Subsystem;
+import com.spidey01.sxe.core.config.Settings;
+import com.spidey01.sxe.core.config.SettingsListener;
 import com.spidey01.sxe.core.gl.OpenGL;
 import com.spidey01.sxe.core.graphics.FrameEndedListener;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.FrameStartedListener;
+import com.spidey01.sxe.core.logging.Log;
 
 
 import org.lwjgl.LWJGLException;
@@ -46,7 +46,6 @@ import org.lwjgl.opengl.PixelFormat;
 
 import java.util.List;
 import java.util.ArrayList;
-
 
 
 public class PcDisplay

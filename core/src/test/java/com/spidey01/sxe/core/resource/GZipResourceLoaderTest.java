@@ -20,8 +20,7 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-
-package com.spidey01.sxe.core.io;
+package com.spidey01.sxe.core.resource;
 
 import org.junit.*;
 
@@ -31,6 +30,7 @@ import com.spidey01.sxe.core.testing.UnitTest;
 
 import java.io.File;
 import java.io.IOException;
+
 
 public class GZipResourceLoaderTest extends UnitTest {
     private static GZipResourceLoader sLoader = new GZipResourceLoader();

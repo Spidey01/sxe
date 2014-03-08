@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -20,7 +20,7 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-package com.spidey01.sxe.core.cfg;
+package com.spidey01.sxe.core.config;
 
 import com.spidey01.sxe.core.logging.Log;
 
@@ -30,15 +30,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-/** java.util.Properties XML implementation of Settings.
+
+/** Basic java.util.Properties implementation of Settings.
  */
-public class SettingsXMLFile extends AbstractSettingsFile {
-    private static final String TAG = "SettingsXMLFile";
+public class SettingsFile extends AbstractSettingsFile {
+    private static final String TAG = "SettingsFile";
     private static final String sComment = "Comments and whitespace will not be saved.";
     private final String mName;
 
 
-    public SettingsXMLFile(String name) {
+    public SettingsFile(String name) {
         mSettingsManager = new SettingsManager(this);
         mName = name;
         try {
@@ -50,7 +51,7 @@ public class SettingsXMLFile extends AbstractSettingsFile {
     }
 
 
-    public SettingsXMLFile(File path) {
+    public SettingsFile(File path) {
         this(path.getPath());
     }
 
@@ -63,13 +64,13 @@ public class SettingsXMLFile extends AbstractSettingsFile {
 
     @Override
     public void save(OutputStream stream) throws IOException {
-        mProps.storeToXML(stream, sComment);
+        mProps.store(stream, sComment);
     }
 
 
     @Override
     public void load(InputStream stream) throws IOException {
-        mProps.loadFromXML(stream);
+        mProps.load(stream);
     }
 
 }

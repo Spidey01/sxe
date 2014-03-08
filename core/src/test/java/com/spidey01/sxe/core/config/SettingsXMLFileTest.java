@@ -20,10 +20,8 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
+package com.spidey01.sxe.core.config;
 
-package com.spidey01.sxe.core.io;
-
-import com.spidey01.sxe.core.cfg.Settings;
 import com.spidey01.sxe.core.testing.AbstractSettingsTest;
 
 import org.junit.*;
@@ -33,13 +31,14 @@ import com.spidey01.sxe.core.testing.TestResources;
 import java.io.File;
 import java.io.IOException;
 
-public class SettingsFileTest extends AbstractSettingsTest {
-    private static final String TAG = "SettingsFileTest";
+
+public class SettingsXMLFileTest extends AbstractSettingsTest {
+    private static final String TAG = "SettingsXMLFileTest";
 
 
     @Override
     protected Settings makeSettings() {
-        return new SettingsFile(new File(TestResources.directory, TestResources.settingsFileName));
+        return new SettingsXMLFile(new File(TestResources.directory, TestResources.settingsXmlFileName));
     }
 
 

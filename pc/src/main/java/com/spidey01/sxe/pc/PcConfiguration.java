@@ -26,10 +26,10 @@ package com.spidey01.sxe.pc;
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.SceneManager;
-import com.spidey01.sxe.core.cfg.Settings;
-import com.spidey01.sxe.core.cfg.SettingsFile;
-import com.spidey01.sxe.core.cfg.SettingsMap;
-import com.spidey01.sxe.core.cfg.SettingsXMLFile;
+import com.spidey01.sxe.core.config.Settings;
+import com.spidey01.sxe.core.config.SettingsFile;
+import com.spidey01.sxe.core.config.SettingsMap;
+import com.spidey01.sxe.core.config.SettingsXMLFile;
 import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.logging.LogSink;
 import com.spidey01.sxe.core.logging.Logging;
@@ -38,6 +38,7 @@ import com.spidey01.sxe.core.sys.Platform;
 import com.spidey01.sxe.core.sys.Xdg;
 
 import java.io.File;
+
 
 /** Utility class to setup a GameEngine configured for PC.
  */

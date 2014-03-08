@@ -20,11 +20,10 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-
 package com.spidey01.sxe.android.common;
 
-import com.spidey01.sxe.core.cfg.Settings;
 import com.spidey01.sxe.core.common.Utils;
+import com.spidey01.sxe.core.config.Settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
