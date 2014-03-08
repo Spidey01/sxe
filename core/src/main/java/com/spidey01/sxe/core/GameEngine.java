@@ -322,7 +322,7 @@ public class GameEngine {
             if (!s.contains("debug.log_type"))
                 s.setString("debug.log_type", "debug.log");
             if (!s.contains("debug.log_level"))
-                s.setInt("debug.log_level", Log.VERBOSE);
+                s.setInt("debug.log_level", Log.DEBUG);
         }
     }
 
