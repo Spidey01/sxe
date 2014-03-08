@@ -163,6 +163,8 @@ public class LogSink {
                 return "w";
             case Log.TRACE:
                 return "x";
+            case Log.TEST:
+                return "TEST";
         }
         return "WTF";
     }

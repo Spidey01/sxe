@@ -53,6 +53,7 @@ public class Log {
     public static final int DEBUG   = 4;
     public static final int VERBOSE = 5;
     public static final int TRACE   = 10;
+    public static final int TEST    = 999;
 
     private static List<LogSink> sSinks = new LinkedList<LogSink>();
     private static final String TAG = "Log";
@@ -132,6 +133,7 @@ public class Log {
         log(WARN, tag, messages);
     }
 
+
     /** Send a TRACE message.
      *
      * This is intended as a log level more verbose than a DEBUG message, yet
@@ -143,6 +145,16 @@ public class Log {
      */
     public static void xtrace(String tag, Object... messages) {
         log(TRACE, tag, messages);
+    }
+
+
+    /** Send a TEST message.
+     *
+     * This is intended as a log level for automated unit testing.
+     * Use this outside of such at your own risk :-o.
+     */
+    public static void test(String tag, Object... messages) {
+        log(TEST, tag, messages);
     }
  
 
