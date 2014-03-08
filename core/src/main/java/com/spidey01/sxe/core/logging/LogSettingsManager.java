@@ -70,7 +70,6 @@ class LogSettingsManager extends SettingsListener {
      */
     private LogSink makeLogSink(String name, String to) {
         int level = LogSink.DEFAULT_LOG_LEVEL;
-                Log.w("XXX", "making log sink named", name, "with to", to);
 
         if (to.isEmpty()) {
             // not a log spec'
