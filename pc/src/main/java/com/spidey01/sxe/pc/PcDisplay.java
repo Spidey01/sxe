@@ -75,7 +75,7 @@ public class PcDisplay
         public void onChanged(String key) {
             super.onChanged(key);
             String value = mSettings.getString(key);
-            Log.i(TAG, "onChanged():", key, "=", value);
+            Log.xtrace(TAG, "onChanged():", key, "=", value);
 
             /* Support setting resolution from runtime configuration. */
             if (key.equals(MODE) && !value.isEmpty()) {
