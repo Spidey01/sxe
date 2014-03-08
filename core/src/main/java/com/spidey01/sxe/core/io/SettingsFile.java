@@ -23,8 +23,8 @@
 
 package com.spidey01.sxe.core.io;
 
-import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.cfg.SettingsManager;
+import com.spidey01.sxe.core.logging.Log;
 
 
 import java.io.File;

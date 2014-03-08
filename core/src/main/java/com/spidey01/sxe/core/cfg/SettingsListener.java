@@ -22,7 +22,7 @@
  */
 package com.spidey01.sxe.core.cfg;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 
 /** Helper class for creating a Settings.OnChangedListener.
  *

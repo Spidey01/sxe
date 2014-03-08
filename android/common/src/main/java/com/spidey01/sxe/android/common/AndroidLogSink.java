@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.android.common;
 
-import com.spidey01.sxe.core.LogSink;
+import com.spidey01.sxe.core.logging.LogSink;
 
 import android.util.Log;
 
@@ -70,23 +70,23 @@ public class AndroidLogSink extends LogSink {
 
     private void alog(int level, String tag, String message) {
         switch (level) {
-            case com.spidey01.sxe.core.Log.ASSERT:
+            case com.spidey01.sxe.core.logging.Log.ASSERT:
                 Log.wtf(tag, message);
                 break;
-            case com.spidey01.sxe.core.Log.DEBUG:
+            case com.spidey01.sxe.core.logging.Log.DEBUG:
                 Log.d(tag, message);
                 break;
-            case com.spidey01.sxe.core.Log.ERROR:
+            case com.spidey01.sxe.core.logging.Log.ERROR:
                 Log.e(tag, message);
                 break;
-            case com.spidey01.sxe.core.Log.INFO:
+            case com.spidey01.sxe.core.logging.Log.INFO:
                 Log.i(tag, message);
                 break;
-            case com.spidey01.sxe.core.Log.VERBOSE:
-            case com.spidey01.sxe.core.Log.TRACE:
+            case com.spidey01.sxe.core.logging.Log.VERBOSE:
+            case com.spidey01.sxe.core.logging.Log.TRACE:
                 Log.v(tag, message);
                 break;
-            case com.spidey01.sxe.core.Log.WARN:
+            case com.spidey01.sxe.core.logging.Log.WARN:
                 Log.w(tag, message);
                 break;
         }

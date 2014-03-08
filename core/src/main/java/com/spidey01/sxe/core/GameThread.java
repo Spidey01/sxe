@@ -23,6 +23,9 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.logging.Log;
+
+
 /** Class implementing the game engine for PC/Mac hardware. */
 public class GameThread extends Thread {
     protected GameEngine mEngine;

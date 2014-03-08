@@ -24,8 +24,8 @@
 package com.spidey01.sxe.snake.pc;
 
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.LogSink;
+import com.spidey01.sxe.core.logging.Log;
+import com.spidey01.sxe.core.logging.LogSink;
 import com.spidey01.sxe.pc.PcConfiguration;
 import com.spidey01.sxe.pc.PcDisplay;
 import com.spidey01.sxe.pc.PcInputManager;

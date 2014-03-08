@@ -23,10 +23,10 @@
 
 package com.spidey01.sxe.core.graphics;
 
-import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.Texture;
 import com.spidey01.sxe.core.gl.Program;
 import com.spidey01.sxe.core.gl.Shader;
+import com.spidey01.sxe.core.logging.Log;
 
 import java.nio.FloatBuffer;
 

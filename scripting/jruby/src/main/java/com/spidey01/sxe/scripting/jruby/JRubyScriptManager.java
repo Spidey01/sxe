@@ -27,7 +27,7 @@ import org.jruby.embed.ScriptingContainer;
 import org.jruby.embed.LocalContextScope;
 import org.jruby.embed.LocalVariableBehavior;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.scripting.ScriptManager;
 import com.spidey01.sxe.scripting.Script;
 

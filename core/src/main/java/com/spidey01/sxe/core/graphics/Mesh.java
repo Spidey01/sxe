@@ -24,6 +24,7 @@
 package com.spidey01.sxe.core.graphics;
 
 import com.spidey01.sxe.core.*;
+import com.spidey01.sxe.core.logging.Log;
 
 import com.spidey01.sxe.core.gl.*;
 

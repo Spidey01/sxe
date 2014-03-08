@@ -23,11 +23,11 @@
 
 package com.spidey01.sxe.core.io;
 
-import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.cfg.Settings;
 import com.spidey01.sxe.core.cfg.SettingsManager;
 import com.spidey01.sxe.core.common.NotificationManager;
 import com.spidey01.sxe.core.common.Utils;
+import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.sys.FileSystem;
 
 import java.io.File;

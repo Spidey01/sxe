@@ -26,6 +26,7 @@ package com.spidey01.sxe.core;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.graphics.RenderableObject;
+import com.spidey01.sxe.core.logging.Log;
 
 import java.util.List;
 import java.util.ArrayList;

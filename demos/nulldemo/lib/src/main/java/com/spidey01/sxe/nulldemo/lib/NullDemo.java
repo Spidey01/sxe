@@ -25,7 +25,7 @@ package com.spidey01.sxe.nulldemo.lib;
 
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 
 import com.spidey01.sxe.core.input.KeyEvent;
 import com.spidey01.sxe.core.input.KeyListener;

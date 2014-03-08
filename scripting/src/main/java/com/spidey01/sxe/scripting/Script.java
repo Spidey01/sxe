@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.scripting;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 
 public interface Script {
 }

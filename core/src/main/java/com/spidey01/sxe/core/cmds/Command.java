@@ -23,8 +23,8 @@
 
 package com.spidey01.sxe.core.cmds;
 
-import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.common.Utils;
+import com.spidey01.sxe.core.logging.Log;
 
 
 /** Generic command execution.

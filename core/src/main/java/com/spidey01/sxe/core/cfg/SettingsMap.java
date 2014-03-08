@@ -23,9 +23,9 @@
 
 package com.spidey01.sxe.core.cfg;
 
-import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.common.NotificationManager;
 import com.spidey01.sxe.core.common.Utils;
+import com.spidey01.sxe.core.logging.Log;
 
 import java.io.IOException;
 import java.util.HashMap;

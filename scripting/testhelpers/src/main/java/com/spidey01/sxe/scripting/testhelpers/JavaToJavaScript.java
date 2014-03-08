@@ -25,7 +25,7 @@ package com.spidey01.sxe.scripting.testhelpers;
 
 import org.junit.*;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 
 import com.spidey01.sxe.scripting.*;
 

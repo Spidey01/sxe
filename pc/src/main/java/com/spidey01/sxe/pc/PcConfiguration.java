@@ -25,9 +25,9 @@ package com.spidey01.sxe.pc;
 
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.Log;
-import com.spidey01.sxe.core.LogSink;
-import com.spidey01.sxe.core.Logging;
+import com.spidey01.sxe.core.logging.Log;
+import com.spidey01.sxe.core.logging.LogSink;
+import com.spidey01.sxe.core.logging.Logging;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.SceneManager;
 import com.spidey01.sxe.core.cfg.Settings;

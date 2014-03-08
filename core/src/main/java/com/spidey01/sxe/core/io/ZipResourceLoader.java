@@ -24,7 +24,7 @@
 package com.spidey01.sxe.core.io;
 
 import com.spidey01.sxe.core.ResourceLoader;
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 
 import java.util.zip.ZipFile;
 import java.util.zip.ZipEntry;

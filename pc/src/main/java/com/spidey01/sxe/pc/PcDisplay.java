@@ -25,7 +25,7 @@ package com.spidey01.sxe.pc;
 
 
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.RateCounter;
 import com.spidey01.sxe.core.cfg.Settings;
 import com.spidey01.sxe.core.cfg.SettingsListener;

@@ -23,9 +23,10 @@
 
 package com.spidey01.sxe.core;
 
-import com.spidey01.sxe.core.gl.Shader;
 import com.spidey01.sxe.core.gl.OpenGLES20;
+import com.spidey01.sxe.core.gl.Shader;
 import com.spidey01.sxe.core.io.PngBitmap;
+import com.spidey01.sxe.core.logging.Log;
 
 import java.io.BufferedReader;
 import java.io.Closeable;

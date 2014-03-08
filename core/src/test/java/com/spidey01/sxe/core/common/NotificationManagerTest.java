@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.core.common;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.testing.UnitTest;
 
 import org.junit.*;

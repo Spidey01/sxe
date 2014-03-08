@@ -24,9 +24,8 @@
 package com.spidey01.sxe.core.testing;
 
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.common.Subsystem;
-import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.RateCounter;
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.gl.OpenGL;
 import com.spidey01.sxe.core.gl.OpenGLES11;
 import com.spidey01.sxe.core.gl.OpenGLES20;
@@ -35,6 +34,7 @@ import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.graphics.FrameEndedListener;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.FrameStartedListener;
+import com.spidey01.sxe.core.logging.Log;
 
 import java.util.List;
 import java.util.ArrayList;

@@ -24,13 +24,13 @@
 package com.spidey01.sxe.android.common;
 
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.gl.OpenGL;
 import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.graphics.FrameEndedListener;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.FrameStartedListener;
+import com.spidey01.sxe.core.logging.Log;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;

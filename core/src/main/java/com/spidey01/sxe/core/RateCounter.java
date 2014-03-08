@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.logging.Log;
+
 // TODO: use Log.
 public class RateCounter {
     private long mPerSecond;

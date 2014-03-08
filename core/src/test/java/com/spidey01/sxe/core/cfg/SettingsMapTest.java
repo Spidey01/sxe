@@ -40,8 +40,7 @@ public class SettingsMapTest extends AbstractSettingsTest {
         sMap.put(TAG+".display.resolution", "1280x720");
         sMap.put(TAG+".resources.path", "tmp/");
         sMap.put(TAG+".log_level", "10");
-        sMap.put(TAG+".log_type", "file");
-        sMap.put(TAG+".log_file", "tmp/"+TAG+".log");
+        sMap.put(TAG+".log_to", "tmp/"+TAG+".log");
         sMap.put(TAG+".log_flags", "DisplayThreadId=true,DisplayDate=true,DisplayTime=true");
     };
 

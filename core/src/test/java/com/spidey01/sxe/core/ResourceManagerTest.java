@@ -30,6 +30,7 @@ import com.spidey01.sxe.core.io.DummyResourceLoader;
 import com.spidey01.sxe.core.io.GZipResourceLoader;
 import com.spidey01.sxe.core.io.PathResourceLoader;
 import com.spidey01.sxe.core.io.ZipResourceLoader;
+import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.testing.TestResources;
 import com.spidey01.sxe.core.testing.UnitTest;
 

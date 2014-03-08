@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.logging;
 
 import java.io.File;
 import java.io.FileNotFoundException;
