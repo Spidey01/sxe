@@ -319,8 +319,8 @@ public class GameEngine {
         /* Shortcut key used for general debugging. */
         if (s.getBoolean("debug")) {
             // Make sure that we have a log file.
-            if (!s.contains("debug.log_type"))
-                s.setString("debug.log_type", "debug.log");
+            if (!s.contains("debug.log_to"))
+                s.setString("debug.log_to", "debug.log");
             if (!s.contains("debug.log_level"))
                 s.setInt("debug.log_level", Log.DEBUG);
         }

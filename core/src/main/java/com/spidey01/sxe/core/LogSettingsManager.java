@@ -52,7 +52,7 @@ class LogSettingsManager extends SettingsListener {
             String name = key.substring(0, i);
             LogSink sink = getLogSink(name);
 
-            if (sink == null && key.lastIndexOf(".log_type") != -1) {
+            if (sink == null && key.lastIndexOf(".log_to") != -1) {
                 Log.add(makeLogSink(name, mSettings.getString(key).toLowerCase()));
             } else if (sink !=  null) {
                 // Apply whatever settings are currently available.
@@ -81,7 +81,7 @@ class LogSettingsManager extends SettingsListener {
             return new LogSink(name, level, type.equals("stdout") ? System.out : System.err);
         }
         else {
-            /* .log_type's value is a file name. */
+            /* .log_to's value is a file name. */
             try {
                 return new LogSink(name, level, new File(type));
             } catch(FileNotFoundException e) {
@@ -150,10 +150,10 @@ class LogSettingsManager extends SettingsListener {
         String fileName = s.getString(top+".log_file");
         Log.e("XXX", "log_file =", fileName);
 
-        /* Configure the log_type for top.
+        /* Configure the log_to for top.
         */
-        String type = s.getString(top+".log_type").toLowerCase();
-        Log.e("XXX", "log_type =", type);
+        String type = s.getString(top+".log_to").toLowerCase();
+        Log.e("XXX", "log_to =", type);
         if (type.isEmpty()) {
             // not a log spec'
             System.err.println("EMPTY LOG SPEC");
@@ -212,9 +212,8 @@ class LogSettingsManager extends SettingsListener {
         Log.add(sink);
         Log.i(TAG, "logging for", top, " => ",
                 "log_level="+level, ", ",
-                "log_type="+type, ", ",
-                "log_tags="+tags, ", ",
-                "log_file="+fileName);
+                "log_to="+type, ", ",
+                "log_tags="+tags);
     }
 }
 
