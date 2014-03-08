@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -20,35 +20,30 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
+package com.spidey01.sxe.core.cfg;
 
-package com.spidey01.sxe.scripting.jsr223;
-
-import org.junit.*;
-
+import com.spidey01.sxe.core.common.NotificationManager;
 import com.spidey01.sxe.core.logging.Log;
-import com.spidey01.sxe.core.testing.UnitTest;
 
-import com.spidey01.sxe.scripting.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
-public class HelloJsr223 {
-    private static final String TAG = "HelloJsr223";
+public class SettingsManager extends NotificationManager<Settings.OnChangedListener, String> {
+    private static final String TAG = "SettingsManager";
 
-    @BeforeClass
-    public static void setup() {
-        UnitTest.setup();
+    private final Settings mOwner;
+
+
+    public SettingsManager(Settings owner) {
+        mOwner = owner;
     }
 
 
-    // Really simple example.
-    @Test
-    public void hello() {
-        ScriptManager jsr223 = new Jsr223ScriptManager();
-        Script script = jsr223.createScript();
-
-        String result = (String)jsr223.eval(script, "'Hello, JSR-223!'");
-        Assert.assertEquals("Hello, JSR-223!", result);
+    @Override
+    protected void invoke(Settings.OnChangedListener listener, String message) {
+        listener.onChanged(message);
     }
-
 }
-
 

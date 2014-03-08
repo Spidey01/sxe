@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.pingpong.lib;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 
 public class Player {
     private static final String TAG = "Player";

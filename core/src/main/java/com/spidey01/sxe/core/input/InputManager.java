@@ -23,6 +23,7 @@
 
 package com.spidey01.sxe.core.input;
 
+import com.spidey01.sxe.core.common.Subsystem;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
@@ -42,7 +43,7 @@ import java.util.LinkedList;
  * @see AbstractInputManager
  * @see NullInputManager
  */
-public interface InputManager {
+public interface InputManager extends Subsystem {
     
     /** Poll for new input and notify listeners.
      *

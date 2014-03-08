@@ -23,7 +23,9 @@
 
 package com.spidey01.sxe.core.cfg;
 
+import com.spidey01.sxe.core.common.NotificationManager;
 import com.spidey01.sxe.core.common.Utils;
+import com.spidey01.sxe.core.logging.Log;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -37,22 +39,37 @@ import java.util.Set;
 public class SettingsMap implements Settings {
     private static final String TAG = "SettingsMap";
 
-
-    private List<Settings.OnChangedListener> mListeners =
-        new LinkedList<Settings.OnChangedListener>();
+    private SettingsManager mSettingsManager;
 
 
     private Map<String, String> mMap;
 
 
-
     public SettingsMap() {
         mMap = new HashMap<String, String>();
+        mSettingsManager = new SettingsManager(this);
     }
 
 
     public SettingsMap(Map<String, String> map) {
         mMap = new HashMap<String, String>(map);
+        mSettingsManager = new SettingsManager(this);
+    }
+
+
+    /** Create SettingsMap from a String[].
+     *
+     * This is in the format of command line arguments. Namely
+     * <samp>"key=value"</samp>.
+     */
+    public SettingsMap(String[] args) {
+        mMap = new HashMap<String, String>();
+        mSettingsManager = new SettingsManager(this);
+
+        for (String arg : args) {
+            int sep = arg.lastIndexOf("=");
+            mMap.put(arg.substring(0, sep), arg.substring(sep+1));
+        }
     }
 
 
@@ -120,40 +137,40 @@ public class SettingsMap implements Settings {
 
     @Override
     public Settings setBoolean(String key, boolean value) {
-        notifyListeners(key);
         mMap.put(key, Boolean.toString(value));
+        mSettingsManager.notifyListeners(key);
         return this;
     }
 
 
     @Override
     public Settings setFloat(String key, float value) {
-        notifyListeners(key);
         mMap.put(key, Float.toString(value));
+        mSettingsManager.notifyListeners(key);
         return this;
     }
 
 
     @Override
     public Settings setInt(String key, int value) {
-        notifyListeners(key);
         mMap.put(key, Integer.toString(value));
+        mSettingsManager.notifyListeners(key);
         return this;
     }
 
 
     @Override
     public Settings setLong(String key, long value) {
-        notifyListeners(key);
         mMap.put(key, Long.toString(value));
+        mSettingsManager.notifyListeners(key);
         return this;
     }
 
 
     @Override
     public Settings setString(String key, String value) {
-        notifyListeners(key);
         mMap.put(key, value);
+        mSettingsManager.notifyListeners(key);
         return this;
     }
 
@@ -176,20 +193,27 @@ public class SettingsMap implements Settings {
 
     @Override
     public void addChangeListener(OnChangedListener listener) {
-        mListeners.add(listener);
+        mSettingsManager.subscribe(listener);
+    }
+
+
+    @Override
+    public void addChangeListener(String key, OnChangedListener listener) {
+        mSettingsManager.subscribe(key, listener);
     }
 
 
     @Override
     public void removeChangeListener(OnChangedListener listener) {
-        mListeners.remove(listener);
+        mSettingsManager.unsubscribe(listener);
     }
 
-    private void notifyListeners(String key) {
-        for (Settings.OnChangedListener l : mListeners) {
-            l.onChanged(this, key);
-        }
-    }
+
+
+    // @Override
+    // public void removeChangeListener(String key, OnChangedListener listener) {
+        // mSettingsManager.unsubscribe(key, listener);
+    // }
 
 
 }

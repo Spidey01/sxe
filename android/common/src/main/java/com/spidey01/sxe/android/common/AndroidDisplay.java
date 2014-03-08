@@ -23,11 +23,14 @@
 
 package com.spidey01.sxe.android.common;
 
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.gl.OpenGL;
 import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.graphics.FrameEndedListener;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.FrameStartedListener;
+import com.spidey01.sxe.core.logging.Log;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
@@ -54,6 +57,31 @@ public class AndroidDisplay
         setEGLContextClientVersion(2);
         setRenderer(mRenderer);
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+    }
+
+
+    @Override
+    public String name() {
+        return TAG;
+    }
+
+
+    @Override
+    public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
+    }
+
+
+    @Override
+    public void reinitialize(GameEngine engine) {
+        uninitialize();
+        initialize(engine);
+    }
+
+
+    @Override
+    public void uninitialize() {
+        Log.d(TAG, "uninitialize()");
     }
 
     public boolean create() {

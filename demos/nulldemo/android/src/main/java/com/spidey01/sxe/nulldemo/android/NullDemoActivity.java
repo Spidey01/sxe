@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.nulldemo.android;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.GameEngine;
 
 import com.spidey01.sxe.android.common.AndroidConfiguration;

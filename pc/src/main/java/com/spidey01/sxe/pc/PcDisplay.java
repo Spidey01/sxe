@@ -23,14 +23,18 @@
 
 package com.spidey01.sxe.pc;
 
-import com.spidey01.sxe.core.Log;
+
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.RateCounter;
-
+import com.spidey01.sxe.core.cfg.Settings;
+import com.spidey01.sxe.core.cfg.SettingsListener;
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.gl.OpenGL;
-
 import com.spidey01.sxe.core.graphics.FrameEndedListener;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.FrameStartedListener;
+
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.ContextCapabilities;
@@ -39,20 +43,71 @@ import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.opengl.PixelFormat;
 
+
 import java.util.List;
 import java.util.ArrayList;
 
 
 
-public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
+public class PcDisplay
+    implements com.spidey01.sxe.core.graphics.Display
+{
+    /** Settings.OnChangedListener implementation for PcDisplay.
+     */
+    private class DisplaySettingsListener extends SettingsListener {
+        private static final String TAG = PcDisplay.TAG+".SettingsListener";
 
+        private final String MODE;
+        private final String FPS;
+
+        public DisplaySettingsListener(GameEngine engine) {
+            super(engine.getSettings());
+            String prefix = engine.getGame().getName()+".display";
+
+            MODE = prefix+".mode";
+            mSettings.addChangeListener(MODE, this);
+
+            FPS = prefix+".fps";
+            mSettings.addChangeListener(FPS, this);
+        }
+
+
+        @Override
+        public void onChanged(String key) {
+            super.onChanged(key);
+            String value = mSettings.getString(key);
+            Log.i(TAG, "onChanged():", key, "=", value);
+
+            /* Support setting resolution from runtime configuration. */
+            if (key.equals(MODE) && !value.isEmpty()) {
+                    PcDisplay.this.setMode(value);
+            }
+
+            /* Support toggling display of FPS from runtime configuration. */
+            else if (key.equals(FPS) && !value.isEmpty()) {
+                if (value.equals("true") || value.equals("1") || value.equals("on")) {
+                    PcDisplay.this.mFrameCounter.enableDebugging();
+                } else if (value.equals("false") || value.equals("0") || value.equals("off")) {
+                    PcDisplay.this.mFrameCounter.disableDebugging();
+                }
+            }
+
+             else {
+                throw new IllegalArgumentException("onChanged: bad key="+key);
+             }
+        }
+    }
+
+
+    private static final String TAG = "PcDisplay";
+
+
+    private DisplaySettingsListener mSettingsListener;
     private RateCounter mFrameCounter = new RateCounter("Frames");
-    /** default to VGA */
-    private DisplayMode mDisplayMode = new DisplayMode(640, 480);
+    private DisplayMode mDisplayMode;
     private List<FrameStartedListener> mFrameStartedListeners = new ArrayList<FrameStartedListener>();
     private List<FrameEndedListener> mFrameEndedListeners = new ArrayList<FrameEndedListener>();
     private OpenGL mOpenGL;
-    private static final String TAG = "PcDisplay";
 
 
     /** Create the display based on the desired parameters.
@@ -78,6 +133,40 @@ public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
     }
 
 
+    @Override
+    public String name() {
+        return TAG;
+    }
+
+
+    @Override
+    public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
+
+        /* default to VGA */
+        mDisplayMode = new DisplayMode(640, 480);
+        
+        /* Handle runtime configuration Settings. */
+        mSettingsListener = new DisplaySettingsListener(engine);
+    }
+
+
+    @Override
+    public void reinitialize(GameEngine engine) {
+        uninitialize();
+        initialize(engine);
+    }
+
+
+    @Override
+    public void uninitialize() {
+        Log.d(TAG, "uninitialize()");
+        mSettingsListener.clear();
+        mSettingsListener = null;
+    }
+
+
+    @Override
     public boolean create() {
         try {
             Display.create();
@@ -93,11 +182,13 @@ public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
     }
 
 
+    @Override
     public void destroy() {
 		Display.destroy();
     }
 
 
+    @Override
     public void update() {
         try {
             for (FrameStartedListener o : mFrameStartedListeners) {
@@ -117,6 +208,7 @@ public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
     }
 
 
+    @Override
     public boolean isCloseRequested() {
         return Display.isCloseRequested();
     }
@@ -130,6 +222,7 @@ public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
      *
      * @return true if successful; false otherwise.
      */
+    @Override
     public boolean setMode(String mode) {
         DisplayMode p = null;
         DisplayMode[] modes = null;
@@ -170,38 +263,45 @@ public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
     }
 
 
+    @Override
     public void addFrameListener(FrameListener listener) {
         mFrameStartedListeners.add(listener);
         mFrameEndedListeners.add(listener);
     }
 
 
+    @Override
     public void addFrameStartedListener(FrameStartedListener listener) {
         mFrameStartedListeners.add(listener);
     }
 
 
+    @Override
     public void addFrameEndedListener(FrameEndedListener listener) {
         mFrameEndedListeners.add(listener);
     }
 
 
+    @Override
     public void removeFrameListener(FrameListener listener) {
         mFrameStartedListeners.remove(listener);
         mFrameEndedListeners.remove(listener);
     }
 
 
+    @Override
     public void removeFrameStartedListener(FrameStartedListener listener) {
         mFrameStartedListeners.remove(listener);
     }
 
 
+    @Override
     public void removeFrameEndedListener(FrameEndedListener listener) {
         mFrameEndedListeners.remove(listener);
     }
 
 
+    @Override
     public OpenGL getOpenGL() {
         return mOpenGL;
     }
@@ -226,6 +326,7 @@ public class PcDisplay implements com.spidey01.sxe.core.graphics.Display {
                                                                    : (ctx.OpenGL11 ? "1.1"
                                                                         : "wtf"))))))))))))));
     }
+
 
 }
 

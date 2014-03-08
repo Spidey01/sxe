@@ -30,7 +30,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import javax.script.SimpleScriptContext;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.io.Buffers;
 import com.spidey01.sxe.scripting.Script;
 import com.spidey01.sxe.scripting.ScriptManager;

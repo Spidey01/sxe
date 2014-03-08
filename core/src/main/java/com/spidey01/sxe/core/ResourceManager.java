@@ -23,9 +23,14 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.cfg.Settings;
+import com.spidey01.sxe.core.cfg.SettingsListener;
+import com.spidey01.sxe.core.common.Subsystem;
+import com.spidey01.sxe.core.io.GZipResourceLoader;
 import com.spidey01.sxe.core.io.PathResourceLoader;
 import com.spidey01.sxe.core.io.ZipResourceLoader;
-import com.spidey01.sxe.core.io.GZipResourceLoader;
+import com.spidey01.sxe.core.logging.Log;
 
 import java.io.File;
 import java.io.IOException;
@@ -41,45 +46,61 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
+
 /** Class to manage game resources.
  *
- * Resources to be loaded from storage are identified using Uniform Resource
- * Identifiers (URIs). This means that a resource takes the format of
- * <samp>[scheme][scheme-specific part][//authority][path][?query][#fragment]</samp>.
- *
- * For ease of resource loading, scheme is taken as a way to specify which
- * ResourceLoader should be used to load the URI. For example file://foo or
- * zip://bar. You specify how schemes should be handled by registering
- * instances of ResourceLoader with the ResourceManager#setLoader() instance
- * method.
- *
- * The authority (or host) portion is used by the ResourceLoader to determine
- * the source to load from. In the case of the zip scheme, we would use a URI
- * like <samp>zip://my.zip/foo/bar</samp> to refer to the file bar in directory
- * foo inside of my.zip; it would be loaded using whatever ResourceLoader is
- * set for "zip".
- *
- * A scheme called "default" is provided. This allows mapping URIs to
- * whatever the platforms local convention is, either manually or through a
- * configuration class.
- *
- * Handling of file://, zip://, and gzip:// will be setup by the constructor
- * for the obvious loaders. By default, default:// is setan alias to file://.
- *
- * TODO: tar://; maybe http://, ftp:// etc.
- *
- * Resources will be searched for in locations registered with #addResourceLocation().
- *
- * @see URI
  */
-public class ResourceManager {
+public class ResourceManager
+    implements Subsystem
+{
+
+    /** Settings.OnChangedListener implementation for ResourceManager.
+     */
+    private class ResourceSettingsListener extends SettingsListener {
+        private static final String TAG = ResourceManager.TAG+".SettingsListener";
+
+        private final String PATH;
+
+        public ResourceSettingsListener(GameEngine engine) {
+            super(engine.getSettings());
+            String prefix = engine.getGame().getName()+".resources";
+
+            PATH = prefix + ".path";
+            mSettings.addChangeListener(PATH, this);
+        }
+
+
+        @Override
+        public void onChanged(String key) {
+            super.onChanged(key);
+            Log.xtrace(TAG, "onChanged(String key =>", key);
+
+            if (!key.equals(PATH)) {
+                throw new IllegalArgumentException("onChanged: bad key="+key);
+            }
+
+            String value = mSettings.getString(key);
+            if (!value.isEmpty()) {
+                for (String dir : value.split(":")) {
+                    ResourceManager.this.addResourceLocation(dir);
+                }
+            }
+        }
+    }
+
+
     private final static String TAG = "ResourceManager";
+
+    /** The GameEngine we're initialized for use with. */
+    private GameEngine mGameEngine;
+
+    private ResourceSettingsListener mSettingsListener;
 
     /** Map of loaders to container types, e.g. .zip */
     private Map<String, ResourceLoader> mLoaders = new HashMap<String, ResourceLoader>();
 
-    /** Loader used when there isn't a container */
-    private ResourceLoader mDefaultLoader;
+    /** Default loader for default://. */
+    private static final ResourceLoader sDefaultLoader = new PathResourceLoader();
 
     /** Locations to load resources from. */
     private List<String> mSearchLocations = new LinkedList<String>();
@@ -89,12 +110,96 @@ public class ResourceManager {
 
 
     public ResourceManager() {
+    }
+
+
+    @Override
+    public String name() {
+        return TAG;
+    }
+
+
+    /** Initialize the ResourceManager Subsystem for use.
+     *
+     * Handling of file://, zip://, and gzip:// will be setup with the obvious
+     * loaders.
+     *
+     * A scheme called "default" is also provided. This may be freely mapped to
+     * whatever the platforms local convention is or your game prefers: either
+     * manually or through a configuration directive.
+     *
+     * By default, default:// is set as an alias for file://. This is
+     * appropriate for most platforms.
+     *
+     *
+     * Runtime configuration values from engine will be evaluated for the
+     * following purposes:
+     *
+     * <dl>
+     *  <dt>${game name}.resources.path</dt>
+     *      <dd>Colon delimited list of paths to addResourceLocation().</dd>
+     * </dl>
+     *
+     * @see ResourceManager.load
+     */
+    @Override public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
+
         // Setup standard resource loaders
-        mDefaultLoader = new PathResourceLoader();
-        mLoaders.put("default", mDefaultLoader);
-        mLoaders.put("file", mDefaultLoader);
+        mLoaders.put("default", sDefaultLoader);
+        mLoaders.put("file", sDefaultLoader);
         mLoaders.put("zip", new ZipResourceLoader());
         mLoaders.put("gzip", new GZipResourceLoader());
+
+        mGameEngine = engine;
+        if (mGameEngine == null) {
+            return;
+        }
+
+        /* Handle runtime configuration Settings. */
+        mSettingsListener = new ResourceSettingsListener(mGameEngine);
+    }
+
+
+    @Override
+    public void reinitialize(GameEngine engine) {
+        uninitialize();
+        initialize(engine);
+    }
+
+
+    /** Uninitialize the resource manager and all handles.
+     *
+     * <ol>
+     *  <li>All ResourceLoaders will be removed.</li>
+     *  <li>Search locations will be cleared.</li>
+     *  <li>All ResourceHandle will be invalidated.</li>
+     * </ol>
+     */
+    @Override
+    public void uninitialize() {
+        Log.d(TAG, "uninitialize()");
+
+        mSettingsListener.clear();
+        mSettingsListener = null;
+
+        mLoaders.clear();
+        assert mLoaders.size() == 0 : "mLoaders was not really cleared!";
+
+        mSearchLocations.clear();
+        assert mSearchLocations.size() == 0 : "mSearchLocations was not really cleared!";
+
+        for (ResourceHandle h : mHandles.values()) {
+            // I wonder if the compiler is able to runroll this?
+            try {
+                // FIXME
+                h.close();
+            } catch (IOException e) {
+                Log.w(TAG, "Error closing file handle:", h, e);
+            }
+        }
+        mHandles.clear();
+        assert mHandles.size() == 0 : "mHandes was not really cleared!";
     }
 
 
@@ -133,7 +238,7 @@ public class ResourceManager {
 
 
     public ResourceLoader getDefaultLoader() {
-        return mDefaultLoader;
+        return sDefaultLoader;
     }
 
 
@@ -214,8 +319,28 @@ public class ResourceManager {
 
     /** Load URI as a ResourceHandle.
      *
+     * Resources to be loaded from storage are identified using Uniform Resource
+     * Identifiers (URIs). This means that a resource takes the format of
+     * <samp>[scheme][scheme-specific part][//authority][path][?query][#fragment]</samp>.
+     *
+     * The scheme portion is taken as a way to specify which ResourceLoader
+     * should be used to load the URI. For example <samp>file://foo</samp> or
+     * <samp>zip://bar</samp>.
+     *
+     * You specify the schemes should be loaded by registering instances of
+     * ResourceLoader with the ResourceManager#setLoader() instance method.
+     *
+     * The authority (or host) portion is used by the ResourceLoader to
+     * determine the actual source to load from. In the case of the zip scheme,
+     * we would use a URI like <samp>zip://my.zip/foo/bar</samp> to refer to
+     * the file bar in directory foo inside of my.zip; it would be loaded using
+     * whatever ResourceLoader is set for "zip".
+     *
+     * Resources will be searched for in locations registered with #addResourceLocation().
+     *
      * @throws IllegalArgumentException if no scheme given in URI.
      *
+     * @see URI
      */
     public ResourceHandle load(URI uri) throws IOException {
         Log.v(TAG, "load(): URI => "+uri);
@@ -303,6 +428,7 @@ public class ResourceManager {
         task.run();
         return task;
     }
+
 
 }
 

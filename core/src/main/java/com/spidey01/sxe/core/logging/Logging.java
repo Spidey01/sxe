@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -20,35 +20,44 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
+package com.spidey01.sxe.core.logging;
 
-package com.spidey01.sxe.scripting.jsr223;
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.common.Subsystem;
 
-import org.junit.*;
+public class Logging
+    implements Subsystem
+{
+    private static final String TAG = "Logging";
 
-import com.spidey01.sxe.core.logging.Log;
-import com.spidey01.sxe.core.testing.UnitTest;
+    private LogSettingsManager mSettingsManager;
 
-import com.spidey01.sxe.scripting.*;
+    @Override
+    public String name() { return TAG; }
 
-public class HelloJsr223 {
-    private static final String TAG = "HelloJsr223";
 
-    @BeforeClass
-    public static void setup() {
-        UnitTest.setup();
+    @Override
+    public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
+
+        mSettingsManager = new LogSettingsManager(engine);
     }
 
 
-    // Really simple example.
-    @Test
-    public void hello() {
-        ScriptManager jsr223 = new Jsr223ScriptManager();
-        Script script = jsr223.createScript();
+    @Override
+    public void reinitialize(GameEngine engine) {
+        uninitialize();
+        initialize(engine);
+    }
 
-        String result = (String)jsr223.eval(script, "'Hello, JSR-223!'");
-        Assert.assertEquals("Hello, JSR-223!", result);
+
+    @Override
+    public void uninitialize() {
+        Log.d(TAG, "uninitialize()");
+
+        mSettingsManager.clear();
+        mSettingsManager = null;
     }
 
 }
-
 

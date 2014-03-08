@@ -23,9 +23,11 @@
 
 package com.spidey01.sxe.core.io;
 
-import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.cfg.Settings;
+import com.spidey01.sxe.core.cfg.SettingsManager;
+import com.spidey01.sxe.core.common.NotificationManager;
 import com.spidey01.sxe.core.common.Utils;
+import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.sys.FileSystem;
 
 import java.io.File;
@@ -44,8 +46,8 @@ import java.util.Set;
 public abstract class AbstractSettingsFile implements Settings {
     private final static String TAG = "AbstractSettingsFile";
 
-    private List<Settings.OnChangedListener> mListeners =
-        new LinkedList<Settings.OnChangedListener>();
+    protected SettingsManager mSettingsManager;
+
 
     /* This is provided to concrete implementations. You want to use it for
      * loading/saving the data. */
@@ -54,21 +56,26 @@ public abstract class AbstractSettingsFile implements Settings {
 
     @Override
     public void addChangeListener(OnChangedListener listener) {
-        mListeners.add(listener);
+        mSettingsManager.subscribe(listener);
+    }
+
+
+    @Override
+    public void addChangeListener(String key, OnChangedListener listener) {
+        mSettingsManager.subscribe(key, listener);
     }
 
 
     @Override
     public void removeChangeListener(OnChangedListener listener) {
-        mListeners.remove(listener);
+        mSettingsManager.unsubscribe(listener);
     }
 
 
-    private void notifyListeners(String key) {
-        for (Settings.OnChangedListener l : mListeners) {
-            l.onChanged(this, key);
-        }
-    }
+    // @Override
+    // public void removeChangeListener(String key, OnChangedListener listener) {
+        // mSettingsManager.unsubscribe(key, listener);
+    // }
 
 
     @Override
@@ -116,40 +123,40 @@ public abstract class AbstractSettingsFile implements Settings {
 
     @Override
     public Settings setBoolean(String key, boolean value) {
-        notifyListeners(key);
         mProps.setProperty(key, Boolean.toString(value));
+        mSettingsManager.notifyListeners(key);
         return this;
     }
 
 
     @Override
     public Settings setFloat(String key, float value) {
-        notifyListeners(key);
         mProps.setProperty(key, Float.toString(value));
+        mSettingsManager.notifyListeners(key);
         return this;
     }
 
 
     @Override
     public Settings setInt(String key, int value) {
-        notifyListeners(key);
         mProps.setProperty(key, Integer.toString(value));
+        mSettingsManager.notifyListeners(key);
         return this;
     }
 
 
     @Override
     public Settings setLong(String key, long value) {
-        notifyListeners(key);
         mProps.setProperty(key, Long.toString(value));
+        mSettingsManager.notifyListeners(key);
         return this;
     }
 
 
     @Override
     public Settings setString(String key, String value) {
-        notifyListeners(key);
         mProps.setProperty(key, value);
+        mSettingsManager.notifyListeners(key);
         return this;
     }
 

@@ -24,13 +24,15 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.cfg.Settings;
-import com.spidey01.sxe.core.cfg.SettingsArgs;
 import com.spidey01.sxe.core.cfg.SettingsMap;
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.common.Utils;
 import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.input.InputManager;
 import com.spidey01.sxe.core.io.SettingsFile;
 import com.spidey01.sxe.core.io.SettingsXMLFile;
+import com.spidey01.sxe.core.logging.Log;
+import com.spidey01.sxe.core.logging.Logging;
 import com.spidey01.sxe.core.sys.FileSystem;
 import com.spidey01.sxe.core.sys.Platform;
 import com.spidey01.sxe.core.sys.Xdg;
@@ -39,11 +41,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Map;
+
 
 /** Class implementing the core game engine.
  *
@@ -57,6 +60,7 @@ public class GameEngine {
     private final SceneManager mSceneManager;
     private final InputManager mInputManager;
     private final ResourceManager mResourceManager;
+    private final Logging mLogging;
 
     /** Master source of Settings.
      *
@@ -82,13 +86,14 @@ public class GameEngine {
     private Settings mUserSettings;
 
     /** Settings provided at the command line. */
-    private final SettingsArgs mCommandLineSettings;
+    private final SettingsMap mCommandLineSettings;
 
     private final Platform mPlatform;
     private GameThread mGameThread;
 
+    private Map<String, Subsystem> mSubsystems = new HashMap<String, Subsystem>();
 
-    /** Initializes the engine for use.
+
     /** Initializes the engine for use.
      *
      * This is the primary chunk-o-code constructor.
@@ -102,9 +107,9 @@ public class GameEngine {
      * @param settings Platform specific settings.
      * @param platform Platform specific information.
      */
-    public GameEngine(SettingsArgs args, Display display, SceneManager scene,
+    public GameEngine(SettingsMap args, Display display, SceneManager scene,
                       Game game, InputManager input, ResourceManager resources,
-                      Settings settings, Platform platform)
+                      Logging logging, Settings settings, Platform platform)
     {
         mCommandLineSettings = args;
         mDisplay = display;
@@ -112,6 +117,7 @@ public class GameEngine {
         mGame = game;
         mInputManager = input;
         mResourceManager = resources;
+        mLogging = logging;
         mPlatformSettings = settings;
         mPlatform = platform;
 
@@ -159,6 +165,17 @@ public class GameEngine {
 
 
         /*
+         * These initialize functions will subscribe to whatever runtime
+         * settings they want. As well as perform any pre start() setup.
+         */
+        mLogging.initialize(this);
+        mDisplay.initialize(this);
+        mSceneManager.initialize(this);
+        mInputManager.initialize(this);
+        mResourceManager.initialize(this);
+
+
+        /*
          * Process the various sources of Settings.
          */
         if (mPlatformSettings != null)      mRuntimeSettings.merge(mPlatformSettings);
@@ -170,12 +187,9 @@ public class GameEngine {
 
         // ternary abuse, yeah.
         final String p = 
-            (mDisplay == null ? "display"
-             : (mSceneManager == null ? "scene"
-                 : (mGame == null ? "game"
-                     : (mInputManager == null ? "input"
-                         : (mResourceManager == null ? "resources"
-                             : (mPlatform == null ? "platform" : null))))));
+            (mGame == null ? "game" :
+                (mPlatform == null ? "platform"
+                    : null));
 
         if (p != null) {
             throw new IllegalArgumentException(p+" can't be null!");
@@ -304,121 +318,16 @@ public class GameEngine {
 
 
     public void configure(Settings s) {
-        /* Key used for general debugging. */
+        /* Shortcut key used for general debugging. */
         if (s.getBoolean("debug")) {
             // Make sure that we have a log file.
+            if (!s.contains("debug.log_to"))
+                s.setString("debug.log_to", "debug.log");
             if (!s.contains("debug.log_level"))
-                s.setInt("debug.log_level", Log.VERBOSE);
-            if (!s.contains("debug.log_type"))
-                s.setString("debug.log_type", "file");
-            if (!s.contains("debug.log_file"))
-                s.setString("debug.log_file", "debug.log");
-        }
-
-        /* Setup log sinks for every matching config tree. */
-        for (String key : s.keys()) {
-            int i = key.lastIndexOf(".log_type");
-            if (i != -1) {
-                makeLogSink(key.substring(0, i));
-            }
-        }
-
-        final String game = mGame.getName();
-        String name;
-        String x;
-
-        /* Register resource search path via configuration file. */
-        name = game+".resources.path";
-        x = mRuntimeSettings.getString(name);
-        if (!x.isEmpty()) {
-            for (String dir : x.split(":")) {
-                mResourceManager.addResourceLocation(dir);
-            }
-        }
-        
-
-        /* Support setting resolution from configuration file. */
-        name = game+".display.mode";
-        x = mRuntimeSettings.getString(name);
-        if (!x.isEmpty()) {
-            Log.d(TAG, name, "=", x);
-            mDisplay.setMode(x);
+                s.setInt("debug.log_level", Log.DEBUG);
         }
     }
 
 
-    private void makeLogSink(String top) {
-        System.err.println("Setting up logging for "+top);
-        Settings s = mRuntimeSettings; // lazy git.
-        LogSink sink = null;
-
-        /* this will default to ASSERT(0). */
-        int level = s.getInt(top+".log_level");
-
-        String fileName = s.getString(top+".log_file");
-
-        /* Configure the log_type for top.
-         */
-        String type = s.getString(top+".log_type").toLowerCase();
-        if (type.isEmpty()) {
-            // not a log spec'
-            System.err.println("EMPTY LOG SPEC");
-            return;
-        }
-        else if (type.equals("file")) {
-            try {
-                sink = new LogSink(new File(fileName), level);
-                System.err.println("file sink set.");
-            } catch(FileNotFoundException e) {
-                System.err.println("Failed creating log file, *sad face*: "+e);
-                Log.e(TAG, "Failed creating log file: "+fileName, e);
-            }
-        }
-        else if (type.equals("stdout") || type.equals("stderr")) {
-            sink = new LogSink(type.equals("stdout") ? System.out : System.err, level);
-            System.err.println("stdout/stderr sink set.");
-        }
-        else if (type.equals("stdin")) {
-            throw new IllegalArgumentException("Can't log to stdin; maybe you has typo?");
-        }
-        else {
-            // null log type gets no LogSink.
-            System.err.println("NULL LOG TYPE");
-            return;
-        }
-
-        /* Configure the log_tags for top.
-         */
-        String tags = s.getString(top+".log_tags");
-        if (!tags.isEmpty()) {
-            /*
-             * Must be done or it'll have the same default level for !log_tags.
-             */
-            sink.setDefaultLevel(0);
-
-            for (String t : tags.split(",")) {
-                sink.setLevel(t, level);
-            }
-        }
-
-        String flags = s.getString(top+".log_flags");
-        if (!flags.isEmpty()) {
-            for (String f : flags.split(",")) {
-                boolean value = f.endsWith("=true");
-                if (f.startsWith("DisplayThreadId")) {
-                    sink.setDisplayThreadId(value);
-                } else if (f.startsWith("DisplayDate")) {
-                    sink.setDisplayDate(value);
-                }
-            }
-        }
-
-        Log.add(sink);
-        Log.i(TAG, "logging for", top, " => ",
-              "log_level="+level, ", ",
-              "log_type="+type, ", ",
-              "log_tags="+tags, ", ",
-              "log_file="+fileName);
-    }
 }
 

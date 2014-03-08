@@ -28,9 +28,11 @@ import com.spidey01.sxe.core.gl.OpenGL;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.input.KeyEvent;
 import com.spidey01.sxe.core.input.KeyListener;
+import com.spidey01.sxe.core.logging.Log;
 
 import java.util.Map;
 import java.util.HashMap;
+
 
 // TODO: clear mBuffer when console is hidden. IDK if this will need to be
 //       kept until the rendering phase thought so for right now it's retained.

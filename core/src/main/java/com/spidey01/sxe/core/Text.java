@@ -24,8 +24,9 @@
 
 package com.spidey01.sxe.core;
 
-import com.spidey01.sxe.core.graphics.FrameStartedListener;
 import com.spidey01.sxe.core.gl.OpenGL;
+import com.spidey01.sxe.core.graphics.FrameStartedListener;
+import com.spidey01.sxe.core.logging.Log;
 
 
 public class Text

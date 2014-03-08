@@ -25,12 +25,14 @@ package com.spidey01.sxe.core.testing;
 
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.Log;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.SceneManager;
 import com.spidey01.sxe.core.cfg.Settings;
-import com.spidey01.sxe.core.cfg.SettingsArgs;
+import com.spidey01.sxe.core.cfg.SettingsMap;
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.io.SettingsFile;
+import com.spidey01.sxe.core.logging.Log;
+import com.spidey01.sxe.core.logging.Logging;
 import com.spidey01.sxe.core.sys.Platform;
 
 import java.io.File;
@@ -48,12 +50,13 @@ public class NullConfiguration {
 
     public static GameEngine setup(String[] args, Game game) {
         return new GameEngine(
-            new SettingsArgs(args)
+            new SettingsMap(args)
             , new NullDisplay(new NullOpenGL(), true)
             , new SceneManager()
             , game
             , new NullInputManager()
             , new ResourceManager()
+            , new Logging()
             , null
             , new Platform(Platform.guess())
         );

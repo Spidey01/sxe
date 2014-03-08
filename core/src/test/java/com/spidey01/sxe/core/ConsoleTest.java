@@ -24,11 +24,11 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.cmds.EchoCommand;
-
-import com.spidey01.sxe.core.testing.UnitTest;
+import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.testing.NullDisplay;
 import com.spidey01.sxe.core.testing.NullInputManager;
 import com.spidey01.sxe.core.testing.NullOpenGL;
+import com.spidey01.sxe.core.testing.UnitTest;
 
 import org.junit.*;
 

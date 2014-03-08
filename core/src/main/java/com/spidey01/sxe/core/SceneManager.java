@@ -23,18 +23,47 @@
 
 package com.spidey01.sxe.core;
 
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.graphics.RenderableObject;
+import com.spidey01.sxe.core.logging.Log;
 
 import java.util.List;
 import java.util.ArrayList;
 
-public class SceneManager {
+public class SceneManager implements Subsystem {
     private final static String TAG = "SceneManager";
 
     private List<RenderableObject> mRenderableObjects = new ArrayList<RenderableObject>();
 
     public SceneManager() {
     }
+
+
+    @Override
+    public String name() {
+        return TAG;
+    }
+
+
+    @Override
+    public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
+    }
+
+
+    @Override
+    public void reinitialize(GameEngine engine) {
+        uninitialize();
+        initialize(engine);
+    }
+
+
+    @Override
+    public void uninitialize() {
+        Log.d(TAG, "uninitialize()");
+    }
+
 
     /** Adds a renderable object to the scene.
      */

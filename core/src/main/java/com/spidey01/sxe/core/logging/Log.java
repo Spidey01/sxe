@@ -20,9 +20,9 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
+package com.spidey01.sxe.core.logging;
 
-package com.spidey01.sxe.core;
-
+import java.util.Collections;
 import java.util.List;
 import java.util.LinkedList;
 
@@ -54,25 +54,25 @@ public class Log {
     public static final int VERBOSE = 5;
     public static final int TRACE   = 10;
 
-    private static List<LogSink> mSinks = new LinkedList<LogSink>();
+    private static List<LogSink> sSinks = new LinkedList<LogSink>();
     private static final String TAG = "Log";
 
 
     /** Add log sink. */
     public synchronized static void add(LogSink sink) {
-        mSinks.add(sink);
+        sSinks.add(sink);
     }
 
 
     /** Remove log sink. */
     public synchronized static void remove(LogSink sink) {
-        mSinks.remove(sink);
+        sSinks.remove(sink);
     }
 
 
     /** Return if tag is loggable at level. */
     public synchronized static boolean isLoggable(String tag, int level) {
-        for (LogSink sink : mSinks) {
+        for (LogSink sink : sSinks) {
             if (sink.isLoggable(tag, level)) {
                 return true;
             }
@@ -84,7 +84,7 @@ public class Log {
 
     /** Convenience method that sets the level of tag for every sink. */
     public synchronized static void setLevel(String tag, int level) {
-        for (LogSink sink : mSinks) {
+        for (LogSink sink : sSinks) {
             sink.setLevel(tag, level);
         }
     }
@@ -149,7 +149,7 @@ public class Log {
     /** Send a message to all sinks.
      */
     public synchronized static void log(int level, String tag, Object... messages) {
-        for (LogSink sink : mSinks) {
+        for (LogSink sink : sSinks) {
             sink.log(level, tag, messages);
         }
     }
@@ -158,10 +158,14 @@ public class Log {
     /** Send a formatted message to all sinks.
      */
     public synchronized static void logf(int level, String tag, String format, Object... args) {
-        for (LogSink sink : mSinks) {
+        for (LogSink sink : sSinks) {
             sink.logf(level, tag, format, args);
         }
     }
 
+
+    public synchronized static List<LogSink> getSinks() {
+        return Collections.unmodifiableList(sSinks);
+    }
 }
 

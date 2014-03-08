@@ -23,12 +23,16 @@
 
 package com.spidey01.sxe.core.input;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.common.NotificationManager;
+import com.spidey01.sxe.core.common.Subsystem;
+import com.spidey01.sxe.core.logging.Log;
 
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.LinkedList;
+
 
 /** Abstract base for managing game input.
  *
@@ -37,57 +41,42 @@ import java.util.LinkedList;
  */
 public abstract class AbstractInputManager implements InputManager {
     private static final String TAG = "AbstractInputManager";
+
+
+    protected class KeyEventManager extends NotificationManager<KeyListener, KeyEvent> {
+        @Override
+        protected void invoke(KeyListener listener, KeyEvent event) {
+            super.invoke(listener, event);
+            listener.onKey(event);
+        }
+
+
+        @Override
+        protected String asString(KeyEvent event) {
+            return event.getKeyName();
+        }
+    }
     
 
-    /** List of listeners who wish to receive a broad cast of any key event */
-    protected List<KeyListener> mKeyBroadcastReceivers =
-        new LinkedList<KeyListener>();
-
-
-    /** Map of keys to listeners for bound keys */
-    protected Map<String, List<KeyListener>> mKeyListeners =
-        new HashMap<String, List<KeyListener>>();
+    protected KeyEventManager mKeyEventManager = new KeyEventManager();
 
 
     public abstract void poll();
 
 
     public void addKeyListener(KeyListener listener) {
-        mKeyBroadcastReceivers.add(listener);
+        mKeyEventManager.subscribe(listener);
     }
 
 
     public void addKeyListener(String keyName, KeyListener listener) {
-        List<KeyListener> bindings = mKeyListeners.get(keyName);
-        if (bindings == null) {
-            bindings = new LinkedList<KeyListener>();
-            mKeyListeners.put(keyName, bindings);
-            Log.v(TAG, "created list of KeyListener for '"+keyName+"'");
-        }
-
-        bindings.add(listener);
-        Log.v(TAG, listener+" is now listening for '"+keyName+"'");
+        mKeyEventManager.subscribe(listener);
+        mKeyEventManager.subscribe(keyName, listener);
     }
 
 
     public void notifyKeyListeners(KeyEvent event) {
-        // broadcast receivers get first dibs on any event.
-        for (KeyListener listener : mKeyBroadcastReceivers) {
-            if (listener.onKey(event)) {
-                return;
-            }
-        }
-
-        List<KeyListener> bindings = mKeyListeners.get(event.getKeyName());
-        if (bindings == null) {
-            return;
-        }
-
-        for (KeyListener listener : bindings) {
-            if (listener.onKey(event)) {
-                break;
-            }
-        }
+        mKeyEventManager.notifyListeners(event);
     }
 
 
@@ -123,6 +112,30 @@ public abstract class AbstractInputManager implements InputManager {
         inject("RETURN", false);
     }
 
+
+    @Override
+    public String name() {
+        return TAG;
+    }
+
+
+    @Override
+    public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
+    }
+
+
+    @Override
+    public void reinitialize(GameEngine engine) {
+        uninitialize();
+        initialize(engine);
+    }
+
+
+    @Override
+    public void uninitialize() {
+        Log.d(TAG, "uninitialize()");
+    }
 }
 
 

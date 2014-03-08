@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.scripting.testhelpers;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 
 public class JavaClass {
     private static final String TAG = "JavaClass";

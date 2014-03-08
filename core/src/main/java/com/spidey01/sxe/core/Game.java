@@ -24,6 +24,8 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.logging.Log;
+
 
 /** Your games base class.
  */

@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -21,34 +21,14 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.scripting.jsr223;
+package com.spidey01.sxe.core.common;
 
-import org.junit.*;
+import com.spidey01.sxe.core.GameEngine;
 
-import com.spidey01.sxe.core.logging.Log;
-import com.spidey01.sxe.core.testing.UnitTest;
-
-import com.spidey01.sxe.scripting.*;
-
-public class HelloJsr223 {
-    private static final String TAG = "HelloJsr223";
-
-    @BeforeClass
-    public static void setup() {
-        UnitTest.setup();
-    }
-
-
-    // Really simple example.
-    @Test
-    public void hello() {
-        ScriptManager jsr223 = new Jsr223ScriptManager();
-        Script script = jsr223.createScript();
-
-        String result = (String)jsr223.eval(script, "'Hello, JSR-223!'");
-        Assert.assertEquals("Hello, JSR-223!", result);
-    }
-
+public interface Subsystem {
+    String name();
+    void initialize(GameEngine engine);
+    void reinitialize(GameEngine engine);
+    void uninitialize();
 }
-
 

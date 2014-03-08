@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -20,36 +20,39 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-
-package com.spidey01.sxe.scripting;
+package com.spidey01.sxe.core.cfg;
 
 import com.spidey01.sxe.core.logging.Log;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+/** Helper class for creating a Settings.OnChangedListener.
+ *
+ * Simply pass the correct data through the constructor with super() and
+ * override the onChanged() method.
+ */
+public class SettingsListener implements Settings.OnChangedListener {
+    private static final String TAG = "SettingsListener";
 
-public interface ScriptManager {
 
-    Script createScript();
+    protected final Settings mSettings;
 
-    Object eval(Script scope, String sourceCode);
 
-    Object eval(Script scope, File sourceFile) throws IOException, FileNotFoundException;
-
-    Object get(Script scope, String variable);
-
-    /** Export Java value to script language.
+    /** Creates a listener for changes to settings.
      *
-     * Types will be mapped as expected. Things like Strings , booleans, etc.
-     * Exact representation of numeric data on the other hand is implementation
-     * defined. Please see the corrisponding documentation for the
-     * implementation.
-     *
-     * @param variable name used in scripting language.
-     * @param value the java object referred to by variable.
-     * @return ...
+     * Only settings marked with prefix are of interest.
+     * You can then make use of mPrefix in onChanged().
      */
-    Object put(Script scope, String variable, Object value);
+    public SettingsListener(Settings settings) {
+        mSettings = settings;
+    }
+
+
+    public void clear() {
+        mSettings.removeChangeListener(this);
+    }
+
+
+    public void onChanged(String key) {
+        Log.xtrace(TAG, "onChanged(String key =>", key);
+    }
 }
 

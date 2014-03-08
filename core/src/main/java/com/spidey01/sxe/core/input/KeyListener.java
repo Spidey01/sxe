@@ -23,7 +23,9 @@
 
 package com.spidey01.sxe.core.input;
 
-public interface KeyListener {
+import java.util.EventListener;
+
+public interface KeyListener extends EventListener {
     boolean onKey(KeyEvent event);
 }
 

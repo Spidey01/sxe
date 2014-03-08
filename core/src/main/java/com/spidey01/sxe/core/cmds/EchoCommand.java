@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.core.cmds;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 
 /** Echo command.
  */

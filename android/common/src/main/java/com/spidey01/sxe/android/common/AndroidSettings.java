@@ -72,6 +72,12 @@ public class AndroidSettings implements Settings {
 
 
     @Override
+    public void addChangeListener(String key, OnChangedListener listener) {
+        throw new UnsupportedOperationException("Not implemented yet!");
+    }
+
+
+    @Override
     public void removeChangeListener(OnChangedListener listener) {
         mListeners.remove(listener);
     }
@@ -79,7 +85,7 @@ public class AndroidSettings implements Settings {
 
     private void notifyListeners(String key) {
         for (Settings.OnChangedListener l : mListeners) {
-            l.onChanged(this, key);
+            l.onChanged(key);
         }
     }
 

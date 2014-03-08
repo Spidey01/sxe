@@ -25,7 +25,7 @@ package com.spidey01.sxe.core.input;
 
 import java.util.EventObject;
 
-public class KeyEvent {
+public class KeyEvent extends EventObject {
     private InputManager mSource;
     private final int mKeyCode;
     private final String mKeyName;
@@ -36,6 +36,7 @@ public class KeyEvent {
     public KeyEvent(InputManager source, int keyCode,
         String keyName, boolean keyDown)
     {
+        super(source);
         mSource = source;
         mKeyCode = keyCode;
         mKeyName = keyName;

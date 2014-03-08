@@ -24,6 +24,8 @@
 package com.spidey01.sxe.core.cfg;
 
 import java.io.IOException;
+import java.util.EventListener;
+
 
 /** Access to persistent settings.
  *
@@ -46,7 +48,7 @@ public interface Settings {
      *
      * Use this if you must be kept up to date with the current value of a key.
      */
-    public interface OnChangedListener {
+    public interface OnChangedListener extends EventListener {
         /** Handle change notification.
          *
          * You are provided an instance of the Settings so that you can query
@@ -60,11 +62,13 @@ public interface Settings {
          * @param settings - used to obtain the new value of key.
          * @param key - the key associated with the change.
          */
-        void onChanged(Settings settings, String key);
+        void onChanged(String key);
     }
     
     void addChangeListener(OnChangedListener listener);
+    void addChangeListener(String key, OnChangedListener listener);
     void removeChangeListener(OnChangedListener listener);
+    // void removeChangeListener(String key, OnChangedListener listener);
 
     /** Sequence of all keys that are set. */
     String[] keys();

@@ -26,7 +26,7 @@ package com.spidey01.sxe.scripting.jsr223;
 import javax.script.ScriptContext;
 import javax.script.SimpleScriptContext;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.scripting.Script;
 
 import java.io.File;

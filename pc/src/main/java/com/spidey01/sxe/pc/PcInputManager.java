@@ -23,7 +23,9 @@
 
 package com.spidey01.sxe.pc;
 
-import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.logging.Log;
+import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.input.AbstractInputManager;
 import com.spidey01.sxe.core.input.KeyEvent;
 import com.spidey01.sxe.core.input.KeyListener;
@@ -34,10 +36,13 @@ public class PcInputManager extends AbstractInputManager {
 
     private static final String TAG = "PcInputManager";
 
+
     public PcInputManager() {
         Keyboard.enableRepeatEvents(true);
     }
 
+
+    @Override
     public void poll() {
         /* pump the keyboard buffer */
         while (Keyboard.next()) {
@@ -51,5 +56,29 @@ public class PcInputManager extends AbstractInputManager {
         }
     }
 
+
+    @Override
+    public String name() {
+        return TAG;
+    }
+
+
+    @Override
+    public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
+    }
+
+
+    @Override
+    public void reinitialize(GameEngine engine) {
+        uninitialize();
+        initialize(engine);
+    }
+
+
+    @Override
+    public void uninitialize() {
+        Log.d(TAG, "uninitialize()");
+    }
 }
 
