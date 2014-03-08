@@ -54,7 +54,7 @@ class LogSettingsManager extends SettingsListener {
             LogSink sink = getLogSink(name);
 
             if (sink == null && key.lastIndexOf(".log_to") != -1) {
-                Log.add(makeLogSink(name, mSettings.getString(key).toLowerCase()));
+                Log.add(makeLogSink(name, mSettings.getString(key)));
             } else if (sink !=  null) {
                 // Apply whatever settings are currently available.
                 editLogSink(sink);
@@ -66,28 +66,29 @@ class LogSettingsManager extends SettingsListener {
     }
 
 
-    /** Creates a LogSink of specified type.
+    /** Creates a LogSink of specified to.
      */
-    private LogSink makeLogSink(String name, String type) {
+    private LogSink makeLogSink(String name, String to) {
         int level = LogSink.DEFAULT_LOG_LEVEL;
+                Log.w("XXX", "making log sink named", name, "with to", to);
 
-        if (type.isEmpty()) {
+        if (to.isEmpty()) {
             // not a log spec'
             throw new IllegalArgumentException("EMPTY LOG SPEC");
         }
-        else if (type.equals("stdin")) {
+        else if (to.equals("stdin")) {
             throw new IllegalArgumentException("Can't log to stdin; maybe you has typo?");
         }
-        else if (type.equals("stdout") || type.equals("stderr")) {
-            return new LogSink(name, level, type.equals("stdout") ? System.out : System.err);
+        else if (to.equals("stdout") || to.equals("stderr")) {
+            return new LogSink(name, level, to.equals("stdout") ? System.out : System.err);
         }
         else {
             /* .log_to's value is a file name. */
             try {
-                return new LogSink(name, level, new File(type));
+                return new LogSink(name, level, new File(to));
             } catch(FileNotFoundException e) {
                 System.err.println("Failed creating log file, *sad face*: "+e);
-                Log.e(TAG, "Failed creating log file: "+type, e);
+                Log.e(TAG, "Failed creating log file: "+to, e);
             }
         }
         throw new IllegalArgumentException("Internal typo!");
@@ -135,86 +136,6 @@ class LogSettingsManager extends SettingsListener {
                 }
             }
         }
-    }
-
-
-    private void xmakeLogSink(String top) {
-        System.err.println("Setting up logging for "+top);
-        Log.e("XXX", "Setting up logging for",top);
-        Settings s = mSettings; // lazy git.
-        LogSink sink = null;
-
-        /* this will default to ASSERT(0). */
-        int level = s.getInt(top+".log_level");
-        Log.e("XXX", "level =", level);
-
-        String fileName = s.getString(top+".log_file");
-        Log.e("XXX", "log_file =", fileName);
-
-        /* Configure the log_to for top.
-        */
-        String type = s.getString(top+".log_to").toLowerCase();
-        Log.e("XXX", "log_to =", type);
-        if (type.isEmpty()) {
-            // not a log spec'
-            System.err.println("EMPTY LOG SPEC");
-            return;
-        }
-        else if (type.equals("file")) {
-            try {
-                sink = new LogSink(new File(fileName), level);
-                System.err.println("file sink set.");
-            } catch(FileNotFoundException e) {
-                System.err.println("Failed creating log file, *sad face*: "+e);
-                Log.e(TAG, "Failed creating log file: "+fileName, e);
-            }
-        }
-        else if (type.equals("stdout") || type.equals("stderr")) {
-            sink = new LogSink(type.equals("stdout") ? System.out : System.err, level);
-            System.err.println("stdout/stderr sink set.");
-        }
-        else if (type.equals("stdin")) {
-            throw new IllegalArgumentException("Can't log to stdin; maybe you has typo?");
-        }
-        else {
-            // null log type gets no LogSink.
-            System.err.println("NULL LOG TYPE");
-            return;
-        }
-
-        /* Configure the log_tags for top.
-        */
-        String tags = s.getString(top+".log_tags");
-        Log.e("XXX", "log_tags =", tags);
-        if (!tags.isEmpty()) {
-            /*
-             * Must be done or it'll have the same default level for !log_tags.
-             */
-            sink.setDefaultLevel(0);
-
-            for (String t : tags.split(",")) {
-                sink.setLevel(t, level);
-            }
-        }
-
-        String flags = s.getString(top+".log_flags");
-        Log.e("XXX", "log_flags =", flags);
-        if (!flags.isEmpty()) {
-            for (String f : flags.split(",")) {
-                boolean value = f.endsWith("=true");
-                if (f.startsWith("DisplayThreadId")) {
-                    sink.setDisplayThreadId(value);
-                } else if (f.startsWith("DisplayDate")) {
-                    sink.setDisplayDate(value);
-                }
-            }
-        }
-
-        Log.add(sink);
-        Log.i(TAG, "logging for", top, " => ",
-                "log_level="+level, ", ",
-                "log_to="+type, ", ",
-                "log_tags="+tags);
     }
 }
 
