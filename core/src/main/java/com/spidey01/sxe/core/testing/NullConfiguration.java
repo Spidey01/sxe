@@ -26,6 +26,7 @@ package com.spidey01.sxe.core.testing;
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.Logging;
 import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.SceneManager;
 import com.spidey01.sxe.core.cfg.Settings;
@@ -55,6 +56,7 @@ public class NullConfiguration {
             , game
             , new NullInputManager()
             , new ResourceManager()
+            , new Logging()
             , null
             , new Platform(Platform.guess())
         );

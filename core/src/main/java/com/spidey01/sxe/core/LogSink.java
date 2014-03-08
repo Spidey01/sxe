@@ -35,6 +35,7 @@ import java.util.HashMap;
  * The default implementation simply works with a PrintStream. Like System.out or System.err.
  */
 public class LogSink {
+    private static final String TAG = "LogSink";
 
     /** Value used to log a null. */
     private static final String sNullFormat = "(null)";
@@ -42,30 +43,47 @@ public class LogSink {
     /** Default log level for previously unseen tags. */
     public static final int DEFAULT_LOG_LEVEL = Log.INFO;
 
+    public static final String DEFAULT_LOG_NAME = "debug";
+
+    public static final PrintStream DEFAULT_LOG_STREAM = System.err;
+
+
+    private final PrintStream mOutput;
+
     protected int mDefaultLevel = DEFAULT_LOG_LEVEL;
     protected HashMap<String, Integer> mFilters = new HashMap<String, Integer>();
     protected boolean mDisplayThreadId = true;
     protected boolean mDisplayDate = true;
     protected boolean mDisplayTime = true;
 
-    private PrintStream mOutput;
-    private static final String TAG = "LogSink";
+    private final String mName;
 
 
-    /** Creates a LogSink that writes to System.out. */
+    public LogSink(String name, int level, PrintStream output) {
+        mName = name;
+        mDefaultLevel = level;
+        mOutput = output;
+    }
+
+
+    public LogSink(String name, int level, File file) throws FileNotFoundException {
+        this(name, level, (new PrintStream(file)));
+    }
+
+
+    /** Creates a LogSink with the default settings. */
     public LogSink() {
-        mOutput = System.out;
+        this(DEFAULT_LOG_NAME, DEFAULT_LOG_LEVEL, DEFAULT_LOG_STREAM);
     }
 
 
     public LogSink(int level) {
-        this();
-        mDefaultLevel = level;
+        this(DEFAULT_LOG_NAME, level, DEFAULT_LOG_STREAM);
     }
 
 
     public LogSink(PrintStream s) {
-        mOutput = s;
+        this(DEFAULT_LOG_NAME, DEFAULT_LOG_LEVEL, s);
     }
 
 
@@ -75,8 +93,7 @@ public class LogSink {
      * @param level default log level.
      */
     public LogSink(PrintStream s, int level) {
-        this(s);
-        mDefaultLevel = level;
+        this(DEFAULT_LOG_NAME, level, s);
     }
 
 
@@ -122,6 +139,11 @@ public class LogSink {
      */
     public void setDefaultLevel(int level) {
         mDefaultLevel = level;
+    }
+
+
+    public String getName() {
+        return mName;
     }
 
 

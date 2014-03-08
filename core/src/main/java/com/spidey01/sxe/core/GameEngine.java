@@ -58,6 +58,7 @@ public class GameEngine {
     private final SceneManager mSceneManager;
     private final InputManager mInputManager;
     private final ResourceManager mResourceManager;
+    private final Logging mLogging;
 
     /** Master source of Settings.
      *
@@ -106,7 +107,7 @@ public class GameEngine {
      */
     public GameEngine(SettingsMap args, Display display, SceneManager scene,
                       Game game, InputManager input, ResourceManager resources,
-                      Settings settings, Platform platform)
+                      Logging logging, Settings settings, Platform platform)
     {
         mCommandLineSettings = args;
         mDisplay = display;
@@ -114,6 +115,7 @@ public class GameEngine {
         mGame = game;
         mInputManager = input;
         mResourceManager = resources;
+        mLogging = logging;
         mPlatformSettings = settings;
         mPlatform = platform;
 
@@ -164,6 +166,7 @@ public class GameEngine {
          * These initialize functions will subscribe to whatever runtime
          * settings they want. As well as perform any pre start() setup.
          */
+        mLogging.initialize(this);
         mDisplay.initialize(this);
         mSceneManager.initialize(this);
         mInputManager.initialize(this);
@@ -313,99 +316,16 @@ public class GameEngine {
 
 
     public void configure(Settings s) {
-        /* Key used for general debugging. */
+        /* Shortcut key used for general debugging. */
         if (s.getBoolean("debug")) {
             // Make sure that we have a log file.
+            if (!s.contains("debug.log_type"))
+                s.setString("debug.log_type", "debug.log");
             if (!s.contains("debug.log_level"))
                 s.setInt("debug.log_level", Log.VERBOSE);
-            if (!s.contains("debug.log_type"))
-                s.setString("debug.log_type", "file");
-            if (!s.contains("debug.log_file"))
-                s.setString("debug.log_file", "debug.log");
-        }
-
-        /* Setup log sinks for every matching config tree. */
-        for (String key : s.keys()) {
-            int i = key.lastIndexOf(".log_type");
-            if (i != -1) {
-                makeLogSink(key.substring(0, i));
-            }
         }
     }
 
 
-    private void makeLogSink(String top) {
-        System.err.println("Setting up logging for "+top);
-        Settings s = mRuntimeSettings; // lazy git.
-        LogSink sink = null;
-
-        /* this will default to ASSERT(0). */
-        int level = s.getInt(top+".log_level");
-
-        String fileName = s.getString(top+".log_file");
-
-        /* Configure the log_type for top.
-         */
-        String type = s.getString(top+".log_type").toLowerCase();
-        if (type.isEmpty()) {
-            // not a log spec'
-            System.err.println("EMPTY LOG SPEC");
-            return;
-        }
-        else if (type.equals("file")) {
-            try {
-                sink = new LogSink(new File(fileName), level);
-                System.err.println("file sink set.");
-            } catch(FileNotFoundException e) {
-                System.err.println("Failed creating log file, *sad face*: "+e);
-                Log.e(TAG, "Failed creating log file: "+fileName, e);
-            }
-        }
-        else if (type.equals("stdout") || type.equals("stderr")) {
-            sink = new LogSink(type.equals("stdout") ? System.out : System.err, level);
-            System.err.println("stdout/stderr sink set.");
-        }
-        else if (type.equals("stdin")) {
-            throw new IllegalArgumentException("Can't log to stdin; maybe you has typo?");
-        }
-        else {
-            // null log type gets no LogSink.
-            System.err.println("NULL LOG TYPE");
-            return;
-        }
-
-        /* Configure the log_tags for top.
-         */
-        String tags = s.getString(top+".log_tags");
-        if (!tags.isEmpty()) {
-            /*
-             * Must be done or it'll have the same default level for !log_tags.
-             */
-            sink.setDefaultLevel(0);
-
-            for (String t : tags.split(",")) {
-                sink.setLevel(t, level);
-            }
-        }
-
-        String flags = s.getString(top+".log_flags");
-        if (!flags.isEmpty()) {
-            for (String f : flags.split(",")) {
-                boolean value = f.endsWith("=true");
-                if (f.startsWith("DisplayThreadId")) {
-                    sink.setDisplayThreadId(value);
-                } else if (f.startsWith("DisplayDate")) {
-                    sink.setDisplayDate(value);
-                }
-            }
-        }
-
-        Log.add(sink);
-        Log.i(TAG, "logging for", top, " => ",
-              "log_level="+level, ", ",
-              "log_type="+type, ", ",
-              "log_tags="+tags, ", ",
-              "log_file="+fileName);
-    }
 }
 
