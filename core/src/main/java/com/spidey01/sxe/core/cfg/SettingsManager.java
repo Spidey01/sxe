@@ -43,7 +43,7 @@ public class SettingsManager extends NotificationManager<Settings.OnChangedListe
 
     @Override
     protected void invoke(Settings.OnChangedListener listener, String message) {
-        listener.onChanged(mOwner, message);
+        listener.onChanged(message);
     }
 }
 

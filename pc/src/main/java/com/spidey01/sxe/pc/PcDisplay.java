@@ -73,9 +73,9 @@ public class PcDisplay
 
 
         @Override
-        public void onChanged(Settings settings, String key) {
-            super.onChanged(settings, key);
-            String value = settings.getString(key);
+        public void onChanged(String key) {
+            super.onChanged(key);
+            String value = mSettings.getString(key);
             Log.i(TAG, "onChanged():", key, "=", value);
 
             /* Support setting resolution from runtime configuration. */

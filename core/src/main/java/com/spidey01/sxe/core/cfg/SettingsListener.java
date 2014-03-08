@@ -51,9 +51,8 @@ public class SettingsListener implements Settings.OnChangedListener {
     }
 
 
-    public void onChanged(Settings settings, String key) {
-        Log.xtrace(TAG, "onChanged(Settings =>", settings, ", String =>", key);
-        assert mSettings.equals(settings);
+    public void onChanged(String key) {
+        Log.xtrace(TAG, "onChanged(String key =>", key);
     }
 }
 

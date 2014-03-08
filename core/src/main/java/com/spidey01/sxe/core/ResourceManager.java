@@ -70,15 +70,15 @@ public class ResourceManager
 
 
         @Override
-        public void onChanged(Settings settings, String key) {
-            super.onChanged(settings, key);
-            Log.xtrace(TAG, "onChanged(Settings =>", settings, ", String =>", key);
+        public void onChanged(String key) {
+            super.onChanged(key);
+            Log.xtrace(TAG, "onChanged(String key =>", key);
 
             if (!key.equals(PATH)) {
                 throw new IllegalArgumentException("onChanged: bad key="+key);
             }
 
-            String value = settings.getString(key);
+            String value = mSettings.getString(key);
             if (!value.isEmpty()) {
                 for (String dir : value.split(":")) {
                     ResourceManager.this.addResourceLocation(dir);

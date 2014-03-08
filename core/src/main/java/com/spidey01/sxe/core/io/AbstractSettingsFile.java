@@ -46,7 +46,7 @@ import java.util.Set;
 public abstract class AbstractSettingsFile implements Settings {
     private final static String TAG = "AbstractSettingsFile";
 
-    private SettingsManager mSettingsManager;
+    protected SettingsManager mSettingsManager;
 
 
     /* This is provided to concrete implementations. You want to use it for

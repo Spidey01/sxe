@@ -62,7 +62,7 @@ public interface Settings {
          * @param settings - used to obtain the new value of key.
          * @param key - the key associated with the change.
          */
-        void onChanged(Settings settings, String key);
+        void onChanged(String key);
     }
     
     void addChangeListener(OnChangedListener listener);

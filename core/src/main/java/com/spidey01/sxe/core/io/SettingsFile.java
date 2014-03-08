@@ -24,6 +24,7 @@
 package com.spidey01.sxe.core.io;
 
 import com.spidey01.sxe.core.Log;
+import com.spidey01.sxe.core.cfg.SettingsManager;
 
 
 import java.io.File;
@@ -41,6 +42,7 @@ public class SettingsFile extends AbstractSettingsFile {
 
 
     public SettingsFile(String name) {
+        mSettingsManager = new SettingsManager(this);
         mName = name;
         try {
             load(mName);

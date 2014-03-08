@@ -112,8 +112,7 @@ public abstract class AbstractSettingsTest
     }
 
 
-    public void onChanged(Settings settings, String key) {
-        Assert.assertNotNull(settings);
+    public void onChanged(String key) {
         Assert.assertNotNull(key);
         Assert.assertFalse(key.isEmpty());
         mOnChanged_called = true;
