@@ -141,8 +141,8 @@ public class ResourceManager
      *
      * @see ResourceManager.load
      */
-    @Override public void initialize(GameEngine engine) { Log.d(TAG,
-            "initialize(", engine, ")");
+    @Override public void initialize(GameEngine engine) {
+        Log.d(TAG, "initialize(", engine, ")");
 
         // Setup standard resource loaders
         mLoaders.put("default", sDefaultLoader);
