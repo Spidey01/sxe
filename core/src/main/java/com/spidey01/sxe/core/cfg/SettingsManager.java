@@ -30,6 +30,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+
 public class SettingsManager extends NotificationManager<Settings.OnChangedListener, String> {
     private static final String TAG = "SettingsManager";
 

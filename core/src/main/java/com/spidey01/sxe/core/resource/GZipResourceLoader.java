@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -20,17 +20,29 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
+package com.spidey01.sxe.core.resource;
 
-package com.spidey01.sxe.core;
-
-import java.io.IOException;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
+import java.util.zip.GZIPInputStream;
 
-/** ABC for loading a Resource */
-public interface ResourceLoader {
-    InputStream getInputStream(File from, File what) throws IOException;
-    InputStream getInputStream(String from, String what) throws IOException;
+public class GZipResourceLoader extends PathResourceLoader {
+    private final static String TAG = "GZipResourceLoader";
+
+
+    public InputStream getInputStream(File from, File what)
+        throws IOException
+    {
+        return new GZIPInputStream(super.getInputStream(from, what));
+    }
+
+
+    public InputStream getInputStream(String from, String what)
+        throws IOException
+    {
+        return new GZIPInputStream(super.getInputStream(from, what));
+    }
+
 }
 

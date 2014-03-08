@@ -20,12 +20,12 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
+package com.spidey01.sxe.core.resource;
 
-package com.spidey01.sxe.core;
-
+import com.spidey01.sxe.core.Texture;
 import com.spidey01.sxe.core.gl.OpenGLES20;
 import com.spidey01.sxe.core.gl.Shader;
-import com.spidey01.sxe.core.io.PngBitmap;
+import com.spidey01.sxe.core.graphics.PngBitmap;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.io.BufferedReader;
@@ -37,6 +37,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URI;
+
 
 public class ResourceHandle implements Closeable {
     private final static String TAG = "ResourceHandle";

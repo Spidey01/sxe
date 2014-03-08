@@ -20,22 +20,22 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-
 package com.spidey01.sxe.core.testing;
 
 import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.ResourceManager;
 import com.spidey01.sxe.core.SceneManager;
 import com.spidey01.sxe.core.cfg.Settings;
+import com.spidey01.sxe.core.cfg.SettingsFile;
 import com.spidey01.sxe.core.cfg.SettingsMap;
 import com.spidey01.sxe.core.common.Subsystem;
-import com.spidey01.sxe.core.io.SettingsFile;
 import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.logging.Logging;
+import com.spidey01.sxe.core.resource.ResourceManager;
 import com.spidey01.sxe.core.sys.Platform;
 
 import java.io.File;
+
 
 /** Utility class to setup a GameEngine configured with null input and display.
  */

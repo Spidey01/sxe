@@ -21,9 +21,8 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core.io;
+package com.spidey01.sxe.core.resource;
 
-import com.spidey01.sxe.core.ResourceLoader;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.util.zip.ZipFile;
@@ -34,6 +33,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.File;
 import java.net.URI;
+
 
 /** Loads an InputStream out of a Zip Archive. */
 public class ZipResourceLoader implements ResourceLoader {

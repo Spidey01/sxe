@@ -20,11 +20,8 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
+package com.spidey01.sxe.core.cfg;
 
-package com.spidey01.sxe.core.io;
-
-import com.spidey01.sxe.core.cfg.Settings;
-import com.spidey01.sxe.core.cfg.SettingsManager;
 import com.spidey01.sxe.core.common.NotificationManager;
 import com.spidey01.sxe.core.common.Utils;
 import com.spidey01.sxe.core.logging.Log;

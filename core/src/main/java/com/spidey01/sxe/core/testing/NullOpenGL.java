@@ -20,7 +20,6 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-
 package com.spidey01.sxe.core.testing;
 
 import com.spidey01.sxe.core.gl.OpenGL;
@@ -36,6 +35,7 @@ import java.nio.ByteBuffer;
 import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
+
 
 public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     private final static String TAG = "NullOpenGL";

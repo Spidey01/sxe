@@ -20,34 +20,17 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
+package com.spidey01.sxe.core.resource;
 
-package com.spidey01.sxe.core.io;
-
-import com.spidey01.sxe.core.ResourceLoader;
-
-import java.io.InputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.File;
+import java.io.InputStream;
 import java.net.URI;
 
-/** Loads an InputStream out of a file path */
-public class PathResourceLoader implements ResourceLoader {
-    private final static String TAG = "PathResourceLoader";
 
-
-    public InputStream getInputStream(File from, File what)
-        throws IOException
-    {
-        return new FileInputStream(new File(from, what.getPath()));
-    }
-
-
-    public InputStream getInputStream(String from, String what)
-        throws IOException
-    {
-        return new FileInputStream(new File(from, what));
-    }
+/** ABC for loading a Resource */
+public interface ResourceLoader {
+    InputStream getInputStream(File from, File what) throws IOException;
+    InputStream getInputStream(String from, String what) throws IOException;
 }
-
 

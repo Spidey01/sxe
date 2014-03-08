@@ -24,6 +24,7 @@ package com.spidey01.sxe.core.cfg;
 
 import com.spidey01.sxe.core.logging.Log;
 
+
 /** Helper class for creating a Settings.OnChangedListener.
  *
  * Simply pass the correct data through the constructor with super() and

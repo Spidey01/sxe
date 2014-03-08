@@ -20,16 +20,12 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-
-package com.spidey01.sxe.core;
+package com.spidey01.sxe.core.resource;
 
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.cfg.Settings;
 import com.spidey01.sxe.core.cfg.SettingsListener;
 import com.spidey01.sxe.core.common.Subsystem;
-import com.spidey01.sxe.core.io.GZipResourceLoader;
-import com.spidey01.sxe.core.io.PathResourceLoader;
-import com.spidey01.sxe.core.io.ZipResourceLoader;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.io.File;
