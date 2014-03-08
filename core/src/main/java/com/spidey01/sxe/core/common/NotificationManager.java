@@ -133,6 +133,7 @@ public class NotificationManager<Receiver_T, Message_T> {
      * </samp>
      */
     protected void invoke(Receiver_T rx, Message_T message) {
+        Log.xtrace(TAG, "invoke(Receiver_T =>", rx, ", Message_T =>", message, ")");
     }
 
     /** Adapter method for custom messages.

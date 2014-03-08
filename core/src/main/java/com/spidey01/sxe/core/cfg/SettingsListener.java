@@ -32,7 +32,7 @@ import com.spidey01.sxe.core.Log;
 public class SettingsListener implements Settings.OnChangedListener {
     private static final String TAG = "SettingsListener";
 
-    protected final String mPrefix;
+
     protected final Settings mSettings;
 
 
@@ -41,11 +41,8 @@ public class SettingsListener implements Settings.OnChangedListener {
      * Only settings marked with prefix are of interest.
      * You can then make use of mPrefix in onChanged().
      */
-    public SettingsListener(Settings settings, String prefix) {
-        mPrefix = prefix;
+    public SettingsListener(Settings settings) {
         mSettings = settings;
-        Log.v(TAG, "Listening for settings prefixed:", prefix, "on Settings =>", mSettings);
-        mSettings.addChangeListener(this);
     }
 
 

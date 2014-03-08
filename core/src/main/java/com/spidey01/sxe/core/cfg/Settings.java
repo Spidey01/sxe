@@ -66,7 +66,9 @@ public interface Settings {
     }
     
     void addChangeListener(OnChangedListener listener);
+    void addChangeListener(String key, OnChangedListener listener);
     void removeChangeListener(OnChangedListener listener);
+    // void removeChangeListener(String key, OnChangedListener listener);
 
     /** Sequence of all keys that are set. */
     String[] keys();

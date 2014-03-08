@@ -57,39 +57,44 @@ public class PcDisplay
     private class DisplaySettingsListener extends SettingsListener {
         private static final String TAG = PcDisplay.TAG+".SettingsListener";
 
+        private final String MODE;
+        private final String FPS;
 
         public DisplaySettingsListener(GameEngine engine) {
-            super(engine.getSettings(), engine.getGame().getName()+".display");
+            super(engine.getSettings());
+            String prefix = engine.getGame().getName()+".display";
+
+            MODE = prefix+".mode";
+            mSettings.addChangeListener(MODE, this);
+
+            FPS = prefix+".fps";
+            mSettings.addChangeListener(FPS, this);
         }
 
 
         @Override
         public void onChanged(Settings settings, String key) {
             super.onChanged(settings, key);
-            Log.xtrace(TAG, "onChanged(Settings =>", settings, ", String =>", key);
-
-            String name;
-            String value;
+            String value = settings.getString(key);
+            Log.i(TAG, "onChanged():", key, "=", value);
 
             /* Support setting resolution from runtime configuration. */
-            name = mPrefix+".mode";
-            value = settings.getString(name);
-            if (!value.isEmpty()) {
-                Log.d(TAG, name, "=", value);
-                PcDisplay.this.setMode(value);
+            if (key.equals(MODE) && !value.isEmpty()) {
+                    PcDisplay.this.setMode(value);
             }
 
             /* Support toggling display of FPS from runtime configuration. */
-            name = mPrefix+".fps";
-            value = settings.getString(name).toLowerCase();
-            if (!value.isEmpty()) {
-                Log.d(TAG, name, "=", value);
+            else if (key.equals(FPS) && !value.isEmpty()) {
                 if (value.equals("true") || value.equals("1") || value.equals("on")) {
                     PcDisplay.this.mFrameCounter.enableDebugging();
                 } else if (value.equals("false") || value.equals("0") || value.equals("off")) {
                     PcDisplay.this.mFrameCounter.disableDebugging();
                 }
             }
+
+             else {
+                throw new IllegalArgumentException("onChanged: bad key="+key);
+             }
         }
     }
 

@@ -58,8 +58,14 @@ public class ResourceManager
     private class ResourceSettingsListener extends SettingsListener {
         private static final String TAG = ResourceManager.TAG+".SettingsListener";
 
+        private final String PATH;
+
         public ResourceSettingsListener(GameEngine engine) {
-            super(engine.getSettings(), engine.getGame().getName()+".resources");
+            super(engine.getSettings());
+            String prefix = engine.getGame().getName()+".resources";
+
+            PATH = prefix + ".path";
+            mSettings.addChangeListener(PATH, this);
         }
 
 
@@ -68,11 +74,11 @@ public class ResourceManager
             super.onChanged(settings, key);
             Log.xtrace(TAG, "onChanged(Settings =>", settings, ", String =>", key);
 
-            String name;
-            String value;
+            if (!key.equals(PATH)) {
+                throw new IllegalArgumentException("onChanged: bad key="+key);
+            }
 
-            name = mPrefix+".path";
-            value = settings.getString(name);
+            String value = settings.getString(key);
             if (!value.isEmpty()) {
                 for (String dir : value.split(":")) {
                     ResourceManager.this.addResourceLocation(dir);

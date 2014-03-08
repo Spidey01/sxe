@@ -61,9 +61,21 @@ public abstract class AbstractSettingsFile implements Settings {
 
 
     @Override
+    public void addChangeListener(String key, OnChangedListener listener) {
+        mSettingsManager.subscribe(key, listener);
+    }
+
+
+    @Override
     public void removeChangeListener(OnChangedListener listener) {
         mSettingsManager.unsubscribe(listener);
     }
+
+
+    // @Override
+    // public void removeChangeListener(String key, OnChangedListener listener) {
+        // mSettingsManager.unsubscribe(key, listener);
+    // }
 
 
     @Override
