@@ -64,7 +64,7 @@ public class Text
     /** Done just for testing atm. */
     @Override
     public void frameStarted(OpenGL GL20) {
-        Log.v(TAG, mText);
+        Log.xtrace(TAG, mText);
     }
 }
 
