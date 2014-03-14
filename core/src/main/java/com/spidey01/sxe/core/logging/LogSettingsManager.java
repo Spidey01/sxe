@@ -54,7 +54,13 @@ class LogSettingsManager extends SettingsListener {
             LogSink sink = getLogSink(name);
 
             if (sink == null && key.lastIndexOf(".log_to") != -1) {
-                Log.add(makeLogSink(name, mSettings.getString(key)));
+                sink = makeLogSink(name, mSettings.getString(key));
+                /*
+                 * This is necessary so existing settings (e.g. .log_level) are
+                 * applied correctly to the now created log sink.
+                 */
+                editLogSink(sink);
+                Log.add(sink);
             } else if (sink !=  null) {
                 // Apply whatever settings are currently available.
                 editLogSink(sink);
@@ -104,7 +110,8 @@ class LogSettingsManager extends SettingsListener {
     }
 
 
-    private void editLogSink(LogSink sink) {
+    /** Edits and returns sink. */
+    private LogSink editLogSink(LogSink sink) {
         final String name = sink.getName();
         final int level = mSettings.getInt(name+".log_level");
 
@@ -135,6 +142,7 @@ class LogSettingsManager extends SettingsListener {
                 }
             }
         }
+        return sink;
     }
 }
 
