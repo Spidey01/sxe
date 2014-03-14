@@ -94,9 +94,10 @@ class LogSettingsManager extends SettingsListener {
             } catch(FileNotFoundException e) {
                 System.err.println("Failed creating log file, *sad face*: "+e);
                 Log.e(TAG, "Failed creating log file: "+to, e);
+                // Is this smart? At least it's descriptive.
+                throw new RuntimeException(e);
             }
         }
-        throw new IllegalArgumentException("Internal typo!");
     }
 
     
@@ -111,7 +112,7 @@ class LogSettingsManager extends SettingsListener {
 
 
     /** Edits and returns sink. */
-    private LogSink editLogSink(LogSink sink) {
+    private editLogSink(LogSink sink) {
         final String name = sink.getName();
         final int level = mSettings.getInt(name+".log_level");
 
@@ -142,7 +143,6 @@ class LogSettingsManager extends SettingsListener {
                 }
             }
         }
-        return sink;
     }
 }
 
