@@ -132,6 +132,10 @@ public class Utils {
      * regexp usage in String makes my Perl brain hurt.
      */
     public static String[] tokenize(String s) {
+        if (s == null) {
+            throw new IllegalArgumentException("Can't "+TAG+".tokenize(null).");
+        }
+
         String q;
         List<String> list = new ArrayList<String>();
         /*
