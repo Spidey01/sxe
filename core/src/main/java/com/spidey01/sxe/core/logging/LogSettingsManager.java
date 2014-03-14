@@ -112,7 +112,7 @@ class LogSettingsManager extends SettingsListener {
 
 
     /** Edits and returns sink. */
-    private editLogSink(LogSink sink) {
+    private void editLogSink(LogSink sink) {
         final String name = sink.getName();
         final int level = mSettings.getInt(name+".log_level");
 
