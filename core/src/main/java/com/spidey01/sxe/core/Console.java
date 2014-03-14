@@ -168,7 +168,7 @@ public class Console
     }
 
     public void execute(String line) {
-        Log.d(TAG, "Execute console command: "+line);
+        Log.v(TAG, "execute(\""+line+"\")");
 
         int split = line.indexOf(" ");
         String args = null;
