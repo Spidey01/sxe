@@ -77,11 +77,13 @@ public class Command implements Runnable {
     }
 
     public void setArgs(String[] args) {
+        if (args == null) return;
         mArgs = args;
     }
 
 
     public void setArgs(String args) {
+        if (args == null) return;
         mArgs = tokenize(args);
     }
 
