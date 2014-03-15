@@ -27,6 +27,7 @@ import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.common.Subsystem;
 import com.spidey01.sxe.core.input.AbstractInputManager;
+import com.spidey01.sxe.core.input.InputCode;
 import com.spidey01.sxe.core.input.KeyEvent;
 import com.spidey01.sxe.core.input.KeyListener;
 
@@ -51,7 +52,7 @@ public class PcInputManager extends AbstractInputManager {
             String k = Keyboard.getKeyName(code);
             boolean down = Keyboard.isKeyDown(code);
 
-            KeyEvent e = new KeyEvent(this, null, code, k, down);
+            KeyEvent e = new KeyEvent(this, null, InputCodeUtils.toSxE(code), k, down);
             notifyKeyListeners(e);
         }
     }

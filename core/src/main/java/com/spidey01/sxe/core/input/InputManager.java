@@ -75,7 +75,7 @@ public interface InputManager extends Subsystem {
      * @param listener the KeyListener for keyName.
      * @see KeyEvent
      */
-    void addKeyListener(String keyName, KeyListener listener);
+    void addKeyListener(InputCode inputCode, KeyListener listener);
 
     /** Dispatch KeyEvent to registered listeners.
      *

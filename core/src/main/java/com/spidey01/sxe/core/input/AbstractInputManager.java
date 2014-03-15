@@ -71,9 +71,9 @@ public abstract class AbstractInputManager implements InputManager {
 
 
     @Override
-    public void addKeyListener(String keyName, KeyListener listener) {
+    public void addKeyListener(InputCode inputCode, KeyListener listener) {
         mKeyEventManager.subscribe(listener);
-        mKeyEventManager.subscribe(keyName, listener);
+        mKeyEventManager.subscribe(inputCode, listener);
     }
 
 
