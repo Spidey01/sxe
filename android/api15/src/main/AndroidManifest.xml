@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.spidey01.sxe.android.common" >
+  <!-- Tell lint to ignore checking for AllowBackup. This library should never set it! -->
+  <application xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="AllowBackup" />
+</manifest> 
