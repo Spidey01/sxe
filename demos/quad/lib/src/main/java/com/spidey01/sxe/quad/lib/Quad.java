@@ -77,14 +77,14 @@ public class Quad
         mGameEngine.getSceneManager().add(this);
 
         /* Bind ourself to handle the 'Q' key press. */
-        mGameEngine.getInputManager().addKeyListener("Q", this);
+        mGameEngine.getInputManager().addKeyListener(InputCode.IC_Q, this);
         return true;
     }
 
 
     @Override
     public boolean onKey(KeyEvent event) {
-        if (event.getKeyName().equals("Q")) {
+        if (event.getKeyName().equals(InputCode.IC_Q)) {
             requestStop();
             return true;
         }

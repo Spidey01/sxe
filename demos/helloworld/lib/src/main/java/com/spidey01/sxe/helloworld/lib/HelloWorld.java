@@ -27,6 +27,7 @@ import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.Text;
+import com.spidey01.sxe.core.input.InputCode;
 import com.spidey01.sxe.core.input.KeyEvent;
 import com.spidey01.sxe.core.input.KeyListener;
 
@@ -55,14 +56,14 @@ public class HelloWorld
         mGameEngine.getDisplay().addFrameStartedListener(message);
 
         /* Bind ourself to handle the 'Q' key press. */
-        mGameEngine.getInputManager().addKeyListener("Q", this);
+        mGameEngine.getInputManager().addKeyListener(InputCode.IC_Q, this);
         return true;
     }
 
 
     @Override
     public boolean onKey(KeyEvent event) {
-        if (event.getKeyName().equals("Q")) {
+        if (event.getKeyCode().equals(InputCode.IC_Q)) {
             requestStop();
             return true;
         }

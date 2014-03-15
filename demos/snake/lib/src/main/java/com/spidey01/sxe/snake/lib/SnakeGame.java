@@ -33,6 +33,7 @@ import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.Mesh;
 import com.spidey01.sxe.core.graphics.Sprite;
 import com.spidey01.sxe.core.graphics.VertexBufferTechnique;
+import com.spidey01.sxe.core.input.InputCode;
 import com.spidey01.sxe.core.input.KeyEvent;
 import com.spidey01.sxe.core.input.KeyListener;
 import com.spidey01.sxe.core.logging.Log;
@@ -123,13 +124,13 @@ public class SnakeGame
     public void setupControls() {
         /* setup controls, these could just as easily be from a file */
 
-        String[] keys = new String[]{
-            "ESCAPE", "BACK",
-            "W", "A", "S", "D",
-            "P", // used to toggle repeating mode on the console for testing.
+        InputCode[] keys = new InputCode[]{
+            InputCode.IC_ESCAPE, InputCode.IC_BACK,
+            InputCode.IC_W, InputCode.IC_A, InputCode.IC_S, InputCode.IC_D,
+            InputCode.IC_P, // used to toggle repeating mode on the console for testing.
         };
-        for (String k : keys) {
-            mGameEngine.getInputManager().addKeyListener(k, this);
+        for (InputCode c : keys) {
+            mGameEngine.getInputManager().addKeyListener(c, this);
         }
 
         // the console will only steal key events when it is visable.
@@ -145,16 +146,16 @@ public class SnakeGame
         if (event.isKeyUp()) {
 
             // quit game
-            if ((event.getKeyName().equals("ESCAPE")
-                || event.getKeyName().equals("Q")
-                || event.getKeyName().equals("BACK")))
+            if ((event.getKeyCode().equals(InputCode.IC_ESCAPE)
+                || event.getKeyCode().equals(InputCode.IC_Q)
+                || event.getKeyCode().equals(InputCode.IC_BACK)))
             {
                 Log.d(TAG, "Quit");
                 requestStop();
                 return true;
             }
 
-            if (event.getKeyName().equals("P")) {
+            if (event.getKeyCode().equals(InputCode.IC_P)) {
                 Log.v(TAG, "P command fired by "+TAG);
                 mConsole.allowRepeating(!mConsole.repeatingAllowed());
                 return true;
@@ -162,22 +163,22 @@ public class SnakeGame
         } else {
 
             // movement keys
-            if (event.getKeyName().equals("W")) {
+            if (event.getKeyCode().equals(InputCode.IC_W)) {
                 Log.d(TAG, "Move Up");
                 return true;
             }
 
-            if (event.getKeyName().equals("S")) {
+            if (event.getKeyCode().equals(InputCode.IC_S)) {
                 Log.d(TAG, "Move Down");
                 return true;
             }
             
-            if (event.getKeyName().equals("A")) {
+            if (event.getKeyCode().equals(InputCode.IC_A)) {
                 Log.d(TAG, "Move Left");
                 return true;
             }
             
-            if (event.getKeyName().equals("D")) {
+            if (event.getKeyCode().equals(InputCode.IC_D)) {
                 Log.d(TAG, "Move Right");
                 return true;
             }

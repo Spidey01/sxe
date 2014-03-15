@@ -27,6 +27,7 @@ import com.spidey01.sxe.core.Game;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.logging.Log;
 
+import com.spidey01.sxe.core.input.InputCode;
 import com.spidey01.sxe.core.input.KeyEvent;
 import com.spidey01.sxe.core.input.KeyListener;
 
@@ -55,7 +56,7 @@ public class NullDemo
 
         Log.v(TAG, "Null demo is starting.");
 
-        mGameEngine.getInputManager().addKeyListener("Q", this);
+        mGameEngine.getInputManager().addKeyListener(InputCode.IC_Q, this);
 
         return true;
     }
@@ -81,7 +82,7 @@ public class NullDemo
     @Override
     public boolean onKey(KeyEvent event) {
         if (event.isKeyUp()) {
-            if (event.getKeyName().equals("Q")) {
+            if (event.getKeyCode().equals(InputCode.IC_Q)) {
                 Log.d(TAG, "Q key released");
                 requestStop();
                 return true;

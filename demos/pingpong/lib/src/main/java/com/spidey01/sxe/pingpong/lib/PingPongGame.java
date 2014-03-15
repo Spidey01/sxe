@@ -28,6 +28,7 @@ import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.Text;
 import com.spidey01.sxe.core.input.InputManager;
+import com.spidey01.sxe.core.input.InputCode;
 import com.spidey01.sxe.core.input.KeyEvent;
 import com.spidey01.sxe.core.input.KeyListener;
 
@@ -57,11 +58,11 @@ public class PingPongGame
         Log.v(TAG, "Ping Pong Game is starting.");
 
         InputManager im = mGameEngine.getInputManager();
-        im.addKeyListener("Q", this); /* quit key */
-        im.addKeyListener("S", this); /* start and movement key */
-        im.addKeyListener("W", this); /* movement key */
-        im.addKeyListener("A", this); /* movement key */
-        im.addKeyListener("D", this); /* movement key */
+        im.addKeyListener(InputCode.IC_Q, this); /* quit key */
+        im.addKeyListener(InputCode.IC_S, this); /* start and movement key */
+        im.addKeyListener(InputCode.IC_W, this); /* movement key */
+        im.addKeyListener(InputCode.IC_A, this); /* movement key */
+        im.addKeyListener(InputCode.IC_D, this); /* movement key */
         mGameEngine.getDisplay().addFrameStartedListener(sStartMessage);
 
         return true;
@@ -96,13 +97,13 @@ public class PingPongGame
     @Override
     public boolean onKey(KeyEvent event) {
         /* Quit game. */
-        if (event.getKeyName().equals("Q")) {
+        if (event.getKeyCode().equals(InputCode.IC_Q)) {
             requestStop();
             return true;
         }
 
         /* Start game. */
-        if (mState == State.STARTING && event.getKeyName().equals("S")) {
+        if (mState == State.STARTING && event.getKeyCode().equals(InputCode.IC_S)) {
             mGameEngine.getDisplay().removeFrameStartedListener(sStartMessage);
             mState = State.RUNNING;
             return true;
@@ -114,13 +115,13 @@ public class PingPongGame
         }
 
         /* Move UP. */
-        if (event.getKeyName().equals("W") || event.getKeyName().equals("A")) {
+        if (event.getKeyCode().equals(InputCode.IC_W) || event.getKeyCode().equals(InputCode.IC_A)) {
             Log.xtrace(TAG, "Move up");
             return true;
         }
 
         /* Move DOWN. */
-        if (event.getKeyName().equals("S") || event.getKeyName().equals("D")) {
+        if (event.getKeyCode().equals(InputCode.IC_S) || event.getKeyCode().equals(InputCode.IC_D)) {
             Log.xtrace(TAG, "Move down");
             return true;
         }
