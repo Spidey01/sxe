@@ -37,6 +37,7 @@ public class ConsoleInputManager extends AbstractInputManager {
     private static final String TAG = "ConsoleInputManager";
     private final Console mTerminal;
     private String mPrompt;
+    private String mNullOverride = "";
 
 
     public ConsoleInputManager() {
@@ -70,6 +71,17 @@ public class ConsoleInputManager extends AbstractInputManager {
     }
 
 
+    /** Set an override on null.
+     *
+     * When reading from the console returns null this String will be
+     * inject()'d in it's place. You can set this to e.g. "quit" to map EOF to
+     * the command quit, for example.
+     */
+    public void setNullOverride(String override) {
+        mNullOverride = override;
+    }
+
+
     /** Poll console for new input and notify listeners.
      *
      * Given the nature of REPLs and how little desire I have to get epically
@@ -79,7 +91,8 @@ public class ConsoleInputManager extends AbstractInputManager {
      */
     public void poll() {
         synchronized(mTerminal.reader()) {
-            inject(mTerminal.readLine(mPrompt));
+            String line = mTerminal.readLine(mPrompt);
+            inject(line != null ? line : mNullOverride);
         }
     }
 
