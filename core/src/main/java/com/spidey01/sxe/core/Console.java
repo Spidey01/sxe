@@ -26,6 +26,7 @@ package com.spidey01.sxe.core;
 import com.spidey01.sxe.core.cmds.Command;
 import com.spidey01.sxe.core.gl.OpenGL;
 import com.spidey01.sxe.core.graphics.FrameListener;
+import com.spidey01.sxe.core.input.InputCode;
 import com.spidey01.sxe.core.input.KeyEvent;
 import com.spidey01.sxe.core.input.KeyListener;
 import com.spidey01.sxe.core.logging.Log;
@@ -41,14 +42,14 @@ public class Console
 {
 
     public static final int DEFAULT_REPEAT_DELAY = 2;
-    public static final String DEFAULT_TOGGLE_KEY = "GRAVE";
+    public static final InputCode DEFAULT_TOGGLE_KEY = InputCode.IC_GRAVE;
     /** Sequence of valid characters that can be used in a console command. */
     public static final String VALID_SYMBOLS = 
         "~!@#$%^&*()_+-={}[]:;\"'`<,>.?/\\ ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     protected static final int INITIAL_BUFFER_SIZE = 160; /* works for 7-bit SMS */
 
-    private String mToggleKey = DEFAULT_TOGGLE_KEY ;
+    private InputCode mToggleKey = DEFAULT_TOGGLE_KEY ;
 
     private KeyEvent mLastKeyEvent = null;
     private boolean mHandleRepeat = true;
@@ -65,7 +66,7 @@ public class Console
     public Console() {
     }
 
-    public Console(String toggleKey) {
+    public Console(InputCode toggleKey) {
         mToggleKey = toggleKey;
     }
 
@@ -99,7 +100,7 @@ public class Console
 
         // House keeping for toggling the console
         if (event.isKeyUp()) {
-            if (event.getKeyName().equals(mToggleKey)) {
+            if (event.getKeyCode().equals(mToggleKey)) {
                 setVisible(!isVisible());
                 return true;
             }
@@ -110,8 +111,8 @@ public class Console
 
         // stuff that only fires if the key was released
         if (event.isKeyUp()) {
-            if (event.getKeyName().equals("ENTER")
-                || event.getKeyName().equals("RETURN"))
+            if (event.getKeyCode().equals(InputCode.IC_ENTER)
+                || event.getKeyCode().equals(InputCode.IC_ENTER))
             {
                 execute(mBuffer.toString());
                 /*
@@ -155,7 +156,7 @@ public class Console
         }
 
 
-        if (event.getKeyName().equals("SPACE")) {
+        if (event.getKeyCode().equals(InputCode.IC_SPACE)) {
             mBuffer.append(' ');
             return true;
         }

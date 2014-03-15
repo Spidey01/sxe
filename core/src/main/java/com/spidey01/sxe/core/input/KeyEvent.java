@@ -26,14 +26,16 @@ package com.spidey01.sxe.core.input;
 import java.util.EventObject;
 
 public class KeyEvent extends EventObject {
+    private static final String TAG = "KeyEvent";
+
     private InputManager mSource;
-    private final int mKeyCode;
+    private final InputCode mKeyCode;
     private final String mKeyName;
     private final boolean mIsDown;
     private Object mNative;
-    private static final String TAG = "KeyEvent";
 
-    public KeyEvent(InputManager source, int keyCode,
+
+    public KeyEvent(InputManager source, InputCode keyCode,
         String keyName, boolean keyDown)
     {
         super(source);
@@ -44,32 +46,39 @@ public class KeyEvent extends EventObject {
         mNative = null;
     }
 
+
     public KeyEvent(InputManager source, Object nativeEvent,
-        int keyCode,  String keyName, boolean keyDown)
+        InputCode keyCode,  String keyName, boolean keyDown)
     {
         this(source, keyCode, keyName, keyDown);
         mNative = nativeEvent;
     }
 
+
     public InputManager getSource() {
         return mSource;
     }
 
-    public int getKeyCode() {
+
+    public InputCode getKeyCode() {
         return mKeyCode;
     }
+
 
     public String getKeyName() {
         return mKeyName;
     }
 
+
     public boolean isKeyDown() {
         return mIsDown;
     }
 
+
     public boolean isKeyUp() {
         return !mIsDown;
     }
+
 
     /** Returns the native event object.
      *
@@ -80,6 +89,7 @@ public class KeyEvent extends EventObject {
         return mNative;
     }
 
+
     /** Format this KeyEvent for pretty printing.
      *
      * <samp>KeyEvent Input=com.spidey01.sxe.pc.PcInputManager@2f3adc56 Code=16 Name=Q Down=false Native=null</samp>
@@ -89,6 +99,7 @@ public class KeyEvent extends EventObject {
         return "KeyEvent Input="+mSource+" Code="+mKeyCode+
                " Name="+mKeyName+" Down="+mIsDown+" Native="+mNative;
     }
+
 
     /** Compare KeyEvent's.
      *

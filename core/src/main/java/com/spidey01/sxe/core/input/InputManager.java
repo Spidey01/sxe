@@ -104,6 +104,14 @@ public interface InputManager extends Subsystem {
     void inject(KeyEvent event);
 
 
+    /** Inject key event by enum value.
+     *
+     * @param key the InputCode of the event.
+     * @param isDown whether this is a key down or up event.
+     */
+    void inject(InputCode key, boolean isDown);
+
+
     /** Inject key event by name.
      *
      * @param keyName key name of the event.

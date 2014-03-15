@@ -64,34 +64,45 @@ public abstract class AbstractInputManager implements InputManager {
     public abstract void poll();
 
 
+    @Override
     public void addKeyListener(KeyListener listener) {
         mKeyEventManager.subscribe(listener);
     }
 
 
+    @Override
     public void addKeyListener(String keyName, KeyListener listener) {
         mKeyEventManager.subscribe(listener);
         mKeyEventManager.subscribe(keyName, listener);
     }
 
 
+    @Override
     public void notifyKeyListeners(KeyEvent event) {
         mKeyEventManager.notifyListeners(event);
     }
 
 
+    @Override
     public void inject(KeyEvent event) {
         Log.xtrace(TAG, "inject(", event, ")");
         notifyKeyListeners(event);
     }
 
 
-    public void inject(String keyName, boolean isDown) {
-        // TODO: figure out a key code for the event. -1 shouldn't be on the kb.
-        inject(new KeyEvent(this, -1, keyName, isDown));
+    @Override
+    public void inject(InputCode key, boolean isDown) {
+        inject(new KeyEvent(this, key, Character.toString(key.symbol()), isDown));
     }
 
 
+    @Override
+    public void inject(String keyName, boolean isDown) {
+        inject(InputCode.valueOf(keyName), isDown);
+    }
+
+
+    @Override
     public void inject(String line) {
         String[] words = line.split("\\s");
         String word;
@@ -99,17 +110,17 @@ public abstract class AbstractInputManager implements InputManager {
         for (int w=0; w < words.length; ++w) {
             word = words[w];
             for (int ch=0; ch < word.length(); ++ch) {
-                String letter = String.valueOf(word.charAt(ch));
-                inject(letter, true);
-                inject(letter, false);
+                InputCode code = InputCode.fromChar(word.charAt(ch));
+                inject(code, true);
+                inject(code, false);
             }
             if (w < words.length - 1) { // only if not the last letter.
-                inject("SPACE", true);
-                inject("SPACE", false);
+                inject(InputCode.IC_SPACE, true);
+                inject(InputCode.IC_SPACE, false);
             }
         }
-        inject("RETURN", true);
-        inject("RETURN", false);
+        inject(InputCode.IC_ENTER, true);
+        inject(InputCode.IC_ENTER, false);
     }
 
 

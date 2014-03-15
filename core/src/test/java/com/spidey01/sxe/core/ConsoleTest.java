@@ -111,12 +111,14 @@ public class ConsoleTest extends UnitTest {
     }
 
 
+    private static final String sSimpleCommand_command = "echo \"This is a simple command\"";
+
     @Test
     public void simpleCommand() {
         Log.i(TAG, "simpleCommand()");
         mConsole.setVisible(true);
-        sendCommandLine("echo \"This is a simple command\"");
-        Assert.assertEquals("echo \"This is a simple command\"", mConsole.command);
+        sendCommandLine(sSimpleCommand_command);
+        Assert.assertEquals(sSimpleCommand_command, mConsole.command);
     }
 
 
@@ -130,13 +132,15 @@ public class ConsoleTest extends UnitTest {
     }
 
 
+    private static final String sUnaryCommand_command = "quit";
     @Test
     public void unaryCommand() {
         Log.i(TAG, "unaryCommand()");
         mConsole.setVisible(true);
-        sendCommandLine("quit");
-        Assert.assertEquals("quit", mConsole.command);
+        sendCommandLine(sUnaryCommand_command);
+        Assert.assertEquals(sUnaryCommand_command, mConsole.command);
     }
+
 
 
     @Test
