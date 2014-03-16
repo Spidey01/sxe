@@ -28,12 +28,14 @@ package com.spidey01.sxe.core.input;
  *
  * Each value has two methods of interest: <dl>
  *      <dt>name()</dt>
- *          <dd>get the name, e.g. "IC_SPACE".</dd>
- *      <dt>code()</dt>
- *          <dd>get the code, e.g. 62.</dd>
+ *          <dd>Get the name, e.g. "IC_A".</dd>
+ *      <dt>upper()</dt>
+ *          <dd>Get the char as upper case, e.g. 'A'.</dd>
+ *      <dt>lower()</dt>
+ *          <dd>Get the char as lower case <em>if available</em>, e.g.
+ *              'a'.</dd>
  *      <dt>symbol()</dt>
- *          <dd>get the char, e.g. ' '</dd>
- *          should also do upper()/lower().
+ *          <dd>Alias for upper()</dd>
  * </dl>
  *
  *
@@ -53,224 +55,218 @@ package com.spidey01.sxe.core.input;
 public enum InputCode {
 
     /** Any Unknown key code. */
-    IC_UNKNOWN(0),
+    IC_UNKNOWN,
 
 
 //////////////////////////////////// Keyboard Keys //////////////////////////////////// 
 
 
-    IC_0(7, '0'),
-    IC_1(8, '1'),
-    IC_2(9, '2'),
-    IC_3(10, '3'),
-    IC_4(11, '4'),
-    IC_5(12, '5'),
-    IC_6(13, '6'),
-    IC_7(14, '7'),
-    IC_8(15, '8'),
-    IC_9(16, '9'),
-    /** '*'. */
-    IC_STAR(17),
-    /** '#'. */
-    IC_POUND(18),
-    IC_A(29, 'A'),
-    IC_B(30, 'B'),
-    IC_C(31, 'C'),
-    IC_D(32, 'D'),
-    IC_E(33, 'E'),
-    IC_F(34, 'F'),
-    IC_G(35, 'G'),
-    IC_H(36, 'H'),
-    IC_I(37, 'I'),
-    IC_J(38, 'J'),
-    IC_K(39, 'K'),
-    IC_L(40, 'L'),
-    IC_M(41, 'M'),
-    IC_N(42, 'N'),
-    IC_O(43, 'O'),
-    IC_P(44, 'P'),
-    IC_Q(45, 'Q'),
-    IC_R(46, 'R'),
-    IC_S(47, 'S'),
-    IC_T(48, 'T'),
-    IC_U(49, 'U'),
-    IC_V(50, 'V'),
-    IC_W(51, 'W'),
-    IC_X(52, 'X'),
-    IC_Y(53, 'Y'),
-    IC_Z(54, 'Z'),
-    IC_COMMA(55, ','),
-    IC_PERIOD(56, '.'),
-    IC_ALT_LEFT(57),
-    IC_ALT_RIGHT(58),
-    IC_SHIFT_LEFT(59),
-    IC_SHIFT_RIGHT(60),
-    IC_TAB(61, '\t'),
-    IC_SPACE(62, ' '),
+    IC_0('0'),
+    IC_1('1'),
+    IC_2('2'),
+    IC_3('3'),
+    IC_4('4'),
+    IC_5('5'),
+    IC_6('6'),
+    IC_7('7'),
+    IC_8('8'),
+    IC_9('9'),
+    IC_STAR('*'),
+    IC_POUND('#'),
+    IC_A('A', 'a'),
+    IC_B('B', 'b'),
+    IC_C('C', 'c'),
+    IC_D('D', 'd'),
+    IC_E('E', 'e'),
+    IC_F('F', 'f'),
+    IC_G('G', 'g'),
+    IC_H('H', 'h'),
+    IC_I('I', 'i'),
+    IC_J('J', 'j'),
+    IC_K('K', 'k'),
+    IC_L('L', 'l'),
+    IC_M('M', 'm'),
+    IC_N('N', 'n'),
+    IC_O('O', 'o'),
+    IC_P('P', 'p'),
+    IC_Q('Q', 'q'),
+    IC_R('R', 'r'),
+    IC_S('S', 's'),
+    IC_T('T', 't'),
+    IC_U('U', 'u'),
+    IC_V('V', 'v'),
+    IC_W('W', 'w'),
+    IC_X('X', 'x'),
+    IC_Y('Y', 'y'),
+    IC_Z('Z', 'z'),
+    IC_COMMA(','),
+    IC_PERIOD('.'),
+    IC_ALT_LEFT,
+    IC_ALT_RIGHT,
+    IC_SHIFT_LEFT,
+    IC_SHIFT_RIGHT,
+    IC_TAB('\t'),
+    IC_SPACE(' '),
     /** Enter/return key. */
-    IC_ENTER(66, '\n'),
+    IC_ENTER('\n'),
     /** Backspace key.
      * Deletes characters before the insertion point, unlike {@link #IC_FORWARD_DEL}. */
-    IC_DEL(67, '\b'),
+    IC_DEL('\b'),
     /** '`' (backtick) key. */
-    IC_GRAVE(68, '`'),
-    IC_MINUS(69, '-'),
-    IC_EQUALS(70, '='),
-    IC_PLUS(81, '+'),
-    IC_LEFT_BRACKET(71, '['),
-    IC_RIGHT_BRACKET(72, ']'),
-    IC_BACKSLASH(73, '\\'),
-    IC_SEMICOLON(74, ';'),
+    IC_GRAVE('`'),
+    IC_MINUS('-'),
+    IC_EQUALS('='),
+    IC_PLUS('+'),
+    IC_LEFT_BRACKET('['),
+    IC_RIGHT_BRACKET(']'),
+    IC_BACKSLASH('\\'),
+    IC_SEMICOLON(';'),
     /** ''' (apostrophe) key. */
-    IC_APOSTROPHE(75, '\''),
+    IC_APOSTROPHE('\''),
     /** '/' key. */
-    IC_SLASH(76, '/'),
+    IC_SLASH('/'),
     /** '@' key. */
-    IC_AT(77, '@'),
-
-
-    IC_PAGE_UP(92),
-    IC_PAGE_DOWN(93),
-
-
-    IC_ESCAPE(111),
+    IC_AT('@'),
+    IC_PAGE_UP,
+    IC_PAGE_DOWN,
+    IC_ESCAPE,
     /** Key code constant: Forward Delete key.
      * Deletes characters ahead of the insertion point, unlike {@link #IC_DEL}. */
-    IC_FORWARD_DEL(112),
-    IC_CTRL_LEFT(113),
-    IC_CTRL_RIGHT(114),
-    IC_CAPS_LOCK(115),
-    IC_SCROLL_LOCK(116),
+    IC_FORWARD_DEL,
+    IC_CTRL_LEFT,
+    IC_CTRL_RIGHT,
+    IC_CAPS_LOCK,
+    IC_SCROLL_LOCK,
     /** Left Meta modifier key. */
-    IC_META_LEFT(117),
+    IC_META_LEFT,
     /** Right Meta modifier key. */
-    IC_META_RIGHT(118),
+    IC_META_RIGHT,
     /** Function modifier key. */
-    IC_FUNCTION(119),
+    IC_FUNCTION,
     /** System Request / Print Screen key. */
-    IC_SYSRQ(120),
+    IC_SYSRQ,
     /** Break / Pause key. */
-    IC_BREAK(121),
+    IC_BREAK,
     /** Home Movement key.
      * Used for scrolling or moving the cursor around to the start of a line
      * or to the top of a list. */
-    IC_MOVE_HOME(122),
+    IC_MOVE_HOME,
     /** End Movement key.
      * Used for scrolling or moving the cursor around to the end of a line
      * or to the bottom of a list. */
-    IC_MOVE_END(123),
+    IC_MOVE_END,
     /** Insert key.
      * Toggles insert / overwrite edit mode. */
-    IC_INSERT(124),
-    IC_F1(131),
-    IC_F2(132),
-    IC_F3(133),
-    IC_F4(134),
-    IC_F5(135),
-    IC_F6(136),
-    IC_F7(137),
-    IC_F8(138),
-    IC_F9(139),
-    IC_F10(140),
-    IC_F11(141),
-    IC_F12(142),
+    IC_INSERT,
+    IC_F1,
+    IC_F2,
+    IC_F3,
+    IC_F4,
+    IC_F5,
+    IC_F6,
+    IC_F7,
+    IC_F8,
+    IC_F9,
+    IC_F10,
+    IC_F11,
+    IC_F12,
     /** Key code constant: Num Lock key.
      * This is the Num Lock key; it is different from {@link #IC_NUM}.
      * This key alters the behavior of other keys on the numeric keypad. */
-    IC_NUM_LOCK(143),
-    IC_NUMPAD_0(144),
-    IC_NUMPAD_1(145),
-    IC_NUMPAD_2(146),
-    IC_NUMPAD_3(147),
-    IC_NUMPAD_4(148),
-    IC_NUMPAD_5(149),
-    IC_NUMPAD_6(150),
-    IC_NUMPAD_7(151),
-    IC_NUMPAD_8(152),
-    IC_NUMPAD_9(153),
-    IC_NUMPAD_DIVIDE(154),
-    IC_NUMPAD_MULTIPLY(155),
-    IC_NUMPAD_SUBTRACT(156),
-    IC_NUMPAD_ADD(157),
-    IC_NUMPAD_DOT(158),
-    IC_NUMPAD_COMMA(159),
-    IC_NUMPAD_ENTER(160),
-    IC_NUMPAD_EQUALS(161),
-    IC_NUMPAD_LEFT_PAREN(162),
-    IC_NUMPAD_RIGHT_PAREN(163),
+    IC_NUM_LOCK,
+    IC_NUMPAD_0(IC_0),
+    IC_NUMPAD_1(IC_1),
+    IC_NUMPAD_2(IC_2),
+    IC_NUMPAD_3(IC_3),
+    IC_NUMPAD_4(IC_4),
+    IC_NUMPAD_5(IC_5),
+    IC_NUMPAD_6(IC_6),
+    IC_NUMPAD_7(IC_7),
+    IC_NUMPAD_8(IC_8),
+    IC_NUMPAD_9(IC_9),
+    IC_NUMPAD_DIVIDE(IC_SLASH),
+    IC_NUMPAD_MULTIPLY(IC_STAR),
+    IC_NUMPAD_SUBTRACT(IC_MINUS),
+    IC_NUMPAD_ADD('+'),
+    IC_NUMPAD_DOT(IC_PERIOD),
+    IC_NUMPAD_COMMA(IC_COMMA),
+    IC_NUMPAD_ENTER('\n'),
+    IC_NUMPAD_EQUALS(IC_EQUALS),
+    IC_NUMPAD_LEFT_PAREN(),
+    IC_NUMPAD_RIGHT_PAREN(),
 
 
 //////////////////////////////////// Multimedia Keys //////////////////////////////////// 
 
 
-    IC_VOLUME_UP(24),
-    IC_VOLUME_DOWN(25),
+    IC_VOLUME_UP,
+    IC_VOLUME_DOWN,
     /** Play/Pause media key. */
-    IC_MEDIA_PLAY_PAUSE(85),
+    IC_MEDIA_PLAY_PAUSE,
     /** Stop media key. */
-    IC_MEDIA_STOP(86),
+    IC_MEDIA_STOP,
     /** Play Next media key. */
-    IC_MEDIA_NEXT(87),
+    IC_MEDIA_NEXT,
     /** Play Previous media key. */
-    IC_MEDIA_PREVIOUS(88),
+    IC_MEDIA_PREVIOUS,
     /** Rewind media key. */
-    IC_MEDIA_REWIND(89),
+    IC_MEDIA_REWIND,
     /** Fast Forward media key. */
-    IC_MEDIA_FAST_FORWARD(90),
+    IC_MEDIA_FAST_FORWARD,
     /** Mute key.
      * Mutes the microphone, unlike {@link #IC_VOLUME_MUTE}. */
-    IC_MUTE(91),
+    IC_MUTE,
     /** Play media key. */
-    IC_MEDIA_PLAY(126),
+    IC_MEDIA_PLAY,
     /** Pause media key. */
-    IC_MEDIA_PAUSE(127),
+    IC_MEDIA_PAUSE,
     /** Close media key.
      * May be used to close a CD tray, for example. */
-    IC_MEDIA_CLOSE(128),
+    IC_MEDIA_CLOSE,
     /** Eject media key.
      * May be used to eject a CD tray, for example. */
-    IC_MEDIA_EJECT(129),
+    IC_MEDIA_EJECT,
     /** Record media key. */
-    IC_MEDIA_RECORD(130),
+    IC_MEDIA_RECORD,
     /** Audio Track key
      * Switches the audio tracks. */
-    IC_MEDIA_AUDIO_TRACK(222),
+    IC_MEDIA_AUDIO_TRACK,
     /** Headset Hook key.
      * Used to hang up calls and stop media. */
-    IC_HEADSETHOOK(79),
+    IC_HEADSETHOOK,
 
 
 //////////////////////////////////// Foreign Language Related //////////////////////////////////// 
 
     /** Used to enter alternate symbols (e.g. on a phone). */
-    IC_SYM(63),
+    IC_SYM,
     /** Picture Symbols modifier key.
      * Used to switch symbol sets (Emoji, Kao-moji). */
-    IC_PICTSYMBOLS(94),
+    IC_PICTSYMBOLS,
     /** Switch Charset modifier key.
      * Used to switch character sets (Kanji, Katakana). */
-    IC_SWITCH_CHARSET(95),
+    IC_SWITCH_CHARSET,
     /** Language Switch key.
      * Toggles the current input language such as switching between English and Japanese on
      * a QWERTY keyboard.  On some devices, the same function may be performed by
      * pressing Shift+Spacebar. */
-    IC_LANGUAGE_SWITCH(204),
+    IC_LANGUAGE_SWITCH,
     /** Japanese full-width / half-width key. */
-    IC_ZENKAKU_HANKAKU(211),
+    IC_ZENKAKU_HANKAKU,
     /** Japanese alphanumeric key. */
-    IC_EISU(212),
+    IC_EISU,
     /** Japanese non-conversion key. */
-    IC_MUHENKAN(213),
+    IC_MUHENKAN,
     /** Japanese conversion key. */
-    IC_HENKAN(214),
+    IC_HENKAN,
     /** Japanese katakana / hiragana key. */
-    IC_KATAKANA_HIRAGANA(215),
+    IC_KATAKANA_HIRAGANA,
     /** Japanese Yen key. */
-    IC_YEN(216, '\u00A5'),
+    IC_YEN('\u00A5'),
     /** Japanese Ro key. */
-    IC_RO(217),
+    IC_RO,
     /** Japanese kana key. */
-    IC_KANA(218),
+    IC_KANA,
 
 
 //////////////////////////////////// Game Controller //////////////////////////////////// 
@@ -279,97 +275,97 @@ public enum InputCode {
     /** A Button key.
      * On a game controller, the A button should be either the button labeled A
      * or the first button on the bottom row of controller buttons. */
-    IC_BUTTON_A(96),
+    IC_BUTTON_A,
     /** B Button key.
      * On a game controller, the B button should be either the button labeled B
      * or the second button on the bottom row of controller buttons. */
-    IC_BUTTON_B(97),
+    IC_BUTTON_B,
     /** C Button key.
      * On a game controller, the C button should be either the button labeled C
      * or the third button on the bottom row of controller buttons. */
-    IC_BUTTON_C(98),
+    IC_BUTTON_C,
     /** X Button key.
      * On a game controller, the X button should be either the button labeled X
      * or the first button on the upper row of controller buttons. */
-    IC_BUTTON_X(99),
+    IC_BUTTON_X,
     /** Y Button key.
      * On a game controller, the Y button should be either the button labeled Y
      * or the second button on the upper row of controller buttons. */
-    IC_BUTTON_Y(100),
+    IC_BUTTON_Y,
     /** Z Button key.
      * On a game controller, the Z button should be either the button labeled Z
      * or the third button on the upper row of controller buttons. */
-    IC_BUTTON_Z(101),
+    IC_BUTTON_Z,
     /** L1 Button key.
      * On a game controller, the L1 button should be either the button labeled L1 (or L)
      * or the top left trigger button. */
-    IC_BUTTON_L1(102),
+    IC_BUTTON_L1,
     /** R1 Button key.
      * On a game controller, the R1 button should be either the button labeled R1 (or R)
      * or the top right trigger button. */
-    IC_BUTTON_R1(103),
+    IC_BUTTON_R1,
     /** L2 Button key.
      * On a game controller, the L2 button should be either the button labeled L2
      * or the bottom left trigger button. */
-    IC_BUTTON_L2(104),
+    IC_BUTTON_L2,
     /** R2 Button key.
      * On a game controller, the R2 button should be either the button labeled R2
      * or the bottom right trigger button. */
-    IC_BUTTON_R2(105),
+    IC_BUTTON_R2,
     /** Left Thumb Button key.
      * On a game controller, the left thumb button indicates that the left (or only)
      * joystick is pressed. */
-    IC_BUTTON_THUMBL(106),
+    IC_BUTTON_THUMBL,
     /** Right Thumb Button key.
      * On a game controller, the right thumb button indicates that the right
      * joystick is pressed. */
-    IC_BUTTON_THUMBR(107),
+    IC_BUTTON_THUMBR,
     /** Start Button key.
      * On a game controller, the button labeled Start. */
-    IC_BUTTON_START(108),
+    IC_BUTTON_START,
     /** Select Button key.
      * On a game controller, the button labeled Select. */
-    IC_BUTTON_SELECT(109),
+    IC_BUTTON_SELECT,
     /** Mode Button key.
      * On a game controller, the button labeled Mode. */
-    IC_BUTTON_MODE(110),
+    IC_BUTTON_MODE,
 
 
 //////////////////////////////////// Generic Game Pad //////////////////////////////////// 
 
 
     /** Generic Game Pad Button #1.*/
-    IC_BUTTON_1(188),
+    IC_BUTTON_1,
     /** Generic Game Pad Button #2.*/
-    IC_BUTTON_2(189),
+    IC_BUTTON_2,
     /** Generic Game Pad Button #3.*/
-    IC_BUTTON_3(190),
+    IC_BUTTON_3,
     /** Generic Game Pad Button #4.*/
-    IC_BUTTON_4(191),
+    IC_BUTTON_4,
     /** Generic Game Pad Button #5.*/
-    IC_BUTTON_5(192),
+    IC_BUTTON_5,
     /** Generic Game Pad Button #6.*/
-    IC_BUTTON_6(193),
+    IC_BUTTON_6,
     /** Generic Game Pad Button #7.*/
-    IC_BUTTON_7(194),
+    IC_BUTTON_7,
     /** Generic Game Pad Button #8.*/
-    IC_BUTTON_8(195),
+    IC_BUTTON_8,
     /** Generic Game Pad Button #9.*/
-    IC_BUTTON_9(196),
+    IC_BUTTON_9,
     /** Generic Game Pad Button #10.*/
-    IC_BUTTON_10(197),
+    IC_BUTTON_10,
     /** Generic Game Pad Button #11.*/
-    IC_BUTTON_11(198),
+    IC_BUTTON_11,
     /** Generic Game Pad Button #12.*/
-    IC_BUTTON_12(199),
+    IC_BUTTON_12,
     /** Generic Game Pad Button #13.*/
-    IC_BUTTON_13(200),
+    IC_BUTTON_13,
     /** Generic Game Pad Button #14.*/
-    IC_BUTTON_14(201),
+    IC_BUTTON_14,
     /** Generic Game Pad Button #15.*/
-    IC_BUTTON_15(202),
+    IC_BUTTON_15,
     /** Generic Game Pad Button #16.*/
-    IC_BUTTON_16(203),
+    IC_BUTTON_16,
 
 
 //////////////////////////////////// TV Remotes //////////////////////////////////// 
@@ -379,96 +375,96 @@ public enum InputCode {
      * Mutes the speaker, unlike {@link #IC_MUTE}.
      * This key should normally be implemented as a toggle such that the first press
      * mutes the speaker and the second press restores the original volume. */
-    IC_VOLUME_MUTE(164),
+    IC_VOLUME_MUTE,
     /** Info key.
      * Common on TV remotes to show additional information related to what is
      * currently being viewed. */
-    IC_INFO(165),
+    IC_INFO,
     /** Channel up key.
      * On TV remotes, increments the television channel. */
-    IC_CHANNEL_UP(166),
+    IC_CHANNEL_UP,
     /** Channel down key.
      * On TV remotes, decrements the television channel. */
-    IC_CHANNEL_DOWN(167),
+    IC_CHANNEL_DOWN,
     /** Zoom in key. */
-    IC_ZOOM_IN(168),
+    IC_ZOOM_IN,
     /** Zoom out key. */
-    IC_ZOOM_OUT(169),
+    IC_ZOOM_OUT,
     /** TV key.
      * On TV remotes, switches to viewing live TV. */
-    IC_TV(170),
+    IC_TV,
     /** Window key.
      * On TV remotes, toggles picture-in-picture mode or other windowing functions. */
-    IC_WINDOW(171),
+    IC_WINDOW,
     /** Guide key.
      * On TV remotes, shows a programming guide. */
-    IC_GUIDE(172),
+    IC_GUIDE,
     /** DVR key.
      * On some TV remotes, switches to a DVR mode for recorded shows. */
-    IC_DVR(173),
+    IC_DVR,
     /** Bookmark key.
      * On some TV remotes, bookmarks content or web pages. */
-    IC_BOOKMARK(174),
+    IC_BOOKMARK,
     /** Toggle captions key.
      * Switches the mode for closed-captioning text, for example during television shows. */
-    IC_CAPTIONS(175),
+    IC_CAPTIONS,
     /** Settings key.
      * Starts the system settings activity. */
-    IC_SETTINGS(176),
+    IC_SETTINGS,
     /** TV power key.
      * On TV remotes, toggles the power on a television screen. */
-    IC_TV_POWER(177),
+    IC_TV_POWER,
     /** TV input key.
      * On TV remotes, switches the input on a television screen. */
-    IC_TV_INPUT(178),
+    IC_TV_INPUT,
     /** Set-top-box power key.
      * On TV remotes, toggles the power on an external Set-top-box. */
-    IC_STB_POWER(179),
+    IC_STB_POWER,
     /** Set-top-box input key.
      * On TV remotes, switches the input mode on an external Set-top-box. */
-    IC_STB_INPUT(180),
+    IC_STB_INPUT,
     /** A/V Receiver power key.
      * On TV remotes, toggles the power on an external A/V Receiver. */
-    IC_AVR_POWER(181),
+    IC_AVR_POWER,
     /** A/V Receiver input key.
      * On TV remotes, switches the input mode on an external A/V Receiver. */
-    IC_AVR_INPUT(182),
+    IC_AVR_INPUT,
     /** Red "programmable" key.
      * On TV remotes, acts as a contextual/programmable key. */
-    IC_PROG_RED(183),
+    IC_PROG_RED,
     /** Green "programmable" key.
      * On TV remotes, actsas a contextual/programmable key. */
-    IC_PROG_GREEN(184),
+    IC_PROG_GREEN,
     /** Yellow "programmable" key.
      * On TV remotes, acts as a contextual/programmable key. */
-    IC_PROG_YELLOW(185),
+    IC_PROG_YELLOW,
     /** Blue "programmable" key.
      * On TV remotes, acts as a contextual/programmable key. */
-    IC_PROG_BLUE(186),
+    IC_PROG_BLUE,
     /** App switch key.
      * Should bring up the application switcher dialog. */
-    IC_APP_SWITCH(187),
+    IC_APP_SWITCH,
 
 
 //////////////////////////////////// Special Applications //////////////////////////////////// 
 
 
     /** Explorer / web browser special function key. */
-    IC_EXPLORER(64),
+    IC_EXPLORER,
      /** Used to launch a mail application. */
-    IC_ENVELOPE(65),
+    IC_ENVELOPE,
     /** Contacts special function key.
      * Used to launch an address book application. */
-    IC_CONTACTS(207),
+    IC_CONTACTS,
     /** Calendar special function key.
      * Used to launch a calendar application. */
-    IC_CALENDAR(208),
+    IC_CALENDAR,
     /** Music special function key.
      * Used to launch a music player application. */
-    IC_MUSIC(209),
+    IC_MUSIC,
     /** Calculator special function key.
      * Used to launch a calculator application. */
-    IC_CALCULATOR(210),
+    IC_CALCULATOR,
     /** Japanese full-width / half-width key. */
 
 
@@ -480,112 +476,132 @@ public enum InputCode {
 ///////////////////////////////////////////////////////////////////////////
 
 
-    IC_BACK(4),
-    IC_CALL(5),
-    IC_ENDCALL(6),
+    IC_BACK,
+    IC_CALL,
+    IC_ENDCALL,
 
     /** Soft Left key.
      * Usually situated below the display on phones and used as a multi-function
      * feature key for selecting a software defined function shown on the bottom left
      * of the display. */
-    IC_SOFT_LEFT(1),
+    IC_SOFT_LEFT,
 
     /** Soft Right key.
      * Usually situated below the display on phones and used as a multi-function
      * feature key for selecting a software defined function shown on the bottom right
      * of the display. */
-    IC_SOFT_RIGHT(2),
+    IC_SOFT_RIGHT,
 
     /** Home key.  This
      * key is handled by the framework and
      * is never delivered to applications.
      * */
-    IC_HOME(3),
+    IC_HOME,
 
 
     /** Directional Pad Up key.
      * May also be synthesized from trackball motions. */
-    IC_DPAD_UP(19),
+    IC_DPAD_UP,
     /** Directional Pad Down key.
      * May also be synthesized from trackball motions. */
-    IC_DPAD_DOWN(20),
+    IC_DPAD_DOWN,
     /** Directional Pad Left key.
      * May also be synthesized from trackball motions. */
-    IC_DPAD_LEFT(21),
+    IC_DPAD_LEFT,
     /** Directional Pad Right key.
      * May also be synthesized from trackball motions. */
-    IC_DPAD_RIGHT(22),
+    IC_DPAD_RIGHT,
     /** Directional Pad Center key.
      * May also be synthesized from trackball motions. */
-    IC_DPAD_CENTER(23),
+    IC_DPAD_CENTER,
 
 
-    IC_POWER(26),
-    IC_CAMERA(27),
-    IC_CLEAR(28),
+    IC_POWER,
+    IC_CAMERA,
+    IC_CLEAR,
 
     /** Number modifier key.
      * Used to enter numeric symbols.
      * This key is not Num Lock; it is more like {@link #IC_ALT_LEFT} and is
      * interpreted as an ALT key by {@link android.text.method.MetaKeyKeyListener}. */
-    IC_NUM(78),
+    IC_NUM,
 
     /** Camera Focus key.
      * Used to focus the camera. */
-    IC_FOCUS(80),
+    IC_FOCUS,
     /** Menu key. */
-    IC_MENU(82),
+    IC_MENU,
     /** Notification key. */
-    IC_NOTIFICATION(83),
+    IC_NOTIFICATION,
     /** Search key. */
-    IC_SEARCH(84),
+    IC_SEARCH,
 
 
     /** Forward key.
      * Navigates forward in the history stack.  Complement of {@link #IC_BACK}. */
-    IC_FORWARD(125),
+    IC_FORWARD,
 
 
     /** Manner Mode key.
      * Toggles silent or vibrate mode on and off to make the device behave more politely
      * in certain settings such as on a crowded train.  On some devices, the key may only
      * operate when long-pressed. */
-    IC_MANNER_MODE(205),
+    IC_MANNER_MODE,
     /** 3D Mode key.
      * Toggles the display between 2D and 3D mode. */
-    IC_3D_MODE(206),
+    IC_3D_MODE,
 
     /** Brightness Down key.
      * Adjusts the screen brightness down. */
-    IC_BRIGHTNESS_DOWN(220),
+    IC_BRIGHTNESS_DOWN,
     /** Brightness Up key.
      * Adjusts the screen brightness up. */
-    IC_BRIGHTNESS_UP(221);
+    IC_BRIGHTNESS_UP;
 
 
-    private final int mCode;
-    private final char mChar;
+    private final char mUpperCase;
+    private final char mLowerCase;
 
 
-    private InputCode(int keyCode) {
-        mCode = keyCode;
-        mChar = '\u0000';
+    private InputCode(char upper, char lower) {
+        mUpperCase = upper;
+        mLowerCase = lower;
     }
 
 
-    private InputCode(int keyCode, char c) {
-        mCode = keyCode;
-        mChar = c;
+    private InputCode(char symbol) {
+        mUpperCase = mLowerCase = symbol;
+    }
+
+
+    private InputCode() {
+        mUpperCase = mLowerCase = '\u0000';
+    }
+
+
+    private InputCode(InputCode other) {
+        mUpperCase = other.upper();
+        mLowerCase = other.lower();
     }
 
 
     public final int code() {
-        return mCode;
+        return ordinal();
     }
 
 
     public final char symbol() {
-        return mChar;
+        return mUpperCase;
+    }
+
+
+    public final char upper() {
+        return mUpperCase;
+    }
+
+
+    public final char lower() {
+        return mLowerCase;
     }
 
 
@@ -596,7 +612,7 @@ public enum InputCode {
     public final static InputCode fromChar(char c) {
         for (InputCode ic : InputCode.values()) {
             System.out.println("try ic "+ic.name()+"("+ic.code()+", "+ic.symbol()+") for char "+c);
-            if (c == ic.symbol()) {
+            if (c == ic.upper() || c == ic.lower() || c == ic.symbol()) {
                 System.out.println("return ic "+ic.name()+"("+ic.code()+", "+ic.symbol()+") for char "+c);
                 return ic;
             }
