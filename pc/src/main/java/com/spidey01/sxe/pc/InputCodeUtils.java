@@ -32,9 +32,6 @@ public class InputCodeUtils {
     /** Translates from LWJGL to SxE key events. */
     public static InputCode toSxE(int lwgjlEventKey) {
         switch (lwgjlEventKey) {
-            /*
-             * Stuff commented out as // needs further work in :core.
-             */
             case Keyboard.KEY_0: return InputCode.IC_0;
             case Keyboard.KEY_1: return InputCode.IC_1;
             case Keyboard.KEY_2: return InputCode.IC_2;
@@ -46,28 +43,28 @@ public class InputCodeUtils {
             case Keyboard.KEY_8: return InputCode.IC_8;
             case Keyboard.KEY_9: return InputCode.IC_9;
             case Keyboard.KEY_A: return InputCode.IC_A;
-            case Keyboard.KEY_ADD: return InputCode.IC_PLUS;
+            case Keyboard.KEY_ADD: return InputCode.IC_PLUS_SIGN;
             case Keyboard.KEY_APOSTROPHE: return InputCode.IC_APOSTROPHE;
-            case Keyboard.KEY_AT: return InputCode.IC_AT;
+            case Keyboard.KEY_AT: return InputCode.IC_AT_SIGN;
             case Keyboard.KEY_B: return InputCode.IC_B;
             case Keyboard.KEY_BACK: return InputCode.IC_BACK;
             case Keyboard.KEY_BACKSLASH: return InputCode.IC_BACKSLASH;
             case Keyboard.KEY_C: return InputCode.IC_C;
+            case Keyboard.KEY_CIRCUMFLEX: return InputCode.IC_CARET;
             case Keyboard.KEY_CLEAR: return InputCode.IC_CLEAR;
-            // case Keyboard.KEY_COLON: return InputCode.IC_COLON;
+            case Keyboard.KEY_COLON: return InputCode.IC_COLON;
             case Keyboard.KEY_COMMA: return InputCode.IC_COMMA;
             case Keyboard.KEY_D: return InputCode.IC_D;
-            case Keyboard.KEY_DELETE: return InputCode.IC_FORWARD_DEL;
-            case Keyboard.KEY_DOWN: return InputCode.IC_DPAD_DOWN;
+            case Keyboard.KEY_DELETE: return InputCode.IC_DELETE;
+            case Keyboard.KEY_DOWN: return InputCode.IC_DOWN_ARROW;
             case Keyboard.KEY_E: return InputCode.IC_E;
-            case Keyboard.KEY_END: return InputCode.IC_MOVE_END;
-            case Keyboard.KEY_EQUALS: return InputCode.IC_EQUALS;
+            case Keyboard.KEY_END: return InputCode.IC_END;
+            case Keyboard.KEY_EQUALS: return InputCode.IC_EQUAL_SIGN;
             case Keyboard.KEY_ESCAPE: return InputCode.IC_ESCAPE;
-            case Keyboard.KEY_F: return InputCode.IC_F;
-            case Keyboard.KEY_F1: return InputCode.IC_F1;
             case Keyboard.KEY_F10: return InputCode.IC_F10;
             case Keyboard.KEY_F11: return InputCode.IC_F11;
             case Keyboard.KEY_F12: return InputCode.IC_F12;
+            case Keyboard.KEY_F1: return InputCode.IC_F1;
             case Keyboard.KEY_F2: return InputCode.IC_F2;
             case Keyboard.KEY_F3: return InputCode.IC_F3;
             case Keyboard.KEY_F4: return InputCode.IC_F4;
@@ -76,25 +73,25 @@ public class InputCodeUtils {
             case Keyboard.KEY_F7: return InputCode.IC_F7;
             case Keyboard.KEY_F8: return InputCode.IC_F8;
             case Keyboard.KEY_F9: return InputCode.IC_F9;
-            case Keyboard.KEY_FUNCTION: return InputCode.IC_FUNCTION;
+            case Keyboard.KEY_F: return InputCode.IC_F;
             case Keyboard.KEY_G: return InputCode.IC_G;
             case Keyboard.KEY_GRAVE: return InputCode.IC_GRAVE;
             case Keyboard.KEY_H: return InputCode.IC_H;
-            case Keyboard.KEY_HOME: return InputCode.IC_MOVE_HOME;
+            case Keyboard.KEY_HOME: return InputCode.IC_HOME;
             case Keyboard.KEY_I: return InputCode.IC_I;
             case Keyboard.KEY_INSERT: return InputCode.IC_INSERT;
             case Keyboard.KEY_J: return InputCode.IC_J;
             case Keyboard.KEY_K: return InputCode.IC_K;
             case Keyboard.KEY_L: return InputCode.IC_L;
-            case Keyboard.KEY_LBRACKET: return InputCode.IC_LEFT_BRACKET;
+            case Keyboard.KEY_LBRACKET: return InputCode.IC_LEFT_SQUARE_BRACKET;
             case Keyboard.KEY_LCONTROL: return InputCode.IC_CTRL_LEFT;
-            case Keyboard.KEY_LEFT: return InputCode.IC_DPAD_LEFT;
+            case Keyboard.KEY_LEFT: return InputCode.IC_LEFT_ARROW;
             case Keyboard.KEY_LMENU: return InputCode.IC_MENU;
-            case Keyboard.KEY_LSHIFT: return InputCode.IC_SHIFT_LEFT;
             case Keyboard.KEY_LMETA: return InputCode.IC_META_LEFT;
+            case Keyboard.KEY_LSHIFT: return InputCode.IC_SHIFT_LEFT;
             case Keyboard.KEY_M: return InputCode.IC_M;
-            case Keyboard.KEY_MINUS: return InputCode.IC_MINUS;
-            case Keyboard.KEY_MULTIPLY: return InputCode.IC_STAR;
+            case Keyboard.KEY_MINUS: return InputCode.IC_HYPHEN_MINUS;
+            case Keyboard.KEY_MULTIPLY: return InputCode.IC_ASTERISK;
             case Keyboard.KEY_N: return InputCode.IC_N;
             case Keyboard.KEY_NUMLOCK: return InputCode.IC_NUM_LOCK;
             case Keyboard.KEY_NUMPAD0: return InputCode.IC_NUMPAD_0;
@@ -112,29 +109,30 @@ public class InputCodeUtils {
             case Keyboard.KEY_NUMPADEQUALS: return InputCode.IC_NUMPAD_EQUALS;
             case Keyboard.KEY_O: return InputCode.IC_O;
             case Keyboard.KEY_P: return InputCode.IC_P;
-            case Keyboard.KEY_PAUSE: return InputCode.IC_BREAK;
+            case Keyboard.KEY_PAUSE: return InputCode.IC_PAUSE;
             case Keyboard.KEY_PERIOD: return InputCode.IC_PERIOD;
             case Keyboard.KEY_POWER: return InputCode.IC_POWER;
             case Keyboard.KEY_Q: return InputCode.IC_Q;
             case Keyboard.KEY_R: return InputCode.IC_R;
-            case Keyboard.KEY_RBRACKET: return InputCode.IC_RIGHT_BRACKET;
+            case Keyboard.KEY_RBRACKET: return InputCode.IC_RIGHT_SQUARE_BRACKET;
             case Keyboard.KEY_RCONTROL: return InputCode.IC_CTRL_RIGHT;
             case Keyboard.KEY_RETURN: return InputCode.IC_ENTER;
-            case Keyboard.KEY_RIGHT: return InputCode.IC_DPAD_RIGHT;
+            case Keyboard.KEY_RIGHT: return InputCode.IC_RIGHT_ARROW;
             case Keyboard.KEY_RMENU: return InputCode.IC_MENU;
-            case Keyboard.KEY_RSHIFT: return InputCode.IC_SHIFT_RIGHT;
             case Keyboard.KEY_RMETA: return InputCode.IC_META_RIGHT;
+            case Keyboard.KEY_RSHIFT: return InputCode.IC_SHIFT_RIGHT;
             case Keyboard.KEY_S: return InputCode.IC_S;
             case Keyboard.KEY_SCROLL: return InputCode.IC_SCROLL_LOCK;
             case Keyboard.KEY_SEMICOLON: return InputCode.IC_SEMICOLON;
             case Keyboard.KEY_SLASH: return InputCode.IC_SLASH;
             case Keyboard.KEY_SPACE: return InputCode.IC_SPACE;
-            case Keyboard.KEY_SUBTRACT: return InputCode.IC_MINUS;
+            case Keyboard.KEY_SUBTRACT: return InputCode.IC_HYPHEN_MINUS;
             case Keyboard.KEY_SYSRQ: return InputCode.IC_SYSRQ;
             case Keyboard.KEY_T: return InputCode.IC_T;
             case Keyboard.KEY_TAB: return InputCode.IC_TAB;
             case Keyboard.KEY_U: return InputCode.IC_U;
-            case Keyboard.KEY_UP: return InputCode.IC_DPAD_UP;
+            case Keyboard.KEY_UNDERLINE: return InputCode.IC_UNDERSCORE;
+            case Keyboard.KEY_UP: return InputCode.IC_UP_ARROW;
             case Keyboard.KEY_V: return InputCode.IC_V;
             case Keyboard.KEY_W: return InputCode.IC_W;
             case Keyboard.KEY_X: return InputCode.IC_X;
@@ -149,7 +147,6 @@ public class InputCodeUtils {
             case Keyboard.KEY_APPS: break;
             case Keyboard.KEY_AX: break;
             case Keyboard.KEY_CAPITAL: break;
-            case Keyboard.KEY_CIRCUMFLEX: break; //return InputCode.IC_CIRCUMFLEX;
             case Keyboard.KEY_CONVERT: break;
             case Keyboard.KEY_DECIMAL: break;
             case Keyboard.KEY_DIVIDE: break;
@@ -168,7 +165,6 @@ public class InputCodeUtils {
             case Keyboard.KEY_SECTION: break;
             case Keyboard.KEY_SLEEP: break;
             case Keyboard.KEY_STOP: break;
-            case Keyboard.KEY_UNDERLINE: break; //return InputCode.IC_UNDERSCORE;
             case Keyboard.KEY_NONE:
             default:
                 break;
