@@ -24,6 +24,7 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.cmds.EchoCommand;
+import com.spidey01.sxe.core.input.InputCode;
 import com.spidey01.sxe.core.logging.Log;
 import com.spidey01.sxe.core.testing.NullDisplay;
 import com.spidey01.sxe.core.testing.NullInputManager;
@@ -80,11 +81,12 @@ public class ConsoleTest extends UnitTest {
 
 
     protected void sendToggle() {
-        mInputManager.inject(Console.DEFAULT_TOGGLE_KEY, false);
+        mInputManager.inject(mConsole.getToggleKey(), false);
     }
 
 
     protected void sendCommandLine(String line) {
+        Log.v(TAG, "sendCommandLine(String line =>", line, ")");
         mInputManager.inject(line);
     }
 
@@ -169,8 +171,14 @@ public class ConsoleTest extends UnitTest {
         sendCommandLine(echo);
         Assert.assertEquals(args, echoCommand.getArgs());
 
+        /*
+         * This test requires a change of the toggle key as ` is the default.
+         */
         echo = "echo `foo bar`";
+        InputCode old = mConsole.getToggleKey();
+        mConsole.setToggleKey(InputCode.IC_UNKNOWN);
         sendCommandLine(echo);
+        mConsole.setToggleKey(old);
         Assert.assertEquals(args, echoCommand.getArgs());
 
         echo = "echo \\\"foo bar\\\"";
