@@ -42,41 +42,39 @@ public class Console
 {
 
     public static final int DEFAULT_REPEAT_DELAY = 2;
+
     public static final InputCode DEFAULT_TOGGLE_KEY = InputCode.IC_GRAVE;
-/* OLD XXX OLD
-    public static final String VALID_SYMBOLS = 
-        "~!@#$%^&*()_+-={}[]:;\"'`<,>.?/\\ ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-*/
+
     /** Sequence of valid characters that can be used in a console command. */
     public static final InputCode[] VALID_SYMBOLS = new InputCode[]{
-        // InputCode.IC_TILDA,
-        // InputCode.IC_EXCLAMATION,
-        InputCode.IC_AT,
-        InputCode.IC_POUND,
-        // InputCode.IC_DOLLAR,
-        // InputCode.IC_PERCENTAGE,
-        // InputCode.IC_CIRCUMFLEX,
-        // InputCode.IC_AMPERSAND,
-        InputCode.IC_STAR,
-        // InputCode.IC_LEFT_PAREN, InputCode.IC_NUMPAD_LEFT_PAREN,
-        // InputCode.IC_RIGHT_PAREN, InputCode.IC_NUMPAD_RIGHT_PAREN,
-        // InputCode.IC_UNDERSCORE,
-        // InputCode.IC_PLUS,
-        InputCode.IC_MINUS,
-        InputCode.IC_EQUALS,
-        // InputCode.IC_LEFT_CURLY_BRACE,
-        // InputCode.IC_RIGHT_CURLY_BRACE,
-        InputCode.IC_LEFT_BRACKET,
-        InputCode.IC_RIGHT_BRACKET,
-        // InputCode.IC_COLON,
+        InputCode.IC_TILDE,
+        InputCode.IC_EXCLAMATION_MARK,
+        InputCode.IC_AT_SIGN,
+        InputCode.IC_NUMBER_SIGN,
+        InputCode.IC_DOLLAR_SIGN,
+        InputCode.IC_PERCENT_SIGN,
+        InputCode.IC_CARET,
+        InputCode.IC_AMPERSAND,
+        InputCode.IC_ASTERISK,
+        InputCode.IC_LEFT_PAREN, InputCode.IC_NUMPAD_LEFT_PAREN,
+        InputCode.IC_RIGHT_PAREN, InputCode.IC_NUMPAD_RIGHT_PAREN,
+        InputCode.IC_UNDERSCORE,
+        InputCode.IC_PLUS_SIGN,
+        InputCode.IC_HYPHEN_MINUS,
+        InputCode.IC_EQUAL_SIGN,
+        InputCode.IC_LEFT_CURLY_BRACE,
+        InputCode.IC_RIGHT_CURLY_BRACE,
+        InputCode.IC_LEFT_SQUARE_BRACKET,
+        InputCode.IC_RIGHT_SQUARE_BRACKET,
+        InputCode.IC_COLON,
         InputCode.IC_SEMICOLON,
-        // InputCode.IC_DOUBLE_QUOTE,
+        InputCode.IC_DOUBLE_QUOTE,
         InputCode.IC_APOSTROPHE,
         InputCode.IC_GRAVE,
-        // InputCode.IC_LEFT_<,
-        // InputCode.IC_RIGHT_>,
+        InputCode.IC_LESS_THAN_SIGN,
+        InputCode.IC_GREATER_THAN_SIGN,
         InputCode.IC_PERIOD,
-        // InputCode.IC_QUESTION_MARK,
+        InputCode.IC_QUESTION_MARK,
         InputCode.IC_BACKSLASH,
         InputCode.IC_SLASH,
         InputCode.IC_SPACE,

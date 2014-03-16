@@ -48,9 +48,8 @@ package com.spidey01.sxe.core.input;
  * 'A' to the associated InputCode (IC_0, IC_A).
  *
  *
- * While the implementation is very different the naming convention and
- * values are derived from that used by the Android Open Source Projects
- * KeyEvent class.  It's as good an internal convention as any in my books.
+ * Names are generally taken from Unicode or Android (AOSP). It's as good an
+ * internal convention as any in my books.
  */
 public enum InputCode {
 
@@ -60,104 +59,7 @@ public enum InputCode {
 
 //////////////////////////////////// Keyboard Keys //////////////////////////////////// 
 
-
-    IC_0('0'),
-    IC_1('1'),
-    IC_2('2'),
-    IC_3('3'),
-    IC_4('4'),
-    IC_5('5'),
-    IC_6('6'),
-    IC_7('7'),
-    IC_8('8'),
-    IC_9('9'),
-    IC_STAR('*'),
-    IC_POUND('#'),
-    IC_A('A', 'a'),
-    IC_B('B', 'b'),
-    IC_C('C', 'c'),
-    IC_D('D', 'd'),
-    IC_E('E', 'e'),
-    IC_F('F', 'f'),
-    IC_G('G', 'g'),
-    IC_H('H', 'h'),
-    IC_I('I', 'i'),
-    IC_J('J', 'j'),
-    IC_K('K', 'k'),
-    IC_L('L', 'l'),
-    IC_M('M', 'm'),
-    IC_N('N', 'n'),
-    IC_O('O', 'o'),
-    IC_P('P', 'p'),
-    IC_Q('Q', 'q'),
-    IC_R('R', 'r'),
-    IC_S('S', 's'),
-    IC_T('T', 't'),
-    IC_U('U', 'u'),
-    IC_V('V', 'v'),
-    IC_W('W', 'w'),
-    IC_X('X', 'x'),
-    IC_Y('Y', 'y'),
-    IC_Z('Z', 'z'),
-    IC_COMMA(','),
-    IC_PERIOD('.'),
-    IC_ALT_LEFT,
-    IC_ALT_RIGHT,
-    IC_SHIFT_LEFT,
-    IC_SHIFT_RIGHT,
-    IC_TAB('\t'),
-    IC_SPACE(' '),
-    /** Enter/return key. */
-    IC_ENTER('\n'),
-    /** Backspace key.
-     * Deletes characters before the insertion point, unlike {@link #IC_FORWARD_DEL}. */
-    IC_DEL('\b'),
-    /** '`' (backtick) key. */
-    IC_GRAVE('`'),
-    IC_MINUS('-'),
-    IC_EQUALS('='),
-    IC_PLUS('+'),
-    IC_LEFT_BRACKET('['),
-    IC_RIGHT_BRACKET(']'),
-    IC_BACKSLASH('\\'),
-    IC_SEMICOLON(';'),
-    /** ''' (apostrophe) key. */
-    IC_APOSTROPHE('\''),
-    /** '/' key. */
-    IC_SLASH('/'),
-    /** '@' key. */
-    IC_AT('@'),
-    IC_PAGE_UP,
-    IC_PAGE_DOWN,
     IC_ESCAPE,
-    /** Key code constant: Forward Delete key.
-     * Deletes characters ahead of the insertion point, unlike {@link #IC_DEL}. */
-    IC_FORWARD_DEL,
-    IC_CTRL_LEFT,
-    IC_CTRL_RIGHT,
-    IC_CAPS_LOCK,
-    IC_SCROLL_LOCK,
-    /** Left Meta modifier key. */
-    IC_META_LEFT,
-    /** Right Meta modifier key. */
-    IC_META_RIGHT,
-    /** Function modifier key. */
-    IC_FUNCTION,
-    /** System Request / Print Screen key. */
-    IC_SYSRQ,
-    /** Break / Pause key. */
-    IC_BREAK,
-    /** Home Movement key.
-     * Used for scrolling or moving the cursor around to the start of a line
-     * or to the top of a list. */
-    IC_MOVE_HOME,
-    /** End Movement key.
-     * Used for scrolling or moving the cursor around to the end of a line
-     * or to the bottom of a list. */
-    IC_MOVE_END,
-    /** Insert key.
-     * Toggles insert / overwrite edit mode. */
-    IC_INSERT,
     IC_F1,
     IC_F2,
     IC_F3,
@@ -170,9 +72,112 @@ public enum InputCode {
     IC_F10,
     IC_F11,
     IC_F12,
-    /** Key code constant: Num Lock key.
-     * This is the Num Lock key; it is different from {@link #IC_NUM}.
-     * This key alters the behavior of other keys on the numeric keypad. */
+
+    IC_TILDE('~'),
+    IC_GRAVE('`'),
+    IC_EXCLAMATION_MARK('!'),
+    IC_1('1'),
+    IC_AT_SIGN('@'),
+    IC_2('2'),
+    IC_NUMBER_SIGN('#'),
+    IC_3('3'),
+    IC_DOLLAR_SIGN('$'),
+    IC_4('4'),
+    IC_PERCENT_SIGN('%'),
+    IC_5('5'),
+    IC_CARET('^'),
+    IC_6('6'),
+    IC_AMPERSAND('&'),
+    IC_7('7'),
+    IC_ASTERISK('*'),
+    IC_8('8'),
+    IC_LEFT_PAREN('('),
+    IC_9('9'),
+    IC_RIGHT_PAREN(')'),
+    IC_0('0'),
+    IC_UNDERSCORE('_'),
+    IC_HYPHEN_MINUS('-'),
+    IC_PLUS_SIGN('+'),
+    IC_EQUAL_SIGN('='),
+    IC_BACKSPACE('\b'),
+
+    IC_TAB('\t'),
+    IC_Q('Q', 'q'),
+    IC_W('W', 'w'),
+    IC_E('E', 'e'),
+    IC_R('R', 'r'),
+    IC_T('T', 't'),
+    IC_Y('Y', 'y'),
+    IC_U('U', 'u'),
+    IC_I('I', 'i'),
+    IC_O('O', 'o'),
+    IC_P('P', 'p'),
+    IC_LEFT_CURLY_BRACE('{'),
+    IC_LEFT_SQUARE_BRACKET('['),
+    IC_RIGHT_CURLY_BRACE('}'),
+    IC_RIGHT_SQUARE_BRACKET(']'),
+    IC_PIPE('|'),
+    IC_BACKSLASH('\\'),
+
+    IC_CAPS_LOCK,
+    IC_A('A', 'a'),
+    IC_S('S', 's'),
+    IC_D('D', 'd'),
+    IC_F('F', 'f'),
+    IC_G('G', 'g'),
+    IC_H('H', 'h'),
+    IC_J('J', 'j'),
+    IC_K('K', 'k'),
+    IC_L('L', 'l'),
+    IC_COLON(':'),
+    IC_SEMICOLON(';'),
+    IC_DOUBLE_QUOTE('"'),
+    IC_APOSTROPHE('\''),
+    IC_ENTER('\n'),
+
+    IC_SHIFT_LEFT,
+    IC_Z('Z', 'z'),
+    IC_X('X', 'x'),
+    IC_C('C', 'c'),
+    IC_V('V', 'v'),
+    IC_B('B', 'b'),
+    IC_N('N', 'n'),
+    IC_M('M', 'm'),
+    IC_LESS_THAN_SIGN('<'),
+    IC_COMMA(','),
+    IC_GREATER_THAN_SIGN('>'),
+    IC_PERIOD('.'),
+    IC_QUESTION_MARK('?'),
+    IC_SLASH('/'),
+    IC_SHIFT_RIGHT,
+
+    IC_CTRL_LEFT,
+    IC_META_LEFT,
+    IC_ALT_LEFT,
+    IC_SPACE(' '),
+    IC_ALT_RIGHT,
+    IC_META_RIGHT,
+    IC_MENU,
+    IC_CTRL_RIGHT,
+
+    IC_PRINTSCREEN,
+    IC_SCROLL_LOCK,
+    IC_PAUSE,
+    IC_BREAK,
+    IC_SYSRQ,
+
+    IC_INSERT,
+    IC_HOME,
+    IC_PAGE_UP,
+    IC_DELETE,
+    IC_END,
+    IC_PAGE_DOWN,
+
+    IC_UP_ARROW,
+    IC_DOWN_ARROW,
+    IC_LEFT_ARROW,
+    IC_RIGHT_ARROW,
+
     IC_NUM_LOCK,
     IC_NUMPAD_0(IC_0),
     IC_NUMPAD_1(IC_1),
@@ -185,15 +190,15 @@ public enum InputCode {
     IC_NUMPAD_8(IC_8),
     IC_NUMPAD_9(IC_9),
     IC_NUMPAD_DIVIDE(IC_SLASH),
-    IC_NUMPAD_MULTIPLY(IC_STAR),
-    IC_NUMPAD_SUBTRACT(IC_MINUS),
-    IC_NUMPAD_ADD('+'),
+    IC_NUMPAD_MULTIPLY(IC_ASTERISK),
+    IC_NUMPAD_SUBTRACT(IC_HYPHEN_MINUS),
+    IC_NUMPAD_ADD(IC_PLUS_SIGN),
     IC_NUMPAD_DOT(IC_PERIOD),
     IC_NUMPAD_COMMA(IC_COMMA),
-    IC_NUMPAD_ENTER('\n'),
-    IC_NUMPAD_EQUALS(IC_EQUALS),
-    IC_NUMPAD_LEFT_PAREN(),
-    IC_NUMPAD_RIGHT_PAREN(),
+    IC_NUMPAD_ENTER(IC_ENTER),
+    IC_NUMPAD_EQUALS(IC_EQUAL_SIGN),
+    IC_NUMPAD_LEFT_PAREN(IC_LEFT_PAREN),
+    IC_NUMPAD_RIGHT_PAREN(IC_RIGHT_PAREN),
 
 
 //////////////////////////////////// Multimedia Keys //////////////////////////////////// 
@@ -459,13 +464,15 @@ public enum InputCode {
     /** Calendar special function key.
      * Used to launch a calendar application. */
     IC_CALENDAR,
-    /** Music special function key.
-     * Used to launch a music player application. */
-    IC_MUSIC,
     /** Calculator special function key.
      * Used to launch a calculator application. */
     IC_CALCULATOR,
     /** Japanese full-width / half-width key. */
+    /** Search key. */
+    /** Music special function key.
+     * Used to launch a music player application. */
+    IC_MUSIC,
+    IC_SEARCH,
 
 
 ///////////////////////////////////////////////////////////////////////////
@@ -492,27 +499,11 @@ public enum InputCode {
      * of the display. */
     IC_SOFT_RIGHT,
 
-    /** Home key.  This
-     * key is handled by the framework and
-     * is never delivered to applications.
-     * */
-    IC_HOME,
 
-
-    /** Directional Pad Up key.
-     * May also be synthesized from trackball motions. */
     IC_DPAD_UP,
-    /** Directional Pad Down key.
-     * May also be synthesized from trackball motions. */
     IC_DPAD_DOWN,
-    /** Directional Pad Left key.
-     * May also be synthesized from trackball motions. */
     IC_DPAD_LEFT,
-    /** Directional Pad Right key.
-     * May also be synthesized from trackball motions. */
     IC_DPAD_RIGHT,
-    /** Directional Pad Center key.
-     * May also be synthesized from trackball motions. */
     IC_DPAD_CENTER,
 
 
@@ -529,12 +520,8 @@ public enum InputCode {
     /** Camera Focus key.
      * Used to focus the camera. */
     IC_FOCUS,
-    /** Menu key. */
-    IC_MENU,
     /** Notification key. */
     IC_NOTIFICATION,
-    /** Search key. */
-    IC_SEARCH,
 
 
     /** Forward key.
