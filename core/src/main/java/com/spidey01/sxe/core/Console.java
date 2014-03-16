@@ -43,10 +43,17 @@ public class Console
 
     public static final int DEFAULT_REPEAT_DELAY = 2;
 
-    /** Default InputCode used to listening for toggling isVisible(). */
+    /** Default InputCode for togglign console.
+     *
+     * If not specified the integrated KeyListener support will use this
+     * InputCode to determine when to toggle isVisible().
+     */
     public static final InputCode DEFAULT_TOGGLE_KEY = InputCode.IC_GRAVE;
 
-    /** Sequence of valid characters that can be used in a console command. */
+    /** Sequence of valid characters that can be used in a console command.
+     *
+     * Note that
+     */
     public static final InputCode[] VALID_SYMBOLS = new InputCode[]{
         InputCode.IC_TILDE,
         InputCode.IC_EXCLAMATION_MARK,
@@ -156,6 +163,16 @@ public class Console
     }
 
 
+    public synchronized void setToggleKey(InputCode toggleKey) {
+        mToggleKey = toggleKey;
+    }
+
+
+    public synchronized InputCode getToggleKey() {
+        return mToggleKey;
+    }
+
+
     /** Whether or not holding down a key repeats the input character */
     public void allowRepeating(boolean repeating) {
         Log.v(TAG, "mHandleRepeat = "+repeating);
@@ -180,7 +197,11 @@ public class Console
 
     public boolean onKey(KeyEvent event) {
 
-        // House keeping for toggling the console
+        /*
+         * House keeping for toggling the console.
+         *
+         * Must be first so it will pre-empty included it in the buffer.
+         */
         if (event.isKeyUp()) {
             if (event.getKeyCode().equals(mToggleKey)) {
                 setVisible(!isVisible());
