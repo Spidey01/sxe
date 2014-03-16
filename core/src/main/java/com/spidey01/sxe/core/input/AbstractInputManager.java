@@ -102,6 +102,12 @@ public abstract class AbstractInputManager implements InputManager {
     }
 
 
+    /** Inject KeyEvents for each character in String.
+     *
+     * Each key is a key up and key down event. If the key is A-Z a shift key
+     * event will occur before and after. The event is terminated be an enter
+     * key up and down event.
+     */
     @Override
     public void inject(String line) {
         String[] words = line.split("\\s");
@@ -109,10 +115,22 @@ public abstract class AbstractInputManager implements InputManager {
 
         for (int w=0; w < words.length; ++w) {
             word = words[w];
-            for (int ch=0; ch < word.length(); ++ch) {
-                InputCode code = InputCode.fromChar(word.charAt(ch));
+            for (int k=0; k < word.length(); ++k) {
+                InputCode code = InputCode.fromChar(word.charAt(k));
+                boolean isShiftDown = code.upper() == word.charAt(k);
+                Log.test(TAG, "inject(): isShiftDown =>", isShiftDown,
+                        "code.upper() =>", code.upper(),
+                        "code.lower() =>", code.lower(),
+                        "char =>", word.charAt(k));
+
+                if (isShiftDown) {
+                    inject(InputCode.IC_SHIFT_LEFT, true);
+                }
                 inject(code, true);
                 inject(code, false);
+                if (isShiftDown) {
+                    inject(InputCode.IC_SHIFT_LEFT, false);
+                }
             }
             if (w < words.length - 1) { // only if not the last letter.
                 inject(InputCode.IC_SPACE, true);
