@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core.input;
 
+import com.spidey01.sxe.core.logging.Log;
+
 
 /** Class enumerating key codes used in the input system.
  *
@@ -545,6 +547,7 @@ public enum InputCode {
      * Adjusts the screen brightness up. */
     IC_BRIGHTNESS_UP;
 
+    private static final String TAG = "InputCode";
 
     private final char mUpperCase;
     private final char mLowerCase;
@@ -598,9 +601,8 @@ public enum InputCode {
      */
     public final static InputCode fromChar(char c) {
         for (InputCode ic : InputCode.values()) {
-            System.out.println("try ic "+ic.name()+"("+ic.code()+", "+ic.symbol()+") for char "+c);
             if (c == ic.upper() || c == ic.lower() || c == ic.symbol()) {
-                System.out.println("return ic "+ic.name()+"("+ic.code()+", "+ic.symbol()+") for char "+c);
+                Log.test(TAG, "return", ic.name(), "for char", c);
                 return ic;
             }
         }
