@@ -55,13 +55,13 @@ public class Console
         InputCode.IC_PERCENT_SIGN,
         InputCode.IC_CARET,
         InputCode.IC_AMPERSAND,
-        InputCode.IC_ASTERISK,
+        InputCode.IC_ASTERISK, InputCode.IC_NUMPAD_MULTIPLY,
         InputCode.IC_LEFT_PAREN, InputCode.IC_NUMPAD_LEFT_PAREN,
         InputCode.IC_RIGHT_PAREN, InputCode.IC_NUMPAD_RIGHT_PAREN,
         InputCode.IC_UNDERSCORE,
-        InputCode.IC_PLUS_SIGN,
-        InputCode.IC_HYPHEN_MINUS,
-        InputCode.IC_EQUAL_SIGN,
+        InputCode.IC_PLUS_SIGN, InputCode.IC_NUMPAD_ADD,
+        InputCode.IC_HYPHEN_MINUS, InputCode.IC_NUMPAD_SUBTRACT,
+        InputCode.IC_EQUAL_SIGN, InputCode.IC_NUMPAD_EQUAL_SIGN,
         InputCode.IC_LEFT_CURLY_BRACE,
         InputCode.IC_RIGHT_CURLY_BRACE,
         InputCode.IC_LEFT_SQUARE_BRACKET,
@@ -76,7 +76,7 @@ public class Console
         InputCode.IC_PERIOD,
         InputCode.IC_QUESTION_MARK,
         InputCode.IC_BACKSLASH,
-        InputCode.IC_SLASH,
+        InputCode.IC_SLASH, InputCode.IC_NUMPAD_DIVIDE,
         InputCode.IC_SPACE,
         InputCode.IC_0, InputCode.IC_NUMPAD_0,
         InputCode.IC_1, InputCode.IC_NUMPAD_1,
@@ -180,7 +180,9 @@ public class Console
 
         // stuff that only fires if the key was released
         if (event.isKeyUp()) {
-            if (event.getKeyCode().equals(InputCode.IC_ENTER)) {
+            if (event.getKeyCode().equals(InputCode.IC_ENTER)
+                || event.getKeyCode().equals(InputCode.IC_NUMPAD_ENTER))
+            {
                 execute(mBuffer.toString());
                 /*
                  * food for thought: what's worse on a mobile phone: letting the

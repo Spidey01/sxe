@@ -106,7 +106,7 @@ public class InputCodeUtils {
             case Keyboard.KEY_NUMPAD9: return InputCode.IC_NUMPAD_9;
             case Keyboard.KEY_NUMPADCOMMA: return InputCode.IC_NUMPAD_COMMA;
             case Keyboard.KEY_NUMPADENTER: return InputCode.IC_NUMPAD_ENTER;
-            case Keyboard.KEY_NUMPADEQUALS: return InputCode.IC_NUMPAD_EQUALS;
+            case Keyboard.KEY_NUMPADEQUALS: return InputCode.IC_NUMPAD_EQUAL_SIGN;
             case Keyboard.KEY_O: return InputCode.IC_O;
             case Keyboard.KEY_P: return InputCode.IC_P;
             case Keyboard.KEY_PAUSE: return InputCode.IC_PAUSE;
