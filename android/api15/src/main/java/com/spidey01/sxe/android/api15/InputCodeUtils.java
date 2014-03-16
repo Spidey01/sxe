@@ -61,8 +61,7 @@ public class InputCodeUtils
             case KeyEvent.KEYCODE_F8: return InputCode.IC_F8;
             case KeyEvent.KEYCODE_F9: return InputCode.IC_F9;
             case KeyEvent.KEYCODE_FORWARD: return InputCode.IC_FORWARD;
-            case KeyEvent.KEYCODE_FORWARD_DEL: return InputCode.IC_FORWARD_DEL;
-            case KeyEvent.KEYCODE_FUNCTION: return InputCode.IC_FUNCTION;
+            case KeyEvent.KEYCODE_FORWARD_DEL: return InputCode.IC_DELETE;
             case KeyEvent.KEYCODE_GUIDE: return InputCode.IC_GUIDE;
             case KeyEvent.KEYCODE_INFO: return InputCode.IC_INFO;
             case KeyEvent.KEYCODE_INSERT: return InputCode.IC_INSERT;
@@ -73,8 +72,8 @@ public class InputCodeUtils
             case KeyEvent.KEYCODE_MEDIA_RECORD: return InputCode.IC_MEDIA_RECORD;
             case KeyEvent.KEYCODE_META_LEFT: return InputCode.IC_META_LEFT;
             case KeyEvent.KEYCODE_META_RIGHT: return InputCode.IC_META_RIGHT;
-            case KeyEvent.KEYCODE_MOVE_END: return InputCode.IC_MOVE_END;
-            case KeyEvent.KEYCODE_MOVE_HOME: return InputCode.IC_MOVE_HOME;
+            case KeyEvent.KEYCODE_MOVE_END: return InputCode.IC_END;
+            case KeyEvent.KEYCODE_MOVE_HOME: return InputCode.IC_HOME;
             case KeyEvent.KEYCODE_NUMPAD_0: return InputCode.IC_NUMPAD_0;
             case KeyEvent.KEYCODE_NUMPAD_1: return InputCode.IC_NUMPAD_1;
             case KeyEvent.KEYCODE_NUMPAD_2: return InputCode.IC_NUMPAD_2;
@@ -90,7 +89,7 @@ public class InputCodeUtils
             case KeyEvent.KEYCODE_NUMPAD_DIVIDE: return InputCode.IC_NUMPAD_DIVIDE;
             case KeyEvent.KEYCODE_NUMPAD_DOT: return InputCode.IC_NUMPAD_DOT;
             case KeyEvent.KEYCODE_NUMPAD_ENTER: return InputCode.IC_NUMPAD_ENTER;
-            case KeyEvent.KEYCODE_NUMPAD_EQUALS: return InputCode.IC_NUMPAD_EQUALS;
+            case KeyEvent.KEYCODE_NUMPAD_EQUALS: return InputCode.IC_NUMPAD_EQUAL_SIGN;
             case KeyEvent.KEYCODE_NUMPAD_LEFT_PAREN: return InputCode.IC_NUMPAD_LEFT_PAREN;
             case KeyEvent.KEYCODE_NUMPAD_MULTIPLY: return InputCode.IC_NUMPAD_MULTIPLY;
             case KeyEvent.KEYCODE_NUMPAD_RIGHT_PAREN: return InputCode.IC_NUMPAD_RIGHT_PAREN;
