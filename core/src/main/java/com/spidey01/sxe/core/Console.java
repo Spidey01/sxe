@@ -43,6 +43,7 @@ public class Console
 
     public static final int DEFAULT_REPEAT_DELAY = 2;
 
+    /** Default InputCode used to listening for toggling isVisible(). */
     public static final InputCode DEFAULT_TOGGLE_KEY = InputCode.IC_GRAVE;
 
     /** Sequence of valid characters that can be used in a console command. */
@@ -118,12 +119,15 @@ public class Console
 
     protected static final int INITIAL_BUFFER_SIZE = 160; /* works for 7-bit SMS */
 
+    /** InputCode used to toggle the console. */
     private InputCode mToggleKey = DEFAULT_TOGGLE_KEY ;
-
     private KeyEvent mLastKeyEvent = null;
     private boolean mHandleRepeat = true;
     private int mRepeatDelay = DEFAULT_REPEAT_DELAY;
     private long mRepeatCount = 0;
+
+    /** For tracking whether the shift key is currently down. */
+    private boolean mIsShiftDown;
 
     private boolean mVisible = false;
 
@@ -135,31 +139,40 @@ public class Console
     public Console() {
     }
 
+
     public Console(InputCode toggleKey) {
         mToggleKey = toggleKey;
     }
 
+
     public boolean isVisible() {
         return mVisible;
     }
+
 
     public void setVisible(boolean visable) {
         Log.v(TAG, "console " + (visable ? "opened" : "closed"));
         mVisible = visable;
     }
 
+
     /** Whether or not holding down a key repeats the input character */
     public void allowRepeating(boolean repeating) {
         Log.v(TAG, "mHandleRepeat = "+repeating);
         mHandleRepeat = repeating;
     }
+
+
     public boolean repeatingAllowed() {
         return mHandleRepeat;
     }
 
+
     public int getRepeatDelay() {
         return mRepeatDelay;
     }
+
+
     public void setRepeatDelay(int count) {
         mRepeatDelay = count;
     }
@@ -180,6 +193,12 @@ public class Console
 
         // stuff that only fires if the key was released
         if (event.isKeyUp()) {
+            if (event.getKeyCode().equals(InputCode.IC_SHIFT_LEFT)
+                || event.getKeyCode().equals(InputCode.IC_SHIFT_RIGHT))
+            {
+                mIsShiftDown = false;
+            }
+
             if (event.getKeyCode().equals(InputCode.IC_ENTER)
                 || event.getKeyCode().equals(InputCode.IC_NUMPAD_ENTER))
             {
@@ -204,6 +223,14 @@ public class Console
             }
         }
 
+        if (event.isKeyDown()) {
+            if (event.getKeyCode().equals(InputCode.IC_SHIFT_LEFT)
+                || event.getKeyCode().equals(InputCode.IC_SHIFT_RIGHT))
+            {
+                mIsShiftDown = true;
+            }
+        }
+
         if (!mHandleRepeat && event.isKeyDown()) {
             // consume but don't repeat
             return true;
@@ -224,7 +251,6 @@ public class Console
             }
         }
 
-        boolean mIsShiftDown = false;
         InputCode thisCode = event.getKeyCode();
         for (InputCode code : VALID_SYMBOLS) {
             if (code.equals(thisCode)) {
@@ -238,6 +264,7 @@ public class Console
         // consume even if not added to buffer, because the console is OPEN.
         return true;
     }
+
 
     public void execute(String line) {
         Log.v(TAG, "execute(\""+line+"\")");
@@ -261,6 +288,7 @@ public class Console
         }
     }
 
+
     public void addCommand(Command command) {
         if (command == null
             || command.getName() == null
@@ -272,19 +300,23 @@ public class Console
         mCommands.put(command.getName(), command);
     }
 
+
     public void removeCommand(Command command) {
         removeCommand(command.getName());
     }
 
+
     public void removeCommand(String command) {
         mCommands.remove(command);
     }
+
 
     public void frameStarted(OpenGL GL20) {
         if (!isVisible()) {
             return;
         }
     }
+
 
     public void frameEnded() {
     }
