@@ -126,8 +126,8 @@ public class ConsoleTest extends UnitTest {
     public void linear() {
         Log.i(TAG, "linear()");
         mConsole.setVisible(true);
-        for (int i=0; i < Console.VALID_SYMBOLS.length(); ++i) {
-            mInputManager.inject(String.valueOf(Console.VALID_SYMBOLS.charAt(i)), true);
+        for (int i=0; i < Console.VALID_SYMBOLS.length; ++i) {
+            mInputManager.inject(String.valueOf(Console.VALID_SYMBOLS[i]), true);
         }
     }
 

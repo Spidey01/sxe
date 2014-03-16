@@ -43,9 +43,80 @@ public class Console
 
     public static final int DEFAULT_REPEAT_DELAY = 2;
     public static final InputCode DEFAULT_TOGGLE_KEY = InputCode.IC_GRAVE;
-    /** Sequence of valid characters that can be used in a console command. */
+/* OLD XXX OLD
     public static final String VALID_SYMBOLS = 
         "~!@#$%^&*()_+-={}[]:;\"'`<,>.?/\\ ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+*/
+    /** Sequence of valid characters that can be used in a console command. */
+    public static final InputCode[] VALID_SYMBOLS = new InputCode[]{
+        // InputCode.IC_TILDA,
+        // InputCode.IC_EXCLAMATION,
+        InputCode.IC_AT,
+        InputCode.IC_POUND,
+        // InputCode.IC_DOLLAR,
+        // InputCode.IC_PERCENTAGE,
+        // InputCode.IC_CIRCUMFLEX,
+        // InputCode.IC_AMPERSAND,
+        InputCode.IC_STAR,
+        // InputCode.IC_LEFT_PAREN, InputCode.IC_NUMPAD_LEFT_PAREN,
+        // InputCode.IC_RIGHT_PAREN, InputCode.IC_NUMPAD_RIGHT_PAREN,
+        // InputCode.IC_UNDERSCORE,
+        // InputCode.IC_PLUS,
+        InputCode.IC_MINUS,
+        InputCode.IC_EQUALS,
+        // InputCode.IC_LEFT_CURLY_BRACE,
+        // InputCode.IC_RIGHT_CURLY_BRACE,
+        InputCode.IC_LEFT_BRACKET,
+        InputCode.IC_RIGHT_BRACKET,
+        // InputCode.IC_COLON,
+        InputCode.IC_SEMICOLON,
+        // InputCode.IC_DOUBLE_QUOTE,
+        InputCode.IC_APOSTROPHE,
+        InputCode.IC_GRAVE,
+        // InputCode.IC_LEFT_<,
+        // InputCode.IC_RIGHT_>,
+        InputCode.IC_PERIOD,
+        // InputCode.IC_QUESTION_MARK,
+        InputCode.IC_BACKSLASH,
+        InputCode.IC_SLASH,
+        InputCode.IC_SPACE,
+        InputCode.IC_0, InputCode.IC_NUMPAD_0,
+        InputCode.IC_1, InputCode.IC_NUMPAD_1,
+        InputCode.IC_2, InputCode.IC_NUMPAD_2,
+        InputCode.IC_3, InputCode.IC_NUMPAD_3,
+        InputCode.IC_4, InputCode.IC_NUMPAD_4,
+        InputCode.IC_5, InputCode.IC_NUMPAD_5,
+        InputCode.IC_6, InputCode.IC_NUMPAD_6,
+        InputCode.IC_7, InputCode.IC_NUMPAD_7,
+        InputCode.IC_8, InputCode.IC_NUMPAD_8,
+        InputCode.IC_9, InputCode.IC_NUMPAD_9,
+        InputCode.IC_A,
+        InputCode.IC_B,
+        InputCode.IC_C,
+        InputCode.IC_D,
+        InputCode.IC_E,
+        InputCode.IC_F,
+        InputCode.IC_G,
+        InputCode.IC_H,
+        InputCode.IC_I,
+        InputCode.IC_J,
+        InputCode.IC_K,
+        InputCode.IC_L,
+        InputCode.IC_M,
+        InputCode.IC_N,
+        InputCode.IC_O,
+        InputCode.IC_P,
+        InputCode.IC_Q,
+        InputCode.IC_R,
+        InputCode.IC_S,
+        InputCode.IC_T,
+        InputCode.IC_U,
+        InputCode.IC_V,
+        InputCode.IC_W,
+        InputCode.IC_X,
+        InputCode.IC_Y,
+        InputCode.IC_Z,
+    };
 
     protected static final int INITIAL_BUFFER_SIZE = 160; /* works for 7-bit SMS */
 
@@ -111,9 +182,7 @@ public class Console
 
         // stuff that only fires if the key was released
         if (event.isKeyUp()) {
-            if (event.getKeyCode().equals(InputCode.IC_ENTER)
-                || event.getKeyCode().equals(InputCode.IC_ENTER))
-            {
+            if (event.getKeyCode().equals(InputCode.IC_ENTER)) {
                 execute(mBuffer.toString());
                 /*
                  * food for thought: what's worse on a mobile phone: letting the
@@ -155,17 +224,19 @@ public class Console
             }
         }
 
-
-        if (event.getKeyCode().equals(InputCode.IC_SPACE)) {
-            mBuffer.append(' ');
-            return true;
+        boolean mIsShiftDown = false;
+        InputCode thisCode = event.getKeyCode();
+        for (InputCode code : VALID_SYMBOLS) {
+            if (code.equals(thisCode)) {
+                char c = mIsShiftDown ? code.upper() : code.lower();
+                Log.xtrace(TAG, "Append '"+c+"' to \""+mBuffer+"\"");
+                mBuffer.append(c);
+                break;
+            }
         }
 
-        if (VALID_SYMBOLS.contains(event.getKeyName())) {
-            Log.v(TAG, "Append \""+event.getKeyName()+"\" to \""+mBuffer+"\"");
-            mBuffer.append(event.getKeyName());
-        }
-        return true; // consume even if not added to buffer, because the console is OPEN.
+        // consume even if not added to buffer, because the console is OPEN.
+        return true;
     }
 
     public void execute(String line) {

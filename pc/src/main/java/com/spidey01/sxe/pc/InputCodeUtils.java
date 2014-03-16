@@ -149,7 +149,7 @@ public class InputCodeUtils {
             case Keyboard.KEY_APPS: break;
             case Keyboard.KEY_AX: break;
             case Keyboard.KEY_CAPITAL: break;
-            case Keyboard.KEY_CIRCUMFLEX: break;
+            case Keyboard.KEY_CIRCUMFLEX: break; //return InputCode.IC_CIRCUMFLEX;
             case Keyboard.KEY_CONVERT: break;
             case Keyboard.KEY_DECIMAL: break;
             case Keyboard.KEY_DIVIDE: break;
@@ -168,7 +168,7 @@ public class InputCodeUtils {
             case Keyboard.KEY_SECTION: break;
             case Keyboard.KEY_SLEEP: break;
             case Keyboard.KEY_STOP: break;
-            case Keyboard.KEY_UNDERLINE: break;
+            case Keyboard.KEY_UNDERLINE: break; //return InputCode.IC_UNDERSCORE;
             case Keyboard.KEY_NONE:
             default:
                 break;
