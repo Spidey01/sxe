@@ -58,6 +58,7 @@ public class PcDisplay
 
         private final String MODE;
         private final String FPS;
+        private final String FULLSCREEN;
 
         public DisplaySettingsListener(GameEngine engine) {
             super(engine.getSettings());
@@ -68,6 +69,9 @@ public class PcDisplay
 
             FPS = prefix+".fps";
             mSettings.addChangeListener(FPS, this);
+
+            FULLSCREEN = prefix+".fullscreen";
+            mSettings.addChangeListener(FULLSCREEN, this);
         }
 
 
@@ -89,6 +93,11 @@ public class PcDisplay
                 } else if (value.equals("false") || value.equals("0") || value.equals("off")) {
                     PcDisplay.this.mFrameCounter.disableDebugging();
                 }
+            }
+
+            /* Support toggling between fullscreen / windowed mode. */
+            else if (key.equals(FULLSCREEN)) {
+                PcDisplay.this.setFullscreen(mSettings.getBoolean(key));
             }
 
              else {
@@ -259,6 +268,16 @@ public class PcDisplay
             return false;
         }
         return true;
+    }
+
+
+    public void setFullscreen(boolean fullscreen) {
+        try {
+            Display.setFullscreen(fullscreen);
+        } catch (LWJGLException e) {
+            Log.e(TAG, "Display.setFullscreen(boolean fullscreen =>", fullscreen,"):",
+                  "Failed:", e);
+        }
     }
 
 
