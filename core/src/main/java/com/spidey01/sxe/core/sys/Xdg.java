@@ -46,9 +46,9 @@ public class Xdg {
      */
     public static String APP_HOME = System.getenv("APP_HOME");
 
-    /** What passes for the useres home directory.
+    /** What passes for the user's home directory.
      *
-     * @see FileSystem.getUserDir
+     * @see {@link com.spidey01.sxe.core.sys.FileSystem}
      */
     public static String HOME = FileSystem.getUserDir();
 

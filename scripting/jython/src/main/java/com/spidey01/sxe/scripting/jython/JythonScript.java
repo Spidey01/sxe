@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.scripting.jruby;
+package com.spidey01.sxe.scripting.jython;
 
 import org.python.util.PythonInterpreter;
 

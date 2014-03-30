@@ -53,7 +53,6 @@ public class SettingsExpanderTest
         test.setString("foo", "bar");
         // Assert.assertEquals("bar", test.getString("foo"));
         Log.test(TAG, "getString in test");
-        String foo = test.getString("foo");
         Assert.assertEquals("bar", e.expand("foo"));
 
 

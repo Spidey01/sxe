@@ -41,7 +41,7 @@ import java.util.LinkedList;
  * GameEngine.mainLoop() expects it.
  *
  * @see AbstractInputManager
- * @see NullInputManager
+ * @see com.spidey01.sxe.core.testing.NullInputManager
  */
 public interface InputManager extends Subsystem {
     
@@ -71,7 +71,7 @@ public interface InputManager extends Subsystem {
      *
      * You can use this to implement keybinds for game play.
      *
-     * @param keyName what key to listen for.
+     * @param inputCode what key to listen for.
      * @param listener the KeyListener for keyName.
      * @see KeyEvent
      */

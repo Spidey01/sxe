@@ -136,7 +136,7 @@ public class ResourceManager
      *      <dd>Colon delimited list of paths to addResourceLocation().</dd>
      * </dl>
      *
-     * @see ResourceManager.load
+     * @see #{ResourceManager.load}
      */
     @Override public void initialize(GameEngine engine) {
         Log.d(TAG, "initialize(", engine, ")");
@@ -334,9 +334,9 @@ public class ResourceManager
      *
      * Resources will be searched for in locations registered with #addResourceLocation().
      *
-     * @throws IllegalArgumentException if no scheme given in URI.
+     * @throws java.lang.IllegalArgumentException if no scheme given in URI.
      *
-     * @see URI
+     * @see @{link }java.net.URI}
      */
     public ResourceHandle load(URI uri) throws IOException {
         Log.v(TAG, "load(): URI => "+uri);

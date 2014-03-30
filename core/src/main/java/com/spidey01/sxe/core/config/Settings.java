@@ -39,7 +39,7 @@ import java.util.EventListener;
  * engine.
  *
  * @see SettingsFile
- * @see AndroidSettings
+ * @see {@link com.spidey01. }
  */
 public interface Settings {
 
@@ -58,7 +58,6 @@ public interface Settings {
          * No guarantee of thread safety is required for implementations of
          * this interface.
          *
-         * @param settings - used to obtain the new value of key.
          * @param key - the key associated with the change.
          */
         void onChanged(String key);

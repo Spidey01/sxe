@@ -25,7 +25,7 @@ from org.junit import Assert
 from com.spidey01.sxe.scripting.testhelpers import JavaClass
 
 javaObject = JavaClass()
-Assert.assertEquals(true, javaObject.returnsTrue());
+Assert.assertEquals(true, javaObject.returnsTrue())
 Assert.assertEquals(javaObject.returnsSum(2, 2), 4)
-Assert.assertEquals(javaObject.returnsStrCat("foo", "bar"), "foobar");
+Assert.assertEquals(javaObject.returnsStrCat("foo", "bar"), "foobar")
 

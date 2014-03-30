@@ -51,7 +51,7 @@ public class ZipResourceLoader implements ResourceLoader {
     public InputStream getInputStream(String from, String what)
         throws IOException
     {
-        ZipFile zipFile = null;
+        ZipFile zipFile;
         
         try {
             zipFile = new ZipFile(from);
@@ -72,7 +72,7 @@ public class ZipResourceLoader implements ResourceLoader {
             Log.w(TAG, "We can't use a directory inside a zip file as a resource!");
         }
 
-        InputStream is = null;
+        InputStream is;
         try {
             is = zipFile.getInputStream(zipEntry);
             /* Instead of one of the documentation exceptions we might just get

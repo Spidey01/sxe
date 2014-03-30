@@ -40,8 +40,8 @@ import java.util.Map;
  * the invoke() method appropriately for your interface.
  *
  * @see java.util.EventListener
- * @see Java.Util.EventObject
- * @see invoke
+ * @see java.util.EventObject
+ * @see #invoke(java.lang.Object, java.lang.Object)
  */
 public class NotificationManager<Receiver_T, Message_T> {
     private final static String TAG = "NotificationManager";
@@ -78,8 +78,6 @@ public class NotificationManager<Receiver_T, Message_T> {
     /** Add receiver for specific message.
      *
      * This method is provided as a convenient way to use Message_T's as the index key.
-     *
-     * @param key toString() will be called to create a String key for an internal Map.
      */
     public void subscribe(Object o, Receiver_T subscriber) {
         subscribe(o.toString(), subscriber);

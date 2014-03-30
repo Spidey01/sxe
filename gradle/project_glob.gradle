@@ -21,7 +21,7 @@ def project_glob = { glob ->
                 s = sanitize(p+':'+d)
                 try {
                     nodes << project(s)
-                } catch (org.gradle.api.UnknownProjectException e) {
+                } catch (UnknownProjectException e) {
                     // logger.warn("For glob "+glob+": "+e)
                     return
                 }
@@ -38,7 +38,7 @@ def project_glob = { glob ->
                     def name = sanitize(it.getPath()+':'+segment)
                     try {
                         temp << project(name)
-                    } catch (org.gradle.api.UnknownProjectException e) {
+                    } catch (UnknownProjectException e) {
                         // project's not in settings.gradle.
                         if ((new File(name[1 .. name.length()-1]
                             .replace(":", "/"))).exists())
