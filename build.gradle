@@ -17,26 +17,7 @@ buildscript {
 }
 
 
-task tags(type: Exec) {
-    executable 'ctags'
-    args '-R'
-    def pwd = System.getProperty("user.dir")
-    if (!pwd.endsWith('/')) { pwd += "/"; }
-    project.getSubprojects().each {
-        def p = it.projectDir.getPath().replace('\\', '/').minus(pwd)
-        args p
-        // exclude the gradle build and android gen directories.
-        args "--exclude=${p}/build/", "--exclude=${p}/gen/"
-    }
-    // also these FWIW:
-    args 'gradle'
-}
-
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.11'
-}
-
-
+apply from: 'gradle/tasks/tags.gradle', to: project
+apply from: 'gradle/tasks/wrapper.gradle', to: project
 apply from: 'gradle/tasks/fromTemplate.gradle', to: project
 
