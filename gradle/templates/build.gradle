@@ -5,7 +5,7 @@
 apply plugin: 'java'
 apply plugin:'application'
 
-group = 'com.spidey01.sxe.MODULETEMPLATE'
+group = 'PACKAGENAME_TEMPLATE'
 mainClassName = group + '.Main'
 applicationName = archivesBaseName = 'MODULETEMPLATE'
 version = '0.0.1-SNAPSHOT'
