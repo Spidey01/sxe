@@ -38,37 +38,5 @@ task wrapper(type: Wrapper) {
 }
 
 
-task fromTemplate(description: "See gradle/templates/README") << {
-
-    def dest = ''
-    if (project.hasProperty('templateDestination')) {
-        dest =project.templateDestination
-    }
-    // windows sanitation
-    dest = dest.replace("\\", "/")
-
-    def copyLines = { path, writer ->
-        new File(path).eachLine { line ->
-            writer.writeLine(line)
-        }
-    }
-
-    if (dest =~ /\.java$/) {
-        new File(dest).withWriter() { output ->
-            copyLines("COPYING", output)
-            copyLines("gradle/templates/NewClass.java", output)
-        }
-
-    }
-    else if (dest.endsWith("build.gradle")) {
-        new File(dest).withWriter() { output ->
-            copyLines("gradle/templates/build.gradle", output)
-        }
-    }
-    else if (dest.isEmpty()) {
-        println "Must set property templateDestination."
-        println "See gradle/templates/README."
-        return
-    }
-}
+apply from: 'gradle/tasks/fromTemplate.gradle', to: project
 

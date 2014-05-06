@@ -1,0 +1,159 @@
+
+project.ext {
+    // enforced house keeping.
+    if (!project.hasProperty('templateDest')) {
+        throw new StopExecutionException("templateDest property required for template tasks.")
+    }
+
+    /// location of template files.
+    templateDir = new File(project.rootDir, "gradle/templates")
+
+    /// helper method to copy lines from a path to writer.
+    def copyLines = { path, writer ->
+        new File(path).eachLine { line ->
+            writer.writeLine(line)
+        }
+    }
+}
+
+
+def copyFileAndFilter = { inPath, outPath, templates ->
+    inFile =  (inPath  instanceof File) ? inPath  : new File(inPath)
+    outFile = (outPath instanceof File) ? outPath : new File(outPath)
+
+    // make sure stuff exists.
+    outFile.getParentFile().mkdirs()
+    outFile.createNewFile()
+
+    outFile.withWriter() { output -> 
+        inFile.eachLine { input ->
+            def line = input
+            // replace each of these in the output accordingly.
+            templates.each { item ->
+                if (line.contains(item.key)) {
+                    line = line.replace(item.key, item.value)
+                }
+            }
+            output.writeLine(line)
+        }
+    }
+}
+
+
+task fromTemplate_Project_build_gradle() {
+
+    ext.outScript = new File(project.templateDest)
+    // ext.inScript = new File(outScript.getParent(), 'build.gradle')
+    ext.inScript = new File(project.ext.templateDir, 'build.gradle')
+
+    ext.packageName = "com.spidey01.sxe.${ext.outScript.getParent()}"
+    println "packageName: ${ext.packageName}"
+
+    ext.templates = [
+                'PACKAGENAME_TEMPLATE': "com.spidey01.sxe.${ext.outScript.getParent()}",
+    ]
+
+    doLast {
+        copyFileAndFilter(ext.inScript, ext.outScript, ext.templates)
+    }
+}
+
+
+task fromTemplate_Project_gitignore(type: Copy) {
+    from new File(project.ext.templateDir, '.gitignore')
+    into new File(
+        new File(project.templateDest).getParent(), ".gitignore")
+}
+
+
+task fromTemplate_Project(description: "New (sub)project from template.") {
+    def buildScript = new File(project.templateDest)
+
+    def dirname = buildScript.getParentFile()
+    def projectName = dirname.getName()
+    def packagePath = "com/spidey01/sxe/${projectName}"
+    def packageName = packagePath.replace('/', '.')
+    def main = new File(dirname, "src/main/java/${packagePath}")
+    def test = new File(dirname, "src/test/java/${packagePath}")
+    def ignore = new File(dirname, ".gitignore")
+
+    println buildScript
+    println dirname
+    println projectName
+    println packagePath
+    println packageName
+
+
+    dependsOn tasks.fromTemplate_Project_gitignore
+    dependsOn tasks.fromTemplate_Project_build_gradle
+
+    doLast {
+        main.mkdirs()
+        test.mkdirs()
+    }
+}
+
+task fromTemplate_JavaSource() {
+/*
+    def copyLines = { path, writer ->
+        new File(path).eachLine { line ->
+            writer.writeLine(line)
+        }
+    }
+
+    if (dest =~ /\.java$/) {
+        new File(dest).withWriter() { output ->
+            copyLines("COPYING", output)
+            copyLines(new File(templateDir, 'NewClass.java', output)
+        }
+*/
+
+    doLast {
+        def copying = new File(project.rootDir, 'COPYING')
+        def source = new File(project.templateDir, 'NewClass.java')
+        def dest = new File(project.templateDest)
+
+        // make sure stuff exists.
+        dest.getParentFile().mkdirs()
+        // dest.createNewFile()
+
+        throw new StopExecutionException("Not implemented yet.")
+        dest.withWriter() { w ->
+            copying.eachLine { line -> w.writeLine(line) }
+            // source.eachLine { line -> w.writeLine(filter(line)) }
+        }
+    }
+
+    ext.outScript = new File(project.templateDest)
+    // ext.inScript = new File(outScript.getParent(), 'build.gradle')
+    ext.inScript = new File(project.ext.templateDir, 'build.gradle')
+
+    ext.packageName = "com.spidey01.sxe.${ext.outScript.getParent()}"
+    println "packageName: ${ext.packageName}"
+
+    ext.templates = [
+                'PACKAGENAME_TEMPLATE': "com.spidey01.sxe.${ext.outScript.getParent()}",
+    ]
+
+    doLast {
+        copyFileAndFilter(ext.inScript, ext.outScript, ext.templates)
+    }
+}
+
+// tasks.create(name: 'fromTemplate', description: 'See gradle/templates/README') {
+task fromTemplate(description: 'See gradle/templates/README') {
+    doLast { println "hi ${project.ext.templateDir}" }
+
+    def dest = project.templateDest
+    if (dest.endsWith("build.gradle")) {
+        dependsOn tasks.fromTemplate_Project
+    }
+    else if (dest =~ /\.java$/) {
+        dependsOn tasks.fromTemplate_JavaSource
+    }
+    else {
+        throw new
+            StopExecutionException( "Unsupported templateDest: \"${dest}")
+    }
+}
+
