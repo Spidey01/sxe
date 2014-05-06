@@ -1,20 +1,11 @@
 
-project.ext {
-    // enforced house keeping.
-    if (!project.hasProperty('templateDest')) {
-        throw new StopExecutionException("templateDest property required for template tasks.")
-    }
 
-    /// location of template files.
-    templateDir = new File(project.rootDir, "gradle/templates")
+if (project.hasProperty('templateDest')) {
 
-    /// helper method to copy lines from a path to writer.
-    def copyLines = { path, writer ->
-        new File(path).eachLine { line ->
-            writer.writeLine(line)
-        }
-    }
-}
+project.ext.templateDest = project.templateDest
+
+/// location of template files.
+project.ext.templateDir = new File(project.rootDir, "gradle/templates")
 
 
 def copyFileAndFilter = { inPath, outPath, templates ->
@@ -42,13 +33,9 @@ def copyFileAndFilter = { inPath, outPath, templates ->
 
 task fromTemplate_Project_build_gradle() {
 
-    ext.outScript = new File(project.templateDest)
-    // ext.inScript = new File(outScript.getParent(), 'build.gradle')
+    ext.outScript = new File(project.ext.templateDest)
     ext.inScript = new File(project.ext.templateDir, 'build.gradle')
-
     ext.packageName = "com.spidey01.sxe.${ext.outScript.getParent()}"
-    println "packageName: ${ext.packageName}"
-
     ext.templates = [
                 'PACKAGENAME_TEMPLATE': "com.spidey01.sxe.${ext.outScript.getParent()}",
     ]
@@ -62,26 +49,24 @@ task fromTemplate_Project_build_gradle() {
 task fromTemplate_Project_gitignore(type: Copy) {
     from new File(project.ext.templateDir, '.gitignore')
     into new File(
-        new File(project.templateDest).getParent(), ".gitignore")
+        new File(project.ext.templateDest).getParent(), ".gitignore")
 }
 
 
 task fromTemplate_Project(description: "New (sub)project from template.") {
-    def buildScript = new File(project.templateDest)
-
+    def buildScript = new File(project.ext.templateDest)
     def dirname = buildScript.getParentFile()
     def projectName = dirname.getName()
     def packagePath = "com/spidey01/sxe/${projectName}"
     def packageName = packagePath.replace('/', '.')
     def main = new File(dirname, "src/main/java/${packagePath}")
     def test = new File(dirname, "src/test/java/${packagePath}")
-    def ignore = new File(dirname, ".gitignore")
 
-    println buildScript
-    println dirname
-    println projectName
-    println packagePath
-    println packageName
+    // println buildScript
+    // println dirname
+    // println projectName
+    // println packagePath
+    // println packageName
 
 
     dependsOn tasks.fromTemplate_Project_gitignore
@@ -111,7 +96,7 @@ task fromTemplate_JavaSource() {
     doLast {
         def copying = new File(project.rootDir, 'COPYING')
         def source = new File(project.templateDir, 'NewClass.java')
-        def dest = new File(project.templateDest)
+        def dest = new File(project.ext.templateDest)
 
         // make sure stuff exists.
         dest.getParentFile().mkdirs()
@@ -124,7 +109,7 @@ task fromTemplate_JavaSource() {
         }
     }
 
-    ext.outScript = new File(project.templateDest)
+    ext.outScript = new File(project.ext.templateDest)
     // ext.inScript = new File(outScript.getParent(), 'build.gradle')
     ext.inScript = new File(project.ext.templateDir, 'build.gradle')
 
@@ -140,11 +125,11 @@ task fromTemplate_JavaSource() {
     }
 }
 
-// tasks.create(name: 'fromTemplate', description: 'See gradle/templates/README') {
+
 task fromTemplate(description: 'See gradle/templates/README') {
     doLast { println "hi ${project.ext.templateDir}" }
 
-    def dest = project.templateDest
+    def dest = project.ext.templateDest
     if (dest.endsWith("build.gradle")) {
         dependsOn tasks.fromTemplate_Project
     }
@@ -156,4 +141,7 @@ task fromTemplate(description: 'See gradle/templates/README') {
             StopExecutionException( "Unsupported templateDest: \"${dest}")
     }
 }
+
+
+} // ! no templateDest property.
 
