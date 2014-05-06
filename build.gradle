@@ -1,7 +1,7 @@
 
 
 apply plugin: 'versions'
-apply from: 'gradle/project_glob.gradle'
+apply from: 'gradle/lib/project_glob.gradle'
 
 
 // this scripts dependencies.

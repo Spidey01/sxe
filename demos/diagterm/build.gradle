@@ -12,5 +12,5 @@ dependencies {
     compile project(':core')
 }
 
-apply from: '../../gradle/runDemo.gradle', to: run
-apply from: '../../gradle/installDemo.gradle'
+apply from: '../../gradle/tasks/runDemo.gradle', to: run
+apply from: '../../gradle/tasks/installDemo.gradle'

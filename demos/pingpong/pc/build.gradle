@@ -14,8 +14,8 @@ dependencies {
     compile project(':demos:pingpong:lib')
 }
 
-apply from: '../../../gradle/runDemo.gradle', to: run
-apply from: '../../../gradle/installDemo.gradle'
+apply from: '../../../gradle/tasks/runDemo.gradle', to: run
+apply from: '../../../gradle/tasks/installDemo.gradle'
 applicationDistribution.from(project(':pc').extractLwjglNatives) {
     into "lib/natives"
 }
