@@ -1,0 +1,3 @@
+[submodule "envsetup"]
+	path = envsetup
+	url = https://github.com/Spidey01/envsetup.git
