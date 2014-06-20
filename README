@@ -12,6 +12,8 @@ To build the system, generally, you want something like this:
 
 For help on available commands use the _hmm_ command. You can also use gradle directly through the included gradle wrapper (./gradlew; .\gradlew.bat).
 
+*Since* commit b909ccf76552e4a1468d381458998911940a11b8 we now use [android-sdk-manager-plugin](https://github.com/JakeWharton/sdk-manager-plugin) to deal with Android SDK setup. Please export ANDROID_HOME to the correct path or you may have issues.
+
 Exact procedures for building an SDK or a project are not well defined yet. The installApp, distZip, and distTarget targets should generally work where applicable, e.g. for demo applications but not necessarily as a top level target.
 
 Code is structured into subproject modules for the core system, platform dependencies, and other modules such as scripting, tools, and demo applications. At the minimum you require the modules for :core and your platform (e.g. :pc).
