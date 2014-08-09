@@ -1,6 +1,3 @@
-hmm                     this help.
-croot                   cd to top of the tree.
-cpushd                  call pushd with the top of the tree.
-m                       makes from the top of the tree.
-android-environment     setup ANDROID_HOME, etc.
-java-environment        setup JAVA_HOME, etc.
+idemo                   install demo.
+irdemo                  install and run demo.
+rdemo                   run demo.
