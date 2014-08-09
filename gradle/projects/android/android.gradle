@@ -1,5 +1,5 @@
 
 project.android {
-    buildToolsVersion "19.0.3"
+    buildToolsVersion "20.0.0"
 }
 
