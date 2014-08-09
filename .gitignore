@@ -4,6 +4,7 @@ dist/*
 *.sw?
 *.log
 # local environment data.
+local.properties
 envsetup.local.sh
 envsetup.local.cmd
 # stuff from IDEA, wonder why it doesn't use gradle's build dir's yet.
