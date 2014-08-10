@@ -5,8 +5,8 @@ IF NOT DEFINED PROJECT_ROOT (
 )
 
 IF "%1" == "" (
-	echo Select demo, e.g. .\%0 helloworld
+	echo Select demo, e.g. %0 helloworld
 	goto :eof
 )
-CALL "%PROJECT_ROOT%\.cmd\m.cmd" ":demos:%1:pc:run"
+CALL "%ENVSETUP_DIR%\.cmd\m.cmd" ":demos:%1:pc:run"
 
