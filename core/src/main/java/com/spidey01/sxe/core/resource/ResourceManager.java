@@ -117,26 +117,33 @@ public class ResourceManager
 
     /** Initialize the ResourceManager Subsystem for use.
      *
+     * <p>
      * Handling of file://, zip://, and gzip:// will be setup with the obvious
      * loaders.
+     * </p>
      *
+     * <p>
      * A scheme called "default" is also provided. This may be freely mapped to
      * whatever the platforms local convention is or your game prefers: either
      * manually or through a configuration directive.
+     * </p>
      *
+     * <p>
      * By default, default:// is set as an alias for file://. This is
      * appropriate for most platforms.
+     * </p>
      *
-     *
+     * <p>
      * Runtime configuration values from engine will be evaluated for the
      * following purposes:
+     * </p>
      *
      * <dl>
      *  <dt>${game name}.resources.path</dt>
      *      <dd>Colon delimited list of paths to addResourceLocation().</dd>
      * </dl>
      *
-     * @see #{ResourceManager.load}
+     * @see ResourceManager#load(URI uri)
      */
     @Override public void initialize(GameEngine engine) {
         Log.d(TAG, "initialize(", engine, ")");
@@ -221,12 +228,16 @@ public class ResourceManager
 
     /** Get a view into the available resource loaders.
      *
+     * <p>
      * The key is the scheme as given to setLoader(). The value is the
      * corresponding ResourceLoader.
+     * </p>
      *
+     * <p>
      * You cannot modify the ResourceManager's understanding of
      * ResourceLoader's with this. Use {@link #setLoader} for that. You can
      * however manipulate the loaders themselves.
+     * </p>
      */
     public Map<String, ResourceLoader> getLoaders() {
         return Collections.unmodifiableMap(mLoaders);
@@ -263,6 +274,7 @@ public class ResourceManager
     /** Convenient way of getting the ResourceLoader for a path.
      *
      * @param path - used as a URI.
+     *
      * @return ResourceLoader for specified URI or null.
      */
     public ResourceLoader getLoader(String path) {
@@ -284,6 +296,7 @@ public class ResourceManager
     /** Finds the location for URI.
      *
      * Given a URI, determine the associated source path from mSearchLocations.
+     *
      * @return path or the empty string.
      */
     protected String findLocation(URI uri) {
@@ -315,28 +328,38 @@ public class ResourceManager
 
     /** Load URI as a ResourceHandle.
      *
+     * <p>
      * Resources to be loaded from storage are identified using Uniform Resource
      * Identifiers (URIs). This means that a resource takes the format of
      * <samp>[scheme][scheme-specific part][//authority][path][?query][#fragment]</samp>.
+     * </p>
      *
+     * <p>
      * The scheme portion is taken as a way to specify which ResourceLoader
      * should be used to load the URI. For example <samp>file://foo</samp> or
      * <samp>zip://bar</samp>.
+     * </p>
      *
+     * <p>
      * You specify the schemes should be loaded by registering instances of
      * ResourceLoader with the ResourceManager#setLoader() instance method.
+     * </p>
      *
+     * <p>
      * The authority (or host) portion is used by the ResourceLoader to
      * determine the actual source to load from. In the case of the zip scheme,
      * we would use a URI like <samp>zip://my.zip/foo/bar</samp> to refer to
      * the file bar in directory foo inside of my.zip; it would be loaded using
      * whatever ResourceLoader is set for "zip".
+     * </p>
      *
-     * Resources will be searched for in locations registered with #addResourceLocation().
+     * <p>
+     * Resources will be searched for in locations registered with {@link #addResourceLocation(File path)} and {@link #addResourceLocation(String path)}.
+     * </p>
      *
      * @throws java.lang.IllegalArgumentException if no scheme given in URI.
      *
-     * @see @{link }java.net.URI}
+     * @see java.net.URI
      */
     public ResourceHandle load(URI uri) throws IOException {
         Log.v(TAG, "load(): URI => "+uri);
@@ -377,7 +400,7 @@ public class ResourceManager
     }
 
 
-    /** Used to call to ResourceManager#load() in another thread. */
+    /** Used to call to {@link ResourceManager#load(URI uri)} in another thread. */
     private class QueuedLoader implements Callable<ResourceHandle> {
         private static final String TAG = "ResourceManager.QueuedLoader";
         private URI mURI;
@@ -407,15 +430,20 @@ public class ResourceManager
 
     /** Enqueue resource to be loaded.
      *
+     * <p>
      * You can use this method to queue up resources for asynchronous loading.
      * They can be obtained by calling the get() method on the returned Future.
+     * </p>
      *
+     * <p>
      * <em>Implementation Note:</em>: Currently this is implemented by creating
      * a FutureTask and calling its run() method. In the future this will
      * probably be pawned off to a background worker thread, when SxE or
      * ResourceManager supports this more directly.
+     * </p>
      *
-     * @param uri - URI to pass to #load().
+     * @param uri - URI to pass to {@link #load(URI uri)}.
+     *
      * @return A Future that can obtain the result of loading uri.
      */
     public Future<ResourceHandle> enqueue(URI uri) {
