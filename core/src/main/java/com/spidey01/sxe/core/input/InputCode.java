@@ -597,7 +597,7 @@ public enum InputCode {
 
     /** Converts a character into a InputCode.
      *
-     * @return keycode associated with c or {@link #IC_UNKOWN}.
+     * @return keycode associated with c or {@link #IC_UNKNOWN}.
      */
     public final static InputCode fromChar(char c) {
         for (InputCode ic : InputCode.values()) {
