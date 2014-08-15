@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -21,16 +21,13 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.pingpong.lib;
+package com.spidey01.sxe.core.entities;
 
-import com.spidey01.sxe.core.logging.Log;
-import com.spidey01.sxe.core.entities.AbstractEntity;
+/**
+ */
+public abstract class Action {
+    private static final String TAG = "Action";
 
-public class Player extends Entity {
-    private static final String TAG = "Player";
-
-    public Player() {
-        Log.i(TAG, "Player object created.");
-    }
+    public abstract void execute();
 }
 

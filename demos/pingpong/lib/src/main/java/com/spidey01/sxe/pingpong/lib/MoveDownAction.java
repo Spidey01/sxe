@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -23,14 +23,22 @@
 
 package com.spidey01.sxe.pingpong.lib;
 
+import com.spidey01.sxe.core.entities.EntityAction;
 import com.spidey01.sxe.core.logging.Log;
-import com.spidey01.sxe.core.entities.AbstractEntity;
 
-public class Player extends Entity {
-    private static final String TAG = "Player";
+public class MoveDownAction extends Action {
+    public static final String TAG = "MoveDownAction";
 
-    public Player() {
-        Log.i(TAG, "Player object created.");
+    public MoveDownAction() {
+        Log.v(TAG, "constructed.");
+    }
+
+
+    @Override
+    public void execute() {
+        Log.xtrace(TAG, "execute()");
+        Log.d(TAG, "Move down!");
     }
 }
+
 
