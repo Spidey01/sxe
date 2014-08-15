@@ -25,6 +25,12 @@ package com.spidey01.sxe.core.logging;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.common.Subsystem;
 
+/** Subsystem to manage logging.
+ *
+ * Presently this class only serves to provide an easy way to hook up the
+ * {@link LogSettingsManager} to the {@link GameEngine} for managing
+ * {@link LogSink} configuratiion.
+ */
 public class Logging
     implements Subsystem
 {
