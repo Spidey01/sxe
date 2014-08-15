@@ -36,7 +36,7 @@ irdemo() { # installdemo and execute a demo by name with following args.
     eval \
         env \
             XDG_DATA_DIRS="`gettop`/demos/$demo/pc/src/dist/share" \
-            XDG_CONFIG_DIRS="`gettop`/demos/$demo/pc/src/dist/etc" \
+            XDG_CONFIG_DIRS="${install_path}/etc" \
             XDG_DATA_HOME="`gettop`/tmp/share" \
             XDG_CONFIG_HOME="`gettop`/tmp/config" \
             XDG_CACHE_HOME="`gettop`/tmp/cache" \
