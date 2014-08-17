@@ -45,7 +45,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 
@@ -92,7 +97,8 @@ public class GameEngine {
     private final Platform mPlatform;
     private GameThread mGameThread;
 
-    private Map<String, Subsystem> mSubsystems = new HashMap<String, Subsystem>();
+    /** Master source of Subsystems registered with this GameEngine. */
+    private List<Subsystem> mSubsystems = new ArrayList<Subsystem>();
 
 
     /** Initializes the engine for use.
@@ -310,6 +316,64 @@ public class GameEngine {
 
     public Settings getSettings() {
         return mRuntimeSettings;
+    }
+
+
+    public void addSubsystem(Subsystem subsystem) {
+        mSubsystems.add(subsystem);
+    }
+
+
+    public void addSubsystems(Collection<? extends Subsystem> subsystems) {
+        mSubsystems.addAll(subsystems);
+    }
+
+
+    public void removeSubsystem(Subsystem subsystem) {
+        mSubsystems.add(subsystem);
+    }
+
+
+    public void removeSubsystem(String name) {
+        for (Iterator<?> it = mSubsystems.iterator(); it.hasNext(); ) {
+            if (name.equals(it.next())) {
+                it.remove();
+                /*
+                 * Don't think you can optimize away the rest of the loop.
+                 * Nothing says that two subsystem cannot have the same name!
+                 */
+            }
+        }
+    }
+
+
+    public Subsystem getSubsystem(Subsystem subsystem) {
+        return mSubsystems.get(mSubsystems.indexOf(subsystem));
+    }
+
+
+    /** Get registered Subsystem by name.
+     *
+     * @param name expected value of {@link Subsystem#name()}.
+     * @return First subsystem matching name or null if not found.
+     */
+    public Subsystem getSubsystem(String name) {
+        for (Subsystem subsystem : mSubsystems) {
+            if (name.equals(subsystem.name())) {
+                return subsystem;
+            }
+        }
+        return null;
+    }
+
+
+    private Subsystem getSubsystem(int index) {
+        return mSubsystems.get(index);
+    }
+
+
+    private List<Subsystem> getSubysystems() {
+        return Collections.unmodifiableList(mSubsystems);
     }
 
 

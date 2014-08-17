@@ -43,6 +43,7 @@ public class PingPongGame
     private static final String START_MESSAGE = "Press S key or tap to start game.";
     private static final Text sStartMessage = new Text(START_MESSAGE);
 
+    private static final Player mPlayer = new Player();
 
     @Override
     public String getName() {
@@ -57,45 +58,51 @@ public class PingPongGame
 
         Log.v(TAG, "Ping Pong Game is starting.");
 
-        InputManager im = mGameEngine.getInputManager();
-        im.addKeyListener(InputCode.IC_Q, this); /* quit key */
-        im.addKeyListener(InputCode.IC_S, this); /* start and movement key */
-        im.addKeyListener(InputCode.IC_W, this); /* movement key */
-        im.addKeyListener(InputCode.IC_A, this); /* movement key */
-        im.addKeyListener(InputCode.IC_D, this); /* movement key */
+        /*
+         * Build the key we want to use for quitting the game.
+         */
+        mGameEngine.getInputManager().addKeyListener(InputCode.IC_Q, this);
+
+        /*
+         * Display a helpful start message.
+         */
         mGameEngine.getDisplay().addFrameStartedListener(sStartMessage);
+
+        /*
+         * We want Player to listen for these keys and bind them to the desired actions.
+         * E.g.:
+         *  - W, A, H, K, LEFT, and UP = move up the screen.
+         *  - S, D, L, J, RIGHT, and DOWN = move down the screen.
+         */
+        InputCode[] upKeys = new InputCode[]{
+            InputCode.IC_W,
+            InputCode.IC_A,
+            InputCode.IC_H,
+            InputCode.IC_K,
+            InputCode.IC_LEFT_ARROW,
+            InputCode.IC_UP_ARROW,
+        };
+        InputCode[] downKeys = new InputCode[]{
+            InputCode.IC_S,
+            InputCode.IC_D,
+            InputCode.IC_L,
+            InputCode.IC_J,
+            InputCode.IC_RIGHT_ARROW,
+            InputCode.IC_DOWN_ARROW,
+        };
+
+        mPlayer.setInputManager(mGameEngine.getInputManager());
+        mPlayer.bindAction(new MoveUpAction(), upKeys);
+        mPlayer.bindAction(new MoveDownAction(), downKeys);
 
         return true;
     }
 
 
     @Override
-    public void stop() {
-        super.stop();
-        if (isStopped()) {
-            return;
-        }
-
-        Log.v(TAG, "Ping Pong Game is stopping.");
-    }
-
-
-    @Override
-    public void tick() {
-        Log.xtrace(TAG, "mState =", mState);
-        switch (mState) {
-            case STARTING: {
-            } break;
-            case RUNNING: {
-            } break;
-            case STOPPING: {
-            } break;
-        }
-    }
-
-
-    @Override
     public boolean onKey(KeyEvent event) {
+        Log.xtrace(TAG, "onKey(", event, ")");
+
         /* Quit game. */
         if (event.getKeyCode().equals(InputCode.IC_Q)) {
             requestStop();
@@ -104,25 +111,11 @@ public class PingPongGame
 
         /* Start game. */
         if (mState == State.STARTING && event.getKeyCode().equals(InputCode.IC_S)) {
+            /*
+             * Remove start message so it's out of the game screen.
+             */
             mGameEngine.getDisplay().removeFrameStartedListener(sStartMessage);
             mState = State.RUNNING;
-            return true;
-        }
-
-        /* Don't bind keys until started. */
-        if (mState != State.RUNNING) {
-            return false;
-        }
-
-        /* Move UP. */
-        if (event.getKeyCode().equals(InputCode.IC_W) || event.getKeyCode().equals(InputCode.IC_A)) {
-            Log.xtrace(TAG, "Move up");
-            return true;
-        }
-
-        /* Move DOWN. */
-        if (event.getKeyCode().equals(InputCode.IC_S) || event.getKeyCode().equals(InputCode.IC_D)) {
-            Log.xtrace(TAG, "Move down");
             return true;
         }
 

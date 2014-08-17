@@ -20,50 +20,25 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-package com.spidey01.sxe.core.logging;
 
-import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.common.Subsystem;
+package com.spidey01.sxe.pingpong.lib;
 
-/** Subsystem to manage logging.
- *
- * Presently this class only serves to provide an easy way to hook up the
- * {@link LogSettingsManager} to the {@link GameEngine} for managing
- * {@link LogSink} configuratiion.
- */
-public class Logging
-    implements Subsystem
-{
-    private static final String TAG = "Logging";
+import com.spidey01.sxe.core.entities.EntityAction;
+import com.spidey01.sxe.core.logging.Log;
 
-    private LogSettingsManager mSettingsManager;
+public class MoveDownAction extends Action {
+    public static final String TAG = "MoveDownAction";
 
-    @Override
-    public String name() { return TAG; }
-
-
-    @Override
-    public void initialize(GameEngine engine) {
-        Log.d(TAG, "initialize(", engine, ")");
-
-        mSettingsManager = new LogSettingsManager(engine);
+    public MoveDownAction() {
+        Log.v(TAG, "constructed.");
     }
 
 
     @Override
-    public void reinitialize(GameEngine engine) {
-        uninitialize();
-        initialize(engine);
+    public void execute() {
+        Log.xtrace(TAG, "execute()");
+        Log.d(TAG, "Move down!");
     }
-
-
-    @Override
-    public void uninitialize() {
-        Log.d(TAG, "uninitialize()");
-
-        mSettingsManager.clear();
-        mSettingsManager = null;
-    }
-
 }
+
 
