@@ -23,7 +23,7 @@
 
 package com.spidey01.sxe.pingpong.lib;
 
-import com.spidey01.sxe.core.entities.EntityAction;
+import com.spidey01.sxe.core.entities.Action;
 import com.spidey01.sxe.core.logging.Log;
 
 public class MoveDownAction extends Action {

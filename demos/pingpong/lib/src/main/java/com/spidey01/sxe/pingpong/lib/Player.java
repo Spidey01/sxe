@@ -24,7 +24,7 @@
 package com.spidey01.sxe.pingpong.lib;
 
 import com.spidey01.sxe.core.logging.Log;
-import com.spidey01.sxe.core.entities.AbstractEntity;
+import com.spidey01.sxe.core.entities.Entity;
 
 public class Player extends Entity {
     private static final String TAG = "Player";
