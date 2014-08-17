@@ -2,7 +2,7 @@ apply from: '../../../gradle/projects/repositories.gradle'
 apply plugin: 'java'
 apply plugin:'application'
 
-group = 'com.spidey01.sxe.quad.pc'
+group = 'com.spidey01.sxe.demos.quad.pc'
 mainClassName = group + '.Main'
 applicationName = archivesBaseName = 'quad-pc'
 version = '0.0.1-SNAPSHOT'
@@ -16,6 +16,14 @@ dependencies {
 
 apply from: '../../../gradle/tasks/runDemo.gradle', to: run
 apply from: '../../../gradle/tasks/installDemo.gradle'
+
+// Include native libraries from :pc.
 applicationDistribution.from(project(':pc').extractLwjglNatives) {
     into "lib/natives"
 }
+
+// Include dist files from our :lib module.
+applicationDistribution.from(project(':demos:quad:lib').installDist) {
+    into "/"
+}
+

@@ -21,13 +21,15 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.quad.lib;
+package com.spidey01.sxe.demos.quad.lib;
 
 
-import com.spidey01.sxe.core.*;
-import com.spidey01.sxe.core.gl.*;
-import com.spidey01.sxe.core.graphics.*;
-import com.spidey01.sxe.core.input.*;
+import com.spidey01.sxe.core.Game;
+import com.spidey01.sxe.core.GameEngine;
+import com.spidey01.sxe.core.input.KeyListener;
+import com.spidey01.sxe.core.input.KeyEvent;
+import com.spidey01.sxe.core.input.InputCode;
+import com.spidey01.sxe.core.logging.Log;
 
 import java.io.IOException;
 
@@ -39,28 +41,13 @@ import java.io.IOException;
  *
  * This serves as a demo of how to implement something like this in SxE.
  */
-public class Quad
+public class QuadGame
     extends Game
-    implements KeyListener, RenderableObject, VertexBufferTechnique.Capable
+    implements KeyListener
 {
-    private static final String TAG = "Quad";
+    private static final String TAG = "QuadGame";
 
-    private static float[] sVertices = new float[]{
-        /* Left bottom triangle. */
-        -0.5f, 0.5f, 0f,
-        -0.5f, -0.5f, 0f,
-        0.5f, -0.5f, 0f,
-        /* Right top triangle. */
-        0.5f, -0.5f, 0f,
-        0.5f, 0.5f, 0f,
-        -0.5f, 0.5f, 0f,
-    };
-
-
-    private static VertexBufferTechnique sTechnique;
-    private static Mesh sMesh;
-    private static Program sProgram;
-
+    private Quad mQuad;
 
     /** Return the name of this game. */
     @Override
@@ -73,8 +60,10 @@ public class Quad
     public boolean start(GameEngine engine) {
         super.start(engine);
 
+        mQuad = new  Quad(mGameEngine);
+
         /* Add our demo Quad to the scene. */
-        mGameEngine.getSceneManager().add(this);
+        mGameEngine.getSceneManager().add(mQuad);
 
         /* Bind ourself to handle the 'Q' key press. */
         mGameEngine.getInputManager().addKeyListener(InputCode.IC_Q, this);
@@ -84,35 +73,12 @@ public class Quad
 
     @Override
     public boolean onKey(KeyEvent event) {
-        if (event.getKeyName().equals(InputCode.IC_Q)) {
+        if (event.getKeyCode().equals(InputCode.IC_Q)) {
             requestStop();
             return true;
         }
         return false;
     }
-
-
-    @Override
-    public void draw() {
-        if (sTechnique == null) {
-            sTechnique = new VertexBufferTechnique(mGameEngine.getDisplay().getOpenGL());
-            sMesh = new Mesh(sVertices);
-            try {
-                sProgram = new Program(
-                    mGameEngine.getResourceManager().load("default://default.frag").asShader(Shader.Type.FRAGMENT),
-                    mGameEngine.getResourceManager().load("default://default.vert").asShader(Shader.Type.VERTEX)
-                );
-            } catch (IOException e) {
-                // throw RuntimeException("Error loading shaders.");
-            }
-        }
-        sTechnique.draw(this);
-    }
-
-
-    @Override public Program getProgram() { return sProgram; }
-    @Override public Mesh getMesh() { return sMesh; }
-
 
 }
 

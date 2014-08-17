@@ -21,17 +21,17 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.quad.pc;
+package com.spidey01.sxe.demos.quad.pc;
 
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.pc.PcConfiguration;
 
-import com.spidey01.sxe.quad.lib.Quad;
+import com.spidey01.sxe.demos.quad.lib.QuadGame;
 
 class Main {
 
     public static void main(String[] args) {
-        GameEngine g = PcConfiguration.setup(args, new Quad());
+        GameEngine g = PcConfiguration.setup(args, new QuadGame());
         g.start();
         g.mainLoop();
         g.stop();
