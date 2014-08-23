@@ -96,12 +96,31 @@ public class ResourceHandle implements Closeable {
         return (Texture)mData;
     }
 
+
     public Shader asShader(Shader.Type type) throws IOException {
         if (mData == null && checkType(Type.SHADER)) {
             mData = new Shader(asReader(), type);
             close();
         }
         return (Shader)mData;
+    }
+
+
+    public FragmentShader asFragmentShader() throws IOException {
+        if (mData == null && checkType(Type.SHADER)) {
+            mData == new FragmentShader(asReader());
+            close();
+        }
+        return (FragmentShader)mData;
+    }
+
+
+    public VertexShader asVertexShader() throws IOException {
+        if (mData == null && checkType(Type.SHADER)) {
+            mData == new VertexShader(asReader());
+            close();
+        }
+        return (VertexShader)mData;
     }
 
 
