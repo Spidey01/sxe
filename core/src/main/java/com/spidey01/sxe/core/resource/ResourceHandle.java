@@ -59,6 +59,7 @@ public class ResourceHandle implements Closeable {
         READER,
         TEXTURE,
         SHADER,
+        MESH,
     };
     Type mType = Type.RAW;
 
@@ -108,7 +109,7 @@ public class ResourceHandle implements Closeable {
 
     public FragmentShader asFragmentShader() throws IOException {
         if (mData == null && checkType(Type.SHADER)) {
-            mData == new FragmentShader(asReader());
+            mData = new FragmentShader(asReader());
             close();
         }
         return (FragmentShader)mData;
@@ -117,7 +118,16 @@ public class ResourceHandle implements Closeable {
 
     public VertexShader asVertexShader() throws IOException {
         if (mData == null && checkType(Type.SHADER)) {
-            mData == new VertexShader(asReader());
+            mData = new VertexShader(asReader());
+            close();
+        }
+        return (VertexShader)mData;
+    }
+
+
+    public VertexVertexMesh asVertexVertexMesh() throws IOException {
+        if (mData == null && checkType(Type.MESH)) {
+            mData = new VertexVertexMesh(asReader());
             close();
         }
         return (VertexShader)mData;
