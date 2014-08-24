@@ -25,7 +25,7 @@ package com.spidey01.sxe.core.input;
 
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.common.NotificationManager;
-import com.spidey01.sxe.core.common.Subsystem;
+import com.spidey01.sxe.core.common.AbstractSubsystem;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.util.Map;
@@ -39,7 +39,10 @@ import java.util.LinkedList;
  * Provides most of the house keeping for event notifications and injections.
  * You should just subclass this on most platforms and implement poll().
  */
-public abstract class AbstractInputManager implements InputManager {
+public abstract class AbstractInputManager
+    extends AbstractSubsystem
+    implements InputManager
+{
     private static final String TAG = "AbstractInputManager";
 
 
@@ -151,19 +154,21 @@ public abstract class AbstractInputManager implements InputManager {
     @Override
     public void initialize(GameEngine engine) {
         Log.d(TAG, "initialize(", engine, ")");
+        super.initialize(engine);
     }
 
 
     @Override
     public void reinitialize(GameEngine engine) {
-        uninitialize();
-        initialize(engine);
+        Log.d(TAG, "initialize(", engine, ")");
+        super.reinitialize(engine);
     }
 
 
     @Override
     public void uninitialize() {
         Log.d(TAG, "uninitialize()");
+        super.uninitialize();
     }
 }
 

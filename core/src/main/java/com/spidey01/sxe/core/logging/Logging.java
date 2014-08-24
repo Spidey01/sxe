@@ -23,7 +23,7 @@
 package com.spidey01.sxe.core.logging;
 
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.common.Subsystem;
+import com.spidey01.sxe.core.common.AbstractSubsystem;
 
 /** Subsystem to manage logging.
  *
@@ -32,7 +32,7 @@ import com.spidey01.sxe.core.common.Subsystem;
  * {@link LogSink} configuratiion.
  */
 public class Logging
-    implements Subsystem
+    extends AbstractSubsystem
 {
     private static final String TAG = "Logging";
 
@@ -47,13 +47,7 @@ public class Logging
         Log.d(TAG, "initialize(", engine, ")");
 
         mSettingsManager = new LogSettingsManager(engine);
-    }
-
-
-    @Override
-    public void reinitialize(GameEngine engine) {
-        uninitialize();
-        initialize(engine);
+        super.initialize(engine);
     }
 
 
@@ -63,6 +57,7 @@ public class Logging
 
         mSettingsManager.clear();
         mSettingsManager = null;
+        super.uninitialize();
     }
 
 }

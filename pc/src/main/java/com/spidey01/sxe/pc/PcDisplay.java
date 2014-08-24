@@ -26,7 +26,7 @@ package com.spidey01.sxe.pc;
 
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.RateCounter;
-import com.spidey01.sxe.core.common.Subsystem;
+import com.spidey01.sxe.core.common.AbstractSubsystem;
 import com.spidey01.sxe.core.config.Settings;
 import com.spidey01.sxe.core.config.SettingsListener;
 import com.spidey01.sxe.core.gl.OpenGL;
@@ -49,6 +49,7 @@ import java.util.ArrayList;
 
 
 public class PcDisplay
+    extends AbstractSubsystem
     implements com.spidey01.sxe.core.graphics.Display
 {
     /** Settings.OnChangedListener implementation for PcDisplay.
@@ -156,13 +157,8 @@ public class PcDisplay
         
         /* Handle runtime configuration Settings. */
         mSettingsListener = new DisplaySettingsListener(engine);
-    }
 
-
-    @Override
-    public void reinitialize(GameEngine engine) {
-        uninitialize();
-        initialize(engine);
+        super.initialize(engine);
     }
 
 
@@ -171,6 +167,7 @@ public class PcDisplay
         Log.d(TAG, "uninitialize()");
         mSettingsListener.clear();
         mSettingsListener = null;
+        super.uninitialize();
     }
 
 

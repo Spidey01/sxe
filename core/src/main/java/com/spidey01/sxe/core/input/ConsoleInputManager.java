@@ -96,6 +96,10 @@ public class ConsoleInputManager extends AbstractInputManager {
         }
     }
 
+    @Override
+    public String name() {
+        return TAG;
+    }
 }
 
 

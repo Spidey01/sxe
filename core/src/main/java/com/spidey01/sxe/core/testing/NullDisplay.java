@@ -24,7 +24,7 @@ package com.spidey01.sxe.core.testing;
 
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.RateCounter;
-import com.spidey01.sxe.core.common.Subsystem;
+import com.spidey01.sxe.core.common.AbstractSubsystem;
 import com.spidey01.sxe.core.gl.OpenGL;
 import com.spidey01.sxe.core.gl.OpenGLES11;
 import com.spidey01.sxe.core.gl.OpenGLES20;
@@ -39,7 +39,10 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-public class NullDisplay implements Display {
+public class NullDisplay
+    extends AbstractSubsystem
+    implements Display
+{
 
     private RateCounter mFrameCounter = new RateCounter("NullFrames");
     private String mDisplayMode = "640 x 480";

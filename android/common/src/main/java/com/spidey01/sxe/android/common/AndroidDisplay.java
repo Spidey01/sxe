@@ -42,6 +42,7 @@ public class AndroidDisplay
     private OpenGLES20Renderer mRenderer = new OpenGLES20Renderer();
     private OpenGL mOpenGL;
     private static final String TAG = "AndroidDisplay";
+    private boolean mIsInitialized = false;
 
     public AndroidDisplay(Context context) {
         super(context);
@@ -67,8 +68,15 @@ public class AndroidDisplay
 
 
     @Override
+    public boolean isInitialized() {
+        return mIsInitialized;
+    }
+
+
+    @Override
     public void initialize(GameEngine engine) {
         Log.d(TAG, "initialize(", engine, ")");
+        mIsInitialized = true;
     }
 
 
@@ -82,6 +90,7 @@ public class AndroidDisplay
     @Override
     public void uninitialize() {
         Log.d(TAG, "uninitialize()");
+        mIsInitialized = false;
     }
 
     public boolean create() {

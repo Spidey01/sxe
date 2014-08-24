@@ -25,7 +25,7 @@ package com.spidey01.sxe.core.resource;
 import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.config.Settings;
 import com.spidey01.sxe.core.config.SettingsListener;
-import com.spidey01.sxe.core.common.Subsystem;
+import com.spidey01.sxe.core.common.AbstractSubsystem;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.io.File;
@@ -47,7 +47,7 @@ import java.util.concurrent.FutureTask;
  *
  */
 public class ResourceManager
-    implements Subsystem
+    extends AbstractSubsystem
 {
 
     /** Settings.OnChangedListener implementation for ResourceManager.
@@ -145,7 +145,8 @@ public class ResourceManager
      *
      * @see ResourceManager#load(URI uri)
      */
-    @Override public void initialize(GameEngine engine) {
+    @Override
+        public void initialize(GameEngine engine) {
         Log.d(TAG, "initialize(", engine, ")");
 
         // Setup standard resource loaders
@@ -161,13 +162,8 @@ public class ResourceManager
 
         /* Handle runtime configuration Settings. */
         mSettingsListener = new ResourceSettingsListener(mGameEngine);
-    }
 
-
-    @Override
-    public void reinitialize(GameEngine engine) {
-        uninitialize();
-        initialize(engine);
+        super.initialize(engine);
     }
 
 
@@ -203,6 +199,8 @@ public class ResourceManager
         }
         mHandles.clear();
         assert mHandles.size() == 0 : "mHandes was not really cleared!";
+
+        super.uninitialize();
     }
 
 

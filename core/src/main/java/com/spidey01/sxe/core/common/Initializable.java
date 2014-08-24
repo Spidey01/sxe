@@ -23,9 +23,10 @@
 
 package com.spidey01.sxe.core.common;
 
-import com.spidey01.sxe.core.GameEngine;
-
-public interface Subsystem extends Initializable<GameEngine> {
-    String name();
+public interface Initializable<E> {
+    boolean isInitialized();
+    void initialize(E data);
+    void reinitialize(E data);
+    void uninitialize();
 }
 

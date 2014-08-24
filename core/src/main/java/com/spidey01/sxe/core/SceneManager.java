@@ -24,14 +24,14 @@
 package com.spidey01.sxe.core;
 
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.common.Subsystem;
+import com.spidey01.sxe.core.common.AbstractSubsystem;
 import com.spidey01.sxe.core.graphics.RenderableObject;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.util.List;
 import java.util.ArrayList;
 
-public class SceneManager implements Subsystem {
+public class SceneManager extends AbstractSubsystem {
     private final static String TAG = "SceneManager";
 
     private List<RenderableObject> mRenderableObjects = new ArrayList<RenderableObject>();
@@ -49,19 +49,20 @@ public class SceneManager implements Subsystem {
     @Override
     public void initialize(GameEngine engine) {
         Log.d(TAG, "initialize(", engine, ")");
+        super.initialize(engine);
     }
 
 
     @Override
     public void reinitialize(GameEngine engine) {
-        uninitialize();
-        initialize(engine);
+        super.reinitialize(engine);
     }
 
 
     @Override
     public void uninitialize() {
         Log.d(TAG, "uninitialize()");
+        super.uninitialize();
     }
 
 

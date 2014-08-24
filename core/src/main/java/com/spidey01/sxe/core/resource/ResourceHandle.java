@@ -23,9 +23,12 @@
 package com.spidey01.sxe.core.resource;
 
 import com.spidey01.sxe.core.Texture;
+import com.spidey01.sxe.core.gl.FragmentShader;
 import com.spidey01.sxe.core.gl.OpenGLES20;
 import com.spidey01.sxe.core.gl.Shader;
+import com.spidey01.sxe.core.gl.VertexShader;
 import com.spidey01.sxe.core.graphics.PngBitmap;
+import com.spidey01.sxe.core.graphics.VertexVertexMesh;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.io.BufferedReader;
@@ -130,7 +133,7 @@ public class ResourceHandle implements Closeable {
             mData = new VertexVertexMesh(asReader());
             close();
         }
-        return (VertexShader)mData;
+        return (VertexVertexMesh)mData;
     }
 
 

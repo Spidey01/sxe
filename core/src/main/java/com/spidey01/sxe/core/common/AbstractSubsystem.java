@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -20,62 +20,44 @@
  *	3. This notice may not be removed or altered from any source
  *	   distribution.
  */
-package com.spidey01.sxe.core.testing;
+
+package com.spidey01.sxe.core.common;
 
 import com.spidey01.sxe.core.GameEngine;
-import com.spidey01.sxe.core.common.Subsystem;
-import com.spidey01.sxe.core.input.AbstractInputManager;
 import com.spidey01.sxe.core.logging.Log;
 
-import java.util.Map;
-import java.util.HashMap;
 import java.util.List;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
-/** Null input system.
- *
- * No input events are generated unless injected.
- */
-public class NullInputManager
-    extends AbstractInputManager
-{
-    private static final String TAG = "NullInputManager";
-    
-    public NullInputManager() {
-        Log.d(TAG, "Default ctor.");
-    }
-
-
-    public void poll() {
-        Log.xtrace(TAG,  "poll()");
-    }
+public abstract class AbstractSubsystem implements Subsystem {
+    private final static String TAG = "AbstractSubsystem";
+    private boolean mIsInitialized = false;
 
 
     @Override
-    public String name() {
-        return TAG;
+    public boolean isInitialized() {
+        return mIsInitialized;
     }
 
 
     @Override
     public void initialize(GameEngine engine) {
         Log.d(TAG, "initialize(", engine, ")");
-        super.initialize(engine);
+        mIsInitialized = true;
     }
 
 
     @Override
     public void reinitialize(GameEngine engine) {
-        Log.d(TAG, "initialize(", engine, ")");
-        super.reinitialize(engine);
+        uninitialize();
+        initialize(engine);
     }
 
 
     @Override
     public void uninitialize() {
         Log.d(TAG, "uninitialize()");
-        super.uninitialize();
+        mIsInitialized = false;
     }
 }
-
 
