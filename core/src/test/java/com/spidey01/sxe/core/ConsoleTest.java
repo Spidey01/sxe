@@ -113,6 +113,25 @@ public class ConsoleTest extends UnitTest {
     }
 
 
+    @Test
+    public void changingToggleKey() {
+        Log.i(TAG, "changingToggleKey()");
+        Assert.assertEquals("Console toggle key must be at default.",
+                mConsole.getToggleKey(), Console.DEFAULT_TOGGLE_KEY );
+
+        InputCode newToggleKey = InputCode.IC_A;
+        mConsole.setToggleKey(newToggleKey);
+        Assert.assertEquals(mConsole.getToggleKey(), newToggleKey);
+
+
+        Assert.assertFalse("Console should begin hidden.", mConsole.isVisible());
+        sendToggle();
+        Assert.assertTrue("Console should now be shown.", mConsole.isVisible());
+        sendToggle();
+        Assert.assertFalse("Console should now be hidden.", mConsole.isVisible());
+    }
+
+
     private static final String sSimpleCommand_command = "echo \"This is a simple command\"";
 
     @Test
