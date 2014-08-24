@@ -92,8 +92,8 @@ public class PingPongGame
         };
 
         mPlayer.setInputManager(mGameEngine.getInputManager());
-        mPlayer.bindAction(new MoveUpAction(), upKeys);
-        mPlayer.bindAction(new MoveDownAction(), downKeys);
+        mPlayer.getInputFacet().bindAction(new MoveUpAction(), upKeys);
+        mPlayer.getInputFacet().bindAction(new MoveDownAction(), downKeys);
 
         return true;
     }

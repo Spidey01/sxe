@@ -24,6 +24,7 @@
 package com.spidey01.sxe.core.entities;
 
 import com.spidey01.sxe.core.input.InputCode;
+import com.spidey01.sxe.core.input.InputFacet;
 import com.spidey01.sxe.core.input.InputManager;
 import com.spidey01.sxe.core.input.KeyEvent;
 import com.spidey01.sxe.core.input.KeyListener;
@@ -35,70 +36,36 @@ import java.util.Map;
 /**
  */
 public class Entity
-    implements KeyListener /* Must be implemented for binding keys. */
 {
     private static final String TAG = "Entity";
 
     protected boolean mIsAlive;
 
-    private InputManager mInputManager;
-
-    private Map<InputCode, Action> mKeyMap = new HashMap<InputCode, Action>();
-
+    private InputFacet mInputFacet;
 
     public boolean isAlive() {
         return mIsAlive;
     }
 
 
-    /** Set the InputManager associated with this Entity.
+    /** Set the InputManager associated with this Entity's {@link InputFacet}.
      *
+     * Until this method is called, either in a subclasses constructor or directly, there will
      */
-    public final void setInputManager(InputManager manager) {
-        // TODO: InputManager lacks this!
-        // mInputManager.removeKeyListener(this);
-
-        mKeyMap.clear();
-        mInputManager = manager;
-
-        /*
-         * ^^^ We need to be sure bound actions get moved. This code is broken!!!! ^^^
-         */
-    }
-
-
-    /** Get the InputManager currently associated with this Entity. */
-    public final InputManager getInputManager() {
-        return mInputManager;
-    }
-
-
-
-    /** Bind action to keys.
-     *
-     * @param action the Action to act on.
-     * @param keys InputCodes to trigger action.
-     */
-    public void bindAction(Action action, InputCode[] keys) {
-        for (InputCode key : keys) {
-            mKeyMap.put(key, action);
-            mInputManager.addKeyListener(key, this);
+    public void setInputManager(InputManager manager) {
+        if (mInputFacet != null) {
+            /* InputFacet doesn't have a clean up routine yet! */
+            throw new UnsupportedOperationException(
+                "InputFacet already configured for this entity. Changing is not supported yet!"
+            );
         }
+        mInputFacet = new InputFacet(manager);
     }
 
 
-    @Override
-    public boolean onKey(KeyEvent event) {
-        Action action = mKeyMap.get(event.getKeyCode());
-
-        if (action == null) {
-            return false;
-        }
-
-        Log.xtrace(TAG, "onKey() firing action", action);
-        // action;
-
-        return true;
+    public InputFacet getInputFacet() {
+        return mInputFacet;
     }
+
 }
 

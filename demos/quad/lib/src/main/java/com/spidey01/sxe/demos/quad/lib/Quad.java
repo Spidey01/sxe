@@ -62,6 +62,7 @@ public class Quad
         Log.i(TAG, "Quad object created.");
 
         mGameEngine = engine;
+        setInputManager(mGameEngine.getInputManager());
     }
 
 

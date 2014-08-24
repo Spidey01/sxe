@@ -23,10 +23,9 @@
 
 package com.spidey01.sxe.pingpong.lib;
 
-import com.spidey01.sxe.core.entities.Action;
 import com.spidey01.sxe.core.logging.Log;
 
-public class MoveDownAction extends Action {
+public class MoveDownAction implements Runnable {
     public static final String TAG = "MoveDownAction";
 
     public MoveDownAction() {
@@ -35,8 +34,8 @@ public class MoveDownAction extends Action {
 
 
     @Override
-    public void execute() {
-        Log.xtrace(TAG, "execute()");
+    public void run() {
+        Log.xtrace(TAG, "run()");
         Log.d(TAG, "Move down!");
     }
 }
