@@ -11,7 +11,7 @@ buildscript {
                  '/gradle/projects/android/buildscript.gradle'))
 }
 apply plugin: 'android-sdk-manager'
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 android {
     apply from: project.relativePath(
         new File(project.rootProject.projectDir,

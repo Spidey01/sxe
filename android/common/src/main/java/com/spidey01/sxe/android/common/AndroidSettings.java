@@ -25,6 +25,7 @@ package com.spidey01.sxe.android.common;
 import com.spidey01.sxe.core.common.Utils;
 import com.spidey01.sxe.core.config.Settings;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -135,6 +136,7 @@ public class AndroidSettings implements Settings {
     }
 
 
+    @SuppressLint("CommitPrefEdits")
     @Override
     public Settings setBoolean(String key, boolean value) {
         mPrefs.edit().putBoolean(key, value);
@@ -142,6 +144,7 @@ public class AndroidSettings implements Settings {
     }
 
 
+    @SuppressLint("CommitPrefEdits")
     @Override
     public Settings setFloat(String key, float value) {
         mPrefs.edit().putFloat(key, value);
@@ -149,6 +152,7 @@ public class AndroidSettings implements Settings {
     }
 
 
+    @SuppressLint("CommitPrefEdits")
     @Override
     public Settings setInt(String key, int value) {
         mPrefs.edit().putInt(key, value);
@@ -156,6 +160,7 @@ public class AndroidSettings implements Settings {
     }
 
 
+    @SuppressLint("CommitPrefEdits")
     @Override
     public Settings setLong(String key, long value) {
         mPrefs.edit().putLong(key, value);
@@ -163,6 +168,7 @@ public class AndroidSettings implements Settings {
     }
 
 
+    @SuppressLint("CommitPrefEdits")
     @Override
     public Settings setString(String key, String value) {
         mPrefs.edit().putString(key, value);
@@ -170,6 +176,7 @@ public class AndroidSettings implements Settings {
     }
 
 
+    @SuppressLint("CommitPrefEdits")
     @Override
     public void clear() {
         mPrefs.edit().clear();
