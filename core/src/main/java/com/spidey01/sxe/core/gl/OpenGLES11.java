@@ -405,11 +405,13 @@ public interface OpenGLES11 {
     void glClearColor(float red, float green, float blue, float alpha);
 
     void glDisable(int cap);
+    void glDisableClientState(int cap);
     void glDrawElements(int mode, int count, int type, ByteBuffer indices);
     void glDrawElements(int mode, int count, int type, int offset);
     void glDrawArrays(int mode, int first, int count);
 
     void glEnable(int cap);
+    void glEnableClientState(int cap);
 
     void glGenBuffers(IntBuffer buffers);
 

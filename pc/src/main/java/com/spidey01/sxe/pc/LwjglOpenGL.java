@@ -188,6 +188,13 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
         GL11.glDisable(t(cap));
     }
 
+
+    @Override
+    public void glDisableClientState(int cap) {
+        GL11.glDisableClientState(t(cap));
+    }
+
+
     @Override
     public void glDisableVertexAttribArray(int index) {
         GL20.glDisableVertexAttribArray(index);
@@ -215,6 +222,13 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     public void glEnable(int cap) {
         GL11.glEnable(t(cap));
     }
+
+
+    @Override
+    public void glEnableClientState(int cap) {
+        GL11.glEnableClientState(t(cap));
+    }
+
 
     @Override
     public void glEnableVertexAttribArray(int index) {

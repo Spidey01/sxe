@@ -121,6 +121,12 @@ public class AndroidOpenGLES11 implements OpenGLES11 {
 
 
     @Override
+    public void glDisableClientState(int cap) {
+        GLES11.glDisableClientState(t(cap));
+    }
+
+
+    @Override
     public void glDrawElements(int mode, int count, int type, ByteBuffer indices) {
         GLES11.glDrawElements(mode, count, type, indices);
     }
@@ -141,6 +147,12 @@ public class AndroidOpenGLES11 implements OpenGLES11 {
     @Override
     public void glEnable(int cap) {
         GLES11.glEnable(t(cap));
+    }
+
+
+    @Override
+    public void glEnable(int cap) {
+        GLES11.glEnableClientState(t(cap));
     }
 
 
