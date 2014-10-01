@@ -36,25 +36,25 @@ public class VertexShader
 
     /** Shader source code from a String. */
     public VertexShader(String code) {
-        super(code, Type.FRAGMENT);
+        super(code, Type.VERTEX);
     }
 
 
     /** Shader source code from a File. */
     public VertexShader(File file) throws IOException {
-        super(file, Type.FRAGMENT);
+        super(file, Type.VERTEX);
     }
 
 
     /** Shader source code from a Reader. */
     public VertexShader(BufferedReader reader) throws IOException {
-        super(reader, Type.FRAGMENT);
+        super(reader, Type.VERTEX);
     }
 
 
     /** Shader source code from a InputStream. */
     public VertexShader(InputStream stream) throws IOException {
-        super(stream, Type.FRAGMENT);
+        super(stream, Type.VERTEX);
     }
 }
 
