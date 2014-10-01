@@ -24,93 +24,97 @@
 package com.spidey01.sxe.core.graphics;
 
 import com.spidey01.sxe.core.gl.OpenGLES20;
+import com.spidey01.sxe.core.gl.FragmentShader;
 import com.spidey01.sxe.core.gl.Program;
-import com.spidey01.sxe.core.gl.VertexBuffer;
+import com.spidey01.sxe.core.gl.VertexBufferObject;
+import com.spidey01.sxe.core.gl.VertexShader;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.nio.FloatBuffer;
 
-/** Technique for rendering via vertex buffer.
+
+/** Technique for rendering via {@link VertexBufferObject}.
  *
  * The object to be rendered with this technique is expected to do the following:
  * <ol>
- *  <li>Provide a float[] of vertices to render.</li>
- *  <li>Provide a Program with shaders attached.</li>
  *  <li>Provide a VertexBuffer</li>
  *  <li></li>
  * </ol>
  *
  */
-public class VertexBufferTechnique implements Technique {
+
+public class VertexBufferTechnique implements GraphicsTechnique {
 
     private static final String TAG = "VertexBufferTechnique";
 
+    private OpenGLES20 mGLES20;
+    private Program mProgram;
 
-    private boolean mIsInitialized;
-    private OpenGLES20 mGL;
 
-    public interface Capable extends RenderableObject {
-        Mesh getMesh();
-        Program getProgram();
+    /** Interface {@link #accept()}'d by this technique. */
+
+    public interface Capable {
+        VertexBufferObject getVertexBufferObject();
     }
 
+    /*
+     * Place holders for now. I just need something I can test this with.
+     */
+    static final String sVertexShaderCode = "attribute vec4 vPosition; void main() { gl_Position = vPosition; }";
+    static final VertexShader sVertexShader = new VertexShader(sVertexShaderCode);
+    static final String sFragmentShaderCode = "void main() { gl_FragColor = vec4(0.5, 0.0, 0.5, 1.0); }";
+    static final FragmentShader sFragmentShader = new FragmentShader(sFragmentShaderCode);
 
     public VertexBufferTechnique(OpenGLES20 GLES20) {
-        mGL = GLES20;
+        mGLES20 = GLES20;
+        mProgram = new Program(sVertexShader, sFragmentShader);
+        mProgram.initialize(mGLES20);
     }
 
 
-    /** Initializes client for rendering.
-     *
-     * <ol>
-     *  <li>Initialize the clients vertex buffer.</li>
-     *  <li>Initialize the clients program. Shaders must already be attached.</li>
-     * </ol>
-     */
-    public void initialize(Capable client) {
-        if (mIsInitialized) throw new IllegalStateException(TAG+": already initialized!");
-
-        Log.d(TAG, "Initilizing client "+client);
-
-        client.getMesh().initialize(mGL);
-        client.getProgram().initialize(mGL);
-
-        mIsInitialized = true;
-    }
-
-
-    /** Draws the client.
-     *
-     * This is still a WIP and dirty hacky, hacky. It's evolving.
-     *
-     * Current API with Shaders:
-     *
-     *  vPosition vertex attribute for passing vertices to the vertex shader.
-     *  vColor fragment uniform for passing color to the fragment shader. (Removed for right now!)
-     */
-    public void draw(Capable client) {
-        if (!mIsInitialized) {
-            initialize(client);
+    @Override
+    public boolean accept(RenderableObject maybe) {
+        boolean result = false;
+        try {
+            Capable p = (Capable)maybe;
+            result = true;
+        } catch(ClassCastException ex) {
+            result = false;
         }
-        Log.xtrace(TAG, "Drawing client "+client);
 
-        VertexBuffer vbo = client.getMesh().getVertexBuffer();
-        vbo.bind(mGL);
-        Program p = client.getProgram();
-        p.use(mGL);
+        Log.xtrace(TAG, "accept(", maybe, "): ", (result ? "accepting." : "rejecting."));
+        return result;
+    }
 
-        // get the location (index) of the attribute.
-        int vPosition = mGL.glGetAttribLocation(p.getId(), "vPosition");
-        // turn it on.
-        mGL.glEnableVertexAttribArray(vPosition);
+
+    @Override
+    public void draw(RenderableObject client) {
+        draw((Capable)client);
+    }
+
+
+    public void draw(Capable client) {
+        Log.xtrace(TAG, "Drawing client ", client);
+
+        VertexBufferObject vbo = client.getVertexBufferObject();
+        vbo.bind(mGLES20);
+
+        int pid = mProgram.getId();
+        mGLES20.glUseProgram(pid);
+
+        // Get the location (index) of the attribute.
+        int vPosition = mGLES20.glGetAttribLocation(pid, "vPosition");
+
+        // Turn it on.
+        mGLES20.glEnableVertexAttribArray(vPosition);
 
         // Pass the data for vPosition
-        // FIXME: set the numbers dynamically!
-        mGL.glVertexAttribPointer(vPosition, 3, OpenGLES20.GL_FLOAT, false, 0, 0);
+        /* FIXME: set the numbers dynamically! */
+        mGLES20.glVertexAttribPointer(vPosition, 3, OpenGLES20.GL_FLOAT, false, 0, 0);
+
 
         // get the uniform's index/location and set it.
-        // FIXME: Yeah!
-        /*
+        /* // FIXME: Yeah!
         int vColor = mGL.glGetUniformLocation(p, "vColor");
             float[] color_v = { 0.0f, 1.0f, 0.0f, 1.0f };
             FloatBuffer color_p = Utils.Buffers.createFloatBuffer(color_v.length);
@@ -119,20 +123,11 @@ public class VertexBufferTechnique implements Technique {
         mGL.glUniform4fv(vColor, 1, color_p);
         */
 
-        mGL.glDrawArrays(OpenGLES20.GL_TRIANGLES, 0, vbo.getVertexCount());
+        // Draw it.
+        mGLES20.glDrawArrays(OpenGLES20.GL_TRIANGLES, 0, vbo.getVertexCount());
 
-        mGL.glDisableVertexAttribArray(vPosition);
-    }
-
-
-    /** WRITEME
-     */
-    public void deinitialize(Capable client) {
-        if (!mIsInitialized) throw new IllegalStateException(TAG+": not initialized!");
-
-        Log.d(TAG, "Deinitializing client "+client);
-
-        mIsInitialized = false;
+        // Clean up.
+        mGLES20.glDisableVertexAttribArray(vPosition);
     }
 
 }
