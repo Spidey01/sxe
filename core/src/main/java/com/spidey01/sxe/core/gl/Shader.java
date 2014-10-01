@@ -118,7 +118,11 @@ public class Shader {
 
 
     private String getInfoLog(OpenGLES20 GL) {
-        check();
+        /*
+         * Don't do this! It silences the log message from initialize(). 
+         * Just trust the OpenGL magic to cover this.
+         */
+        // check();
         return GL.glGetShaderInfoLog(mShaderId);
     }
 
