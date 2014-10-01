@@ -59,7 +59,7 @@ import java.util.ArrayList;
  * </pre></samp>
  */
 
-public class VertexVertexMesh {
+public class VertexVertexMesh implements Mesh {
     private static final String TAG = "VertexVertexMesh";
 
     private final float[] mVertices;

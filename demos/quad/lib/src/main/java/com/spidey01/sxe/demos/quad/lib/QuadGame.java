@@ -63,7 +63,7 @@ public class QuadGame
         mQuad = new  Quad(mGameEngine);
 
         /* Add our demo Quad to the scene. */
-        mGameEngine.getSceneManager().add(mQuad);
+        mGameEngine.getSceneManager().add(mQuad.getGraphicsFacet());
 
         /* Bind ourself to handle the 'Q' key press. */
         mGameEngine.getInputManager().addKeyListener(InputCode.IC_Q, this);

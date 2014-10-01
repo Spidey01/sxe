@@ -27,6 +27,7 @@ import com.spidey01.sxe.core.GameEngine;
 import com.spidey01.sxe.core.entities.Entity;
 import com.spidey01.sxe.core.gl.Program;
 import com.spidey01.sxe.core.gl.Shader;
+import com.spidey01.sxe.core.graphics.GraphicsFacet;
 import com.spidey01.sxe.core.graphics.Mesh;
 import com.spidey01.sxe.core.graphics.RenderableObject;
 import com.spidey01.sxe.core.graphics.VertexBufferTechnique;
@@ -34,10 +35,9 @@ import com.spidey01.sxe.core.logging.Log;
 
 import java.io.IOException;
 
-
 public class Quad
     extends Entity
-    implements RenderableObject, VertexBufferTechnique.Capable
+    // implements RenderableObject, VertexBufferTechnique.Capable
 {
     private static final String TAG = "Quad";
 
@@ -53,6 +53,9 @@ public class Quad
         0.5f, 0.5f, 0f,
         -0.5f, 0.5f, 0f,
     };
+    /** Resource URI for our meshes 3D vertex data.
+     */
+    private static final String MESH_RESOURCE_PATH = "default://quad.dat";
 
     private static VertexBufferTechnique sTechnique;
     private static Mesh sMesh;
@@ -63,28 +66,8 @@ public class Quad
 
         mGameEngine = engine;
         setInputManager(mGameEngine.getInputManager());
+        setGraphicsFacet(new GraphicsFacet(mGameEngine.getDisplay()));
     }
 
-
-    @Override
-    public void draw() {
-        if (sTechnique == null) {
-            sTechnique = new VertexBufferTechnique(mGameEngine.getDisplay().getOpenGL());
-            sMesh = new Mesh(sVertices);
-            try {
-                sProgram = new Program(
-                    mGameEngine.getResourceManager().load("default://default.frag").asShader(Shader.Type.FRAGMENT),
-                    mGameEngine.getResourceManager().load("default://default.vert").asShader(Shader.Type.VERTEX)
-                );
-            } catch (IOException ex) {
-                throw new RuntimeException("Error loading shaders.", ex);
-            }
-        }
-        sTechnique.draw(this);
-    }
-
-
-    @Override public Program getProgram() { return sProgram; }
-    @Override public Mesh getMesh() { return sMesh; }
 }
 

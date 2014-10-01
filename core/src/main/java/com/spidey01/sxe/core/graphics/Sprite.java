@@ -31,7 +31,7 @@ import com.spidey01.sxe.core.logging.Log;
 import java.nio.FloatBuffer;
 
 public class Sprite
-    implements RenderableObject, VertexBufferTechnique.Capable
+    // implements RenderableObject, VertexBufferTechnique.Capable
 {
     private final static String TAG = "Sprite";
 
@@ -96,7 +96,7 @@ public class Sprite
 
     public void draw() {
         Log.xtrace(TAG, "draw() called.");
-        mTechnique.draw(this);
+        // mTechnique.draw(this);
     }
 
 }

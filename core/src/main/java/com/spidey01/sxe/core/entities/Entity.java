@@ -23,6 +23,7 @@
 
 package com.spidey01.sxe.core.entities;
 
+import com.spidey01.sxe.core.graphics.GraphicsFacet;
 import com.spidey01.sxe.core.input.InputCode;
 import com.spidey01.sxe.core.input.InputFacet;
 import com.spidey01.sxe.core.input.InputManager;
@@ -42,6 +43,7 @@ public class Entity
     protected boolean mIsAlive;
 
     private InputFacet mInputFacet;
+    private GraphicsFacet mGraphicsFacet;
 
     public boolean isAlive() {
         return mIsAlive;
@@ -67,5 +69,14 @@ public class Entity
         return mInputFacet;
     }
 
+
+    public void setGraphicsFacet(GraphicsFacet facet) {
+        mGraphicsFacet = facet;
+    }
+
+
+    public GraphicsFacet getGraphicsFacet() {
+        return mGraphicsFacet;
+    }
 }
 
