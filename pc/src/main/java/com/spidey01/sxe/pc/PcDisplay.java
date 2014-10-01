@@ -325,21 +325,23 @@ public class PcDisplay
     public String getOpenGLVersion() {
         ContextCapabilities ctx = GLContext.getCapabilities();
         // Yes, this is excessive.
-        return (ctx.OpenGL42 ? "4.2"
-                   : (ctx.OpenGL41 ? "4.1"
-                       : (ctx.OpenGL40 ? "4.0"
-                           : (ctx.OpenGL33 ? "3.3"
-                               : (ctx.OpenGL32 ? "3.2"
-                                   : (ctx.OpenGL31 ? "3.1"
-                                       : (ctx.OpenGL30 ? "3.0"
-                                           : (ctx.OpenGL21 ? "2.1"
-                                               : (ctx.OpenGL20 ? "2.0"
-                                                   : (ctx.OpenGL15 ? "1.5"
-                                                       : (ctx.OpenGL14 ? "1.4"
-                                                           : (ctx.OpenGL13 ? "1.3"
-                                                               : (ctx.OpenGL12 ? "1.2"
-                                                                   : (ctx.OpenGL11 ? "1.1"
-                                                                        : "wtf"))))))))))))));
+        return (ctx.OpenGL44 ? "4.4"
+                    : (ctx.OpenGL43 ? "4.3"
+                        : (ctx.OpenGL42 ? "4.2"
+                            : (ctx.OpenGL41 ? "4.1"
+                                : (ctx.OpenGL40 ? "4.0"
+                                    : (ctx.OpenGL33 ? "3.3"
+                                        : (ctx.OpenGL32 ? "3.2"
+                                            : (ctx.OpenGL31 ? "3.1"
+                                                : (ctx.OpenGL30 ? "3.0"
+                                                    : (ctx.OpenGL21 ? "2.1"
+                                                        : (ctx.OpenGL20 ? "2.0"
+                                                            : (ctx.OpenGL15 ? "1.5"
+                                                                : (ctx.OpenGL14 ? "1.4"
+                                                                    : (ctx.OpenGL13 ? "1.3"
+                                                                        : (ctx.OpenGL12 ? "1.2"
+                                                                            : (ctx.OpenGL11 ? "1.1"
+                                                                                 : "wtf"))))))))))))))));
     }
 
 
