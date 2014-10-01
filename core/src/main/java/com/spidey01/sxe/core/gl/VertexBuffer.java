@@ -29,112 +29,23 @@ import com.spidey01.sxe.core.logging.Log;
 import java.nio.IntBuffer;
 import java.nio.FloatBuffer;
 
-/** Class encapsulating an OpenGL Vertex Buffer Object (VBO).
+/** A simple Buffer for vertex data.
+ *
+ * For a full blown VBO, see {@link VertexBufferObject}. This class is just a dumb buffer.
  */
 public class VertexBuffer {
     private static final String TAG = "VertexBuffer";
-    
-    private final int mTarget;
-    private final int mUsage;
-    private boolean mIsInitialized;
-    private int mVertexBufferId;
-    private int mVertexCount;
 
+    public int length;
+    public FloatBuffer buffer;
 
-    public VertexBuffer() {
-        mTarget = OpenGLES20.GL_ARRAY_BUFFER;
-        mUsage = OpenGLES20.GL_STATIC_DRAW;
-    }
-    
-
-    public VertexBuffer(int target, int usage) {
-        mTarget = target;
-        mUsage = usage;
-    }
-
-
-    /** Obtain the underlaying VertexBuffer ID from OpenGL. */
-    public int getId() {
-        check();
-        return mVertexBufferId;
-    }
-
-
-    /** Initializes and binds an empty VertexBuffer without binding it. */
-    public void initialize(OpenGLES20 GL) {
-        if (mIsInitialized) return;
-        
-        IntBuffer b = Buffers.makeInt(1);
-        GL.glGenBuffers(b);
-        mVertexBufferId = b.get(0);
-
-        mIsInitialized = true;
-    }
-
-
-    /** Initialize, bind, and buffer vertices from array. */
-    public void initialize(OpenGLES20 GL, float[] vertices) {
-        if (mIsInitialized) return;
-        initialize(GL);
-        bind(GL);
-        buffer(GL, vertices);
-    }
-
-
-    /** Initialize, bind, and buffer vertices from FloatBuffer. */
-    public void initialize(OpenGLES20 GL, FloatBuffer vertices) {
-        if (mIsInitialized) return;
-        initialize(GL);
-        bind(GL);
-        buffer(GL, vertices);
-    }
-
-
-    /** Bind the VertexBuffer for use.
-     *
-     * I.e. call glBindBuffer.
-     */
-    public void bind(OpenGLES20 GL) {
-        check();
-        GL.glBindBuffer(mTarget, mVertexBufferId);
-    }
-
-
-    /** Buffers vertices to OpenGL memory.  */
-    public void buffer(OpenGLES20 GL, FloatBuffer vertices) {
-        check();
-        GL.glBufferData(mTarget, vertices, mUsage);
-    }
-
-
-    public void buffer(OpenGLES20 GL, float[] vertices) {
-        check();
-        FloatBuffer b = Buffers.makeFloat(vertices.length);
-        b.put(vertices);
-        // Basically make sure the bounds is set to vertices.length and rewind the position.
-        b.flip();
-        mVertexCount = vertices.length + 1;
-        buffer(GL, b);
-        b.clear();
-    }
-
-
-    public void deinitialize(OpenGLES20 GL) {
-        check();
-        // TODO: Delete the buffer.
-        mIsInitialized = false;
-    }
-
-
-    private void check() {
-        if (!mIsInitialized) {
-            throw new IllegalStateException(TAG+" not initialized!");
-        }
-    }
-
-
-    public int getVertexCount() {
-        return mVertexCount;
+    public VertexBuffer(float[] vertices) {
+        length = vertices.length + 1;
+        buffer = Buffers.makeFloat(vertices.length);
+        buffer.put(vertices);
+        // Basically make sure the bounds is set to vertices.length and rewind
+        // the position to be read.
+        buffer.flip();
     }
 
 }
