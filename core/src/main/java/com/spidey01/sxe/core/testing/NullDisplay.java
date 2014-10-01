@@ -33,6 +33,8 @@ import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.graphics.FrameEndedListener;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.FrameStartedListener;
+import com.spidey01.sxe.core.graphics.GraphicsTechnique;
+import com.spidey01.sxe.core.graphics.RenderableObject;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.util.List;
@@ -180,6 +182,15 @@ public class NullDisplay
     @Override
     public void uninitialize() {
         Log.d(TAG, "uninitialize()");
+    }
+
+
+    @Override
+    public GraphicsTechnique getTechnique(RenderableObject object) {
+        Log.d(TAG, "getTechnique(", object, ")");
+
+        // TODO: a null technique implementation.
+        return null;
     }
 }
 

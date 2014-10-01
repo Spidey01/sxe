@@ -114,5 +114,10 @@ public interface Display extends Subsystem {
     void removeFrameListener(FrameListener listener);
     void removeFrameStartedListener(FrameStartedListener listener);
     void removeFrameEndedListener(FrameEndedListener listener);
+
+
+    /** Get the {@link GraphicsTechnique} for this {@link RenderableObject}.
+     */
+    GraphicsTechnique getTechnique(RenderableObject object);
 }
 

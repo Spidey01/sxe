@@ -33,6 +33,10 @@ import com.spidey01.sxe.core.gl.OpenGL;
 import com.spidey01.sxe.core.graphics.FrameEndedListener;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.FrameStartedListener;
+import com.spidey01.sxe.core.graphics.GraphicsTechnique;
+import com.spidey01.sxe.core.graphics.RenderableObject;
+import com.spidey01.sxe.core.graphics.VertexArrayTechnique;
+import com.spidey01.sxe.core.graphics.VertexBufferTechnique;
 import com.spidey01.sxe.core.logging.Log;
 
 
@@ -46,6 +50,8 @@ import org.lwjgl.opengl.PixelFormat;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 
 public class PcDisplay
@@ -118,6 +124,8 @@ public class PcDisplay
     private List<FrameEndedListener> mFrameEndedListeners = new ArrayList<FrameEndedListener>();
     private OpenGL mOpenGL;
 
+    private Set<GraphicsTechnique> mGraphicsTechniques;
+
 
     /** Create the display based on the desired parameters.
      *
@@ -158,6 +166,14 @@ public class PcDisplay
         /* Handle runtime configuration Settings. */
         mSettingsListener = new DisplaySettingsListener(engine);
 
+        /*
+         * Ideally graphics techniques would be setup here and now.
+         *
+         * However we won't have a graphics context to poke about capabilities
+         * until after create() is called. So lazy initialization it is.
+         */
+        // mGraphicsTechniques = setupGraphicsTechniques();
+
         super.initialize(engine);
     }
 
@@ -176,6 +192,7 @@ public class PcDisplay
         try {
             Display.create();
             mOpenGL = new LwjglOpenGL();
+            mGraphicsTechniques = setupGraphicsTechniques();
         } catch (LWJGLException e) {
             Log.e(TAG, "create() can't create LWJGL display :'(");
             e.printStackTrace();
@@ -345,5 +362,32 @@ public class PcDisplay
     }
 
 
+    protected Set<GraphicsTechnique> setupGraphicsTechniques() {
+        ContextCapabilities ctx = GLContext.getCapabilities();
+
+        CopyOnWriteArraySet<GraphicsTechnique> set = new CopyOnWriteArraySet<GraphicsTechnique>();
+
+        if (ctx.OpenGL11) {
+            set.add(new VertexArrayTechnique(mOpenGL));
+        }
+
+        if (ctx.OpenGL20) {
+            set.add(new VertexBufferTechnique(mOpenGL));
+        }
+
+        return set;
+    }
+
+    // TODO:
+    //  - document
+    //  - cache here or at client?
+    public GraphicsTechnique getTechnique(RenderableObject object) {
+        for (GraphicsTechnique t : mGraphicsTechniques) {
+            if (t.accept(object)) {
+                return t;
+            }
+        }
+        return null;
+    }
 }
 
