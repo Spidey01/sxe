@@ -189,6 +189,11 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     }
 
     @Override
+    public void glDisableClientState(int cap) {
+        Log.d(TAG, "glDisableClientState(", cap, ")");
+    }
+
+    @Override
     public void glDisableVertexAttribArray(int index) {
         Log.d(TAG, "glDisableVertexAttribArray(", index, ")");
     }
@@ -214,6 +219,11 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     @Override
     public void glEnable(int cap) {
         Log.d(TAG, "glEnable(", cap, ")");
+    }
+
+    @Override
+    public void glEnableClientState(int cap) {
+        Log.d(TAG, "glEnableClientState(", cap, ")");
     }
 
     @Override
