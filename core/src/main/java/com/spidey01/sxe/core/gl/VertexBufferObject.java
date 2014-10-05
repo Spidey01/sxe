@@ -110,7 +110,7 @@ public class VertexBufferObject {
     public void buffer(OpenGLES20 GL, FloatBuffer vertices) {
         check();
         GL.glBufferData(mTarget, vertices, mUsage);
-        // TODO: set mVertexCount.
+        mVertexCount = vertices.capacity() + 1;
     }
 
 
