@@ -63,7 +63,7 @@ public class VertexBufferTest extends UnitTest {
 
 
     public void check(VertexBuffer b) {
-        Assert.assertEquals("....", 7, b.length);
+        Assert.assertEquals("....", 7, b.capacity()+1);
         int expected = 6;
         Assert.assertEquals(expected, b.capacity());
         Assert.assertEquals(expected, b.limit());
@@ -78,7 +78,6 @@ public class VertexBufferTest extends UnitTest {
 }
 
 /*
-w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.length => 7
 w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.capacity() => 6
 w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.limit() => 6
 w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.position() => 0
