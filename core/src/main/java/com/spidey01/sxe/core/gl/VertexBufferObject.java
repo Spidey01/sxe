@@ -24,6 +24,7 @@
 package com.spidey01.sxe.core.gl;
 
 import com.spidey01.sxe.core.common.Buffers;
+import com.spidey01.sxe.core.graphics.VertexBuffer;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.nio.IntBuffer;

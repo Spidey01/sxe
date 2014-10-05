@@ -24,7 +24,7 @@
 package com.spidey01.sxe.core.graphics;
 
 import com.spidey01.sxe.core.gl.OpenGLES11;
-import com.spidey01.sxe.core.gl.VertexBuffer;
+import com.spidey01.sxe.core.graphics.VertexBuffer;
 import com.spidey01.sxe.core.logging.Log;
 
 

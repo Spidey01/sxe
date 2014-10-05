@@ -25,6 +25,7 @@ package com.spidey01.sxe.core.graphics;
 
 import com.spidey01.sxe.core.common.Buffers;
 import com.spidey01.sxe.core.common.Utils;
+import com.spidey01.sxe.core.graphics.VertexBuffer;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.io.BufferedReader;
@@ -62,11 +63,11 @@ import java.util.ArrayList;
 public class VertexVertexMesh implements Mesh {
     private static final String TAG = "VertexVertexMesh";
 
-    private final float[] mVertices;
+    private final VertexBuffer mVertexBuffer;
 
     /** Constructor taking a prepaired list of vertices. */
     public VertexVertexMesh(float[] vertices) {
-        mVertices = vertices;
+        mVertexBuffer = new VertexBuffer(vertices);
     }
 
 
@@ -92,10 +93,11 @@ public class VertexVertexMesh implements Mesh {
             }
         }
 
-        mVertices = new float[vertices.size()];
+        mVertexBuffer = new VertexBuffer(vertices.size());
         for (int n=0; n < vertices.size(); ++n) {
-            mVertices[n] = Float.valueOf(vertices.get(n));
+            mVertexBuffer.buffer.put(Float.valueOf(vertices.get(n)));
         }
+        mVertexBuffer.buffer.flip();
     }
 
 
@@ -114,13 +116,19 @@ public class VertexVertexMesh implements Mesh {
      * @param index between 0 and size()-1.
      */
     public float get(int index) {
-        return mVertices[index];
+        // return mVertices[index];
+        return mVertexBuffer.buffer.get(index);
     }
 
 
     public int size() {
-        return mVertices.length;
+        // return mVertices.length;
+        return mVertexBuffer.buffer.capacity();
     }
 
+
+    public VertexBuffer asVertexBuffer() {
+        return mVertexBuffer;
+    }
 }
 
