@@ -23,12 +23,13 @@
 
 package com.spidey01.sxe.pc;
 
-import  com.spidey01.sxe.core.gl.Program;
 import  com.spidey01.sxe.core.gl.OpenGL;
 import  com.spidey01.sxe.core.gl.OpenGLES11;
 import  com.spidey01.sxe.core.gl.OpenGLES20;
 import  com.spidey01.sxe.core.gl.OpenGLES30;
+import  com.spidey01.sxe.core.gl.Program;
 import  com.spidey01.sxe.core.gl.Shader;
+import com.spidey01.sxe.core.graphics.VertexBuffer;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -420,6 +421,16 @@ public class LwjglOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     @Override
     public void glUseProgram(int program) {
         GL20.glUseProgram(program);
+    }
+
+    @Override
+    public void glVertexPointer(int size, int stride, VertexBuffer pointer) {
+        GL11.glVertexPointer(size, stride, pointer.buffer);
+    }
+
+    @Override
+    public void glVertexPointer(int size, int type, int stride, int offset) {
+        GL11.glVertexPointer(size, t(type), stride, offset);
     }
 
     @Override

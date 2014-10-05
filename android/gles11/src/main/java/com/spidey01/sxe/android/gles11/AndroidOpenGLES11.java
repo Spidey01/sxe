@@ -23,7 +23,8 @@
 
 package com.spidey01.sxe.android.gles11;
 
-import  com.spidey01.sxe.core.gl.OpenGLES11;
+import com.spidey01.sxe.core.gl.OpenGLES11;
+import com.spidey01.sxe.core.graphics.VertexBuffer;
 
 import android.opengl.GLES11;
 
@@ -167,6 +168,15 @@ public class AndroidOpenGLES11 implements OpenGLES11 {
         GLES11.glLineWidth(width);
     }
 
+    @Override
+    public void glVertexPointer(int size, int stride, VertexBuffer pointer) {
+        throw new UnsupportedOperationException("Not implemented on "+TAG);
+    }
+
+    @Override
+    public void glVertexPointer(int size, int type, int stride, int offset) {
+        GLES11.glVertexPointer(size, t(type), stride, offset);
+    }
 
     /* Internal functions */
 

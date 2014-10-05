@@ -23,6 +23,8 @@
 
 package com.spidey01.sxe.core.gl;
 
+import com.spidey01.sxe.core.graphics.VertexBuffer;
+
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.DoubleBuffer;
@@ -417,5 +419,7 @@ public interface OpenGLES11 {
 
     void glLineWidth(float width);
 
+    void glVertexPointer(int size, int stride, VertexBuffer pointer);
+    void glVertexPointer(int size, int type, int stride, int offset);
 }
 

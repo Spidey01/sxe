@@ -28,6 +28,7 @@ import com.spidey01.sxe.core.gl.OpenGLES20;
 import com.spidey01.sxe.core.gl.OpenGLES30;
 import com.spidey01.sxe.core.gl.Program;
 import com.spidey01.sxe.core.gl.Shader;
+import com.spidey01.sxe.core.graphics.VertexBuffer;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.nio.Buffer;
@@ -496,5 +497,14 @@ public class NullOpenGL implements OpenGLES11, OpenGLES20, OpenGLES30, OpenGL {
     }
     */
 
+    @Override
+    public void glVertexPointer(int size, int stride, VertexBuffer pointer) {
+        Log.d(TAG, "glVertexPointer(", size, ", ", stride, ", ", pointer, ")");
+    }
+
+    @Override
+    public void glVertexPointer(int size, int type, int stride, int offset) {
+        Log.d(TAG, "glVertexPointer(", size, ", ", type, ", ", stride, ", ", offset, ")");
+    }
 }
 
