@@ -9,7 +9,7 @@ description = 'jruby backend for SxE Scripting.'
    
 dependencies {
     compile project(':scripting')
-    compile group: 'org.jruby', name: 'jruby', version: '1.7.13'
+    compile group: 'org.jruby', name: 'jruby', version: '1.7.16'
     testCompile group: 'junit', name: 'junit', version:'4.11'
     testCompile project(':scripting:testhelpers')
 }
