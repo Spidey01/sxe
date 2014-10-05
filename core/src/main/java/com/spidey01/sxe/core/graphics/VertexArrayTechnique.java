@@ -28,24 +28,18 @@ import com.spidey01.sxe.core.graphics.VertexBuffer;
 import com.spidey01.sxe.core.logging.Log;
 
 
-/** GraphicsTechnique that uses OpenGL Vertex Arrays for rendering.
- * OpenGLES11 compatible 
+/** GraphicsTechnique that uses simple Vertex Arrays for rendering.
  *
- * The basic concept is 
+ * This is a fairly simple OpenGLES11 compatible method of drawing from vertex
+ * arrays.
  */
 
 public class VertexArrayTechnique
     implements GraphicsTechnique
 {
-    private static final String TAG = "ImmediateModeTechnique";
+    private static final String TAG = "VertexArrayTechnique";
 
     private OpenGLES11 mOpenGLES11;
-
-    /** Interface {@link #accept()}'d by this technique. */
-
-    public interface Capable {
-        VertexBuffer getVertexBuffer();
-    }
 
 
     public VertexArrayTechnique(OpenGLES11 GLES11) {
@@ -53,33 +47,27 @@ public class VertexArrayTechnique
     }
 
 
+    @Override
     public void draw(RenderData data) {
-        // glEnableClientState(OpenGLES11.GL_VERTEX_ARRAY);
-        // glVertexPointer(3, OpenGLES11.GL_FLOAT, 0, vertices);
-        // glDrawArrays(OpenGLES11.GL_TRIANGLES, 0, 3);
-        // glDisableClientState(OpenGLES11.GL_VERTEX_ARRAY);
+        Log.xtrace(TAG, "draw(", data, ")");
 
-        /* C code:
+        mOpenGLES11.glEnableClientState(OpenGLES11.GL_VERTEX_ARRAY);
 
-            GLfloat vertices[] = {1,0,0, 0,1,0, -1,0,0};
-            glEnableClientState(GL_VERTEX_ARRAY);
-            glVertexPointer(3, GL_FLOAT, 0, vertices);
-            glDrawArrays(GL_TRIANGLES, 0, 3);
-            glDisableClientState(GL_VERTEX_ARRAY);
+        VertexBuffer vertices = data.getMesh().asVertexBuffer();
+        mOpenGLES11.glVertexPointer(3, 0, vertices);
 
-        */
+        mOpenGLES11.glDrawArrays(OpenGLES11.GL_TRIANGLES, 0, vertices.capacity());
+
+        mOpenGLES11.glDisableClientState(OpenGLES11.GL_VERTEX_ARRAY);
     }
 
 
-    public boolean accept(RenderData maybe) {
-        boolean result = false;
-        try {
-            Capable p = (Capable)maybe;
-            result = true;
-        } catch(ClassCastException ex) {
-            result = false;
-        }
+    /** We require a Mesh with a VertexBuffer. 
+     */
 
+    @Override
+    public boolean accept(RenderData maybe) {
+        boolean result = maybe.getMesh() == null ? false : true;
         Log.xtrace(TAG, "accept(", maybe, "): ", (result ? "accepting." : "rejecting."));
         return result;
     }
