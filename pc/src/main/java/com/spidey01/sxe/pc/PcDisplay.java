@@ -368,13 +368,14 @@ public class PcDisplay
 
         CopyOnWriteArraySet<GraphicsTechnique> set = new CopyOnWriteArraySet<GraphicsTechnique>();
 
+        if (ctx.OpenGL20) {
+            set.add(new VertexBufferTechnique(mOpenGL));
+        }
+
         if (ctx.OpenGL11) {
             set.add(new VertexArrayTechnique(mOpenGL));
         }
 
-        if (ctx.OpenGL20) {
-            set.add(new VertexBufferTechnique(mOpenGL));
-        }
 
         return set;
     }
