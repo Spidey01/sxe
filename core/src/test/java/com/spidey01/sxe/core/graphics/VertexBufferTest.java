@@ -53,11 +53,11 @@ public class VertexBufferTest extends UnitTest {
     public void fromCapacity() {
         VertexBuffer b = new VertexBuffer(sData.length);
         for (float f : sData) {
-            b.buffer.put(f);
+            b.put(f);
         }
         Assert.assertTrue("Remaining should be equal to limit now.", 
-                          b.buffer.remaining() < b.buffer.limit());
-        b.buffer.flip();
+                          b.remaining() < b.limit());
+        b.flip();
         check(b);
     }
 
@@ -65,13 +65,13 @@ public class VertexBufferTest extends UnitTest {
     public void check(VertexBuffer b) {
         Assert.assertEquals("....", 7, b.length);
         int expected = 6;
-        Assert.assertEquals(expected, b.buffer.capacity());
-        Assert.assertEquals(expected, b.buffer.limit());
-        Assert.assertEquals(0, b.buffer.position());
-        Assert.assertEquals(expected, b.buffer.remaining());
+        Assert.assertEquals(expected, b.capacity());
+        Assert.assertEquals(expected, b.limit());
+        Assert.assertEquals(0, b.position());
+        Assert.assertEquals(expected, b.remaining());
 
         for (int i=0; i < sData.length; ++i) {
-            Assert.assertEquals("Elements must match.", sData[i], b.buffer.get(i), 0.01f);
+            Assert.assertEquals("Elements must match.", sData[i], b.get(i), 0.01f);
         }
     }
 
@@ -79,8 +79,9 @@ public class VertexBufferTest extends UnitTest {
 
 /*
 w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.length => 7
-w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.buffer.capacity() => 6
-w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.buffer.limit() => 6
-w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.buffer.position() => 0
-w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.buffer.remaining() => 6
+w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.capacity() => 6
+w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.limit() => 6
+w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.position() => 0
+w/VertexBufferTest( tid=10, date=2014-9-7, time=21:41:46 ): b.remaining() => 6
 */
+

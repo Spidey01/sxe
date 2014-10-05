@@ -116,7 +116,7 @@ public class VertexBufferObject {
 
     public void buffer(OpenGLES20 GL, float[] vertices) {
         VertexBuffer b = new VertexBuffer(vertices);
-        mVertexCount = b.length;
+        mVertexCount = b.capacity() + 1;
         buffer(GL, b.buffer);
         b.buffer.clear();
     }

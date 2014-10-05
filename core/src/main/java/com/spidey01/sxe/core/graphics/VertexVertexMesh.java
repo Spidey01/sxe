@@ -95,9 +95,9 @@ public class VertexVertexMesh implements Mesh {
 
         mVertexBuffer = new VertexBuffer(vertices.size());
         for (int n=0; n < vertices.size(); ++n) {
-            mVertexBuffer.buffer.put(Float.valueOf(vertices.get(n)));
+            mVertexBuffer.put(Float.valueOf(vertices.get(n)));
         }
-        mVertexBuffer.buffer.flip();
+        mVertexBuffer.flip();
     }
 
 
@@ -116,14 +116,12 @@ public class VertexVertexMesh implements Mesh {
      * @param index between 0 and size()-1.
      */
     public float get(int index) {
-        // return mVertices[index];
-        return mVertexBuffer.buffer.get(index);
+        return mVertexBuffer.get(index);
     }
 
 
     public int size() {
-        // return mVertices.length;
-        return mVertexBuffer.buffer.capacity();
+        return mVertexBuffer.capacity();
     }
 
 

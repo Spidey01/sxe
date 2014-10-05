@@ -21,26 +21,38 @@
  *	   distribution.
  */
 
-package com.spidey01.sxe.core.gl;
+package com.spidey01.sxe.core.graphics;
 
 import com.spidey01.sxe.core.common.Buffers;
 import com.spidey01.sxe.core.logging.Log;
 
-import java.nio.IntBuffer;
+import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
-/** A simple Buffer for vertex data.
+
+/** A simple java.nio.Buffer style interface for vertex data.
  *
  * For a full blown VBO, see {@link VertexBufferObject}. This class is just a dumb buffer.
  */
+
 public class VertexBuffer {
     private static final String TAG = "VertexBuffer";
 
-    public int length;
+    /**
+     * Simple access to the raw FloatBuffer.
+     *
+     * This is offered because we can't extend FloatBuffer.
+     */
+
     public FloatBuffer buffer;
 
+
+    /** Transfer vertices to buffer and flip it.
+     *
+     * @see {@link java.nio.FloatBuffer#put(float[] src) FloatBuffer.put(float[])}.
+     */
+
     public VertexBuffer(float[] vertices) {
-        length = vertices.length + 1;
         buffer = Buffers.makeFloat(vertices.length);
         buffer.put(vertices);
         // Basically make sure the bounds is set to vertices.length and rewind
@@ -48,9 +60,199 @@ public class VertexBuffer {
         buffer.flip();
     }
 
-    public VertexBuffer(int size) {
-        length = size + 1;
-        buffer = Buffers.makeFloat(size);
+
+    /** Create a buffer with specified capacity. */
+
+    public VertexBuffer(int capacity) {
+        buffer = Buffers.makeFloat(capacity);
     }
+
+
+    /*
+     * These methods are just wrappers around buffer.
+     *
+     * I'd rather extend FloatBuffer but we can't. And I think
+     * that ".buffer.method()" kind of sucks. So do this.
+     */
+
+
+    /** Returns the array that backs this buffer  (optional operation). */
+
+    public float[] array() { return buffer.array(); }
+
+
+    /** Returns the offset within this buffer's backing array of the first element of the buffer  (optional operation). */
+
+    public int arrayOffset() { return buffer.arrayOffset(); }
+
+
+    /** Returns this buffer's capacity. */
+
+    public int capacity() { return buffer.capacity(); }
+
+
+    /** Clears this buffer. */
+
+    public VertexBuffer clear() {
+        buffer.clear();
+        return this;
+    }
+
+
+    /** Flips this buffer. */
+
+    public VertexBuffer flip() {
+        buffer.flip();
+        return this;
+    }
+
+
+    /** Tells whether or not this buffer is backed by an accessible array. */
+
+    public boolean hasArray() { return buffer.hasArray(); }
+
+
+    /** Tells whether there are any elements between the current position and the limit. */
+
+    public boolean hasRemaining() { return buffer.hasRemaining(); }
+
+
+    /** Tells whether or not this buffer is direct. */
+
+    public boolean isDirect() { return buffer.isDirect(); }
+
+
+    /** Tells whether or not this buffer is read-only. */
+
+    public boolean isReadOnly() { return buffer.isReadOnly(); }
+
+
+    /** Returns this buffer's limit. */
+
+    public int limit() { return buffer.limit(); }
+
+
+    /** Sets this buffer's limit. */
+
+    public VertexBuffer limit(int newLimit) {
+        buffer.limit(newLimit);
+        return this;
+    }
+
+
+    /** Sets this buffer's mark at its position. */
+
+    public VertexBuffer mark() {
+        buffer.mark();
+        return this;
+    }
+
+
+    /** Returns this buffer's position. */
+
+    public int position() { return buffer.position(); }
+
+
+    /** Sets this buffer's position. */
+
+    public VertexBuffer position(int newPosition) {
+        buffer.position(newPosition);
+        return this;
+    }
+
+
+    /** Returns the number of elements between the current position and the limit. */
+
+    public int	remaining() { return buffer.remaining(); }
+
+
+    /** Resets this buffer's position to the previously-marked position. */
+
+    public VertexBuffer reset() {
+        buffer.reset();
+        return this;
+    }
+
+
+
+    /** Rewinds this buffer. */
+
+    public VertexBuffer rewind() {
+        buffer.rewind();
+        return this;
+    }
+
+
+    /** Relative get method. */
+
+    public float get() { return buffer.get(); }
+
+
+    /** Relative bulk get method. */
+
+    public VertexBuffer get(float[] dst) {
+        buffer.get(dst);
+        return this;
+    }
+
+
+    /** Relative bulk get method. */
+
+    public VertexBuffer get(float[] dst, int offset, int length) {
+        buffer.get(dst, offset, length);
+        return this;
+    }
+
+
+    /** Absolute get method. */
+
+    public float get(int index) { return buffer.get(index); }
+
+
+    /** Relative put method  (optional operation). */
+
+    public VertexBuffer put(float f) {
+        buffer.put(f);
+        return this;
+    }
+
+
+    /** Relative bulk put method  (optional operation). */
+
+    public VertexBuffer put(float[] src) {
+        buffer.put(src);
+        return this;
+    }
+
+
+    /** Relative bulk put method  (optional operation). */
+
+    public VertexBuffer put(float[] src, int offset, int length) {
+        buffer.put(src, offset, length);
+        return this;
+    }
+
+
+    /** Relative bulk put method  (optional operation). */
+
+    public VertexBuffer put(FloatBuffer src) {
+        buffer.put(src);
+        return this;
+    }
+
+
+    /** Absolute put method  (optional operation). */
+
+    public VertexBuffer put(int index, float f) {
+        buffer.put(index, f);
+        return this;
+    }
+
+
+    public ByteOrder order() { return buffer.order(); }
+
+
+    /** Returns a string summarizing the state of this buffer. */
+    // public String toString() { return buffer.toString(); }
 }
 
