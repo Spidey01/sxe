@@ -151,7 +151,7 @@ public class AndroidOpenGLES11 implements OpenGLES11 {
 
 
     @Override
-    public void glEnable(int cap) {
+    public void glEnableClientState(int cap) {
         GLES11.glEnableClientState(t(cap));
     }
 

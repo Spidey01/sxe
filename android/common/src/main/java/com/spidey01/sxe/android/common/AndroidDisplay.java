@@ -30,10 +30,15 @@ import com.spidey01.sxe.core.graphics.Display;
 import com.spidey01.sxe.core.graphics.FrameEndedListener;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.FrameStartedListener;
+import com.spidey01.sxe.core.graphics.GraphicsTechnique;
+import com.spidey01.sxe.core.graphics.RenderData;
 import com.spidey01.sxe.core.logging.Log;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
+
+import java.util.concurrent.CopyOnWriteArraySet;
+
 
 public class AndroidDisplay 
     extends GLSurfaceView
@@ -43,6 +48,7 @@ public class AndroidDisplay
     private OpenGL mOpenGL;
     private static final String TAG = "AndroidDisplay";
     private boolean mIsInitialized = false;
+    private CopyOnWriteArraySet<GraphicsTechnique> mGraphicsTechniques = new CopyOnWriteArraySet<GraphicsTechnique>();
 
     public AndroidDisplay(Context context) {
         super(context);
@@ -150,6 +156,16 @@ public class AndroidDisplay
 
     public void removeFrameEndedListener(FrameEndedListener listener) {
         mRenderer.removeFrameEndedListener(listener);
+    }
+
+
+    public GraphicsTechnique getTechnique(RenderData object) {
+        for (GraphicsTechnique t : mGraphicsTechniques) {
+            if (t.accept(object)) {
+                return t;
+            }
+        }
+        return null;
     }
 }
 

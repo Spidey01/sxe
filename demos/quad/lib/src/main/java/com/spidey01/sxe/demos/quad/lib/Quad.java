@@ -29,6 +29,7 @@ import com.spidey01.sxe.core.gl.Program;
 import com.spidey01.sxe.core.gl.Shader;
 import com.spidey01.sxe.core.graphics.GraphicsFacet;
 import com.spidey01.sxe.core.graphics.Mesh;
+import com.spidey01.sxe.core.graphics.RenderData;
 import com.spidey01.sxe.core.graphics.RenderableObject;
 import com.spidey01.sxe.core.graphics.VertexBufferTechnique;
 import com.spidey01.sxe.core.logging.Log;
@@ -43,30 +44,40 @@ public class Quad
 
     private final GameEngine mGameEngine;
 
-    private static float[] sVertices = new float[]{
-        /* Left bottom triangle. */
-        -0.5f, 0.5f, 0f,
-        -0.5f, -0.5f, 0f,
-        0.5f, -0.5f, 0f,
-        /* Right top triangle. */
-        0.5f, -0.5f, 0f,
-        0.5f, 0.5f, 0f,
-        -0.5f, 0.5f, 0f,
-    };
     /** Resource URI for our meshes 3D vertex data.
      */
     private static final String MESH_RESOURCE_PATH = "default://quad.dat";
 
-    private static VertexBufferTechnique sTechnique;
-    private static Mesh sMesh;
-    private static Program sProgram;
+
+    /** Stores the data necessary for rendering our quad.
+     */
+    private final RenderData mRenderData = new RenderData();
 
     public Quad(GameEngine engine) {
         Log.i(TAG, "Quad object created.");
 
         mGameEngine = engine;
-        setInputManager(mGameEngine.getInputManager());
-        setGraphicsFacet(new GraphicsFacet(mGameEngine.getDisplay()));
+
+        /*
+         * Setup our vertices to be rendered.
+         */
+        try {
+            mRenderData.setMesh(
+                mGameEngine.getResourceManager().load(
+                    MESH_RESOURCE_PATH).asVertexVertexMesh());
+        } catch(IOException ex) {
+            Log.wtf(TAG, "Failed loading ",MESH_RESOURCE_PATH, ex);
+        }
+
+        /*
+         * Configure a GraphicsFacet to render this Entity.
+         */
+        setGraphicsFacet(new GraphicsFacet(mRenderData, mGameEngine.getDisplay()));
+
+        /*
+         * We don't need to listen for input but this is how you would do it.
+         */
+        // setInputManager(mGameEngine.getInputManager());
     }
 
 }
