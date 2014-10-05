@@ -34,6 +34,7 @@ import com.spidey01.sxe.core.graphics.FrameEndedListener;
 import com.spidey01.sxe.core.graphics.FrameListener;
 import com.spidey01.sxe.core.graphics.FrameStartedListener;
 import com.spidey01.sxe.core.graphics.GraphicsTechnique;
+import com.spidey01.sxe.core.graphics.RenderData;
 import com.spidey01.sxe.core.graphics.RenderableObject;
 import com.spidey01.sxe.core.graphics.VertexArrayTechnique;
 import com.spidey01.sxe.core.graphics.VertexBufferTechnique;
@@ -381,7 +382,7 @@ public class PcDisplay
     // TODO:
     //  - document
     //  - cache here or at client?
-    public GraphicsTechnique getTechnique(RenderableObject object) {
+    public GraphicsTechnique getTechnique(RenderData object) {
         for (GraphicsTechnique t : mGraphicsTechniques) {
             if (t.accept(object)) {
                 return t;

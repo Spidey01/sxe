@@ -118,6 +118,6 @@ public interface Display extends Subsystem {
 
     /** Get the {@link GraphicsTechnique} for this {@link RenderableObject}.
      */
-    GraphicsTechnique getTechnique(RenderableObject object);
+    GraphicsTechnique getTechnique(RenderData object);
 }
 

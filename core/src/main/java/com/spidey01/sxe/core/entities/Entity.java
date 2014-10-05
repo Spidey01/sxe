@@ -24,6 +24,7 @@
 package com.spidey01.sxe.core.entities;
 
 import com.spidey01.sxe.core.graphics.GraphicsFacet;
+import com.spidey01.sxe.core.graphics.RenderData;
 import com.spidey01.sxe.core.input.InputCode;
 import com.spidey01.sxe.core.input.InputFacet;
 import com.spidey01.sxe.core.input.InputManager;
@@ -44,6 +45,8 @@ public class Entity
 
     private InputFacet mInputFacet;
     private GraphicsFacet mGraphicsFacet;
+    private RenderData mRenderData;
+
 
     public boolean isAlive() {
         return mIsAlive;
@@ -77,6 +80,16 @@ public class Entity
 
     public GraphicsFacet getGraphicsFacet() {
         return mGraphicsFacet;
+    }
+
+
+    public void setRenderData(RenderData data) {
+        mRenderData = data;
+    }
+
+
+    public RenderData getRenderData() {
+        return mRenderData;
     }
 }
 

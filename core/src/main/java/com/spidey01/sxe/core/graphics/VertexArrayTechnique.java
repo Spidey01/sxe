@@ -53,7 +53,7 @@ public class VertexArrayTechnique
     }
 
 
-    public void draw(RenderableObject client) {
+    public void draw(RenderData data) {
         // glEnableClientState(OpenGLES11.GL_VERTEX_ARRAY);
         // glVertexPointer(3, OpenGLES11.GL_FLOAT, 0, vertices);
         // glDrawArrays(OpenGLES11.GL_TRIANGLES, 0, 3);
@@ -71,7 +71,7 @@ public class VertexArrayTechnique
     }
 
 
-    public boolean accept(RenderableObject maybe) {
+    public boolean accept(RenderData maybe) {
         boolean result = false;
         try {
             Capable p = (Capable)maybe;

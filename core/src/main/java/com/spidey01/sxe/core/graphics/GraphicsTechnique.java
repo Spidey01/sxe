@@ -31,10 +31,10 @@ package com.spidey01.sxe.core.graphics;
 
 public interface GraphicsTechnique extends Technique {
 
-    /* Determine if we can render this client or not. */
-    boolean accept(RenderableObject client);
+    /* Determine if we can render this or not. */
+    boolean accept(RenderData data);
 
-    void draw(RenderableObject client);
+    void draw(RenderData data);
 }
 
 

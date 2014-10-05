@@ -25,43 +25,52 @@ package com.spidey01.sxe.core.graphics;
 
 import com.spidey01.sxe.core.logging.Log;
 
-import java.util.Set;
-// reccommended Set implementation.
-// import java.util.concurrent.CopyOnWriteArraySet;
-
-/** Facet providing process and resource independent rendering of graphics.
+/** Facet providing combining the process and resources needed to render to a {@link Display}.
  *
- * To seperate the data to be rendered, {@link GraphicsTechnique}s are used to provide the process of rendering.
- * TODO: How do we stitch then together.
+ * Data to be rendered is provided to the constructor through a {@link
+ * RenderData}. You will need to setup this RenderData instance with sufficent
+ * information for an available GraphicsTechnique.
+ *
+ * Exact process for rendering is performed by a {@link GraphicsTechnique}.
  *
  */
 
-public class GraphicsFacet
-    implements RenderableObject, VertexBufferTechnique.Capable
+public class GraphicsFacet implements RenderableObject
 {
     private static final String TAG = "GraphicsFacet";
 
+    private final RenderData mRenderData;
     private final Display mDisplay;
 
     private GraphicsTechnique mTechnique = null;
 
     /** X.
      *
-     * @param techniques A set of techniques to be used for rendering our graphics.
+     * @param data Some {@link RenderData} to be drawn.
+     * @param display The {@link Display} to render to.
+     * @see GraphicsTechnique
      */
 
-    public GraphicsFacet(Display display) {
+    public GraphicsFacet(RenderData data, Display display) {
+        mRenderData = data;
         mDisplay = display;
     }
 
 
+    /** Draw using a GraphicsTechnique.
+     *
+     * Note: we currently cache the first technique given by the Display; we do
+     * not change this on subsequent draws even if the Display changes its
+     * mind.
+     */
+
     @Override
     public void draw() {
         if (mTechnique == null) {
-            mTechnique = mDisplay.getTechnique(self);
+            mTechnique = mDisplay.getTechnique(mRenderData);
         }
 
-        mTechnique.draw(self);
+        mTechnique.draw(mRenderData);
     }
 }
 

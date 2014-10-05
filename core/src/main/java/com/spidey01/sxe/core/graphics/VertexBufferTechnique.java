@@ -23,11 +23,12 @@
 
 package com.spidey01.sxe.core.graphics;
 
-import com.spidey01.sxe.core.gl.OpenGLES20;
 import com.spidey01.sxe.core.gl.FragmentShader;
+import com.spidey01.sxe.core.gl.OpenGLES20;
 import com.spidey01.sxe.core.gl.Program;
 import com.spidey01.sxe.core.gl.VertexBufferObject;
 import com.spidey01.sxe.core.gl.VertexShader;
+import com.spidey01.sxe.core.graphics.RenderData;
 import com.spidey01.sxe.core.logging.Log;
 
 import java.nio.FloatBuffer;
@@ -51,12 +52,6 @@ public class VertexBufferTechnique implements GraphicsTechnique {
     private Program mProgram;
 
 
-    /** Interface {@link #accept()}'d by this technique. */
-
-    public interface Capable {
-        VertexBufferObject getVertexBufferObject();
-    }
-
     /*
      * Place holders for now. I just need something I can test this with.
      */
@@ -73,13 +68,23 @@ public class VertexBufferTechnique implements GraphicsTechnique {
 
 
     @Override
-    public boolean accept(RenderableObject maybe) {
+    public boolean accept(RenderData maybe) {
         boolean result = false;
-        try {
-            Capable p = (Capable)maybe;
+        Mesh m = maybe.getMesh();
+
+        if (maybe.getVBO() != null) {
+            Log.xtrace(TAG, "accept(", maybe, "): has VBO.");
             result = true;
-        } catch(ClassCastException ex) {
-            result = false;
+        } else if (m != null) { 
+            /*
+             * Do I really want to do this versus saying hey, it's not our problem?
+             */
+            Log.xtrace(TAG, "accept(", maybe, "): has Mesh; making VBO.");
+
+            VertexBufferObject vbo = new VertexBufferObject();
+            vbo.initialize(mGLES20, m.asVertexBuffer().buffer);
+            maybe.setVBO(vbo);
+            result = true;
         }
 
         Log.xtrace(TAG, "accept(", maybe, "): ", (result ? "accepting." : "rejecting."));
@@ -88,15 +93,14 @@ public class VertexBufferTechnique implements GraphicsTechnique {
 
 
     @Override
-    public void draw(RenderableObject client) {
-        draw((Capable)client);
-    }
+    public void draw(RenderData data) {
+        Log.xtrace(TAG, "Drawing client data ", data);
 
-
-    public void draw(Capable client) {
-        Log.xtrace(TAG, "Drawing client ", client);
-
-        VertexBufferObject vbo = client.getVertexBufferObject();
+        VertexBufferObject vbo = data.getVBO();
+        if (vbo == null) {
+            Log.e(TAG, "Attempted to draw from null VBO.");
+            return;
+        }
         vbo.bind(mGLES20);
 
         int pid = mProgram.getId();
