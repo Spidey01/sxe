@@ -48,5 +48,9 @@ public class VertexBuffer {
         buffer.flip();
     }
 
+    public VertexBuffer(int size) {
+        length = size + 1;
+        buffer = Buffers.makeFloat(size);
+    }
 }
 
