@@ -1,0 +1,9 @@
+<component name="CopyrightManager">
+  <copyright>
+    <option name="notice" value="Copyright (c) &amp;#36;today.year-current, Terry Mathew Poulin &lt;BigBoss1964@gmail.com&gt;&#10;&#10;This software is provided 'as-is', without any express or implied warranty.&#10;In no event will the authors be held liable for any damages arising from the&#10;use of this software.&#10;&#10;Permission is granted to anyone to use this software for any purpose,&#10;including commercial applications, and to alter it and redistribute it&#10;freely, subject to the following restrictions:&#10;&#10;&#9;1. The origin of this software must not be misrepresented; you must&#10;&#9;   not claim that you wrote the original software. If you use this&#10;&#9;   software in a product, an acknowledgment in the product&#10;&#9;   documentation would be appreciated but is not required.&#10;&#10;&#9;2. Altered source versions must be plainly marked as such, and must&#10;&#9;   not be misrepresented as being the original software.&#10;&#10;&#9;3. This notice may not be removed or altered from any source&#10;&#9;   distribution." />
+    <option name="keyword" value="Copyright" />
+    <option name="allowReplaceKeyword" value="" />
+    <option name="myName" value="zlib" />
+    <option name="myLocal" value="true" />
+  </copyright>
+</component>
