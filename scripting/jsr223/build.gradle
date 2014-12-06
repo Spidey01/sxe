@@ -6,7 +6,8 @@ group = 'com.spidey01.sxe.scripting.jsr223'
 archivesBaseName = 'sxe-scripting-jsr223'
 version = '0.0.1-SNAPSHOT'
 description = 'SxE Scripting that uses standard Java JSR223/javax.script API.'
-   
+sourceCompatibility = 1.6
+
 dependencies {
     compile project(':scripting')
     testCompile group: 'junit', name: 'junit', version:'4.11'

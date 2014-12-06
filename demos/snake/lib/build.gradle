@@ -6,6 +6,7 @@ group = 'com.spidey01.sxe.snake.lib'
 archivesBaseName = 'snake-lib'
 version = '0.0.1-SNAPSHOT'
 description = 'Snake game demo implementation code'
+sourceCompatibility = 1.6
 
 dependencies {
     compile project(':core')

@@ -8,4 +8,5 @@ group = 'de.matthiasmann.twl.utils'
 archivesBaseName = 'twl-pngdecoder'
 version = 'e78c533a0e67'
 description = 'TWL PNGDecoder'
+sourceCompatibility = 1.6
 

@@ -7,6 +7,7 @@ mainClassName = group + '.Main'
 applicationName = archivesBaseName = 'helloworld-pc'
 version = '0.0.1-SNAPSHOT'
 description = 'Hello World demo for x86-based PCs'
+sourceCompatibility = 1.6
 
 dependencies {
     compile project(':core')

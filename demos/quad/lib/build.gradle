@@ -6,6 +6,7 @@ group = 'com.spidey01.sxe.demos.quad.lib'
 archivesBaseName = 'quad-lib'
 version = '0.0.1-SNAPSHOT'
 description = 'A simple Quad demo, implementation code'
+sourceCompatibility = 1.6
 
 dependencies {
     compile project(':core')

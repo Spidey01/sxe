@@ -6,7 +6,8 @@ group = 'com.spidey01.sxe.scripting.jython'
 archivesBaseName = 'sxe-scripting-jython'
 version = '0.0.1-SNAPSHOT'
 description = 'jython backend for SxE Scripting.'
-   
+sourceCompatibility = 1.6
+
 dependencies {
     compile project(':scripting')
     def v =

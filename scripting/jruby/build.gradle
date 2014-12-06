@@ -6,7 +6,8 @@ group = 'com.spidey01.sxe.scripting.jruby'
 archivesBaseName = 'sxe-scripting-jruby'
 version = '0.0.1-SNAPSHOT'
 description = 'jruby backend for SxE Scripting.'
-   
+sourceCompatibility = 1.6
+
 dependencies {
     compile project(':scripting')
     compile group: 'org.jruby', name: 'jruby', version: '1.7.16'

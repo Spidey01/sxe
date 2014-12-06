@@ -8,6 +8,7 @@ mainClassName = group + '.Main'
 applicationName = archivesBaseName = 'snake-pc'
 version = '0.0.1-SNAPSHOT'
 description = 'Snake game demo for x86-based PCs'
+sourceCompatibility = 1.6
 
 dependencies {
     compile project(':core')

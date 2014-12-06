@@ -7,6 +7,7 @@ group = 'com.spidey01.sxe.core'
 archivesBaseName = 'sxe-core'
 version = '0.0.1-SNAPSHOT'
 description = ''
+sourceCompatibility = 1.6
 
 dependencies {
     compile project(':vendor:pngdecoder')

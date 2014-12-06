@@ -6,7 +6,8 @@ group = 'com.spidey01.sxe.scripting.rhino'
 archivesBaseName = 'sxe-scripting-rhino'
 version = '0.0.1-SNAPSHOT'
 description = 'Rhino backend for SxE Scripting.'
-   
+sourceCompatibility = 1.6
+
 dependencies {
     compile project(':scripting')
     compile group: 'org.mozilla', name: 'rhino', version: '1.7R4'
