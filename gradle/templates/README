@@ -1,7 +1,0 @@
-You need to run the fromTemplate task with the templateDestination project property (-P) set to the destination.
-
-The task will inspect the property and copy the correct file from here. Currently supported:
-
-	- $path.java
-	- $path/build.gradle
-

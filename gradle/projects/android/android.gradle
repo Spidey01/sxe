@@ -1,5 +1,0 @@
-
-project.android {
-    buildToolsVersion "20.0.0"
-}
-

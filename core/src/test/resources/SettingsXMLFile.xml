@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-<comment>Comments and whitespace will not be saved.</comment>
-<entry key="debug">true</entry>
-<entry key="SettingsXMLFileTest.log_level">10</entry>
-<entry key="SettingsXMLFileTest.display.resolution">1280x720</entry>
-</properties>
