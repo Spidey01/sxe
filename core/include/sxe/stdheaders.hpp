@@ -3,18 +3,9 @@
 
 /** Standard C++ headers.
  *
- * These are included in groups as noted by https://en.cppreference.com/w/cpp/header.
+ * These are included in groups as noted by https://en.cppreference.com/w/cpp/header and guarded by SXE_CXXnn.
  */
-
-/*
- * __cplusplus values:
- *
- *  199711L = C++ 98/03
- *  201103L = C++ 11
- *  201402L = C++ 14
- *  201703L = C++ 17
- *  TBD     = C++ 20
- */
+#include <sxe/cxxversion.hpp>
 
 /* Utilities library */
 #include <cstdlib>
@@ -22,7 +13,7 @@
 #include <csetjmp>
 #include <cstdarg>
 #include <typeinfo>
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <typeindex>
 #include <type_traits>
 #endif
@@ -30,15 +21,15 @@
 #include <functional>
 #include <utility>
 #include <ctime>
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <chrono>
 #endif
 #include <cstddef>
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <initializer_list>
 #include <tuple>
 #endif
-#if __cplusplus > 201402L
+#if SXE_CXX17
 #include <any>
 #include <optional>
 #include <variant>
@@ -47,17 +38,17 @@
 /* Dynamic memory maangement. */
 #include <new>
 #include <memory>
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <scoped_allocator>
 #endif
-#if __cplusplus > 201402L
+#if SXE_CXX17
 #include <memory_resource>
 #endif
 
 /* Numeric limits. */
 #include <climits>
 #include <cfloat>
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <cstdint>
 #include <cinttypes>
 #endif
@@ -67,7 +58,7 @@
 #include <exception>
 #include <stdexcept>
 #include <cassert>
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <system_error>
 #endif
 #include <cerrno>
@@ -77,28 +68,28 @@
 #include <cwctype>
 #include <cstring>
 #include <cwchar>
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <cuchar>
 #endif
 #include <string>
-#if __cplusplus > 201402L
+#if SXE_CXX17
 #include <string_view>
 #include <charconv>
 #endif
 
 /* Containers library. */
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <array>
 #endif
 #include <vector>
 #include <deque>
 #include <list>
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <forward_list>
 #endif
 #include <set>
 #include <map>
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <unordered_set>
 #include <unordered_map>
 #endif
@@ -110,7 +101,7 @@
 
 /* Algorithms library. */
 #include <algorithm>
-#if __cplusplus > 201402L
+#if SXE_CXX17
 #include <execution>
 #endif
 
@@ -118,11 +109,11 @@
 #include <cmath>
 #include <complex>
 #include <valarray>
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <random>
 #endif
 #include <numeric>
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <ratio>
 #include <cfenv>
 #endif
@@ -144,17 +135,17 @@
 #include <clocale>
 
 /* Regular Expressions library. */
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <regex>
 #endif
 
 /** Atomic Operations library. */
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <atomic>
 #endif
 
 /* Thread support library. */
-#if __cplusplus > 199711L
+#if SXE_CXX11
 #include <thread>
 #include <mutex>
 #include <shared_mutex>
@@ -163,8 +154,8 @@
 #endif
 
 /* Filesystem library. */
-#if __cplusplus > 201402L
+#if SXE_CXX17
 #include <filesystem>
 #endif
 
-#endif
+#endif // SXE_STDHEADERS__H
