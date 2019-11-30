@@ -3,6 +3,7 @@ project(sxecore VERSION 0.1 LANGUAGES CXX)
 add_library(SxeCore
     src/Game.cpp
     src/GameEngine.cpp
+    src/logging/LogSink.cpp
 )
 
 target_include_directories(SxeCore PUBLIC
