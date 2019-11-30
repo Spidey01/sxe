@@ -114,7 +114,7 @@
 /* If you can't do this, run for the hills and take your toolchain with you! */
 #define SXE_CXX98 (__cplusplus >= 199711L)
 
-#if 1 // debug macros.
+#if 0 // debug macros.
 /* use pragma because MSVC doesn't understand warning? */
 
 #if SXE_CXX98
