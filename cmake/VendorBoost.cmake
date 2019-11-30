@@ -106,5 +106,15 @@ if (NOT Boost_FOUND)
         LOG_BUILD 1
         LOG_INSTALL 1)
 
+
+    # Setting these and making suitable targets might be enough to one pass
+    # this. Someday.
+    #
+    # Boost_INCLUDE_DIR         - Directory containing Boost headers
+    # Boost_LIBRARY_DIR_RELEASE - Directory containing release Boost libraries
+    # Boost_LIBRARY_DIR_DEBUG   - Directory containing debug Boost libraries
+    # Boost_<C>_LIBRARY_DEBUG   - Component <C> library debug variant
+    # Boost_<C>_LIBRARY_RELEASE - Component <C> library release variant
+
 endif()
 
