@@ -33,23 +33,24 @@
 
 #if defined(_MSC_VER)
 /* Microsoft makes this easy unless you want to map product name, product version, macro number without MSDN. */
+/* Disclaimer: looks like __cplusplus = 199711L, _MSVC_LANG = what that SHOULD be! */
 
 /*
  * C++ 17 support in Visual Studio 2017 from sub version. By 1915 (version 15.8)
  * it should be as complete as it gets.
  */
-#define SXE_CXX17 (__cplusplus > 201402L && _MSC_VER >= 1915)
+#define SXE_CXX17 ( _MSVC_LANG > 201402L && _MSC_VER >= 1915)
 
 /*
  * C++ 14 support in Visual Studio 2015 is pretty complete but a few things may
  * require some version of VS2017, and proper updates to VS2015.
  */
-#define SXE_CXX14 (__cplusplus > 201103L && _MSC_VER >= 1900)
+#define SXE_CXX14 (_MSVC_LANG > 201103L && _MSC_VER >= 1900)
 
 /*
  * C++ 11 support in Visual Studio 2015 is pretty good, and was was very incremental from about VS2010 onwards.
  */
-#define SXE_CXX11 (__cplusplus > 199711L && _MSC_VER >= 1900)
+#define SXE_CXX11 (_MSVC_LANG > 199711L && _MSC_VER >= 1900)
 
 #define SXE_MSVC_VERSION _MSC_VER
 #else
@@ -113,7 +114,7 @@
 /* If you can't do this, run for the hills and take your toolchain with you! */
 #define SXE_CXX98 (__cplusplus >= 199711L)
 
-#if 0 // debug macros.
+#if 1 // debug macros.
 /* use pragma because MSVC doesn't understand warning? */
 
 #if SXE_CXX98
