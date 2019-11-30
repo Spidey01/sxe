@@ -1,6 +1,5 @@
 #ifndef SXE_CORE_LOGGING_LOGSINK__HPP
 #define SXE_CORE_LOGGING_LOGSINK__HPP
-
 /*-
  * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -35,6 +34,10 @@ namespace sxe { namespace core { namespace logging {
      */
     class LogSink {
       public:
+
+        using shared_ptr = std::shared_ptr<LogSink>;
+        using weak_ptr = std::weak_ptr<LogSink>;
+        using unique_ptr = std::unique_ptr<LogSink>;
 
         /** Default log level set in ctors without a level param. */
         static const int DEFAULT_LOG_LEVEL;
