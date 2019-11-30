@@ -62,3 +62,11 @@ _sxe_complete_demos() { ## bash completion function for demo names.
 # complete demo names for these commands.
 complete -F _sxe_complete_demos rd rdemo idemo irdemo
 
+## assuming gcc, and that it's native.
+PROJECT_TOOLCHAIN=gcc
+PROJECT_TARGET_ARCH=$(uname -m)
+PROJECT_TARGET_TRIPLET=$(g++ -dumpmachine)
+
+# defaults
+PROJECT_BUILDDIR="${PROJECT_ROOT}/tmp/${PROJECT_TARGET_TRIPLET}"
+PROJECT_DISTDIR="${PROJECT-ROOT}/dist"
