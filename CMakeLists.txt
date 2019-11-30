@@ -50,5 +50,26 @@ else()
     add_subdirectory(core)
     install(FILES cmake/SxeConfig.cmake DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake/sxe)
 
+    # Our externals need to come too.
+
+    # stat(2) would cry at this thing's implementation.
+    #
+    # Efforts to not suffer cmake's need to decide for itself whether the
+    # destination files are up to date, combined with how the
+    # configure->generate->build thing works makes it hard to tell CMake not to
+    # do this if something exists (because CMAKE_INSTALL_INCLUDEDIR isn't set
+    # in that context, it doesn't care about cached or touched file set inside
+    # an if over that here, etc)
+    #
+    # And I've had enough of this bullcrap. So for now it's wait 10~12 seconds
+    # of console spam as CMake hammers my shinny solid state drive, and make
+    # plans to NOT let CMake handle installing things.
+    #
+    # I.e. either cmake won't be handling our externals / installs no more, or
+    # cmake itself is going to get deep sixed. For now, just wait forever.
+    #
+    install(DIRECTORY ${BOOST_PREFIX}/include/boost-1_71/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+    install(DIRECTORY ${BOOST_PREFIX}/lib DESTINATION ${CMAKE_INSTALL_LIBDIR})
+
 endif(NOT EXISTS ${CMAKE_BINARY_DIR}/external.done)
 
