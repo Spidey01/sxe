@@ -48,6 +48,9 @@ else()
     include_directories(${Boost_INCLUDE_DIRS})
 
     add_subdirectory(core)
+
+    add_subdirectory(demos)
+
     install(FILES cmake/SxeConfig.cmake DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake/sxe)
 
     # Our externals need to come too.
@@ -69,7 +72,7 @@ else()
     # cmake itself is going to get deep sixed. For now, just wait forever.
     #
     install(DIRECTORY ${BOOST_PREFIX}/include/boost-1_71/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-    install(DIRECTORY ${BOOST_PREFIX}/lib DESTINATION ${CMAKE_INSTALL_LIBDIR})
+    install(DIRECTORY ${BOOST_PREFIX}/lib/ DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 endif(NOT EXISTS ${CMAKE_BINARY_DIR}/external.done)
 
