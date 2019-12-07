@@ -25,7 +25,7 @@
 
 #include <sxe/cxxversion.hpp>
 
- #if SXE_MSC_VERSION
+ #if SXE_MSVC_VERSION
     /* Compilers using __declspec() syntax. */
     #define SXE_DLL_IMPORT __declspec(dllimport)
 #else
