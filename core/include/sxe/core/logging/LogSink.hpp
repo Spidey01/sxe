@@ -23,8 +23,8 @@
  *	   distribution.
  */
 
-#include <sxe/stdheaders.hpp>
 #include <boost/filesystem/path.hpp>
+#include <sxe/api.hpp>
 
 namespace sxe { namespace core { namespace logging {
 
@@ -32,7 +32,7 @@ namespace sxe { namespace core { namespace logging {
      *
      * The default implementation simply works with a std::ostream. Like std::cout or std::clog.
      */
-    class LogSink {
+    class SXE_PUBLIC LogSink {
       public:
 
         using shared_ptr = std::shared_ptr<LogSink>;

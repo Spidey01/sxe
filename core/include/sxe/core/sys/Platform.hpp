@@ -23,14 +23,14 @@
  *	   distribution.
  */
 
-#include <sxe/stdheaders.hpp>
+#include <sxe/api.hpp>
 
 namespace sxe { namespace core { namespace sys {
 
     /** A bundle of platform information.
      *
      */
-    class Platform 
+    class SXE_PUBLIC Platform 
     {
       public:
 

@@ -10,9 +10,13 @@
         "src/logging/LogSink.cpp",
         "src/sys/Platform.cpp"
     ],
+    "headers": [
+        "include/sxe"
+    ],
+    "headers_strip_prefix": "include",
     "gcc": {
         "cppflags": [
-            "-I$sourcedir/include",
+            "-I$sourcedir/src",
             "-I$distdir/include",
             "-DSXE_DLL",
             "-DSXE_DLL_EXPORTS"
@@ -32,9 +36,9 @@
     },
     "msvc": {
         "cppflags": [
-            "/I$sourcedir/include",
-            "-I$distdir/include",
-            "-I$distdir/include/boost-1_71",
+            "/I$sourcedir/src",
+            "/I$distdir/include",
+            "/I$distdir/include/boost-1_71",
             "/DSXE_DLL",
             "/DSXE_DLL_EXPORTS",
             "/DWIN32",

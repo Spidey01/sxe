@@ -23,8 +23,8 @@
  *	   distribution.
  */
 
-#include "sxe/core/logging/LogSink.hpp"
-#include <sxe/stdheaders.hpp>
+#include <sxe/api.hpp>
+#include <sxe/core/logging/LogSink.hpp>
 
 namespace sxe { namespace core { namespace logging {
 
@@ -45,7 +45,7 @@ namespace sxe { namespace core { namespace logging {
      * By default there are no log sinks, which causes all log data to be silenced.
      *
      */
-    class Log {
+    class SXE_PUBLIC Log {
       public:
 
         // Android mimicery: least to most: ERROR, WARN, INFO, DEBUG, VERBOSE.

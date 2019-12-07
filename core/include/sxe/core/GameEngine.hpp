@@ -23,11 +23,11 @@
  *	   distribution.
  */
 
-#include <sxe/stdheaders.hpp>
+#include <sxe/api.hpp>
 
 namespace sxe { namespace core {
 
-    class GameEngine
+    class SXE_PUBLIC GameEngine
     {
       public:
 

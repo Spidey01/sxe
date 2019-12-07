@@ -21,11 +21,18 @@
  *	   distribution.
  */
 
-#include "sxe/stdheaders.hpp"
 #include "sxe/core/GameEngine.hpp"
+#include "sxe/logging.hpp"
+#include "sxe/stdheaders.hpp"
+
 namespace sxe { namespace core {
 
-GameEngine::GameEngine() {
+GameEngine::GameEngine()
+{
+}
+
+GameEngine::~GameEngine()
+{
 }
 
 } }

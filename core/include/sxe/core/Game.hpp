@@ -24,7 +24,6 @@
  */
 
 #include <sxe/api.hpp>
-
 #include <sxe/core/RateCounter.hpp>
 
 namespace sxe { namespace core {
@@ -33,7 +32,7 @@ namespace sxe { namespace core {
 
     /** Your games base class.
     */
-    class Game
+    class SXE_PUBLIC Game
     {
       public:
 
