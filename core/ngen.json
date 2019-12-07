@@ -17,6 +17,7 @@
     "gcc": {
         "cppflags": [
             "-I$sourcedir/src",
+            "-I$sourcedir/include",
             "-I$distdir/include",
             "-DSXE_DLL",
             "-DSXE_DLL_EXPORTS"
@@ -37,6 +38,7 @@
     "msvc": {
         "cppflags": [
             "/I$sourcedir/src",
+            "/I$sourcedir/include",
             "/I$distdir/include",
             "/I$distdir/include/boost-1_71",
             "/DSXE_DLL",
@@ -57,6 +59,7 @@
             "/FS",
             "/link",
             "/libpath:$distdir/lib"
+            ,"/verbose"
         ]
     }
 }
