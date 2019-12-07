@@ -1,0 +1,58 @@
+{
+    "project": "core",
+    "version": "0",
+    "type": "cxx_library",
+    "sources": [
+        "src/Game.cpp",
+        "src/GameEngine.cpp",
+        "src/RateCounter.cpp",
+        "src/logging/Log.cpp",
+        "src/logging/LogSink.cpp",
+        "src/sys/Platform.cpp"
+    ],
+    "gcc": {
+        "cppflags": [
+            "-I$sourcedir/include",
+            "-I$distdir/include",
+            "-DSXE_DLL",
+            "-DSXE_DLL_EXPORTS"
+        ],
+        "cxxflags": [
+            "-std=c++17",
+            "-Wall",
+            "-ggdb3",
+            "-fvisibility=hidden"
+        ],
+        "ldflags": [
+            "-L$distdir/lib"
+        ],
+        "ldlibs": [
+            "-lboost_filesystem"
+        ]
+    },
+    "msvc": {
+        "cppflags": [
+            "/I$sourcedir/include",
+            "-I$distdir/include",
+            "-I$distdir/include/boost-1_71",
+            "/DSXE_DLL",
+            "/DSXE_DLL_EXPORTS",
+            "/DWIN32",
+            "/D_WINDOWS"
+        ],
+        "cxxflags": [
+            "/std:c++17",
+            "/W4",
+            "/wd4251",
+            "/GR", "/EHsc",
+            "/FS",
+            "/Zi", "/Ob0", "/Od"
+        ],
+        "ldflags": [
+            "/MD",
+            "/FS",
+            "/link",
+            "/libpath:$distdir/lib"
+        ]
+    }
+}
