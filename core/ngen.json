@@ -59,7 +59,6 @@
             "/FS",
             "/link",
             "/libpath:$distdir/lib"
-            ,"/verbose"
         ]
     }
 }
