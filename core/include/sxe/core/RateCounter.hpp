@@ -23,11 +23,11 @@
  *	   distribution.
  */
 
-#include <sxe/stdheaders.hpp>
+#include <sxe/api.hpp>
 
 namespace sxe { namespace core {
 
-    class RateCounter
+    class SXE_PUBLIC RateCounter
     {
       public:
 
