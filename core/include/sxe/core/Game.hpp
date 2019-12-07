@@ -23,7 +23,9 @@
  *	   distribution.
  */
 
-#include <sxe/stdheaders.hpp>
+#include <sxe/api.hpp>
+
+#include <sxe/core/RateCounter.hpp>
 
 namespace sxe { namespace core {
 
@@ -35,24 +37,84 @@ namespace sxe { namespace core {
     {
       public:
 
+        /** Enumerated game state.
+         *
+         * We're either starting the game, running, or stopping the game. This can
+         * be used to adjust code to the current state of the game. Such as loading
+         * resources during STARTING and unloading them during STOPPING.
+         */
+        enum class State {
+            STARTING,
+            RUNNING,
+            STOPPING,
+        };
+
         Game();
+
         virtual ~Game();
 
+        /** Implement to return the name of your game.
+         */
         virtual std::string getName() const = 0;
+
+        virtual std::string getPublisher() const;
 
         /** Starts the game running.
          *
          * @param engine a GameEngine to execute the game within.
          */
-        // virtual bool start(GameEngine& engine);
+        virtual bool start(GameEngine* engine);
 
         /** Stops the game running.
          *
          */
-        // virtual void stop();
+        virtual void stop();
+
+        bool isStopRequested() const;
+
+        bool isStopped() const;
+
+        /** Request that the game be stoped.
+         *
+         * @see #stop
+         */
+        void requestStop();
+
+        /** Maximum Frames Per Second rate.  */
+        int getMaxFpsRate() const;
+
+        /** Maximum tick rate.  */
+        int getMaxTickRate() const;
+
+        int getTickRate() const;
+
+        void tick();
+
+        /** Returns the GameEngine.
+         *
+         * @throws runtime_error if start() has not been called yet.
+         */
+        GameEngine& getGameEngine() const;
+
+      protected:
+
+        /** Our GameEngine.
+         *
+         * @see #start
+         */
+        GameEngine* mGameEngine;
+
+        State mState;
 
       private:
 
+        static const std::string TAG;
+        static const size_t mMaxTickRate;
+
+        std::atomic_bool mStopRequested;
+        std::atomic_bool mStopDone;
+
+        RateCounter mTickCounter;
     };
 
 } }
