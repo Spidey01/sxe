@@ -35,7 +35,8 @@ Log::lock_guard::mutex_type Log::sMutex;
 void Log::wtf(const std::string& tag, const std::string& message)
 {
     log(ASSERT, tag, message);
-    assert("What a Terrible Failure Report we has here" == nullptr);
+    static const char* msg = "What a Terrible Failure Report we has here";
+    assert(msg == nullptr);
 }
 
 
@@ -84,6 +85,10 @@ void Log::test(const std::string& tag, const std::string& message)
 void Log::log(int level, const std::string& tag, const std::string& message)
 {
     lock_guard synchronized(sMutex);
+
+    for (auto sink : sSinks) {
+        sink->log(level, tag, message);
+    }
 }
 
 
