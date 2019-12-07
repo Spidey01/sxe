@@ -1,10 +1,10 @@
 {
-    "project": "examples",
+    "project": "demos",
     "version": "2.0",
     "type": "package",
     "sources": [
-        "core",
-        "demos"
+        "nulldemo"
     ]
 }
+
 
