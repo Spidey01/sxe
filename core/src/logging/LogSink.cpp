@@ -63,6 +63,12 @@ LogSink::LogSink(const string& name, int level, std::ostream& stream)
 }
 
 
+LogSink::LogSink()
+    : LogSink(DEFAULT_LOG_NAME, DEFAULT_LOG_LEVEL, std::clog)
+{
+}
+
+
 void LogSink::log(int level, const std::string& tag, const std::string& message)
 {
     if (message.empty())
