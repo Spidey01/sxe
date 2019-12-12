@@ -11,44 +11,22 @@
     ],
     "gcc": {
         "cppflags": [
-            "-I$distdir/include",
-            "-DSXE_DLL"
+            "$sxe_gcc_cppflags",
+            "-I$sourcedir/src",
+            "-I$sourcedir/include"
         ],
-        "cxxflags": [
-            "-std=c++17",
-            "-Wall",
-            "-ggdb3"
-        ],
-        "ldflags": [
-            "-L$distdir/lib"
-        ],
-        "ldlibs": [
-            "-lboost_filesystem"
-        ]
+        "cxxflags": "$sxe_gcc_cxxflags",
+        "ldflags": "$sxe_gcc_cxxflags",
+        "ldlibs": "$sxe_gcc_ldlibs -lSxE_core"
     },
     "msvc": {
         "cppflags": [
-            "/I$distdir/include",
-            "/I$distdir/include/boost-1_71",
-            "/DSXE_DLL",
-            "/DWIN32",
-            "/D_WINDOWS"
+            "$sxe_msvc_cppflags",
+            "/I$sourcedir/src",
+            "/I$sourcedir/include"
         ],
-        "cxxflags": [
-            "/std:c++17",
-            "/W4",
-            "/wd4251",
-            "/GR", "/EHsc",
-            "/FS"
-        ],
-        "ldflags": [
-            "/MD",
-            "/FS",
-            "/link",
-            "/libpath:$distdir/lib"
-        ],
-        "ldlibs": [
-            "core.lib"
-        ]
+        "cxxflags": "$sxe_msvc_cxxflags",
+        "ldflags": "$sxe_msvc_cxxflags",
+        "ldlibs": "$sxe_msvc_ldlibs SxE_core.lib"
     }
 }
