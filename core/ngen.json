@@ -16,49 +16,24 @@
     "headers_strip_prefix": "include",
     "gcc": {
         "cppflags": [
+            "$sxe_gcc_cppflags",
+            "-DSXE_DLL_EXPORTS",
             "-I$sourcedir/src",
-            "-I$sourcedir/include",
-            "-I$distdir/include",
-            "-DSXE_DLL",
-            "-DSXE_DLL_EXPORTS"
+            "-I$sourcedir/include"
         ],
-        "cxxflags": [
-            "-std=c++17",
-            "-Wall",
-            "-ggdb3",
-            "-fvisibility=hidden"
-        ],
-        "ldflags": [
-            "-L$distdir/lib"
-        ],
-        "ldlibs": [
-            "-lboost_filesystem"
-        ]
+        "cxxflags": "$sxe_gcc_cxxflags",
+        "ldflags": "$sxe_gcc_cxxflags",
+        "ldlibs": "$sxe_gcc_ldlibs"
     },
     "msvc": {
         "cppflags": [
-            "/I$sourcedir/src",
-            "/I$sourcedir/include",
-            "/I$distdir/include",
-            "/I$distdir/include/boost-1_71",
-            "/DSXE_DLL",
+            "$sxe_msvc_cppflags",
             "/DSXE_DLL_EXPORTS",
-            "/DWIN32",
-            "/D_WINDOWS"
+            "/I$sourcedir/src",
+            "/I$sourcedir/include"
         ],
-        "cxxflags": [
-            "/std:c++17",
-            "/W4",
-            "/wd4251",
-            "/GR", "/EHsc",
-            "/FS",
-            "/Zi", "/Ob0", "/Od"
-        ],
-        "ldflags": [
-            "/MD",
-            "/FS",
-            "/link",
-            "/libpath:$distdir/lib"
-        ]
+        "cxxflags": "$sxe_msvc_cxxflags",
+        "ldflags": "$sxe_msvc_cxxflags",
+        "ldlibs": "$sxe_msvc_ldlibs"
     }
 }
