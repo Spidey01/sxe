@@ -8,6 +8,7 @@
     ],
     "sources": [
         "core/sys/PlatformTest.cpp",
+        "core/sys/XdgTest.cpp",
         "main.cpp"
     ],
     "gcc": {
