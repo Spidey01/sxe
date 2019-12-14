@@ -72,3 +72,5 @@ PROJECT_TARGET_TRIPLET=$(g++ -dumpmachine)
 # defaults
 PROJECT_BUILDDIR="${PROJECT_ROOT}/tmp/${PROJECT_TARGET_TRIPLET}"
 PROJECT_DISTDIR="${PROJECT_ROOT}/dist"
+
+.cmd\boost-setup.sh
