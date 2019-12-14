@@ -46,7 +46,8 @@ IF NOT EXIST %PROJECT_DISTDIR%\include\boost-1_71 (
 	.\b2 ^
 		--prefix=%PROJECT_DISTDIR% %COMPONENTS% ^
 		--build-dir=%PROJECT_BUILDDIR%\vendor\boost ^
-		--build-type=complete ^
+		--build-type=complete --layout=versioned ^
+		--no-cmake-config ^
 		-j12 ^
 			address-model=64 ^
 				install
@@ -54,7 +55,7 @@ IF NOT EXIST %PROJECT_DISTDIR%\include\boost-1_71 (
 	POPD
 )
 
-ECHO Your BOOST is %PROJECT_DISTDIR%
+ECHO Your BOOST is %PROJECT_DISTDIR%\include\boost-1_71
 GOTO :eof
 
 :NEED_ZIPPER
