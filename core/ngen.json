@@ -23,7 +23,7 @@
             "-I$sourcedir/include"
         ],
         "cxxflags": "$sxe_gcc_cxxflags",
-        "ldflags": "$sxe_gcc_cxxflags",
+        "ldflags": "$sxe_gcc_ldflags",
         "ldlibs": "$sxe_gcc_ldlibs"
     },
     "msvc": {
