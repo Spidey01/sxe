@@ -68,31 +68,43 @@ namespace sxe { namespace core { namespace logging {
          * names if you wish ;).
          */
         static void wtf(const std::string& tag, const std::string& message);
+        static void wtf(const std::string& tag, const std::string& message, const std::exception& error);
 
         /** Send an ERROR message. */
         static void e(const std::string& tag, const std::string& message);
+        static void e(const std::string& tag, const std::string& message, const std::exception& error);
 
         /** Send an WARN message. */
         static void w(const std::string& tag, const std::string& message);
+        static void w(const std::string& tag, const std::string& message, const std::exception& error);
 
         /** Send an INFO message. */
         static void i(const std::string& tag, const std::string& message);
+        static void i(const std::string& tag, const std::string& message, const std::exception& error);
 
         /** Send an DEBUG message. */
         static void d(const std::string& tag, const std::string& message);
+        static void d(const std::string& tag, const std::string& message, const std::exception& error);
 
         /** Send an VERBOSE message. */
         static void v(const std::string& tag, const std::string& message);
+        static void v(const std::string& tag, const std::string& message, const std::exception& error);
 
         /** Send an TRACE message. */
         static void xtrace(const std::string& tag, const std::string& message);
+        static void xtrace(const std::string& tag, const std::string& message, const std::exception& error);
 
         /** Send an TEST message. */
         static void test(const std::string& tag, const std::string& message);
+        static void test(const std::string& tag, const std::string& message, const std::exception& error);
 
         /** Send a message to all sinks.
         */
         static void log(int level, const std::string& tag, const std::string& message);
+
+        /** Adds exception to log message.
+         */
+        static void log(int level, const std::string& tag, const std::string& message, const std::exception& error);
 
         /** Add log sink.
          */

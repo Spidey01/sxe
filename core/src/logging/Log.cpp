@@ -24,6 +24,7 @@
 #include "sxe/core/logging/Log.hpp"
 
 using std::string;
+using std::exception;
 
 namespace sxe { namespace core { namespace logging {
 
@@ -32,63 +33,118 @@ static LogSinkListPrivate sSinks;
 
 Log::lock_guard::mutex_type Log::sMutex;
 
-void Log::wtf(const std::string& tag, const std::string& message)
+void Log::wtf(const string& tag, const string& message)
 {
     log(ASSERT, tag, message);
     static const char* msg = "What a Terrible Failure Report we has here";
     assert(msg == nullptr);
 }
 
+void Log::wtf(const string& tag, const string& message, const exception& error)
+{
+    log(ASSERT, tag, message, error);
+    static const char* msg = "What a Terrible Failure Report we has here";
+    assert(msg == nullptr);
+}
 
-void Log::e(const std::string& tag, const std::string& message)
+
+void Log::e(const string& tag, const string& message)
 {
     log(ERROR, tag, message);
 }
 
 
-void Log::w(const std::string& tag, const std::string& message)
+void Log::e(const string& tag, const string& message, const exception& error)
+{
+    log(ERROR, tag, message, error);
+}
+
+
+void Log::w(const string& tag, const string& message)
 {
     log(WARN, tag, message);
 }
 
 
-void Log::i(const std::string& tag, const std::string& message)
+void Log::w(const string& tag, const string& message, const exception& error)
+{
+    log(WARN, tag, message, error);
+}
+
+
+void Log::i(const string& tag, const string& message)
 {
     log(INFO, tag, message);
 }
 
 
-void Log::d(const std::string& tag, const std::string& message)
+void Log::i(const string& tag, const string& message, const exception& error)
+{
+    log(INFO, tag, message, error);
+}
+
+
+void Log::d(const string& tag, const string& message)
 {
     log(DEBUG, tag, message);
 }
 
 
-void Log::v(const std::string& tag, const std::string& message)
+void Log::d(const string& tag, const string& message, const exception& error)
+{
+    log(DEBUG, tag, message, error);
+}
+
+
+void Log::v(const string& tag, const string& message)
 {
     log(VERBOSE, tag, message);
 }
 
 
-void Log::xtrace(const std::string& tag, const std::string& message)
+void Log::v(const string& tag, const string& message, const exception& error)
+{
+    log(VERBOSE, tag, message, error);
+}
+
+
+void Log::xtrace(const string& tag, const string& message)
 {
     log(TRACE, tag, message);
 }
 
 
-void Log::test(const std::string& tag, const std::string& message)
+void Log::xtrace(const string& tag, const string& message, const exception& error)
+{
+    log(TRACE, tag, message, error);
+}
+
+
+void Log::test(const string& tag, const string& message)
 {
     log(TEST, tag, message);
 }
 
 
-void Log::log(int level, const std::string& tag, const std::string& message)
+void Log::test(const string& tag, const string& message, const exception& error)
+{
+    log(TEST, tag, message, error);
+}
+
+
+void Log::log(int level, const string& tag, const string& message)
 {
     lock_guard synchronized(sMutex);
 
     for (auto sink : sSinks) {
         sink->log(level, tag, message);
     }
+}
+
+
+void Log::log(int level, const string& tag, const string& message, const exception& error)
+{
+    log(level, tag, message + string(": exception: ") + error.what());
 }
 
 
