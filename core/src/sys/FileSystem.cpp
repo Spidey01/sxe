@@ -53,7 +53,6 @@ SXE_PUBLIC string getUserDir()
     return sUserDir;
 }
 
-// SXE_PUBLIC FILE* getBitBucketFile();
 
 SXE_PUBLIC path getBitBucketPath()
 {
@@ -68,8 +67,6 @@ SXE_PUBLIC path getBitBucketPath()
 
     return "/dev/null";
 }
-
-// SXE_PUBLIC string find(string[] dirs, string name);
 
 
 } } } }
