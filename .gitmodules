@@ -1,3 +1,6 @@
 [submodule "envsetup"]
 	path = envsetup
 	url = https://github.com/Spidey01/envsetup.git
+[submodule "vendor\\cppunit"]
+	path = vendor\\cppunit
+	url = git://anongit.freedesktop.org/git/libreoffice/cppunit/
