@@ -5,7 +5,8 @@
     "sources": [
         "core",
         "pc",
-        "demos"
+        "demos",
+        "tests"
     ],
     "variables": [
         "sxe_gcc_comment = Default gcc flags.",

@@ -1,0 +1,35 @@
+{
+    "project": "tests",
+    "version": "0",
+    "description": "SxE test runner.",
+    "type": "cxx_application",
+    "dependencies": [
+        "core"
+    ],
+    "sources": [
+        "main.cpp"
+    ],
+    "gcc": {
+        "targetName": "sxe-test-runner",
+        "cppflags": [
+            "$sxe_gcc_cppflags",
+            "-I$sourcedir/src",
+            "-I$sourcedir/include"
+        ],
+        "cxxflags": "$sxe_gcc_cxxflags",
+        "ldflags": "$sxe_gcc_ldflags",
+        "ldlibs": "$sxe_gcc_ldlibs -lSxE_core -lcppunit"
+    },
+    "msvc": {
+        "comment": "msvc cppunit stuff not ready yet",
+        "cppflags": [
+            "$sxe_msvc_cppflags",
+            "/I$sourcedir/src",
+            "/I$sourcedir/include"
+        ],
+        "cxxflags": "$sxe_msvc_cxxflags",
+        "ldflags": "$sxe_msvc_cxxflags",
+        "ldlibs": "$sxe_msvc_ldlibs SxE_core.lib"
+    }
+}
+
