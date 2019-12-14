@@ -15,7 +15,7 @@
     ],
     "headers_strip_prefix": "include",
     "gcc": {
-        "targetName": "libSxE_core",
+        "targetName": "SxE_core",
         "cppflags": [
             "$sxe_gcc_cppflags",
             "-DSXE_DLL_EXPORTS",
