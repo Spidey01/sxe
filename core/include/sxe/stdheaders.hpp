@@ -41,7 +41,7 @@
 #if SXE_CXX11
 #include <scoped_allocator>
 #endif
-#if SXE_CXX17
+#if SXE_CXX17 && (!SXE_GCC_VERSION || SXE_GCC_VERSION > 90100)
 #include <memory_resource>
 #endif
 
@@ -101,7 +101,7 @@
 
 /* Algorithms library. */
 #include <algorithm>
-#if SXE_CXX17
+#if SXE_CXX17 && (!SXE_GCC_VERSION || SXE_GCC_VERSION > 90100)
 #include <execution>
 #endif
 

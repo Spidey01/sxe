@@ -93,6 +93,7 @@
 
 /*
  * C++ 17 support in GCC/libstdc++ is pretty complete by version 7.
+ * Some headers require version 9.1.
  */
 #define SXE_CXX17 (__cplusplus > 201402L && SXE_GCC_VERSION >= 70000)
 
