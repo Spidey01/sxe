@@ -56,9 +56,9 @@ namespace sxe { namespace core { namespace sys {
          *
          * @return Absolute path to name if found; else null.
          */
-        template <class InputIt> SXE_PUBLIC path find(InputIt dirs, InputIt last, const string& name);
+        template <class InputIt> path find(InputIt dirs, InputIt last, const string& name);
 
-        template <class InputIt> SXE_PUBLIC path find(InputIt first, InputIt last, const string& name)
+        template <class InputIt> path find(InputIt first, InputIt last, const string& name)
         {
             for (; first != last; ++first) {
                 path p;
