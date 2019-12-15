@@ -32,11 +32,14 @@ class SettingsXMLFileTest : public SettingsFixture
 {
     CPPUNIT_TEST_SUITE(SettingsXMLFileTest);
     SETTINGSFIXTURE_MACRO();
+    CPPUNIT_TEST(xmlstream);
     CPPUNIT_TEST_SUITE_END();
 
   protected:
 
     settings_ptr make_settings() const override;
+
+    void xmlstream();
 
   private:
 };

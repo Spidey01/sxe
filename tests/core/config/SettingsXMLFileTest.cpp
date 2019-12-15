@@ -42,3 +42,40 @@ SettingsXMLFileTest::settings_ptr SettingsXMLFileTest::make_settings() const
 }
 
 
+void SettingsXMLFileTest::xmlstream()
+{
+    Log::xtrace(TAG, "xmlstream()");
+
+    std::stringstream xml;
+
+    using std::endl;
+    using std::quoted;
+
+    /*
+     * The Boosty implementation of this turns foo.bar into a foo block containing a bar.
+     */
+
+    xml
+        << "<?xml version=" << quoted("1.0") << " encoding=" << quoted("utf-8") << "?>" << endl
+        << "<foo>" << endl
+        << "  <some_number>2</some_number>" << endl
+        << "  <nested>" << endl
+        << "    <stuff>true</stuff>" << endl
+        << "  </nested>" << endl
+        << "  <some_string>Hello, foo</some_string>" << endl
+        << "</foo>" << endl
+        << "<bar>" << endl
+        << "  <float>5.0</float>" << endl
+        << "</bar>" << endl
+        << endl
+        ;
+
+    SettingsXMLFile file(xml);
+
+    CPPUNIT_ASSERT(file.getInt("foo.some_number") == 2);
+    CPPUNIT_ASSERT(file.getString("foo.some_string") == "Hello, foo");
+    CPPUNIT_ASSERT(file.getBool("foo.nested.stuff") == true);
+    float fpn = file.getFloat("bar.float");
+    CPPUNIT_ASSERT(fpn >= 4.9 && fpn <= 5.1);
+}
+
