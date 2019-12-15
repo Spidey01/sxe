@@ -113,7 +113,7 @@ class SXE_PRIVATE TestUser
     {
         string text = event.toString();
 
-        Log::i(TAG, "TestUser::onTest(TestEvent => " + text + ")");
+        Log::v(TAG, "TestUser::onTest(TestEvent => " + text + ")");
 
         called = true;
         lastTestEvent = event;

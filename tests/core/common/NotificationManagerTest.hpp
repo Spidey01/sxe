@@ -1,5 +1,5 @@
-#ifndef SXE_TESTS_CORE_COMMON_XDGTEST__HPP
-#define SXE_TESTS_CORE_COMMON_XDGTEST__HPP
+#ifndef SXE_TESTS_CORE_COMMON_NOTIFICATIONMANAGERTEST__HPP
+#define SXE_TESTS_CORE_COMMON_NOTIFICATIONMANAGERTEST__HPP
 /*-
  * Copyright (c) 2019-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -47,5 +47,5 @@ class NotificationManagerTest : public CPPUNIT_NS::TestFixture
     void assertNotCalled(const TestUser& u, const std::string& s);
 };
 
-#endif // SXE_TESTS_CORE_COMMON_XDGTEST__HPP
+#endif // SXE_TESTS_CORE_COMMON_NOTIFICATIONMANAGERTEST__HPP
 

@@ -1,5 +1,5 @@
-#ifndef SXE_TESTS_CORE_COMMON_XDGTEST__HPP
-#define SXE_TESTS_CORE_COMMON_XDGTEST__HPP
+#ifndef SXE_TESTS_CORE_COMMON_SUBSYSTEMTEST__HPP
+#define SXE_TESTS_CORE_COMMON_SUBSYSTEMTEST__HPP
 /*-
  * Copyright (c) 2019-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -42,5 +42,5 @@ class SubsystemTest : public CPPUNIT_NS::TestFixture
   private:
 };
 
-#endif // SXE_TESTS_CORE_COMMON_XDGTEST__HPP
+#endif // SXE_TESTS_CORE_COMMON_SUBSYSTEMTEST__HPP
 
