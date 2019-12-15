@@ -9,6 +9,7 @@
         "src/common/Subsystem.cpp",
         "src/config/Settings.cpp",
         "src/config/SettingsMap.cpp",
+        "src/config/SettingsXMLFile.cpp",
         "src/logging/Log.cpp",
         "src/logging/LogSink.cpp",
         "src/sys/FileSystem.cpp",
