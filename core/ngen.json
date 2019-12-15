@@ -6,6 +6,7 @@
         "src/Game.cpp",
         "src/GameEngine.cpp",
         "src/RateCounter.cpp",
+        "src/common/Subsystem.cpp",
         "src/logging/Log.cpp",
         "src/logging/LogSink.cpp",
         "src/sys/FileSystem.cpp",
