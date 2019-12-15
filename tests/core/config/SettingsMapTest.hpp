@@ -26,35 +26,19 @@
 #include <cppunit/extensions/HelperMacros.h>
 #include <sxe/core/config/SettingsMap.hpp>
 
-class SettingsMapTest : public CPPUNIT_NS::TestFixture
+#include "SettingsFixture.hpp"
+
+class SettingsMapTest : public SettingsFixture
 {
     CPPUNIT_TEST_SUITE(SettingsMapTest);
-
-    CPPUNIT_TEST(strings);
-    CPPUNIT_TEST(booleans);
-    CPPUNIT_TEST(integers);
-    CPPUNIT_TEST(floatingpoints);
-    CPPUNIT_TEST(keys);
-    CPPUNIT_TEST(merge);
-    CPPUNIT_TEST(anykeynotifications);
-    CPPUNIT_TEST(specifickeynotifications);
-
+    SETTINGSFIXTURE_MACRO();
     CPPUNIT_TEST_SUITE_END();
 
   protected:
 
-    void strings();
-    void booleans();
-    void integers();
-    void floatingpoints();
-    void keys();
-    void merge();
-    void anykeynotifications();
-    void specifickeynotifications();
+    settings_ptr make_settings() const override;
 
   private:
 };
 
 #endif // SXE_TESTS_CORE_CONFIG_SETTINGSMAPTEST__HPP
-
-

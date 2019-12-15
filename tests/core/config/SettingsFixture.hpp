@@ -1,5 +1,5 @@
-#ifndef SXE_TESTS_CORE_CONFIG_SETTINGSXMLFILETEST__HPP
-#define SXE_TESTS_CORE_CONFIG_SETTINGSXMLFILETEST__HPP
+#ifndef SXE_TESTS_CORE_CONFIG_SETTINGSFIXTURE__HPP
+#define SXE_TESTS_CORE_CONFIG_SETTINGSFIXTURE__HPP
 /*-
  * Copyright (c) 2019-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -24,21 +24,48 @@
  */
 
 #include <cppunit/extensions/HelperMacros.h>
-#include <sxe/core/config/SettingsXMLFile.hpp>
+#include <sxe/core/config/Settings.hpp>
 
-#include "SettingsFixture.hpp"
+#define SETTINGSFIXTURE_MACRO() \
+    CPPUNIT_TEST(strings); \
+    CPPUNIT_TEST(booleans); \
+    CPPUNIT_TEST(integers); \
+    CPPUNIT_TEST(floatingpoints); \
+    CPPUNIT_TEST(keys); \
+    CPPUNIT_TEST(merge); \
+    CPPUNIT_TEST(anykeynotifications); \
+    CPPUNIT_TEST(specifickeynotifications)
 
-class SettingsXMLFileTest : public SettingsFixture
+class SettingsFixture : public CPPUNIT_NS::TestFixture
 {
-    CPPUNIT_TEST_SUITE(SettingsXMLFileTest);
-    SETTINGSFIXTURE_MACRO();
+    /* Do this in subclasses. */
+#if 0
+    CPPUNIT_TEST_SUITE(SettingsYourSubclass);
+    SETTINGSFIXTURE_MACRO()
     CPPUNIT_TEST_SUITE_END();
+#endif
 
   protected:
 
-    settings_ptr make_settings() const override;
+    using settings_ptr = std::unique_ptr<sxe::core::config::Settings>;
+
+    /** Implement this in subclasses. */
+    virtual settings_ptr make_settings() const;
+
+    void strings();
+    void booleans();
+    void integers();
+    void floatingpoints();
+    void keys();
+    void merge();
+    void anykeynotifications();
+    void specifickeynotifications();
 
   private:
 };
 
-#endif // SXE_TESTS_CORE_CONFIG_SETTINGSXMLFILETEST__HPP
+#endif // SXE_TESTS_CORE_CONFIG_SETTINGSFIXTURE__HPP
+
+
+
+
