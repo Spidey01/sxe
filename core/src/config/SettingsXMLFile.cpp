@@ -76,7 +76,12 @@ SettingsXMLFile::KeyList SettingsXMLFile::keys() const
 
 bool SettingsXMLFile::contains(const string_type& key) const
 {
-    return mProps.find(key) != mProps.not_found();
+    /*
+     * Boost treats dots as nested fields instead of flat. ptree::find don't
+     * automate the way the get/put do. Easier to just use get.
+     */
+    // return mProps.find(key) != mProps.not_found();
+    return ! mProps.get<string_type>(key, "").empty();
 }
 
 
