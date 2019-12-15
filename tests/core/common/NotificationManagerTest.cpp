@@ -64,6 +64,11 @@ class SXE_PRIVATE TestEvent
     {
         mText.clear();
     }
+
+    operator string() const
+    {
+        return mText;
+    }
 };
 
 /** Helper notification interface.

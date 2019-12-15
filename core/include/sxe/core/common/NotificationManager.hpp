@@ -35,6 +35,10 @@ namespace sxe { namespace core { namespace common {
      * two forms of notification: a general broadcast and a specific
      * subscription.
      *
+     * Messages are assumed to be convertable to string keys. If the type does
+     * not support operator string(), you will need to extend
+     * NotificationManager and override asString() for your Message_T.
+     *
      * To pass a payload of message/event data, etc. Extend this class and Override
      * the invoke() method appropriately for your interface.
      *
@@ -52,6 +56,7 @@ namespace sxe { namespace core { namespace common {
         using mutex_type = std::recursive_mutex;
         using lock_type = std::lock_guard<mutex_type>;
         using list_type = std::list<Receiver_T>;
+        using value_type = typename list_type::value_type;
         using size_type = typename list_type::size_type;
         using string_type = std::string;
         using map_type = std::map<string_type, list_type>;
@@ -148,10 +153,12 @@ namespace sxe { namespace core { namespace common {
 
             lock_type guard(mMutex);
 
+            sxe::core::logging::Log::log(mLevel, mTag, "notifyListeners(): all messages subscribers: " + asString(message));
             for (auto rx : notificationReceivers()) {
                 invoke(rx, message);
             }
 
+            sxe::core::logging::Log::log(mLevel, mTag, "notifyListeners(): specific message subscribers: " + asString(message));
             auto it = subscribers().find(asString(message));
             if (it == subscribers().cend()) {
                 return;
@@ -237,7 +244,10 @@ namespace sxe { namespace core { namespace common {
 
         virtual string_type asString(const Message_T& msg) const
         {
-            return "";
+            // return "";
+            // string_type key = msg;
+            // return key;
+            return msg;
         }
 
 
