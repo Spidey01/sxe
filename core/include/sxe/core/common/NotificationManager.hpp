@@ -30,25 +30,38 @@ namespace sxe { namespace core { namespace common {
 
     /** A simple notification manager.
      *
-     * Notifications and messages can be of any suitable interface/type. You
-     * may wish to use std::function and std::mem_fn as Reciever_T. There are
-     * two forms of notification: a general broadcast and a specific
-     * subscription.
+     * NotificationManager is based on mapping a message to a callable to
+     * receive notification.
      *
-     * Messages are assumed to be convertable to string keys. If the type does
-     * not support operator string(), you will need to extend
-     * NotificationManager and override asString() for your Message_T.
+     * Notifications can be subscribed to as an "Any key" general broadcast, or
+     * to a "Specofic key" receiver. Separate receiver lists are maintained for
+     * these.
      *
-     * To pass a payload of message/event data, etc. Extend this class and Override
-     * the invoke() method appropriately for your interface.
+     * Receiver_T should be an callable in the sense of operator(Message_T).
+     * std::function<> and std::mem_fn<> are recommended. If using a custom
+     * functor type, consider implementing a operator string() for debug purposes.
+     *
+     * Message_Ts are assumed to be mappable to keys for dispatch purposes.
+     * Such that toKey(msg) -> subscriber key -> call receiver.
+     *
+     * If Message_T is convetable to string, toKey() uses string keys to
+     * dispatch messages. User defined types can implement <samp>operator
+     * string(Message_T)</samp> to handle that.
+     *
+     * Otherwise Message_T will be converted using std::to_string() over the
+     * numerical Hash of the message dispatch. Specializations of std::hash<>
+     * can be provided or the Hash parameter set accordingly.
+     *
+     * If all else fails, extend NotificationManager and override toKey().
+     *
      *
      * Historical:
-     *   - SxE 1.x used a listener object / event object interface.
+     *   - SxE 1.x used a dedicated listener object / event object interface.
      *   - SxE 2.x uses modern C++ functors, and makes old compilers cry.
      *
      * @see #invoke(java.lang.Object, java.lang.Object)
      */
-    template <class Receiver_T, class Message_T>
+    template <class Receiver_T, class Message_T, class Hash=std::hash<Message_T>>
     class NotificationManager
     {
       public:
@@ -94,7 +107,7 @@ namespace sxe { namespace core { namespace common {
 
             sxe::core::logging::Log::log(mLevel, mTag, "subscribe(): rx: " + asString(rx) + " key: " + key);
 
-            list_type& list = mSubscribers[key];
+            list_type& list = mSubscribers[toKey(key)];
             list.push_back(rx);
 
             size_type id = list.size() - 1;
@@ -129,7 +142,7 @@ namespace sxe { namespace core { namespace common {
             sxe::core::logging::Log::log(mLevel, mTag,
                                          "unsubscribe(): key: " + key + " id: " + std::to_string(id));
 
-            auto pair = mSubscribers.find(key);
+            auto pair = mSubscribers.find(toKey(key));
             if (pair == mSubscribers.end())
                 return;
 
@@ -149,17 +162,17 @@ namespace sxe { namespace core { namespace common {
          */
         void notifyListeners(Message_T message)
         {
-            sxe::core::logging::Log::log(mLevel, mTag, "notifyListeners(): " + asString(message));
+            sxe::core::logging::Log::log(mLevel, mTag, "notifyListeners(): " + toKey(message));
 
             lock_type guard(mMutex);
 
-            sxe::core::logging::Log::log(mLevel, mTag, "notifyListeners(): all messages subscribers: " + asString(message));
+            sxe::core::logging::Log::log(mLevel, mTag, "notifyListeners(): all messages subscribers: " + toKey(message));
             for (auto rx : notificationReceivers()) {
                 invoke(rx, message);
             }
 
-            sxe::core::logging::Log::log(mLevel, mTag, "notifyListeners(): specific message subscribers: " + asString(message));
-            auto it = subscribers().find(asString(message));
+            sxe::core::logging::Log::log(mLevel, mTag, "notifyListeners(): specific message subscribers: " + toKey(message));
+            auto it = subscribers().find(toKey(message));
             if (it == subscribers().cend()) {
                 return;
             }
@@ -221,7 +234,7 @@ namespace sxe { namespace core { namespace common {
          */
         virtual void invoke(Receiver_T rx, Message_T message)
         {
-            sxe::core::logging::Log::log(mLevel, mTag, "invoke(): rx: " + asString(rx) + " message: " + asString(message));
+            sxe::core::logging::Log::log(mLevel, mTag, "invoke(): rx: " + asString(rx) + " message: " + toKey(message));
             rx(message);
         }
 
@@ -238,16 +251,37 @@ namespace sxe { namespace core { namespace common {
          */
         virtual string_type asString(const Receiver_T& rx) const
         {
+            if constexpr(std::is_convertible<Receiver_T, std::string>::value)
+                return rx;
+
             return "";
         }
 
-
-        virtual string_type asString(const Message_T& msg) const
+        /** Adapter for Message_T => string Key mappings.
+         *
+         * If Message_T is convertable to a string, such as a user defiend type
+         * with operator string(): keys will be that. This provides the best
+         * result.
+         *
+         * Otherwise Hash and std::to_string() will be used. By default Hash is
+         * std::hash<>, meaning Message_T's that you have specialized will just
+         * work. Numeric keys are effective but less friendly.
+         *
+         * Alternatively: override toKey() and provide your own voodoo for
+         * mapping the keys to the Message_T.
+         */
+        virtual string_type toKey(const Message_T& msg) const
         {
-            // return "";
-            // string_type key = msg;
-            // return key;
-            return msg;
+            if constexpr(std::is_convertible<Message_T, std::string>::value) {
+                string_type k = msg;
+                sxe::core::logging::Log::log(mLevel, mTag, "toKey(msg): operator string(): " + k);
+                return k;
+            } else {
+                Hash h;
+                size_t k = h(msg);
+                sxe::core::logging::Log::log(mLevel, mTag, "toKey(msg): Hash{}(): " + std::to_string(k));
+                return std::to_string(k);
+            }
         }
 
 

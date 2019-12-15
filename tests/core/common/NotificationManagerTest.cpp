@@ -64,12 +64,17 @@ class SXE_PRIVATE TestEvent
     {
         mText.clear();
     }
-
-    operator string() const
-    {
-        return mText;
-    }
 };
+
+namespace std {
+    template <> struct hash<TestEvent>
+    {
+        size_t operator()(const TestEvent & x) const
+        {
+            return hash<string>()(x.toString());
+        }
+    };
+}
 
 /** Helper notification interface.
  *
@@ -80,12 +85,6 @@ using TestListener = std::function<void(TestEvent)>;
 
 /** Helper event manager. */
 class SXE_PRIVATE TestEventManager : public NotificationManager<TestListener, TestEvent> {
-
-    string_type asString(const TestEvent& event)
-    {
-        return event.toString();
-    }
-
 };
 
 
