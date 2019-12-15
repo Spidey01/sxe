@@ -28,6 +28,34 @@ namespace sxe { namespace core { namespace config {
 
 const Settings::string_type Settings::TAG = "Settings";
 
+Settings::SettingsManager::size_type Settings::addChangeListener(OnChangedListener callback, const string_type& key)
+{
+    Log::xtrace(TAG, "addChangeListener(): key: " + key);
+    return mSettingsManager.subscribe(callback, key);
+}
+
+
+Settings::SettingsManager::size_type Settings::addChangeListener(OnChangedListener callback)
+{
+    Log::xtrace(TAG, "addChangeListener():");
+    return mSettingsManager.subscribe(callback);
+}
+
+
+void Settings::removeChangeListener(const string_type& key, SettingsManager::size_type id)
+{
+    Log::xtrace(TAG, "removeChangeListener(): key: " + key + " id: " + std::to_string(id));
+    mSettingsManager.unsubscribe(key, id);
+}
+
+
+void Settings::removeChangeListener(SettingsManager::size_type id)
+{
+    Log::xtrace(TAG, "removeChangeListener(): id: " + std::to_string(id));
+    mSettingsManager.unsubscribe(id);
+}
+
+
 bool Settings::getBool(const string_type& key) const
 {
     string_type value = getString(key);
@@ -116,6 +144,13 @@ void Settings::merge(const Settings& other)
     for (string_type key : other.keys()) {
         setString(key, other.getString(key));
     }
+}
+
+
+void Settings::notifyListeners(const string_type& key)
+{
+    Log::xtrace(TAG, "notifyListeners(): key: " + key);
+    mSettingsManager.notifyListeners(key);
 }
 
 

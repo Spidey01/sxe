@@ -24,6 +24,7 @@
  */
 
 #include <sxe/api.hpp>
+#include <sxe/core/common/NotificationManager.hpp>
 
 namespace sxe { namespace core { namespace config {
 
@@ -44,38 +45,39 @@ namespace sxe { namespace core { namespace config {
      */
     class SXE_PUBLIC Settings {
       public:
-
         using string_type = std::string;
+
+        /** Handle change notification.
+         */
+        using OnChangedListener = std::function<void(string_type)>;
+
+        /** Notification Manager for settings keys.
+         *
+         * Note that size_type id's are different for any key vs specific key
+         * listeners.
+         */
+        using SettingsManager = sxe::core::common::NotificationManager<OnChangedListener, string_type>;
 
         Settings() = default;
         virtual ~Settings() = default;
 
-        #if 0 // 1.x
-        /** Interface for subscribing to settings changes.
-         *
-         * Use this if you must be kept up to date with the current value of a key.
-         */
-        public interface OnChangedListener extends EventListener {
-            /** Handle change notification.
-             *
-             * You are provided an instance of the Settings so that you can query
-             * its value using the provided methods.  It is not recommended to
-             * modify the Settings instance unless you must update related settings
-             * for e.g. consistency.
-             *
-             * No guarantee of thread safety is required for implementations of
-             * this interface.
-             *
-             * @param key - the key associated with the change.
-             */
-            void onChanged(String key);
-        }
 
-        void addChangeListener(OnChangedListener listener);
-        void addChangeListener(String key, OnChangedListener listener);
-        void removeChangeListener(OnChangedListener listener);
-        // void removeChangeListener(String key, OnChangedListener listener);
-        #endif
+        /** Add listener for changes to key.
+         */
+        SettingsManager::size_type addChangeListener(OnChangedListener callback, const string_type& key);
+
+        /** Add listener for any key change.
+         */
+        SettingsManager::size_type addChangeListener(OnChangedListener callback);
+
+        /** Remove specific key listener.
+         */
+        void removeChangeListener(const string_type& key, SettingsManager::size_type id);
+
+        /** Remove any key listener.
+         */
+        void removeChangeListener(SettingsManager::size_type id);
+
 
         using KeyList = std::vector<string_type>;
 
@@ -142,8 +144,13 @@ namespace sxe { namespace core { namespace config {
 
       protected:
 
+        /** Call this with the key to notify OnChangedListeners.
+         */
+        void notifyListeners(const string_type& key);
+
       private:
         static const string_type TAG;
+        SettingsManager mSettingsManager;
     };
 
 } } }

@@ -69,6 +69,7 @@ SettingsMap& SettingsMap::setString(const string_type& key, const string_type& v
     Log::test(TAG, "setString(): key: " + key + " => value: " + value);
     mMap[key] = value;
 
+    notifyListeners(key);
     return *this;
 }
 

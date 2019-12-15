@@ -36,6 +36,8 @@ class SettingsMapTest : public CPPUNIT_NS::TestFixture
     CPPUNIT_TEST(floatingpoints);
     CPPUNIT_TEST(keys);
     CPPUNIT_TEST(merge);
+    CPPUNIT_TEST(anykeynotifications);
+    CPPUNIT_TEST(specifickeynotifications);
 
     CPPUNIT_TEST_SUITE_END();
 
@@ -47,6 +49,8 @@ class SettingsMapTest : public CPPUNIT_NS::TestFixture
     void floatingpoints();
     void keys();
     void merge();
+    void anykeynotifications();
+    void specifickeynotifications();
 
   private:
 };

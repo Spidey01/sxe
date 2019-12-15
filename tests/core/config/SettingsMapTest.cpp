@@ -160,3 +160,70 @@ void SettingsMapTest::merge()
     CPPUNIT_ASSERT(parent.getString("k2") == "two");
 }
 
+
+void SettingsMapTest::anykeynotifications()
+{
+    Log::xtrace(TAG, "anykeynotifications()");
+
+    SettingsMap map;
+
+    bool notified = false;
+
+    SettingsMap::OnChangedListener listener = [&notified](const string& key) -> void
+    {
+        Log::d(TAG, "anykeynotifications() listener(" + key + ") called");
+        notified = true;
+    };
+
+
+    auto bid = map.addChangeListener(listener);
+    Log::v(TAG, "notifications(): bid: " + std::to_string(bid));
+
+    map.setString("any", "value");
+    CPPUNIT_ASSERT_MESSAGE("Notifications for any key.",
+                           notified == true);
+    notified = false;
+
+    map.removeChangeListener(bid);
+
+    map.setString("any", "no one listening");
+    CPPUNIT_ASSERT_MESSAGE("No broadcast notifications after unsubscribe",
+                           notified == false);
+}
+
+
+void SettingsMapTest::specifickeynotifications()
+{
+    Log::xtrace(TAG, "specifickeynotifications()");
+
+    SettingsMap map;
+    bool notified = false;
+
+    SettingsMap::OnChangedListener listener = [&notified](const string& key) -> void
+    {
+        Log::d(TAG, "specifickeynotifications() listener(" + key + ") called");
+        notified = true;
+    };
+
+    static const string unique_key = "my magical key";
+
+    auto sid = map.addChangeListener(listener, unique_key);
+    Log::v(TAG, "notifications(): sid: " + std::to_string(sid));
+
+    map.setString("Hello", "notifications");
+    CPPUNIT_ASSERT_MESSAGE("No notifications for unsubscribed keys.",
+                           notified == false);
+
+    map.setString(unique_key, "foo");
+
+    CPPUNIT_ASSERT_MESSAGE("Notifications for specific keys.",
+                           notified == true);
+    notified = false;
+
+    map.removeChangeListener(unique_key, sid);
+
+    map.setString(unique_key, "no one listening");
+    CPPUNIT_ASSERT_MESSAGE("No specific notifications after unsubscribe",
+                           notified == false);
+}
+
