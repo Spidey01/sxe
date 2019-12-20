@@ -23,6 +23,9 @@
 
 #include "sxe/core/GameEngine.hpp"
 #include "sxe/logging.hpp"
+#include <sxe/core/config/Settings.hpp>
+#include <sxe/core/config/SettingsMap.hpp>
+#include <sxe/core/sys/Platform.hpp>
 
 using std::string;
 
@@ -32,14 +35,77 @@ const string GameEngine::TAG = "GameEngine";
 
 GameEngine::GameEngine()
 {
+#if 0
     // placeholder
     auto sink = std::make_shared<sxe::core::logging::LogSink>();
     sxe::core::logging::Log::add(sink);
+#endif
 }
+
+GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
+                       DisplayManager_ptr&& display, SceneManager_ptr&& scene,
+                       InputManager_ptr&& input, ResourceManager_ptr&& resources,
+                       LoggingManager_ptr&& logging, Settings_ptr&& settings,
+                       sys::Platform platform)
+    : mXdg()
+    , mGame(game)
+    , mDisplayManager(std::move(display))
+    , mSceneManager(std::move(scene))
+    , mInputManager(std::move(input))
+    , mResourceManager(std::move(resources))
+    , mLoggingManager(std::move(logging))
+    , mRuntimeSettings(std::make_unique<config::SettingsMap>())
+    , mPlatformSettings(std::move(settings))
+    , mSystemSettings(nullptr)
+    , mUserSettings(nullptr)
+    , mCommandLineSettings(std::move(args))
+    , mPlatform(platform)
+{
+    // placeholder
+    auto sink = std::make_shared<sxe::core::logging::LogSink>();
+    sxe::core::logging::Log::add(sink);
+
+    if (!mRuntimeSettings)
+        Log::wtf(TAG, "Programmer failure");
+
+    // TODO: settings slurpie.
+
+    /*
+     * These initialize functions will subscribe to whatever runtime
+     * settings they want. As well as perform any pre start() setup.
+     */
+
+    if (mLoggingManager)
+        mLoggingManager->initialize(*this);
+    if (mDisplayManager)
+        mDisplayManager->initialize(*this);
+    if (mSceneManager)
+        mSceneManager->initialize(*this);
+    if (mInputManager)
+        mInputManager->initialize(*this);
+    if (mResourceManager)
+        mResourceManager->initialize(*this);
+
+    /*
+     * Process the various sources of Settings.
+     */
+    if (mPlatformSettings != nullptr)      mRuntimeSettings->merge(*mPlatformSettings);
+    if (mSystemSettings != nullptr)        mRuntimeSettings->merge(*mSystemSettings);
+    if (mUserSettings != nullptr)          mRuntimeSettings->merge(*mUserSettings);
+    if (mCommandLineSettings != nullptr)   mRuntimeSettings->merge(*mCommandLineSettings);
+
+    configure();
+
+    if (mGame == nullptr) {
+        throw std::invalid_argument(TAG + string("game parameter can't be nullptr!"));
+    }
+}
+
 
 GameEngine::~GameEngine()
 {
 }
+
 
 bool GameEngine::start()
 {
@@ -120,6 +186,30 @@ void GameEngine::update()
     mSceneManager.update();
     mDisplay.update();
     #endif
+}
+
+
+void GameEngine::configure()
+{
+    configure(*mRuntimeSettings);
+}
+
+
+void GameEngine::configure(config::Settings& s)
+{
+    /* Shortcut key used for general debugging. */
+    if (s.getBool("debug")) {
+        // Make sure that we have a log file.
+        if (!s.contains("debug.log_to"))
+            s.setString("debug.log_to", "debug.log");
+        if (!s.contains("debug.log_level"))
+            s.setInt("debug.log_level", Log::DEBUG);
+    }
+}
+
+std::weak_ptr<Game> GameEngine::getGame() const
+{
+    return mGame;
 }
 
 } }

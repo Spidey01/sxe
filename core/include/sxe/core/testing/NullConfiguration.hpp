@@ -1,3 +1,5 @@
+#ifndef SXE_CORE_TESTING_NULLCONFIGURATION__HPP
+#define SXE_CORE_TESTING_NULLCONFIGURATION__HPP
 /*-
  * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -21,42 +23,31 @@
  *	   distribution.
  */
 
-#include "sxe/core/testing/NullConfiguration.hpp"
-
-#include "sxe/core/config/SettingsMap.hpp"
-#include "sxe/core/sys/Platform.hpp"
-
-using std::make_shared;
-using std::make_unique;
-using sxe::core::config::Settings;
-using sxe::core::config::SettingsMap;
+#include <sxe/api.hpp>
+#include <sxe/core/Game.hpp>
+#include <sxe/core/GameEngine.hpp>
 
 namespace sxe { namespace core { namespace testing {
 
-GameEngine::unique_ptr NullConfiguration::setup(Game::shared_ptr game)
-{
-    return setup(0, nullptr, game);
-}
+    /** Utility class to setup a GameEngine configured with null input and display.
+    */
+    class SXE_PUBLIC NullConfiguration
+    {
+      public:
 
+        /** The defaults */
+        static GameEngine::unique_ptr setup(Game::shared_ptr game);
 
-GameEngine::unique_ptr NullConfiguration::setup(int argc, char* argv[], Game::shared_ptr game)
-{
-    argc -= 1;
-    argv += 1;
-
-    return std::make_unique<sxe::core::GameEngine>
-    (
-        game
-        , make_unique<SettingsMap>(argc, argv)
-        , nullptr // display manager -- TODO NullDisplayManager.
-        , nullptr // scene manager
-        , nullptr // input maanger -- TODO NullInputManager
-        , nullptr // resource manager
-        , nullptr // logging manager
-        , nullptr // platform specific settings
-        , sxe::core::sys::Platform()
-    );
-}
-
+        /** Setup.
+         *
+         * @param argc same as main().
+         * @param argv same as main().
+         * @param game a shared_ptr to your Game implementation.
+         *
+         * @returns unique_ptr to GameEngine ready to be started.
+         */
+        static GameEngine::unique_ptr setup(int argc, char* argv[], Game::shared_ptr game);
+    };
 } } }
 
+#endif // SXE_CORE_TESTING_NULLCONFIGURATION__HPP

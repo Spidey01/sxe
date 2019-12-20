@@ -24,9 +24,16 @@
  */
 
 #include <sxe/api.hpp>
-#include "sxe/core/sys/Xdg.hpp"
+#include <sxe/core/common/Subsystem.hpp>
+#include <sxe/core/sys/Platform.hpp>
+#include <sxe/core/sys/Xdg.hpp>
 
 namespace sxe { namespace core {
+
+    class Game;
+    namespace config {
+        class Settings;
+    };
 
     class SXE_PUBLIC GameEngine
     {
@@ -35,7 +42,38 @@ namespace sxe { namespace core {
         using shared_ptr = std::shared_ptr<GameEngine>;
         using weak_ptr = std::weak_ptr<GameEngine>;
 
+        using Game_ptr = std::shared_ptr<Game>;
+        using Settings_ptr = std::unique_ptr<config::Settings>;
+
+        using TODO_placeholder = common::Subsystem; // placeholder.
+        using DisplayManager_ptr = std::unique_ptr<TODO_placeholder>;
+        using SceneManager_ptr = std::unique_ptr<TODO_placeholder>;
+        using InputManager_ptr = std::unique_ptr<TODO_placeholder>;
+        using ResourceManager_ptr = std::unique_ptr<TODO_placeholder>;
+        using LoggingManager_ptr = std::unique_ptr<TODO_placeholder>;
+
+        /** Just enough for unit tests. */
         GameEngine();
+
+        /** Initializes the engine for use.
+         *
+         * This is the primary chunk-o-code constructor.
+         *
+         * @param args Command line arguments.
+         * @param display Display complicata.
+         * @param scene  Manager of the scene.
+         * @param game Game implementation.
+         * @param input All that input related stuff.
+         * @param resources Resource management.
+         * @param settings Platform specific settings.
+         * @param platform Platform specific information.
+         */
+        GameEngine(Game_ptr game, Settings_ptr&& args,
+                   DisplayManager_ptr&& display, SceneManager_ptr&& scene,
+                   InputManager_ptr&& input, ResourceManager_ptr&& resources,
+                   LoggingManager_ptr&& logging, Settings_ptr&& settings,
+                   sys::Platform platform);
+
         virtual ~GameEngine();
 
         /** Start up the game.
@@ -71,11 +109,56 @@ namespace sxe { namespace core {
          */
         void update();
 
+        /** Push some helpful defaults to runtime settings.
+         */
+        void configure();
+
+        /** Push some helpful defaults to this settings.
+         */
+        void configure(config::Settings& s);
+
+        std::weak_ptr<Game> getGame() const;
+
       private:
         static const std::string TAG;
 
         sys::Xdg mXdg;
 
+        Game_ptr mGame;
+
+        DisplayManager_ptr mDisplayManager;
+        SceneManager_ptr mSceneManager;
+        InputManager_ptr mInputManager;
+        ResourceManager_ptr mResourceManager;
+        LoggingManager_ptr mLoggingManager;
+
+        /** Master source of Settings.
+         *
+         * From lowest to highest priority, this will contain the following sources
+         * of Settings data.
+         *
+         * <ol>
+         *      <li>Platform settings.</li>
+         *      <li>System settings file.</li>
+         *      <li>User settings file.</li>
+         *      <li>Command line arguments</li>
+         * </ol>
+         */
+        Settings_ptr mRuntimeSettings;
+
+        /** Platform settings loaded from the ctor. */
+        Settings_ptr mPlatformSettings;
+
+        /** System settings loaded from $XDG_CONFIG_DIRS. */
+        Settings_ptr mSystemSettings;
+
+        /** User settings loaded from $XDG_CONFIG_HOME. */
+        Settings_ptr mUserSettings;
+
+        /** Settings provided at the command line. */
+        Settings_ptr mCommandLineSettings;
+
+        sys::Platform mPlatform;
     };
 
 } }
