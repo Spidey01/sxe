@@ -26,6 +26,34 @@ bool NullDemo::start(sxe::core::GameEngine* engine)
     return true;
 }
 
+
+void NullDemo::stop()
+{
+    sxe::core::Game::stop();
+
+    Log::v(TAG, "Null demo is stopping");
+}
+
+
+void NullDemo::tick()
+{
+    Log::xtrace(TAG, "tick()");
+}
+
+#if 0 // java
+    @Override
+    public boolean onKey(KeyEvent event) {
+        if (event.isKeyUp()) {
+            if (event.getKeyCode().equals(InputCode.IC_Q)) {
+                Log.d(TAG, "Q key released");
+                requestStop();
+                return true;
+            }
+        }
+        return false;
+    }
+#endif
+
 }
 
 

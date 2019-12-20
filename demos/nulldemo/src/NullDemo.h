@@ -14,6 +14,8 @@ namespace demos {
         std::string getName() const override;
 
         bool start(sxe::core::GameEngine* engine) override;
+        void stop() override;
+        void tick() override;
 
       private:
         static std::string TAG;
