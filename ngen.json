@@ -20,7 +20,7 @@
 
         "sxe_msvc_comment = Default msvc flags.",
 
-        "sxe_msvc_defines = /DWIN32 /D_WINDOWS /DSXE_DLL",
+        "sxe_msvc_defines = /DWIN32 /D_WINDOWS /DSXE_DLL /D_CRT_SECURE_NO_WARNINGS",
         "sxe_msvc_includes = /I$distdir/include/boost-1_71 /I$distdir/include ",
         "sxe_msvc_cppflags = $sxe_msvc_defines $sxe_msvc_includes",
         "sxe_msvc_cxxflags = /std:c++17 /W4 /wd4251 /GR /EHsc /FS /Zi /Ob0 /Od",
