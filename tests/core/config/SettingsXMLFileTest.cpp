@@ -70,6 +70,7 @@ void SettingsXMLFileTest::xmlstream()
         << endl
         ;
 
+    Log::test(TAG, "xml.str(): " + xml.str());
     SettingsXMLFile file(xml);
 
     CPPUNIT_ASSERT(file.getInt("foo.some_number") == 2);
