@@ -75,5 +75,6 @@ PROJECT_DISTDIR="${PROJECT_ROOT}/dist"
 
 export PROJECT_ROOT PROJECT_BUILDDIR PROJECT_DISTDIR
 
+.cmd/json-setup.sh
 .cmd/cppunit-setup.sh
 .cmd/boost-setup.sh
