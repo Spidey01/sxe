@@ -4,9 +4,8 @@ IF NOT DEFINED PROJECT_DISTDIR (
 	GOTO :eof
 )
 
-IF NOT EXIST "%PROJECT_DISTDIR\include\nlohmann\json.hpp" (
+IF NOT EXIST "%PROJECT_DISTDIR%\include\nlohmann\json.hpp" (
     ROBOCOPY vendor\json\include\nlohmann "%PROJECT_DISTDIR%\include\nlohmann" /MIR
 )
 
 ECHO Your json is %PROJECT_DISTDIR%
-
