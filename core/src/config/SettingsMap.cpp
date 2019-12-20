@@ -34,6 +34,29 @@ SettingsMap::SettingsMap()
 }
 
 
+SettingsMap::SettingsMap(int count, char** args)
+    : SettingsMap()
+{
+    Log::test(TAG, "start parsing count/args; count = " + std::to_string(count));
+    for (int i=0; i < count; ++i) {
+        Log::test(TAG, std::to_string(i));
+        string_type arg = args[i];
+        Log::test(TAG, "args[" + std::to_string(i) + "]: " + arg);
+
+        auto sep = arg.find_last_of("=");
+
+        string_type key = arg.substr(0, sep);
+        Log::test(TAG, "key: " + key);
+
+        string_type value = arg.substr(sep + 1);
+        Log::test(TAG, "value: " + value);
+
+        mMap[key] = value;
+    }
+    Log::test(TAG, "done parsing count/args");
+}
+
+
 SettingsMap::KeyList SettingsMap::keys() const
 {
     KeyList r;

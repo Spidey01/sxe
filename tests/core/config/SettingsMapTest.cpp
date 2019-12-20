@@ -41,3 +41,19 @@ SettingsMapTest::settings_ptr SettingsMapTest::make_settings() const
     return std::make_unique<SettingsMap>();
 }
 
+void SettingsMapTest::ctor()
+{
+    Log::xtrace(TAG, "ctor");
+
+
+    static char* argv[] = {
+        "a1=str1",
+        "a2=2",
+    };
+    int argc = 2;
+
+    SettingsMap map(argc, argv);
+
+    CPPUNIT_ASSERT(map.getString("a1") == "str1");
+    CPPUNIT_ASSERT(map.getInt("a2") == 2);
+}

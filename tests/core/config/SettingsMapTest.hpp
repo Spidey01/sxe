@@ -32,11 +32,13 @@ class SettingsMapTest : public SettingsFixture
 {
     CPPUNIT_TEST_SUITE(SettingsMapTest);
     SETTINGSFIXTURE_MACRO();
+    CPPUNIT_TEST(ctor);
     CPPUNIT_TEST_SUITE_END();
 
   protected:
 
     settings_ptr make_settings() const override;
+    void ctor();
 
   private:
 };

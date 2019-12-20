@@ -36,6 +36,14 @@ namespace sxe { namespace core { namespace config {
       public:
 
         SettingsMap();
+
+        /** Create SettingsMap from a sequence of strings.
+         *
+         * This is in the format of command line arguments. Namely
+         * <samp>"key=value"</samp>.
+         */
+        SettingsMap(int count, char** args);
+
         virtual ~SettingsMap() = default;
 
         KeyList keys() const override;
