@@ -34,7 +34,7 @@ static const string TAG = "SettingsFixture";
 SettingsFixture::settings_ptr SettingsFixture::make_settings() const
 {
     throw std::runtime_error("Override make_settings() and build a factory.");
-    return nullptr;
+    // return nullptr;
 }
 
 

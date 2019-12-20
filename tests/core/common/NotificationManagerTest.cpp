@@ -217,6 +217,7 @@ void NotificationManagerTest::assertCalled(const TestUser& u, const string& s)
 
 void NotificationManagerTest::assertNotCalled(const TestUser& u, const string& s)
 {
+    (void)s;
     CPPUNIT_ASSERT_MESSAGE("TestUser::called is unset until called.", 
                            u.called == false);
     CPPUNIT_ASSERT_MESSAGE("TestUser::lastTestEvent is nullptr until called.", 

@@ -251,6 +251,7 @@ namespace sxe { namespace core { namespace common {
          */
         virtual string_type asString(const Receiver_T& rx) const
         {
+            (void)rx;
             if constexpr(std::is_convertible<Receiver_T, std::string>::value)
                 return rx;
 
