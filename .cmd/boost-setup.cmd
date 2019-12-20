@@ -16,6 +16,8 @@ SET B2=%WHERE%\b2.exe
 
 SET COMPONENTS=--with-headers --with-filesystem
 
+IF EXIST %PROJECT_DISTDIR%\include\boost-1_71 GOTO :FINISHED
+
 IF NOT EXIST %CACHE% (
 	ECHO Downloading %ZIP_URL%
 	ECHO This will take a very long time.
@@ -55,6 +57,7 @@ IF NOT EXIST %PROJECT_DISTDIR%\include\boost-1_71 (
 	POPD
 )
 
+:FINISHED
 ECHO Your BOOST is %PROJECT_DISTDIR%\include\boost-1_71
 GOTO :eof
 
