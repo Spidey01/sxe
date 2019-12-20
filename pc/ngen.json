@@ -2,6 +2,9 @@
     "project": "pc",
     "version": "0",
     "type": "cxx_library",
+    "dependencies": [
+        "SxE_core"
+    ],
     "sources": [
         "src/PcConfiguration.cpp"
     ],

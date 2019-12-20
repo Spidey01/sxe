@@ -4,7 +4,7 @@
     "description": "SxE test runner.",
     "type": "cxx_application",
     "dependencies": [
-        "core"
+        "SxE_core"
     ],
     "sources": [
         "core/common/NotificationManagerTest.cpp",
