@@ -29,6 +29,7 @@
     },
     "msvc": {
         "comment": "msvc cppunit stuff not ready yet",
+        "targetName": "sxe-test-runner",
         "cppflags": [
             "$sxe_msvc_cppflags",
             "/I$sourcedir/src",
