@@ -24,17 +24,57 @@
  */
 
 #include <sxe/api.hpp>
+#include "sxe/core/sys/Xdg.hpp"
 
 namespace sxe { namespace core {
 
     class SXE_PUBLIC GameEngine
     {
       public:
+        using unique_ptr = std::unique_ptr<GameEngine>;
+        using shared_ptr = std::shared_ptr<GameEngine>;
+        using weak_ptr = std::weak_ptr<GameEngine>;
 
         GameEngine();
         virtual ~GameEngine();
 
+        /** Start up the game.
+         *
+         * Takes care of initializing the games engine to run the game in the
+         * current context. It will call the start() method of your Game
+         * implementation accordingly.
+         */
+        bool start();
+
+        /** Stop the game.
+         *
+         * Will ensure Game::stop() is called. Shuts down the display, etc.
+         */
+        void stop();
+
+        /** Convenience method that can serve as a simple main loop. */
+        void mainLoop();
+
+        /** Determine if the Game environment is running. */
+        bool isRunning() const;
+
+        /** Update Game engine state.
+         *
+         * <ol>
+         *  <li>Polls the InputManager.</li>
+         *  <li>Updates the SceneManager.</li>
+         *  <li>Updates the Display.</li>
+         * </ol>
+         *
+         * Game implementations update independantly of GameEngine, as it runs on a
+         * seperate thread.
+         */
+        void update();
+
       private:
+        static const std::string TAG;
+
+        sys::Xdg mXdg;
 
     };
 

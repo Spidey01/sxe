@@ -35,6 +35,9 @@ namespace sxe { namespace core {
     class SXE_PUBLIC Game
     {
       public:
+        using unique_ptr = std::unique_ptr<Game>;
+        using shared_ptr = std::shared_ptr<Game>;
+        using weak_ptr = std::weak_ptr<Game>;
 
         /** Enumerated game state.
          *
@@ -87,7 +90,7 @@ namespace sxe { namespace core {
 
         int getTickRate() const;
 
-        void tick();
+        virtual void tick();
 
         /** Returns the GameEngine.
          *
