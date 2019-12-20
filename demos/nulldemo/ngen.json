@@ -3,7 +3,7 @@
     "version": "0",
     "type": "cxx_application",
     "dependencies": [
-        "core"
+        "SxE_core"
     ],
     "sources": [
         "src/main.cpp",
