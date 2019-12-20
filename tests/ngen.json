@@ -32,11 +32,12 @@
         "cppflags": [
             "$sxe_msvc_cppflags",
             "/I$sourcedir/src",
-            "/I$sourcedir/include"
+            "/I$sourcedir/include",
+            "/DCPPUNIT_DLL"
         ],
         "cxxflags": "$sxe_msvc_cxxflags",
         "ldflags": "$sxe_msvc_cxxflags",
-        "ldlibs": "$sxe_msvc_ldlibs SxE_core.lib"
+        "ldlibs": "$sxe_msvc_ldlibs SxE_core.lib cppunit_dll.lib"
     }
 }
 
