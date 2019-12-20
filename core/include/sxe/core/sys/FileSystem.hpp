@@ -47,6 +47,7 @@ namespace sxe { namespace core { namespace sys {
         /** Return the path to the systems bit bucket. */
         SXE_PUBLIC path getBitBucketPath();
 
+        using boost::filesystem::exists;
 
         /** Search list of directories for a file.
          *
@@ -66,7 +67,7 @@ namespace sxe { namespace core { namespace sys {
                 p /= *first;
                 p /= name;
 
-                if (boost::filesystem::exists(p))
+                if (exists(p))
                     return boost::filesystem::absolute(p);
             }
 

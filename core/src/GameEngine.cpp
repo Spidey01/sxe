@@ -22,10 +22,13 @@
  */
 
 #include "sxe/core/GameEngine.hpp"
-#include "sxe/logging.hpp"
+
+#include <sxe/core/Game.hpp>
 #include <sxe/core/config/Settings.hpp>
 #include <sxe/core/config/SettingsMap.hpp>
+#include <sxe/core/config/SettingsXMLFile.hpp>
 #include <sxe/core/sys/Platform.hpp>
+#include <sxe/logging.hpp>
 
 using std::string;
 
@@ -61,14 +64,56 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
     , mCommandLineSettings(std::move(args))
     , mPlatform(platform)
 {
+
+    if (mGame == nullptr) {
+        throw std::invalid_argument(TAG + string("game parameter can't be nullptr!"));
+    }
+
     // placeholder
     auto sink = std::make_shared<sxe::core::logging::LogSink>();
     sxe::core::logging::Log::add(sink);
 
-    if (!mRuntimeSettings)
-        Log::wtf(TAG, "Programmer failure");
+    {
+        if (!mRuntimeSettings)
+            Log::wtf(TAG, "Programmer failure");
 
-    // TODO: settings slurpie.
+        // Used to have a fancier SettingsFile stuff for k/v vs xml - start off with what we have now.
+
+        const string cfgName = mGame->getName() + ".cfg";
+        const string xmlName = mGame->getName() + ".xml";
+        const auto names = { cfgName, xmlName };
+
+        /*
+         * System settings:
+         *
+         *      Look for the first GameName.cfg file in $XDG_CONFIG_DIRS.
+         *      If not found, try GameName.xml by same method.
+         */
+
+        for (const string& n : names) {
+            auto p = mXdg.getConfigDir(n);
+
+            if (sys::FileSystem::exists(p)) {
+                mSystemSettings = std::make_unique<config::SettingsXMLFile>(p);
+                break;
+            }
+        }
+
+        /*
+         * User settings:
+         *
+         *      Look for $XDG_CONFIG_HOME/|game name|cfg.
+         *      If not found, try $XDG_CONFIG_HOME/|game name|.xml
+         */
+
+        for (const string& n : names) {
+            auto p = mXdg.getConfigHomeDir(n);
+
+            if (sys::FileSystem::exists(p)) {
+                mUserSettings = std::make_unique<config::SettingsXMLFile>(p);
+            }
+        }
+    }
 
     /*
      * These initialize functions will subscribe to whatever runtime
@@ -95,10 +140,6 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
     if (mCommandLineSettings != nullptr)   mRuntimeSettings->merge(*mCommandLineSettings);
 
     configure();
-
-    if (mGame == nullptr) {
-        throw std::invalid_argument(TAG + string("game parameter can't be nullptr!"));
-    }
 }
 
 
