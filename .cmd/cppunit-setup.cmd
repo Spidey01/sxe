@@ -13,10 +13,10 @@ IF NOT EXIST %PROJECT_DISTDIR%\lib\cppunit.lib (
 	@ECHO Building cppunit release x64
 	msbuild src\CppUnitLibraries2010.sln /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /verbosity:quiet /nologo
 
-	XCOPY lib\cppunit_dll.dll %PROJECT_DISTDIR%\bin /Y
-	XCOPY lib\cppunit_dll.lib %PROJECT_DISTDIR%\lib /Y
-	XCOPY lib\cppunit.lib %PROJECT_DISTDIR%\lib /Y
-	XCOPY lib\DllPlugInTester_dll.exe %PROJECT_DISTDIR%\bin /Y
+	XCOPY lib\cppunit_dll.dll %PROJECT_DISTDIR%\bin\ /Y
+	XCOPY lib\cppunit_dll.lib %PROJECT_DISTDIR%\lib\ /Y
+	XCOPY lib\cppunit.lib %PROJECT_DISTDIR%\lib\ /Y
+	XCOPY lib\DllPlugInTester_dll.exe %PROJECT_DISTDIR%\bin\ /Y
 
 	git clean -f lib src
 )
@@ -25,10 +25,10 @@ IF NOT EXIST %PROJECT_DISTDIR%\lib\cppunitd.lib (
 	@ECHO Building cppunit debug x64
 	msbuild src\CppUnitLibraries2010.sln /p:configuration=debug /p:platform=x64 /p:PlatformToolset=v142 /verbosity:quiet /nologo
 
-	XCOPY lib\cppunitd_dll.dll %PROJECT_DISTDIR%\bin /Y
-	XCOPY lib\cppunitd_dll.lib %PROJECT_DISTDIR%\lib /Y
-	XCOPY lib\cppunitd.lib %PROJECT_DISTDIR%\lib /Y
-	XCOPY lib\DllPlugInTesterd_dll.exe %PROJECT_DISTDIR%\bin /Y
+	XCOPY lib\cppunitd_dll.dll %PROJECT_DISTDIR%\bin\ /Y
+	XCOPY lib\cppunitd_dll.lib %PROJECT_DISTDIR%\lib\ /Y
+	XCOPY lib\cppunitd.lib %PROJECT_DISTDIR%\lib\ /Y
+	XCOPY lib\DllPlugInTesterd_dll.exe %PROJECT_DISTDIR%\bin\ /Y
 
 	git clean -f lib src
 )
