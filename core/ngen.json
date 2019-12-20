@@ -14,7 +14,8 @@
         "src/logging/LogSink.cpp",
         "src/sys/FileSystem.cpp",
         "src/sys/Platform.cpp",
-        "src/sys/Xdg.cpp"
+        "src/sys/Xdg.cpp",
+        "src/testing/NullConfiguration.cpp"
     ],
     "headers": [
         "include/sxe"
