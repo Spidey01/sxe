@@ -28,7 +28,7 @@
 
 namespace sxe { namespace core { namespace testing {
 
-    class NullDisplay : public sxe::core::graphics::Display
+    class SXE_PUBLIC NullDisplay : public sxe::core::graphics::Display
     {
       public:
 
