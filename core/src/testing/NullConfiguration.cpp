@@ -23,8 +23,8 @@
 
 #include "sxe/core/testing/NullConfiguration.hpp"
 
-#include "sxe/core/config/SettingsMap.hpp"
-#include "sxe/core/sys/Platform.hpp"
+#include <sxe/core/config/SettingsMap.hpp>
+#include <sxe/core/sys/Platform.hpp>
 #include <sxe/core/testing/NullDisplay.hpp>
 
 using std::make_shared;

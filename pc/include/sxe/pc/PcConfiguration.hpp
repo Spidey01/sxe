@@ -26,20 +26,37 @@
 #include <sxe/api.hpp>
 #include <sxe/core/Game.hpp>
 #include <sxe/core/GameEngine.hpp>
-#include <sxe/stdheaders.hpp>
 
 namespace sxe { namespace pc {
 
     class SXE_PUBLIC PcConfiguration {
       public:
 
-        using ArgVector = std::vector<std::string>;
+        /** The defaults */
+        static core::GameEngine::unique_ptr setup(core::Game::shared_ptr game);
 
-        #if 0
-        static sxe::core::GameEngine::unique_ptr setup(sxe::core::Game& game);
+        /** Setup.
+         *
+         * @param argc same as main().
+         * @param argv same as main().
+         * @param game a shared_ptr to your Game implementation.
+         *
+         * @returns unique_ptr to GameEngine ready to be started.
+         */
+        static core::GameEngine::unique_ptr setup(int argc, char* argv[], core::Game::shared_ptr game);
 
-        static sxe::core::GameEngine::unique_ptr setup(const ArgVector& argv, sxe::core::Game& game);
-        #endif
+        /** PC specific settings.
+         *
+         * On Windows, we look at %LOCALAPPDATA%\Publisher\Gamename.{cfg,xml}.
+         *
+         *
+         * Note:
+         *
+         *      On some systems we may substitute other values for version
+         *      compatibility. E.g. on XP, there is no %LocalAppData% there is only
+         *      <strike>Zuul</strike> %AppData%.
+         */
+        static core::GameEngine::Settings_ptr settings(core::Game::shared_ptr game, core::sys::Platform platform);
 
       private:
         static const std::string TAG;

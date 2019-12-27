@@ -23,23 +23,93 @@
 
 #include "sxe/pc/PcConfiguration.hpp"
 
+#include <sxe/core/config/SettingsMap.hpp>
+#include <sxe/core/config/SettingsXMLFile.hpp>
+#include <sxe/core/sys/Platform.hpp>
+#include <sxe/core/testing/NullDisplay.hpp>
+
+using std::make_shared;
+using std::make_unique;
 using std::string;
 using std::to_string;
+using sxe::core::Game;
+using sxe::core::GameEngine;
+using sxe::core::config::Settings;
+using sxe::core::config::SettingsMap;
+using sxe::core::config::SettingsXMLFile;
+using sxe::core::sys::Platform;
+
+using namespace sxe::core::sys::FileSystem;
 
 namespace sxe { namespace pc { 
 
 const string PcConfiguration::TAG = "PcConfiguration";
 
-#if 0
-GameEngine::unique_ptr setup(Game& game)
+GameEngine::unique_ptr PcConfiguration::setup(Game::shared_ptr game)
 {
+    return setup(0, nullptr, game);
 }
 
 
-GameEngine::unique_ptr setup(const ArgVector& argv, Game& game)
+GameEngine::unique_ptr PcConfiguration::setup(int argc, char* argv[], Game::shared_ptr game)
 {
+    argc -= 1;
+    argv += 1;
+
+    sxe::core::sys::Platform platform;
+
+    return std::make_unique<sxe::core::GameEngine>
+    (
+        game
+        , make_unique<SettingsMap>(argc, argv)
+        , make_unique<sxe::core::testing::NullDisplay>(true)
+        , nullptr // scene manager
+        , nullptr // input maanger -- TODO NullInputManager
+        , nullptr // resource manager
+        , nullptr // logging manager
+        , settings(game, platform)
+        , platform
+    );
 }
-#endif
+
+
+GameEngine::Settings_ptr PcConfiguration::settings(Game::shared_ptr game, Platform platform)
+{
+    if (platform.isWindows()) {
+        char* p = std::getenv("LOCALAPPDATA");
+        if (p == nullptr)
+            return nullptr;
+        string localAppData = p;
+
+        if (!game)
+            return nullptr;
+        string publisher = game->getPublisher();
+
+        /*
+         * 1.x had a compat kludge for XP/2K that would fallback to APPDATA.
+         * 2.x does not support those systems.
+         */
+
+        if (localAppData.empty() || publisher.empty())
+            return nullptr;
+
+        /*
+         * 1.x did .cfg then .xml check. Here we just check XML, as only
+         *   settings parser currently available.
+         */
+
+        path dir;
+        dir /= localAppData;
+        dir /= publisher;
+
+        path xml = dir / (game->getName() + ".xml");
+
+        if (exists(xml))
+            return make_unique<SettingsXMLFile>(xml);
+    }
+
+    return nullptr;
+}
 
 } }
 
