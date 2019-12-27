@@ -2,6 +2,9 @@
     "project": "core",
     "version": "0",
     "type": "cxx_library",
+    "dependencies": [
+        "vendor"
+    ],
     "sources": [
         "src/Game.cpp",
         "src/GameEngine.cpp",
