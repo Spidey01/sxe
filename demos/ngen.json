@@ -3,7 +3,8 @@
     "version": "2.0",
     "type": "package",
     "sources": [
-        "nulldemo"
+        "nulldemo",
+        "quad"
     ]
 }
 
