@@ -13,12 +13,16 @@
         "src/config/Settings.cpp",
         "src/config/SettingsMap.cpp",
         "src/config/SettingsXMLFile.cpp",
+        "src/graphics/FrameEndedListener.cpp",
+        "src/graphics/FrameStartedListener.cpp",
+        "src/graphics/Display.cpp",
         "src/logging/Log.cpp",
         "src/logging/LogSink.cpp",
         "src/sys/FileSystem.cpp",
         "src/sys/Platform.cpp",
         "src/sys/Xdg.cpp",
-        "src/testing/NullConfiguration.cpp"
+        "src/testing/NullConfiguration.cpp",
+        "src/testing/NullDisplay.cpp"
     ],
     "headers": [
         "include/sxe"

@@ -21,43 +21,54 @@
  *	   distribution.
  */
 
-#include "sxe/core/testing/NullConfiguration.hpp"
+#include "sxe/core/testing/NullDisplay.hpp"
 
-#include "sxe/core/config/SettingsMap.hpp"
-#include "sxe/core/sys/Platform.hpp"
-#include <sxe/core/testing/NullDisplay.hpp>
+#include <sxe/logging.hpp>
 
-using std::make_shared;
-using std::make_unique;
-using sxe::core::config::Settings;
-using sxe::core::config::SettingsMap;
+using namespace sxe::core::graphics;
 
 namespace sxe { namespace core { namespace testing {
 
-GameEngine::unique_ptr NullConfiguration::setup(Game::shared_ptr game)
+const NullDisplay::string_type NullDisplay::TAG = "NullDisplay";
+
+NullDisplay::NullDisplay(bool answer)
+    : Display(TAG)
+    , mDefaultAnswer(answer)
 {
-    return setup(0, nullptr, game);
 }
 
 
-GameEngine::unique_ptr NullConfiguration::setup(int argc, char* argv[], Game::shared_ptr game)
+bool NullDisplay::create()
 {
-    argc -= 1;
-    argv += 1;
+    Log::d(TAG, "create()");
 
-    return std::make_unique<sxe::core::GameEngine>
-    (
-        game
-        , make_unique<SettingsMap>(argc, argv)
-        , make_unique<NullDisplay>(true)
-        , nullptr // scene manager
-        , nullptr // input maanger -- TODO NullInputManager
-        , nullptr // resource manager
-        , nullptr // logging manager
-        , nullptr // platform specific settings
-        , sxe::core::sys::Platform()
-    );
+    return mDefaultAnswer;
 }
+
+
+void NullDisplay::destroy()
+{
+    Log::d(TAG, "destroy()");
+}
+
+
+bool NullDisplay::isCloseRequested() const
+{
+    return !mDefaultAnswer;
+}
+
+
+bool NullDisplay::setMode(const string_type& mode)
+{
+    Log::d(TAG, "setMode(): mode: " + mode);
+
+    if (mDefaultAnswer) {
+        Display::setMode(mode);
+    }
+
+    return mDefaultAnswer;
+}
+
 
 } } }
 
