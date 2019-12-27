@@ -38,9 +38,9 @@ if [ ! -f "$dist/lib/libcppunit.a" -a ! -f "$dist/lib/libcppunit.so" ]; then
     echo "Cleaning up"
     cd "$source"
     rm -rf autom4te.cache
-fi
 
-echo "Your cppunit is $dist"
+    echo "Your cppunit is $dist"
+fi
 
 
 ## from configure --help

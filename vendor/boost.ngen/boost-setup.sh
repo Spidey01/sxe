@@ -21,6 +21,8 @@ COMPONENTS="--with-headers --with-filesystem"
 
 set -e
 
+cd "$PROJECT_ROOT"
+
 if [ ! -f "$CACHE" ]; then
     echo "Downloading $ZIP_URL"
     ( cd "$(dirname $CACHE)" && wget "$ZIP_URL" )

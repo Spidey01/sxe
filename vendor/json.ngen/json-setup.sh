@@ -8,7 +8,6 @@ fi
 
 if [ ! -f "$PROJECT_DISTDIR/include/nlohmann/json.hpp" ]; then
     cp -r -v vendor/json/include/nlohmann "$PROJECT_DISTDIR/include/nlohmann"
+    echo "Your json is $PROJECT_DISTDIR"
 fi
-
-echo "Your json is $PROJECT_DISTDIR"
 

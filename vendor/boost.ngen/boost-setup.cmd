@@ -1,5 +1,8 @@
 @ECHO OFF
 
+PUSHD "%PROJECT_ROOT%"
+@IF errorlevel 1 goto :NO_PROJECT_ROOT
+
 SETLOCAL
 
 SET DOT_VER=1.71.0
@@ -16,7 +19,7 @@ SET B2=%WHERE%\b2.exe
 
 SET COMPONENTS=--with-headers --with-filesystem
 
-IF EXIST %PROJECT_DISTDIR%\include\boost-1_71 GOTO :FINISHED
+IF EXIST %PROJECT_DISTDIR%\include\boost-1_71 GOTO :EOF
 
 IF NOT EXIST %CACHE% (
 	ECHO Downloading %ZIP_URL%
@@ -65,3 +68,6 @@ GOTO :eof
 ECHO Please install 7z in path, or manually unzip/rename to %PROJECT_BUILDDIR%\boost
 GOTO :eof
 
+:NO_PROJECT_ROOT
+ECHO Please CALL envsetup.sh - PROJECT_ROOT has not been set
+GOTO :eof

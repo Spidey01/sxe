@@ -5,7 +5,7 @@ REM dll versions are _dll, debug versions are d[_dll].
 REM
 REM The solution is hard coded to copy $(TargetPath) ..\..\lib\$(TargetName).lib, etc. So better off using git clean -f than modifying properties.
 
-PUSHD vendor\cppunit\
+PUSHD %PROJECT_ROOT%\vendor\cppunit\
 
 @REM these build both static and shared.
 

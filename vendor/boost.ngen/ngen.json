@@ -1,0 +1,17 @@
+{
+    "project": "boost",
+    "type": "external",
+    "sources": [
+        ""
+    ],
+    "external": {
+        "windows": [
+            "boost-setup.cmd"
+        ],
+        "linux": [
+            "boost-setup.sh"
+        ]
+    }
+}
+
+
