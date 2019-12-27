@@ -4,7 +4,8 @@
     "sources": [
         "json.ngen",
         "cppunit.ngen",
-        "boost.ngen"
+        "boost.ngen",
+        "glfw.ngen"
     ]
 }
 
