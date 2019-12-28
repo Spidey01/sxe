@@ -21,7 +21,9 @@
  *	   distribution.
  */
 
-#include <sxe/core/common/Subsystem.hpp>
+#include "sxe/core/common/Subsystem.hpp"
+
+#include <sxe/core/GameEngine.hpp>
 #include <sxe/logging.hpp>
 
 namespace sxe { namespace core { namespace common {
@@ -31,6 +33,7 @@ const Subsystem::string_type Subsystem::TAG = "Subsystem";
 Subsystem::Subsystem(const string_type& name)
     : mIsInitialized(false)
     , mName(name)
+    , mGame()
 {
 }
 
@@ -57,6 +60,7 @@ bool Subsystem::isInitialized() const
 bool Subsystem::initialize(GameEngine& data)
 {
     Log::xtrace(TAG, "initialize(): " + name());
+    mGame = data.getGame();
     mIsInitialized = true;
 
     return true;
@@ -85,8 +89,26 @@ bool Subsystem::uninitialize()
 {
     Log::xtrace(TAG, "uninitialize(): " + name());
     mIsInitialized = false;
+    mGame.reset();
 
     return true;
+}
+
+
+Game::shared_ptr Subsystem::getGame() const
+{
+    return mGame.lock();
+}
+
+
+GameEngine& Subsystem::getGameEngine() const
+{
+    Game::shared_ptr g = getGame();
+
+    if (!g)
+        throw std::logic_error(TAG + "::getEngine() called on " + name() + " before " + TAG + "initialize().");
+
+    return g->getGameEngine();
 }
 
 

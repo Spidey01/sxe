@@ -25,6 +25,8 @@
 
 #include <sxe/api.hpp>
 
+#include <sxe/core/Game.hpp>
+
 namespace sxe {
     namespace core {
         class GameEngine;
@@ -49,11 +51,16 @@ namespace sxe { namespace core { namespace common {
         virtual bool reinitialize(GameEngine& engine);
         virtual bool uninitialize();
 
+        Game::shared_ptr getGame() const;
+        GameEngine& getGameEngine() const;
+
       private:
         static const string_type TAG;
 
         bool mIsInitialized;
         string_type mName;
+
+        sxe::core::Game::weak_ptr mGame;
     };
 
 } } }
