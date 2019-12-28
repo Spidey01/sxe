@@ -119,6 +119,12 @@ namespace sxe { namespace core {
 
         std::weak_ptr<Game> getGame() const;
 
+        /** Accessor for settings.
+         *
+         * @returns runtime settings.
+         */
+        config::Settings& getSettings() const;
+
       private:
         static const std::string TAG;
 

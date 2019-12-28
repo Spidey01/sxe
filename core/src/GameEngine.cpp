@@ -248,10 +248,21 @@ void GameEngine::configure(config::Settings& s)
     }
 }
 
+
 std::weak_ptr<Game> GameEngine::getGame() const
 {
     return mGame;
 }
+
+
+
+config::Settings& GameEngine::getSettings() const
+{
+    assert(mRuntimeSettings != nullptr);
+
+    return *mRuntimeSettings;
+}
+
 
 } }
 
