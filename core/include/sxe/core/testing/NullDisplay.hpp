@@ -42,7 +42,7 @@ namespace sxe { namespace core { namespace testing {
         bool create() override;
         void destroy() override;
         bool isCloseRequested() const override;
-        bool setMode(const string_type& mode);
+        bool setMode(const string_type& mode) override;
 
       protected:
 

@@ -26,6 +26,7 @@
 #include <sxe/api.hpp>
 #include <sxe/core/RateCounter.hpp>
 #include <sxe/core/common/Subsystem.hpp>
+#include <sxe/core/config/Settings.hpp>
 
 namespace sxe { namespace core { namespace graphics {
 
@@ -48,6 +49,9 @@ namespace sxe { namespace core { namespace graphics {
         Display(const string_type& name);
 
         virtual ~Display();
+
+        bool initialize(GameEngine& engine) override;
+        bool uninitialize() override;
 
         /** Create OpenGL context for the current Display.
          *
@@ -92,6 +96,23 @@ namespace sxe { namespace core { namespace graphics {
          */
         virtual bool setMode(const string_type& mode);
 
+        /** Switch between fullscreen and windowed mode.
+         *
+         * @bool fs if true: set mode to fullscreen.
+         */
+        virtual void setFullscreen(bool fs);
+
+        /** Settings::OnChangedListener for settings notification.
+         *
+         * Default implementation looks for .mode, .fps, and .fullscreen
+         * settings prefixed by Game::getName(). When these settings are
+         * changed, methods are triggered accordingly.
+         *
+         * Extend this method to add additional settings monitoring for your
+         * platform implementation.
+         */
+        virtual void onSettingChanged(string_type key);
+
       protected:
 
       private:
@@ -99,6 +120,16 @@ namespace sxe { namespace core { namespace graphics {
         static const string_type TAG;
         sxe::core::RateCounter mFrameCounter;
         string_type mDisplayMode;
+        config::Settings::SettingsManager::size_type mOnChangedListenerId;
+
+        /* Key used for changing mDisplayMode. */
+        string_type mModeSettingKey;
+
+        /* Key used for toggling FPS display. */
+        string_type mFpsSettingKey;
+
+        /* Key used for toggling full screen / windowed mode. */
+        string_type mFullscreenSettingKey;
     };
 
 } } }

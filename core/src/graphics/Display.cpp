@@ -23,6 +23,8 @@
 
 #include "sxe/core/graphics/Display.hpp"
 
+#include <sxe/core/GameEngine.hpp>
+#include <sxe/core/config/Settings.hpp>
 #include <sxe/logging.hpp>
 
 namespace sxe { namespace core { namespace graphics {
@@ -33,6 +35,10 @@ Display::Display(const string_type& name)
     : Subsystem(name)
     , mFrameCounter("Frames")
     , mDisplayMode("640 x 480")
+    , mOnChangedListenerId(SIZE_MAX)
+    , mModeSettingKey()
+    , mFpsSettingKey()
+    , mFullscreenSettingKey()
 {
     Log::xtrace(TAG, "Display(): name: " + name);
 }
@@ -41,6 +47,41 @@ Display::Display(const string_type& name)
 Display::~Display()
 {
     Log::xtrace(TAG, "~Display()");
+}
+
+
+bool Display::initialize(GameEngine& engine)
+{
+    Log::xtrace(TAG, "initialize()");
+
+    /* Handle runtime configuration Settings. */
+    auto settingsListener = std::bind(&Display::onSettingChanged, this, std::placeholders::_1);
+
+    Log::v(TAG, "Adding onSettingChanged to listen for settings changes.");
+    mOnChangedListenerId = engine.getSettings().addChangeListener(settingsListener);
+
+    string_type prefix = engine.getGame().lock()->getName();
+
+    mModeSettingKey = prefix + ".mode";
+    mFpsSettingKey = prefix + ".fps";
+    mFullscreenSettingKey = prefix + ".fullscreen";
+
+    return Subsystem::initialize(engine);
+}
+
+
+bool Display::uninitialize()
+{
+    Log::xtrace(TAG, "uninitialize()");
+
+    getSettings().removeChangeListener(mOnChangedListenerId);
+    mOnChangedListenerId = SIZE_MAX;
+
+    mModeSettingKey.clear();
+    mFpsSettingKey.clear();
+    mFullscreenSettingKey.clear();
+
+    return Subsystem::uninitialize();
 }
 
 
@@ -74,6 +115,37 @@ bool Display::setMode(const string_type& mode)
     mDisplayMode = mode;
 
     return true;
+}
+
+
+void Display::setFullscreen(bool fs)
+{
+    Log::xtrace(TAG, "setFullscreen(): fs: " + string_type(fs ? "true" :"false"));
+}
+
+
+void Display::onSettingChanged(string_type key)
+{
+    Log::xtrace(TAG, "onSettingChanged(): key: " + key);
+
+    config::Settings& settings = getSettings();
+
+    if (key == mModeSettingKey) {
+        /* Support setting resolution from runtime configuration. */
+        setMode(settings.getString(key));
+    }
+    else if (key == mFpsSettingKey) {
+        /* Support toggling display of FPS from runtime configuration. */
+        if (settings.getBool(key)) {
+            mFrameCounter.enableDebugging();
+        } else {
+            mFrameCounter.disableDebugging();
+        }
+    }
+    else if (key == mFullscreenSettingKey) {
+        /* Support toggling between fullscreen / windowed mode. */
+        setFullscreen(settings.getBool(key));
+    }
 }
 
 } } }
