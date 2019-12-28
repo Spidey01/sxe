@@ -5,9 +5,20 @@
 
 
 rdemo() { # :run a demo by name
-    cd "$PROJECT_DISTDIR/bin"
-    "$@"
-    cd -
+    local demo
+
+    demo="$1"
+    shift
+
+    env \
+        XDG_DATA_DIRS="${PROJECT_DISTDIR}/share" \
+        XDG_CONFIG_DIRS="${PROJECT_DISTDIR}/etc/xdg" \
+        XDG_DATA_HOME="${PROJECT_ROOT}/tmp/share" \
+        XDG_CONFIG_HOME="${PROJECT_ROOT}/tmp/config" \
+        XDG_CACHE_HOME="${PROJECT_ROOT}/tmp/cache" \
+        LD_LIBRARY_PATH="${PROJECT_DISTDIR}/lib" \
+        \
+            "$PROJECT_DISTDIR}/bin/$demo" "$@"
 }
 
 
@@ -22,24 +33,8 @@ idemo() { # :installApp a demo by name
 
 
 irdemo() { # installdemo and execute a demo by name with following args.
-    local demo install_path exe_name
-    demo=$1
-    shift
-    idemo $demo
-
-    install_path="$PROJECT_DISTDIR"
-    exe_name="$demo"
-
-    # TODO: update these for 2.x
-    eval \
-        env \
-            XDG_DATA_DIRS="`gettop`/demos/$demo/pc/src/dist/share" \
-            XDG_CONFIG_DIRS="${install_path}/etc" \
-            XDG_DATA_HOME="`gettop`/tmp/share" \
-            XDG_CONFIG_HOME="`gettop`/tmp/config" \
-            XDG_CACHE_HOME="`gettop`/tmp/cache" \
-            \
-                "${install_path}/bin/${exe_name}" "$@"
+    idemo $1
+    rdemo $*
 }
 
 
