@@ -26,7 +26,7 @@
 #include <sxe/core/config/SettingsMap.hpp>
 #include <sxe/core/config/SettingsXMLFile.hpp>
 #include <sxe/core/sys/Platform.hpp>
-#include <sxe/core/testing/NullDisplay.hpp>
+#include <sxe/pc/PcDisplay.hpp>
 
 using std::make_shared;
 using std::make_unique;
@@ -62,7 +62,7 @@ GameEngine::unique_ptr PcConfiguration::setup(int argc, char* argv[], Game::shar
     (
         game
         , make_unique<SettingsMap>(argc, argv)
-        , make_unique<sxe::core::testing::NullDisplay>(true)
+        , make_unique<sxe::pc::PcDisplay>()
         , nullptr // scene manager
         , nullptr // input maanger -- TODO NullInputManager
         , nullptr // resource manager

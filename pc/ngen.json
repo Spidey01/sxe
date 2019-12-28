@@ -6,7 +6,8 @@
         "SxE_core"
     ],
     "sources": [
-        "src/PcConfiguration.cpp"
+        "src/PcConfiguration.cpp",
+        "src/PcDisplay.cpp"
     ],
     "headers": [
         "include/sxe"
@@ -34,6 +35,6 @@
         ],
         "cxxflags": "$sxe_msvc_cxxflags",
         "ldflags": "$sxe_msvc_cxxflags",
-        "ldlibs": "$sxe_msvc_ldlibs SxE_core.lib"
+        "ldlibs": "$sxe_msvc_ldlibs glfw3dll.lib SxE_core.lib"
     }
 }
