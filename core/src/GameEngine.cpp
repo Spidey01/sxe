@@ -71,7 +71,7 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
     }
 
     // placeholder
-    auto sink = std::make_shared<sxe::core::logging::LogSink>();
+    auto sink = std::make_shared<sxe::core::logging::LogSink>("placeholder", Log::TRACE, std::cout);
     sxe::core::logging::Log::add(sink);
 
     {
