@@ -8,5 +8,10 @@ IF "%1" == "" (
 	echo Select demo, e.g. .\%0 helloworld
 	goto :eof
 )
-CALL "%ENVSETUP_DIR%\.cmd\m.cmd" ":demos:%1:pc:installApp"
+@ECHO ON
+
+ngen
+@IF errorlevel 1 goto :eof
+
+ninja demos\%1
 

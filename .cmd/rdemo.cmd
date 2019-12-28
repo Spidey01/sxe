@@ -8,5 +8,8 @@ IF "%1" == "" (
 	echo Select demo, e.g. %0 helloworld
 	goto :eof
 )
-CALL "%ENVSETUP_DIR%\.cmd\m.cmd" ":demos:%1:pc:run"
+@ECHO ON
+PUSHD %PROJECT_DISTDIR%\bin
+%*
+POPD
 
