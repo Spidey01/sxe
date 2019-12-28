@@ -112,5 +112,11 @@ GameEngine& Subsystem::getGameEngine() const
 }
 
 
+config::Settings& Subsystem::getSettings() const
+{
+    return getGameEngine().getSettings();
+}
+
+
 } } }
 

@@ -30,6 +30,9 @@
 namespace sxe {
     namespace core {
         class GameEngine;
+        namespace config {
+            class Settings;
+        }
     }
 }
 
@@ -53,6 +56,7 @@ namespace sxe { namespace core { namespace common {
 
         Game::shared_ptr getGame() const;
         GameEngine& getGameEngine() const;
+        config::Settings& getSettings() const;
 
       private:
         static const string_type TAG;
