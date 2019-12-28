@@ -33,7 +33,10 @@ namespace sxe { namespace core {
     class Game;
     namespace config {
         class Settings;
-    };
+    }
+    namespace graphics {
+        class Display;
+    }
 
     class SXE_PUBLIC GameEngine
     {
@@ -46,7 +49,7 @@ namespace sxe { namespace core {
         using Settings_ptr = std::unique_ptr<config::Settings>;
 
         using TODO_placeholder = common::Subsystem; // placeholder.
-        using DisplayManager_ptr = std::unique_ptr<TODO_placeholder>;
+        using DisplayManager_ptr = std::unique_ptr<graphics::Display>;
         using SceneManager_ptr = std::unique_ptr<TODO_placeholder>;
         using InputManager_ptr = std::unique_ptr<TODO_placeholder>;
         using ResourceManager_ptr = std::unique_ptr<TODO_placeholder>;

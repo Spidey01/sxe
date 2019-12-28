@@ -27,6 +27,7 @@
 #include <sxe/core/config/Settings.hpp>
 #include <sxe/core/config/SettingsMap.hpp>
 #include <sxe/core/config/SettingsXMLFile.hpp>
+#include <sxe/core/graphics/Display.hpp>
 #include <sxe/core/sys/Platform.hpp>
 #include <sxe/logging.hpp>
 
@@ -163,12 +164,18 @@ bool GameEngine::start()
     // Log.i(TAG, "XDG_DATA_DIRS=\""+Utils.join(Xdg.XDG_DATA_DIRS, ':')+"\"");
     // Log.i(TAG, "XDG_CONFIG_DIRS=\""+Utils.join(Xdg.XDG_CONFIG_DIRS, ':')+"\"");
 
-
-    #if 0 // 1.x did:
-    if (!mDisplay.create()) {
+    if (!mDisplayManager) {
+        Log::e(TAG, "No Display implementation!");
+        Log::w(TAG, "If your platform or app has none: use NullDisplay.");
         return false;
     }
 
+    if (!mDisplayManager->create()) {
+        Log::e(TAG, "Display::create() failed!");
+        return false;
+    }
+
+    #if 0 // 1.x did:
     mGameThread = new GameThread(this, mGame);
     mGameThread.start();
     #endif
@@ -182,8 +189,8 @@ void GameEngine::stop()
     #if 0 // 1.x
     mGame.stop();
     mGameThread.interrupt(); // should this be overriden to do Game.stop()?
-    mDisplay.destroy();
     #endif
+    mDisplayManager->destroy();
     Log::v(TAG, "stop() done");
 }
 
@@ -211,6 +218,12 @@ void GameEngine::mainLoop()
 
 bool GameEngine::isRunning() const
 {
+    if (mGame && mGame->isStopRequested())
+        return false;
+
+    if (mDisplayManager && mDisplayManager->isCloseRequested())
+        return false;
+
     return true;
     #if 0 // 1.x
         return (!mGame.isStopRequested()
@@ -225,8 +238,9 @@ void GameEngine::update()
     #if 0 // 1.x
     mInputManager.poll();
     mSceneManager.update();
-    mDisplay.update();
     #endif
+    if (mDisplayManager)
+        mDisplayManager->update();
 }
 
 
