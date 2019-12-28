@@ -5,16 +5,18 @@
 
 
 rdemo() { # :run a demo by name
-    m ":demos:${1}:pc:run"
-    # TODO: pass args to app as a property?
+    cd "$PROJECT_DISTDIR/bin"
+    "$@"
+    cd -
 }
 
 
 idemo() { # :installApp a demo by name
-    if [ -d "$(gettop)/demos/${1}/pc" ]; then
-        m ":demos:${1}:pc:installApp"
+    ngen
+    if [ -d "$(gettop)/demos/${1}" ]; then
+        ninja "demos/$1"
     else
-        m ":demos:${1}:installApp"
+        ninja demos/
     fi
 }
 
@@ -25,14 +27,10 @@ irdemo() { # installdemo and execute a demo by name with following args.
     shift
     idemo $demo
 
-    if [ -d "$(gettop)/demos/${1}/pc" ]; then
-        install_path="$(gettop)/demos/${demo}/pc/build/install/${demo}-pc"
-        exe_name="${demo}-pc"
-    else
-        install_path="$(gettop)/demos/${demo}/build/install/${demo}"
-        exe_name="${demo}"
-    fi
+    install_path="$PROJECT_DISTDIR"
+    exe_name="$demo"
 
+    # TODO: update these for 2.x
     eval \
         env \
             XDG_DATA_DIRS="`gettop`/demos/$demo/pc/src/dist/share" \
@@ -40,7 +38,6 @@ irdemo() { # installdemo and execute a demo by name with following args.
             XDG_DATA_HOME="`gettop`/tmp/share" \
             XDG_CONFIG_HOME="`gettop`/tmp/config" \
             XDG_CACHE_HOME="`gettop`/tmp/cache" \
-            "`echo $demo | awk '{print toupper($0)}'`_PC_OPTS=\"'-Djava.library.path=${install_path}/lib/natives'\"" \
             \
                 "${install_path}/bin/${exe_name}" "$@"
 }
