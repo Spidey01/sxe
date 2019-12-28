@@ -5,7 +5,7 @@ IF NOT DEFINED PROJECT_DISTDIR (
 )
 
 IF NOT EXIST "%PROJECT_DISTDIR%\include\nlohmann\json.hpp" (
-    ROBOCOPY "%PROJECT_ROOT%\vendor\json\include\nlohmann" "%PROJECT_DISTDIR%\include\nlohmann" /MIR
+	ROBOCOPY "%PROJECT_ROOT%\vendor\json\include\nlohmann" "%PROJECT_DISTDIR%\include\nlohmann" /MIR
+	ECHO Your json is %PROJECT_DISTDIR%
 )
 
-ECHO Your json is %PROJECT_DISTDIR%
