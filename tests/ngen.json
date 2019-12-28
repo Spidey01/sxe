@@ -12,6 +12,7 @@
         "core/config/SettingsFixture.cpp",
         "core/config/SettingsMapTest.cpp",
         "core/config/SettingsXMLFileTest.cpp",
+        "core/graphics/DisplayModeTest.cpp",
         "core/sys/PlatformTest.cpp",
         "core/sys/XdgTest.cpp",
         "main.cpp"

@@ -27,6 +27,7 @@
 #include <sxe/core/RateCounter.hpp>
 #include <sxe/core/common/Subsystem.hpp>
 #include <sxe/core/config/Settings.hpp>
+#include <sxe/core/graphics/DisplayMode.hpp>
 
 namespace sxe { namespace core { namespace graphics {
 
@@ -102,6 +103,9 @@ namespace sxe { namespace core { namespace graphics {
          */
         virtual void setFullscreen(bool fs);
 
+        bool isWindowed() const;
+        bool isFullscreen() const;
+
         /** Settings::OnChangedListener for settings notification.
          *
          * Default implementation looks for .mode, .fps, and .fullscreen
@@ -120,6 +124,7 @@ namespace sxe { namespace core { namespace graphics {
         static const string_type TAG;
         sxe::core::RateCounter mFrameCounter;
         string_type mDisplayMode;
+        bool mFullscreen;
         config::Settings::SettingsManager::size_type mOnChangedListenerId;
 
         /* Key used for changing mDisplayMode. */
