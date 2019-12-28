@@ -54,6 +54,7 @@ namespace sxe { namespace core { namespace common {
      *
      * If all else fails, extend NotificationManager and override toKey().
      *
+     * The value -1 or SIZE_MAX can be used as an uninitialized/invalid id value.
      *
      * Historical:
      *   - SxE 1.x used a dedicated listener object / event object interface.
