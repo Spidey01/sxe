@@ -226,6 +226,8 @@ PcDisplay::string_type PcDisplay::getError() const
 void PcDisplay::error_callback(int code, const char* description)
 {
     string_type str = "glfwGetError(): code: " + std::to_string(code) + " description: ";
+    if (description)
+        str.append(description);
     Log::e(TAG, str);
 }
 
