@@ -146,6 +146,16 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
 
 GameEngine::~GameEngine()
 {
+    if (mResourceManager)
+        mResourceManager->uninitialize();
+    if (mInputManager)
+        mInputManager->uninitialize();
+    if (mSceneManager)
+        mSceneManager->uninitialize();
+    if (mDisplayManager)
+        mDisplayManager->uninitialize();
+    if (mLoggingManager)
+        mLoggingManager->uninitialize();
 }
 
 
