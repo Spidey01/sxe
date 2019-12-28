@@ -93,9 +93,21 @@ namespace sxe { namespace core { namespace graphics {
          * information like horizontal and vertical resolution, color depth,
          * refresh rate, etc.
          *
+         * This causs the virtual mode after creating a DisplayMode.
+         *
+         * @param mode passed to DisplayMode's ctor.
+         *
          * @return true if successful; false otherwise.
          */
-        virtual bool setMode(const string_type& mode);
+        bool setMode(const string_type& mode, bool fs);
+
+        /** Set the display mode.
+         *
+         * Default implementation records the mode and returns true.
+         */
+        virtual bool setMode(DisplayMode mode);
+
+        const DisplayMode& getMode() const;
 
         /** Switch between fullscreen and windowed mode.
          *
@@ -123,7 +135,7 @@ namespace sxe { namespace core { namespace graphics {
 
         static const string_type TAG;
         sxe::core::RateCounter mFrameCounter;
-        string_type mDisplayMode;
+        DisplayMode mDisplayMode;
         bool mFullscreen;
         config::Settings::SettingsManager::size_type mOnChangedListenerId;
 

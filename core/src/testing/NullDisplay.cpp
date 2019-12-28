@@ -58,9 +58,9 @@ bool NullDisplay::isCloseRequested() const
 }
 
 
-bool NullDisplay::setMode(const string_type& mode)
+bool NullDisplay::setMode(DisplayMode mode)
 {
-    Log::d(TAG, "setMode(): mode: " + mode);
+    Log::d(TAG, "setMode():");
 
     if (mDefaultAnswer) {
         Display::setMode(mode);

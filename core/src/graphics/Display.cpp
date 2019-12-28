@@ -34,7 +34,8 @@ const Display::string_type Display::TAG = "Display";
 Display::Display(const string_type& name)
     : Subsystem(name)
     , mFrameCounter("Frames")
-    , mDisplayMode("640 x 480")
+    , mDisplayMode("640 x 480 x 32 @60", false)
+    , mFullscreen(false)
     , mOnChangedListenerId(SIZE_MAX)
     , mModeSettingKey()
     , mFpsSettingKey()
@@ -108,9 +109,20 @@ bool Display::isCloseRequested() const
 }
 
 
-bool Display::setMode(const string_type& mode)
+bool Display::setMode(const string_type& mode, bool fs)
 {
-    Log::xtrace(TAG, "setMode(): mode: " + mode);
+    Log::xtrace(TAG, "setMode(): mode: " + mode + " fs: " + string_type(fs ? "true" : "false"));
+
+    DisplayMode parsed(mode, fs);
+
+    return setMode(parsed);
+}
+
+
+bool Display::setMode(DisplayMode mode)
+{
+    string_type m = mode;
+    Log::xtrace(TAG, "setMode(): (str)mode: " + m);
 
     mDisplayMode = mode;
 
@@ -118,9 +130,37 @@ bool Display::setMode(const string_type& mode)
 }
 
 
+const DisplayMode& Display::getMode() const
+{
+    return mDisplayMode;
+}
+
+
 void Display::setFullscreen(bool fs)
 {
     Log::xtrace(TAG, "setFullscreen(): fs: " + string_type(fs ? "true" :"false"));
+
+    DisplayMode mode(mDisplayMode.width(), mDisplayMode.width(),
+                     mDisplayMode.bpp(), mDisplayMode.refresh(),
+                     fs);
+
+    if (isFullscreen())
+        return;
+
+    Log::v(TAG, "setFullscreen(): forwarding to setMode().");
+    setMode(mode);
+}
+
+
+bool Display::isWindowed() const
+{
+    return !getMode().fullscreen();
+}
+
+
+bool Display::isFullscreen() const
+{
+    return getMode().fullscreen();
 }
 
 
@@ -132,7 +172,7 @@ void Display::onSettingChanged(string_type key)
 
     if (key == mModeSettingKey) {
         /* Support setting resolution from runtime configuration. */
-        setMode(settings.getString(key));
+        setMode(settings.getString(key), settings.getBool(mFullscreenSettingKey));
     }
     else if (key == mFpsSettingKey) {
         /* Support toggling display of FPS from runtime configuration. */

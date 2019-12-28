@@ -25,6 +25,7 @@
 
 #include <sxe/api.hpp>
 #include <sxe/core/graphics/Display.hpp>
+#include <sxe/core/graphics/DisplayMode.hpp>
 
 namespace sxe { namespace core { namespace testing {
 
@@ -42,7 +43,7 @@ namespace sxe { namespace core { namespace testing {
         bool create() override;
         void destroy() override;
         bool isCloseRequested() const override;
-        bool setMode(const string_type& mode) override;
+        bool setMode(sxe::core::graphics::DisplayMode mode) override;
 
       protected:
 
