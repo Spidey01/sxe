@@ -25,6 +25,7 @@
 
 #include <sxe/core/Game.hpp>
 #include <sxe/core/config/Settings.hpp>
+#include <sxe/core/config/SettingsFile.hpp>
 #include <sxe/core/config/SettingsMap.hpp>
 #include <sxe/core/config/SettingsXMLFile.hpp>
 #include <sxe/core/graphics/Display.hpp>
@@ -81,8 +82,17 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
         // Used to have a fancier SettingsFile stuff for k/v vs xml - start off with what we have now.
 
         const string cfgName = mGame->getName() + ".cfg";
+        auto makeCfg = [](auto p) -> Settings_ptr { return std::make_unique<config::SettingsFile>(p); };
+
         const string xmlName = mGame->getName() + ".xml";
-        const auto names = { cfgName, xmlName };
+        auto makeXml = [](auto p) -> Settings_ptr { return std::make_unique<config::SettingsXMLFile>(p); };
+
+        using factory = std::function<Settings_ptr(sys::FileSystem::path)>;
+
+        const std::tuple<string, factory> names[] = {
+            std::make_tuple( cfgName, makeCfg ),
+            std::make_tuple( xmlName, makeXml ),
+        };
 
         /*
          * System settings:
@@ -91,11 +101,15 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
          *      If not found, try GameName.xml by same method.
          */
 
-        for (const string& n : names) {
+        for (const auto& tuple : names) {
+            string n;
+            factory make;
+            std::tie(n, make) = tuple;
+
             auto p = mXdg.getConfigDir(n);
 
             if (sys::FileSystem::exists(p)) {
-                mSystemSettings = std::make_unique<config::SettingsXMLFile>(p);
+                mSystemSettings = make(p);
                 break;
             }
         }
@@ -107,11 +121,15 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
          *      If not found, try $XDG_CONFIG_HOME/|game name|.xml
          */
 
-        for (const string& n : names) {
+        for (const auto& tuple : names) {
+            string n;
+            factory make;
+            std::tie(n, make) = tuple;
+
             auto p = mXdg.getConfigHomeDir(n);
 
             if (sys::FileSystem::exists(p)) {
-                mUserSettings = std::make_unique<config::SettingsXMLFile>(p);
+                mUserSettings = make(p);
             }
         }
     }
