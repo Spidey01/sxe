@@ -3,13 +3,7 @@
 # This includes environment variables, etc.
 #
 
-
-rdemo() { # :run a demo by name
-    local demo
-
-    demo="$1"
-    shift
-
+run_from_dist() {
     env \
         XDG_DATA_DIRS="${PROJECT_DISTDIR}/share" \
         XDG_CONFIG_DIRS="${PROJECT_DISTDIR}/etc/xdg" \
@@ -18,11 +12,20 @@ rdemo() { # :run a demo by name
         XDG_CACHE_HOME="${PROJECT_ROOT}/tmp/cache" \
         LD_LIBRARY_PATH="${PROJECT_DISTDIR}/lib" \
         \
-            "$PROJECT_DISTDIR}/bin/$demo" "$@"
+            "$@"
+}
+
+rdemo() { # run a demo by name
+    local demo
+
+    demo="$1"
+    shift
+
+    run_from_dist "$PROJECT_DISTDIR}/bin/$demo" "$@"
 }
 
 
-idemo() { # :installApp a demo by name
+idemo() { # build a demo by name
     ngen
     if [ -d "$(gettop)/demos/${1}" ]; then
         ninja "demos/$1"
@@ -32,9 +35,25 @@ idemo() { # :installApp a demo by name
 }
 
 
-irdemo() { # installdemo and execute a demo by name with following args.
+irdemo() { # build and run a demo by name with following args.
     idemo $1
     rdemo $*
+}
+
+
+rtest() { # run test runner with following args
+    run_from_dist sxe-test-runner -o "${PROJECT_ROOT}/tmp/test.log" "$@"
+}
+
+
+itest() { # build test runner
+    ngen && ninja tests
+}
+
+
+irtest() { # build and run test runner with following args.
+    itest
+    rtest $*
 }
 
 
