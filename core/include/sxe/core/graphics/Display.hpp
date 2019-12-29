@@ -73,7 +73,7 @@ namespace sxe { namespace core { namespace graphics {
          * logic_error if the display has not been created; they could also
          * treat it as a noop.
          */
-        virtual void update();
+        void update() override;
 
         /** Indicates the user has tried to close the display.
          *

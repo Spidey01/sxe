@@ -52,6 +52,7 @@ namespace sxe { namespace pc {
 
         bool initialize(sxe::core::GameEngine& engine) override;
         bool uninitialize() override;
+        void update() override;
 
         bool create() override;
         void destroy() override;

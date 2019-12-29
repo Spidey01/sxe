@@ -53,6 +53,7 @@ namespace sxe { namespace core { namespace common {
         virtual bool initialize(GameEngine& engine);
         virtual bool reinitialize(GameEngine& engine);
         virtual bool uninitialize();
+        virtual void update();
 
         Game::shared_ptr getGame() const;
         GameEngine& getGameEngine() const;

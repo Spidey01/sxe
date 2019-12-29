@@ -95,6 +95,11 @@ bool Subsystem::uninitialize()
 }
 
 
+void Subsystem::update()
+{
+}
+
+
 Game::shared_ptr Subsystem::getGame() const
 {
     return mGame.lock();

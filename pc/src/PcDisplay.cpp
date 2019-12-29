@@ -23,9 +23,8 @@
 
 #include "sxe/pc/PcDisplay.hpp"
 
-#include <sxe/logging.hpp>
-
 #include <GLFW/glfw3.h>
+#include <sxe/logging.hpp>
 
 using std::runtime_error;
 using sxe::core::GameEngine;
@@ -107,6 +106,13 @@ bool PcDisplay::uninitialize()
     glfwTerminate();
 
     return Display::uninitialize();
+}
+
+
+void PcDisplay::update()
+{
+    Display::update();
+    glfwPollEvents();
 }
 
 
