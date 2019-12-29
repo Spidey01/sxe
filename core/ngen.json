@@ -19,6 +19,7 @@
         "src/graphics/DisplayMode.cpp",
         "src/graphics/FrameEndedListener.cpp",
         "src/graphics/FrameStartedListener.cpp",
+        "src/input/InputCode.cpp",
         "src/logging/Log.cpp",
         "src/logging/LogSink.cpp",
         "src/sys/FileSystem.cpp",
