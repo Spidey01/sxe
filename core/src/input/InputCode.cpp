@@ -157,6 +157,18 @@ std::string InputCode::dump() const
 }
 
 
+bool InputCode::operator== (int value) const
+{
+    return code() == value;
+}
+
+
+bool InputCode::operator!= (int value) const
+{
+    return code() != value;
+}
+
+
 InputCode::InputCode()
     : InputCode(IC_UNKNOWN, '\0', '\0')
 {

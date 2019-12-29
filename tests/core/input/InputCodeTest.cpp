@@ -96,3 +96,14 @@ void InputCodeTest::fromSequence()
 }
 
 
+void InputCodeTest::comparison()
+{
+    Log::xtrace(TAG, "comparison()");
+
+    InputCode unknown;
+
+    CPPUNIT_ASSERT(unknown == InputCode::IC_UNKNOWN);
+    CPPUNIT_ASSERT(unknown != InputCode::IC_SPACE);
+}
+
+

@@ -33,6 +33,7 @@ class InputCodeTest : public CPPUNIT_NS::TestFixture
     CPPUNIT_TEST(ctor);
     CPPUNIT_TEST(fromChar);
     CPPUNIT_TEST(fromSequence);
+    CPPUNIT_TEST(comparison);
 
     CPPUNIT_TEST_SUITE_END();
 
@@ -41,6 +42,7 @@ class InputCodeTest : public CPPUNIT_NS::TestFixture
     void ctor();
     void fromChar();
     void fromSequence();
+    void comparison();
 
   private:
 

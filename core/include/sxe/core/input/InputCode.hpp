@@ -575,6 +575,10 @@ namespace sxe { namespace core { namespace input {
          */
         std::string dump() const;
 
+        /* Compare to our code() field. */
+        bool operator== (int value) const;
+        bool operator!= (int value) const;
+
         /** Creates an IC_UNKNOWN. */
         InputCode();
 
