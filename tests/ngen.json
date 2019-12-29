@@ -9,6 +9,7 @@
     "sources": [
         "core/common/NotificationManagerTest.cpp",
         "core/common/SubsystemTest.cpp",
+        "core/config/SettingsFileTest.cpp",
         "core/config/SettingsFixture.cpp",
         "core/config/SettingsMapTest.cpp",
         "core/config/SettingsXMLFileTest.cpp",

@@ -11,6 +11,7 @@
         "src/RateCounter.cpp",
         "src/common/Subsystem.cpp",
         "src/config/Settings.cpp",
+        "src/config/SettingsFile.cpp",
         "src/config/SettingsMap.cpp",
         "src/config/SettingsXMLFile.cpp",
         "src/graphics/Display.cpp",
