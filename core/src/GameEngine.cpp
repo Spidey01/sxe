@@ -222,6 +222,8 @@ bool GameEngine::start()
     mGameThread = new GameThread(this, mGame);
     mGameThread.start();
     #endif
+    // Placeholder until GameThread is a thing.
+    mGame->start(this);
 
     return true;
 }
@@ -284,6 +286,9 @@ void GameEngine::update()
     #endif
     if (mDisplayManager)
         mDisplayManager->update();
+
+    // Placeholder until GameThread is a thing.
+    mGame->tick();
 }
 
 
