@@ -10,6 +10,7 @@
         "src/GameEngine.cpp",
         "src/RateCounter.cpp",
         "src/common/Subsystem.cpp",
+        "src/common/Utils.cpp",
         "src/config/Settings.cpp",
         "src/config/SettingsFile.cpp",
         "src/config/SettingsMap.cpp",

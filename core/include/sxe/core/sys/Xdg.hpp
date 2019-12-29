@@ -32,6 +32,8 @@ namespace sxe { namespace core { namespace sys {
     {
       public:
 
+        using list = std::vector<FileSystem::path>;
+
         Xdg();
 
         /** Application installation prefix.
@@ -54,12 +56,11 @@ namespace sxe { namespace core { namespace sys {
         /** Base directory for user-specific data files. */
         FileSystem::path XDG_DATA_HOME;
 
-
         /** Preference-ordered set of base directories to search for data files. 
          *
          * This is the system search path version of XDG_DATA_HOME.
          */
-        std::vector<FileSystem::path> XDG_DATA_DIRS;
+        list XDG_DATA_DIRS;
 
         /** Base directory for user specific configuration files. */
         FileSystem::path XDG_CONFIG_HOME;
@@ -68,7 +69,7 @@ namespace sxe { namespace core { namespace sys {
          *
          * This is the system search path version of XDG_CONFIG_HOME.
          */
-        std::vector<FileSystem::path> XDG_CONFIG_DIRS;
+        list XDG_CONFIG_DIRS;
 
         /** Base directory for user specific non-essential data files. */
         FileSystem::path XDG_CACHE_HOME;

@@ -24,6 +24,7 @@
 #include "sxe/core/GameEngine.hpp"
 
 #include <sxe/core/Game.hpp>
+#include <sxe/core/common/Utils.hpp>
 #include <sxe/core/config/Settings.hpp>
 #include <sxe/core/config/SettingsFile.hpp>
 #include <sxe/core/config/SettingsMap.hpp>
@@ -189,8 +190,22 @@ bool GameEngine::start()
     Log::i(TAG, "XDG_CONFIG_HOME=\"" + mXdg.XDG_CONFIG_HOME.string() + "\"");
     Log::i(TAG, "XDG_CACHE_HOME=\"" + mXdg.XDG_CACHE_HOME.string() + "\"");
     Log::i(TAG, "XDG_RUNTIME_DIR=\"" + mXdg.XDG_RUNTIME_DIR.string() + "\"");
-    // Log.i(TAG, "XDG_DATA_DIRS=\""+Utils.join(Xdg.XDG_DATA_DIRS, ':')+"\"");
-    // Log.i(TAG, "XDG_CONFIG_DIRS=\""+Utils.join(Xdg.XDG_CONFIG_DIRS, ':')+"\"");
+    /* Implicitly converting path to string is sometimes painful vs explicit */
+    {
+        using seq = std::vector<string>;
+        using path = sys::FileSystem::path;
+
+        seq dataDirs;
+        for (const path& p : mXdg.XDG_DATA_DIRS)
+            dataDirs.push_back(p.string());
+
+        seq configDirs;
+        for (const path& p : mXdg.XDG_CONFIG_DIRS)
+            configDirs.push_back(p.string());
+
+        Log::i(TAG, "XDG_DATA_DIRS=\"" + common::Utils::join(dataDirs, dataDirs.size(), ':') + "\"");
+        Log::i(TAG, "XDG_CONFIG_DIRS=\"" + common::Utils::join(configDirs, configDirs.size(), ':') + "\"");
+    }
 
     if (!mDisplayManager) {
         Log::e(TAG, "No Display implementation!");

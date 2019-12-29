@@ -34,22 +34,48 @@ namespace sxe { namespace core { namespace common {
 
         /* Inverse of std::isspace.
         */
-        bool SXE_PUBLIC notSpace(int ch)
+        bool SXE_PUBLIC notSpace(int ch);
+
+        /** Trims leading / trailing whitespace.
+         */
+        std::string SXE_PUBLIC trim(const std::string& input);
+
+        template <class Sequence, class String>
+        void split(Sequence& list, const String& value, char sep)
         {
-            return !std::isspace(ch);
+            size_t start = 0;
+            size_t pos = value.find(sep);
+            while (pos != string::npos) {
+                size_t next = value.find(sep, start + 1);
+                size_t count = next - start;
+
+                if (value[start] == sep) {
+                    start += 1;
+                    count -= 1;
+                }
+
+                list.emplace(list.end(), value.substr(start, count));
+
+                start += count + 1;
+                pos = next;
+            }
         }
 
 
-        std::string SXE_PUBLIC trim(const std::string& input)
+        template <class Sequence, class String=std::string>
+        String join(Sequence sequence, size_t length, char separator)
         {
-            std::string copy = input;
+            String buf;
+            buf.reserve(length * 16);
 
-            copy.erase(copy.begin(),
-                       std::find_if(copy.begin(), copy.end(), &notSpace));
-            copy.erase(std::find_if(copy.rbegin(), copy.rend(), &notSpace).base(),
-                       copy.end());
+            for (size_t i=0; i < length; ++i) {
+                if (i > 0)
+                    buf += (separator);
 
-            return copy;
+                buf += sequence[i];
+            }
+
+            return buf;
         }
 
     }

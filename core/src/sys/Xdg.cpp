@@ -22,41 +22,16 @@
  */
 #include "sxe/core/sys/Xdg.hpp"
 
-#include "sxe/core/sys/FileSystem.hpp"
-#include "sxe/core/sys/Platform.hpp"
+#include <sxe/core/common/Utils.hpp>
+#include <sxe/core/sys/FileSystem.hpp>
+#include <sxe/core/sys/Platform.hpp>
 
 using std::getenv;
 using sxe::core::sys::FileSystem::path;
 using sxe::core::sys::FileSystem::string;
+using sxe::core::common::Utils::split;
 
 namespace sxe { namespace core { namespace sys {
-
-/*
- * SxE 1.x always used :.
- * SxE 2.x switches to ; for Windows.
- */
-static void split(std::vector<path>& list, const string& value)
-{
-    char sep = Platform().isWindows() ? ';' : ':';
-
-    size_t start = 0;
-    size_t pos = value.find(sep);
-    while (pos != string::npos) {
-        size_t next = value.find(sep, start + 1);
-        size_t count = next - start;
-
-        if (value[start] == sep) {
-            start += 1;
-            count -= 1;
-        }
-
-        list.emplace(list.end(), value.substr(start, count));
-
-        start += count + 1;
-        pos = next;
-    }
-}
-
 
 Xdg::Xdg()
     : HOME(FileSystem::getUserDir())
@@ -75,9 +50,15 @@ Xdg::Xdg()
         XDG_DATA_HOME = USER_DIR / ".local" / "share";
     }
 
+    /*
+     * SxE 1.x always used :.
+     * SxE 2.x switches to ; for Windows.
+     */
+    char sep = Platform().isWindows() ? ';' : ':';
+
     p = getenv("XDG_DATA_DIRS");
     if (p != nullptr) {
-        split(XDG_DATA_DIRS, p);
+        split<list, string>(XDG_DATA_DIRS, p, sep);
     } else {
         XDG_DATA_DIRS.push_back("/usr/local/share");
         XDG_DATA_DIRS.push_back("/usr/share");
@@ -92,7 +73,7 @@ Xdg::Xdg()
 
     p = getenv("XDG_CONFIG_DIRS");
     if (p != nullptr) {
-        split(XDG_CONFIG_DIRS, p);
+        split<list, string>(XDG_CONFIG_DIRS, p, sep);
     } else {
         XDG_CONFIG_DIRS.push_back("/etc/xdg");
     }
