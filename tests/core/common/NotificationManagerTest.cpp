@@ -197,6 +197,34 @@ void NotificationManagerTest::subscribe()
 }
 
 
+void NotificationManagerTest::clear()
+{
+    Log::xtrace(TAG, "clear()");
+
+    TestUser user;
+
+    reset(user);
+
+    Log::test(TAG, "Subscribing to broadcasts.");
+    TestListener listener = [&user](auto str) -> void { user.onTest(TestEvent(str)); };
+    auto id = user.mTestEventManager.subscribe(listener);
+
+    assertNotCalled(user, "foo");
+    Log::test(TAG, "Injecting foo");
+    user.inject("foo");
+    assertCalled(user, "foo");
+
+    reset(user);
+
+    Log::test(TAG, "Nuking it all.");
+    user.mTestEventManager.clear();
+
+    assertNotCalled(user, "bar");
+    user.inject("bar");
+    assertNotCalled(user, "bar");
+}
+
+
 void NotificationManagerTest::reset(TestUser& u)
 {
     Log::xtrace(TAG, "reset()");

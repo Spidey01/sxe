@@ -34,12 +34,14 @@ class NotificationManagerTest : public CPPUNIT_NS::TestFixture
 
     CPPUNIT_TEST(broadcast);
     CPPUNIT_TEST(subscribe);
+    CPPUNIT_TEST(clear);
 
     CPPUNIT_TEST_SUITE_END();
 
   protected:
     void broadcast();
     void subscribe();
+    void clear();
 
   private:
     void reset(TestUser& u);

@@ -184,6 +184,15 @@ namespace sxe { namespace core { namespace common {
             }
         }
 
+        /** Clear all subscriptions, period.
+         */
+        void clear()
+        {
+            lock_type guard(mMutex);
+            mNotificationReceivers.clear();
+            mSubscribers.clear();
+        }
+
 
         NotificationManager()
             : mTag("NotificationManager")
