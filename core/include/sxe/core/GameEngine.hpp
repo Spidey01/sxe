@@ -37,6 +37,9 @@ namespace sxe { namespace core {
     namespace graphics {
         class Display;
     }
+    namespace input {
+        class InputManager;
+    }
 
     class SXE_PUBLIC GameEngine
     {
@@ -51,7 +54,7 @@ namespace sxe { namespace core {
         using TODO_placeholder = common::Subsystem; // placeholder.
         using DisplayManager_ptr = std::unique_ptr<graphics::Display>;
         using SceneManager_ptr = std::unique_ptr<TODO_placeholder>;
-        using InputManager_ptr = std::unique_ptr<TODO_placeholder>;
+        using InputManager_ptr = std::unique_ptr<input::InputManager>;
         using ResourceManager_ptr = std::unique_ptr<TODO_placeholder>;
         using LoggingManager_ptr = std::unique_ptr<TODO_placeholder>;
 
@@ -127,6 +130,9 @@ namespace sxe { namespace core {
          * @returns runtime settings.
          */
         config::Settings& getSettings() const;
+
+        input::InputManager& getInputManager() const;
+        graphics::Display& getDisplayManager() const;
 
       private:
         static const std::string TAG;

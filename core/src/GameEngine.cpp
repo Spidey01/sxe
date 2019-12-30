@@ -30,6 +30,7 @@
 #include <sxe/core/config/SettingsMap.hpp>
 #include <sxe/core/config/SettingsXMLFile.hpp>
 #include <sxe/core/graphics/Display.hpp>
+#include <sxe/core/input/InputManager.hpp>
 #include <sxe/core/sys/Platform.hpp>
 #include <sxe/logging.hpp>
 
@@ -280,8 +281,9 @@ bool GameEngine::isRunning() const
 
 void GameEngine::update()
 {
+    if (mInputManager)
+        mInputManager->update();
     #if 0 // 1.x
-    mInputManager.poll();
     mSceneManager.update();
     #endif
     if (mDisplayManager)
@@ -323,6 +325,22 @@ config::Settings& GameEngine::getSettings() const
     assert(mRuntimeSettings != nullptr);
 
     return *mRuntimeSettings;
+}
+
+
+input::InputManager& GameEngine::getInputManager() const
+{
+    assert(mInputManager != nullptr);
+
+    return *mInputManager;
+}
+
+
+graphics::Display& GameEngine::getDisplayManager() const
+{
+    assert(mDisplayManager != nullptr);
+
+    return *mDisplayManager;
 }
 
 
