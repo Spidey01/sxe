@@ -26,17 +26,12 @@ rdemo() { # run a demo by name
 
 
 idemo() { # build a demo by name
-    ngen
-    if [ -d "$(gettop)/demos/${1}" ]; then
-        ninja "demos/$1"
-    else
-        ninja demos/
-    fi
+    ngen && ninja demos/$1
 }
 
 
 irdemo() { # build and run a demo by name with following args.
-    idemo $1
+    idemo $1 || return
     rdemo $*
 }
 
@@ -52,7 +47,7 @@ itest() { # build test runner
 
 
 irtest() { # build and run test runner with following args.
-    itest
+    itest || return
     rtest $*
 }
 
