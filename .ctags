@@ -1,0 +1,8 @@
+-R
+--extra=+q
+--exclude=tmp/*
+--exclude=dist/*
+--exclude=build/*
+--exclude=vendor/*.ngen/*
+--exclude=.cmd/*
+--exclude=envsetup*
