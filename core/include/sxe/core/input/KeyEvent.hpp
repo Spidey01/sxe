@@ -42,7 +42,6 @@ namespace sxe { namespace core { namespace input {
 
         KeyEvent(InputManager* source, InputCode keyCode, const std::string& keyName, bool isDown);
 
-
         InputManager* getSource() const;
 
         InputCode getKeyCode() const;
@@ -53,7 +52,17 @@ namespace sxe { namespace core { namespace input {
 
         bool isKeyUp() const;
 
+        /** Returns debug friendly description.
+         */
         std::string toString() const;
+
+        /** Returns InputCode converted to a string.
+         */
+        operator std::string() const;
+
+        /** Returns InputCode converted to a int.
+         */
+        operator int() const;
 
       protected:
 
@@ -66,5 +75,16 @@ namespace sxe { namespace core { namespace input {
     };
 
 } } }
+
+
+namespace std {
+    template <> struct hash<sxe::core::input::KeyEvent>
+    {
+        size_t operator()(const sxe::core::input::KeyEvent& event) const
+        {
+            return hash<int>()(event.getKeyCode().code());
+        }
+    };
+}
 
 #endif // SXE_CORE_INPUT_KEYEVENT__HPP

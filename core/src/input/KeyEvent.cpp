@@ -76,5 +76,17 @@ string KeyEvent::toString() const
         + " Down=" + string(mIsDown ? "true" : "false");
 }
 
+
+KeyEvent::operator string() const
+{
+    return std::to_string(mKeyCode.code());
+}
+
+
+KeyEvent::operator int() const
+{
+    return mKeyCode.code();
+}
+
 } } }
 
