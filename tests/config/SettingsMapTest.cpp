@@ -46,13 +46,13 @@ void SettingsMapTest::ctor()
     Log::xtrace(TAG, "ctor");
 
 
-    static char* argv[] = {
+    static const char* argv[] = {
         "a1=str1",
         "a2=2",
     };
     int argc = 2;
 
-    SettingsMap map(argc, argv);
+    SettingsMap map(argc, (char**)argv);
 
     CPPUNIT_ASSERT(map.getString("a1") == "str1");
     CPPUNIT_ASSERT(map.getInt("a2") == 2);
