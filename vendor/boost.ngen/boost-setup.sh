@@ -23,22 +23,23 @@ set -e
 
 cd "$PROJECT_ROOT"
 
-if [ ! -f "$CACHE" ]; then
-    echo "Downloading $ZIP_URL"
-    ( cd "$(dirname $CACHE)" && wget "$ZIP_URL" )
-fi
+if [ ! -f "${PROJECT_DISTDIR}/include/boost/config.hpp" ]; then
 
-if [ ! -f "$BOOTSTRAP" ]; then
-    unzip "$CACHE" -d "$(dirname $WHERE)"
-fi
+    if [ ! -f "$CACHE" ]; then
+        echo "Downloading $ZIP_URL"
+        ( cd "$(dirname $CACHE)" && wget "$ZIP_URL" )
+    fi
 
-if [ ! -x "$B2" ]; then
-    cd "$WHERE"
-    ./bootstrap.sh
-    cd -
-fi
+    if [ ! -f "$BOOTSTRAP" ]; then
+        unzip "$CACHE" -d "$(dirname $WHERE)"
+    fi
 
-if [ ! -f "${PROJECT_DISTDIR}/boost/config.hpp" ]; then
+    if [ ! -x "$B2" ]; then
+        cd "$WHERE"
+        ./bootstrap.sh
+        cd -
+    fi
+
     cd "$WHERE"
     ./b2 \
         --prefix="$PROJECT_DISTDIR" $COMPONENTS \
@@ -48,7 +49,6 @@ if [ ! -f "${PROJECT_DISTDIR}/boost/config.hpp" ]; then
         -j12 \
             address-model=64 \
                 install
+    echo "Your BOOST is $PROJECT_DISTDIR/include"
 fi
 
-
-echo "Your BOOST is $PROJECT_DISTDIR/include"
