@@ -20,12 +20,15 @@
         "src/graphics/FrameEndedListener.cpp",
         "src/graphics/FrameStartedListener.cpp",
         "src/input/InputCode.cpp",
+        "src/input/InputManager.cpp",
+        "src/input/KeyEvent.cpp",
         "src/logging/Log.cpp",
         "src/logging/LogSink.cpp",
         "src/sys/FileSystem.cpp",
         "src/sys/Platform.cpp",
         "src/sys/Xdg.cpp",
         "src/testing/NullConfiguration.cpp",
+        "src/testing/NullInputManager.cpp",
         "src/testing/NullDisplay.cpp"
     ],
     "headers": [
