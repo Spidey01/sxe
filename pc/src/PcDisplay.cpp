@@ -177,6 +177,8 @@ void PcDisplay::destroy()
 {
     Log::d(TAG, "destroy()");
 
+    glfwSetKeyCallback(mWindow, nullptr);
+
     glfwDestroyWindow(mWindow);
     mWindow = nullptr;
 }
@@ -213,6 +215,16 @@ bool PcDisplay::setMode(DisplayMode mode)
                          target.refresh());
 
     return true;
+}
+
+
+GLFWwindow* PcDisplay::getWindow() const
+{
+    if (mWindow == nullptr) {
+        Log::w(TAG, "getWindow() called before create!()");
+    }
+
+    return mWindow;
 }
 
 

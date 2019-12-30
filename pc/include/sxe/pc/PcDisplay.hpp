@@ -59,6 +59,14 @@ namespace sxe { namespace pc {
         bool isCloseRequested() const override;
         bool setMode(sxe::core::graphics::DisplayMode mode) override;
 
+        /** Returns access to the window.
+         *
+         * This pointer will be valid from when create() returns to when
+         * destroy() is called. Do not call glfwDestroyWindow() on it, or
+         * otherwise abuse this.
+         */
+        GLFWwindow* getWindow() const;
+
       protected:
 
         string_type getError() const;

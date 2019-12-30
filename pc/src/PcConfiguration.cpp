@@ -27,9 +27,11 @@
 #include <sxe/core/config/SettingsXMLFile.hpp>
 #include <sxe/core/sys/Platform.hpp>
 #include <sxe/pc/PcDisplay.hpp>
+#include <sxe/pc/PcInputManager.hpp>
 
 using std::make_shared;
 using std::make_unique;
+using std::move;
 using std::string;
 using std::to_string;
 using sxe::core::Game;
@@ -64,7 +66,7 @@ GameEngine::unique_ptr PcConfiguration::setup(int argc, char* argv[], Game::shar
         , make_unique<SettingsMap>(argc, argv)
         , make_unique<sxe::pc::PcDisplay>()
         , nullptr // scene manager
-        , nullptr // input maanger -- TODO NullInputManager
+        , make_unique<sxe::pc::PcInputManager>()
         , nullptr // resource manager
         , nullptr // logging manager
         , settings(game, platform)
