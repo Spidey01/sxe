@@ -21,43 +21,13 @@
  *	   distribution.
  */
 
-#include "sxe/core/testing/NullConfiguration.hpp"
-
-#include <sxe/core/config/SettingsMap.hpp>
-#include <sxe/core/sys/Platform.hpp>
-#include <sxe/core/testing/NullDisplay.hpp>
-#include <sxe/core/testing/NullInputManager.hpp>
-
-using std::make_shared;
-using std::make_unique;
-using sxe::core::config::Settings;
-using sxe::core::config::SettingsMap;
+#include "sxe/core/testing/NullInputManager.hpp"
 
 namespace sxe { namespace core { namespace testing {
 
-GameEngine::unique_ptr NullConfiguration::setup(Game::shared_ptr game)
+NullInputManager::NullInputManager()
+    : InputManager("NullInputManager")
 {
-    return setup(0, nullptr, game);
-}
-
-
-GameEngine::unique_ptr NullConfiguration::setup(int argc, char* argv[], Game::shared_ptr game)
-{
-    argc -= 1;
-    argv += 1;
-
-    return std::make_unique<sxe::core::GameEngine>
-    (
-        game
-        , make_unique<SettingsMap>(argc, argv)
-        , make_unique<NullDisplay>(true)
-        , nullptr // scene manager
-        , make_unique<NullInputManager>()
-        , nullptr // resource manager
-        , nullptr // logging manager
-        , nullptr // platform specific settings
-        , sxe::core::sys::Platform()
-    );
 }
 
 } } }
