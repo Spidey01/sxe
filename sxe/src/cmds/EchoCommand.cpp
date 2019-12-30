@@ -21,61 +21,30 @@
  *	   distribution.
  */
 
-#include "sxe/cmds/Command.hpp"
+#include "sxe/cmds/EchoCommand.hpp"
 
 #include <sxe/logging.hpp>
 
 namespace sxe { namespace cmds {
 
-const Command::string_type Command::TAG = "Command";
+const EchoCommand::string_type EchoCommand::TAG = "EchoCommand";
 
-Command::Command(const string_type& name)
-    : mName(name)
-    , mArgs()
+EchoCommand::EchoCommand()
+    : Command("echo")
 {
-    Log::test(TAG, "Created command " + name);
 }
 
 
-Command::string_type Command::getName() const
+bool EchoCommand::operator() ()
 {
-    return mName;
-}
+    for (const string_type& arg : getArgs()) {
+        Log::d(TAG, getName() + ": arg: " + arg);
+    }
 
-
-bool Command::operator() ()
-{
-    Log::xtrace(TAG, "operator() called on command: " + getName());
     return true;
 }
 
-
-bool Command::operator==(const Command& other) const
-{
-    return mName == other.mName;
-}
-
-
-bool Command::operator!=(const Command& other) const
-{
-    return mName != other.mName;
-}
-
-
-void Command::setArgs(const argv& args)
-{
-}
-
-
-void Command::setArgs(const string_type& args)
-{
-}
-
-
-const Command::argv& Command::getArgs() const
-{
-    return mArgs;
-}
-
 } }
+
+
 

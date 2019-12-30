@@ -23,6 +23,7 @@
  *	   distribution.
  */
 
+#include <sxe/Console.hpp>
 #include <sxe/Game.hpp>
 #include <sxe/GameEngine.hpp>
 
@@ -37,6 +38,7 @@ class GameStub : public sxe::Game
   private:
 
     static const std::string TAG;
+    sxe::Console mConsole;
 };
 
 #endif // SXE_DEMOS_DIAGTERM__HPP

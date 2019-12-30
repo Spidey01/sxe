@@ -31,6 +31,7 @@ const QuitCommand::string_type QuitCommand::TAG = "QuitCommand";
 
 QuitCommand::QuitCommand(Game::weak_ptr game)
     : Command("quit")
+    , mGame(game)
 {
 }
 

@@ -38,6 +38,9 @@ namespace sxe { namespace cmds {
 
         using string_type = std::string;
         using argv = std::vector<string_type>;
+        using unique_ptr = std::unique_ptr<Command>;
+        using shared_ptr = std::shared_ptr<Command>;
+        using weak_ptr = std::weak_ptr<Command>;
 
         Command(const string_type& name);
 
@@ -55,11 +58,13 @@ namespace sxe { namespace cmds {
 
         void setArgs(const argv& args);
         void setArgs(const string_type& args);
+        const argv& getArgs() const;
 
       private:
 
         static const string_type TAG;
         string_type mName;
+        argv mArgs;
     };
 
 } }

@@ -23,6 +23,9 @@
 
 #include "GameStub.hpp"
 
+#include <sxe/cmds/EchoCommand.hpp>
+#include <sxe/cmds/QuitCommand.hpp>
+#include <sxe/input/InputManager.hpp>
 #include <sxe/logging.hpp>
 
 using std::string;
@@ -43,14 +46,27 @@ bool GameStub::start(GameEngine* engine)
     if (!Game::start(engine))
         return false;
 
-    // need to setup key listener, Console::setVisible(true), and commands.
-    return true;
+    mConsole.setInputManager(&(engine->getInputManager()));
+
+    // Setup our commands.
+    {
+        using namespace sxe::cmds;
+        using std::make_shared;
+
+        mConsole.addCommand(make_shared<QuitCommand>(engine->getGame()));
+
+        mConsole.addCommand(make_shared<EchoCommand>());
+    }
+
+    mConsole.setVisible(true);
+
+    return mConsole.isVisible();
 }
 
 
 void GameStub::stop()
 {
-    // Console::setVisibile(false) needs to be called.
+    mConsole.setVisible(false);
     Game::stop();
 }
 

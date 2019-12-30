@@ -1,5 +1,7 @@
+#ifndef SXE_CMDS_ECHOCOMMAND__HPP
+#define SXE_CMDS_ECHOCOMMAND__HPP
 /*-
- * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -21,61 +23,29 @@
  *	   distribution.
  */
 
-#include "sxe/cmds/Command.hpp"
-
-#include <sxe/logging.hpp>
+#include <sxe/Game.hpp>
+#include <sxe/api.hpp>
+#include <sxe/cmds/Command.hpp>
 
 namespace sxe { namespace cmds {
 
-const Command::string_type Command::TAG = "Command";
+    /** Command that quits the game.
+     *
+     */
+    class SXE_PUBLIC EchoCommand : public Command
+    {
+      public:
 
-Command::Command(const string_type& name)
-    : mName(name)
-    , mArgs()
-{
-    Log::test(TAG, "Created command " + name);
-}
+        EchoCommand();
 
+        bool operator() () override;
 
-Command::string_type Command::getName() const
-{
-    return mName;
-}
+      private:
 
+        static const string_type TAG;
 
-bool Command::operator() ()
-{
-    Log::xtrace(TAG, "operator() called on command: " + getName());
-    return true;
-}
-
-
-bool Command::operator==(const Command& other) const
-{
-    return mName == other.mName;
-}
-
-
-bool Command::operator!=(const Command& other) const
-{
-    return mName != other.mName;
-}
-
-
-void Command::setArgs(const argv& args)
-{
-}
-
-
-void Command::setArgs(const string_type& args)
-{
-}
-
-
-const Command::argv& Command::getArgs() const
-{
-    return mArgs;
-}
+    };
 
 } }
 
+#endif // SXE_CMDS_ECHOCOMMAND__HPP
