@@ -207,7 +207,7 @@ void NotificationManagerTest::clear()
 
     Log::test(TAG, "Subscribing to broadcasts.");
     TestListener listener = [&user](auto str) -> void { user.onTest(TestEvent(str)); };
-    auto id = user.mTestEventManager.subscribe(listener);
+    user.mTestEventManager.subscribe(listener);
 
     assertNotCalled(user, "foo");
     Log::test(TAG, "Injecting foo");
