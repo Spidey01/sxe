@@ -6,6 +6,14 @@
 
 #include <string>
 
+namespace sxe {
+    namespace core {
+        namespace input {
+            class KeyEvent;
+        }
+    }
+}
+
 namespace demos {
 	class NullDemo : public sxe::core::Game
     {
@@ -19,6 +27,7 @@ namespace demos {
 
       private:
         static std::string TAG;
+        bool onKey(sxe::core::input::KeyEvent event);
     };
 }
 

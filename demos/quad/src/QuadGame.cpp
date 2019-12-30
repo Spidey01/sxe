@@ -25,7 +25,12 @@
 #include "QuadGame.h"
 
 #include <sxe/core/GameEngine.hpp>
+#include <sxe/core/input/InputManager.hpp>
 #include <sxe/logging.hpp>
+
+using sxe::core::input::InputCode;
+using sxe::core::input::KeyListener;
+using sxe::core::input::KeyEvent;
 
 namespace demos {
 
@@ -45,25 +50,27 @@ bool QuadGame::start(sxe::core::GameEngine* engine)
 
     /* Add our demo Quad to the scene. */
     mGameEngine.getSceneManager().add(mQuad.getGraphicsFacet());
+    #endif
 
     /* Bind ourself to handle the 'Q' key press. */
-    mGameEngine.getInputManager().addKeyListener(InputCode.IC_Q, this);
-    #endif
+    KeyListener listener = std::bind(&QuadGame::onKey, this, std::placeholders::_1);
+    engine->getInputManager().addKeyListener(InputCode::IC_Q, listener);
 
     return true;
 }
 
 
-#if 0 // 1.x
-    @Override
-    public boolean onKey(KeyEvent event) {
-        if (event.getKeyCode().equals(InputCode.IC_Q)) {
-            requestStop();
-            return true;
-        }
-        return false;
+bool QuadGame::onKey(KeyEvent event)
+{
+    if (event.isKeyUp())
+        Log::d(TAG, event.toString());
+
+    if (event.getKeyCode() == InputCode::IC_Q) {
+        requestStop();
+        return true;
     }
-#endif
+    return false;
+}
 
 }
 

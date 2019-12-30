@@ -3,6 +3,7 @@
 
 #include <sxe/api.hpp>
 #include <sxe/core/Game.hpp>
+#include <sxe/core/input/KeyEvent.hpp>
 
 #include <string>
 
@@ -13,10 +14,10 @@ namespace demos {
 
         std::string getName() const override;
         bool start(sxe::core::GameEngine* engine) override;
-        // TODO: onKey() / key listener.
 
       private:
         static std::string TAG;
+        bool onKey(sxe::core::input::KeyEvent event);
     };
 }
 
