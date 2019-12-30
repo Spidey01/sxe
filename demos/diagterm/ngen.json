@@ -1,0 +1,33 @@
+{
+    "project": "diagterm",
+    "version": "0",
+    "type": "cxx_application",
+    "dependencies": [
+        "SxE"
+    ],
+    "sources": [
+        "src/main.cpp",
+        "src/GameStub.cpp"
+    ],
+    "gcc": {
+        "cppflags": [
+            "$sxe_gcc_cppflags",
+            "-I$sourcedir/src",
+            "-I$sourcedir/include"
+        ],
+        "cxxflags": "$sxe_gcc_cxxflags",
+        "ldflags": "$sxe_gcc_ldflags",
+        "ldlibs": "$sxe_gcc_ldlibs -lSxE"
+    },
+    "msvc": {
+        "cppflags": [
+            "$sxe_msvc_cppflags",
+            "/I$sourcedir/src",
+            "/I$sourcedir/include"
+        ],
+        "cxxflags": "$sxe_msvc_cxxflags",
+        "ldflags": "$sxe_msvc_cxxflags",
+        "ldlibs": "$sxe_msvc_ldlibs SxE.lib"
+    }
+}
+
