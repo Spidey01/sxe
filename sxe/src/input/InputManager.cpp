@@ -107,6 +107,8 @@ void InputManager::inject(const string_type& line)
             inject(InputCode::IC_SHIFT_LEFT, false);
         }
     }
+    inject(InputCode::IC_ENTER, true);
+    inject(InputCode::IC_ENTER, false);
 }
 
 
