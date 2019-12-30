@@ -45,7 +45,7 @@ namespace sxe {  namespace common {
         {
             size_t start = 0;
             size_t pos = value.find(sep);
-            while (pos != string::npos) {
+            while (pos != String::npos) {
                 size_t next = value.find(sep, start + 1);
                 size_t count = next - start;
 
