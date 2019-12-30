@@ -1,12 +1,12 @@
 [submodule "envsetup"]
 	path = envsetup
 	url = https://github.com/Spidey01/envsetup.git
-[submodule "vendor\\cppunit"]
-	path = vendor\\cppunit
+[submodule "vendor/cppunit"]
+	path = vendor/cppunit
 	url = git://anongit.freedesktop.org/git/libreoffice/cppunit/
 [submodule "vendor/json"]
 	path = vendor/json
 	url = https://github.com/nlohmann/json.git
-[submodule "vendor\\glfw"]
-	path = vendor\\glfw
+[submodule "vendor/glfw"]
+	path = vendor/glfw
 	url = https://github.com/glfw/glfw.git
