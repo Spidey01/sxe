@@ -42,7 +42,7 @@ irdemo() { # build and run a demo by name with following args.
 
 
 rtest() { # run test runner with following args
-    run_from_dist sxe-test-runner -o "${PROJECT_ROOT}/tmp/test.log" "$@"
+    run_from_dist "${PROJECT_DISTDIR}/bin/sxe-test-runner" -o "${PROJECT_ROOT}/tmp/test.log" "$@"
 }
 
 
