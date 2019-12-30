@@ -16,7 +16,7 @@
         "sxe_gcc_cppflags = $sxe_gcc_defines $sxe_gcc_includes",
         "sxe_gcc_cxxflags = -std=c++17 -fPIC -Wall -ggdb3 -fvisibility=hidden",
         "sxe_gcc_ldflags = -L$distdir/lib",
-        "sxe_gcc_ldlibs = -lboost_filesystem",
+        "sxe_gcc_ldlibs = -lboost_filesystem -lglfw",
 
         "sxe_msvc_comment = Default msvc flags.",
 
