@@ -604,4 +604,14 @@ namespace sxe { namespace core { namespace input {
 
 } } }
 
+namespace std {
+    template <> struct hash<sxe::core::input::InputCode>
+    {
+        size_t operator()(const sxe::core::input::InputCode& event) const
+        {
+            return hash<int>()(event.code());
+        }
+    };
+}
+
 #endif // SXE_CORE_INPUT_INPUTCODE__HPP
