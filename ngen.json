@@ -4,8 +4,7 @@
     "type": "package",
     "sources": [
         "vendor",
-        "core",
-        "pc",
+        "sxe",
         "demos",
         "tests"
     ],

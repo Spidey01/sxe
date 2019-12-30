@@ -21,8 +21,8 @@
  *	   distribution.
  */
 
-#include <sxe/core/Game.hpp>
-#include <sxe/core/GameEngine.hpp>
+#include <sxe/Game.hpp>
+#include <sxe/GameEngine.hpp>
 #include <sxe/pc/PcConfiguration.hpp>
 #include "QuadGame.h"
 
@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 {
     auto demo = std::make_shared<demos::QuadGame>();
 
-    sxe::core::GameEngine::unique_ptr g = sxe::pc::PcConfiguration::setup(argc, argv, demo);
+    sxe::GameEngine::unique_ptr g = sxe::pc::PcConfiguration::setup(argc, argv, demo);
 
     if (!g) {
         std::cout << argv[0] << "NullConfiguration failed!" << std::endl;

@@ -3,7 +3,7 @@
     "version": "0",
     "type": "cxx_application",
     "dependencies": [
-        "SxE_core"
+        "SxE"
     ],
     "sources": [
         "src/main.cpp",
@@ -17,7 +17,7 @@
         ],
         "cxxflags": "$sxe_gcc_cxxflags",
         "ldflags": "$sxe_gcc_ldflags",
-        "ldlibs": "$sxe_gcc_ldlibs -lSxE_core"
+        "ldlibs": "$sxe_gcc_ldlibs -lSxE"
     },
     "msvc": {
         "cppflags": [
@@ -27,6 +27,6 @@
         ],
         "cxxflags": "$sxe_msvc_cxxflags",
         "ldflags": "$sxe_msvc_cxxflags",
-        "ldlibs": "$sxe_msvc_ldlibs SxE_core.lib"
+        "ldlibs": "$sxe_msvc_ldlibs SxE.lib"
     }
 }

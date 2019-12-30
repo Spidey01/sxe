@@ -24,13 +24,13 @@
 
 #include "QuadGame.h"
 
-#include <sxe/core/GameEngine.hpp>
-#include <sxe/core/input/InputManager.hpp>
+#include <sxe/GameEngine.hpp>
+#include <sxe/input/InputManager.hpp>
 #include <sxe/logging.hpp>
 
-using sxe::core::input::InputCode;
-using sxe::core::input::KeyListener;
-using sxe::core::input::KeyEvent;
+using sxe::input::InputCode;
+using sxe::input::KeyListener;
+using sxe::input::KeyEvent;
 
 namespace demos {
 
@@ -41,9 +41,9 @@ std::string QuadGame::getName() const
     return TAG;
 }
 
-bool QuadGame::start(sxe::core::GameEngine* engine)
+bool QuadGame::start(sxe::GameEngine* engine)
 {
-    sxe::core::Game::start(engine);
+    sxe::Game::start(engine);
 
     #if 0 // 1.x
     mQuad = new  Quad(mGameEngine);
