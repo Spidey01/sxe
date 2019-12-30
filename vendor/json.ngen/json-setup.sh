@@ -7,7 +7,7 @@ if [ -z "$PROJECT_ROOT" -o -z "$PROJECT_BUILDDIR" -o -z "$PROJECT_DISTDIR" ]; th
 fi
 
 if [ ! -f "$PROJECT_DISTDIR/include/nlohmann/json.hpp" ]; then
-    cp -r -v vendor/json/include/nlohmann "$PROJECT_DISTDIR/include/nlohmann"
+    cp -r -v "${PROJECT_ROOT}/vendor/json/include/nlohmann" "$PROJECT_DISTDIR/include/nlohmann"
     echo "Your json is $PROJECT_DISTDIR"
 fi
 
