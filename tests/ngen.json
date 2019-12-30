@@ -15,6 +15,7 @@
         "core/config/SettingsXMLFileTest.cpp",
         "core/graphics/DisplayModeTest.cpp",
         "core/input/InputCodeTest.cpp",
+        "core/input/InputManagerTest.cpp",
         "core/sys/PlatformTest.cpp",
         "core/sys/XdgTest.cpp",
         "main.cpp"
