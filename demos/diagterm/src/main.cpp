@@ -26,17 +26,17 @@
 #include <sxe/Game.hpp>
 #include <sxe/GameEngine.hpp>
 #include <sxe/config/SettingsMap.hpp>
+#include <sxe/input/ConsoleInputManager.hpp>
 #include <sxe/sys/Platform.hpp>
 #include <sxe/testing/NullDisplay.hpp>
-#include <sxe/testing/NullInputManager.hpp>
 
 using std::make_unique;
 using sxe::Game;
 using sxe::GameEngine;
 using sxe::config::SettingsMap;
+using sxe::input::ConsoleInputManager;
 using sxe::sys::Platform;
 using sxe::testing::NullDisplay;
-using sxe::testing::NullInputManager;
 
 static GameEngine::unique_ptr setup(int argc, char* argv[], Game::shared_ptr game)
 {
@@ -49,7 +49,7 @@ static GameEngine::unique_ptr setup(int argc, char* argv[], Game::shared_ptr gam
         , make_unique<SettingsMap>(argc, argv)
         , make_unique<NullDisplay>(true)
         , nullptr // scene manager
-        , make_unique<NullInputManager>()
+        , make_unique<ConsoleInputManager>()
         , nullptr // resource manager
         , nullptr // logging manager
         , nullptr // platform specific settings

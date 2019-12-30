@@ -19,6 +19,7 @@
         "src/graphics/DisplayMode.cpp",
         "src/graphics/FrameEndedListener.cpp",
         "src/graphics/FrameStartedListener.cpp",
+        "src/input/ConsoleInputManager.cpp",
         "src/input/InputCode.cpp",
         "src/input/InputManager.cpp",
         "src/input/KeyEvent.cpp",
