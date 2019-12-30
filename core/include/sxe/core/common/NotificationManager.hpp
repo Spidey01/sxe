@@ -52,15 +52,13 @@ namespace sxe { namespace core { namespace common {
      * numerical Hash of the message dispatch. Specializations of std::hash<>
      * can be provided or the Hash parameter set accordingly.
      *
-     * If all else fails, extend NotificationManager and override toKey().
+     * If all else fails, extend NotificationManager and use your own types.
      *
      * The value -1 or SIZE_MAX can be used as an uninitialized/invalid id value.
      *
      * Historical:
      *   - SxE 1.x used a dedicated listener object / event object interface.
      *   - SxE 2.x uses modern C++ functors, and makes old compilers cry.
-     *
-     * @see #invoke(java.lang.Object, java.lang.Object)
      */
     template <class Receiver_T, class Message_T, class Hash=std::hash<Message_T>>
     class NotificationManager
@@ -275,15 +273,16 @@ namespace sxe { namespace core { namespace common {
          * result.
          *
          * Otherwise Hash and std::to_string() will be used. By default Hash is
-         * std::hash<>, meaning Message_T's that you have specialized will just
-         * work. Numeric keys are effective but less friendly.
+         * std::hash<Message_T>, meaning Message_T's that you have specialized
+         * will just work. Numeric keys are effective but less friendly.
          *
-         * Alternatively: override toKey() and provide your own voodoo for
-         * mapping the keys to the Message_T.
+         * This is a template function to deal with the need for toKey() input
+         * being a string_type, or a Message_T.
          */
-        virtual string_type toKey(const Message_T& msg) const
+        template <class Key_T>
+        string_type toKey(const Key_T& msg) const
         {
-            if constexpr(std::is_convertible<Message_T, std::string>::value) {
+            if constexpr(std::is_convertible<Key_T, std::string>::value) {
                 string_type k = msg;
                 sxe::core::logging::Log::log(mLevel, mTag, "toKey(msg): operator string(): " + k);
                 return k;
@@ -294,7 +293,6 @@ namespace sxe { namespace core { namespace common {
                 return std::to_string(k);
             }
         }
-
 
       private:
 
