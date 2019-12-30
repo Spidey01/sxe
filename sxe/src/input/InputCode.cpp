@@ -169,6 +169,18 @@ bool InputCode::operator!= (int value) const
 }
 
 
+bool InputCode::operator== (InputCode value) const
+{
+    return code() == value.code();
+}
+
+
+bool InputCode::operator!= (InputCode value) const
+{
+    return code() != value.code();
+}
+
+
 InputCode::InputCode()
     : InputCode(IC_UNKNOWN, '\0', '\0')
 {

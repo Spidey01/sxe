@@ -579,6 +579,9 @@ namespace sxe { namespace input {
         bool operator== (int value) const;
         bool operator!= (int value) const;
 
+        bool operator== (InputCode value) const;
+        bool operator!= (InputCode value) const;
+
         /** Creates an IC_UNKNOWN. */
         InputCode();
 

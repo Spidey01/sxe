@@ -29,6 +29,15 @@ using std::to_string;
 namespace sxe {  namespace input {
 
 
+KeyEvent::KeyEvent()
+    : mSource(nullptr)
+    , mKeyCode(InputCode::IC_UNKNOWN)
+    , mKeyName()
+    , mIsDown(false)
+{
+}
+
+
 KeyEvent::KeyEvent(InputManager* source, InputCode keyCode, const string& keyName, bool isDown)
     : mSource(source)
     , mKeyCode(keyCode)
@@ -86,6 +95,18 @@ KeyEvent::operator string() const
 KeyEvent::operator int() const
 {
     return mKeyCode.code();
+}
+
+
+bool KeyEvent::operator== (InputCode other) const
+{
+    return mKeyCode == other;
+}
+
+
+bool KeyEvent::operator!= (InputCode other) const
+{
+    return mKeyCode != other;
 }
 
 } }

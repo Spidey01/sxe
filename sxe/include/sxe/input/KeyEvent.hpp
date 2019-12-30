@@ -40,6 +40,8 @@ namespace sxe { namespace input {
     {
       public:
 
+        KeyEvent();
+
         KeyEvent(InputManager* source, InputCode keyCode, const std::string& keyName, bool isDown);
 
         InputManager* getSource() const;
@@ -63,6 +65,11 @@ namespace sxe { namespace input {
         /** Returns InputCode converted to a int.
          */
         operator int() const;
+
+        /** Compares using getKeyCode().
+         */
+        bool operator== (InputCode other) const;
+        bool operator!= (InputCode other) const;
 
       protected:
 
