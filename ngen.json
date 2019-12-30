@@ -3,8 +3,8 @@
     "version": "2.0",
     "type": "package",
     "sources": [
-        "core",
-        "pc",
+        "vendor",
+        "sxe",
         "demos",
         "tests"
     ],
@@ -16,14 +16,14 @@
         "sxe_gcc_cppflags = $sxe_gcc_defines $sxe_gcc_includes",
         "sxe_gcc_cxxflags = -std=c++17 -fPIC -Wall -ggdb3 -fvisibility=hidden",
         "sxe_gcc_ldflags = -L$distdir/lib",
-        "sxe_gcc_ldlibs = -lboost_filesystem",
+        "sxe_gcc_ldlibs = -lboost_filesystem -lglfw",
 
         "sxe_msvc_comment = Default msvc flags.",
 
-        "sxe_msvc_defines = /DWIN32 /D_WINDOWS /DSXE_DLL",
-        "sxe_msvc_includes = /I$distdir/include /I$distdir/include/boost-1_71",
+        "sxe_msvc_defines = /DWIN32 /D_WINDOWS /DSXE_DLL /D_CRT_SECURE_NO_WARNINGS",
+        "sxe_msvc_includes = /I$distdir/include/boost-1_71 /I$distdir/include ",
         "sxe_msvc_cppflags = $sxe_msvc_defines $sxe_msvc_includes",
-        "sxe_msvc_cxxflags = /std:c++17 /W4 /wd4251 /GR /EHsc /FS /Zi /Ob0 /Od",
+        "sxe_msvc_cxxflags = /std:c++17 /W4 /wd4251 /wd4275 /GR /EHsc /FS /Zi /Ob0 /Od",
         "sxe_msvc_ldflags = ",
         "sxe_msvc_ldlibs = /MD /FS /link /libpath:$distdir/lib",
 

@@ -1,0 +1,12 @@
+{
+    "project": "vendor",
+    "type": "package",
+    "sources": [
+        "json.ngen",
+        "cppunit.ngen",
+        "boost.ngen",
+        "glfw.ngen"
+    ]
+}
+
+

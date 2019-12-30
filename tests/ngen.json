@@ -4,16 +4,20 @@
     "description": "SxE test runner.",
     "type": "cxx_application",
     "dependencies": [
-        "core"
+        "SxE"
     ],
     "sources": [
-        "core/common/NotificationManagerTest.cpp",
-        "core/common/SubsystemTest.cpp",
-        "core/config/SettingsFixture.cpp",
-        "core/config/SettingsMapTest.cpp",
-        "core/config/SettingsXMLFileTest.cpp",
-        "core/sys/PlatformTest.cpp",
-        "core/sys/XdgTest.cpp",
+        "common/NotificationManagerTest.cpp",
+        "common/SubsystemTest.cpp",
+        "config/SettingsFileTest.cpp",
+        "config/SettingsFixture.cpp",
+        "config/SettingsMapTest.cpp",
+        "config/SettingsXMLFileTest.cpp",
+        "graphics/DisplayModeTest.cpp",
+        "input/InputCodeTest.cpp",
+        "input/InputManagerTest.cpp",
+        "sys/PlatformTest.cpp",
+        "sys/XdgTest.cpp",
         "main.cpp"
     ],
     "gcc": {
@@ -25,18 +29,20 @@
         ],
         "cxxflags": "$sxe_gcc_cxxflags",
         "ldflags": "$sxe_gcc_ldflags",
-        "ldlibs": "$sxe_gcc_ldlibs -lSxE_core -lcppunit"
+        "ldlibs": "$sxe_gcc_ldlibs -lSxE -lcppunit"
     },
     "msvc": {
         "comment": "msvc cppunit stuff not ready yet",
+        "targetName": "sxe-test-runner",
         "cppflags": [
             "$sxe_msvc_cppflags",
             "/I$sourcedir/src",
-            "/I$sourcedir/include"
+            "/I$sourcedir/include",
+            "/DCPPUNIT_DLL"
         ],
         "cxxflags": "$sxe_msvc_cxxflags",
         "ldflags": "$sxe_msvc_cxxflags",
-        "ldlibs": "$sxe_msvc_ldlibs SxE_core.lib"
+        "ldlibs": "$sxe_msvc_ldlibs SxE.lib cppunit_dll.lib"
     }
 }
 

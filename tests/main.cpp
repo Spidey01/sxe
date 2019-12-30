@@ -21,10 +21,10 @@
  *	   distribution.
  */
 
-#include <sxe/core/logging/Log.hpp>
-#include <sxe/core/logging/LogSink.hpp>
-#include <sxe/core/sys/FileSystem.hpp>
+#include <sxe/logging/Log.hpp>
+#include <sxe/logging/LogSink.hpp>
 #include <sxe/stdheaders.hpp>
+#include <sxe/sys/FileSystem.hpp>
 
 #include <cppunit/BriefTestProgressListener.h>
 #include <cppunit/CompilerOutputter.h>
@@ -33,9 +33,9 @@
 #include <cppunit/TestRunner.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
 
-using sxe::core::logging::LogSink;
-using sxe::core::logging::Log;
-using sxe::core::sys::FileSystem::path;
+using sxe::logging::LogSink;
+using sxe::logging::Log;
+using sxe::sys::FileSystem::path;
 using std::vector;
 using std::string;
 using std::cout;

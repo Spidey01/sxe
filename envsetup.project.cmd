@@ -55,6 +55,4 @@ ECHO Your XDG_DATA_HOME is "%XDG_DATA_HOME%"
 ECHO Your XDG_CONFIG_HOME is "%XDG_CONFIG_HOME%"
 ECHO Your XDG_CACHE_HOME is "%XDG_CACHE_HOME%"
 
-
-.cmd\boost-setup.cmd
-
+TITLE SxE Development Command Prompt

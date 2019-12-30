@@ -3,10 +3,10 @@ IF NOT DEFINED PROJECT_ROOT (
 	ECHO "PROJECT_ROOT not defined, please setup your environment"
 	GOTO :eof
 )
+@ECHO ON
 
-IF "%1" == "" (
-	echo Select demo, e.g. .\%0 helloworld
-	goto :eof
-)
-CALL "%ENVSETUP_DIR%\.cmd\m.cmd" ":demos:%1:pc:installApp"
+ngen
+@IF errorlevel 1 goto :eof
+
+ninja demos\%1
 

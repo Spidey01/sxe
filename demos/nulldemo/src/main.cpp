@@ -21,24 +21,28 @@
  *	   distribution.
  */
 
-#include <sxe/core/Game.hpp>
-#include <sxe/core/GameEngine.hpp>
-// #include <sxe/pc/PcConfiguration.hpp>
+#include <sxe/Game.hpp>
+#include <sxe/GameEngine.hpp>
+#include <sxe/testing/NullConfiguration.hpp>
 #include "NullDemo.h"
+
+#include <iostream>
+#include <memory>
 
 int main(int argc, char* argv[])
 {
-    std::vector<std::string> args;
+    auto demo = std::make_shared<demos::NullDemo>();
 
-    for (int i=0; i < argc; ++i)
-        args.push_back(argv[i]);
+    sxe::GameEngine::unique_ptr g = sxe::testing::NullConfiguration::setup(argc, argv, demo);
 
-    // XXX: TODO: use sxe::core::testing::NullConfiguration here.
-    // sxe::core::GameEngine::unique_ptr engine = sxe::pc::PcConfiguration(args, new NullDemo());
+    if (!g) {
+        std::cout << argv[0] << "NullConfiguration failed!" << std::endl;
+        return 1;
+    }
 
-    // g->start();
-    // g->mainLoop();
-    // g->stop();
+    g->start();
+    g->mainLoop();
+    g->stop();
 
     return 0;
 }

@@ -1,35 +1,76 @@
+/*-
+ * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ *
+ * This software is provided 'as-is', without any express or implied warranty.
+ * In no event will the authors be held liable for any damages arising from the
+ * use of this software.
+ *
+ * Permission is granted to anyone to use this software for any purpose,
+ * including commercial applications, and to alter it and redistribute it
+ * freely, subject to the following restrictions:
+ *
+ *	1. The origin of this software must not be misrepresented; you must
+ *	   not claim that you wrote the original software. If you use this
+ *	   software in a product, an acknowledgment in the product
+ *	   documentation would be appreciated but is not required.
+ *
+ *	2. Altered source versions must be plainly marked as such, and must
+ *	   not be misrepresented as being the original software.
+ *
+ *	3. This notice may not be removed or altered from any source
+ *	   distribution.
+ */
+
 
 #include "QuadGame.h"
 
-#include <sxe/core/GameEngine.hpp>
+#include <sxe/GameEngine.hpp>
+#include <sxe/input/InputManager.hpp>
+#include <sxe/logging.hpp>
+
+using sxe::input::InputCode;
+using sxe::input::KeyListener;
+using sxe::input::KeyEvent;
 
 namespace demos {
 
-std::string QuadGame::sTAG = "QuadGame";
+std::string QuadGame::TAG = "QuadGame";
 
 std::string QuadGame::getName() const
 {
-    return sTAG;
+    return TAG;
 }
 
-#if 0
-bool QuadGame::start(sxe::core::GameEngine& engine)
+bool QuadGame::start(sxe::GameEngine* engine)
 {
-    sxe::core::Game::start(engine);
+    sxe::Game::start(engine);
 
-    #if 0 // java:
+    #if 0 // 1.x
     mQuad = new  Quad(mGameEngine);
 
     /* Add our demo Quad to the scene. */
     mGameEngine.getSceneManager().add(mQuad.getGraphicsFacet());
+    #endif
 
     /* Bind ourself to handle the 'Q' key press. */
-    mGameEngine.getInputManager().addKeyListener(InputCode.IC_Q, this);
-    #endif
+    KeyListener listener = std::bind(&QuadGame::onKey, this, std::placeholders::_1);
+    engine->getInputManager().addKeyListener(InputCode::IC_Q, listener);
 
     return true;
 }
-#endif
+
+
+bool QuadGame::onKey(KeyEvent event)
+{
+    if (event.isKeyUp())
+        Log::d(TAG, event.toString());
+
+    if (event.getKeyCode() == InputCode::IC_Q) {
+        requestStop();
+        return true;
+    }
+    return false;
+}
 
 }
 

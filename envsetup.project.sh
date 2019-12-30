@@ -3,46 +3,52 @@
 # This includes environment variables, etc.
 #
 
-
-rdemo() { # :run a demo by name
-    m ":demos:${1}:pc:run"
-    # TODO: pass args to app as a property?
+run_from_dist() {
+    env \
+        XDG_DATA_DIRS="${PROJECT_DISTDIR}/share" \
+        XDG_CONFIG_DIRS="${PROJECT_DISTDIR}/etc/xdg" \
+        XDG_DATA_HOME="${PROJECT_ROOT}/tmp/share" \
+        XDG_CONFIG_HOME="${PROJECT_ROOT}/tmp/config" \
+        XDG_CACHE_HOME="${PROJECT_ROOT}/tmp/cache" \
+        LD_LIBRARY_PATH="${PROJECT_DISTDIR}/lib" \
+        \
+            "$@"
 }
 
+rdemo() { # run a demo by name
+    local demo
 
-idemo() { # :installApp a demo by name
-    if [ -d "$(gettop)/demos/${1}/pc" ]; then
-        m ":demos:${1}:pc:installApp"
-    else
-        m ":demos:${1}:installApp"
-    fi
-}
-
-
-irdemo() { # installdemo and execute a demo by name with following args.
-    local demo install_path exe_name
-    demo=$1
+    demo="$1"
     shift
-    idemo $demo
 
-    if [ -d "$(gettop)/demos/${1}/pc" ]; then
-        install_path="$(gettop)/demos/${demo}/pc/build/install/${demo}-pc"
-        exe_name="${demo}-pc"
-    else
-        install_path="$(gettop)/demos/${demo}/build/install/${demo}"
-        exe_name="${demo}"
-    fi
+    run_from_dist "${PROJECT_DISTDIR}/bin/$demo" "$@"
+}
 
-    eval \
-        env \
-            XDG_DATA_DIRS="`gettop`/demos/$demo/pc/src/dist/share" \
-            XDG_CONFIG_DIRS="${install_path}/etc" \
-            XDG_DATA_HOME="`gettop`/tmp/share" \
-            XDG_CONFIG_HOME="`gettop`/tmp/config" \
-            XDG_CACHE_HOME="`gettop`/tmp/cache" \
-            "`echo $demo | awk '{print toupper($0)}'`_PC_OPTS=\"'-Djava.library.path=${install_path}/lib/natives'\"" \
-            \
-                "${install_path}/bin/${exe_name}" "$@"
+
+idemo() { # build a demo by name
+    ngen && ninja demos/$1
+}
+
+
+irdemo() { # build and run a demo by name with following args.
+    idemo $1 || return
+    rdemo $*
+}
+
+
+rtest() { # run test runner with following args
+    run_from_dist "${PROJECT_DISTDIR}/bin/sxe-test-runner" -o "${PROJECT_ROOT}/tmp/test.log" "$@"
+}
+
+
+itest() { # build test runner
+    ngen && ninja tests
+}
+
+
+irtest() { # build and run test runner with following args.
+    itest || return
+    rtest $*
 }
 
 
@@ -75,5 +81,3 @@ PROJECT_DISTDIR="${PROJECT_ROOT}/dist"
 
 export PROJECT_ROOT PROJECT_BUILDDIR PROJECT_DISTDIR
 
-.cmd/cppunit-setup.sh
-.cmd/boost-setup.sh
