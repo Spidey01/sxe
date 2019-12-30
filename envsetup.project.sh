@@ -21,7 +21,7 @@ rdemo() { # run a demo by name
     demo="$1"
     shift
 
-    run_from_dist "$PROJECT_DISTDIR}/bin/$demo" "$@"
+    run_from_dist "${PROJECT_DISTDIR}/bin/$demo" "$@"
 }
 
 
