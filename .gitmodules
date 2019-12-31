@@ -10,3 +10,6 @@
 [submodule "vendor/glfw"]
 	path = vendor/glfw
 	url = https://github.com/glfw/glfw.git
+[submodule "vendor/zlib"]
+	path = vendor/zlib
+	url = https://github.com/madler/zlib.git
