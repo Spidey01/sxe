@@ -6,7 +6,8 @@
         "cppunit.ngen",
         "boost.ngen",
         "glfw.ngen",
-        "zlib.ngen"
+        "zlib.ngen",
+        "libarchive.ngen"
     ]
 }
 
