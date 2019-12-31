@@ -5,7 +5,8 @@
         "json.ngen",
         "cppunit.ngen",
         "boost.ngen",
-        "glfw.ngen"
+        "glfw.ngen",
+        "zlib.ngen"
     ]
 }
 
