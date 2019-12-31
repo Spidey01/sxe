@@ -232,11 +232,18 @@ bool GameEngine::start()
 
 void GameEngine::stop()
 {
+    Log::xtrace(TAG, "stop()");
+
+    if (mGame)
+        mGame->stop();
+
     #if 0 // 1.x
-    mGame.stop();
     mGameThread.interrupt(); // should this be overriden to do Game.stop()?
     #endif
-    mDisplayManager->destroy();
+
+    if (mDisplayManager)
+        mDisplayManager->destroy();
+
     Log::v(TAG, "stop() done");
 }
 
