@@ -35,9 +35,9 @@ EchoCommand::EchoCommand()
 }
 
 
-bool EchoCommand::operator() ()
+bool EchoCommand::operator() (const argv& args)
 {
-    for (const string_type& arg : getArgs()) {
+    for (const string_type& arg : args) {
         Log::d(TAG, getName() + ": arg: " + arg);
     }
 

@@ -36,8 +36,10 @@ QuitCommand::QuitCommand(Game::weak_ptr game)
 }
 
 
-bool QuitCommand::operator() ()
+bool QuitCommand::operator() (const argv& args)
 {
+    (void)args;
+
     Log::xtrace(TAG, "mGame.lock()");
     auto ptr = mGame.lock();
 

@@ -45,15 +45,11 @@ class TestCommand : public Command
     {
     }
 
-    bool operator() () override
+    bool operator() (const argv& args) override
     {
         Log::xtrace(::TAG, "invoked = true");
         invoked = true;
-
-        for (const string_type& arg : getArgs())
-            Log::xtrace(::TAG, "args... " + arg);
-
-        return Command::operator()();
+        return Command::operator()(args);
     }
 };
 
@@ -87,25 +83,20 @@ void CommandTest::invoke()
 
     TestCommand test;
 
-    CPPUNIT_ASSERT(test.getArgs().empty());
-    CPPUNIT_ASSERT_NO_THROW(test());
+    CPPUNIT_ASSERT(test.invoked == false);
+    CPPUNIT_ASSERT_NO_THROW(test({}));
     CPPUNIT_ASSERT(test.invoked == true);
 }
 
-void CommandTest::setArgs()
+
+void CommandTest::invokeWithArgs()
 {
     Log::xtrace(TAG, "setArgs()");
 
     TestCommand test;
 
-    CPPUNIT_ASSERT(test.getArgs().empty());
-    CPPUNIT_ASSERT_NO_THROW(test.setArgs("Hello World!"));
-    CPPUNIT_ASSERT(test.getArgs().size() > 0);
-
-    CPPUNIT_ASSERT_NO_THROW(test());
+    CPPUNIT_ASSERT(test.invoked == false);
+    CPPUNIT_ASSERT_NO_THROW(test({"Hello", "World!"}));
     CPPUNIT_ASSERT(test.invoked == true);
-
-    CPPUNIT_ASSERT_MESSAGE("args should be cleared after invocation.",
-                           test.getArgs().empty());
 }
 

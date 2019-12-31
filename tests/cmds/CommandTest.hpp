@@ -33,7 +33,7 @@ class CommandTest : public CPPUNIT_NS::TestFixture
     CPPUNIT_TEST(name);
     CPPUNIT_TEST(compare);
     CPPUNIT_TEST(invoke);
-    CPPUNIT_TEST(setArgs);
+    CPPUNIT_TEST(invokeWithArgs);
 
     CPPUNIT_TEST_SUITE_END();
 
@@ -41,7 +41,7 @@ class CommandTest : public CPPUNIT_NS::TestFixture
     void name();
     void compare();
     void invoke();
-    void setArgs();
+    void invokeWithArgs();
 
   private:
 };

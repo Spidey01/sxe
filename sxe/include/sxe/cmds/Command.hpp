@@ -46,9 +46,9 @@ namespace sxe { namespace cmds {
 
         string_type getName() const;
 
-        /** Invoke this command.
+        /** Invoke this command with provided arguments.
          */
-        virtual bool operator() ();
+        virtual bool operator() (const argv& args);
 
         /** Compares based on getName().
          */
@@ -56,15 +56,10 @@ namespace sxe { namespace cmds {
 
         bool operator!=(const Command& other) const;
 
-        void setArgs(const argv& args);
-        void setArgs(const string_type& args);
-        const argv& getArgs() const;
-
       private:
 
         static const string_type TAG;
         string_type mName;
-        argv mArgs;
     };
 
 } }

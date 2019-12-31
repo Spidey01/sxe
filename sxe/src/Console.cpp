@@ -318,6 +318,9 @@ void Console::execute(const string_type& line)
     string_type args;
     if (split != string_type::npos)
         args = trim(line.substr(split));
+    Command::argv argv;
+    // Don't have Utils::tokenize() yet.
+    argv.push_back(args);
 
     lock_guard g(mMutex);
 
@@ -325,9 +328,7 @@ void Console::execute(const string_type& line)
     if (it != mCommands.end()) {
         auto ptr = it->second;
         if (ptr) {
-            if (!args.empty())
-                ptr->setArgs(args);
-            (*ptr)();
+            (*ptr)(argv);
             return;
         }
     }

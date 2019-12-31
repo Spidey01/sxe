@@ -38,7 +38,7 @@ namespace sxe { namespace cmds {
 
         EchoCommand();
 
-        bool operator() () override;
+        bool operator() (const argv& args) override;
 
       private:
 

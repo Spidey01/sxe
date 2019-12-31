@@ -31,7 +31,6 @@ const Command::string_type Command::TAG = "Command";
 
 Command::Command(const string_type& name)
     : mName(name)
-    , mArgs()
 {
     Log::test(TAG, "Created command " + name);
 }
@@ -43,9 +42,16 @@ Command::string_type Command::getName() const
 }
 
 
-bool Command::operator() ()
+bool Command::operator() (const argv& args)
 {
-    Log::xtrace(TAG, "operator() called on command: " + getName());
+    using std::to_string;
+
+    Log::xtrace(TAG, "operator() called on command: " + getName()
+                + " args.size(): " + to_string(args.size()));
+
+    for (argv::size_type i=0; i < args.size(); ++i)
+        Log::v(TAG, "args[" + to_string(i) + "]: \"" + args[i] + "\"");
+
     return true;
 }
 
@@ -61,21 +67,6 @@ bool Command::operator!=(const Command& other) const
     return mName != other.mName;
 }
 
-
-void Command::setArgs(const argv& args)
-{
-}
-
-
-void Command::setArgs(const string_type& args)
-{
-}
-
-
-const Command::argv& Command::getArgs() const
-{
-    return mArgs;
-}
 
 } }
 

@@ -38,7 +38,7 @@ namespace sxe { namespace cmds {
 
         QuitCommand(Game::weak_ptr game);
 
-        bool operator() () override;
+        bool operator() (const argv& args) override;
 
       private:
 
