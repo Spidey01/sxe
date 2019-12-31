@@ -219,11 +219,6 @@ bool GameEngine::start()
         return false;
     }
 
-    #if 0 // 1.x did:
-    mGameThread = new GameThread(this, mGame);
-    mGameThread.start();
-    #endif
-    // Placeholder until GameThread is a thing.
     mGame->start(this);
 
     return true;
@@ -236,10 +231,6 @@ void GameEngine::stop()
 
     if (mGame)
         mGame->stop();
-
-    #if 0 // 1.x
-    mGameThread.interrupt(); // should this be overriden to do Game.stop()?
-    #endif
 
     if (mDisplayManager)
         mDisplayManager->destroy();
@@ -278,11 +269,6 @@ bool GameEngine::isRunning() const
         return false;
 
     return true;
-    #if 0 // 1.x
-        return (!mGame.isStopRequested()
-                && !mDisplay.isCloseRequested()
-                && mGameThread.isAlive());
-    #endif
 }
 
 

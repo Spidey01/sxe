@@ -88,8 +88,17 @@ namespace sxe {
         /** Maximum tick rate.  */
         int getMaxTickRate() const;
 
-        int getTickRate() const;
+        virtual int getTickRate() const;
 
+        /** Tick the game implementation.
+         *
+         * By default this:
+         *   - Forwards to updateMainThread() if called from main main.
+         *   - Forwards to updateGameThread() if called from game thread.
+         *   - Throws called from unknown thread.
+         *
+         * @throws logic_error if called from unknown thread.
+         */
         virtual void tick();
 
         /** Returns the GameEngine.
@@ -108,6 +117,21 @@ namespace sxe {
 
         State mState;
 
+        /** Called by tick from the main thread.
+         *
+         * Use this to update the game implementation from the engine's main
+         * application thread. Unless access to main is required, you should
+         * use updateGameThread to avoid blocking the GameEngine's main loop.
+         */
+        virtual void updateMainThread();
+
+        /** Called by tick from the game thread.
+         *
+         * Use this to update the game implementation from the game's dedicated
+         * background thread.
+         */
+        virtual void updateGameThread();
+
       private:
 
         static const std::string TAG;
@@ -115,8 +139,15 @@ namespace sxe {
 
         std::atomic_bool mStopRequested;
         std::atomic_bool mStopDone;
+        std::thread mThread;
+        std::thread::id mMainThreadId;
+        std::thread::id mGameThreadId;
 
         RateCounter mTickCounter;
+
+        /** Entry point for mThread.
+         */
+        void runGameThread();
     };
 
 }

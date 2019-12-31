@@ -38,6 +38,9 @@ Game::Game()
     , mState(State::STARTING)
     , mStopRequested(false)
     , mStopDone(false)
+    , mThread()
+    , mMainThreadId()
+    , mGameThreadId()
     , mTickCounter("Ticks")
 {
     Log::log(Log::DEBUG, "Game", "Hello, world!");
@@ -64,7 +67,10 @@ bool Game::start(GameEngine* engine)
     }
 
     mGameEngine = engine;
+    mStopDone = false;
     mState = State::STARTING;
+    mMainThreadId = std::this_thread::get_id();
+    mThread = std::thread(&Game::runGameThread, this);
 
     return true;
 }
@@ -75,8 +81,15 @@ void Game::stop()
         Log::d(TAG, "Game was already stopped");
         return;
     }
+
     requestStop();
+
+    if (mThread.joinable())
+        mThread.join();
     mStopDone = true;
+
+    mGameEngine = nullptr;
+
     Log::v(TAG, "stop() done");
 }
 
@@ -119,9 +132,19 @@ int Game::getTickRate() const
     return mMaxTickRate;
 }
 
+
 void Game::tick()
 {
     mTickCounter.update();
+
+    auto context = std::this_thread::get_id();
+
+    if (context == mMainThreadId)
+        updateMainThread();
+    else if (context == mGameThreadId)
+        updateGameThread();
+    else
+        throw std::logic_error("Game::tick() called from unknown thread.");
 }
 
 
@@ -134,6 +157,63 @@ GameEngine& Game::getGameEngine() const
     }
 
     return *mGameEngine;
+}
+
+
+void Game::updateMainThread()
+{
+    Log::test(TAG, "updateMainThread()");
+}
+
+
+void Game::updateGameThread()
+{
+    Log::test(TAG, "updateMainThread()");
+}
+
+
+void Game::runGameThread()
+{
+    Log::xtrace(TAG, "runGameThread(): mThread starting.");
+    mGameThreadId = std::this_thread::get_id();
+
+    using std::chrono::duration_cast;
+    using std::chrono::milliseconds;
+    using std::chrono::seconds;
+    using std::chrono::steady_clock;
+
+    while (!isStopRequested()) {
+        auto startTime = steady_clock::now();
+
+        /*
+         * We trap exceptions the exception and shutdown, because ticking a
+         * never endless stream of exceptions doesn't end better than wtf.
+         */
+
+        try {
+            tick();
+        } catch(std::exception ex) {
+            Log::wtf(TAG, "Game thread has died!", ex);
+            break;
+        }
+
+        auto endTime = steady_clock::now() - startTime;
+
+        auto rate = getTickRate();
+        if (rate == 0)
+            continue;
+
+        auto sleepTime = milliseconds(1000 / rate) - duration_cast<milliseconds>(endTime);
+
+        if (sleepTime <= milliseconds::zero()) {
+            // hard clip to the max tick rate
+            sleepTime = milliseconds(1000 / getMaxTickRate());
+        }
+
+        std::this_thread::sleep_for(sleepTime);
+    }
+
+    Log::xtrace(TAG, "runGameThread(): mThread exiting.");
 }
 
 }
