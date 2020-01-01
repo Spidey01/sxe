@@ -23,9 +23,9 @@
  *	   distribution.
  */
 
-#include <sxe/api.hpp>
-
 #include <sxe/Game.hpp>
+#include <sxe/api.hpp>
+#include <sxe/common/Initializable.hpp>
 
 namespace sxe {
     class GameEngine;
@@ -36,7 +36,7 @@ namespace sxe {
 
 namespace sxe {  namespace common {
 
-    class SXE_PUBLIC Subsystem
+    class SXE_PUBLIC Subsystem : public Initializable<GameEngine>
     {
       public:
         using GameEngine = sxe::GameEngine;
@@ -47,10 +47,9 @@ namespace sxe {  namespace common {
 
         const string_type& name() const;
 
-        virtual bool isInitialized() const;
-        virtual bool initialize(GameEngine& engine);
-        virtual bool reinitialize(GameEngine& engine);
-        virtual bool uninitialize();
+        bool initialize(GameEngine& engine) override;
+        virtual bool reinitialize(GameEngine& engine) override;
+        virtual bool uninitialize() override;
         virtual void update();
 
         Game::shared_ptr getGame() const;

@@ -45,14 +45,16 @@ std::string NullDemo::getName() const
     return TAG;
 }
 
-bool NullDemo::start(sxe::GameEngine* engine)
+
+bool NullDemo::start()
 {
-    sxe::Game::start(engine);
+    if (!sxe::Game::start())
+        return false;
 
     Log::v(TAG, "Null demo is starting.");
 
     KeyListener listener = std::bind(&NullDemo::onKey, this, std::placeholders::_1);
-    engine->getInputManager().addKeyListener(InputCode::IC_Q, listener);
+    getGameEngine().getInputManager().addKeyListener(InputCode::IC_Q, listener);
 
     return true;
 }
@@ -66,7 +68,7 @@ void NullDemo::stop()
 }
 
 
-void NullDemo::tick()
+void NullDemo::update()
 {
     Log::xtrace(TAG, "tick()");
 }

@@ -41,9 +41,10 @@ std::string QuadGame::getName() const
     return TAG;
 }
 
-bool QuadGame::start(sxe::GameEngine* engine)
+bool QuadGame::start()
 {
-    sxe::Game::start(engine);
+    if (!sxe::Game::start())
+        return false;
 
     #if 0 // 1.x
     mQuad = new  Quad(mGameEngine);
@@ -54,7 +55,7 @@ bool QuadGame::start(sxe::GameEngine* engine)
 
     /* Bind ourself to handle the 'Q' key press. */
     KeyListener listener = std::bind(&QuadGame::onKey, this, std::placeholders::_1);
-    engine->getInputManager().addKeyListener(InputCode::IC_Q, listener);
+    getGameEngine().getInputManager().addKeyListener(InputCode::IC_Q, listener);
 
     return true;
 }

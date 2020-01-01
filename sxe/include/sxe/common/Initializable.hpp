@@ -1,5 +1,5 @@
-#ifndef SXE_DEMOS_QUADGAME_H
-#define SXE_DEMOS_QUADGAME_H
+#ifndef SXE_COMMON_INITIALIZABLE__HPP
+#define SXE_COMMON_INITIALIZABLE__HPP
 /*-
  * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -23,24 +23,51 @@
  *	   distribution.
  */
 
-#include <sxe/api.hpp>
-#include <sxe/Game.hpp>
-#include <sxe/input/KeyEvent.hpp>
+namespace sxe { namespace common {
 
-#include <string>
-
-namespace demos {
-	class QuadGame : public sxe::Game
+    template <class E>
+    class Initializable
     {
       public:
 
-        std::string getName() const override;
-        bool start() override;
+        bool isInitialized() const
+        {
+            return mIsInitialized;
+        }
+
+
+        virtual bool initialize(E& data)
+        {
+            (void)data;
+            mIsInitialized = true;
+            return true;
+        }
+
+
+        virtual bool reinitialize(E& data)
+        {
+            (void)data;
+            if (!uninitialize())
+                return false;
+            if (!initialize(data))
+                return false;
+            return true;
+        }
+
+
+        virtual bool uninitialize()
+        {
+            mIsInitialized = false;
+            return true;
+        }
+
+      protected:
+
+        bool mIsInitialized;
 
       private:
-        static std::string TAG;
-        bool onKey(sxe::input::KeyEvent event);
     };
-}
 
-#endif
+} }
+
+#endif // SXE_COMMON_INITIALIZABLE__HPP

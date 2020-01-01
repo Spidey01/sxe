@@ -23,8 +23,10 @@
  *	   distribution.
  */
 
-#include <sxe/api.hpp>
+#include <boost/optional.hpp>
 #include <sxe/RateCounter.hpp>
+#include <sxe/api.hpp>
+#include <sxe/common/Initializable.hpp>
 
 namespace sxe {
 
@@ -32,12 +34,13 @@ namespace sxe {
 
     /** Your games base class.
     */
-    class SXE_PUBLIC Game
+    class SXE_PUBLIC Game : public common::Initializable<GameEngine>
     {
       public:
         using unique_ptr = std::unique_ptr<Game>;
         using shared_ptr = std::shared_ptr<Game>;
         using weak_ptr = std::weak_ptr<Game>;
+        using string_type = std::string;
 
         /** Enumerated game state.
          *
@@ -57,15 +60,26 @@ namespace sxe {
 
         /** Implement to return the name of your game.
          */
-        virtual std::string getName() const = 0;
+        virtual string_type getName() const = 0;
 
-        virtual std::string getPublisher() const;
+        /** Implement to return the publisher of your game.
+         *
+         * Default is "".
+         */
+        virtual string_type getPublisher() const;
 
-        /** Starts the game running.
+        /** Perform early initialization.
          *
          * @param engine a GameEngine to execute the game within.
+         * @see Initializable, Subsystem.
          */
-        virtual bool start(GameEngine* engine);
+        bool initialize(GameEngine& engine) override;
+
+        bool uninitialize() override;
+
+        /** Starts the game running.
+         */
+        virtual bool start();
 
         /** Stops the game running.
          *
@@ -99,7 +113,7 @@ namespace sxe {
          *
          * @throws logic_error if called from unknown thread.
          */
-        virtual void tick();
+        virtual void update();
 
         /** Returns the GameEngine.
          *
@@ -108,14 +122,6 @@ namespace sxe {
         GameEngine& getGameEngine() const;
 
       protected:
-
-        /** Our GameEngine.
-         *
-         * @see #start
-         */
-        GameEngine* mGameEngine;
-
-        State mState;
 
         /** Called by tick from the main thread.
          *
@@ -134,8 +140,12 @@ namespace sxe {
 
       private:
 
-        static const std::string TAG;
+        static const string_type TAG;
         static const size_t mMaxTickRate;
+
+        boost::optional<std::reference_wrapper<GameEngine>> mGameEngine;
+
+        State mState;
 
         std::atomic_bool mStopRequested;
         std::atomic_bool mStopDone;

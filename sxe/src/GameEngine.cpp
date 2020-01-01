@@ -41,12 +41,20 @@ namespace sxe {
 const string GameEngine::TAG = "GameEngine";
 
 GameEngine::GameEngine()
+    : mXdg()
+    , mGame(nullptr)
+    , mDisplayManager(nullptr)
+    , mSceneManager(nullptr)
+    , mInputManager(nullptr)
+    , mResourceManager(nullptr)
+    , mLoggingManager(nullptr)
+    , mRuntimeSettings(nullptr)
+    , mPlatformSettings(nullptr)
+    , mSystemSettings(nullptr)
+    , mUserSettings(nullptr)
+    , mCommandLineSettings(nullptr)
+    , mPlatform()
 {
-#if 0
-    // placeholder
-    auto sink = std::make_shared<sxe::logging::LogSink>();
-    sxe::logging::Log::add(sink);
-#endif
 }
 
 GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
@@ -141,6 +149,8 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
      * settings they want. As well as perform any pre start() setup.
      */
 
+    if (mGame)
+        mGame->initialize(*this);
     if (mLoggingManager)
         mLoggingManager->initialize(*this);
     if (mDisplayManager)
@@ -176,6 +186,8 @@ GameEngine::~GameEngine()
         mDisplayManager->uninitialize();
     if (mLoggingManager)
         mLoggingManager->uninitialize();
+    if (mGame)
+        mGame->uninitialize();
 }
 
 
@@ -219,9 +231,7 @@ bool GameEngine::start()
         return false;
     }
 
-    mGame->start(this);
-
-    return true;
+    return mGame->start();
 }
 
 
@@ -282,8 +292,7 @@ void GameEngine::update()
     if (mDisplayManager)
         mDisplayManager->update();
 
-    // Placeholder until GameThread is a thing.
-    mGame->tick();
+    mGame->update();
 }
 
 

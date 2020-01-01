@@ -25,14 +25,13 @@
 
 #include <sxe/Console.hpp>
 #include <sxe/Game.hpp>
-#include <sxe/GameEngine.hpp>
 
 class GameStub : public sxe::Game
 {
   public:
 
     std::string getName() const override;
-    bool start(sxe::GameEngine* engine) override;
+    bool start() override;
     void stop() override;
 
   private:

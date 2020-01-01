@@ -22,8 +22,10 @@
  */
 
 #include "sxe/Game.hpp"
-#include "sxe/logging.hpp"
-#include "sxe/stdheaders.hpp"
+
+#include <sxe/GameEngine.hpp>
+#include <sxe/logging.hpp>
+#include <sxe/stdheaders.hpp>
 
 using std::string;
 using std::to_string;
@@ -34,7 +36,7 @@ const string Game::TAG = "Game";
 const size_t Game::mMaxTickRate = 250;
 
 Game::Game()
-    : mGameEngine(nullptr)
+    : mGameEngine()
     , mState(State::STARTING)
     , mStopRequested(false)
     , mStopDone(false)
@@ -45,6 +47,7 @@ Game::Game()
 {
     Log::log(Log::DEBUG, "Game", "Hello, world!");
 }
+
 
 Game::~Game()
 {
@@ -57,16 +60,30 @@ string Game::getPublisher() const
 }
 
 
-bool Game::start(GameEngine* engine)
+bool Game::initialize(GameEngine& engine)
+{
+    Log::xtrace(TAG, "initialize(): getName(): " + getName());
+
+    mGameEngine = engine;
+
+    return true;
+}
+
+
+bool Game::uninitialize()
+{
+    Log::xtrace(TAG, "initialize(): getName(): " + getName());
+
+    mGameEngine.reset();
+
+    return true;
+}
+
+
+bool Game::start()
 {
     Log::v(TAG, "start() called");
 
-    if (!engine) {
-        Log::e(TAG, "start(): engine is nullptr!");
-        return false;
-    }
-
-    mGameEngine = engine;
     mStopDone = false;
     mState = State::STARTING;
     mMainThreadId = std::this_thread::get_id();
@@ -74,6 +91,7 @@ bool Game::start(GameEngine* engine)
 
     return true;
 }
+
 
 void Game::stop()
 {
@@ -87,8 +105,6 @@ void Game::stop()
     if (mThread.joinable())
         mThread.join();
     mStopDone = true;
-
-    mGameEngine = nullptr;
 
     Log::v(TAG, "stop() done");
 }
@@ -133,8 +149,9 @@ int Game::getTickRate() const
 }
 
 
-void Game::tick()
+void Game::update()
 {
+    Log::test(TAG, "update()");
     mTickCounter.update();
 
     auto context = std::this_thread::get_id();
@@ -144,19 +161,16 @@ void Game::tick()
     else if (context == mGameThreadId)
         updateGameThread();
     else
-        throw std::logic_error("Game::tick() called from unknown thread.");
+        throw std::logic_error("Game::update() called from unknown thread.");
 }
 
 
 GameEngine& Game::getGameEngine() const
 {
-    if (!mGameEngine) {
-        string why = "getGameEngine() called before start() set mGameEngine!";
-        Log::w(TAG, why);
-        throw std::runtime_error(TAG + "::" + why);
-    }
+    if (mGameEngine.has_value())
+        return mGameEngine.value();
 
-    return *mGameEngine;
+    throw std::logic_error("Game::getGameEngine() called before Game::initialize().");
 }
 
 
@@ -191,7 +205,7 @@ void Game::runGameThread()
          */
 
         try {
-            tick();
+            update();
         } catch(std::exception ex) {
             Log::wtf(TAG, "Game thread has died!", ex);
             break;

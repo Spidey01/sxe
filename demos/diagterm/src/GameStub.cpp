@@ -23,6 +23,7 @@
 
 #include "GameStub.hpp"
 
+#include <sxe/GameEngine.hpp>
 #include <sxe/cmds/EchoCommand.hpp>
 #include <sxe/cmds/QuitCommand.hpp>
 #include <sxe/input/InputManager.hpp>
@@ -41,19 +42,19 @@ string GameStub::getName() const
 }
 
 
-bool GameStub::start(GameEngine* engine)
+bool GameStub::start()
 {
-    if (!Game::start(engine))
+    if (!Game::start())
         return false;
 
-    mConsole.setInputManager(&(engine->getInputManager()));
+    mConsole.setInputManager(&(getGameEngine().getInputManager()));
 
     // Setup our commands.
     {
         using namespace sxe::cmds;
         using std::make_shared;
 
-        mConsole.addCommand(make_shared<QuitCommand>(engine->getGame()));
+        mConsole.addCommand(make_shared<QuitCommand>(getGameEngine().getGame()));
 
         mConsole.addCommand(make_shared<EchoCommand>());
     }

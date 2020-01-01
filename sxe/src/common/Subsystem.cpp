@@ -51,19 +51,12 @@ const Subsystem::string_type& Subsystem::name() const
 }
 
 
-bool Subsystem::isInitialized() const
-{
-    return mIsInitialized;
-}
-
-
 bool Subsystem::initialize(GameEngine& data)
 {
     Log::xtrace(TAG, "initialize(): " + name());
     mGame = data.getGame();
-    mIsInitialized = true;
 
-    return true;
+    return Initializable::initialize(data);
 }
 
 
@@ -88,10 +81,12 @@ bool Subsystem::reinitialize(GameEngine& engine)
 bool Subsystem::uninitialize()
 {
     Log::xtrace(TAG, "uninitialize(): " + name());
-    mIsInitialized = false;
+
+    bool ok = Initializable::uninitialize();
+
     mGame.reset();
 
-    return true;
+    return ok;
 }
 
 
