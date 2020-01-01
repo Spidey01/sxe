@@ -48,8 +48,8 @@ namespace sxe {  namespace common {
         const string_type& name() const;
 
         bool initialize(GameEngine& engine) override;
-        virtual bool reinitialize(GameEngine& engine) override;
-        virtual bool uninitialize() override;
+        bool reinitialize(GameEngine& engine) override;
+        bool uninitialize() override;
         virtual void update();
 
         Game::shared_ptr getGame() const;

@@ -30,6 +30,15 @@ namespace sxe { namespace common {
     {
       public:
 
+        Initializable()
+            : mIsInitialized(false)
+        {
+        }
+
+
+        virtual ~Initializable() = default;
+
+
         bool isInitialized() const
         {
             return mIsInitialized;
