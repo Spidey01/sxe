@@ -5,8 +5,9 @@ PUSHD "%PROJECT_ROOT%"
 
 SETLOCAL
 
-SET DOT_VER=1.71.0
-SET DASH_VER=1_71_0
+SET DOT_VER=1.72.0
+SET DASH_VER=1_72_0
+SET DASH_VER_S=1_72
 SET BASE=boost_%DASH_VER%
 SET ZIP_FILE=%BASE%.zip
 
@@ -19,7 +20,7 @@ SET B2=%WHERE%\b2.exe
 
 SET COMPONENTS=--with-headers --with-filesystem
 
-IF EXIST %PROJECT_DISTDIR%\include\boost-1_71 GOTO :EOF
+IF EXIST %PROJECT_DISTDIR%\include\boost-%DASH_VER_S% GOTO :EOF
 
 IF NOT EXIST %CACHE% (
 	ECHO Downloading %ZIP_URL%
@@ -44,7 +45,7 @@ IF NOT EXIST %B2% (
 	POPD
 )
 
-IF NOT EXIST %PROJECT_DISTDIR%\include\boost-1_71 (
+IF NOT EXIST %PROJECT_DISTDIR%\include\boost-%DASH_VER_S% (
 	ECHO Building boost...
 	PUSHD %WHERE%
 	REM -j isn't in the --help but works ^_^.
@@ -61,7 +62,7 @@ IF NOT EXIST %PROJECT_DISTDIR%\include\boost-1_71 (
 )
 
 :FINISHED
-ECHO Your BOOST is %PROJECT_DISTDIR%\include\boost-1_71
+ECHO Your BOOST is %PROJECT_DISTDIR%\include\boost-%DASH_VER_S%
 GOTO :eof
 
 :NEED_ZIPPER

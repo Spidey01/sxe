@@ -5,8 +5,8 @@ if [ -z "$PROJECT_ROOT" -o -z "$PROJECT_BUILDDIR" -o -z "$PROJECT_DISTDIR" ]; th
     exit 1
 fi
 
-DOT_VER="1.71.0"
-DASH_VER="1_71_0"
+DOT_VER="1.72.0"
+DASH_VER="1_72_0"
 BASE="boost_${DASH_VER}"
 ZIP_FILE="${BASE}.zip"
 

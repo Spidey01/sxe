@@ -57,8 +57,11 @@ namespace sxe {
         #if SXE_BOOST_DOES_NOT_HAVE
         using perm_options = boost::filesystem::perm_options;
         using copy_options = boost::filesystem::copy_options;
+        #endif
+        // Added in boost 1.72.
         using directory_options = boost::filesystem::directory_options;
 
+        #if SXE_BOOST_DOES_NOT_HAVE
         using file_time_type = boost::filesystem::file_time_type;
         #endif
 
