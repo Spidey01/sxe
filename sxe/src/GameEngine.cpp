@@ -82,9 +82,18 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
         throw std::invalid_argument(TAG + string("game parameter can't be nullptr!"));
     }
 
-    // placeholder
-    auto sink = std::make_shared<sxe::logging::LogSink>("placeholder", Log::TRACE, std::cout);
-    sxe::logging::Log::add(sink);
+    /*
+     * Run the game with "sxe.debug=TRACE" or "sxe.debug=10" as a command line
+     * flag to enable this. Principally this is to allow debugging of early
+     * system init. Game implementations can just use the regular 'debug=true'
+     * or 'debug.things=values' method from command line or configuration file.
+     */
+    int sxe_debug_level = Log::ASSERT;
+    if (mCommandLineSettings) {
+        string param = mCommandLineSettings->getString("sxe.debug");
+        sxe_debug_level = sxe::logging::Log::stringToLevel(param);
+    }
+    sxe::logging::Log::add(std::make_shared<sxe::logging::LogSink>("sxe.debug", sxe_debug_level, std::cout));
 
     {
         if (!mRuntimeSettings)

@@ -68,6 +68,10 @@ namespace sxe { namespace logging {
 
         /** Returns enum value for string.
          *
+         * For each enum value, its string form (e.g. "ERROR") and its base-10
+         * form (e.g. 1) are supported as input. If the former fails,
+         * std::stoi() will be tried before declaring it an unknown value.
+         *
          * Unknown values are mapped to Log::ASSERT.
          */
         static int stringToLevel(const std::string& level);

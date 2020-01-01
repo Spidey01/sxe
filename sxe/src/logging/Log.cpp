@@ -60,10 +60,23 @@ int Log::stringToLevel(const std::string& level)
 {
     auto it = sStringToLevelTable.find(level);
 
-    if (it == sStringToLevelTable.cend())
-        return Log::ASSERT;
+    if (it != sStringToLevelTable.cend())
+        return it->second;
 
-    return it->second;
+    /*
+     * Before giving up: try stoi and treating it the same as levelToString().
+     * This is done in order to make it ease to use either string or numeric
+     * value, in command line arguments and settings files.
+     */
+    try {
+        int maybe = std::stoi(level);
+        if (maybe >= Log::ASSERT && maybe <= Log::TEST)
+            return stringToLevel(levelToString(maybe));
+    } catch (std::invalid_argument& unknown) {
+        (void)unknown;
+    }
+
+    return Log::ASSERT;
 }
 
 
