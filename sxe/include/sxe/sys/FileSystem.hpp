@@ -23,7 +23,7 @@
  *	   distribution.
  */
 
-#include <boost/filesystem.hpp>
+#include <sxe/filesystem.hpp>
 #include <sxe/api.hpp>
 
 namespace sxe { namespace sys {
@@ -31,7 +31,13 @@ namespace sxe { namespace sys {
     namespace FileSystem
     {
         using string = std::string;
-        using path = boost::filesystem::path;
+
+        /*
+         * using statements for things in std::filesystem that came from
+         * boost::filesystem, and that can be dropped in.
+         */
+
+        using path = sxe::filesystem::path;
 
         /** Get the users personal directory.
          *
@@ -47,7 +53,7 @@ namespace sxe { namespace sys {
         /** Return the path to the systems bit bucket. */
         SXE_PUBLIC path getBitBucketPath();
 
-        using boost::filesystem::exists;
+        using sxe::filesystem::exists;
 
         /** Search list of directories for a file.
          *
@@ -68,7 +74,7 @@ namespace sxe { namespace sys {
                 p /= name;
 
                 if (exists(p))
-                    return boost::filesystem::absolute(p);
+                    return sxe::filesystem::absolute(p);
             }
 
             return path();
