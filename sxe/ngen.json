@@ -29,6 +29,7 @@
         "src/input/KeyEvent.cpp",
         "src/logging/Log.cpp",
         "src/logging/LogSink.cpp",
+        "src/logging/LoggingManager.cpp",
         "src/pc/PcConfiguration.cpp",
         "src/pc/PcDisplay.cpp",
         "src/pc/PcInputManager.cpp",

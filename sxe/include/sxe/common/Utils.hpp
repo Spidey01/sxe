@@ -40,14 +40,14 @@ namespace sxe {  namespace common {
          */
         std::string SXE_PUBLIC trim(const std::string& input);
 
-        template <class Sequence, class String>
-        void split(Sequence& list, const String& value, char sep)
+        template <class InputIt, class String>
+        void split(InputIt first, const String& value, char sep)
         {
             size_t start = 0;
             size_t pos = value.find(sep);
 
             if (pos == String::npos && !value.empty()) {
-                list.emplace(list.end(), value);
+                *first++ = value;
                 return;
             }
 
@@ -60,11 +60,33 @@ namespace sxe {  namespace common {
                     count -= 1;
                 }
 
-                list.emplace(list.end(), value.substr(start, count));
+                *first++ = value.substr(start, count);
 
                 start += count + 1;
                 pos = next;
             }
+        }
+
+
+        /** Convenience form of split for STL containers.
+         *
+         * This mostly exists for the case where you don't care about the
+         * details and want to write code like the following:
+         *
+         *  <samp>
+         *      for (const string& str : split(value, ',')) {
+         *          ...
+         *      }
+         *  </samp>
+         */
+        template <class String=std::string, class Sequence=std::vector<String>>
+        Sequence split_str(const String& value, char sep)
+        {
+            Sequence r;
+
+            split(std::back_inserter(r), value, sep);
+
+            return r;
         }
 
 
@@ -83,6 +105,11 @@ namespace sxe {  namespace common {
 
             return buf;
         }
+
+
+        bool starts_with(const std::string& str, const std::string& prefix);
+
+        bool ends_with(const std::string& str, const std::string& suffix);
 
     }
 

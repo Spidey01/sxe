@@ -27,6 +27,7 @@
 #include <sxe/GameEngine.hpp>
 #include <sxe/config/SettingsMap.hpp>
 #include <sxe/input/ConsoleInputManager.hpp>
+#include <sxe/logging/LoggingManager.hpp>
 #include <sxe/sys/Platform.hpp>
 #include <sxe/testing/NullDisplay.hpp>
 
@@ -35,6 +36,7 @@ using sxe::Game;
 using sxe::GameEngine;
 using sxe::config::SettingsMap;
 using sxe::input::ConsoleInputManager;
+using sxe::logging::LoggingManager;
 using sxe::sys::Platform;
 using sxe::testing::NullDisplay;
 
@@ -51,7 +53,7 @@ static GameEngine::unique_ptr setup(int argc, char* argv[], Game::shared_ptr gam
         , nullptr // scene manager
         , make_unique<ConsoleInputManager>()
         , nullptr // resource manager
-        , nullptr // logging manager
+        , make_unique<LoggingManager>()
         , nullptr // platform specific settings
         , sxe::sys::Platform()
     );

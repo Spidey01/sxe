@@ -58,7 +58,7 @@ Xdg::Xdg()
 
     p = getenv("XDG_DATA_DIRS");
     if (p != nullptr) {
-        split<list, string>(XDG_DATA_DIRS, p, sep);
+        split(std::back_inserter(XDG_DATA_DIRS), string(p), sep);
     } else {
         XDG_DATA_DIRS.push_back("/usr/local/share");
         XDG_DATA_DIRS.push_back("/usr/share");
@@ -73,7 +73,7 @@ Xdg::Xdg()
 
     p = getenv("XDG_CONFIG_DIRS");
     if (p != nullptr) {
-        split<list, string>(XDG_CONFIG_DIRS, p, sep);
+        split<>(std::back_inserter(XDG_CONFIG_DIRS), string(p), sep);
     } else {
         XDG_CONFIG_DIRS.push_back("/etc/xdg");
     }

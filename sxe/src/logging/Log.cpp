@@ -179,6 +179,19 @@ Log::LogSinkList Log::getSinks()
 }
 
 
+LogSink::shared_ptr Log::getLogSink(const string& name)
+{
+    lock_guard synchronized(sMutex);
+
+    for (auto shared : sSinks) {
+        if (shared->getName() == name)
+            return shared;
+    }
+
+    return nullptr;
+}
+
+
 bool Log::isLoggable(const string& tag, int level)
 {
     lock_guard synchronized(sMutex);

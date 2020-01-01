@@ -118,6 +118,8 @@ namespace sxe { namespace logging {
 
         static LogSinkList getSinks();
 
+        static LogSink::shared_ptr Log::getLogSink(const std::string& name);
+
         /** Return if tag is loggable at level.
          */
         static bool isLoggable(const std::string& tag, int level);

@@ -33,6 +33,7 @@
 #include <sxe/input/InputManager.hpp>
 #include <sxe/sys/Platform.hpp>
 #include <sxe/logging.hpp>
+#include <sxe/logging/LoggingManager.hpp>
 
 using std::string;
 

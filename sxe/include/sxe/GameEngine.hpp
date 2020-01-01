@@ -40,6 +40,9 @@ namespace sxe {
     namespace input {
         class InputManager;
     }
+    namespace logging {
+        class LoggingManager;
+    }
 
     class SXE_PUBLIC GameEngine
     {
@@ -56,7 +59,7 @@ namespace sxe {
         using SceneManager_ptr = std::unique_ptr<TODO_placeholder>;
         using InputManager_ptr = std::unique_ptr<input::InputManager>;
         using ResourceManager_ptr = std::unique_ptr<TODO_placeholder>;
-        using LoggingManager_ptr = std::unique_ptr<TODO_placeholder>;
+        using LoggingManager_ptr = std::unique_ptr<logging::LoggingManager>;
 
         /** Just enough for unit tests. */
         GameEngine();
