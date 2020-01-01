@@ -33,6 +33,40 @@ static LogSinkListPrivate sSinks;
 
 Log::lock_guard::mutex_type Log::sMutex;
 
+static const std::unordered_map<std::string, int> sStringToLevelTable = {
+    { "ASSERT", Log::ASSERT },
+    { "ERROR", Log::ERROR },
+    { "WARN", Log::WARN },
+    { "INFO", Log::INFO },
+    { "DEBUG", Log::DEBUG },
+    { "VERBOSE", Log::VERBOSE },
+    { "TRACE", Log::TRACE },
+    { "TEST", Log::TEST },
+};
+
+
+std::string Log::levelToString(int level)
+{
+    for (const auto& pair : sStringToLevelTable) {
+        if (pair.second == level)
+            return pair.first;
+    }
+
+    return "";
+}
+
+
+int Log::stringToLevel(const std::string& level)
+{
+    auto it = sStringToLevelTable.find(level);
+
+    if (it == sStringToLevelTable.cend())
+        return Log::ASSERT;
+
+    return it->second;
+}
+
+
 void Log::wtf(const string& tag, const string& message)
 {
     log(ASSERT, tag, message);

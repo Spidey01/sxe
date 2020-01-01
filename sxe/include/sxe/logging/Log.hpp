@@ -60,6 +60,18 @@ namespace sxe { namespace logging {
             TEST    = 999,
         };
 
+        /** Returns enum value as string.
+         *
+         * Unknown values are mapped to "".
+         */
+        static std::string levelToString(int level);
+
+        /** Returns enum value for string.
+         *
+         * Unknown values are mapped to Log::ASSERT.
+         */
+        static int stringToLevel(const std::string& level);
+
         /** Send an ASSERT message.
          *
          * Report a condition that should never happen. A false assertion will also
