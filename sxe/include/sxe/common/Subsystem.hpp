@@ -26,12 +26,11 @@
 #include <sxe/Game.hpp>
 #include <sxe/api.hpp>
 #include <sxe/common/Initializable.hpp>
+#include <sxe/config/Settings.hpp>
+#include <sxe/config/SettingsListener.hpp>
 
 namespace sxe {
     class GameEngine;
-    namespace config {
-        class Settings;
-    }
 }
 
 namespace sxe {  namespace common {
@@ -55,6 +54,16 @@ namespace sxe {  namespace common {
         Game::shared_ptr getGame() const;
         GameEngine& getGameEngine() const;
         config::Settings& getSettings() const;
+        config::SettingsListener& getSettingsListener() const;
+
+      protected:
+
+        /** Callback when a setting is changed.
+         *
+         * Use getSettingsListener().setFilter() if you want to restrict
+         * notifications to a given prefix.
+         */
+        virtual void onSettingChanged(string_type key);
 
       private:
         static const string_type TAG;
@@ -63,6 +72,7 @@ namespace sxe {  namespace common {
         string_type mName;
 
         sxe::Game::weak_ptr mGame;
+        std::unique_ptr<config::SettingsListener> mSettingsListener;
     };
 
 } }

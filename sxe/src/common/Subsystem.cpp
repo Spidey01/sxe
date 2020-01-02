@@ -26,6 +26,11 @@
 #include <sxe/GameEngine.hpp>
 #include <sxe/logging.hpp>
 
+using std::logic_error;
+using std::make_unique;
+using sxe::config::Settings;
+using sxe::config::SettingsListener;
+
 namespace sxe {  namespace common {
 
 const Subsystem::string_type Subsystem::TAG = "Subsystem";
@@ -51,12 +56,16 @@ const Subsystem::string_type& Subsystem::name() const
 }
 
 
-bool Subsystem::initialize(GameEngine& data)
+bool Subsystem::initialize(GameEngine& engine)
 {
     Log::xtrace(TAG, "initialize(): " + name());
-    mGame = data.getGame();
 
-    return Initializable::initialize(data);
+    mGame = engine.getGame();
+
+    auto cb = std::bind(&Subsystem::onSettingChanged, this, std::placeholders::_1);
+    mSettingsListener = make_unique<SettingsListener>(engine.getSettings(), cb);
+
+    return Initializable::initialize(engine);
 }
 
 
@@ -86,6 +95,8 @@ bool Subsystem::uninitialize()
 
     mGame.reset();
 
+    mSettingsListener.reset();
+
     return ok;
 }
 
@@ -106,17 +117,30 @@ GameEngine& Subsystem::getGameEngine() const
     Game::shared_ptr g = getGame();
 
     if (!g)
-        throw std::logic_error(TAG + "::getEngine() called on " + name() + " before " + TAG + "initialize().");
+        throw logic_error(TAG + "::getEngine() called on " + name() + " before " + TAG + "::initialize().");
 
     return g->getGameEngine();
 }
 
 
-config::Settings& Subsystem::getSettings() const
+Settings& Subsystem::getSettings() const
 {
     return getGameEngine().getSettings();
 }
 
+
+SettingsListener& Subsystem::getSettingsListener() const
+{
+    if (!mSettingsListener)
+        throw logic_error(TAG + "::getSettingsListener() called on " + name() + " before " + TAG + "::initialize().");
+    return *mSettingsListener;
+}
+
+
+void Subsystem::onSettingChanged(string_type key)
+{
+    Log::test(TAG, "onSettingChanged(): key: " + key);
+}
 
 } }
 

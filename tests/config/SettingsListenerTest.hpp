@@ -1,5 +1,5 @@
-#ifndef SXE_TESTS_COMMON_SUBSYSTEMTEST__HPP
-#define SXE_TESTS_COMMON_SUBSYSTEMTEST__HPP
+#ifndef SXE_TESTS_CONFIG_SETTINGSLISTENERTEST__HPP
+#define SXE_TESTS_CONFIG_SETTINGSLISTENERTEST__HPP
 /*-
  * Copyright (c) 2019-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -24,25 +24,24 @@
  */
 
 #include <cppunit/extensions/HelperMacros.h>
-#include <sxe/common/Subsystem.hpp>
+#include <sxe/config/SettingsListener.hpp>
 
-class SubsystemTest : public CPPUNIT_NS::TestFixture
+class SettingsListenerTest : public CPPUNIT_NS::TestFixture
 {
-    CPPUNIT_TEST_SUITE(SubsystemTest);
+    CPPUNIT_TEST_SUITE(SettingsListenerTest);
 
-    CPPUNIT_TEST(name);
-    CPPUNIT_TEST(initialization);
-    CPPUNIT_TEST(onSettingChanged);
+    CPPUNIT_TEST(all);
+    CPPUNIT_TEST(filtered);
 
     CPPUNIT_TEST_SUITE_END();
 
   protected:
-    void name();
-    void initialization();
-    void onSettingChanged();
+    void all();
+    void filtered();
 
   private:
 };
 
-#endif // SXE_TESTS_COMMON_SUBSYSTEMTEST__HPP
+#endif // SXE_TESTS_CONFIG_SETTINGSLISTENERTEST__HPP
+
 

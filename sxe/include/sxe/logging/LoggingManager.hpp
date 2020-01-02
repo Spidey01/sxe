@@ -58,14 +58,11 @@ namespace sxe { namespace logging {
         LoggingManager();
         virtual ~LoggingManager();
 
-        bool initialize(GameEngine& engine) override;
-        bool uninitialize() override;
-
       private:
         static const string_type TAG;
         config::Settings::SettingsManager::size_type mOnChangedListenerId;
 
-        void onChanged(string_type key);
+        void onSettingChanged(string_type key) override;
         LogSink::shared_ptr makeLogSink(const string_type& name, const string_type& to);
         void editLogSink(LogSink& sink);
     };

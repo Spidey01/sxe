@@ -23,14 +23,16 @@
 
 #include "./SubsystemTest.hpp"
 
-#include <sxe/common/Subsystem.hpp>
 #include <sxe/GameEngine.hpp>
+#include <sxe/common/Subsystem.hpp>
+#include <sxe/config/Settings.hpp>
 #include <sxe/logging.hpp>
 #include <sxe/stdheaders.hpp>
 
 using std::string;
 using sxe::GameEngine;
 using sxe::common::Subsystem;
+using sxe::config::Settings;
 using sxe::sys::FileSystem::path;
 
 static const string TAG = "SubsystemTest";
@@ -46,6 +48,16 @@ class TestSubsystem : public Subsystem
         : Subsystem("TestSubsystem")
     {
     }
+
+    string_type lastSettingChanged;
+
+  protected:
+
+    void onSettingChanged(string_type key) override
+    {
+        lastSettingChanged = key;
+    }
+
 };
 
 
@@ -84,3 +96,34 @@ void SubsystemTest::initialization()
                            subsystem.isInitialized() == false);
 }
 
+
+void SubsystemTest::onSettingChanged()
+{
+    Log::xtrace(TAG, "onSettingChanged()");
+
+    TestSubsystem subsystem;
+    Settings& settings = sGameEngine.getSettings();
+
+    settings.setString("no", "one listening");
+    CPPUNIT_ASSERT_MESSAGE("No notifications before initialize.",
+                           subsystem.lastSettingChanged.empty());
+
+    subsystem.initialize(sGameEngine);
+
+    settings.setString("any", "key");
+    CPPUNIT_ASSERT(subsystem.lastSettingChanged == "any");
+    subsystem.lastSettingChanged.clear();
+
+    subsystem.getSettingsListener().setFilter("specific");
+    settings.setString("not", "it");
+    CPPUNIT_ASSERT_MESSAGE("SettingsListener::setFilter is broken if this doesn't work.",
+                   subsystem.lastSettingChanged.empty());
+    subsystem.lastSettingChanged.clear();
+
+
+    subsystem.uninitialize();
+    settings.setString("any", "key");
+
+    CPPUNIT_ASSERT_MESSAGE("No notifications after uninitialize.",
+                           subsystem.lastSettingChanged.empty());
+}

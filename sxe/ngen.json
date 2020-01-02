@@ -17,6 +17,7 @@
         "src/common/Utils.cpp",
         "src/config/Settings.cpp",
         "src/config/SettingsFile.cpp",
+        "src/config/SettingsListener.cpp",
         "src/config/SettingsMap.cpp",
         "src/config/SettingsXMLFile.cpp",
         "src/graphics/Display.cpp",

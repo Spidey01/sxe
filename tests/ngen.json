@@ -12,6 +12,7 @@
         "common/SubsystemTest.cpp",
         "config/SettingsFileTest.cpp",
         "config/SettingsFixture.cpp",
+        "config/SettingsListenerTest.cpp",
         "config/SettingsMapTest.cpp",
         "config/SettingsXMLFileTest.cpp",
         "graphics/DisplayModeTest.cpp",

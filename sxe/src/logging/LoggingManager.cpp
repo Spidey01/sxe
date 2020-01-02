@@ -50,31 +50,9 @@ LoggingManager::~LoggingManager()
 }
 
 
-bool LoggingManager::initialize(GameEngine& engine)
+void LoggingManager::onSettingChanged(string_type key)
 {
-    Log::xtrace(TAG, "initialize()");
-
-    auto cb = std::bind(&LoggingManager::onChanged, this, std::placeholders::_1);
-    engine.getSettings().addChangeListener(cb);
-
-    return Subsystem::initialize(engine);
-}
-
-
-bool LoggingManager::uninitialize()
-{
-    Log::xtrace(TAG, "uninitialize()");
-
-    getSettings().removeChangeListener(mOnChangedListenerId );
-    mOnChangedListenerId = SIZE_MAX;
-
-    return Subsystem::uninitialize();
-}
-
-
-void LoggingManager::onChanged(string_type key)
-{
-    Log::xtrace(TAG, "onChanged(): key: " + key);
+    Log::xtrace(TAG, "onSettingChanged(): key: " + key);
 
     constexpr auto npos = string_type::npos;
 
