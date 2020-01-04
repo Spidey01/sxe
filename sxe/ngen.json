@@ -13,6 +13,7 @@
         "src/cmds/Command.cpp",
         "src/cmds/EchoCommand.cpp",
         "src/cmds/QuitCommand.cpp",
+        "src/cmds/SetCommand.cpp",
         "src/common/Subsystem.cpp",
         "src/common/Utils.cpp",
         "src/config/Settings.cpp",

@@ -26,6 +26,7 @@
 #include <sxe/GameEngine.hpp>
 #include <sxe/cmds/EchoCommand.hpp>
 #include <sxe/cmds/QuitCommand.hpp>
+#include <sxe/cmds/SetCommand.hpp>
 #include <sxe/input/InputManager.hpp>
 #include <sxe/logging.hpp>
 
@@ -57,6 +58,8 @@ bool GameStub::start()
         mConsole.addCommand(make_shared<QuitCommand>(getGameEngine().getGame()));
 
         mConsole.addCommand(make_shared<EchoCommand>());
+
+        mConsole.addCommand(make_shared<SetCommand>(getGameEngine().getSettings()));
     }
 
     mConsole.setVisible(true);

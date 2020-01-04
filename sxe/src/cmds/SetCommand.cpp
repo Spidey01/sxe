@@ -1,7 +1,5 @@
-#ifndef SXE_CMDS_ECHOCOMMAND__HPP
-#define SXE_CMDS_ECHOCOMMAND__HPP
 /*-
- * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -23,28 +21,38 @@
  *	   distribution.
  */
 
-#include <sxe/api.hpp>
-#include <sxe/cmds/Command.hpp>
+#include "sxe/cmds/SetCommand.hpp"
+
+#include <sxe/config/Settings.hpp>
+#include <sxe/logging.hpp>
 
 namespace sxe { namespace cmds {
 
-    /** Command that quits the game.
-     *
-     */
-    class SXE_PUBLIC EchoCommand : public Command
-    {
-      public:
+const SetCommand::string_type SetCommand::TAG = "SetCommand";
 
-        EchoCommand();
+SetCommand::SetCommand(config::Settings& settings)
+    : Command("set")
+    , mSettings(settings)
+{
+}
 
-        bool operator() (const argv& args) override;
 
-      private:
+bool SetCommand::operator() (const argv& args)
+{
+    for (const string_type& word : args) {
+        auto equals = word.find('=');
 
-        static const string_type TAG;
+        string_type key = word.substr(0, equals);
+        Log::test(TAG, "parsed key: \"" + key + "\"");
 
-    };
+        string_type value = word.substr(equals + 1);
+        Log::test(TAG, "parsed value: \"" + value + "\"");
+
+        mSettings.setString(key, value);
+    }
+
+    return true;
+}
 
 } }
 
-#endif // SXE_CMDS_ECHOCOMMAND__HPP

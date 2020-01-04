@@ -1,7 +1,7 @@
-#ifndef SXE_CMDS_ECHOCOMMAND__HPP
-#define SXE_CMDS_ECHOCOMMAND__HPP
+#ifndef SXE_CMDS_SETCOMMAND__HPP
+#define SXE_CMDS_SETCOMMAND__HPP
 /*-
- * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -26,16 +26,22 @@
 #include <sxe/api.hpp>
 #include <sxe/cmds/Command.hpp>
 
+namespace sxe {
+    namespace config {
+        class Settings;
+    }
+}
+
 namespace sxe { namespace cmds {
 
-    /** Command that quits the game.
+    /** Command that changes runtime settings.
      *
      */
-    class SXE_PUBLIC EchoCommand : public Command
+    class SXE_PUBLIC SetCommand : public Command
     {
       public:
 
-        EchoCommand();
+        SetCommand(config::Settings& settings);
 
         bool operator() (const argv& args) override;
 
@@ -43,8 +49,8 @@ namespace sxe { namespace cmds {
 
         static const string_type TAG;
 
+        config::Settings& mSettings;
     };
-
 } }
 
-#endif // SXE_CMDS_ECHOCOMMAND__HPP
+#endif // SXE_CMDS_SETCOMMAND__HPP
