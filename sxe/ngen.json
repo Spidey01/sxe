@@ -35,6 +35,7 @@
         "src/pc/PcConfiguration.cpp",
         "src/pc/PcDisplay.cpp",
         "src/pc/PcInputManager.cpp",
+        "src/resource/ResourceManager.cpp",
         "src/sys/FileSystem.cpp",
         "src/sys/Platform.cpp",
         "src/sys/Xdg.cpp",
