@@ -34,6 +34,7 @@
 #include <sxe/sys/Platform.hpp>
 #include <sxe/logging.hpp>
 #include <sxe/logging/LoggingManager.hpp>
+#include <sxe/resource/ResourceManager.hpp>
 
 using std::string;
 
@@ -353,6 +354,14 @@ graphics::Display& GameEngine::getDisplayManager() const
     assert(mDisplayManager != nullptr);
 
     return *mDisplayManager;
+}
+
+
+resource::ResourceManager& GameEngine::getResourceManager() const
+{
+    assert(mResourceManager != nullptr);
+
+    return *mResourceManager;
 }
 
 

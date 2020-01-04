@@ -25,6 +25,7 @@
 
 #include <sxe/config/SettingsMap.hpp>
 #include <sxe/logging/LoggingManager.hpp>
+#include <sxe/resource/ResourceManager.hpp>
 #include <sxe/sys/Platform.hpp>
 #include <sxe/testing/NullDisplay.hpp>
 #include <sxe/testing/NullInputManager.hpp>
@@ -54,7 +55,7 @@ GameEngine::unique_ptr NullConfiguration::setup(int argc, char* argv[], Game::sh
         , make_unique<NullDisplay>(true)
         , nullptr // scene manager
         , make_unique<NullInputManager>()
-        , nullptr // resource manager
+        , make_unique<resource::ResourceManager>()
         , make_unique<logging::LoggingManager>()
         , nullptr // platform specific settings
         , sxe::sys::Platform()

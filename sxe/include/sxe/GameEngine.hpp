@@ -43,6 +43,9 @@ namespace sxe {
     namespace logging {
         class LoggingManager;
     }
+    namespace resource {
+        class ResourceManager;
+    }
 
     class SXE_PUBLIC GameEngine
     {
@@ -58,7 +61,7 @@ namespace sxe {
         using DisplayManager_ptr = std::unique_ptr<graphics::Display>;
         using SceneManager_ptr = std::unique_ptr<TODO_placeholder>;
         using InputManager_ptr = std::unique_ptr<input::InputManager>;
-        using ResourceManager_ptr = std::unique_ptr<TODO_placeholder>;
+        using ResourceManager_ptr = std::unique_ptr<resource::ResourceManager>;
         using LoggingManager_ptr = std::unique_ptr<logging::LoggingManager>;
 
         /** Just enough for unit tests. */
@@ -136,6 +139,7 @@ namespace sxe {
 
         input::InputManager& getInputManager() const;
         graphics::Display& getDisplayManager() const;
+        resource::ResourceManager& getResourceManager() const;
 
       private:
         static const std::string TAG;

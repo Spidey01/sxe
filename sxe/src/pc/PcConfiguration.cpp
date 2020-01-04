@@ -28,6 +28,7 @@
 #include <sxe/logging/LoggingManager.hpp>
 #include <sxe/pc/PcDisplay.hpp>
 #include <sxe/pc/PcInputManager.hpp>
+#include <sxe/resource/ResourceManager.hpp>
 #include <sxe/sys/Platform.hpp>
 
 using std::make_shared;
@@ -68,7 +69,7 @@ GameEngine::unique_ptr PcConfiguration::setup(int argc, char* argv[], Game::shar
         , make_unique<sxe::pc::PcDisplay>()
         , nullptr // scene manager
         , make_unique<sxe::pc::PcInputManager>()
-        , nullptr // resource manager
+        , make_unique<resource::ResourceManager>()
         , make_unique<logging::LoggingManager>()
         , settings(game, platform)
         , platform
