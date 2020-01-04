@@ -28,6 +28,7 @@
 #include <sxe/common/Initializable.hpp>
 #include <sxe/config/Settings.hpp>
 #include <sxe/config/SettingsListener.hpp>
+#include <sxe/filesystem.hpp>
 
 namespace sxe {
     class GameEngine;
@@ -40,6 +41,7 @@ namespace sxe {  namespace common {
       public:
         using GameEngine = sxe::GameEngine;
         using string_type = std::string;
+        using path_type = sxe::filesystem::path;
 
         Subsystem(const string_type& name);
         virtual ~Subsystem();
