@@ -23,7 +23,6 @@
  *	   distribution.
  */
 
-#include <boost/filesystem/path.hpp>
 #include <sxe/api.hpp>
 
 namespace sxe { namespace logging {
@@ -32,7 +31,9 @@ namespace sxe { namespace logging {
      *
      * The default implementation simply works with a std::ostream. Like std::cout or std::clog.
      */
-    class SXE_PUBLIC LogSink {
+    class SXE_PUBLIC LogSink
+        : public common::stdtypedefs<LogSink>
+    {
       public:
 
         using shared_ptr = std::shared_ptr<LogSink>;
@@ -53,7 +54,7 @@ namespace sxe { namespace logging {
          * @param level the default level.
          * @param path the log file to create.
          */
-        LogSink(const std::string& name, int level, const boost::filesystem::path& path);
+        LogSink(const string_type& name, int level, const path_type& path);
 
         /* Create a log sink from an existing ostream.
          *
@@ -62,31 +63,31 @@ namespace sxe { namespace logging {
          * @param stream the stream to write to.
          * @param deleteMe if true: delete stream on dtor.
          */
-        LogSink(const std::string& name, int level, std::ostream* stream, bool deleteMe);
+        LogSink(const string_type& name, int level, std::ostream* stream, bool deleteMe);
 
         /* LogSink(name, level, *stream, false);
          */
-        LogSink(const std::string& name, int level, std::ostream& stream);
+        LogSink(const string_type& name, int level, std::ostream& stream);
 
         /** Uses std::clog and the default constants.
          */
         LogSink();
 
-        void log(int level, const std::string& tag, const std::string& message);
+        void log(int level, const string_type& tag, const string_type& message);
 
         /** Test if tag loggable.
          *
          * @returns true if messages for tag/level would be written.
          */
-        bool isLoggable(const std::string& tag, int level) const;
+        bool isLoggable(const string_type& tag, int level) const;
 
         /* Returns log level for tag.
          */
-        int getLevel(const std::string& tag) const;
+        int getLevel(const string_type& tag) const;
 
         /* Sets log level for tag.
          */
-        void setLevel(const std::string& tag, int level);
+        void setLevel(const string_type& tag, int level);
 
         int getDefaultLevel() const;
 
@@ -102,7 +103,7 @@ namespace sxe { namespace logging {
          * This doesn't mean filename or pathname, it's just the 'name' param
          * from the ctor.
          */
-        const std::string& getName() const;
+        const string_type& getName() const;
 
         bool getDisplayThreadId() const;
         void setDisplayThreadId(bool x);
@@ -120,7 +121,7 @@ namespace sxe { namespace logging {
 
         /** Map of log tag -> log level.
          */
-        using Filters = std::map<std::string, int>;
+        using Filters = std::map<string_type, int>;
         Filters mFilters;
 
         bool mDisplayThreadId;
@@ -129,7 +130,7 @@ namespace sxe { namespace logging {
 
         /** Translates log level to word for header().
          */
-        virtual std::string translate(int level) const;
+        virtual string_type translate(int level) const;
 
         /** Writes the log header to the stream.
          *
@@ -140,11 +141,11 @@ namespace sxe { namespace logging {
          *  Where the various key=value are determined by the associated
          *  methods, like getDisplayTime().
          */
-        virtual void header(int level, const std::string& tag);
+        virtual void header(int level, const string_type& tag);
 
       private:
 
-        std::string mName;
+        string_type mName;
         std::ostream* mOutput;
         bool mDeleteMe;
     };

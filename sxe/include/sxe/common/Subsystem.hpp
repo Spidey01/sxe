@@ -36,12 +36,12 @@ namespace sxe {
 
 namespace sxe {  namespace common {
 
-    class SXE_PUBLIC Subsystem : public Initializable<GameEngine>
+    class SXE_PUBLIC Subsystem
+        : public Initializable<GameEngine>
+        , public stdtypedefs<Subsystem>
     {
       public:
         using GameEngine = sxe::GameEngine;
-        using string_type = std::string;
-        using path_type = sxe::filesystem::path;
 
         Subsystem(const string_type& name);
         virtual ~Subsystem();

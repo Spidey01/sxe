@@ -45,7 +45,9 @@ namespace sxe { namespace logging {
      * By default there are no log sinks, which causes all log data to be silenced.
      *
      */
-    class SXE_PUBLIC Log {
+    class SXE_PUBLIC Log
+        : public common::stdtypedefs<Log>
+    {
       public:
 
         // Android mimicery: least to most: ERROR, WARN, INFO, DEBUG, VERBOSE.

@@ -34,9 +34,9 @@ using sxe::input::KeyEvent;
 
 namespace demos {
 
-std::string QuadGame::TAG = "QuadGame";
+QuadGame::string_type QuadGame::TAG = "QuadGame";
 
-std::string QuadGame::getName() const
+QuadGame::string_type QuadGame::getName() const
 {
     return TAG;
 }

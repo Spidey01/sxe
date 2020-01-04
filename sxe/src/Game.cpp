@@ -27,12 +27,11 @@
 #include <sxe/logging.hpp>
 #include <sxe/stdheaders.hpp>
 
-using std::string;
 using std::to_string;
 
 namespace sxe {
 
-const string Game::TAG = "Game";
+const Game::string_type Game::TAG = "Game";
 const size_t Game::mMaxTickRate = 250;
 
 Game::Game()
@@ -54,7 +53,7 @@ Game::~Game()
 }
 
 
-string Game::getPublisher() const
+Game::string_type Game::getPublisher() const
 {
     return "";
 }

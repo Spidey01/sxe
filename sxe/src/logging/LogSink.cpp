@@ -24,8 +24,6 @@
 #include "sxe/logging/LogSink.hpp"
 #include "sxe/logging/Log.hpp"
 
-using std::string;
-
 namespace sxe {  namespace logging {
 
 const int LogSink::DEFAULT_LOG_LEVEL = Log::INFO;
@@ -38,13 +36,13 @@ LogSink::~LogSink()
 }
 
 
-LogSink::LogSink(const string& name, int level, const boost::filesystem::path& path)
+LogSink::LogSink(const string_type& name, int level, const path_type& path)
     : LogSink(name, level, new std::fstream(path.string(), std::ios::app), true)
 {
 }
 
 
-LogSink::LogSink(const string& name, int level, std::ostream* stream, bool deleteMe)
+LogSink::LogSink(const string_type& name, int level, std::ostream* stream, bool deleteMe)
     : mDefaultLevel(level)
     , mFilters()
     , mDisplayThreadId(true)
@@ -57,7 +55,7 @@ LogSink::LogSink(const string& name, int level, std::ostream* stream, bool delet
 }
 
 
-LogSink::LogSink(const string& name, int level, std::ostream& stream)
+LogSink::LogSink(const string_type& name, int level, std::ostream& stream)
     : LogSink(name, level, &stream, false)
 {
 }
@@ -69,7 +67,7 @@ LogSink::LogSink()
 }
 
 
-void LogSink::log(int level, const std::string& tag, const std::string& message)
+void LogSink::log(int level, const string_type& tag, const string_type& message)
 {
     if (message.empty())
         return;
@@ -83,13 +81,13 @@ void LogSink::log(int level, const std::string& tag, const std::string& message)
 }
 
 
-bool LogSink::isLoggable(const string& tag, int level) const
+bool LogSink::isLoggable(const string_type& tag, int level) const
 {
     return level == getLevel(tag);
 }
 
 
-int LogSink::getLevel(const string& tag) const
+int LogSink::getLevel(const string_type& tag) const
 {
     auto pair = mFilters.find(tag);
 
@@ -97,7 +95,7 @@ int LogSink::getLevel(const string& tag) const
 }
 
 
-void LogSink::setLevel(const string& tag, int level)
+void LogSink::setLevel(const string_type& tag, int level)
 {
     mFilters[tag] = level;
 }
@@ -115,7 +113,7 @@ void LogSink::setDefaultLevel(int level)
 }
 
 
-const string& LogSink::getName() const
+const LogSink::string_type& LogSink::getName() const
 {
     return mName;
 }
@@ -157,7 +155,7 @@ void LogSink::setDisplayTime(bool x)
 }
 
 
-string LogSink::translate(int level) const
+LogSink::string_type LogSink::translate(int level) const
 {
     switch (level) {
         case Log::ASSERT: return "ASSERT";
@@ -173,7 +171,7 @@ string LogSink::translate(int level) const
 }
 
 
-void LogSink::header(int level, const string& tag)
+void LogSink::header(int level, const string_type& tag)
 {
     *mOutput << translate(level) << '/' << tag;
     *mOutput << '(';

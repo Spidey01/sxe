@@ -30,7 +30,7 @@ class GameStub : public sxe::Game
 {
   public:
 
-    std::string getName() const override;
+    string_type getName() const override;
     bool start() override;
     void stop() override;
 

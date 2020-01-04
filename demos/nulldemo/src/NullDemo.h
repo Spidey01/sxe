@@ -26,8 +26,6 @@
 #include <sxe/api.hpp>
 #include <sxe/Game.hpp>
 
-#include <string>
-
 namespace sxe {
     namespace input {
         class KeyEvent;
@@ -39,14 +37,14 @@ namespace demos {
     {
       public:
 
-        std::string getName() const override;
+        string_type getName() const override;
 
         bool start() override;
         void stop() override;
         void update() override;
 
       private:
-        static std::string TAG;
+        static string_type TAG;
         bool onKey(sxe::input::KeyEvent event);
     };
 }

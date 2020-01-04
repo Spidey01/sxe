@@ -48,11 +48,9 @@ namespace sxe {
     }
 
     class SXE_PUBLIC GameEngine
+        : public common::stdtypedefs<GameEngine>
     {
       public:
-        using unique_ptr = std::unique_ptr<GameEngine>;
-        using shared_ptr = std::shared_ptr<GameEngine>;
-        using weak_ptr = std::weak_ptr<GameEngine>;
 
         using Game_ptr = std::shared_ptr<Game>;
         using Settings_ptr = std::unique_ptr<config::Settings>;
@@ -142,7 +140,7 @@ namespace sxe {
         resource::ResourceManager& getResourceManager() const;
 
       private:
-        static const std::string TAG;
+        static const string_type TAG;
 
         sys::Xdg mXdg;
 

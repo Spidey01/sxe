@@ -33,10 +33,9 @@ namespace sxe { namespace cmds {
      * Callable that includes extra data useful to Commands.
      */
     class SXE_PUBLIC Command
+        : public common::stdtypedefs<Command>
     {
       public:
-
-        using string_type = std::string;
         using argv = std::vector<string_type>;
         using unique_ptr = std::unique_ptr<Command>;
         using shared_ptr = std::shared_ptr<Command>;

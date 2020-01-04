@@ -45,4 +45,7 @@
     #define SXE_PRIVATE
 #endif // SXE_DLL
 
+#include <sxe/filesystem.hpp>
+#include <sxe/common/stdtypedefs.hpp>
+
 #endif // SXE_SXEAPI__HPP

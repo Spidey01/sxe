@@ -27,18 +27,16 @@
 #include <sxe/Game.hpp>
 #include <sxe/input/KeyEvent.hpp>
 
-#include <string>
-
 namespace demos {
 	class QuadGame : public sxe::Game
     {
       public:
 
-        std::string getName() const override;
+        string_type getName() const override;
         bool start() override;
 
       private:
-        static std::string TAG;
+        static string_type TAG;
         bool onKey(sxe::input::KeyEvent event);
     };
 }

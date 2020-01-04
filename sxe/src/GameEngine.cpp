@@ -36,11 +36,9 @@
 #include <sxe/logging/LoggingManager.hpp>
 #include <sxe/resource/ResourceManager.hpp>
 
-using std::string;
-
 namespace sxe {
 
-const string GameEngine::TAG = "GameEngine";
+const GameEngine::string_type GameEngine::TAG = "GameEngine";
 
 GameEngine::GameEngine()
     : mXdg()
@@ -80,7 +78,7 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
 {
 
     if (mGame == nullptr) {
-        throw std::invalid_argument(TAG + string("game parameter can't be nullptr!"));
+        throw std::invalid_argument(TAG + string_type("game parameter can't be nullptr!"));
     }
 
     /*
@@ -91,7 +89,7 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
      */
     int sxe_debug_level = Log::ASSERT;
     if (mCommandLineSettings) {
-        string param = mCommandLineSettings->getString("sxe.debug");
+        string_type param = mCommandLineSettings->getString("sxe.debug");
         sxe_debug_level = sxe::logging::Log::stringToLevel(param);
     }
     sxe::logging::Log::add(std::make_shared<sxe::logging::LogSink>("sxe.debug", sxe_debug_level, std::cout));
@@ -102,15 +100,15 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
 
         // Used to have a fancier SettingsFile stuff for k/v vs xml - start off with what we have now.
 
-        const string cfgName = mGame->getName() + ".cfg";
+        const string_type cfgName = mGame->getName() + ".cfg";
         auto makeCfg = [](auto p) -> Settings_ptr { return std::make_unique<config::SettingsFile>(p); };
 
-        const string xmlName = mGame->getName() + ".xml";
+        const string_type xmlName = mGame->getName() + ".xml";
         auto makeXml = [](auto p) -> Settings_ptr { return std::make_unique<config::SettingsXMLFile>(p); };
 
-        using factory = std::function<Settings_ptr(sys::FileSystem::path)>;
+        using factory = std::function<Settings_ptr(path_type)>;
 
-        const std::tuple<string, factory> names[] = {
+        const std::tuple<string_type, factory> names[] = {
             std::make_tuple( cfgName, makeCfg ),
             std::make_tuple( xmlName, makeXml ),
         };
@@ -123,7 +121,7 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
          */
 
         for (const auto& tuple : names) {
-            string n;
+            string_type n;
             factory make;
             std::tie(n, make) = tuple;
 
@@ -143,7 +141,7 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
          */
 
         for (const auto& tuple : names) {
-            string n;
+            string_type n;
             factory make;
             std::tie(n, make) = tuple;
 
@@ -216,15 +214,14 @@ bool GameEngine::start()
     Log::i(TAG, "XDG_RUNTIME_DIR=\"" + mXdg.XDG_RUNTIME_DIR.string() + "\"");
     /* Implicitly converting path to string is sometimes painful vs explicit */
     {
-        using seq = std::vector<string>;
-        using path = sys::FileSystem::path;
+        using seq = std::vector<string_type>;
 
         seq dataDirs;
-        for (const path& p : mXdg.XDG_DATA_DIRS)
+        for (const path_type& p : mXdg.XDG_DATA_DIRS)
             dataDirs.push_back(p.string());
 
         seq configDirs;
-        for (const path& p : mXdg.XDG_CONFIG_DIRS)
+        for (const path_type& p : mXdg.XDG_CONFIG_DIRS)
             configDirs.push_back(p.string());
 
         Log::i(TAG, "XDG_DATA_DIRS=\"" + common::Utils::join(dataDirs, dataDirs.size(), ':') + "\"");

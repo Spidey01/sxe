@@ -43,9 +43,10 @@ namespace sxe {  namespace config {
      * @see SettingsFile.
      * @see SettingsMap.
      */
-    class SXE_PUBLIC Settings {
+    class SXE_PUBLIC Settings
+        : public common::stdtypedefs<Settings>
+    {
       public:
-        using string_type = std::string;
 
         /** Handle change notification.
          */

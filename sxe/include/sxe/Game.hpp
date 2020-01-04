@@ -34,13 +34,11 @@ namespace sxe {
 
     /** Your games base class.
     */
-    class SXE_PUBLIC Game : public common::Initializable<GameEngine>
+    class SXE_PUBLIC Game
+        : public common::Initializable<GameEngine>
+        , public common::stdtypedefs<Game>
     {
       public:
-        using unique_ptr = std::unique_ptr<Game>;
-        using shared_ptr = std::shared_ptr<Game>;
-        using weak_ptr = std::weak_ptr<Game>;
-        using string_type = std::string;
 
         /** Enumerated game state.
          *

@@ -38,9 +38,9 @@ using sxe::input::KeyListener;
 
 namespace demos {
 
-std::string NullDemo::TAG = "NullDemo";
+NullDemo::string_type NullDemo::TAG = "NullDemo";
 
-std::string NullDemo::getName() const
+NullDemo::string_type NullDemo::getName() const
 {
     return TAG;
 }

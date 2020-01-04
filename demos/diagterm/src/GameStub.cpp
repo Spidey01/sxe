@@ -30,14 +30,13 @@
 #include <sxe/input/InputManager.hpp>
 #include <sxe/logging.hpp>
 
-using std::string;
 using sxe::Game;
 using sxe::GameEngine;
 
-const std::string GameStub::TAG = "GameStub";
+const GameStub::string_type GameStub::TAG = "GameStub";
 
 
-string GameStub::getName() const
+GameStub::string_type GameStub::getName() const
 {
     return "diagterm";
 }
