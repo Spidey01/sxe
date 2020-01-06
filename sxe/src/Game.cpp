@@ -206,7 +206,7 @@ void Game::runGameThread()
 
         try {
             update();
-        } catch(std::exception ex) {
+        } catch(std::exception& ex) {
             Log::wtf(TAG, "Game thread has died!", ex);
             break;
         }
