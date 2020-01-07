@@ -36,8 +36,8 @@ SettingsListener::SettingsListener(Settings& settings, Settings::OnChangedListen
 SettingsListener::SettingsListener(Settings& settings, Settings::OnChangedListener listener, const Settings::string_type& prefix)
     : mSettings(settings)
     , mListener(listener)
-    , mPrefix(prefix)
     , mId(mSettings.addChangeListener(std::bind(&SettingsListener::onChangedFilter, this, std::placeholders::_1)))
+    , mPrefix(prefix)
 {
 }
 
