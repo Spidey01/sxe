@@ -90,8 +90,7 @@ namespace sxe { namespace input {
          * event will occur before and after. The event is terminated be an enter
          * key up and down event.
          *
-         * @param keyName key name of the event.
-         * @param isDown whether this is a key down or up event.
+         * @param line the sequence of characters to inject.
          */
         void inject(const string_type& line);
 

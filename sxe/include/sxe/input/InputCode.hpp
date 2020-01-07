@@ -495,7 +495,7 @@ namespace sxe { namespace input {
             /** Number modifier key.
              * Used to enter numeric symbols.
              * This key is not Num Lock; it is more like {@link #IC_ALT_LEFT} and is
-             * interpreted as an ALT key by {@link android.text.method.MetaKeyKeyListener}. */
+             * interpreted as an ALT key by [android.text.method.MetaKeyKeyListener](https://developer.android.com/reference/android/text/method/MetaKeyKeyListener). */
             IC_NUM,
 
             /** Camera Focus key.
@@ -537,8 +537,8 @@ namespace sxe { namespace input {
         /** Converts a sequence of characters into a sequence of InputCodes.
          *
          * @param first beginning of range to convert.
-         * @param end of range to convert.
-         * @aram out position to begin inserting.
+         * @param last of range to convert.
+         * @param out position to begin inserting.
          *
          * You probably want out to be something like std::back_inserter(yourContainer).
          *

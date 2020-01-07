@@ -96,6 +96,7 @@ namespace sxe {  namespace graphics {
          * This causs the virtual mode after creating a DisplayMode.
          *
          * @param mode passed to DisplayMode's ctor.
+         * @param fs passed to DisplayMode's ctor.
          *
          * @return true if successful; false otherwise.
          */
@@ -111,7 +112,7 @@ namespace sxe {  namespace graphics {
 
         /** Switch between fullscreen and windowed mode.
          *
-         * @bool fs if true: set mode to fullscreen.
+         * @param fs if true: set mode to fullscreen.
          */
         virtual void setFullscreen(bool fs);
 

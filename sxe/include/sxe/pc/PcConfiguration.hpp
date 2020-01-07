@@ -47,14 +47,14 @@ namespace sxe { namespace pc {
 
         /** PC specific settings.
          *
-         * On Windows, we look at %LOCALAPPDATA%\Publisher\Gamename.{cfg,xml}.
+         * On Windows, we look at %LOCALAPPDATA%/Publisher/Gamename.{cfg,xml}.
          *
          *
          * Note:
          *
          *      On some systems we may substitute other values for version
          *      compatibility. E.g. on XP, there is no %LocalAppData% there is only
-         *      <strike>Zuul</strike> %AppData%.
+         *      ~~Zuul~~ %AppData%.
          */
         static GameEngine::Settings_ptr settings(Game::shared_ptr game, sys::Platform platform);
 

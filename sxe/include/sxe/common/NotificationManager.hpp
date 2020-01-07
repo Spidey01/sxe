@@ -45,8 +45,8 @@ namespace sxe {  namespace common {
      * Such that toKey(msg) -> subscriber key -> call receiver.
      *
      * If Message_T is convetable to string, toKey() uses string keys to
-     * dispatch messages. User defined types can implement <samp>operator
-     * string(Message_T)</samp> to handle that.
+     * dispatch messages. User defined types can implement operator
+     * string(Message_T) to handle that.
      *
      * Otherwise Message_T will be converted using std::to_string() over the
      * numerical Hash of the message dispatch. Specializations of std::hash<>

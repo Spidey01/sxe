@@ -39,8 +39,7 @@ namespace sxe {  namespace config {
 
         /** Create SettingsMap from a sequence of strings.
          *
-         * This is in the format of command line arguments. Namely
-         * <samp>"key=value"</samp>.
+         * This is in the format of command line arguments. Namely "key=value".
          */
         SettingsMap(int count, char** args);
 

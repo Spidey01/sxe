@@ -69,12 +69,13 @@ namespace sxe {
          *
          * This is the primary chunk-o-code constructor.
          *
+         * @param game Game implementation.
          * @param args Command line arguments.
          * @param display Display complicata.
          * @param scene  Manager of the scene.
-         * @param game Game implementation.
          * @param input All that input related stuff.
          * @param resources Resource management.
+         * @param logging Log management.
          * @param settings Platform specific settings.
          * @param platform Platform specific information.
          */

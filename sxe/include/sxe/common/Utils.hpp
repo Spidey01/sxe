@@ -73,11 +73,10 @@ namespace sxe {  namespace common {
          * This mostly exists for the case where you don't care about the
          * details and want to write code like the following:
          *
-         *  <samp>
-         *      for (const string& str : split(value, ',')) {
-         *          ...
-         *      }
-         *  </samp>
+         *     for (const string& str : split(value, ',')) {
+         *         ...
+         *     }
+         *  
          */
         template <class String=std::string, class Sequence=std::vector<String>>
         Sequence split_str(const String& value, char sep)
