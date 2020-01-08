@@ -1,5 +1,5 @@
-#ifndef SXE_PC_PCDISPLAY__HPP
-#define SXE_PC_PCDISPLAY__HPP
+#ifndef SXE_PC_PCDISPLAYMANAGER__HPP
+#define SXE_PC_PCDISPLAYMANAGER__HPP
 /*-
  * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -25,13 +25,13 @@
 
 #include <sxe/api.hpp>
 #include <sxe/GameEngine.hpp>
-#include <sxe/graphics/Display.hpp>
+#include <sxe/graphics/DisplayManager.hpp>
 
 struct GLFWwindow;
 
 namespace sxe { namespace pc {
 
-    class SXE_PUBLIC PcDisplay : public sxe::graphics::Display
+    class SXE_PUBLIC PcDisplayManager : public sxe::graphics::DisplayManager
     {
       public:
 
@@ -39,16 +39,16 @@ namespace sxe { namespace pc {
          *
          * @param desired A string like that used with setMode().
          */
-        PcDisplay(const string_type& desired);
+        PcDisplayManager(const string_type& desired);
 
         /** Create the Display based on the desktops current DisplayMode.
          *
          * This should generally get you a full screen Display instance that
          * matches the users desktop environment. E.g. 1080p@60hz.
          */
-        PcDisplay();
+        PcDisplayManager();
 
-        virtual ~PcDisplay();
+        virtual ~PcDisplayManager();
 
         bool initialize(sxe::GameEngine& engine) override;
         bool uninitialize() override;
@@ -82,4 +82,4 @@ namespace sxe { namespace pc {
 
 } }
 
-#endif // SXE_PC_PCDISPLAY__HPP
+#endif // SXE_PC_PCDISPLAYMANAGER__HPP

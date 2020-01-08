@@ -35,7 +35,7 @@ namespace sxe {
         class Settings;
     }
     namespace graphics {
-        class Display;
+        class DisplayManager;
     }
     namespace input {
         class InputManager;
@@ -56,7 +56,7 @@ namespace sxe {
         using Settings_ptr = std::unique_ptr<config::Settings>;
 
         using TODO_placeholder = common::Subsystem; // placeholder.
-        using DisplayManager_ptr = std::unique_ptr<graphics::Display>;
+        using DisplayManager_ptr = std::unique_ptr<graphics::DisplayManager>;
         using SceneManager_ptr = std::unique_ptr<TODO_placeholder>;
         using InputManager_ptr = std::unique_ptr<input::InputManager>;
         using ResourceManager_ptr = std::unique_ptr<resource::ResourceManager>;
@@ -112,7 +112,7 @@ namespace sxe {
          * <ol>
          *  <li>Polls the InputManager.</li>
          *  <li>Updates the SceneManager.</li>
-         *  <li>Updates the Display.</li>
+         *  <li>Updates the DisplayManager.</li>
          * </ol>
          *
          * Game implementations update independantly of GameEngine, as it runs on a
@@ -137,7 +137,7 @@ namespace sxe {
         config::Settings& getSettings() const;
 
         input::InputManager& getInputManager() const;
-        graphics::Display& getDisplayManager() const;
+        graphics::DisplayManager& getDisplayManager() const;
         resource::ResourceManager& getResourceManager() const;
 
       private:

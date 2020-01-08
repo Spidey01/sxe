@@ -1,5 +1,5 @@
-#ifndef SXE_GRAPHICS_DISPLAY__HPP
-#define SXE_GRAPHICS_DISPLAY__HPP
+#ifndef SXE_GRAPHICS_DISPLAYMANAGER__HPP
+#define SXE_GRAPHICS_DISPLAYMANAGER__HPP
 /*-
  * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -39,7 +39,7 @@ namespace sxe {  namespace graphics {
      *
      *
      */
-    class SXE_PUBLIC Display : public common::Subsystem
+    class SXE_PUBLIC DisplayManager : public common::Subsystem
     {
       public:
 
@@ -47,9 +47,9 @@ namespace sxe {  namespace graphics {
          *
          * @param name passed to Subsystem ctor.
          */
-        Display(const string_type& name);
+        DisplayManager(const string_type& name);
 
-        virtual ~Display();
+        virtual ~DisplayManager();
 
         bool initialize(GameEngine& engine) override;
         bool uninitialize() override;
@@ -152,7 +152,7 @@ namespace sxe {  namespace graphics {
 
 } }
 
-#endif // SXE_GRAPHICS_DISPLAY__HPP
+#endif // SXE_GRAPHICS_DISPLAYMANAGER__HPP
 #if 0 // not yet converted from Java.
 import com.spidey01.sxe.core.gl.OpenGL;
 import com.spidey01.sxe.core.graphics.FrameEndedListener;

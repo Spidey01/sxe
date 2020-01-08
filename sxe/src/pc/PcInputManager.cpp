@@ -26,7 +26,7 @@
 #include <GLFW/glfw3.h>
 #include <sxe/input/KeyEvent.hpp>
 #include <sxe/logging.hpp>
-#include <sxe/pc/PcDisplay.hpp>
+#include <sxe/pc/PcDisplayManager.hpp>
 
 using namespace sxe::input;
 
@@ -192,9 +192,9 @@ bool PcInputManager::uninitialize()
 
     /*
      * Ugly assumptions:
-     *  - Our pal, PcDisplay clears the callback for us.
+     *  - Our pal, PcDisplayManager clears the callback for us.
      *  - That GLFW3 probably doesn't care if cleared before terminate.
-     *  - That you won't [Pc]Display::destroy() outside our lifecycle.
+     *  - That you won't [Pc]DisplayManager::destroy() outside our lifecycle.
      *    + I.e. let GameEngine do create/destroy.
      */
 
@@ -207,10 +207,10 @@ bool PcInputManager::uninitialize()
 void PcInputManager::poll()
 {
     if (!mCallbackSet) {
-        PcDisplay& display = dynamic_cast<PcDisplay&>(getGameEngine().getDisplayManager());
+        PcDisplayManager& display = dynamic_cast<PcDisplayManager&>(getGameEngine().getDisplayManager());
         GLFWwindow* window = display.getWindow();
         if (window == nullptr) {
-            Log::w(TAG, "poll() called before PcDisplay::create()");
+            Log::w(TAG, "poll() called before PcDisplayManager::create()");
             return;
         }
 

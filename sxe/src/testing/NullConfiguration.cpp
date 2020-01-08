@@ -27,7 +27,7 @@
 #include <sxe/logging/LoggingManager.hpp>
 #include <sxe/resource/ResourceManager.hpp>
 #include <sxe/sys/Platform.hpp>
-#include <sxe/testing/NullDisplay.hpp>
+#include <sxe/testing/NullDisplayManager.hpp>
 #include <sxe/testing/NullInputManager.hpp>
 
 using std::make_shared;
@@ -52,7 +52,7 @@ GameEngine::unique_ptr NullConfiguration::setup(int argc, char* argv[], Game::sh
     (
         game
         , make_unique<SettingsMap>(argc, argv)
-        , make_unique<NullDisplay>(true)
+        , make_unique<NullDisplayManager>(true)
         , nullptr // scene manager
         , make_unique<NullInputManager>()
         , make_unique<resource::ResourceManager>()

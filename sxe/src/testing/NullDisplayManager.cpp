@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-#include "sxe/testing/NullDisplay.hpp"
+#include "sxe/testing/NullDisplayManager.hpp"
 
 #include <sxe/logging.hpp>
 
@@ -29,16 +29,16 @@ using namespace sxe::graphics;
 
 namespace sxe {  namespace testing {
 
-const NullDisplay::string_type NullDisplay::TAG = "NullDisplay";
+const NullDisplayManager::string_type NullDisplayManager::TAG = "NullDisplayManager";
 
-NullDisplay::NullDisplay(bool answer)
-    : Display(TAG)
+NullDisplayManager::NullDisplayManager(bool answer)
+    : DisplayManager(TAG)
     , mDefaultAnswer(answer)
 {
 }
 
 
-bool NullDisplay::create()
+bool NullDisplayManager::create()
 {
     Log::d(TAG, "create()");
 
@@ -46,24 +46,24 @@ bool NullDisplay::create()
 }
 
 
-void NullDisplay::destroy()
+void NullDisplayManager::destroy()
 {
     Log::d(TAG, "destroy()");
 }
 
 
-bool NullDisplay::isCloseRequested() const
+bool NullDisplayManager::isCloseRequested() const
 {
     return !mDefaultAnswer;
 }
 
 
-bool NullDisplay::setMode(DisplayMode mode)
+bool NullDisplayManager::setMode(DisplayMode mode)
 {
     Log::d(TAG, "setMode():");
 
     if (mDefaultAnswer) {
-        Display::setMode(mode);
+        DisplayManager::setMode(mode);
     }
 
     return mDefaultAnswer;

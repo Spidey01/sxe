@@ -1,5 +1,5 @@
-#ifndef SXE_TESTING_NULLDISPLAY__HPP
-#define SXE_TESTING_NULLDISPLAY__HPP
+#ifndef SXE_TESTING_NULLDISPLAYMANAGER__HPP
+#define SXE_TESTING_NULLDISPLAYMANAGER__HPP
 /*-
  * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -24,12 +24,12 @@
  */
 
 #include <sxe/api.hpp>
-#include <sxe/graphics/Display.hpp>
+#include <sxe/graphics/DisplayManager.hpp>
 #include <sxe/graphics/DisplayMode.hpp>
 
 namespace sxe { namespace testing {
 
-    class SXE_PUBLIC NullDisplay : public sxe::graphics::Display
+    class SXE_PUBLIC NullDisplayManager : public sxe::graphics::DisplayManager
     {
       public:
 
@@ -38,7 +38,7 @@ namespace sxe { namespace testing {
          * @param GL implementation of OpenGL to utilize.
          * @param answer whether to succeed or fail operations.
          */
-        NullDisplay(/*OpenGL GL,*/ bool answer);
+        NullDisplayManager(/*OpenGL GL,*/ bool answer);
 
         bool create() override;
         void destroy() override;
@@ -54,4 +54,4 @@ namespace sxe { namespace testing {
 
 } }
 
-#endif // SXE_TESTING_NULLDISPLAY__HPP
+#endif // SXE_TESTING_NULLDISPLAYMANAGER__HPP

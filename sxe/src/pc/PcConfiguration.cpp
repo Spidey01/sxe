@@ -26,7 +26,7 @@
 #include <sxe/config/SettingsMap.hpp>
 #include <sxe/config/SettingsXMLFile.hpp>
 #include <sxe/logging/LoggingManager.hpp>
-#include <sxe/pc/PcDisplay.hpp>
+#include <sxe/pc/PcDisplayManager.hpp>
 #include <sxe/pc/PcInputManager.hpp>
 #include <sxe/resource/ResourceManager.hpp>
 #include <sxe/sys/Platform.hpp>
@@ -66,7 +66,7 @@ GameEngine::unique_ptr PcConfiguration::setup(int argc, char* argv[], Game::shar
     (
         game
         , make_unique<SettingsMap>(argc, argv)
-        , make_unique<sxe::pc::PcDisplay>()
+        , make_unique<sxe::pc::PcDisplayManager>()
         , nullptr // scene manager
         , make_unique<sxe::pc::PcInputManager>()
         , make_unique<resource::ResourceManager>()

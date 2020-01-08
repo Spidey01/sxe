@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-#include "sxe/pc/PcDisplay.hpp"
+#include "sxe/pc/PcDisplayManager.hpp"
 
 #include <GLFW/glfw3.h>
 #include <sxe/logging.hpp>
@@ -33,13 +33,13 @@ using namespace sxe::graphics;
 
 namespace sxe { namespace pc {
 
-const PcDisplay::string_type PcDisplay::TAG = "PcDisplay";
+const PcDisplayManager::string_type PcDisplayManager::TAG = "PcDisplayManager";
 
-PcDisplay::PcDisplay(const string_type& desired)
-    : Display(TAG)
+PcDisplayManager::PcDisplayManager(const string_type& desired)
+    : DisplayManager(TAG)
     , mWindow(nullptr)
 {
-    Log::xtrace(TAG, "PcDisplay(): desired: " + desired);
+    Log::xtrace(TAG, "PcDisplayManager(): desired: " + desired);
 
     DisplayMode mode(desired, false);
     if (!setMode(mode)) {
@@ -48,23 +48,23 @@ PcDisplay::PcDisplay(const string_type& desired)
 }
 
 
-PcDisplay::PcDisplay()
-    : Display(TAG)
+PcDisplayManager::PcDisplayManager()
+    : DisplayManager(TAG)
     , mWindow(nullptr)
 {
-    Log::xtrace(TAG, "PcDisplay()");
+    Log::xtrace(TAG, "PcDisplayManager()");
 }
 
 
-PcDisplay::~PcDisplay()
+PcDisplayManager::~PcDisplayManager()
 {
-    Log::xtrace(TAG, "~PcDisplay()");
+    Log::xtrace(TAG, "~PcDisplayManager()");
 }
 
 
-bool PcDisplay::initialize(GameEngine& engine)
+bool PcDisplayManager::initialize(GameEngine& engine)
 {
-    if (!Display::initialize(engine))
+    if (!DisplayManager::initialize(engine))
         return false;
 
     if (!glfwInit()) {
@@ -72,7 +72,7 @@ bool PcDisplay::initialize(GameEngine& engine)
         return false;
     }
 
-    glfwSetErrorCallback(PcDisplay::error_callback);
+    glfwSetErrorCallback(PcDisplayManager::error_callback);
 
     using std::to_string;
 
@@ -96,7 +96,7 @@ bool PcDisplay::initialize(GameEngine& engine)
 }
 
 
-bool PcDisplay::uninitialize()
+bool PcDisplayManager::uninitialize()
 {
     Log::xtrace(TAG, "uninitialize()");
 
@@ -105,18 +105,18 @@ bool PcDisplay::uninitialize()
     Log::xtrace(TAG, "glfwTerminate()");
     glfwTerminate();
 
-    return Display::uninitialize();
+    return DisplayManager::uninitialize();
 }
 
 
-void PcDisplay::update()
+void PcDisplayManager::update()
 {
-    Display::update();
+    DisplayManager::update();
     glfwPollEvents();
 }
 
 
-bool PcDisplay::create()
+bool PcDisplayManager::create()
 {
     Log::d(TAG, "create()");
 
@@ -173,7 +173,7 @@ bool PcDisplay::create()
 }
 
 
-void PcDisplay::destroy()
+void PcDisplayManager::destroy()
 {
     Log::d(TAG, "destroy()");
 
@@ -184,15 +184,15 @@ void PcDisplay::destroy()
 }
 
 
-bool PcDisplay::isCloseRequested() const
+bool PcDisplayManager::isCloseRequested() const
 {
     return glfwWindowShouldClose(mWindow);
 }
 
 
-bool PcDisplay::setMode(DisplayMode mode)
+bool PcDisplayManager::setMode(DisplayMode mode)
 {
-    if (!Display::setMode(mode))
+    if (!DisplayManager::setMode(mode))
         return false;
 
     if (mWindow == nullptr || !isInitialized()) {
@@ -218,7 +218,7 @@ bool PcDisplay::setMode(DisplayMode mode)
 }
 
 
-GLFWwindow* PcDisplay::getWindow() const
+GLFWwindow* PcDisplayManager::getWindow() const
 {
     if (mWindow == nullptr) {
         Log::w(TAG, "getWindow() called before create!()");
@@ -228,7 +228,7 @@ GLFWwindow* PcDisplay::getWindow() const
 }
 
 
-PcDisplay::string_type PcDisplay::getError() const
+PcDisplayManager::string_type PcDisplayManager::getError() const
 {
     const char* str;
     int code = glfwGetError(&str);
@@ -241,7 +241,7 @@ PcDisplay::string_type PcDisplay::getError() const
 }
 
 
-void PcDisplay::error_callback(int code, const char* description)
+void PcDisplayManager::error_callback(int code, const char* description)
 {
     string_type str = "glfwGetError(): code: " + std::to_string(code) + " description: ";
     if (description)

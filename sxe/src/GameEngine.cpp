@@ -29,7 +29,7 @@
 #include <sxe/config/SettingsFile.hpp>
 #include <sxe/config/SettingsMap.hpp>
 #include <sxe/config/SettingsXMLFile.hpp>
-#include <sxe/graphics/Display.hpp>
+#include <sxe/graphics/DisplayManager.hpp>
 #include <sxe/input/InputManager.hpp>
 #include <sxe/sys/Platform.hpp>
 #include <sxe/logging.hpp>
@@ -229,13 +229,13 @@ bool GameEngine::start()
     }
 
     if (!mDisplayManager) {
-        Log::e(TAG, "No Display implementation!");
+        Log::e(TAG, "No DisplayManager implementation!");
         Log::w(TAG, "If your platform or app has none: use NullDisplay.");
         return false;
     }
 
     if (!mDisplayManager->create()) {
-        Log::e(TAG, "Display::create() failed!");
+        Log::e(TAG, "DisplayManager::create() failed!");
         return false;
     }
 
@@ -346,7 +346,7 @@ input::InputManager& GameEngine::getInputManager() const
 }
 
 
-graphics::Display& GameEngine::getDisplayManager() const
+graphics::DisplayManager& GameEngine::getDisplayManager() const
 {
     assert(mDisplayManager != nullptr);
 

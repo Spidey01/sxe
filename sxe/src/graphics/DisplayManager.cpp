@@ -21,7 +21,7 @@
  *	   distribution.
  */
 
-#include "sxe/graphics/Display.hpp"
+#include "sxe/graphics/DisplayManager.hpp"
 
 #include <sxe/GameEngine.hpp>
 #include <sxe/config/Settings.hpp>
@@ -29,9 +29,9 @@
 
 namespace sxe {  namespace graphics {
 
-const Display::string_type Display::TAG = "Display";
+const DisplayManager::string_type DisplayManager::TAG = "DisplayManager";
 
-Display::Display(const string_type& name)
+DisplayManager::DisplayManager(const string_type& name)
     : Subsystem(name)
     , mFrameCounter("Frames")
     , mDisplayMode("640 x 480 x 32 @60", false)
@@ -41,22 +41,22 @@ Display::Display(const string_type& name)
     , mFpsSettingKey()
     , mFullscreenSettingKey()
 {
-    Log::xtrace(TAG, "Display(): name: " + name);
+    Log::xtrace(TAG, "DisplayManager(): name: " + name);
 }
 
 
-Display::~Display()
+DisplayManager::~DisplayManager()
 {
-    Log::xtrace(TAG, "~Display()");
+    Log::xtrace(TAG, "~DisplayManager()");
 }
 
 
-bool Display::initialize(GameEngine& engine)
+bool DisplayManager::initialize(GameEngine& engine)
 {
     Log::xtrace(TAG, "initialize()");
 
     /* Handle runtime configuration Settings. */
-    auto settingsListener = std::bind(&Display::onSettingChanged, this, std::placeholders::_1);
+    auto settingsListener = std::bind(&DisplayManager::onSettingChanged, this, std::placeholders::_1);
 
     Log::v(TAG, "Adding onSettingChanged to listen for settings changes.");
     mOnChangedListenerId = engine.getSettings().addChangeListener(settingsListener);
@@ -71,7 +71,7 @@ bool Display::initialize(GameEngine& engine)
 }
 
 
-bool Display::uninitialize()
+bool DisplayManager::uninitialize()
 {
     Log::xtrace(TAG, "uninitialize()");
 
@@ -86,7 +86,7 @@ bool Display::uninitialize()
 }
 
 
-void Display::update()
+void DisplayManager::update()
 {
     try {
         // update framestarted
@@ -96,20 +96,20 @@ void Display::update()
         // update frameended
 
     } catch(std::exception& ex) {
-        Log::wtf(TAG, "Exception under Display::update(), halting.", ex);
+        Log::wtf(TAG, "Exception under DisplayManager::update(), halting.", ex);
         destroy();
     }
 }
 
 
 
-bool Display::isCloseRequested() const
+bool DisplayManager::isCloseRequested() const
 {
     return false;
 }
 
 
-bool Display::setMode(const string_type& mode, bool fs)
+bool DisplayManager::setMode(const string_type& mode, bool fs)
 {
     Log::xtrace(TAG, "setMode(): mode: " + mode + " fs: " + string_type(fs ? "true" : "false"));
 
@@ -119,7 +119,7 @@ bool Display::setMode(const string_type& mode, bool fs)
 }
 
 
-bool Display::setMode(DisplayMode mode)
+bool DisplayManager::setMode(DisplayMode mode)
 {
     string_type m = mode;
     Log::xtrace(TAG, "setMode(): (str)mode: " + m);
@@ -130,13 +130,13 @@ bool Display::setMode(DisplayMode mode)
 }
 
 
-const DisplayMode& Display::getMode() const
+const DisplayMode& DisplayManager::getMode() const
 {
     return mDisplayMode;
 }
 
 
-void Display::setFullscreen(bool fs)
+void DisplayManager::setFullscreen(bool fs)
 {
     Log::xtrace(TAG, "setFullscreen(): fs: " + string_type(fs ? "true" :"false"));
 
@@ -152,19 +152,19 @@ void Display::setFullscreen(bool fs)
 }
 
 
-bool Display::isWindowed() const
+bool DisplayManager::isWindowed() const
 {
     return !getMode().fullscreen();
 }
 
 
-bool Display::isFullscreen() const
+bool DisplayManager::isFullscreen() const
 {
     return getMode().fullscreen();
 }
 
 
-void Display::onSettingChanged(string_type key)
+void DisplayManager::onSettingChanged(string_type key)
 {
     Log::xtrace(TAG, "onSettingChanged(): key: " + key);
 
