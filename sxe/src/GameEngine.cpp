@@ -94,64 +94,7 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
     }
     sxe::logging::Log::add(std::make_shared<sxe::logging::LogSink>("sxe.debug", sxe_debug_level, std::cout));
 
-    {
-        if (!mRuntimeSettings)
-            Log::wtf(TAG, "Programmer failure");
-
-        // Used to have a fancier SettingsFile stuff for k/v vs xml - start off with what we have now.
-
-        const string_type cfgName = mGame->getName() + ".cfg";
-        auto makeCfg = [](auto p) -> Settings_ptr { return std::make_unique<config::SettingsFile>(p); };
-
-        const string_type xmlName = mGame->getName() + ".xml";
-        auto makeXml = [](auto p) -> Settings_ptr { return std::make_unique<config::SettingsXMLFile>(p); };
-
-        using factory = std::function<Settings_ptr(path_type)>;
-
-        const std::tuple<string_type, factory> names[] = {
-            std::make_tuple( cfgName, makeCfg ),
-            std::make_tuple( xmlName, makeXml ),
-        };
-
-        /*
-         * System settings:
-         *
-         *      Look for the first GameName.cfg file in $XDG_CONFIG_DIRS.
-         *      If not found, try GameName.xml by same method.
-         */
-
-        for (const auto& tuple : names) {
-            string_type n;
-            factory make;
-            std::tie(n, make) = tuple;
-
-            auto p = mXdg.getConfigDir(n);
-
-            if (sys::FileSystem::exists(p)) {
-                mSystemSettings = make(p);
-                break;
-            }
-        }
-
-        /*
-         * User settings:
-         *
-         *      Look for $XDG_CONFIG_HOME/|game name|cfg.
-         *      If not found, try $XDG_CONFIG_HOME/|game name|.xml
-         */
-
-        for (const auto& tuple : names) {
-            string_type n;
-            factory make;
-            std::tie(n, make) = tuple;
-
-            auto p = mXdg.getConfigHomeDir(n);
-
-            if (sys::FileSystem::exists(p)) {
-                mUserSettings = make(p);
-            }
-        }
-    }
+    loadSettingsFiles();
 
     /*
      * These initialize functions will subscribe to whatever runtime
@@ -301,6 +244,68 @@ void GameEngine::update()
         mDisplayManager->update();
 
     mGame->update();
+}
+
+
+void GameEngine::loadSettingsFiles()
+{
+    if (!mRuntimeSettings)
+        Log::wtf(TAG, "loadSettingsFile() called but mRuntimeSettings is nullptr.");
+
+    const string_type cfgName = mGame->getName() + ".cfg";
+    auto makeCfg = [](auto p) -> Settings_ptr { return std::make_unique<config::SettingsFile>(p); };
+
+    const string_type xmlName = mGame->getName() + ".xml";
+    auto makeXml = [](auto p) -> Settings_ptr { return std::make_unique<config::SettingsXMLFile>(p); };
+
+    using factory = std::function<Settings_ptr(path_type)>;
+
+    const std::tuple<string_type, factory> names[] = {
+        std::make_tuple( cfgName, makeCfg ),
+        std::make_tuple( xmlName, makeXml ),
+    };
+
+    /*
+     * System settings:
+     *
+     *      Look for the first GameName.cfg file in $XDG_CONFIG_DIRS.
+     *      If not found, try GameName.xml by same method.
+     */
+
+    for (const auto& tuple : names) {
+        string_type n;
+        factory make;
+        std::tie(n, make) = tuple;
+
+        auto p = mXdg.getConfigDir(n);
+
+        if (sys::FileSystem::exists(p)) {
+            Log::i(TAG, "loadSettingsFile(): loading " + p.string());
+            mSystemSettings = make(p);
+            break;
+        }
+    }
+
+    /*
+     * User settings:
+     *
+     *      Look for $XDG_CONFIG_HOME/|game name|cfg.
+     *      If not found, try $XDG_CONFIG_HOME/|game name|.xml
+     */
+
+    for (const auto& tuple : names) {
+        string_type n;
+        factory make;
+        std::tie(n, make) = tuple;
+
+        auto p = mXdg.getConfigHomeDir(n);
+
+        if (sys::FileSystem::exists(p)) {
+            Log::i(TAG, "loadSettingsFile(): loading " + p.string());
+            mUserSettings = make(p);
+            break;
+        }
+    }
 }
 
 

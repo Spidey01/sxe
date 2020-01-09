@@ -120,6 +120,27 @@ namespace sxe {
          */
         void update();
 
+        /* Load the settings files.
+         *
+         * XDG_CONFIG_DIRS will be searched for a system wide settings file.
+         * XDG_CONFIG_HOME will be searched for user specific settings file.
+         *
+         * For both locations: a file named for Game::getName() with a ".cfg"
+         * extension will be tested. If this file does not exist the test will
+         * be retried with a ".xml" extension before moving on.
+         *
+         * Searching XDG_CONFIG_DIRS stops as soon as a system wide settings
+         * file is found. I.e. at most one system wide settings file will be
+         * loaded.
+         *
+         * File format is mapped as follows:
+         *
+         *   - .cfg => sxe::config::SettingsFile.
+         *   - .xml => sxe::config::SettingsXMLFile.
+         *
+         */
+        void loadSettingsFiles();
+
         /** Push some helpful defaults to runtime settings.
          */
         void configure();
