@@ -9,6 +9,9 @@
         "src/main.cpp",
         "src/QuadGame.cpp"
     ],
+    "install_files": [
+        { "input": "QuadGame.cfg", "output": "$sysconfdir/xdg/QuadGame.cfg" }
+    ],
     "gcc": {
         "cppflags": [
             "$sxe_gcc_cppflags",

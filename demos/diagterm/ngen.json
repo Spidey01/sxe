@@ -9,6 +9,9 @@
         "src/main.cpp",
         "src/GameStub.cpp"
     ],
+    "install_files": [
+        { "input": "diagterm.cfg", "output": "$sysconfdir/xdg/diagterm.cfg" }
+    ],
     "gcc": {
         "cppflags": [
             "$sxe_gcc_cppflags",

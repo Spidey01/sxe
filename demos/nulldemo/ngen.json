@@ -9,6 +9,9 @@
         "src/main.cpp",
         "src/NullDemo.cpp"
     ],
+    "install_files": [
+        { "input": "NullDemo.cfg", "output": "$sysconfdir/xdg/NullDemo.cfg" }
+    ],
     "gcc": {
         "cppflags": [
             "$sxe_gcc_cppflags",
