@@ -17,6 +17,7 @@
         "src/common/Subsystem.cpp",
         "src/common/Utils.cpp",
         "src/config/Settings.cpp",
+        "src/config/SettingsExpander.cpp",
         "src/config/SettingsFile.cpp",
         "src/config/SettingsListener.cpp",
         "src/config/SettingsMap.cpp",

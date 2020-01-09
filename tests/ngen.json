@@ -10,6 +10,7 @@
         "cmds/CommandTest.cpp",
         "common/NotificationManagerTest.cpp",
         "common/SubsystemTest.cpp",
+        "config/SettingsExpanderTest.cpp",
         "config/SettingsFileTest.cpp",
         "config/SettingsFixture.cpp",
         "config/SettingsListenerTest.cpp",
