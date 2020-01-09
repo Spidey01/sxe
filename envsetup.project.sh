@@ -15,6 +15,17 @@ run_from_dist() {
             "$@"
 }
 
+
+dbgdemo() { # debug a demo by name
+    local demo
+
+    demo="$1"
+    shift
+
+    run_from_dist gdb "${PROJECT_DISTDIR}/bin/$demo" "$@"
+}
+
+
 rdemo() { # run a demo by name
     local demo
 
@@ -66,7 +77,7 @@ _sxe_complete_demos() { ## bash completion function for demo names.
 }
 
 # complete demo names for these commands.
-complete -F _sxe_complete_demos rd rdemo idemo irdemo
+complete -F _sxe_complete_demos dbgdemo rd rdemo idemo irdemo
 
 PROJECT_ROOT=$(gettop)
 
