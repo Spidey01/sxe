@@ -146,20 +146,21 @@ void Console::setInputManager(InputManager* inputManager)
 
     lock_guard g(mMutex);
 
-    mInputManager = inputManager;
-    
     if (inputManager) {
         input::KeyListener callback = std::bind(&Console::onKey, this, std::placeholders::_1);
-        mKeyListenerId = mInputManager->addKeyListener(callback);
+        mKeyListenerId = inputManager->addKeyListener(callback);
 
         Log::v(TAG, "setInputManager(): mKeyListenerId = " + to_string(mKeyListenerId));
     } else if (mKeyListenerId != SIZE_MAX)  {
         Log::v(TAG, "setInputManager(): clearing mKeyListenerId = " + to_string(mKeyListenerId));
 
-        mInputManager->removeKeyListener(mKeyListenerId);
+        if (mInputManager)
+            mInputManager->removeKeyListener(mKeyListenerId);
 
         mKeyListenerId = SIZE_MAX;
     }
+
+    mInputManager = inputManager;
 }
 
 
