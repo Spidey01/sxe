@@ -36,6 +36,7 @@ namespace sxe { namespace input {
      * you can utilize this facet to manage input. Composition ftw?
      */
     class SXE_PUBLIC InputFacet
+        : public common::stdtypedefs<InputFacet>
     {
       public:
         using IdList = std::deque<KeyEventManager::Id>;
