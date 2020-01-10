@@ -28,6 +28,7 @@
         "src/graphics/FrameStartedListener.cpp",
         "src/input/ConsoleInputManager.cpp",
         "src/input/InputCode.cpp",
+        "src/input/InputFacet.cpp",
         "src/input/InputManager.cpp",
         "src/input/KeyEvent.cpp",
         "src/logging/Log.cpp",

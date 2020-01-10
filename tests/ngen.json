@@ -18,6 +18,7 @@
         "config/SettingsXMLFileTest.cpp",
         "graphics/DisplayModeTest.cpp",
         "input/InputCodeTest.cpp",
+        "input/InputFacetTest.cpp",
         "input/InputManagerTest.cpp",
         "sys/PlatformTest.cpp",
         "sys/XdgTest.cpp",
