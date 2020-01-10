@@ -45,6 +45,8 @@ namespace sxe { namespace input {
 
         Id addKeyListener(InputCode inputCode, KeyListener listener)
         {
+            if (inputCode == InputCode::IC_ANYKEY)
+                return subscribe(listener);
             return subscribe(listener, std::to_string(inputCode.code()));
         }
 
@@ -57,7 +59,10 @@ namespace sxe { namespace input {
 
         void removeKeyListener(InputCode inputCode, Id id)
         {
-            unsubscribe(std::to_string(inputCode.code()), id);
+            if (inputCode == InputCode::IC_ANYKEY)
+                unsubscribe(id);
+            else
+                unsubscribe(std::to_string(inputCode.code()), id);
         }
 
     };

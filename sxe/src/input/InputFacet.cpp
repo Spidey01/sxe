@@ -39,6 +39,12 @@ InputFacet::InputFacet(InputManager& inputManager)
 }
 
 
+InputFacet::InputFacet(InputManager& inputManager, KeyListener action)
+    : InputFacet(inputManager, InputCode::IC_ANYKEY, action)
+{
+}
+
+
 InputFacet::InputFacet(InputManager& inputManager, InputCode code, KeyListener action)
     : InputFacet(inputManager)
 {

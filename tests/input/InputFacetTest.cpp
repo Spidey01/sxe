@@ -118,6 +118,27 @@ void InputFacetTest::bindMany()
 }
 
 
+void InputFacetTest::bindAll()
+{
+    Log::xtrace(TAG, "bindAll()");
+
+    bool done = false;
+
+    KeyListener doit = [&done](KeyEvent event) -> bool
+    {
+        Log::d(TAG, "doit(): event: " + event.toString());
+        done = true;
+        return true;
+    };
+
+    InputFacet input(getInputManager(), doit);
+
+    getInputManager().inject("a");
+
+    CPPUNIT_ASSERT(done == true);
+}
+
+
 InputManager& InputFacetTest::getInputManager() const
 {
     return *mInputManager;

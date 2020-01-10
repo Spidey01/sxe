@@ -44,6 +44,7 @@ class InputFacetTest : public CPPUNIT_NS::TestFixture
 
     void bindOne();
     void bindMany();
+    void bindAll();
 
   private:
 

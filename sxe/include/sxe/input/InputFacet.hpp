@@ -47,6 +47,13 @@ namespace sxe { namespace input {
          */
         InputFacet(InputManager& inputManager);
 
+        /** Create with listener for any key events.
+         *
+         * @param input the InputManager.
+         * @param action the listener.
+         */
+        InputFacet(InputManager& inputManager, KeyListener action);
+
         /** Create with one key/action binding.
          *
          * @param input the InputManager.

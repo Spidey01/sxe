@@ -526,6 +526,13 @@ namespace sxe { namespace input {
              * Adjusts the screen brightness up. */
             IC_BRIGHTNESS_UP,
 
+            /** Special code meant to be 'Any key'
+             *
+             * Used by KeyEventManager and such, that want maps of keys / ids
+             * but also want broadcast capabilities.
+             */
+            // IC_ANYKEY=(SIZE_MAX - 1)
+            IC_ANYKEY=SIZE_MAX
         };
 
         /** Converts a character into a InputCode.
