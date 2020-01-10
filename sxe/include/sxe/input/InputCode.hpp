@@ -531,8 +531,7 @@ namespace sxe { namespace input {
              * Used by KeyEventManager and such, that want maps of keys / ids
              * but also want broadcast capabilities.
              */
-            // IC_ANYKEY=(SIZE_MAX - 1)
-            IC_ANYKEY=SIZE_MAX
+            IC_ANYKEY=INT_MAX
         };
 
         /** Converts a character into a InputCode.
