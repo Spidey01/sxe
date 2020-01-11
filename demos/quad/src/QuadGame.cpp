@@ -28,6 +28,8 @@
 #include <sxe/input/InputManager.hpp>
 #include <sxe/logging.hpp>
 
+#include "Quad.h"
+
 using sxe::input::InputCode;
 using sxe::input::KeyListener;
 using sxe::input::KeyEvent;
@@ -46,9 +48,9 @@ bool QuadGame::start()
     if (!sxe::Game::start())
         return false;
 
-    #if 0 // 1.x
-    mQuad = new  Quad(mGameEngine);
+    mQuad = new Quad(getGameEngine());
 
+    #if 0 // 1.x
     /* Add our demo Quad to the scene. */
     mGameEngine.getSceneManager().add(mQuad.getGraphicsFacet());
     #endif
@@ -58,6 +60,15 @@ bool QuadGame::start()
     getGameEngine().getInputManager().addKeyListener(InputCode::IC_Q, listener);
 
     return true;
+}
+
+
+void QuadGame::stop()
+{
+    delete mQuad;
+    mQuad = nullptr;
+
+    sxe::Game::stop();
 }
 
 

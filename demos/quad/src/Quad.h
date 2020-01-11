@@ -1,5 +1,5 @@
-#ifndef SXE_DEMOS_QUADGAME_H
-#define SXE_DEMOS_QUADGAME_H
+#ifndef SXE_DEMOS_QUAD_H
+#define SXE_DEMOS_QUAD_H
 /*-
  * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -23,27 +23,34 @@
  *	   distribution.
  */
 
-#include <sxe/api.hpp>
-#include <sxe/Game.hpp>
 #include <sxe/GameEngine.hpp>
-#include <sxe/input/KeyEvent.hpp>
+#include <sxe/input/InputFacet.hpp>
+
+#include <string>
 
 namespace demos {
-    class Quad;
 
-	class QuadGame : public sxe::Game
+    class Quad
+        // used to extend Entity.
     {
       public:
 
-        string_type getName() const override;
-        bool start() override;
-        void stop() override;
+        Quad(sxe::GameEngine& engine);
+        ~Quad();
+
+      protected:
 
       private:
-        static string_type TAG;
-        Quad* mQuad;
-        bool onKey(sxe::input::KeyEvent event);
+
+        static const std::string TAG;
+
+        /** Resource URI for our meshes 3D vertex data.
+        */
+        static const std::string MESH_RESOURCE_PATH;
+
+        sxe::GameEngine& mGameEngine;
+        sxe::input::InputFacet mInputFacet;
     };
 }
 
-#endif
+#endif // SXE_DEMOS_QUAD_H

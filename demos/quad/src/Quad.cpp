@@ -1,5 +1,3 @@
-#ifndef SXE_DEMOS_QUADGAME_H
-#define SXE_DEMOS_QUADGAME_H
 /*-
  * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -23,27 +21,46 @@
  *	   distribution.
  */
 
-#include <sxe/api.hpp>
-#include <sxe/Game.hpp>
-#include <sxe/GameEngine.hpp>
-#include <sxe/input/KeyEvent.hpp>
+#include "Quad.h"
+
+#include <sxe/logging.hpp>
+
+using std::string;
+using sxe::GameEngine;
 
 namespace demos {
-    class Quad;
 
-	class QuadGame : public sxe::Game
-    {
-      public:
+const string Quad::TAG = "Quad";
 
-        string_type getName() const override;
-        bool start() override;
-        void stop() override;
+const string Quad::MESH_RESOURCE_PATH = "default://quad.dat";
 
-      private:
-        static string_type TAG;
-        Quad* mQuad;
-        bool onKey(sxe::input::KeyEvent event);
-    };
+Quad::Quad(GameEngine& engine)
+    : mGameEngine(engine)
+    , mInputFacet(engine.getInputManager())
+{
+    Log::i(TAG, "Quad object created.");
+
+    /*
+     * Setup our vertices to be rendered.
+     */
+
+    try {
+        #if 0
+        mRenderData.setMesh(
+                            mGameEngine.getResourceManager().load(
+                                                                  MESH_RESOURCE_PATH).asVertexVertexMesh());
+        #endif
+    } catch(std::exception& ex) {
+        Log::wtf(TAG, "Failed loading " + MESH_RESOURCE_PATH, ex);
+    }
 }
 
-#endif
+
+Quad::~Quad()
+{
+    Log::i(TAG, "Quad object destroyed.");
+}
+
+}
+
+

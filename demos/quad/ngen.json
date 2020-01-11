@@ -6,8 +6,9 @@
         "SxE"
     ],
     "sources": [
-        "src/main.cpp",
-        "src/QuadGame.cpp"
+        "src/Quad.cpp",
+        "src/QuadGame.cpp",
+        "src/main.cpp"
     ],
     "install_files": [
         { "input": "QuadGame.cfg", "output": "$sysconfdir/xdg/QuadGame.cfg" }
