@@ -263,4 +263,130 @@ void Log::setLevel(const string& tag, int level)
 }
 
 
+Log::Log(const string& tag)
+    : mTag(tag)
+{
+}
+
+
+void Log::setInstanceTag(const string& tag)
+{
+    mTag = tag;
+}
+
+
+string Log::getInstanceTag() const
+{
+    return mTag;
+}
+
+
+void Log::log(int level, const string& message)
+{
+    log(level, mTag, message);
+}
+
+
+void Log::log(int level, const string& message, const exception& error)
+{
+    log(level, mTag, message, error);
+}
+
+
+void Log::wtf(const std::string& message)
+{
+    Log::wtf(mTag, message);
+}
+
+
+void Log::wtf(const std::string& message, const std::exception& error)
+{
+    Log::wtf(mTag, message, error);
+}
+
+
+void Log::e(const std::string& message)
+{
+    Log::e(mTag, message);
+}
+
+
+void Log::e(const std::string& message, const std::exception& error)
+{
+    Log::e(mTag, message, error);
+}
+
+
+void Log::w(const std::string& message)
+{
+    Log::w(mTag, message);
+}
+
+
+void Log::w(const std::string& message, const std::exception& error)
+{
+    Log::w(mTag, message, error);
+}
+
+
+void Log::i(const std::string& message)
+{
+    Log::i(mTag, message);
+}
+
+
+void Log::i(const std::string& message, const std::exception& error)
+{
+    Log::i(mTag, message, error);
+}
+
+
+void Log::d(const std::string& message)
+{
+    Log::d(mTag, message);
+}
+
+
+void Log::d(const std::string& message, const std::exception& error)
+{
+    Log::d(mTag, message, error);
+}
+
+
+void Log::v(const std::string& message)
+{
+    Log::v(mTag, message);
+}
+
+
+void Log::v(const std::string& message, const std::exception& error)
+{
+    Log::v(mTag, message, error);
+}
+
+
+void Log::xtrace(const std::string& message)
+{
+    Log::xtrace(mTag, message);
+}
+
+
+void Log::xtrace(const std::string& message, const std::exception& error)
+{
+    Log::xtrace(mTag, message, error);
+}
+
+
+void Log::test(const std::string& message)
+{
+    Log::test(mTag, message);
+}
+
+
+void Log::test(const std::string& message, const std::exception& error)
+{
+    Log::test(mTag, message, error);
+}
+
+
 } }

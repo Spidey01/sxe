@@ -44,6 +44,15 @@ namespace sxe { namespace logging {
      *
      * By default there are no log sinks, which causes all log data to be silenced.
      *
+     * There are two ways to use Log:
+     *
+     *   1. Invoke static methods.
+     *     - These are the primary interface to make the magic happen.
+     *
+     *   2. Create a Log instance.
+     *     - Provides a way to do mLog.foo(...).
+     *     - Calls the static methods with data filled in from ctor.
+     *
      */
     class SXE_PUBLIC Log
         : public common::stdtypedefs<Log>
@@ -145,12 +154,60 @@ namespace sxe { namespace logging {
         /** Convenience method that sets the level of tag for every sink. */
         static void setLevel(const std::string& tag, int level);
 
+        /** Creates a log instance for tag.
+         *
+         * Use this if you want to do something like mLog.xtrace(msg, ex) instead of Log::xtrace(TAG, msg, ex).
+         *
+         * Use this if you want to pass an object that other code can log without having to know the tag.
+         *
+         * You could also inherit this.
+         */
+        Log(const std::string& tag);
+
+        /** Change the logging tag for this instance.
+         *
+         * @param tag sets mTag.
+         */
+        void setInstanceTag(const std::string& tag);
+
+        /** Returns the tag for this instance.
+         */
+        std::string getInstanceTag() const;
+
+        /** Calls the static version. */
+        void log(int level, const std::string& message);
+
+        /** Calls the static version. */
+        void log(int level, const std::string& message, const std::exception& error);
+
+        void wtf(const std::string& message);
+        void wtf(const std::string& message, const std::exception& error);
+        void e(const std::string& message);
+        void e(const std::string& message, const std::exception& error);
+        void w(const std::string& message);
+        void w(const std::string& message, const std::exception& error);
+        void i(const std::string& message);
+        void i(const std::string& message, const std::exception& error);
+        void d(const std::string& message);
+        void d(const std::string& message, const std::exception& error);
+        void v(const std::string& message);
+        void v(const std::string& message, const std::exception& error);
+        void xtrace(const std::string& message);
+        void xtrace(const std::string& message, const std::exception& error);
+        void test(const std::string& message);
+        void test(const std::string& message, const std::exception& error);
+
+
       private:
         using lock_guard = std::lock_guard<std::recursive_mutex>;
 
         /* Used for synchronizing access to log sinks.
          */
         static lock_guard::mutex_type sMutex;
+
+        /** Instance tag.
+         */
+        std::string mTag;
     };
 
 
