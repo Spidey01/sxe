@@ -71,6 +71,6 @@
         ],
         "cxxflags": "$sxe_msvc_cxxflags",
         "ldflags": "$sxe_msvc_cxxflags",
-        "ldlibs": "$sxe_msvc_ldlibs glfw3dll.lib"
+        "ldlibs": "$sxe_msvc_ldlibs"
     }
 }

@@ -20,9 +20,13 @@
         "input/InputCodeTest.cpp",
         "input/InputFacetTest.cpp",
         "input/InputManagerTest.cpp",
+        "resource/ArchiveStreamTest.cpp",
         "sys/PlatformTest.cpp",
         "sys/XdgTest.cpp",
         "main.cpp"
+    ],
+    "install_files": [
+        { "input":"test.zip", "output": "$datarootdir/sxe/test.zip" }
     ],
     "gcc": {
         "targetName": "sxe-test-runner",

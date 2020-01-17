@@ -16,7 +16,7 @@
         "sxe_gcc_cppflags = $sxe_gcc_defines $sxe_gcc_includes",
         "sxe_gcc_cxxflags = -std=c++17 -fPIC -Wall -ggdb3 -fvisibility=hidden",
         "sxe_gcc_ldflags = -L$distdir/lib",
-        "sxe_gcc_ldlibs = -lboost_filesystem -lglfw",
+        "sxe_gcc_ldlibs = -lboost_filesystem -lglfw -larchive",
 
         "sxe_msvc_comment = Default msvc flags.",
 
@@ -25,7 +25,7 @@
         "sxe_msvc_cppflags = $sxe_msvc_defines $sxe_msvc_includes",
         "sxe_msvc_cxxflags = /std:c++17 /W4 /wd4251 /wd4275 /GR /EHsc /FS /Zi /Ob0 /Od",
         "sxe_msvc_ldflags = ",
-        "sxe_msvc_ldlibs = /MD /FS /link /libpath:$distdir/lib",
+        "sxe_msvc_ldlibs = /MD /FS /link /libpath:$distdir/lib glfw3dll.lib archive.lib",
 
         "sxe_notes = SXE_DLL must be defined for shared libraries."
     ]

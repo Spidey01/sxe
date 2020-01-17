@@ -23,8 +23,9 @@
  *	   distribution.
  */
 
-#include <sxe/filesystem.hpp>
 #include <sxe/api.hpp>
+#include <sxe/filesystem.hpp>
+#include <sxe/logging/Log.hpp>
 
 namespace sxe { namespace sys {
 
@@ -70,6 +71,8 @@ namespace sxe { namespace sys {
 
                 p /= *first;
                 p /= name;
+
+                sxe::logging::Log::test("sys::FileSystem", "find(): trying " + p.string());
 
                 if (exists(p))
                     return sxe::filesystem::absolute(p);

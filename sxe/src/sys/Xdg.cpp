@@ -23,6 +23,7 @@
 #include "sxe/sys/Xdg.hpp"
 
 #include <sxe/common/Utils.hpp>
+#include <sxe/logging.hpp>
 #include <sxe/sys/FileSystem.hpp>
 #include <sxe/sys/Platform.hpp>
 
@@ -58,8 +59,10 @@ Xdg::Xdg()
 
     p = getenv("XDG_DATA_DIRS");
     if (p != nullptr) {
+        Log::test("Xdg", "XDG_DATA_DIRS=" + string(p));
         split(std::back_inserter(XDG_DATA_DIRS), string(p), sep);
     } else {
+        Log::test("Xdg", "XDG_DATA_DIRS=nullptr, defaulting");
         XDG_DATA_DIRS.push_back("/usr/local/share");
         XDG_DATA_DIRS.push_back("/usr/share");
     }
