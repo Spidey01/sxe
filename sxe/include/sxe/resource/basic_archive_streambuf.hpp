@@ -37,12 +37,20 @@ namespace sxe { namespace resource {
     template<class CharT, class Traits=std::char_traits<CharT>>
     class basic_archive_streambuf
         : public std::basic_streambuf<CharT, Traits>
-        , basic_archive_typedefs<CharT, Traits>
+        , public basic_archive_typedefs<CharT, Traits>
     {
       public:
 
         using super_type_ = std::basic_streambuf<CharT, Traits>;
+        /* Because templates are painful, and some compilers are stricter than others. */
+        using typedefs_ = basic_archive_typedefs<CharT, Traits>;
 
+        using traits_type = typename super_type_::traits_type;
+        using int_type = typename super_type_::int_type;
+        using char_type = typename super_type_::char_type;
+        using string_type = typename typedefs_::string_type;
+        using path_type = typename typedefs_::path_type;
+        using openmode_type_ = typename typedefs_::openmode_type_;
 
         basic_archive_streambuf()
             : super_type_()
@@ -202,8 +210,8 @@ namespace sxe { namespace resource {
             mLog.test("underflow()");
 
             char_type ch = (char_type)traits_type::eof();
-            sgetn(&ch, 1);
-            setg(&ch, &ch, &ch+1);
+            this->sgetn(&ch, 1);
+            this->setg(&ch, &ch, &ch+1);
             return ch;
         }
 

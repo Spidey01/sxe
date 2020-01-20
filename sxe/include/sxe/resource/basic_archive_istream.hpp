@@ -43,8 +43,17 @@ namespace sxe { namespace resource {
         , public basic_archive_typedefs<CharT, Traits>
     {
       public:
-        using istream_type_ = basic_istream<char_type, traits_type>;
+
+        using typedefs_ = basic_archive_typedefs<CharT, Traits>;
+        using istream_type_ = std::basic_istream<CharT, Traits>;
+        using traits_type = typename istream_type_::traits_type;
+        using int_type = typename istream_type_::int_type;
+        using char_type = typename istream_type_::char_type;
+        using string_type = typename typedefs_::string_type;
+        using path_type = typename typedefs_::path_type;
+        using openmode_type_ = typename typedefs_::openmode_type_;
         using streambuf_type_ = basic_archive_streambuf<char_type, traits_type>;
+
 
         basic_archive_istream()
             : istream_type_(nullptr)
@@ -147,36 +156,36 @@ namespace sxe { namespace resource {
 
         void open(const char* archive, const char* filename, openmode_type_ mode=std::ios_base::in)
         {
-            if (!mStreamBuf.open(archive, filename, mode | ios_base::in)) {
+            if (!mStreamBuf.open(archive, filename, mode | std::ios_base::in)) {
                 mLog.e("open():" + string_type(archive) + ":" + string_type(filename) + ": setting failbit.");
-                setstate(ios_base::failbit);
+                this->setstate(std::ios_base::failbit);
             } else {
                 mLog.test("open():" + string_type(archive) + ":" + string_type(filename) + ": success.");
-                clear();
+                this->clear();
             }
         }
 
 
         void open(const string_type& archive, const string_type& filename, openmode_type_ mode=std::ios_base::in)
         {
-            if (!mStreamBuf.open(archive, filename, mode | ios_base::in)) {
+            if (!mStreamBuf.open(archive, filename, mode | std::ios_base::in)) {
                 mLog.e("open():" + archive + ":" + filename + ": setting failbit.");
-                setstate(ios_base::failbit);
+                this->setstate(std::ios_base::failbit);
             } else {
                 mLog.test("open():" + archive + ":" + filename + ": success.");
-                clear();
+                this->clear();
             }
         }
 
 
         void open(const path_type& archive, const path_type& filename, openmode_type_ mode=std::ios_base::in)
         {
-            if (!mStreamBuf.open(archive, filename, mode | ios_base::in)) {
+            if (!mStreamBuf.open(archive, filename, mode | std::ios_base::in)) {
                 mLog.e("open():" + archive.string() + ":" + filename.string() + ": setting failbit.");
-                setstate(ios_base::failbit);
+                this->setstate(std::ios_base::failbit);
             } else {
                 mLog.test("open():" + archive.string() + ":" + filename.string() + ": success.");
-                clear();
+                this->clear();
             }
         }
 
@@ -187,7 +196,7 @@ namespace sxe { namespace resource {
 
             if (!mStreamBuf.close()) {
                 mLog.e("close(): setting failbit.");
-                setstate(ios_base::failbit);
+                this->setstate(std::ios_base::failbit);
             }
         }
 
