@@ -33,6 +33,7 @@ using namespace sxe::resource;
 
 static const string TAG = "ArchiveStreamTest";
 
+static const string ORIGINAL = sxe::sys::Xdg().getDataDir("sxe/test.txt").string();
 static const string ARCHIVE = sxe::sys::Xdg().getDataDir("sxe/test.zip").string();
 static const string FILENAME = "test.txt";
 
@@ -127,10 +128,8 @@ void ArchiveStreamTest::read()
 {
     Log::xtrace(TAG, "read()");
 
-    // FIXME
-    string txt = "C:/Users/Terry/sw/workspace/sxe/tests/test.txt";
-    std::ifstream original(txt);
-    CPPUNIT_ASSERT_MESSAGE("Need to open the original file at " + txt,
+    std::ifstream original(ORIGINAL);
+    CPPUNIT_ASSERT_MESSAGE("Need to open the original file at " + ORIGINAL,
                            original);
 
     archive_istream archive(ARCHIVE, FILENAME);
@@ -160,10 +159,8 @@ void ArchiveStreamTest::getline()
 {
     Log::xtrace(TAG, "getline()");
 
-    // FIXME
-    string txt = "C:/Users/Terry/sw/workspace/sxe/tests/test.txt";
-    std::ifstream original(txt);
-    CPPUNIT_ASSERT_MESSAGE("Need to open the original file at " + txt,
+    std::ifstream original(ORIGINAL);
+    CPPUNIT_ASSERT_MESSAGE("Need to open the original file at " + ORIGINAL,
                            original);
 
     archive_istream archive(ARCHIVE, FILENAME);
