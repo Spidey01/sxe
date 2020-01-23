@@ -67,6 +67,12 @@ namespace sxe { namespace pc {
          */
         GLFWwindow* getWindow() const;
 
+        /** Returns if the Vulkan API is supported.
+         *
+         * @returns glfwVulkanSupported() == GLFW_TRUE;
+         */
+        bool supportsVulkan() const override;
+
       protected:
 
         string_type getError() const;
@@ -78,6 +84,7 @@ namespace sxe { namespace pc {
         GLFWwindow* mWindow;
 
         static void error_callback(int code, const char* description);
+
     };
 
 } }

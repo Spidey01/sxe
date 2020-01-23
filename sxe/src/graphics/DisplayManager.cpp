@@ -23,6 +23,7 @@
 
 #include "sxe/graphics/DisplayManager.hpp"
 
+#include <sxe/Game.hpp>
 #include <sxe/GameEngine.hpp>
 #include <sxe/config/Settings.hpp>
 #include <sxe/logging.hpp>
@@ -186,6 +187,33 @@ void DisplayManager::onSettingChanged(string_type key)
         /* Support toggling between fullscreen / windowed mode. */
         setFullscreen(settings.getBool(key));
     }
+}
+
+
+RenderingApi DisplayManager::renderingApi() const
+{
+    string_type fromConfig = getSettings().getString("sxe.graphics.api");
+
+    if (fromConfig.empty()) {
+        string_type key = getGame()->getName() + ".graphics.api";
+        fromConfig = getSettings().getString(key);
+    }
+
+    if (fromConfig == "Vulkan")
+        return RenderingApi::Vulkan;
+    else if (fromConfig == "OpenGLES")
+        return RenderingApi::OpenGLES;
+
+    if (supportsVulkan())
+        return RenderingApi::Vulkan;
+
+    return RenderingApi::OpenGLES;
+}
+
+
+bool DisplayManager::supportsVulkan() const
+{
+    return false;
 }
 
 } }

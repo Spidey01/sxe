@@ -23,11 +23,12 @@
  *	   distribution.
  */
 
-#include <sxe/api.hpp>
 #include <sxe/RateCounter.hpp>
+#include <sxe/api.hpp>
 #include <sxe/common/Subsystem.hpp>
 #include <sxe/config/Settings.hpp>
 #include <sxe/graphics/DisplayMode.hpp>
+#include <sxe/graphics/RenderingApi.hpp>
 
 namespace sxe {  namespace graphics {
 
@@ -129,6 +130,22 @@ namespace sxe {  namespace graphics {
          * platform implementation.
          */
         virtual void onSettingChanged(string_type key);
+
+        /** Determines the rendering API.
+         *
+         * Order of preference:
+         *   - sxe.graphics.api setting.
+         *   - {GameName}.graphics.api setting.
+         *   - Vulkan, if supportsVulkan() == true.
+         *   - OpenGLES.
+         */
+        RenderingApi renderingApi() const;
+
+        /** Return true if Vulkan is available.
+         *
+         * Default implementation returns false.
+         */
+        virtual bool supportsVulkan() const;
 
       protected:
 

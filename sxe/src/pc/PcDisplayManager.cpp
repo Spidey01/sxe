@@ -157,6 +157,25 @@ bool PcDisplayManager::create()
         glfwWindowHint(GLFW_REFRESH_RATE, refresh);
     }
 
+    switch (renderingApi()) {
+        case RenderingApi::Vulkan:
+            Log::i(TAG, "Rendering API is Vulkan.");
+            glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+            break;
+
+        case RenderingApi::OpenGLES:
+            Log::i(TAG, "Rendering API is OpenGL ES.");
+            glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
+            break;
+
+        default:
+            Log::i(TAG, "Rendering API is Unknown.");
+            return false;
+            break;
+    }
+
+    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+
     string_type title = getGame()->getName();
     GLFWwindow* shared = nullptr;
 
@@ -225,6 +244,12 @@ GLFWwindow* PcDisplayManager::getWindow() const
     }
 
     return mWindow;
+}
+
+
+bool PcDisplayManager::supportsVulkan() const
+{
+    return glfwVulkanSupported() == GLFW_TRUE;
 }
 
 
