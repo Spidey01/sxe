@@ -34,6 +34,7 @@ const DisplayManager::string_type DisplayManager::TAG = "DisplayManager";
 
 DisplayManager::DisplayManager(const string_type& name)
     : Subsystem(name)
+    , mVulkan(nullptr)
     , mFrameCounter("Frames")
     , mDisplayMode("640 x 480 x 32 @60", false)
     , mFullscreen(false)
@@ -214,6 +215,15 @@ RenderingApi DisplayManager::renderingApi() const
 bool DisplayManager::supportsVulkan() const
 {
     return false;
+}
+
+
+sxe::vk::Vulkan& DisplayManager::vulkan() const
+{
+    if (mVulkan)
+        return *(mVulkan.get());
+
+    throw std::runtime_error("DisplayManager::vulkan(): there is no Vulkan.");
 }
 
 } }

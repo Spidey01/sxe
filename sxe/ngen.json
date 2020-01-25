@@ -43,7 +43,8 @@
         "src/sys/Xdg.cpp",
         "src/testing/NullConfiguration.cpp",
         "src/testing/NullDisplayManager.cpp",
-        "src/testing/NullInputManager.cpp"
+        "src/testing/NullInputManager.cpp",
+        "src/vk/Vulkan.cpp"
     ],
     "headers": [
         "include/sxe"

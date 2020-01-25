@@ -29,6 +29,7 @@
 #include <sxe/config/Settings.hpp>
 #include <sxe/graphics/DisplayMode.hpp>
 #include <sxe/graphics/RenderingApi.hpp>
+#include <sxe/vk/Vulkan.hpp>
 
 namespace sxe {  namespace graphics {
 
@@ -55,13 +56,13 @@ namespace sxe {  namespace graphics {
         bool initialize(GameEngine& engine) override;
         bool uninitialize() override;
 
-        /** Create OpenGL context for the current Display.
+        /** Create rendering context for the current Display.
          *
          * This must be called before rendering may be done.
          */
         virtual bool create() = 0;
 
-        /** Destroy this OpenGL context.
+        /** Destroy this rendering context.
         */
         virtual void destroy() = 0;
 
@@ -147,7 +148,21 @@ namespace sxe {  namespace graphics {
          */
         virtual bool supportsVulkan() const;
 
+        /** Accessor for Vulkan.
+         *
+         * Write me.
+         *
+         * @returns reference to mVulkan if set.
+         *
+         * @throws runtime_error if mVulkan == nullptr;
+         */
+        virtual sxe::vk::Vulkan& vulkan() const;
+
       protected:
+
+        /** nullptr unless we're Vulkanized.
+         */
+        std::unique_ptr<sxe::vk::Vulkan> mVulkan;
 
       private:
 

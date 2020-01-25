@@ -23,6 +23,9 @@
 
 #include "sxe/pc/PcDisplayManager.hpp"
 
+/* Needs to come before glfw3.h, or it won't include support functions for it. */
+#include <vulkan/vulkan.hpp>
+
 #include <GLFW/glfw3.h>
 #include <sxe/logging.hpp>
 
@@ -188,6 +191,19 @@ bool PcDisplayManager::create()
         return false;
     }
 
+    switch (renderingApi()) {
+        case RenderingApi::Vulkan:
+            return createVulkanInstance();
+            break;
+
+        case RenderingApi::OpenGLES:
+            break;
+
+        default:
+            return false;
+            break;
+    }
+
     return true;
 }
 
@@ -195,6 +211,9 @@ bool PcDisplayManager::create()
 void PcDisplayManager::destroy()
 {
     Log::d(TAG, "destroy()");
+
+    if (mVulkan)
+        mVulkan.reset();
 
     glfwSetKeyCallback(mWindow, nullptr);
 
@@ -272,6 +291,55 @@ void PcDisplayManager::error_callback(int code, const char* description)
     if (description)
         str.append(description);
     Log::e(TAG, str);
+}
+
+
+bool PcDisplayManager::createVulkanInstance()
+{
+    Log::xtrace(TAG, "createVulkanInstance()");
+
+    VkApplicationInfo appInfo = {};
+
+    appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+    appInfo.pApplicationName = getGame()->getName().c_str();
+    appInfo.applicationVersion = VK_MAKE_VERSION(0, 0, 0);
+    appInfo.pEngineName = "SxE";
+    appInfo.engineVersion = VK_MAKE_VERSION(2, 0, 0);
+    appInfo.apiVersion = VK_API_VERSION_1_0;
+
+    uint32_t glfwExtensionCount = 0;
+    const char** glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
+
+    VkInstanceCreateInfo createInfo = {};
+
+    createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+    createInfo.pApplicationInfo = &appInfo;
+    createInfo.enabledExtensionCount = glfwExtensionCount;
+    createInfo.ppEnabledExtensionNames = glfwExtensions;
+    createInfo.enabledLayerCount = 0;
+
+    auto vkCreateInstance = (PFN_vkCreateInstance)glfwGetInstanceProcAddress(nullptr, "vkCreateInstance");
+    if (vkCreateInstance == nullptr) {
+        Log::e(TAG, "glfwGetInstanceProcAddress() failed to get vkCreateInstance");
+        return false;
+    }
+
+    auto vkGetInstanceProcAddr = (PFN_vkGetInstanceProcAddr)glfwGetInstanceProcAddress(nullptr, "vkGetInstanceProcAddr");
+    if (vkGetInstanceProcAddr == nullptr) {
+        Log::e(TAG, "glfwGetInstanceProcAddress() failed to get vkGetInstanceProcAddr");
+        return false;
+    }
+
+    VkInstance instance;
+    if (vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS) {
+        throw std::runtime_error("VulkanLoader(): vkCreateInstance() failed!");
+    }
+
+    ::vk::DispatchLoaderDynamic loader(instance, vkGetInstanceProcAddr);
+
+    mVulkan = std::make_unique<sxe::vk::Vulkan>(instance, loader);
+
+    return mVulkan != nullptr;
 }
 
 

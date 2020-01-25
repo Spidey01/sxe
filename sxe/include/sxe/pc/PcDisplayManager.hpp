@@ -26,6 +26,7 @@
 #include <sxe/api.hpp>
 #include <sxe/GameEngine.hpp>
 #include <sxe/graphics/DisplayManager.hpp>
+#include <sxe/vk/Vulkan.hpp>
 
 struct GLFWwindow;
 
@@ -84,6 +85,12 @@ namespace sxe { namespace pc {
         GLFWwindow* mWindow;
 
         static void error_callback(int code, const char* description);
+
+        /** Creates a Vulkan instance.
+         *
+         * @returns true if mVulkan set.
+         */
+        bool createVulkanInstance();
 
     };
 
