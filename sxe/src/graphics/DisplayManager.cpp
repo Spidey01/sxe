@@ -188,6 +188,12 @@ void DisplayManager::onSettingChanged(string_type key)
         /* Support toggling between fullscreen / windowed mode. */
         setFullscreen(settings.getBool(key));
     }
+    else if (key == "sxe.graphics.api" || key == (getGame()->getName() + ".graphics.api")) {
+        if (mVulkan) {
+            Log::w(TAG, key + " cannot be changed at runtime.");
+            Log::d(TAG, "To change rendering APIs you need to destroy() and create() a new window, and should probably just restart the program.");
+        }
+    }
 }
 
 
