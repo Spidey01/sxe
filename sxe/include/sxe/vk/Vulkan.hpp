@@ -56,13 +56,36 @@ namespace sxe { namespace vk {
          */
         ::vk::DispatchLoaderDynamic loader() const;
 
+        /** Returns the VkPhysicalDevice that was selected.
+         */
+        ::vk::PhysicalDevice physicalDevice() const;
+
+        /** Returns the logical VkDevice that was created.
+         */
+        ::vk::Device device() const;
+
+        /** Pretty prints a string description of the device.
+         */
+        std::string describeDevice() const;
+
+        std::string describeDevice(::vk::PhysicalDevice device) const;
+
       protected:
+
+        /** Validate the physical device.
+         *
+         * @param device which one to check.
+         * @param deviceType reject if not this type.
+         */
+        bool validateDevice(::vk::PhysicalDevice device, VkPhysicalDeviceType deviceType);
 
       private:
 
         static const std::string TAG;
         ::vk::Instance mInstance;
         ::vk::DispatchLoaderDynamic mLoader;
+        ::vk::PhysicalDevice mPhysicalDevice;
+        ::vk::Device mDevice;
 
     };
 
