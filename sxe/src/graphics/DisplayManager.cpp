@@ -25,6 +25,7 @@
 
 #include <sxe/Game.hpp>
 #include <sxe/GameEngine.hpp>
+#include <sxe/common/Utils.hpp>
 #include <sxe/config/Settings.hpp>
 #include <sxe/logging.hpp>
 
@@ -35,6 +36,7 @@ const DisplayManager::string_type DisplayManager::TAG = "DisplayManager";
 DisplayManager::DisplayManager(const string_type& name)
     : Subsystem(name)
     , mVulkan(nullptr)
+    , mVulkanValidationLayers()
     , mFrameCounter("Frames")
     , mDisplayMode("640 x 480 x 32 @60", false)
     , mFullscreen(false)
@@ -193,6 +195,13 @@ void DisplayManager::onSettingChanged(string_type key)
             Log::w(TAG, key + " cannot be changed at runtime.");
             Log::d(TAG, "To change rendering APIs you need to destroy() and create() a new window, and should probably just restart the program.");
         }
+    }
+    else if (key == "sxe.graphics.vulkan.validationLayers") {
+        string_type layers = settings.getString(key);
+
+        Log::d(TAG, "Vulkan validation layers requested: " + layers);
+
+        common::Utils::split(std::back_inserter(mVulkanValidationLayers), layers, ',');
     }
 }
 

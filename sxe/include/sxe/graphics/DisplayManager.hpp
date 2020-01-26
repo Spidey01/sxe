@@ -164,6 +164,10 @@ namespace sxe {  namespace graphics {
          */
         std::unique_ptr<sxe::vk::Vulkan> mVulkan;
 
+        /** Validation layers that should be enabled
+         */
+        std::vector<string_type> mVulkanValidationLayers;
+
       private:
 
         static const string_type TAG;
