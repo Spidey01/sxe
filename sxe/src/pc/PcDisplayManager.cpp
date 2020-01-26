@@ -317,6 +317,48 @@ bool PcDisplayManager::createVulkanInstance()
     createInfo.enabledExtensionCount = glfwExtensionCount;
     createInfo.ppEnabledExtensionNames = glfwExtensions;
     createInfo.enabledLayerCount = 0;
+    createInfo.enabledLayerCount = static_cast<uint32_t>(mVulkanValidationLayers.size());
+
+    /*
+     * mVulkanValidationLayers is expected to be read only between create() and
+     * destroy(). So we can alias it long enough for instance creation.
+     */
+
+    std::vector<const char*> aliases;
+
+    auto vkEnumerateInstanceLayerProperties = (PFN_vkEnumerateInstanceLayerProperties)glfwGetInstanceProcAddress(nullptr, "vkEnumerateInstanceLayerProperties");
+
+    if (createInfo.enabledLayerCount && vkEnumerateInstanceLayerProperties != nullptr) {
+        uint32_t bounds;
+        vkEnumerateInstanceLayerProperties(&bounds, nullptr);
+
+        std::vector<VkLayerProperties> available(bounds);
+        vkEnumerateInstanceLayerProperties(&bounds, available.data());
+
+        auto& layers = mVulkanValidationLayers;
+        aliases.reserve(layers.size());
+
+        for (const string_type& str : layers) {
+            bool found = false;
+            for (const auto& layerProperties : available) {
+                if (str == layerProperties.layerName) {
+                    found = true;
+                    break;
+                }
+            }
+
+            /* Invalid names cause crashes. */
+            if (!found) {
+                Log::w(TAG, "Ignoring unavailable validation layer name " + str);
+                createInfo.enabledLayerCount -= 1;
+                continue;
+            }
+
+            Log::d(TAG, "Validation layers += " + str);
+            aliases.push_back(str.c_str());
+        }
+        createInfo.ppEnabledLayerNames = aliases.data();
+    }
 
     auto vkCreateInstance = (PFN_vkCreateInstance)glfwGetInstanceProcAddress(nullptr, "vkCreateInstance");
     if (vkCreateInstance == nullptr) {

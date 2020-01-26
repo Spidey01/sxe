@@ -164,7 +164,13 @@ namespace sxe {  namespace graphics {
          */
         std::unique_ptr<sxe::vk::Vulkan> mVulkan;
 
-        /** Validation layers that should be enabled
+        /** Validation layers that should be enabled.
+         *
+         * This should not be modified between calls to create() and destroy().
+         *
+         * onSettingChanged() will handle mapping
+         * "sxe.graphics.vulkan.validationLayers" to this field, by splitting
+         * on ','; and will warn if it is changed once this field has been set.
          */
         std::vector<string_type> mVulkanValidationLayers;
 
