@@ -1,3 +1,6 @@
 idemo                   install demo.
 irdemo                  install and run demo.
 rdemo                   run demo.
+itest                   install test runner.
+irtest                  install and run test runner.
+rtest                   run test runner.
