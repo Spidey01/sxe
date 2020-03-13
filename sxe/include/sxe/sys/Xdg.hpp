@@ -82,14 +82,19 @@ namespace sxe { namespace sys {
 
 
         FileSystem::path getDataHomeDir(const std::string& relative) const;
+        FileSystem::path getDataHomeDir(const FileSystem::path& relative) const;
 
         FileSystem::path getConfigHomeDir(const std::string& relative) const;
+        FileSystem::path getConfigHomeDir(const FileSystem::path& relative) const;
 
         FileSystem::path getCacheDir(const std::string& relative) const;
+        FileSystem::path getCacheDir(const FileSystem::path& relative) const;
 
         FileSystem::path getDataDir(const std::string& relative) const;
+        FileSystem::path getDataDir(const FileSystem::path& relative) const;
 
         FileSystem::path getConfigDir(const std::string& relative) const;
+        FileSystem::path getConfigDir(const FileSystem::path& relative) const;
 
     };
 

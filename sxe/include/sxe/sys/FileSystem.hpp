@@ -64,7 +64,7 @@ namespace sxe { namespace sys {
          *
          * @return Absolute path to name if found; else null.
          */
-        template <class InputIt> path find(InputIt first, InputIt last, const string& name)
+        template <class InputIt, class Needle> path find(InputIt first, InputIt last, const Needle& name)
         {
             for (; first != last; ++first) {
                 path p;

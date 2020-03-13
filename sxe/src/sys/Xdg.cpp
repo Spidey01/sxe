@@ -99,7 +99,19 @@ path Xdg::getDataHomeDir(const string& relative) const
 }
 
 
+path Xdg::getDataHomeDir(const path& relative) const
+{
+    return XDG_DATA_HOME / relative;
+}
+
+
 path Xdg::getConfigHomeDir(const string& relative) const
+{
+    return XDG_CONFIG_HOME / relative;
+}
+
+
+path Xdg::getConfigHomeDir(const path& relative) const
 {
     return XDG_CONFIG_HOME / relative;
 }
@@ -111,13 +123,31 @@ path Xdg::getCacheDir(const string& relative) const
 }
 
 
+path Xdg::getCacheDir(const path& relative) const
+{
+    return XDG_CACHE_HOME / relative;
+}
+
+
 path Xdg::getDataDir(const string& relative) const
 {
     return FileSystem::find(XDG_DATA_DIRS.cbegin(), XDG_DATA_DIRS.cend(), relative);
 }
 
 
+path Xdg::getDataDir(const path& relative) const
+{
+    return FileSystem::find(XDG_DATA_DIRS.cbegin(), XDG_DATA_DIRS.cend(), relative);
+}
+
+
 path Xdg::getConfigDir(const string& relative) const
+{
+    return FileSystem::find(XDG_CONFIG_DIRS.cbegin(), XDG_CONFIG_DIRS.cend(), relative);
+}
+
+
+path Xdg::getConfigDir(const path& relative) const
 {
     return FileSystem::find(XDG_CONFIG_DIRS.cbegin(), XDG_CONFIG_DIRS.cend(), relative);
 }
