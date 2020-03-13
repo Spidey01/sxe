@@ -11,7 +11,8 @@
         "src/main.cpp"
     ],
     "install_files": [
-        { "input": "QuadGame.cfg", "output": "$sysconfdir/xdg/QuadGame.cfg" }
+        { "input": "QuadGame.cfg", "output": "$sysconfdir/xdg/QuadGame.cfg" },
+        { "input": "share/Quad.dat", "output": "$datadir/QuadGame/Quad.dat" }
     ],
     "gcc": {
         "cppflags": [

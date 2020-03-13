@@ -24,6 +24,7 @@
 #include "Quad.h"
 
 #include <sxe/logging.hpp>
+#include <sxe/resource/ResourceManager.hpp>
 
 using std::string;
 using sxe::GameEngine;
@@ -32,7 +33,9 @@ namespace demos {
 
 const string Quad::TAG = "Quad";
 
-const string Quad::MESH_RESOURCE_PATH = "default://quad.dat";
+/* Don't have fancy resource loader yet. */
+// const string Quad::MESH_RESOURCE_PATH = "default://quad.dat";
+const string Quad::MESH_RESOURCE_PATH = "quad.dat";
 
 Quad::Quad(GameEngine& engine)
     : mGameEngine(engine)
@@ -45,6 +48,7 @@ Quad::Quad(GameEngine& engine)
      */
 
     try {
+        mGameEngine.getResourceManager().load(MESH_RESOURCE_PATH);
         #if 0
         mRenderData.setMesh(
                             mGameEngine.getResourceManager().load(
