@@ -46,6 +46,12 @@ namespace sxe { namespace resource {
         void removeResourceLocation(const string_type& path);
         void removeResourceLocation(const path_type& path);
 
+        void load(const string_type& path);
+
+        /** Write me.
+         */
+        void load(const path_type& path);
+
       protected:
 
         void onSettingChanged(string_type key) override;

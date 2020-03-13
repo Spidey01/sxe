@@ -28,6 +28,7 @@
 #include <sxe/filesystem.hpp>
 #include <sxe/logging.hpp>
 #include <sxe/sys/FileSystem.hpp>
+#include <sxe/sys/Xdg.hpp>
 
 using std::invalid_argument;
 using sxe::common::Utils::ends_with;
@@ -125,6 +126,34 @@ void ResourceManager::removeResourceLocation(const path_type& path)
 
     c.erase(std::remove(c.begin(), c.end(), path),
             c.end());
+}
+
+
+void ResourceManager::load(const string_type& path)
+{
+    Log::xtrace(TAG, "load(string_type): path: " + path);
+
+    path_type p(path);
+    load(p);
+}
+
+
+void ResourceManager::load(const path_type& path)
+{
+    Log::xtrace(TAG, "load(path_type): path: " + path.string());
+
+    sys::Xdg xdg;
+
+    for (const path_type& prefix : mSearchLocations) {
+        path_type search = prefix / path;
+        Log::v(TAG, "load(path_type): searching: " + search.string());
+
+        path_type full = xdg.getDataDir(search);
+        if (full != search) {
+            Log::d(TAG, "load(path_type): path " + path.string() + " resolved to " + full.string());
+            break;
+        }
+    }
 }
 
 
