@@ -33,8 +33,8 @@ using namespace sxe::resource;
 
 static const string TAG = "ArchiveStreamTest";
 
-static const string ORIGINAL = sxe::sys::Xdg().getDataDir("sxe/test.txt").string();
-static const string ARCHIVE = sxe::sys::Xdg().getDataDir("sxe/test.zip").string();
+static const string ORIGINAL = sxe::sys::Xdg().getDataDir(string("sxe/test.txt")).string();
+static const string ARCHIVE = sxe::sys::Xdg().getDataDir(string("sxe/test.zip")).string();
 static const string FILENAME = "test.txt";
 
 CPPUNIT_TEST_SUITE_NAMED_REGISTRATION(ArchiveStreamTest, TAG);
