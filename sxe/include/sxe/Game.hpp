@@ -24,7 +24,7 @@
  */
 
 #include <boost/optional.hpp>
-#include <sxe/RateCounter.hpp>
+#include <sxe/logging/RateCounter.hpp>
 #include <sxe/api.hpp>
 #include <sxe/common/Initializable.hpp>
 
@@ -151,7 +151,7 @@ namespace sxe {
         std::thread::id mMainThreadId;
         std::thread::id mGameThreadId;
 
-        RateCounter mTickCounter;
+        logging::RateCounter mTickCounter;
 
         /** Entry point for mThread.
          */

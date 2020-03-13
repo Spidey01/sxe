@@ -1,5 +1,5 @@
-#ifndef SXE_CORE_RATECOUNTER__HPP
-#define SXE_CORE_RATECOUNTER__HPP
+#ifndef SXE_LOGGING_RATECOUNTER__HPP
+#define SXE_LOGGING_RATECOUNTER__HPP
 /*-
  * Copyright (c) 2012-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -25,21 +25,34 @@
 
 #include <sxe/api.hpp>
 
-namespace sxe {
+namespace sxe { namespace logging {
 
+    /** Simple rate counter.
+     *
+     * Used for tasks like counting Frames Per Second or Ticks Per Second.
+     */
     class SXE_PUBLIC RateCounter
     {
       public:
 
+        /** Create the Rate Counter.
+         *
+         * @param name used in logging this counter.
+         * @Param debug should we long the count.
+         */
         RateCounter(const std::string& name, bool debug);
         RateCounter(const std::string& name);
 
+        /** Returns the name of this counter.
+         */
         std::string getName() const;
 
         void disableDebugging();
         void enableDebugging();
         bool isDebuggingEnabled();
 
+        /** Update the counter.
+         */
         void update();
 
       private:
@@ -54,6 +67,6 @@ namespace sxe {
     };
 
 
-}
+} }
 
-#endif // SXE_CORE_RATECOUNTER__HPP
+#endif // SXE_LOGGING_RATECOUNTER__HPP

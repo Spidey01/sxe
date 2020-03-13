@@ -23,7 +23,7 @@
  *	   distribution.
  */
 
-#include <sxe/RateCounter.hpp>
+#include <sxe/logging/RateCounter.hpp>
 #include <sxe/api.hpp>
 #include <sxe/common/Subsystem.hpp>
 #include <sxe/config/Settings.hpp>
@@ -177,7 +177,7 @@ namespace sxe {  namespace graphics {
       private:
 
         static const string_type TAG;
-        sxe::RateCounter mFrameCounter;
+        logging::RateCounter mFrameCounter;
         DisplayMode mDisplayMode;
         bool mFullscreen;
         config::Settings::SettingsManager::size_type mOnChangedListenerId;

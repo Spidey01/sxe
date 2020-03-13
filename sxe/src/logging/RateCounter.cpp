@@ -21,14 +21,15 @@
  *	   distribution.
  */
 
-#include "sxe/RateCounter.hpp"
-#include "sxe/logging.hpp"
+#include "sxe/logging//RateCounter.hpp"
+
+#include <sxe/logging.hpp>
 
 using std::chrono::steady_clock;
 using std::chrono::seconds;
 using std::string;
 
-namespace sxe {
+namespace sxe { namespace logging {
 
 const string RateCounter::TAG = "RateCounter";
 
@@ -84,5 +85,5 @@ void RateCounter::update()
     mPerSecond++;
 }
 
-}
+} }
 
