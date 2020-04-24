@@ -24,6 +24,18 @@ CALL "%PROJECT_ROOT%\vendor\cppunit.ngen\cppunit-setup.cmd"
 CALL "%PROJECT_ROOT%\vendor\boost.ngen\boost-setup.cmd"
 @IF errorlevel 1 goto :EOF
 
+:LOCATE_JSON
+cmake -S "%PROJECT_ROOT%\vendor\json" -B "%PROJECT_TMPDIR%\json" -G Ninja "-DCMAKE_INSTALL_PREFIX=%PROJECT_DISTDIR%" -DCMAKE_BUILD_TYPE=Release
+@IF errorlevel 1 goto :EOF
+ninja -C "%PROJECT_TMPDIR%\json" install
+@IF errorlevel 1 goto :EOF
+
+:LOCATE_GLFW
+cmake -S "%PROJECT_ROOT%\vendor\glfw" -B "%PROJECT_TMPDIR%\glfw" -G Ninja "-DCMAKE_INSTALL_PREFIX=%PROJECT_DISTDIR%" -DCMAKE_BUILD_TYPE=Release
+@IF errorlevel 1 goto :EOF
+ninja -C "%PROJECT_TMPDIR%\glfw" install
+@IF errorlevel 1 goto :EOF
+
 :LOCATE_ZLIB
 @REM Can't build zlib from CMakeLists.txt, and also find_package() it without pain.
 cmake -S "%PROJECT_ROOT%\vendor\zlib" -B "%PROJECT_TMPDIR%\zlib" -G Ninja "-DCMAKE_INSTALL_PREFIX=%PROJECT_DISTDIR%" -DCMAKE_BUILD_TYPE=Release
