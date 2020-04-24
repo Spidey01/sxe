@@ -1,20 +1,48 @@
 @ECHO OFF
 
-REM compiling with MSC, preffered on Windows.
-IF DEFINED VisualStudioVersion (
-
-	REM VS2019 defines vars about this but older ones like VS2015 don't.
-	REM
-	REM Assuming x86 is a good guess if you use Developer Command Prompt
-	REM shortcut instead of [arch] Native ...
-	REM
-	IF NOT DEFINED VSCMD_ARG_TGT_ARCH (
-		SET PROJECT_TARGET_ARCH=x86
-	) ELSE (
-		SET PROJECT_TARGET_ARCH=%VSCMD_ARG_TGT_ARCH%
-	)
-	SET PROJECT_TOOLCHAIN=msc%VisualStudioVersion%
+:DETECT_ARCH
+@REM only supporting native 64-bit and 32-bit builds.
+IF %PROCESSOR_ARCHITECTURE% == AMD64 (
+	SET PROJECT_TARGET_ARCH=x64
+	SET PROJECT_HOST_ARCH=x64
+) ELSE (
+	SET PROJECT_TARGET_ARCH=x86
+	SET PROJECT_HOST_ARCH=x86
 )
+
+:GIT_SUBMODULES
+ECHO Updating git submodules.
+git submodule init
+git submodule update
+
+:LOCATE_COMPILER
+@REM Should exist if >= VS2017 installed, and not old.
+SET "SXE_VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
+
+REM compiling with MSC, preffered on Windows.
+IF NOT DEFINED VisualStudioVersion (
+	ECHO Locating compiler.
+
+	FOR /f "usebackq delims=" %%i IN (`"%SXE_VSWHERE%" -prerelease -latest -property installationPath`) DO (
+		IF EXIST "%%i\Common7\Tools\vsdevcmd.bat" (
+			CALL "%%i\Common7\Tools\vsdevcmd.bat" -arch=%PROJECT_TARGET_ARCH% -host_arch=%PROJECT_HOST_ARCH%
+			SET PROJECT_TOOLCHAIN=msc%VisualStudioVersion%
+		)
+	)
+)
+ECHO Using Visual Studio %VisualStudioVersion%
+
+:LOCATE_VULKAN
+@REM The Vulkan SDK from LunarG defines VK_SDK_PATH and VULKAN_SDK as the root of the files.
+@REM It also adds its bin directory to Path.
+IF NOT DEFINED VULKAN_SDK (
+  @ECHO Please install https://vulkan.lunarg.com/sdk/home#sdk/downloadConfirm/latest/windows/vulkan-sdk.exe and try again in a new %ComSpec%.
+  @GOTO :eof
+)
+
+
+:SET_VARS
+
 REM MS and *nix land differ on the arch names, and toolchain != vendor, but
 REM same idea as triplets like x864_64-linux-gnu
 SET PROJECT_TARGET_TRIPLET=%PROJECT_TARGET_ARCH%-%OS%-%PROJECT_TOOLCHAIN%
@@ -26,33 +54,17 @@ SET PROJECT_BUILDDIR=%PROJECT_ROOT%\build
 REM Where to install stuff for redist. - default.
 SET PROJECT_DISTDIR=%PROJECT_ROOT%\dist
 
+:FINISH_SETUP
+
+ECHO PROJECT_HOST_ARCH is %PROJECT_HOST_ARCH%
 ECHO PROJECT_TARGET_ARCH is %PROJECT_TARGET_ARCH%
 ECHO PROJECT_TOOLCHAIN is %PROJECT_TOOLCHAIN%
 ECHO PROJECT_TARGET_TRIPLET is %PROJECT_TARGET_TRIPLET%
 ECHO PROJECT_BUILDDIR is %PROJECT_BUILDDIR%
 ECHO PROJECT_DISTDIR is %PROJECT_DISTDIR%
-
-
-IF NOT DEFINED JAVA_HOME (
-	CALL "%ENVSETUP_DIR%\.cmd\java-environment.cmd"
-	IF NOT DEFINED JAVA_HOME (
-		ECHO JAVA_HOME is not set!
-		GOTO :eof
-	)
-)
-ECHO Your JAVA_HOME is "%JAVA_HOME%"
-
-IF NOT DEFINED ANDROID_HOME (
-	CALL "%ENVSETUP_DIR%\.cmd\android-environment.cmd"
-	IF NOT DEFINED ANDROID_HOME (
-		ECHO ANDROID_HOME is not set!
-		GOTO :eof
-	)
-)
-ECHO Your ANDROID_HOME is "%ANDROID_HOME%"
-
-ECHO Your XDG_DATA_HOME is "%XDG_DATA_HOME%"
-ECHO Your XDG_CONFIG_HOME is "%XDG_CONFIG_HOME%"
-ECHO Your XDG_CACHE_HOME is "%XDG_CACHE_HOME%"
+ECHO XDG_DATA_HOME is "%XDG_DATA_HOME%"
+ECHO XDG_CONFIG_HOME is "%XDG_CONFIG_HOME%"
+ECHO XDG_CACHE_HOME is "%XDG_CACHE_HOME%"
 
 TITLE SxE Development Command Prompt
+
