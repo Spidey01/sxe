@@ -53,7 +53,6 @@ IF NOT EXIST %PROJECT_DISTDIR%\include\boost-%DASH_VER_S% (
 		--prefix=%PROJECT_DISTDIR% %COMPONENTS% ^
 		--build-dir=%PROJECT_BUILDDIR%\vendor\boost ^
 		--build-type=complete --layout=versioned ^
-		--no-cmake-config ^
 		-j12 ^
 			address-model=64 ^
 				install
