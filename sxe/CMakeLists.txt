@@ -187,11 +187,13 @@ target_include_directories(SxE PUBLIC ${nlohmann_json_INCLUDE_DIRS})
 set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
-find_package(Boost 1.72 REQUIRED
+find_package(Boost 1.72
     COMPONENTS filesystem)
-target_include_directories(SxE PUBLIC ${Boost_INCLUDE_DIRS})
-#target_link_libraries(SxE PUBLIC ${Boost_LIBRARIES})
-target_link_libraries(SxE PUBLIC Boost::filesystem)
+if (Boost_FOUND)
+    target_include_directories(SxE PUBLIC ${Boost_INCLUDE_DIRS})
+    target_link_libraries(SxE PUBLIC Boost::filesystem)
+    target_compile_definitions(SxE PUBLIC INTERFACE HAVE_BOOST)
+endif(Boost_FOUND)
 
 
 find_package(glfw3 REQUIRED)
