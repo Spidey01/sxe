@@ -15,6 +15,8 @@ set(CPACK_GENERATOR "ZIP;TGZ")
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/Modules" ${CMAKE_MODULE_PATH})
 message(STATUS "CMAKE_MODULE_PATH: ${CMAKE_MODULE_PATH}")
 
+include(GNUInstallDirs)
+
 # Doesn't work.
 include(DefaultBuildType)
 
@@ -25,7 +27,7 @@ option(BUILD_VENDOR_LIBS "Build our own dependencies" ON)
 # Whether using internal or external, it won't be built from here.
 # To use internal: run bootstrap.{cmd,sh}.
 
-IF(BUILD_VENDOR_LIBS)
+if(BUILD_VENDOR_LIBS)
     # PROJECT_DISTDIR set from envsetup; see bootstrap.{cmd,sh}
 
     # this conflicts with other -I config. Just set the roots for each dep.
@@ -51,9 +53,24 @@ IF(BUILD_VENDOR_LIBS)
 
     set(SXE_SDK_DISTDIR $ENV{PROJECT_DISTDIR})
 
-ELSE(BUILD_VENDOR_LIBS)
+    #
+    # When building with vendor libs, the deps need to be packaged as wel
+    #
+    # XXX: windows style paths make this angry, so hard coding dist instead of
+    # the distdir var from above.
+    #
+    # And it gets angry if install prefix is used, so gotta do bits and pieces, in a fragle way.
+    # N.B. boost is huge, so skip include if just want to test w/o having a real package.
+
+    install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/dist/bin DESTINATION "${CMAKE_INSTALL_BINDIR}/../")
+    install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/dist/include DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/../")
+    install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/dist/lib DESTINATION "${CMAKE_INSTALL_LIBDIR}/../")
+    install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/dist/share DESTINATION "${CMAKE_INSTALL_DATADIR}/../")
+
+
+else(BUILD_VENDOR_LIBS)
     include(FindPkgConfig)
-ENDIF(BUILD_VENDOR_LIBS)
+endif(BUILD_VENDOR_LIBS)
 
 add_subdirectory(sxe)
 

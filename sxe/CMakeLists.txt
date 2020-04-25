@@ -163,7 +163,6 @@ install(TARGETS SxE
     ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
     LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
 
-
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
     SxEConfigVersion.cmake
