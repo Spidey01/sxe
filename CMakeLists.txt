@@ -33,4 +33,6 @@ message(VERBOSE "CMAKE_PREFIX_PATH: ${CMAKE_PREFIX_PATH}")
 
 add_subdirectory(sxe)
 
+add_subdirectory(tests)
+
 add_subdirectory(demos)
