@@ -178,7 +178,7 @@ find_package(nlohmann_json REQUIRED)
 target_link_libraries(SxE PUBLIC INTERFACE nlohmann_json::nlohmann_json)
 
 
-set(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 
