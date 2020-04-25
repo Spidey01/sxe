@@ -8,6 +8,7 @@ add_executable(nulldemo
     src/main.cpp
     src/NullDemo.cpp)
 
+set_property(TARGET nulldemo PROPERTY CXX_STANDARD 17)
 target_include_directories(nulldemo PRIVATE SxE)
 target_link_libraries(nulldemo PRIVATE SxE)
 

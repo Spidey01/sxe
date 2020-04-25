@@ -9,6 +9,8 @@ add_executable(quad
     src/QuadGame.cpp
     src/main.cpp)
 
+set_property(TARGET quad PROPERTY CXX_STANDARD 17)
+
 target_include_directories(quad PRIVATE SxE)
 target_link_libraries(quad PRIVATE SxE)
 

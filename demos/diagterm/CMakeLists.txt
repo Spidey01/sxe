@@ -8,6 +8,7 @@ add_executable(diagterm
     src/GameStub.cpp
     src/main.cpp)
 
+set_property(TARGET diagterm PROPERTY CXX_STANDARD 17)
 target_include_directories(diagterm PRIVATE SxE)
 target_link_libraries(diagterm PRIVATE SxE)
 
