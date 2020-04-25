@@ -14,6 +14,11 @@ set_property(TARGET quad PROPERTY CXX_STANDARD 17)
 target_include_directories(quad PRIVATE SxE)
 target_link_libraries(quad PRIVATE SxE)
 
-#TODO: install share/Quad.dat -> $datadir/QuadGame/Quad.dat
-#TODO: install QuadGame.cfg -> $sysconfdir/xdg/QuadGame.cfg
+install(FILES share/Quad.dat DESTINATION ${CMAKE_INSTALL_DATADIR}/QuadGame)
+install(FILES QuadGame.cfg DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/xdg)
+install(TARGETS quad
+    EXPORT quadTargets
+    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+    ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
 

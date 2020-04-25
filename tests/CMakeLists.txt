@@ -61,6 +61,12 @@ else(BUILD_SHARED_LIBS AND MSVC AND CPPUNIT_FOUND)
 endif(BUILD_SHARED_LIBS AND MSVC AND CPPUNIT_FOUND)
 
 
-#TODO: install test.txt -> $datarootdir/sxe/test.txt
-#TODO: install test.zip -> $datarootdir/sxe/test.zip
+# Test assets to include in $datarootdir/sxe/
+install(FILES test.txt test.zip DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/sxe)
+
+install(TARGETS sxe-test-runner
+    EXPORT sxe-test-runnerTargets
+    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+    ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
 

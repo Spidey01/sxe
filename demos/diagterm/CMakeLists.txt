@@ -12,3 +12,11 @@ set_property(TARGET diagterm PROPERTY CXX_STANDARD 17)
 target_include_directories(diagterm PRIVATE SxE)
 target_link_libraries(diagterm PRIVATE SxE)
 
+install(FILES diagterm.cfg DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/xdg)
+
+install(TARGETS diagterm
+    EXPORT diagtermTargets
+    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+    ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
+
