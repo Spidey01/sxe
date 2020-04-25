@@ -203,9 +203,10 @@ target_include_directories(SxE PUBLIC ${ZLIB_INCLUDE_DIRS})
 target_link_libraries(SxE PUBLIC ZLIB::ZLIB)
 
 
-find_package(libarchive REQUIRED)
-target_include_directories(SxE PUBLIC ${libarchive_INCLUDE_DIRS})
-target_link_libraries(SxE PUBLIC ${librarchive_LIBRARIES})
+# Cmake's bundled FindLibArchive.cmake wants LibArchive_*.
+ find_package(LibArchive REQUIRED)
+target_include_directories(SxE PUBLIC ${LibArchive_INCLUDE_DIRS})
+target_link_libraries(SxE PUBLIC ${LibArchive_LIBRARIES})
 
 find_package(Vulkan REQUIRED)
 target_include_directories(SxE PUBLIC ${Vulkan_INCLUDE_DIRS})
