@@ -119,6 +119,20 @@ set(SxE_HEADERS
 )
 
 
+# XXX: some of these need to be BEFORE add_library() to take effect.
+if(MSVC)
+    add_compile_options(/W4 /wd4251 /wd4275 )
+
+    if (BUILD_SHARED_LIBS)
+        # cmake is kind enough to follow the /DFOO_EXPORTS convention: but only if target is 'FOO', not 'foo' or sth else.
+        add_compile_definitions(SXE_DLL _CRT_SECURE_NO_WARNINGS)
+
+    else(BUILD_SHARED_LIBS)
+    endif(BUILD_SHARED_LIBS)
+
+endif(MSVC)
+
+
 add_library(SxE ${SxE_SOURCES})
 
 # Setting CXX_* not enough to make cmake provide the flag to our compile!
@@ -156,19 +170,6 @@ set_target_properties(SxE PROPERTIES
     ENABLE_EXPORTS 1
     CXX_VISIBILITY_PRESET hidden
     DEFINE_SYMBOL SXE_DLL_EXPORTS)
-
-if(MSVC)
-    add_compile_options(/W4 /wd4251 /wd4275 )
-
-    if (BUILD_SHARED_LIBS)
-        # cmake is kind enough to follow the /DFOO_EXPORTS convention: but only if target is 'FOO', not 'foo' or sth else.
-        add_compile_definitions(SXE_DLL _CRT_SECURE_NO_WARNINGS)
-
-    else(BUILD_SHARED_LIBS)
-    endif(BUILD_SHARED_LIBS)
-
-endif(MSVC)
-
 
 find_package(nlohmann_json REQUIRED)
 target_include_directories(SxE PUBLIC ${nlohmann_json_INCLUDE_DIRS})
