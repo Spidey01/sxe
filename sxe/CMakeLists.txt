@@ -121,7 +121,7 @@ set(SxE_HEADERS
 
 # XXX: some of these need to be BEFORE add_library() to take effect.
 if(MSVC)
-    add_compile_options(/W4 /wd4251 /wd4275 )
+    add_compile_options(/wd4251 /wd4275 )
 
     if (BUILD_SHARED_LIBS)
         # cmake is kind enough to follow the /DFOO_EXPORTS convention: but only if target is 'FOO', not 'foo' or sth else.
