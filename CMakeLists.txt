@@ -15,6 +15,7 @@ set(CPACK_GENERATOR "ZIP;TGZ")
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/Modules" ${CMAKE_MODULE_PATH})
 message(STATUS "CMAKE_MODULE_PATH: ${CMAKE_MODULE_PATH}")
 
+# Doesn't work.
 include(DefaultBuildType)
 
 # Reminder: options are "OFF" by default

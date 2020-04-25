@@ -1,6 +1,8 @@
 # vim: set filetype=cmake tabstop=4 shiftwidth=4 expandtab :
 # Adapted from https://blog.kitware.com/cmake-and-the-default-build-type/
 
+### Looks like either this no longer works -- I'm getting a default of "Debug" instead of ""
+
 # Set a default build type if none was specified
 set(default_build_type "Release")
 if(EXISTS "${CMAKE_SOURCE_DIR}/.git")
