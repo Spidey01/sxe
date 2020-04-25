@@ -120,13 +120,12 @@ set(SxE_HEADERS
 
 
 # XXX: some of these need to be BEFORE add_library() to take effect.
+# Public ones usually need target_what(SxE PUBLIC INTERFACE ...).
 if(MSVC)
     add_compile_options(/wd4251 /wd4275 )
+    add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
 
     if (BUILD_SHARED_LIBS)
-        # cmake is kind enough to follow the /DFOO_EXPORTS convention: but only if target is 'FOO', not 'foo' or sth else.
-        add_compile_definitions(SXE_DLL _CRT_SECURE_NO_WARNINGS)
-
     else(BUILD_SHARED_LIBS)
     endif(BUILD_SHARED_LIBS)
 
@@ -138,6 +137,22 @@ add_library(SxE ${SxE_SOURCES})
 # Setting CXX_* not enough to make cmake provide the flag to our compile!
 set_property(TARGET SxE PROPERTY CXX_STANDARD 17)
 
+
+# Wanted on Linux/GCC because Windows/MSVC is also supported.
+# And CMAKE's default exports macro differs from ours.
+set_target_properties(SxE PROPERTIES
+    ENABLE_EXPORTS 1
+    CXX_VISIBILITY_PRESET hidden
+    DEFINE_SYMBOL SXE_DLL_EXPORTS)
+
+if(BUILD_SHARED_LIBS)
+    target_compile_definitions(SxE PUBLIC INTERFACE SXE_DLL)
+endif(BUILD_SHARED_LIBS)
+
+if (MSVC)
+    # TODO: should have a option to not expose this.
+    target_compile_options(SxE PUBLIC INTERFACE /wd4251 /wd4275)
+endif(MSVC)
 
 target_include_directories(SxE PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -163,13 +178,6 @@ install(EXPORT SxETargets
         FILE SxETargets.cmake
         NAMESPACE SxE::
         DESTINATION lib/cmake/SxE)
-
-# Wanted on Linux/GCC because Windows/MSVC is also supported.
-# And CMAKE's default exports macro differs from ours.
-set_target_properties(SxE PROPERTIES
-    ENABLE_EXPORTS 1
-    CXX_VISIBILITY_PRESET hidden
-    DEFINE_SYMBOL SXE_DLL_EXPORTS)
 
 find_package(nlohmann_json REQUIRED)
 target_include_directories(SxE PUBLIC ${nlohmann_json_INCLUDE_DIRS})
