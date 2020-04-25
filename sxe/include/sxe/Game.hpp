@@ -23,7 +23,7 @@
  *	   distribution.
  */
 
-#include <boost/optional.hpp>
+#include <sxe/haveboost.hpp>
 #include <sxe/logging/RateCounter.hpp>
 #include <sxe/api.hpp>
 #include <sxe/common/Initializable.hpp>
@@ -141,7 +141,11 @@ namespace sxe {
         static const string_type TAG;
         static const size_t mMaxTickRate;
 
+        #if SXE_HAVE_BOOST
         boost::optional<std::reference_wrapper<GameEngine>> mGameEngine;
+        #else
+        std::optional<std::reference_wrapper<GameEngine>> mGameEngine;
+        #endif
 
         State mState;
 

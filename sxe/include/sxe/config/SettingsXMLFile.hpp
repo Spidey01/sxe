@@ -23,7 +23,7 @@
  *	   distribution.
  */
 
-#include <boost/property_tree/ptree.hpp>
+#include <sxe/haveboost.hpp>
 #include <sxe/api.hpp>
 #include <sxe/config/Settings.hpp>
 #include <sxe/sys/FileSystem.hpp>
@@ -79,7 +79,9 @@ namespace sxe {  namespace config {
 
       private:
         static const string_type TAG;
+        #if SXE_HAVE_BOOST
         boost::property_tree::ptree mProps;
+        #endif
         path_type mPath;
     };
 

@@ -58,6 +58,9 @@ set(SxE_SOURCES
 )
 
 set(SxE_HEADERS
+    include/sxe/Console.hpp
+    include/sxe/Game.hpp
+    include/sxe/GameEngine.hpp
     include/sxe/api.hpp
     include/sxe/cmds/Command.hpp
     include/sxe/cmds/EchoCommand.hpp
@@ -65,28 +68,26 @@ set(SxE_HEADERS
     include/sxe/cmds/SetCommand.hpp
     include/sxe/common/Initializable.hpp
     include/sxe/common/NotificationManager.hpp
-    include/sxe/common/stdtypedefs.hpp
     include/sxe/common/Subsystem.hpp
     include/sxe/common/Utils.hpp
+    include/sxe/common/stdtypedefs.hpp
     include/sxe/config/Settings.hpp
     include/sxe/config/SettingsExpander.hpp
     include/sxe/config/SettingsFile.hpp
     include/sxe/config/SettingsListener.hpp
     include/sxe/config/SettingsMap.hpp
     include/sxe/config/SettingsXMLFile.hpp
-    include/sxe/Console.hpp
     include/sxe/cxxversion.hpp
     include/sxe/dllexport.hpp
     include/sxe/dllimport.hpp
     include/sxe/filesystem.hpp
-    include/sxe/Game.hpp
-    include/sxe/GameEngine.hpp
     include/sxe/graphics/DisplayManager.hpp
     include/sxe/graphics/DisplayMode.hpp
     include/sxe/graphics/FrameEndedListener.hpp
     include/sxe/graphics/FrameListener.hpp
     include/sxe/graphics/FrameStartedListener.hpp
     include/sxe/graphics/RenderingApi.hpp
+    include/sxe/haveboost.hpp
     include/sxe/input/ConsoleInputManager.hpp
     include/sxe/input/InputCode.hpp
     include/sxe/input/InputFacet.hpp
@@ -94,19 +95,19 @@ set(SxE_HEADERS
     include/sxe/input/KeyEvent.hpp
     include/sxe/input/KeyEventManager.hpp
     include/sxe/input/KeyListener.hpp
-    include/sxe/logging/Log.hpp
-    include/sxe/logging/LoggingManager.hpp
-    include/sxe/logging/LogSink.hpp
-    include/sxe/logging/RateCounter.hpp
     include/sxe/logging.hpp
+    include/sxe/logging/Log.hpp
+    include/sxe/logging/LogSink.hpp
+    include/sxe/logging/LoggingManager.hpp
+    include/sxe/logging/RateCounter.hpp
     include/sxe/pc/PcConfiguration.hpp
     include/sxe/pc/PcDisplayManager.hpp
     include/sxe/pc/PcInputManager.hpp
     include/sxe/resource/ArchiveStream.hpp
+    include/sxe/resource/ResourceManager.hpp
     include/sxe/resource/basic_archive_istream.hpp
     include/sxe/resource/basic_archive_streambuf.hpp
     include/sxe/resource/basic_archive_typedefs.hpp
-    include/sxe/resource/ResourceManager.hpp
     include/sxe/stdheaders.hpp
     include/sxe/sys/ExitCodes.hpp
     include/sxe/sys/FileSystem.hpp

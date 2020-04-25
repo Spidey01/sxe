@@ -24,7 +24,7 @@
  */
 
 #include <sxe/stdheaders.hpp>
-#include <boost/filesystem.hpp>
+#include <sxe/haveboost.hpp>
 
 /** Used to disable things that made it into C++17 but not our release version of boost. */
 #define SXE_BOOST_DOES_NOT_HAVE 0
@@ -38,6 +38,7 @@ namespace sxe {
      */
     namespace filesystem {
 
+    #if SXE_HAVE_BOOST
         // ===== Classes
 
         using path = boost::filesystem::path;
@@ -116,6 +117,86 @@ namespace sxe {
         #endif
         using boost::filesystem::is_symlink;
         using boost::filesystem::status_known;
+    #else // SXE_HAVE_BOOST
+        // ===== Classes
+
+        using path = std::filesystem::path;
+
+        using filesystem_error = std::filesystem::filesystem_error;
+
+        using directory_entry = std::filesystem::directory_entry;
+        using directory_iterator = std::filesystem::directory_iterator;
+        using recursive_directory_iterator = std::filesystem::recursive_directory_iterator;
+
+        using file_status = std::filesystem::file_status;
+        using space_info = std::filesystem::space_info;
+        using file_type = std::filesystem::file_type;
+
+        using perms = std::filesystem::perms;
+
+        #if SXE_BOOST_DOES_NOT_HAVE
+        using perm_options = std::filesystem::perm_options;
+        using copy_options = std::filesystem::copy_options;
+        #endif
+        // Added in boost 1.72.
+        using directory_options = std::filesystem::directory_options;
+
+        #if SXE_BOOST_DOES_NOT_HAVE
+        using file_time_type = std::filesystem::file_time_type;
+        #endif
+
+        // ===== Functions
+
+        using std::filesystem::absolute;
+        using std::filesystem::canonical;
+        using std::filesystem::weakly_canonical;
+        using std::filesystem::relative;
+        #if SXE_BOOST_DOES_NOT_HAVE
+        using std::filesystem::proximate;
+        #endif
+        using std::filesystem::copy;
+        using std::filesystem::copy_file;
+        using std::filesystem::copy_symlink;
+        using std::filesystem::create_directory;
+        using std::filesystem::create_directories;
+        using std::filesystem::current_path;
+        using std::filesystem::exists;
+        using std::filesystem::equivalent;
+        using std::filesystem::file_size;
+        using std::filesystem::hard_link_count;
+        using std::filesystem::last_write_time;
+        using std::filesystem::permissions;
+        using std::filesystem::read_symlink;
+        using std::filesystem::remove;
+        using std::filesystem::remove_all;
+        using std::filesystem::rename;
+        using std::filesystem::resize_file;
+        using std::filesystem::space;
+        using std::filesystem::status;
+        #if SXE_BOOST_DOES_NOT_HAVE
+        using std::filesystem::symink_status;
+        #endif
+        using std::filesystem::temp_directory_path;
+
+        // ===== File types
+
+        #if SXE_BOOST_DOES_NOT_HAVE
+        using std::filesystem::is_block_file;
+        using std::filesystem::is_character_file;
+        #endif
+        using std::filesystem::is_directory;
+        using std::filesystem::is_empty;
+        #if SXE_BOOST_DOES_NOT_HAVE
+        using std::filesystem::is_fifo;
+        #endif
+        using std::filesystem::is_other;
+        using std::filesystem::is_regular_file;
+        #if SXE_BOOST_DOES_NOT_HAVE
+        using std::filesystem::is_socket;
+        #endif
+        using std::filesystem::is_symlink;
+        using std::filesystem::status_known;
+    #endif // SXE_HAVE_BOOST
     }
 }
 
