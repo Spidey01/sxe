@@ -121,17 +121,11 @@ set(SxE_HEADERS
 
 
 # XXX: some of these need to be BEFORE add_library() to take effect.
-# Public ones usually need target_what(SxE PUBLIC INTERFACE ...).
+# And for some reason, I"m having to do add_ for objs here + target_ for things that need to be PUBLIC INTERFACE.
 if(MSVC)
     add_compile_options(/wd4251 /wd4275 )
     add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
-
-    if (BUILD_SHARED_LIBS)
-    else(BUILD_SHARED_LIBS)
-    endif(BUILD_SHARED_LIBS)
-
 endif(MSVC)
-
 
 add_library(SxE ${SxE_SOURCES})
 
@@ -148,6 +142,7 @@ set_target_properties(SxE PROPERTIES
 
 if(BUILD_SHARED_LIBS)
     target_compile_definitions(SxE PUBLIC INTERFACE SXE_DLL)
+    add_compile_definitions(SXE_DLL)
 endif(BUILD_SHARED_LIBS)
 
 if (MSVC)
@@ -181,12 +176,7 @@ install(EXPORT SxETargets
         DESTINATION lib/cmake/SxE)
 
 find_package(nlohmann_json REQUIRED)
-if (NOT SXE_SDK_DISTDIR)
-    # target_include_directories(SxE PUBLIC ${nlohmann_json_INCLUDE_DIRS})
-else()
-    install(DIRECTORY ${nlohmann_json_ROOT}/nlohmann DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-endif (NOT SXE_SDK_DISTDIR)
-# target_link_libraries(SxE PUBLIC INTERFACE nlohmann_json::nlohmann_json)
+target_link_libraries(SxE PUBLIC INTERFACE nlohmann_json::nlohmann_json)
 
 
 set(Boost_USE_STATIC_LIBS OFF)
@@ -198,6 +188,7 @@ find_package(Boost 1.72
 if (Boost_FOUND)
     target_link_libraries(SxE PUBLIC Boost::filesystem)
 
+    add_compile_definitions(SXE_HAVE_BOOST)
     target_compile_definitions(SxE PUBLIC INTERFACE SXE_HAVE_BOOST)
 endif(Boost_FOUND)
 
