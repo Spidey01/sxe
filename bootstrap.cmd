@@ -42,6 +42,12 @@ cmake -S "%PROJECT_ROOT%\vendor\zlib" -B "%PROJECT_TMPDIR%\zlib" -G Ninja "-DCMA
 @IF errorlevel 1 goto :EOF
 ninja -C "%PROJECT_TMPDIR%\zlib" install
 @IF errorlevel 1 goto :EOF
+@REM clean up
+PUSHD vendor\zlib
+@IF errorlevel 1 goto :EOF
+git reset --hard HEAD
+git clean -f
+POPD
 
 :LOCATE_LIBARCHIVE
 cmake -S "%PROJECT_ROOT%\vendor\libarchive" -B "%PROJECT_TMPDIR%\libarchive" -G Ninja "-DCMAKE_INSTALL_PREFIX=%PROJECT_DISTDIR%" -DCMAKE_BUILD_TYPE=Release
