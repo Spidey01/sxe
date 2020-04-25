@@ -181,38 +181,41 @@ install(EXPORT SxETargets
         DESTINATION lib/cmake/SxE)
 
 find_package(nlohmann_json REQUIRED)
-target_include_directories(SxE PUBLIC ${nlohmann_json_INCLUDE_DIRS})
+if (NOT SXE_SDK_DISTDIR)
+    # target_include_directories(SxE PUBLIC ${nlohmann_json_INCLUDE_DIRS})
+else()
+    install(DIRECTORY ${nlohmann_json_ROOT}/nlohmann DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+endif (NOT SXE_SDK_DISTDIR)
+# target_link_libraries(SxE PUBLIC INTERFACE nlohmann_json::nlohmann_json)
 
 
 set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
+
 find_package(Boost 1.72
     COMPONENTS filesystem)
 if (Boost_FOUND)
-    target_include_directories(SxE PUBLIC ${Boost_INCLUDE_DIRS})
     target_link_libraries(SxE PUBLIC Boost::filesystem)
-    target_compile_definitions(SxE PUBLIC INTERFACE HAVE_BOOST)
+
+    target_compile_definitions(SxE PUBLIC INTERFACE SXE_HAVE_BOOST)
 endif(Boost_FOUND)
 
 
 find_package(glfw3 REQUIRED)
-target_include_directories(SxE PUBLIC ${glfw_INCLUDE_DIRS})
 target_link_libraries(SxE PUBLIC glfw)
 
-
 find_package(ZLIB REQUIRED)
-target_include_directories(SxE PUBLIC ${ZLIB_INCLUDE_DIRS})
 target_link_libraries(SxE PUBLIC ZLIB::ZLIB)
 
 
 # Cmake's bundled FindLibArchive.cmake wants LibArchive_*.
- find_package(LibArchive REQUIRED)
-target_include_directories(SxE PUBLIC ${LibArchive_INCLUDE_DIRS})
+find_package(LibArchive REQUIRED)
+# XXX what about when not vendor libs?
 target_link_libraries(SxE PUBLIC ${LibArchive_LIBRARIES})
 
 find_package(Vulkan REQUIRED)
+# We dynamically load Vulkan at runtime. So take the headers not the libs
 target_include_directories(SxE PUBLIC ${Vulkan_INCLUDE_DIRS})
-# We dynamically load Vulkan at runtime.
-# target_link_libraries(SxE PUBLIC ${Vulkan_LIBRARIES})
+# target_link_libraries(SxE PUBLIC Vulkan)
 

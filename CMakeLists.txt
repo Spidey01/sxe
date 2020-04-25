@@ -27,19 +27,33 @@ option(BUILD_VENDOR_LIBS "Build our own dependencies" ON)
 
 IF(BUILD_VENDOR_LIBS)
     # PROJECT_DISTDIR set from envsetup; see bootstrap.{cmd,sh}
-    set(CMAKE_PREFIX_PATH "$ENV{PROJECT_DISTDIR}" ${CMAKE_PREFIX_PATH})
 
-    # need to override this for msvc, what about gcc/sys style?
-    if (MSVC)
-        set(BOOST_INCLUDEDIR $ENV{PROJECT_DISTDIR}/include/boost-1_72)
-    endif()
+    # this conflicts with other -I config. Just set the roots for each dep.
+    #set(CMAKE_PREFIX_PATH "$ENV{PROJECT_DISTDIR}" ${CMAKE_PREFIX_PATH})
+
     set(Boost_NO_SYSTEM_PATHS ON)
+
+    # not working?
+    set(Boost_ROOT $ENV{PROJECT_DISTDIR})
+    if (MSVC)
+        set(BOOST_INCLUDEDIR ${Boost_ROOT}/include/boost-1_72)
+    endif(MSVC)
+
+    set(nlohmann_json_ROOT $ENV{PROJECT_DISTDIR})
+
+    set(glfw3_ROOT $ENV{PROJECT_DISTDIR})
+
+    set(ZLIB_ROOT $ENV{PROJECT_DISTDIR})
+
+    set(LibArchive_ROOT $ENV{PROJECT_DISTDIR})
+
+    set(CppUnit_ROOT $ENV{PROJECT_DISTDIR})
+
+    set(SXE_SDK_DISTDIR $ENV{PROJECT_DISTDIR})
 
 ELSE(BUILD_VENDOR_LIBS)
     include(FindPkgConfig)
 ENDIF(BUILD_VENDOR_LIBS)
-
-message(VERBOSE "CMAKE_PREFIX_PATH: ${CMAKE_PREFIX_PATH}")
 
 add_subdirectory(sxe)
 
