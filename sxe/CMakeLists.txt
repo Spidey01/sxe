@@ -121,6 +121,10 @@ set(SxE_HEADERS
 
 add_library(SxE ${SxE_SOURCES})
 
+# Setting CXX_* not enough to make cmake provide the flag to our compile!
+set_property(TARGET SxE PROPERTY CXX_STANDARD 17)
+
+
 target_include_directories(SxE PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include/sxe>)
