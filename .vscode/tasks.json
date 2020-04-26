@@ -13,7 +13,15 @@
             },
             "options": {
                 "cwd": "${workspaceRoot}/build"
+            }
+        },
+        {
+            "label": "Doxygen",
+            "command": "doxygen",
+            "options": {
+                "cwd": "${workspaceRoot}"
             },
+            "problemMatcher": []
         }
     ]
 }

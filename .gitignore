@@ -1,5 +1,6 @@
 build*/*
 dist*/*
+doc/html
 build.ninja
 tags
 .gradle/*

@@ -82,3 +82,11 @@ Which should make sense if you've ever messed with cmake.
 Configuration is provided for [Visual Studio Code](https://code.visualstudio.com/). It's expected that you will be using the CMake Tools extension, or manually running ngen.
 
 The default build task is set to run ninja in ./build, using whatever (cmake) configuration you've created.
+
+### Building Documentation
+
+SxE relies on Doxygen. Run it manually when you want docs.
+
+	# doxygen
+
+You'll find doc/html/index.html most helpful.
