@@ -26,6 +26,7 @@
         {
             "label": "SxE Test Runner",
             "type": "shell",
+            "dependsOn":["Ninja"],
             "windows":{
                 "command": "${env:PROJECT_BUILDDIR}\\tests\\sxe-test-runner.exe",
                 "args": ["-o", "${env:PROJECT_TMPDIR}\\sxe-test-runner.log" ],
