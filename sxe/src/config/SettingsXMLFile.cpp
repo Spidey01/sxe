@@ -109,7 +109,7 @@ SettingsXMLFile::string_type SettingsXMLFile::getString(const string_type& key) 
 #if SXE_HAVE_BOOST
     return mProps.get<string_type>(key, "");
 #else
-    return false;
+    return "";
 #endif
 }
 
