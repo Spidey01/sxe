@@ -22,6 +22,34 @@
                 "cwd": "${workspaceRoot}"
             },
             "problemMatcher": []
+        },
+        {
+            "label": "SxE Test Runner",
+            "type": "shell",
+            "windows":{
+                "command": "${env:PROJECT_BUILDDIR}\\tests\\sxe-test-runner.exe",
+                "args": ["-o", "${env:PROJECT_TMPDIR}\\sxe-test-runner.log" ],
+                "options": {
+                    "env": {
+                        "PATH":"${env:PROJECT_BUILDDIR}\\sxe;${env:PROJECT_BUILDDIR}\\tests;${env:PROJECT_DISTDIR}\\bin",
+                        "XDG_DATA_DIRS":"${workspaceRoot}\\tests"
+                    }
+                }
+            },
+            "linux":{
+                "command": "${env:PROJECT_BUILDDIR}/tests/sxe-test-runner",
+                "args": ["-o", "${env:PROJECT_TMPDIR}/tmp/sxe-test-runner.log" ],
+                "options": {
+                    "env": {
+                        "LD_LIBRARY_PATH":"${env:PROJECT_BUILDDIR}/sxe;${env:PROJECT_BUILDDIR}/tests;${env:PROJECT_DISTDIR}/lib",
+                        "XDG_DATA_DIRS":"${workspaceRoot}/tests"
+                    }
+                }
+            },
+            "group":{
+                "kind": "test",
+                "isDefault": true
+            }
         }
     ]
 }
