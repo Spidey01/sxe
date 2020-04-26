@@ -2,6 +2,14 @@
 
 ECHO Bootstrapping SXE SDK.
 
+
+:GIT_SUBMODULES
+@REM Required because envsetup is a submodule.
+ECHO Updating git submodules.
+git submodule init
+git submodule update
+
+
 :CALL_ENVSETUP
 ECHO Setting up environment.
 CALL envsetup\envsetup.cmd
