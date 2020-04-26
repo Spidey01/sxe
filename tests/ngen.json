@@ -26,8 +26,8 @@
         "main.cpp"
     ],
     "install_files": [
-        { "input":"test.txt", "output": "$datarootdir/sxe/test.txt" },
-        { "input":"test.zip", "output": "$datarootdir/sxe/test.zip" }
+        { "input":"sxe/test.txt", "output": "$datarootdir/sxe/test.txt" },
+        { "input":"sxe/test.zip", "output": "$datarootdir/sxe/test.zip" }
     ],
     "gcc": {
         "targetName": "sxe-test-runner",
