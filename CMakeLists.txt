@@ -66,6 +66,10 @@ if(BUILD_VENDOR_LIBS)
     install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/dist/include DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/../")
     install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/dist/lib DESTINATION "${CMAKE_INSTALL_LIBDIR}/../")
     install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/dist/share DESTINATION "${CMAKE_INSTALL_DATADIR}/../")
+    if (MSVC)
+        # or cmake configure breaks.
+        install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/dist/nlohmann_json.natvis DESTINATION "${CMAKE_INSTALL_PREFIX}")
+    endif (MSVC)
 
 
 else(BUILD_VENDOR_LIBS)
