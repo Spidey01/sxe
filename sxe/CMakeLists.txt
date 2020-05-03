@@ -203,7 +203,7 @@ include(CMakePackageConfigHelpers)
 
 # Export the package for use from the build-tree
 # (this registers the build-tree with a global CMake-registry)
-export(PACKAGE SxE)
+# export(PACKAGE SxE)
 
 # Create, and install a Config.cmake file for find_package().
 configure_package_config_file(SxEConfig.cmake.in
