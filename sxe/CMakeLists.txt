@@ -155,24 +155,6 @@ target_include_directories(SxE PUBLIC
     $<INSTALL_INTERFACE:include/sxe>)
 
 set_target_properties(SxE PROPERTIES PUBLIC_HEADER "${SxE_HEADERS}")
-install(TARGETS SxE
-    EXPORT SxETargets
-    INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
-    PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/SxE"
-    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
-    ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
-
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file(
-    SxEConfigVersion.cmake
-    VERSION ${PACKAGE_VERSION}
-    COMPATIBILITY AnyNewerVersion
-    )
-install(EXPORT SxETargets
-        FILE SxETargets.cmake
-        NAMESPACE SxE::
-        DESTINATION lib/cmake/SxE)
 
 find_package(nlohmann_json REQUIRED)
 target_link_libraries(SxE PUBLIC INTERFACE nlohmann_json::nlohmann_json)
@@ -208,4 +190,41 @@ find_package(Vulkan REQUIRED)
 # We dynamically load Vulkan at runtime. So take the headers not the libs
 target_include_directories(SxE PUBLIC ${Vulkan_INCLUDE_DIRS})
 # target_link_libraries(SxE PUBLIC Vulkan)
+
+install(TARGETS SxE
+    EXPORT SxETargets
+    INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+    PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/SxE"
+    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+    ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
+
+include(CMakePackageConfigHelpers)
+
+# Export the package for use from the build-tree
+# (this registers the build-tree with a global CMake-registry)
+export(PACKAGE SxE)
+
+# Create, and install a Config.cmake file for find_package().
+configure_package_config_file(SxEConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/SxEConfig.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SxE
+)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/SxEConfig.cmake
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SxE)
+
+# Generate, and install a ConfigVersion.cmake file for find_package().
+write_basic_package_version_file(
+    SxEConfigVersion.cmake
+    VERSION ${PACKAGE_VERSION}
+    COMPATIBILITY SameMajorVersion
+    )
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/SxEConfigVersion.cmake
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SxE)
+
+# Generate, and install a Targets.cmake file.
+install(EXPORT SxETargets
+        FILE SxETargets.cmake
+        NAMESPACE SxE::
+        DESTINATION lib/cmake/SxE)
 

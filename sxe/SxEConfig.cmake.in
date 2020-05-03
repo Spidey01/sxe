@@ -1,0 +1,21 @@
+# vim: set filetype=cmake tabstop=4 shiftwidth=4 expandtab :
+# based on https://gitlab.kitware.com/cmake/community/-/wikis/doc/tutorials/How-to-create-a-ProjectConfig.cmake-file
+@PACKAGE_INIT@
+
+# - Config file for the SxE package
+# It defines the following variables
+#  SXE_INCLUDE_DIRS - include directories for SxE
+#  SXE_LIBRARIES    - libraries to link against
+#  SXE_EXECUTABLE   - the bar executable
+
+# Compute paths
+get_filename_component(SXE_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+
+# Our library dependencies (contains definitions for IMPORTED targets)
+if(NOT TARGET SxE AND NOT SxE_BINARY_DIR)
+  include("${SXE_CMAKE_DIR}/SxETargets.cmake")
+endif()
+
+# These are IMPORTED targets created by SxETargets.cmake
+set(SXE_LIBRARIES SxE::SxE)
+
