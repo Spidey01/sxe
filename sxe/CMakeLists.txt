@@ -154,7 +154,10 @@ target_include_directories(SxE PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include/sxe>)
 
-set_target_properties(SxE PROPERTIES PUBLIC_HEADER "${SxE_HEADERS}")
+# This would cause SxE_HEADERS to be installed, but makes sxe/foo/bar.hpp become sxe/bar.hpp on install(TARGETS).
+# set_target_properties(SxE PROPERTIES PUBLIC_HEADER "${SxE_HEADERS}")
+# But this works.
+install(DIRECTORY include/sxe DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 find_package(nlohmann_json REQUIRED)
 target_link_libraries(SxE PUBLIC INTERFACE nlohmann_json::nlohmann_json)
@@ -193,11 +196,12 @@ target_include_directories(SxE PUBLIC ${Vulkan_INCLUDE_DIRS})
 
 install(TARGETS SxE
     EXPORT SxETargets
-    INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
-    PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/SxE"
     RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
     ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
+    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+    INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/sxe"
+    PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/sxe")
+
 
 include(CMakePackageConfigHelpers)
 
