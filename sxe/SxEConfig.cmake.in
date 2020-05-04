@@ -11,6 +11,25 @@
 # Compute paths
 get_filename_component(SXE_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
 
+# Root of the SxE_SDK, assuming we are $that/lib/cmake/SxE/SxEConfig.cmake.
+set(SxE_SDK ${SXE_CMAKE_DIR}/../../../)
+
+set(SxE_SDK_BUILD_VENDOR_LIBS @BUILD_VENDOR_LIBS@)
+
+# If BUILD_VENDOR_LIBS was set, finding them requires SxE_DIR to be in
+# CMAKE_PREFIX_PATH to find_package() them.
+if (SxE_SDK_BUILD_VENDOR_LIBS)
+    list(APPEND CMAKE_PREFIX_PATH ${SxE_SDK})
+endif (SxE_SDK_BUILD_VENDOR_LIBS)
+
+# Consumers need find_package on our deps as well.
+find_package(nlohmann_json REQUIRED)
+find_package(Boost 1.72 COMPONENTS filesystem)
+find_package(glfw3 REQUIRED)
+find_package(ZLIB REQUIRED)
+find_package(LibArchive REQUIRED)
+find_package(Vulkan REQUIRED)
+
 # Our library dependencies (contains definitions for IMPORTED targets)
 if(NOT TARGET SxE AND NOT SxE_BINARY_DIR)
   include("${SXE_CMAKE_DIR}/SxETargets.cmake")
