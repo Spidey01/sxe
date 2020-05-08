@@ -9,6 +9,12 @@ SxE is built using toolchains native to the target platform. This means:
 
 Other configurations may work but are not frequently tested.
 
+## Versions
+
+SxE 2.x for C++ is developed on master branch, formerly 2.0-cpp.
+
+SxE 1.0 for Java: checkout branch [1.0-java](https://github.com/Spidey01/sxe/tree/1.0-java).
+
 ## Setup
 
 Working from the shell should be done using [envsetup](https://github.com/Spidey01/envsetup). Working from an editor or IDE, should have the same environment set for the host platform.
