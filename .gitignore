@@ -14,3 +14,4 @@ envsetup.local.cmd
 .idea/workspace.xml
 /.idea/libraries
 .DS_Store
+vcpkg*
