@@ -12,6 +12,6 @@ SET XDG_CONFIG_HOME=%PROJECT_ROOT%\tmp\config
 SET XDG_CACHE_HOME=%PROJECT_ROOT%\tmp\cache
 
 @ECHO ON
-%PROJECT_DISTDIR%\bin\sxe-test-runner -o %PROJECT_TMPDIR%\sxe-test-runner.log %*
+"%PROJECT_DISTDIR%\bin\sxe-test-runner" -o "%PROJECT_TMPDIR%\sxe-test-runner.log" %*
 
 @ENDLOCAL

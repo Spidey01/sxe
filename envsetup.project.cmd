@@ -53,7 +53,7 @@ REM SET PROJECT_BUILDDIR=%PROJECT_ROOT%\tmp\%PROJECT_TARGET_TRIPLET%
 SET PROJECT_BUILDDIR=%PROJECT_ROOT%\build
 
 REM Where to install stuff for redist. - default.
-SET PROJECT_DISTDIR="%ProgramFiles(x86)%\SXE_SDK"
+SET PROJECT_DISTDIR=%ProgramFiles(x86)%\SXE_SDK
 
 REM Where to put temp files, like logs from sxe-test-runner.
 SET PROJECT_TMPDIR=%PROJECT_ROOT%\tmp
