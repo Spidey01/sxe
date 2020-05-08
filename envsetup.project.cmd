@@ -58,6 +58,12 @@ SET PROJECT_DISTDIR=%PROJECT_ROOT%\dist
 REM Where to put temp files, like logs from sxe-test-runner.
 SET PROJECT_TMPDIR=%PROJECT_ROOT%\tmp
 
+REM Preferred value for cmake -G.
+SET PROJECT_BUILDSYSTEM=Ninja
+
+REM Preferred CMAKE_BUILD_TYPE.
+SET PROJECT_BUILDTYPE=RelWithDebInfo
+
 REM Where vcpkg should be rooted.
 SET "VCPKG_ROOT=%PROJECT_TMPDIR%\vcpkg"
 :FINISH_SETUP
