@@ -159,7 +159,17 @@ target_include_directories(SxE PUBLIC
 # But this works.
 install(DIRECTORY include/sxe DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
-find_package(nlohmann_json REQUIRED)
+if (BUILD_SXE_SDK)
+    find_package(nlohmann_json REQUIRED)
+else (BUILD_SXE_SDK)
+    # from the OS.
+    find_path(nlohmann_json_INCLUDE_DIR nlohmann/json.hpp)
+    add_library(nlohmann_json::nlohmann_json INTERFACE IMPORTED)
+    message("nlohmann_json_INCLUDE_DIR:${nlohmann_json_INCLUDE_DIR}")
+    set_target_properties(nlohmann_json::nlohmann_json PROPERTIES
+        INTERFACE_INCLUDE_DIRECTORIES ${nlohmann_json_INCLUDE_DIR})
+
+endif (BUILD_SXE_SDK)
 target_link_libraries(SxE PUBLIC INTERFACE nlohmann_json::nlohmann_json)
 
 
