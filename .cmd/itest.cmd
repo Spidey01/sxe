@@ -5,7 +5,4 @@ IF NOT DEFINED PROJECT_ROOT (
 )
 @ECHO ON
 
-ngen
-@IF errorlevel 1 GOTO :eof
-ninja tests
-@IF errorlevel 1 GOTO :eof
+m tests/install
