@@ -16,3 +16,6 @@
 [submodule "vendor/libarchive"]
 	path = vendor/libarchive
 	url = https://github.com/libarchive/libarchive.git
+[submodule "vendor\\vcpkg"]
+	path = vendor\\vcpkg
+	url = https://github.com/microsoft/vcpkg.git
