@@ -26,40 +26,21 @@ set_property(TARGET sxe-test-runner PROPERTY CXX_STANDARD 17)
 target_include_directories(sxe-test-runner PRIVATE SxE)
 target_link_libraries(sxe-test-runner PRIVATE SxE)
 
-find_package(CppUnit REQUIRED)
-target_include_directories(sxe-test-runner PRIVATE CppUnit)
 
-# FindCppUnit.cmake + msbuild't cppunit isn't so friendly.
-#
-#   - cppunit.lib = static release
-#   - cppunitd.lib = static debug
-#   - cppunit_dll.lib = shared release
-#   - cppunitd_dll.lib = shared debug
-#
-# And I doubt anyone really loves the +[d]_[dll,static] convention some libs use on MSVC.
-#
-get_filename_component(where_is_cppunit_lib ${CPPUNIT_LIBRARY} DIRECTORY)
+# cppunit doesn't really do cmake.
 
-if(BUILD_SHARED_LIBS AND MSVC AND CPPUNIT_FOUND)
-    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-        set(what_is_cppunit_lib cppunitd_dll.lib)
-    else()
-        set(what_is_cppunit_lib cppunit_dll.lib)
-    endif()
-    set(CPPUNIT_LIBRARY ${where_is_cppunit_lib}/${what_is_cppunit_lib})
-    set(CPPUNIT_DEFINITIONS CPPUNIT_DLL)
-    if (NOT CppUnit_FIND_QUIETLY)
-        MESSAGE(STATUS "Override CPPUNIT_LIBRARY: ${CPPUNIT_LIBRARY}")
-        MESSAGE(STATUS "Override CPPUNIT_DEFINITIONS: ${CPPUNIT_DEFINITIONS}")
-    endif()
-    target_link_libraries(sxe-test-runner PUBLIC ${CPPUNIT_LIBRARY})
-    target_compile_definitions(sxe-test-runner PUBLIC ${CPPUNIT_DEFINITIONS})
-else(BUILD_SHARED_LIBS AND MSVC AND CPPUNIT_FOUND)
-    # probably need to change to cppunitd.lib if CMAKE_BUILD_TYPE is Debug.
-    target_link_libraries(sxe-test-runner PUBLIC CppUnit)
-    target_compile_definitions(sxe-test-runner PUBLIC CppUnit)
-endif(BUILD_SHARED_LIBS AND MSVC AND CPPUNIT_FOUND)
+find_path(CppUnit_INCLUDE_DIR cppunit/Test.h)
+if (MSVC AND BUILD_SHARED_LIBS)
+    find_library(CppUnit_LIBRARY cppunit_dll)
+else()
+    find_library(CppUnit_LIBRARY cppunit)
+endif()
 
+message("CppUnit_INCLUDE_DIR:${CppUnit_INCLUDE_DIR}")
+message("CppUnit_LIBRARY:${CppUnit_LIBRARY}")
+
+target_include_directories(sxe-test-runner PRIVATE ${CppUnit_INCLUDE_DIR})
+target_link_libraries(sxe-test-runner PRIVATE ${CppUnit_LIBRARY})
 
 # Test assets to include in $datarootdir/sxe/
 install(FILES sxe/test.txt sxe/test.zip DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/sxe)
