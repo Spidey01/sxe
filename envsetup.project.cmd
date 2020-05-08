@@ -44,8 +44,9 @@ IF NOT DEFINED VULKAN_SDK (
 :SET_VARS
 
 REM MS and *nix land differ on the arch names, and toolchain != vendor, but
-REM same idea as triplets like x864_64-linux-gnu
-SET PROJECT_TARGET_TRIPLET=%PROJECT_TARGET_ARCH%-%OS%-%PROJECT_TOOLCHAIN%
+REM same idea as triplets like x864_64-linux-gnu. In this case we're using
+REM vcpkg triplet, which is more of a pair..
+SET PROJECT_TARGET_TRIPLET=%PROJECT_TARGET_ARCH%-windows
 
 REM Where to build stuff in cmake. - default
 REM SET PROJECT_BUILDDIR=%PROJECT_ROOT%\tmp\%PROJECT_TARGET_TRIPLET%
