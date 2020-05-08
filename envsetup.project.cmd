@@ -19,18 +19,18 @@ git submodule update
 @REM Should exist if >= VS2017 installed, and not old.
 SET "SXE_VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
 
-REM compiling with MSC, preffered on Windows.
+REM compiling with MSC, proffered on Windows.
 IF NOT DEFINED VisualStudioVersion (
 	ECHO Locating compiler.
 
 	FOR /f "usebackq delims=" %%i IN (`"%SXE_VSWHERE%" -prerelease -latest -property installationPath`) DO (
 		IF EXIST "%%i\Common7\Tools\vsdevcmd.bat" (
 			CALL "%%i\Common7\Tools\vsdevcmd.bat" -arch=%PROJECT_TARGET_ARCH% -host_arch=%PROJECT_HOST_ARCH%
-			SET PROJECT_TOOLCHAIN=msc%VisualStudioVersion%
 		)
 	)
 )
 ECHO Using Visual Studio %VisualStudioVersion%
+SET PROJECT_TOOLCHAIN=msc%VisualStudioVersion%
 
 :LOCATE_VULKAN
 @REM The Vulkan SDK from LunarG defines VK_SDK_PATH and VULKAN_SDK as the root of the files.
