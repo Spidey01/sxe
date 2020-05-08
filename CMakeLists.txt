@@ -31,6 +31,7 @@ include(GNUInstallDirs)
 # Reminder: options are "OFF" by default
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 option(BUILD_SXE_SDK "Build SxE as a Software Development Kit." ON)
+option(BUILD_DOCS "Build SxE documentation" ON)
 
 # Whether using internal or external, it won't be built from here.
 # To use internal: run bootstrap.{cmd,sh} to deal with vcpkg.
@@ -57,5 +58,16 @@ add_subdirectory(sxe)
 add_subdirectory(tests)
 
 add_subdirectory(demos)
+
+if (BUILD_DOCS)
+    add_subdirectory(docs)
+
+    install(FILES 
+        README.md
+        NOTICE
+        COPYING
+        DESTINATION ${CMAKE_INSTALL_DOCDIR})
+
+endif(BUILD_DOCS)
 
 include(CPack)
