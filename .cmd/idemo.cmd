@@ -5,8 +5,4 @@ IF NOT DEFINED PROJECT_ROOT (
 )
 @ECHO ON
 
-ngen
-@IF errorlevel 1 goto :eof
-
-ninja demos\%1
-
+m demos/%*/install
