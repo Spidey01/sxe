@@ -19,9 +19,25 @@ AlwaysBreakTemplateDeclarations: Yes
 
 # not working.
 CompactNamespaces: true
+FixNamespaceComments: true
 
+# Some are errors, or just not used by my clang-format :'(.
 BraceWrapping:   
-  AfterNamespace:  true
+  AfterNamespace: true
+  AfterClass: true
+#  AfterCaseLabel: false
+#  AfterControlStatement: MultiLine
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: false
+  AfterStruct: true
+  AfterUnion: true
+  AfterExternBlock: true
+  BeforeCatch: false
+  BeforeElse: false
+#  BeforeLambdaBody: true
+  SplitEmptyFunction: true
+
 
 # Really prefer All in header, None in source.
 NamespaceIndentation: All
