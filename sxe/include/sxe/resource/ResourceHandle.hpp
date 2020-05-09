@@ -48,11 +48,41 @@ namespace sxe { namespace resource {
          */
         ResourceHandle(const path_type& resource);
 
+        /** Create a handle to a resource in a container.
+         * 
+         * Use this for tasks like openning a resource from an archive file.
+         * 
+         * @param container /path/to/container.
+         * @param resource /path/inside/container.
+         */
+        ResourceHandle(const path_type& container, const path_type& resource);
+
         virtual ~ResourceHandle();
+
+        /** Return an istream for the resource.
+         */
+        std::unique_ptr<std::istream> asInputStream();
 
       protected:
       private:
         static const string_type TAG;
+
+        enum class LoaderType {
+            FileStream,   /**< std::ifstream. */
+            ArchiveStream /**< sxe::resource::archive_stream. */
+        };
+
+        using LoaderMap = std::map<path_type, LoaderType>;
+
+        /** Map of path_type::extension() to a common loader.
+         * 
+         * E.g. To map ".zip" and ".tar" to the same ArchiveStream loader.
+         */
+        static LoaderMap sLoaderMap;
+
+        /** The filesystem.
+         */
+        path_type mContainer;
 
         /** The resource to handle.
          */

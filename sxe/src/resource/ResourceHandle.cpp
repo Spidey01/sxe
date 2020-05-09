@@ -24,13 +24,34 @@
 #include "sxe/resource/ResourceHandle.hpp"
 
 #include <sxe/logging.hpp>
+#include <sxe/resource/ArchiveStream.hpp>
 
 namespace sxe { namespace resource {
 
 const ResourceHandle::string_type ResourceHandle::TAG = "ResourceHandle";
 
+ResourceHandle::LoaderMap ResourceHandle::sLoaderMap = {
+
+    /* path loaders. */
+    {"", LoaderType::FileStream},
+
+    /* archive_stream loaders */
+    {".zip", LoaderType::ArchiveStream},
+    {".tar", LoaderType::ArchiveStream},
+    {".tgz", LoaderType::ArchiveStream},
+    {".tbz2", LoaderType::ArchiveStream},
+    {".txz", LoaderType::ArchiveStream},
+
+};
+
 ResourceHandle::ResourceHandle(const path_type& resource)
-    : mResource(resource)
+    : ResourceHandle("", resource)
+{
+}
+
+ResourceHandle::ResourceHandle(const path_type& container, const path_type& resource)
+    : mContainer(container)
+    , mResource(resource)
 {
     Log::i(TAG, "ResourceHandle(): mResource: " + mResource.string());
 }
@@ -40,5 +61,24 @@ ResourceHandle::~ResourceHandle()
     Log::i(TAG, "~ResourceHandle(): mResource: " + mResource.string());
 }
 
+std::unique_ptr<std::istream> ResourceHandle::asInputStream()
+{
+    using u_ptr = std::unique_ptr<std::istream>;
 
+    auto it = sLoaderMap.find(mContainer.extension());
+
+    if (it == sLoaderMap.end()) {
+        return nullptr;
+    }
+
+    switch (it->second) {
+        case LoaderType::ArchiveStream:
+            return u_ptr(new sxe::resource::archive_istream(mContainer, mContainer));
+        case LoaderType::FileStream:
+        default:
+            return u_ptr(new std::ifstream(mResource.string()));
+    }
+
+    return nullptr;
+}
 } }
