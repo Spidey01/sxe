@@ -104,6 +104,25 @@ namespace sxe {
         /** Convenience method that can serve as a simple main loop. */
         void mainLoop();
 
+        /** Convenience method that provides a default main hook.
+         * 
+         * This will start() the engine, run the mainLoop(), and then stop()
+         * the engine when the loop has exited.
+         * 
+         * You can essentially implement your main() with three steps:
+         * 
+         *   1. Setup GameEngine for your platform.
+         *   2. Fail if result == nullptr.
+         *   3. return g->main().
+         * 
+         * Helper functions are provided for step 1, and the remainder are
+         * simple.
+         * 
+         * @returns EXIT_SUCESS, or EXIT_FAILURE as appropriate.
+         * @see pc::PcConfiguration, testing::NullConfiguration.
+         */
+        int main();
+
         /** Determine if the Game environment is running. */
         bool isRunning() const;
 

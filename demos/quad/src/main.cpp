@@ -40,10 +40,6 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    g->start();
-    g->mainLoop();
-    g->stop();
-
-    return 0;
+    return g->main();
 }
 

@@ -221,6 +221,23 @@ void GameEngine::mainLoop()
 }
 
 
+int GameEngine::main()
+{
+    Log::xtrace(TAG, "main()");
+
+    if (!start()) {
+        Log::e(TAG, "Failed to start()!");
+        return EXIT_FAILURE;
+    }
+
+    mainLoop();
+
+    stop();
+
+    return EXIT_SUCCESS;
+}
+
+
 bool GameEngine::isRunning() const
 {
     if (mGame && mGame->isStopRequested())
