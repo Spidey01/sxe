@@ -27,6 +27,7 @@
 #include <sxe/common/NotificationManager.hpp>
 #include <sxe/common/Subsystem.hpp>
 #include <sxe/config/Settings.hpp>
+#include <sxe/resource/ResourceHandle.hpp>
 
 namespace sxe { namespace resource {
 
@@ -46,11 +47,11 @@ namespace sxe { namespace resource {
         void removeResourceLocation(const string_type& path);
         void removeResourceLocation(const path_type& path);
 
-        void load(const string_type& path);
+        ResourceHandle::unique_ptr load(const string_type& path);
 
         /** Write me.
          */
-        void load(const path_type& path);
+        ResourceHandle::unique_ptr load(const path_type& path);
 
       protected:
 
