@@ -28,6 +28,7 @@
 
 using std::string;
 using sxe::GameEngine;
+using std::runtime_error;
 
 namespace demos {
 
@@ -48,17 +49,30 @@ Quad::Quad(GameEngine& engine)
      */
 
     try {
-        mGameEngine.getResourceManager().load(MESH_RESOURCE_PATH);
-        #if 0
+        // Don't have ResourceHandle::asWhatWeWant() yet, so just print the vertex data.
+        auto rh = mGameEngine.getResourceManager().load(MESH_RESOURCE_PATH);
+        if (!rh)
+            throw runtime_error(TAG + ": ResourceManager::load() failed!");
+
+        auto input = rh->asInputStream();
+        if (input == nullptr)
+            throw std::runtime_error(TAG + ": Failed openning " + MESH_RESOURCE_PATH);
+
+        string line;
+        while (*input) {
+            std::getline(*input, line);
+            Log::d(TAG, "mesh line:" + line);
+        }
+
+#if 0
         mRenderData.setMesh(
                             mGameEngine.getResourceManager().load(
                                                                   MESH_RESOURCE_PATH).asVertexVertexMesh());
-        #endif
-    } catch(std::exception& ex) {
+#endif
+    } catch (std::exception& ex) {
         Log::wtf(TAG, "Failed loading " + MESH_RESOURCE_PATH, ex);
     }
 }
-
 
 Quad::~Quad()
 {
