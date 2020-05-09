@@ -26,6 +26,7 @@ set(SxE_SOURCES
         src/common/Subsystem.cpp
         src/common/Utils.cpp
         src/config/Settings.cpp
+        src/config/SettingsEnvironment.cpp
         src/config/SettingsExpander.cpp
         src/config/SettingsFile.cpp
         src/config/SettingsListener.cpp
@@ -72,6 +73,7 @@ set(SxE_HEADERS
     include/sxe/common/Utils.hpp
     include/sxe/common/stdtypedefs.hpp
     include/sxe/config/Settings.hpp
+    include/sxe/config/SettingsEnvironment.hpp
     include/sxe/config/SettingsExpander.hpp
     include/sxe/config/SettingsFile.hpp
     include/sxe/config/SettingsListener.hpp
