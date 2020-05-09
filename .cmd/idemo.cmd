@@ -5,5 +5,4 @@ IF NOT DEFINED PROJECT_ROOT (
 )
 @ECHO ON
 
-m sxe/install
-m demos/%*/install
+m sxe/install demos/%*/install
