@@ -5,4 +5,5 @@ IF NOT DEFINED PROJECT_ROOT (
 )
 @ECHO ON
 
+m sxe/install
 m tests/install
