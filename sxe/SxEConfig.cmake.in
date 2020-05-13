@@ -29,6 +29,7 @@ find_package(glfw3 REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(LibArchive REQUIRED)
 find_package(Vulkan REQUIRED)
+find_package(glbinding QUIET)
 
 # Our library dependencies (contains definitions for IMPORTED targets)
 if(NOT TARGET SxE AND NOT SxE_BINARY_DIR)

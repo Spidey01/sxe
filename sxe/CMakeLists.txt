@@ -209,6 +209,13 @@ if (Vulkan_FOUND)
     # target_link_libraries(SxE PUBLIC Vulkan)
 endif (Vulkan_FOUND)
 
+find_package(glbinding)
+if (glbinding_FOUND)
+    set(SXE_HAVE_OPENGL ON)
+    target_link_libraries(SxE PUBLIC glbinding::glbinding)
+endif (glbinding_FOUND)
+
+
 install(TARGETS SxE
     EXPORT SxETargets
     RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"

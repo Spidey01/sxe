@@ -42,6 +42,7 @@ libarchive ^
 glfw3 ^
 cppunit ^
 boost-filesystem boost-optional boost-property-tree ^
+glbinding ^
 vulkan vulkan-hpp
 
 IF ERRORLEVEL 1 GOTO :EOF
