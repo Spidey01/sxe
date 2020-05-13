@@ -185,6 +185,7 @@ find_package(Boost 1.72
     COMPONENTS filesystem)
 if (Boost_FOUND)
     target_link_libraries(SxE PUBLIC Boost::filesystem)
+    set(SXE_HAVE_BOOST ON)
 endif(Boost_FOUND)
 
 
