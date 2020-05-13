@@ -5,4 +5,6 @@
 /** Whether SxE was built with Boost. */
 #cmakedefine01 SXE_HAVE_BOOST
 
+#cmakedefine01 SXE_HAVE_VULKAN
+
 #endif // SXE_CONFIG__H

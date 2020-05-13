@@ -203,6 +203,7 @@ target_link_libraries(SxE PUBLIC ${LibArchive_LIBRARIES})
 
 find_package(Vulkan REQUIRED)
 if (Vulkan_FOUND)
+    set(SXE_HAVE_VULKAN ON)
     # We dynamically load Vulkan at runtime. So take the headers not the libs
     target_include_directories(SxE PUBLIC ${Vulkan_INCLUDE_DIRS})
     # target_link_libraries(SxE PUBLIC Vulkan)
