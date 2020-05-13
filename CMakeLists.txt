@@ -32,6 +32,8 @@ include(GNUInstallDirs)
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 option(BUILD_SXE_SDK "Build SxE as a Software Development Kit." ON)
 option(BUILD_DOCS "Build SxE documentation" ON)
+option(BUILD_TESTS "Build SxE test runner." ON)
+
 
 # Whether using internal or external, it won't be built from here.
 # To use internal: run bootstrap.{cmd,sh} to deal with vcpkg.
@@ -55,7 +57,9 @@ endif(BUILD_SXE_SDK)
 
 add_subdirectory(sxe)
 
-add_subdirectory(tests)
+if (BUILD_TESTS)
+    add_subdirectory(tests)
+endif (BUILD_TESTS)
 
 add_subdirectory(demos)
 
