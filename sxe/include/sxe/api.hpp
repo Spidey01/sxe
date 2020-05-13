@@ -23,6 +23,8 @@
  *	   distribution.
  */
 
+#include <sxe/config.hpp>
+
 #include <sxe/cxxversion.hpp>
 #include <sxe/stdheaders.hpp>
 

@@ -1,0 +1,7 @@
+#ifndef SXE_CONFIG__H
+#define SXE_CONFIG__H
+
+/** Whether SxE was built with Boost. */
+#define SXE_HAVE_BOOST @Boost_FOUND@
+
+#endif // SXE_CONFIG__H

@@ -9,7 +9,7 @@ add_executable(diagterm
     src/main.cpp)
 
 set_property(TARGET diagterm PROPERTY CXX_STANDARD 17)
-target_include_directories(diagterm PRIVATE SxE)
+target_include_directories(diagterm PRIVATE SxE ${CMAKE_BINARY_DIR}/sxe/include)
 target_link_libraries(diagterm PRIVATE SxE)
 
 install(FILES diagterm.cfg DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/xdg)

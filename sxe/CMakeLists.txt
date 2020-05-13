@@ -185,9 +185,6 @@ find_package(Boost 1.72
     COMPONENTS filesystem)
 if (Boost_FOUND)
     target_link_libraries(SxE PUBLIC Boost::filesystem)
-
-    add_compile_definitions(SXE_HAVE_BOOST)
-    target_compile_definitions(SxE PUBLIC INTERFACE SXE_HAVE_BOOST)
 endif(Boost_FOUND)
 
 
@@ -204,9 +201,11 @@ find_package(LibArchive REQUIRED)
 target_link_libraries(SxE PUBLIC ${LibArchive_LIBRARIES})
 
 find_package(Vulkan REQUIRED)
-# We dynamically load Vulkan at runtime. So take the headers not the libs
-target_include_directories(SxE PUBLIC ${Vulkan_INCLUDE_DIRS})
-# target_link_libraries(SxE PUBLIC Vulkan)
+if (Vulkan_FOUND)
+    # We dynamically load Vulkan at runtime. So take the headers not the libs
+    target_include_directories(SxE PUBLIC ${Vulkan_INCLUDE_DIRS})
+    # target_link_libraries(SxE PUBLIC Vulkan)
+endif (Vulkan_FOUND)
 
 install(TARGETS SxE
     EXPORT SxETargets
@@ -243,3 +242,11 @@ install(EXPORT SxETargets
         NAMESPACE SxE::
         DESTINATION lib/cmake/SxE)
 
+# config.h
+# Balance of evils:
+# - [ ] Put config.h in source tree, rude to people using submodules.
+# - [X] Add this dir to each of our modules CMakeLists.txt.
+set(CONFIG_H_DIR ${CMAKE_BINARY_DIR}/sxe/include)
+configure_file(config.hpp.in ${CONFIG_H_DIR}/sxe/config.hpp @ONLY)
+install(FILES ${CONFIG_H_DIR}/sxe/config.hpp DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/sxe)
+target_include_directories(SxE PRIVATE ${CONFIG_H_DIR})

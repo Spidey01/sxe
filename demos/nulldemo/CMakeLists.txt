@@ -9,7 +9,7 @@ add_executable(nulldemo
     src/NullDemo.cpp)
 
 set_property(TARGET nulldemo PROPERTY CXX_STANDARD 17)
-target_include_directories(nulldemo PRIVATE SxE)
+target_include_directories(nulldemo PRIVATE SxE ${CMAKE_BINARY_DIR}/sxe/include)
 target_link_libraries(nulldemo PRIVATE SxE)
 
 install(FILES nulldemo.cfg DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/xdg)

@@ -11,7 +11,7 @@ add_executable(quad
 
 set_property(TARGET quad PROPERTY CXX_STANDARD 17)
 
-target_include_directories(quad PRIVATE SxE)
+target_include_directories(quad PRIVATE SxE ${CMAKE_BINARY_DIR}/sxe/include)
 target_link_libraries(quad PRIVATE SxE)
 
 install(FILES share/Quad.dat DESTINATION ${CMAKE_INSTALL_DATADIR}/QuadGame)

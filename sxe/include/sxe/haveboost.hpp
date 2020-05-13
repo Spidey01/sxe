@@ -23,14 +23,7 @@
  *	   distribution.
  */
 
-#ifndef SXE_HAVE_BOOST
-#ifndef HAVE_BOOST
-#define SXE_HAVE_BOOST 0
-#else // HAVE_BOOST
-#define SXE_HAVE_BOOST 1
-#endif // HAVE_BOOST
-#define SXE_HAVE_BOOST 0
-#endif // SXE_HAVE_BOOST
+#include <sxe/config.hpp>
 
 
 #if SXE_HAVE_BOOST

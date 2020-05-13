@@ -24,7 +24,7 @@ add_executable(sxe-test-runner
 
 set_property(TARGET sxe-test-runner PROPERTY CXX_STANDARD 17)
 
-target_include_directories(sxe-test-runner PRIVATE SxE)
+target_include_directories(sxe-test-runner PRIVATE SxE ${CMAKE_BINARY_DIR}/sxe/include)
 target_link_libraries(sxe-test-runner PRIVATE SxE)
 
 
