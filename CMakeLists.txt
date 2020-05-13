@@ -33,6 +33,7 @@ option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 option(BUILD_SXE_SDK "Build SxE as a Software Development Kit." ON)
 option(BUILD_DOCS "Build SxE documentation" ON)
 option(BUILD_TESTS "Build SxE test runner." ON)
+option(BUILD_DEMOS "Build SxE demo apps." ON)
 
 
 # Whether using internal or external, it won't be built from here.
@@ -61,7 +62,9 @@ if (BUILD_TESTS)
     add_subdirectory(tests)
 endif (BUILD_TESTS)
 
-add_subdirectory(demos)
+if (BUILD_DEMOS)
+    add_subdirectory(demos)
+endif (BUILD_DEMOS)
 
 if (BUILD_DOCS)
     add_subdirectory(docs)
