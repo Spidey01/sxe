@@ -41,8 +41,8 @@ option(BUILD_DEMOS "Build SxE demo apps." ON)
 
 if (BUILD_SXE_SDK)
     file(TO_CMAKE_PATH "$ENV{VCPKG_ROOT}" VCPKG_ROOT)
-    message("VCPKG_ROOT: ${VCPKG_ROOT}")
-    message("VCPKG_TRIPLET: ${VCPKG_TRIPLET}")
+    message(DEBUG "VCPKG_ROOT: ${VCPKG_ROOT}")
+    message(DEBUG "VCPKG_TRIPLET: ${VCPKG_TRIPLET}")
 
     install(DIRECTORY ${VCPKG_ROOT}/installed/${VCPKG_TRIPLET}/bin DESTINATION "${CMAKE_INSTALL_BINDIR}/../")
     install(DIRECTORY ${VCPKG_ROOT}/installed/${VCPKG_TRIPLET}/include DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/../")

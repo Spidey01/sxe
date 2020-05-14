@@ -37,8 +37,8 @@ else()
     find_library(CppUnit_LIBRARY cppunit)
 endif()
 
-message("CppUnit_INCLUDE_DIR:${CppUnit_INCLUDE_DIR}")
-message("CppUnit_LIBRARY:${CppUnit_LIBRARY}")
+message(DEBUG "CppUnit_INCLUDE_DIR:${CppUnit_INCLUDE_DIR}")
+message(DEBUG "CppUnit_LIBRARY:${CppUnit_LIBRARY}")
 
 target_include_directories(sxe-test-runner PRIVATE ${CppUnit_INCLUDE_DIR})
 target_link_libraries(sxe-test-runner PRIVATE ${CppUnit_LIBRARY})
