@@ -204,12 +204,11 @@ if (LibArchive_FOUND)
     target_link_libraries(SxE PUBLIC ${LibArchive_LIBRARIES})
 endif (LibArchive_FOUND)
 
-find_package(Vulkan REQUIRED)
+find_package(Vulkan)
 if (Vulkan_FOUND)
     set(SXE_HAVE_VULKAN ON)
     # We dynamically load Vulkan at runtime. So take the headers not the libs
     target_include_directories(SxE PUBLIC ${Vulkan_INCLUDE_DIRS})
-    # target_link_libraries(SxE PUBLIC Vulkan)
 endif (Vulkan_FOUND)
 
 find_package(glbinding)

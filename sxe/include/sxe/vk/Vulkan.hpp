@@ -25,7 +25,10 @@
 
 #include <sxe/Game.hpp>
 #include <sxe/api.hpp>
+
+#if SXE_HAVE_VULKAN
 #include <vulkan/vulkan.hpp>
+#endif
 
 namespace sxe { namespace vk {
 
@@ -37,6 +40,8 @@ namespace sxe { namespace vk {
 
         Vulkan() = default;
 
+#if SXE_HAVE_VULKAN
+
         /** Our handle to VkInstance and the C++ interface's dispatcher.
          *
          * @param instance the VkInstance to take ownership of.
@@ -44,9 +49,13 @@ namespace sxe { namespace vk {
          */
         Vulkan(::vk::Instance instance, ::vk::DispatchLoaderDynamic loader);
 
+#endif // SXE_HAVE_VULKAN
+
         /** Destroys the VkInstance and loader.
          */
         ~Vulkan();
+
+#if SXE_HAVE_VULKAN
 
         /** Returns our VkInstance.
          */
@@ -70,7 +79,11 @@ namespace sxe { namespace vk {
 
         std::string describeDevice(::vk::PhysicalDevice device) const;
 
+#endif // SXE_HAVE_VULKAN
+
       protected:
+
+#if SXE_HAVE_VULKAN
 
         /** Validate the physical device.
          *
@@ -79,14 +92,19 @@ namespace sxe { namespace vk {
          */
         bool validateDevice(::vk::PhysicalDevice device, VkPhysicalDeviceType deviceType);
 
-      private:
+#endif // SXE_HAVE_VULKAN
 
+      private:
         static const std::string TAG;
+
+#if SXE_HAVE_VULKAN
+
         ::vk::Instance mInstance;
         ::vk::DispatchLoaderDynamic mLoader;
         ::vk::PhysicalDevice mPhysicalDevice;
         ::vk::Device mDevice;
 
+#endif // SXE_HAVE_VULKAN
     };
 
 } }

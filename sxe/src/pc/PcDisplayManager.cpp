@@ -23,8 +23,10 @@
 
 #include "sxe/pc/PcDisplayManager.hpp"
 
+#if SXE_HAVE_VULKAN
 /* Needs to come before glfw3.h, or it won't include support functions for it. */
 #include <vulkan/vulkan.hpp>
+#endif
 
 #include <GLFW/glfw3.h>
 #include <sxe/logging.hpp>
@@ -268,7 +270,11 @@ GLFWwindow* PcDisplayManager::getWindow() const
 
 bool PcDisplayManager::supportsVulkan() const
 {
+#if SXE_HAVE_VULKAN
     return glfwVulkanSupported() == GLFW_TRUE;
+#else
+    return false;
+#endif
 }
 
 
@@ -297,6 +303,8 @@ void PcDisplayManager::error_callback(int code, const char* description)
 bool PcDisplayManager::createVulkanInstance()
 {
     Log::xtrace(TAG, "createVulkanInstance()");
+
+#if SXE_HAVE_VULKAN
 
     VkApplicationInfo appInfo = {};
 
@@ -380,6 +388,8 @@ bool PcDisplayManager::createVulkanInstance()
     ::vk::DispatchLoaderDynamic loader(instance, vkGetInstanceProcAddr);
 
     mVulkan = std::make_unique<sxe::vk::Vulkan>(instance, loader);
+
+#endif // SXE_HAVE_VULKAN
 
     return mVulkan != nullptr;
 }

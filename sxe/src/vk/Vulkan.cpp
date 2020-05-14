@@ -35,6 +35,8 @@ namespace sxe { namespace vk {
 
 const std::string Vulkan::TAG = "Vulkan";
 
+#if SXE_HAVE_VULKAN
+
     Vulkan::Vulkan(::vk::Instance instance, ::vk::DispatchLoaderDynamic loader)
         : mInstance(instance)
         , mLoader(loader)
@@ -85,13 +87,18 @@ const std::string Vulkan::TAG = "Vulkan";
         }
     }
 
+#endif // SXE_HAVE_VULKAN
 
     Vulkan::~Vulkan()
     {
+#if SXE_HAVE_VULKAN
         Log::d(TAG, "Destroying VkInstance.");
         mInstance.destroy(nullptr, mLoader);
+#endif // SXE_HAVE_VULKAN
     }
 
+
+#if SXE_HAVE_VULKAN
 
     ::vk::Instance Vulkan::instance() const
     {
@@ -197,6 +204,8 @@ const std::string Vulkan::TAG = "Vulkan";
 
         return true;
     }
+
+#endif // SXE_HAVE_VULKAN
 
 } }
 
