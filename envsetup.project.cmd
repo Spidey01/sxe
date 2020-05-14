@@ -17,6 +17,7 @@ git submodule update
 
 :LOCATE_COMPILER
 @REM Should exist if >= VS2017 installed, and not old.
+@REM But requires IDE installed, command line tools not enough.
 SET "SXE_VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
 
 REM compiling with MSC, proffered on Windows.
@@ -27,6 +28,14 @@ IF NOT DEFINED VisualStudioVersion (
 		IF EXIST "%%i\Common7\Tools\vsdevcmd.bat" (
 			CALL "%%i\Common7\Tools\vsdevcmd.bat" -arch=%PROJECT_TARGET_ARCH% -host_arch=%PROJECT_HOST_ARCH%
 		)
+	)
+
+	@REM Fall back to what I use.
+	IF NOT DEFINED VisualStudioVersion (
+		ECHO Falling back to VS2019.
+		CALL "%ProgramFiles(x86)%\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\VsDevCmd.bat" ^
+	       		-arch=%PROJECT_TARGET_ARCH% ^
+			-host_arch=%PROJECT_HOST_ARCH%
 	)
 
 	IF NOT DEFINED VisualStudioVersion (
