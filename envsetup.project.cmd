@@ -28,6 +28,11 @@ IF NOT DEFINED VisualStudioVersion (
 			CALL "%%i\Common7\Tools\vsdevcmd.bat" -arch=%PROJECT_TARGET_ARCH% -host_arch=%PROJECT_HOST_ARCH%
 		)
 	)
+
+	IF NOT DEFINED VisualStudioVersion (
+		ECHO FAILED locating compiler.
+		GOTO :EOF
+	)
 )
 ECHO Using Visual Studio %VisualStudioVersion%
 SET PROJECT_TOOLCHAIN=msc%VisualStudioVersion%
