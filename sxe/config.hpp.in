@@ -5,6 +5,9 @@
 /** Whether SxE was built with Boost. */
 #cmakedefine01 SXE_HAVE_BOOST
 
+/** Whether SxE was built with LibArchive support. */
+#cmakedefine01 SXE_HAVE_LIBARCHIVE
+
 /** Whether SxE was built with runtime Vulkan support. */
 #cmakedefine01 SXE_HAVE_VULKAN
 

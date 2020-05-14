@@ -23,16 +23,21 @@
  *	   distribution.
  */
 
-#include <archive.h>
-#include <archive_entry.h>
 #include <sxe/api.hpp>
 #include <sxe/logging/Log.hpp>
 #include <sxe/resource/basic_archive_typedefs.hpp>
 #include <sxe/stdheaders.hpp>
 
+#if SXE_HAVE_LIBARCHIVE
+#include <archive.h>
+#include <archive_entry.h>
+#endif
+
 namespace sxe { namespace resource {
 
     /** Implements streambuf for libarchive.
+     * 
+     * If compiled without libarchive support: operations will fail.
      */
     template<class CharT, class Traits=std::char_traits<CharT>>
     class basic_archive_streambuf
@@ -166,6 +171,7 @@ namespace sxe { namespace resource {
                 return this;
 
             if (mMode & std::ios_base::in) {
+#if SXE_HAVE_LIBARCHIVE
                 if (archive_read_close(mHandle) != ARCHIVE_OK) {
                     mLog.w("archive_read_close() failed for " + mArchive.string());
                     return nullptr;
@@ -175,6 +181,7 @@ namespace sxe { namespace resource {
                     mLog.w("archive_read_free() failed for " + mArchive.string());
                     return nullptr;
                 }
+#endif
             }
 
             mHandle = nullptr;
@@ -201,7 +208,11 @@ namespace sxe { namespace resource {
         std::streamsize xsgetn(char_type* s, std::streamsize count) override
         {
             mLog.test("xsgetn(): s: " + std::to_string((uintptr_t)s) + " count: " + std::to_string(count));
+#if SXE_HAVE_LIBARCHIVE
             return archive_read_data(mHandle, s, count);
+#else
+            return 0;
+#endif
         }
 
 
@@ -228,6 +239,11 @@ namespace sxe { namespace resource {
         /** ios open mode.
          */
         openmode_type_ mMode;
+
+#if !SXE_HAVE_LIBARCHIVE
+        struct archive {
+        };
+#endif
 
         /** libarchive handle.
          */
@@ -258,6 +274,7 @@ namespace sxe { namespace resource {
 
             struct archive* handle = nullptr;
 
+#if SXE_HAVE_LIBARCHIVE
             if (mode & std::ios_base::in) {
                 /* Handle opening the archive.
                  *
@@ -302,6 +319,7 @@ namespace sxe { namespace resource {
                     return nullptr;
                 }
             }
+#endif // SXE_HAVE_LIBARCHIVE
 
             return handle;
         }
