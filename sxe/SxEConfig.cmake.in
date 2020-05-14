@@ -6,7 +6,6 @@
 # It defines the following variables
 #  SXE_INCLUDE_DIRS - include directories for SxE
 #  SXE_LIBRARIES    - libraries to link against
-#  SXE_EXECUTABLE   - the bar executable
 
 # Compute paths
 get_filename_component(SXE_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
@@ -24,12 +23,20 @@ endif (SxE_BUILT_SDK)
 
 # Consumers need find_package on our deps as well.
 find_package(nlohmann_json REQUIRED)
-find_package(Boost 1.72 COMPONENTS filesystem)
+if (@SXE_HAVE_BOOST@)
+  find_package(Boost 1.72 COMPONENTS filesystem REQUIRED)
+endif()
 find_package(glfw3 REQUIRED)
 find_package(ZLIB REQUIRED)
-find_package(LibArchive REQUIRED)
-find_package(Vulkan REQUIRED)
-find_package(glbinding QUIET)
+if (@SXE_HAVE_LIBARCHIVE@)
+  find_package(LibArchive REQUIRED)
+endif()
+if (@SXE_HAVE_VULKAN@)
+  find_package(Vulkan REQUIRED)
+endif()
+if (@SXE_HAVE_OPENGL@)
+  find_package(glbinding QUIET)
+endif()
 
 # Our library dependencies (contains definitions for IMPORTED targets)
 if(NOT TARGET SxE AND NOT SxE_BINARY_DIR)
