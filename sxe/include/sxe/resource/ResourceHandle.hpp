@@ -90,13 +90,13 @@ namespace sxe { namespace resource {
     };
 
     template <class... Args>
-    static ResourceHandle::unique_ptr ResourceHandle::make_unique(Args&&... args)
+    ResourceHandle::unique_ptr ResourceHandle::make_unique(Args&&... args)
     {
         return std::make_unique<ResourceHandle>(std::forward<Args>(args)...);
     }
 
     template <class... Args>
-    static ResourceHandle::shared_ptr ResourceHandle::make_shared(Args&&... args)
+    ResourceHandle::shared_ptr ResourceHandle::make_shared(Args&&... args)
     {
         return std::make_shared<ResourceHandle>(std::forward<Args>(args)...);
     }

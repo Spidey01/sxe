@@ -115,11 +115,12 @@ bool SettingsEnvironment::save()
 
 SettingsEnvironment::string_type SettingsEnvironment::get_env(const string_type& var)
 {
-#if defined(WINAPI_FAMILY_PARTITION) && !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+#if defined(WINAPI_FAMILY_PARTITION)
+#if !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
     Log::w(TAG, "Windows only supports environment variables on the desktop API.");
     return "";
-
+#endif
 #else
 
     char* p = std::getenv(var.c_str());
@@ -140,16 +141,17 @@ bool SettingsEnvironment::set_env(const string_type& var, const string_type& val
     int rc = setenv(var.c_str(), value.c_str(), 1);
 
     if (rc != 0) {
-        Log::e(TAG, "set_env(): setenv() failed: " + strerror(errno));
+        Log::e(TAG, string_type("set_env(): setenv() failed: ") + strerror(errno));
     }
 
     return rc == 0;
 
-#elif defined(WINAPI_FAMILY_PARTITION) && !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+#elif defined(WINAPI_FAMILY_PARTITION)
+#if !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
     Log::w(TAG, "Windows only supports environment variables on the desktop API.");
     return false;
-
+#endif
 #elif defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
     errno_t rc = _putenv_s(var.c_str(), value.c_str());
