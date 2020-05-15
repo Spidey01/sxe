@@ -280,6 +280,8 @@ bool PcDisplayManager::supportsVulkan() const
 
 PcDisplayManager::string_type PcDisplayManager::getError() const
 {
+#if GLFW_VERSION_MAJOR >= 3 && GLFW_VERSION_MINOR >= 3
+
     const char* str;
     int code = glfwGetError(&str);
 
@@ -288,6 +290,19 @@ PcDisplayManager::string_type PcDisplayManager::getError() const
         r.append(str);
 
     return r;
+
+#else
+
+    string_type old = "glfwGetError(): requires >= glfwl 3.3, but SxE was built with ";
+    old
+        .append(std::to_string(GLFW_VERSION_MAJOR))
+        .append(".")
+        .append(std::to_string(GLFW_VERSION_MINOR))
+        ;
+
+    return old;
+
+#endif
 }
 
 
