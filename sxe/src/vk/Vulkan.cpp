@@ -21,9 +21,11 @@
  *	   distribution.
  */
 
-#include "sxe/vk/Vulkan.hpp"
-
+/// Getting syntax errors if this comes after Vulkan.hpp, on my machine with
+/// the newer Vulkan SDK?
 #include <sxe/logging.hpp>
+
+#include "sxe/vk/Vulkan.hpp"
 
 using std::runtime_error;
 using std::string;
