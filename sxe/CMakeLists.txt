@@ -36,6 +36,7 @@ set(SxE_SOURCES
         src/graphics/DisplayMode.cpp
         src/graphics/FrameEndedListener.cpp
         src/graphics/FrameStartedListener.cpp
+        src/graphics/VertexVertexMesh.cpp
         src/input/ConsoleInputManager.cpp
         src/input/InputCode.cpp
         src/input/InputFacet.cpp
@@ -90,6 +91,7 @@ set(SxE_HEADERS
     include/sxe/graphics/FrameListener.hpp
     include/sxe/graphics/FrameStartedListener.hpp
     include/sxe/graphics/RenderingApi.hpp
+    include/sxe/graphics/VertexVertexMesh.hpp
     include/sxe/haveboost.hpp
     include/sxe/input/ConsoleInputManager.hpp
     include/sxe/input/InputCode.hpp

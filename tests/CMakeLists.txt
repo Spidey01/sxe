@@ -14,6 +14,7 @@ add_executable(sxe-test-runner
     config/SettingsMapTest.cpp
     config/SettingsXMLFileTest.cpp
     graphics/DisplayModeTest.cpp
+    graphics/VertexVertexMeshTest.cpp
     input/InputCodeTest.cpp
     input/InputFacetTest.cpp
     input/InputManagerTest.cpp
