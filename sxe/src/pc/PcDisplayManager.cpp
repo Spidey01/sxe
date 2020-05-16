@@ -28,6 +28,11 @@
 #include <vulkan/vulkan.hpp>
 #endif
 
+#if SXE_HAVE_OPENGL
+#include <glbinding/gl/gl.h>
+#include <glbinding/glbinding.h>
+#endif
+
 #include <GLFW/glfw3.h>
 #include <sxe/logging.hpp>
 
@@ -170,7 +175,15 @@ bool PcDisplayManager::create()
 
         case RenderingApi::OpenGLES:
             Log::i(TAG, "Rendering API is OpenGL ES.");
-            glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
+
+            /*
+             * Requesting regular OpenGL and relying on the binding to control
+             * which functions are loaded seems to be more reliable than creating
+             * a real ES context.
+             */
+
+            // glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
+            glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_API);
             break;
 
         default:
@@ -199,6 +212,7 @@ bool PcDisplayManager::create()
             break;
 
         case RenderingApi::OpenGLES:
+            return createOpenGLContext();
             break;
 
         default:
@@ -277,6 +291,15 @@ bool PcDisplayManager::supportsVulkan() const
 #endif
 }
 
+
+bool PcDisplayManager::supportsOpenGL() const
+{
+#if SXE_HAVE_OPENGL
+    return true;
+#else
+    return false;
+#endif
+}
 
 PcDisplayManager::string_type PcDisplayManager::getError() const
 {
@@ -407,6 +430,20 @@ bool PcDisplayManager::createVulkanInstance()
 #endif // SXE_HAVE_VULKAN
 
     return mVulkan != nullptr;
+}
+
+
+bool PcDisplayManager::createOpenGLContext()
+{
+    Log::xtrace(TAG, "createOpenGLContext()");
+
+    Log::xtrace(TAG, "glfwMakeContextCurrent()");
+    glfwMakeContextCurrent(mWindow);
+
+    Log::xtrace(TAG, "glbinding::initialize()");
+    glbinding::initialize(glfwGetProcAddress);
+
+    return true;
 }
 
 

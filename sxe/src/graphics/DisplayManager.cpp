@@ -233,6 +233,12 @@ bool DisplayManager::supportsVulkan() const
 }
 
 
+bool DisplayManager::supportsOpenGL() const
+{
+    return false;
+}
+
+
 sxe::vk::Vulkan& DisplayManager::vulkan() const
 {
     if (mVulkan)

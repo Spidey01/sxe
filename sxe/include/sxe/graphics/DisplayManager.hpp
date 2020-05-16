@@ -148,6 +148,12 @@ namespace sxe {  namespace graphics {
          */
         virtual bool supportsVulkan() const;
 
+        /** Return true if OpenGL is available.
+         *
+         * Default implementation returns false.
+         */
+        virtual bool supportsOpenGL() const;
+
         /** Accessor for Vulkan.
          *
          * Write me.

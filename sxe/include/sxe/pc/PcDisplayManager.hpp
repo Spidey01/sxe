@@ -74,6 +74,12 @@ namespace sxe { namespace pc {
          */
         bool supportsVulkan() const override;
 
+        /** Returns if the OpenGL APIs are support.
+         * 
+         * @returns SXE_HAVE_OPENGL.
+         */
+        bool supportsOpenGL() const override;
+
       protected:
 
         string_type getError() const;
@@ -91,6 +97,12 @@ namespace sxe { namespace pc {
          * @returns true if mVulkan set.
          */
         bool createVulkanInstance();
+
+        /** Creates an OpenGL context.
+         * 
+         * @returns true on success.
+         */
+        bool createOpenGLContext();
 
     };
 
