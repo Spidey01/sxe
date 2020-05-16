@@ -25,6 +25,7 @@
 
 #include <sxe/logging.hpp>
 #include <sxe/resource/ResourceManager.hpp>
+#include <sxe/graphics/VertexVertexMesh.hpp>
 
 using std::string;
 using sxe::GameEngine;
@@ -58,11 +59,7 @@ Quad::Quad(GameEngine& engine)
         if (input == nullptr)
             throw std::runtime_error(TAG + ": Failed openning " + MESH_RESOURCE_PATH);
 
-        string line;
-        while (*input) {
-            std::getline(*input, line);
-            Log::d(TAG, "mesh line:" + line);
-        }
+        sxe::graphics::VertexVertexMesh mesh(*input);
 
 #if 0
         mRenderData.setMesh(
