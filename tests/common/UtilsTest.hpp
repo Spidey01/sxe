@@ -34,6 +34,7 @@ class UtilsTest : public CPPUNIT_NS::TestFixture
     CPPUNIT_TEST(trim);
     CPPUNIT_TEST(split);
     CPPUNIT_TEST(split_str);
+    CPPUNIT_TEST(split_regex);
     CPPUNIT_TEST(join);
     CPPUNIT_TEST(starts_with);
     CPPUNIT_TEST(ends_with);
@@ -45,6 +46,7 @@ class UtilsTest : public CPPUNIT_NS::TestFixture
     void trim();
     void split();
     void split_str();
+    void split_regex();
     void join();
     void starts_with();
     void ends_with();

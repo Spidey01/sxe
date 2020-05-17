@@ -98,6 +98,28 @@ void UtilsTest::split_str()
 }
 
 
+void UtilsTest::split_regex()
+{
+    Log::xtrace(TAG, "split_regex()");
+
+    const string input = "0.5 1.0\t0.25";
+
+    const vector<string> expected = {
+        "0.5",
+        "1.0",
+        "0.25"
+    };
+
+    vector<string> output;
+
+    std::regex sep("\\s+");
+
+    CPPUNIT_ASSERT_NO_THROW(Utils::split_regex(std::back_inserter(output), input, sep));
+    for (auto str : output) Log::d(TAG, "element:" + str);
+    CPPUNIT_ASSERT(output == expected);
+}
+
+
 void UtilsTest::join()
 {
     Log::xtrace(TAG, "join()");

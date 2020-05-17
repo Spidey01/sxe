@@ -89,6 +89,24 @@ namespace sxe {  namespace common {
         }
 
 
+        /** Splits with a regular expression instead of a fixed seperator.
+         */
+        template <class InputIt, class String, class RegExp>
+        void split_regex(InputIt first, const String& value, RegExp sep)
+        {
+            using std::sregex_token_iterator;
+
+            /* C++'s regex library lets us iterate tokens, and submatch -1 means the inbetweens. */
+            auto search_begin = sregex_token_iterator(value.begin(), value.end(), sep, -1);
+            auto search_end = sregex_token_iterator();
+
+            for (sregex_token_iterator it=search_begin; it != search_end; ++it) {
+                *first++ = it->str();
+            }
+            
+        }
+
+
         template <class Sequence, class String=std::string>
         String join(Sequence sequence, size_t length, char separator)
         {
