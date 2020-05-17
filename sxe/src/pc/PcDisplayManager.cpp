@@ -437,6 +437,8 @@ bool PcDisplayManager::createOpenGLContext()
 {
     Log::xtrace(TAG, "createOpenGLContext()");
 
+#if SXE_HAVE_OPENGL
+
     Log::xtrace(TAG, "glfwMakeContextCurrent()");
     glfwMakeContextCurrent(mWindow);
 
@@ -444,6 +446,12 @@ bool PcDisplayManager::createOpenGLContext()
     glbinding::initialize(glfwGetProcAddress);
 
     return true;
+
+#else
+
+    return false;
+
+#endif
 }
 
 
