@@ -27,8 +27,10 @@
 #include <sxe/common/Utils.hpp>
 
 using std::istream;
-using sxe::common::Utils::trim;
+using std::stof;
+using sxe::common::Utils::split_regex;
 using sxe::common::Utils::starts_with;
+using sxe::common::Utils::trim;
 
 namespace sxe { namespace graphics {
 
@@ -36,6 +38,11 @@ const VertexVertexMesh::string_type VertexVertexMesh::TAG = "VertexVertexMesh";
 
 VertexVertexMesh::VertexVertexMesh(istream& stream)
 {
+    // a real vertex buffer would be nice.
+    std::array<float, 3> buffer;
+
+    static std::regex pattern("\\s");
+
     string_type line;
 
     while (stream) {
@@ -51,8 +58,11 @@ VertexVertexMesh::VertexVertexMesh(istream& stream)
             continue;
         }
 
-        // split \\s, max 3, and add the vertex to buffer..
+        std::vector<string_type> vertices;
+        split_regex(std::back_inserter(vertices), line, pattern);
+        for (size_t i = 0; i < vertices.size(); ++i) {
+            buffer[i] = stof(vertices[i]);
+        }
     }
 }
-
 } }
