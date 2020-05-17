@@ -38,9 +38,10 @@ namespace sxe { namespace logging {
         /** Create the Rate Counter.
          *
          * @param name used in logging this counter.
-         * @Param debug should we long the count.
+         * @param debug should we long the count.
          */
         RateCounter(const std::string& name, bool debug);
+
         RateCounter(const std::string& name);
 
         /** Returns the name of this counter.

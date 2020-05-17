@@ -44,20 +44,20 @@ namespace sxe { namespace input {
 
         /** Create without any bound keys.
          *
-         * @param input the InputManager.
+         * @param inputManager the InputManager.
          */
         InputFacet(InputManager& inputManager);
 
         /** Create with listener for any key events.
          *
-         * @param input the InputManager.
+         * @param inputManager the InputManager.
          * @param action the listener.
          */
         InputFacet(InputManager& inputManager, KeyListener action);
 
         /** Create with one key/action binding.
          *
-         * @param input the InputManager.
+         * @param inputManager the InputManager.
          * @param code the code to bind to.
          * @param action the listener for the event.
          */
@@ -65,7 +65,7 @@ namespace sxe { namespace input {
 
         /** Create with multiple keys bound to action.
          *
-         * @param input the InputManager.
+         * @param inputManager the InputManager.
          * @param first first InputCode to bind to.
          * @param last as per STL.
          * @param action the listener for the event.
@@ -83,7 +83,7 @@ namespace sxe { namespace input {
          *
          * @param code the InputCode to listen for.
          * @param action callback to take action on code.
-         * @param returns true on success.
+         * @returns true on success.
          */
         bool addKeyListener(InputCode code, KeyListener action);
 
@@ -98,7 +98,7 @@ namespace sxe { namespace input {
          * @param first first InputCode to bind to.
          * @param last as per STL.
          * @param action callback to take action on these codes.
-         * @param returns false if any bindings failed.
+         * @returns false if any bindings failed.
          */
         template <class InputIt>
         bool addKeyListeners(InputIt first, InputIt last, KeyListener action)
