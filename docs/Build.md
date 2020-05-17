@@ -16,7 +16,7 @@ Running the bootstrap.{cmd, sh} will setup dependencies, and launch the recommen
 	linux$ . ./envsetup/envsetup.sh
 	linux$ m
 
-The bootstrap script will use several variables defined in envsetup.project.{cmd,sh}. Some can be overriden by creating an envsetup.local.{cmd,sh} script to override them when envsetup is first run.
+The bootstrap script will use several variables defined in envsetup.project.{cmd,sh}. Some can be overriden by creating an envsetup.local.{cmd,sh} script to override them when envsetup is first run. See platform notes in [Windows](Windows.md) and [Linux](Linux.md).
 
 
 ## Configuration
@@ -52,10 +52,14 @@ Assumes bootstrap.cmd was used. Meaning that vcpkg was used to install dependenc
 
 The Vulkan SDK and Microsoft Visual C++ compiler must be installed, and are not part of SXE_SDK.
 
+See [platform notes](Windows.md) for more information.
+
 
 #### Linux
 
 Currently BUILD_SXE_SDK is only supported on Windows targets. The Linux build is in a state of flux, as I determine how I want this to work in relation to the distributions package manager.
+
+See [platform notes](Linux.md) for more information.
 
 
 ### BUILD_DOCS

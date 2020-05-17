@@ -17,7 +17,9 @@ if (DOXYGEN_FOUND)
         ${PROJECT_SOURCE_DIR}/NOTICE
         ${PROJECT_SOURCE_DIR}/COPYING
         ${PROJECT_SOURCE_DIR}/README.md
-        Build.md)
+        Build.md
+        Linux.md
+        Windows.md)
 
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html
             DESTINATION ${CMAKE_INSTALL_DOCDIR})
