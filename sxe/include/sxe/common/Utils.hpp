@@ -106,9 +106,9 @@ namespace sxe {  namespace common {
         }
 
 
-        bool starts_with(const std::string& str, const std::string& prefix);
+        bool SXE_PUBLIC starts_with(const std::string& str, const std::string& prefix);
 
-        bool ends_with(const std::string& str, const std::string& suffix);
+        bool SXE_PUBLIC ends_with(const std::string& str, const std::string& suffix);
 
     }
 
