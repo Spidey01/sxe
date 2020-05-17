@@ -190,6 +190,15 @@ if (Boost_FOUND)
     set(SXE_HAVE_BOOST ON)
 endif(Boost_FOUND)
 
+if (NOT SXE_HAVE_BOOST)
+    if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+        message("HELLO")
+        # GNU's std::filesystem needs a libstdc++fs, and cmake doesn't add it.
+        # Nether cmake nor g++ can be trusted to add it.
+        target_link_libraries(SxE PUBLIC stdc++fs)
+    endif()
+endif()
+
 
 find_package(glfw3 REQUIRED)
 target_link_libraries(SxE PUBLIC glfw)
@@ -263,3 +272,5 @@ set(CONFIG_H_DIR ${CMAKE_BINARY_DIR}/sxe/include)
 configure_file(config.hpp.in ${CONFIG_H_DIR}/sxe/config.hpp @ONLY)
 install(FILES ${CONFIG_H_DIR}/sxe/config.hpp DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/sxe)
 target_include_directories(SxE PRIVATE ${CONFIG_H_DIR})
+
+
