@@ -30,7 +30,8 @@ namespace sxe {  namespace common {
     
     /** Various utility functions.
      */
-    namespace Utils {
+    namespace Utils
+    {
 
         /* Inverse of std::isspace.
         */
@@ -40,6 +41,12 @@ namespace sxe {  namespace common {
          */
         std::string SXE_PUBLIC trim(const std::string& input);
 
+        /** Simple split on character.
+         * 
+         * @param[out] first the first position to start inserting results.
+         * @param[in] value the input to split.
+         * @param sep the character to split on.
+         */
         template <class InputIt, class String>
         void split(InputIt first, const String& value, char sep)
         {
@@ -67,7 +74,6 @@ namespace sxe {  namespace common {
             }
         }
 
-
         /** Convenience form of split for STL containers.
          *
          * This mostly exists for the case where you don't care about the
@@ -78,7 +84,7 @@ namespace sxe {  namespace common {
          *     }
          *  
          */
-        template <class String=std::string, class Sequence=std::vector<String>>
+        template <class String = std::string, class Sequence = std::vector<String>>
         Sequence split_str(const String& value, char sep)
         {
             Sequence r;
@@ -88,8 +94,11 @@ namespace sxe {  namespace common {
             return r;
         }
 
-
         /** Splits with a regular expression instead of a fixed seperator.
+         * 
+         * @param[out] first the first position to start inserting results.
+         * @param[in] value the input to split.
+         * @param sep the pattern to split on.
          */
         template <class InputIt, class String, class RegExp>
         void split_regex(InputIt first, const String& value, RegExp sep)
@@ -100,20 +109,25 @@ namespace sxe {  namespace common {
             auto search_begin = sregex_token_iterator(value.begin(), value.end(), sep, -1);
             auto search_end = sregex_token_iterator();
 
-            for (sregex_token_iterator it=search_begin; it != search_end; ++it) {
+            for (sregex_token_iterator it = search_begin; it != search_end; ++it) {
                 *first++ = it->str();
             }
-            
         }
 
-
-        template <class Sequence, class String=std::string>
+        /** Simple join on character.
+         * 
+         * @param sequence a sequence supporting array indexing.
+         * @param length max number of elements to join.
+         * @param separator insert this between elements.
+         * @returns string with the result.
+         */
+        template <class Sequence, class String = std::string>
         String join(Sequence sequence, size_t length, char separator)
         {
             String buf;
             buf.reserve(length * 16);
 
-            for (size_t i=0; i < length; ++i) {
+            for (size_t i = 0; i < length; ++i) {
                 if (i > 0)
                     buf += (separator);
 
@@ -123,13 +137,11 @@ namespace sxe {  namespace common {
             return buf;
         }
 
-
         bool SXE_PUBLIC starts_with(const std::string& str, const std::string& prefix);
 
         bool SXE_PUBLIC ends_with(const std::string& str, const std::string& suffix);
 
-    }
-
+    } // namespace Utils
 } }
 
 #endif // SXE_COMMON_UTILS__HPP
