@@ -94,6 +94,12 @@ namespace sxe {
          */
         void requestStop();
 
+        /** Returns the current game State.
+         * 
+         * @see setState().
+         */
+        State getState() const;
+
         /** Maximum Frames Per Second rate.  */
         int getMaxFpsRate() const;
 
@@ -120,6 +126,12 @@ namespace sxe {
         GameEngine& getGameEngine() const;
 
       protected:
+
+        /** Sets the current game State.
+         * 
+         * @see getState().
+         */
+        void setState(State state);
 
         /** Called by tick from the main thread.
          *

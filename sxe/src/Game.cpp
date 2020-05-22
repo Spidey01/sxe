@@ -129,6 +129,12 @@ void Game::requestStop()
 }
 
 
+Game::State Game::getState() const
+{
+    return mState;
+}
+
+
 int Game::getMaxFpsRate() const
 {
     return mMaxTickRate;
@@ -170,6 +176,14 @@ GameEngine& Game::getGameEngine() const
         return mGameEngine.value();
 
     throw std::logic_error("Game::getGameEngine() called before Game::initialize().");
+}
+
+
+void Game::setState(State state)
+{
+    Log::xtrace(TAG, "setState(): state: " + to_string((int)state));
+
+    mState = state;
 }
 
 
