@@ -101,5 +101,10 @@ void InputFacet::removeKeyListener(InputCode code)
     list.clear();
 }
 
-} }
 
+InputManager& InputFacet::manager() const
+{
+    return mInputManager;
+}
+
+} }

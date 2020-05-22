@@ -129,6 +129,9 @@ namespace sxe { namespace input {
             }
         }
 
+        /** Returns the input manager.
+         */
+        InputManager& manager() const;
 
       private:
 
