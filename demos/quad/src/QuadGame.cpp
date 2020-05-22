@@ -57,7 +57,7 @@ bool QuadGame::start()
 
     /* Bind ourself to handle the 'Q' key press. */
     KeyListener listener = std::bind(&QuadGame::onKey, this, std::placeholders::_1);
-    getGameEngine().getInputManager().addKeyListener(InputCode::IC_Q, listener);
+    getInputFacet().addKeyListener(InputCode::IC_Q, listener);
 
     return true;
 }

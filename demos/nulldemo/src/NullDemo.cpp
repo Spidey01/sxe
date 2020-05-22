@@ -25,7 +25,7 @@
 
 #include <sxe/GameEngine.hpp>
 #include <sxe/input/InputCode.hpp>
-#include <sxe/input/InputManager.hpp>
+#include <sxe/input/InputFacet.hpp>
 #include <sxe/input/KeyEvent.hpp>
 #include <sxe/input/KeyListener.hpp>
 #include <sxe/logging.hpp>
@@ -54,7 +54,7 @@ bool NullDemo::start()
     Log::v(TAG, "Null demo is starting.");
 
     KeyListener listener = std::bind(&NullDemo::onKey, this, std::placeholders::_1);
-    getGameEngine().getInputManager().addKeyListener(InputCode::IC_Q, listener);
+    getInputFacet().addKeyListener(InputCode::IC_Q, listener);
 
     return true;
 }
