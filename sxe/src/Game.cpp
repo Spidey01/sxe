@@ -81,7 +81,8 @@ bool Game::uninitialize()
 
 bool Game::start()
 {
-    Log::v(TAG, "start() called");
+    Log::xtrace(TAG, "start(): getName(): " + getName());
+    Log::d(TAG, getName() + " is starting.");
 
     mStopDone = false;
     mState = State::STARTING;
@@ -94,6 +95,9 @@ bool Game::start()
 
 void Game::stop()
 {
+    Log::xtrace(TAG, "stop(): getName(): " + getName());
+    Log::d(TAG, getName() + " is stopping.");
+
     if (mStopDone) {
         Log::d(TAG, "Game was already stopped");
         return;
