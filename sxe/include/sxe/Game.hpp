@@ -23,14 +23,19 @@
  *	   distribution.
  */
 
-#include <sxe/haveboost.hpp>
-#include <sxe/logging/RateCounter.hpp>
 #include <sxe/api.hpp>
 #include <sxe/common/Initializable.hpp>
+#include <sxe/haveboost.hpp>
+#include <sxe/logging/RateCounter.hpp>
 
 namespace sxe {
 
     class GameEngine;
+
+    namespace input
+    {
+        class InputFacet;
+    }
 
     /** Your games base class.
     */
@@ -133,6 +138,14 @@ namespace sxe {
          */
         void setState(State state);
 
+        /** Returns the input facet.
+         * 
+         * This can be used to handle input from the game implementation.
+         * 
+         * @throws runtime_error if there is no input support.
+         */
+        input::InputFacet& getInputFacet() const;
+
         /** Called by tick from the main thread.
          *
          * Use this to update the game implementation from the engine's main
@@ -166,6 +179,9 @@ namespace sxe {
         std::thread mThread;
         std::thread::id mMainThreadId;
         std::thread::id mGameThreadId;
+
+        /** For handling input. */
+        std::unique_ptr<input::InputFacet> mInputFacet;
 
         logging::RateCounter mTickCounter;
 

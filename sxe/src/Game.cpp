@@ -24,9 +24,11 @@
 #include "sxe/Game.hpp"
 
 #include <sxe/GameEngine.hpp>
+#include <sxe/input/InputFacet.hpp>
 #include <sxe/logging.hpp>
 #include <sxe/stdheaders.hpp>
 
+using std::runtime_error;
 using std::to_string;
 
 namespace sxe {
@@ -42,6 +44,7 @@ Game::Game()
     , mThread()
     , mMainThreadId()
     , mGameThreadId()
+    , mInputFacet(nullptr)
     , mTickCounter("Ticks")
 {
     Log::log(Log::DEBUG, "Game", "Hello, world!");
@@ -65,6 +68,12 @@ bool Game::initialize(GameEngine& engine)
 
     mGameEngine = engine;
 
+    try {
+        mInputFacet = std::make_unique<input::InputFacet>(getGameEngine().getInputManager());
+    } catch(runtime_error& ex) {
+        Log::w(TAG, "Initialization of InputFacet failed!", ex);
+    }
+
     return true;
 }
 
@@ -73,6 +82,7 @@ bool Game::uninitialize()
 {
     Log::xtrace(TAG, "initialize(): getName(): " + getName());
 
+    mInputFacet.reset();
     mGameEngine.reset();
 
     return true;
@@ -188,6 +198,15 @@ void Game::setState(State state)
     Log::xtrace(TAG, "setState(): state: " + to_string((int)state));
 
     mState = state;
+}
+
+
+input::InputFacet& Game::getInputFacet() const
+{
+    if (!mInputFacet)
+        throw runtime_error(getName() + " has no InputFacet.");
+
+    return *mInputFacet;
 }
 
 
