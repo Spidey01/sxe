@@ -19,7 +19,8 @@ if (DOXYGEN_FOUND)
         ${PROJECT_SOURCE_DIR}/README.md
         Build.md
         Linux.md
-        Windows.md)
+        Windows.md
+        Settings.md)
 
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html
             DESTINATION ${CMAKE_INSTALL_DOCDIR})
