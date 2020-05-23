@@ -46,6 +46,9 @@ namespace sxe {
     namespace resource {
         class ResourceManager;
     }
+    namespace scene {
+        class SceneManager;
+    }
 
     class SXE_PUBLIC GameEngine
         : public common::stdtypedefs<GameEngine>
@@ -57,7 +60,7 @@ namespace sxe {
 
         using TODO_placeholder = common::Subsystem; // placeholder.
         using DisplayManager_ptr = std::unique_ptr<graphics::DisplayManager>;
-        using SceneManager_ptr = std::unique_ptr<TODO_placeholder>;
+        using SceneManager_ptr = std::unique_ptr<scene::SceneManager>;
         using InputManager_ptr = std::unique_ptr<input::InputManager>;
         using ResourceManager_ptr = std::unique_ptr<resource::ResourceManager>;
         using LoggingManager_ptr = std::unique_ptr<logging::LoggingManager>;
@@ -179,6 +182,7 @@ namespace sxe {
         input::InputManager& getInputManager() const;
         graphics::DisplayManager& getDisplayManager() const;
         resource::ResourceManager& getResourceManager() const;
+        scene::SceneManager& getSceneManager() const;
 
       private:
         static const string_type TAG;

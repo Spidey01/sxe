@@ -35,6 +35,7 @@
 #include <sxe/logging.hpp>
 #include <sxe/logging/LoggingManager.hpp>
 #include <sxe/resource/ResourceManager.hpp>
+#include <sxe/scene/SceneManager.hpp>
 
 namespace sxe {
 
@@ -254,9 +255,10 @@ void GameEngine::update()
 {
     if (mInputManager)
         mInputManager->update();
-    #if 0 // 1.x
-    mSceneManager.update();
-    #endif
+
+    if (mSceneManager)
+        mSceneManager->update();
+
     if (mDisplayManager)
         mDisplayManager->update();
 
@@ -381,6 +383,14 @@ resource::ResourceManager& GameEngine::getResourceManager() const
     assert(mResourceManager != nullptr);
 
     return *mResourceManager;
+}
+
+
+scene::SceneManager& GameEngine::getSceneManager() const
+{
+    assert(mSceneManager != nullptr);
+
+    return *mSceneManager;
 }
 
 
