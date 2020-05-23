@@ -180,6 +180,9 @@ else (BUILD_SXE_SDK)
 endif (BUILD_SXE_SDK)
 target_link_libraries(SxE PUBLIC INTERFACE nlohmann_json::nlohmann_json)
 
+find_package(glm REQUIRED)
+target_link_libraries(SxE PUBLIC INTERFACE glm)
+
 
 set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)

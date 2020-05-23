@@ -27,6 +27,7 @@ sudo apt install \
     libarchive-dev \
     libcppunit-dev \
     nlohmann-json3-dev \
+    libglm-dev \
     libglbinding-dev \
     libvulkan-dev
 

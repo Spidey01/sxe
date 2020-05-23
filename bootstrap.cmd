@@ -37,6 +37,7 @@ ECHO Installing dependencies with vcpkg.
 
 vcpkg install --triplet %PROJECT_TARGET_TRIPLET% ^
 nlohmann-json ^
+glm ^
 zlib ^
 libarchive ^
 glfw3 ^
@@ -48,6 +49,8 @@ vulkan vulkan-hpp
 IF ERRORLEVEL 1 GOTO :EOF
 
 
+ECHO YAY
+GOTO :EOF
 ENDLOCAL
 
 ECHO Running cmake

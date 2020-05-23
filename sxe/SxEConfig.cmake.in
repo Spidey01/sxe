@@ -23,6 +23,7 @@ endif (SxE_BUILT_SDK)
 
 # Consumers need find_package on our deps as well.
 find_package(nlohmann_json REQUIRED)
+find_package(glm REQUIRED)
 if (@SXE_HAVE_BOOST@)
   find_package(Boost 1.72 COMPONENTS filesystem REQUIRED)
 endif()
