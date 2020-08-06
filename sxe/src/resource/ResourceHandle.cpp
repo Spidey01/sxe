@@ -85,4 +85,18 @@ std::unique_ptr<std::istream> ResourceHandle::asInputStream()
     Log::test(TAG, "asInputStream(): returning nullptr for mResource: " + mResource.string());
     return nullptr;
 }
+
+std::unique_ptr<graphics::VertexVertexMesh> ResourceHandle::asVertexVertexMesh()
+{
+    using u_ptr = std::unique_ptr<graphics::VertexVertexMesh>;
+
+    auto input = asInputStream();
+    if (input == nullptr)
+        return nullptr;
+
+    // sometimes parsing from ctor instead of lazy helps.
+    auto p = std::make_unique<graphics::VertexVertexMesh>(*input);
+    return p;
+}
+
 } }

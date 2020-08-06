@@ -25,6 +25,7 @@
 
 #include <sxe/api.hpp>
 #include <sxe/common/stdtypedefs.hpp>
+#include <sxe/graphics/VertexVertexMesh.hpp>
 
 namespace sxe { namespace resource {
 
@@ -62,6 +63,10 @@ namespace sxe { namespace resource {
         /** Return an istream for the resource.
          */
         std::unique_ptr<std::istream> asInputStream();
+
+        /** Return a VV Mesh for the resource.
+         */
+        std::unique_ptr<graphics::VertexVertexMesh> asVertexVertexMesh();
 
       protected:
       private:
