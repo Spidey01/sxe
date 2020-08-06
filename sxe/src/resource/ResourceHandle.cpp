@@ -68,17 +68,21 @@ std::unique_ptr<std::istream> ResourceHandle::asInputStream()
     auto it = sLoaderMap.find(mContainer.extension());
 
     if (it == sLoaderMap.end()) {
+        Log::test(TAG, "asInputStream(): returning nullptr because no sLoaderMap entry for mContainer: " + mContainer.string());
         return nullptr;
     }
 
     switch (it->second) {
         case LoaderType::ArchiveStream:
+            Log::test(TAG, "asInputStream(): returning archive_istream for mContainer: " + mContainer.string() + " mResource: " + mResource.string());
             return u_ptr(new sxe::resource::archive_istream(mContainer, mContainer));
         case LoaderType::FileStream:
         default:
+            Log::test(TAG, "asInputStream(): returning ifstream for mResource: " + mResource.string());
             return u_ptr(new std::ifstream(mResource.string()));
     }
 
+    Log::test(TAG, "asInputStream(): returning nullptr for mResource: " + mResource.string());
     return nullptr;
 }
 } }
