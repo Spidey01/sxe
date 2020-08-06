@@ -75,7 +75,7 @@ std::unique_ptr<std::istream> ResourceHandle::asInputStream()
     switch (it->second) {
         case LoaderType::ArchiveStream:
             Log::test(TAG, "asInputStream(): returning archive_istream for mContainer: " + mContainer.string() + " mResource: " + mResource.string());
-            return u_ptr(new sxe::resource::archive_istream(mContainer, mContainer));
+            return u_ptr(new sxe::resource::archive_istream(mContainer, mResource));
         case LoaderType::FileStream:
         default:
             Log::test(TAG, "asInputStream(): returning ifstream for mResource: " + mResource.string());
