@@ -42,10 +42,7 @@ set(SxE_SOURCES
         src/input/InputFacet.cpp
         src/input/InputManager.cpp
         src/input/KeyEvent.cpp
-        src/logging/Log.cpp
-        src/logging/LogSink.cpp
         src/logging/LoggingManager.cpp
-        src/logging/RateCounter.cpp
         src/pc/PcConfiguration.cpp
         src/pc/PcDisplayManager.cpp
         src/pc/PcInputManager.cpp
@@ -102,10 +99,7 @@ set(SxE_HEADERS
     include/sxe/input/KeyEventManager.hpp
     include/sxe/input/KeyListener.hpp
     include/sxe/logging.hpp
-    include/sxe/logging/Log.hpp
-    include/sxe/logging/LogSink.hpp
     include/sxe/logging/LoggingManager.hpp
-    include/sxe/logging/RateCounter.hpp
     include/sxe/pc/PcConfiguration.hpp
     include/sxe/pc/PcDisplayManager.hpp
     include/sxe/pc/PcInputManager.hpp
