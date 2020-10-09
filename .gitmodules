@@ -19,3 +19,6 @@
 [submodule "vendor\\vcpkg"]
 	path = vendor/vcpkg
 	url = https://github.com/microsoft/vcpkg.git
+[submodule "sxelog"]
+	path = sxelog
+	url = https://github.com/Spidey01/sxelog.git
