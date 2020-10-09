@@ -56,6 +56,7 @@ if (BUILD_SXE_SDK)
     endif(MSVC)
 endif(BUILD_SXE_SDK)
 
+add_subdirectory(sxelog)
 add_subdirectory(sxe)
 
 if (BUILD_TESTS)
