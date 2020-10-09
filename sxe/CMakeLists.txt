@@ -161,6 +161,9 @@ target_include_directories(SxE PUBLIC
 # But this works.
 install(DIRECTORY include/sxe DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
+target_link_libraries(SxE PUBLIC INTERFACE sxelog)
+target_link_libraries(SxE PRIVATE sxelog)
+
 if (BUILD_SXE_SDK)
     find_package(nlohmann_json REQUIRED)
 else (BUILD_SXE_SDK)

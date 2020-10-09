@@ -33,6 +33,7 @@
 #include <sxe/input/InputManager.hpp>
 #include <sxe/sys/Platform.hpp>
 #include <sxe/logging.hpp>
+#include <sxe/logging/StandardOutputLogSink.hpp>
 #include <sxe/logging/LoggingManager.hpp>
 #include <sxe/resource/ResourceManager.hpp>
 #include <sxe/scene/SceneManager.hpp>
@@ -93,7 +94,7 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
         string_type param = mCommandLineSettings->getString("sxe.debug");
         sxe_debug_level = sxe::logging::Log::stringToLevel(param);
     }
-    sxe::logging::Log::add(std::make_shared<sxe::logging::LogSink>("sxe.debug", sxe_debug_level, std::cout));
+    sxe::logging::Log::add(std::make_shared<sxe::logging::StandardOutputLogSink>("sxe.debug", sxe_debug_level));
 
     loadSettingsFiles();
 

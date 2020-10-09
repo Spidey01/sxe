@@ -22,7 +22,7 @@
  */
 
 #include <sxe/logging/Log.hpp>
-#include <sxe/logging/LogSink.hpp>
+#include <sxe/logging/TextLogSink.hpp>
 #include <sxe/stdheaders.hpp>
 #include <sxe/sys/FileSystem.hpp>
 
@@ -33,7 +33,7 @@
 #include <cppunit/TestRunner.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
 
-using sxe::logging::LogSink;
+using sxe::logging::TextLogSink;
 using sxe::logging::Log;
 using sxe::sys::FileSystem::path;
 using std::vector;
@@ -67,7 +67,7 @@ static void options(int argc, char* argv[], vector<string>& tests)
                 << endl
                 << "options:" << endl
                 << '\t' << "-h, --help        This help." << endl
-                << '\t' << "-o, --output FILE Creates a LogSink for FILE at level Log::TEST." << endl
+                << '\t' << "-o, --output FILE Creates a TextLogSink for FILE at level Log::TEST." << endl
                 << '\t' << "-l, --list        List available test suites." << endl
                 << endl
                 ;
@@ -80,7 +80,7 @@ static void options(int argc, char* argv[], vector<string>& tests)
                 throw runtime_error("--output/-o requires a value.");
             path file(argv[i]);
 
-            Log::add(std::make_shared<LogSink>("output", Log::TEST, file));
+            Log::add(std::make_shared<TextLogSink>("output", Log::TEST, new std::ofstream(file.string()), true));
             Log::i(TAG, "--output " + file.string());
 
             continue;
@@ -144,7 +144,7 @@ static int run(const vector<string>& tests)
 int main(int argc, char* argv[])
 {
     auto level = Log::ASSERT;
-    auto sink = std::make_shared<LogSink>(string(TAG), level, std::cout);
+    auto sink = std::make_shared<TextLogSink>(string(TAG), level, std::cout);
     Log::add(sink);
 
     int rc = 0;

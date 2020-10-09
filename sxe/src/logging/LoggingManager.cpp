@@ -26,6 +26,9 @@
 #include <sxe/GameEngine.hpp>
 #include <sxe/common/Utils.hpp>
 #include <sxe/logging/LogSink.hpp>
+#include <sxe/logging/StandardErrorLogSink.hpp>
+#include <sxe/logging/StandardOutputLogSink.hpp>
+#include <sxe/logging/TextLogSink.hpp>
 
 using std::invalid_argument;
 using std::make_shared;
@@ -98,12 +101,17 @@ LogSink::shared_ptr LoggingManager::makeLogSink(const string_type& name, const s
     else if (to == "stdin") {
         throw invalid_argument(s + "Can't log to stdin; maybe you has typo?");
     }
-    else if (to == "stdout" || to == "stderr") {
-        return make_shared<LogSink>(name, level, (to == "stdout") ? std::cout : std::clog);
+    else if (to == "stdout") {
+        return make_shared<StandardOutputLogSink>(name, level);
+    }
+    else if (to == "stderr") {
+        // XXX getting unresolved symbol for its ctor/dtor?
+        // return make_shared<StandardErrorLogSink>(name, level);
+        return make_shared<TextLogSink>(name, level, std::cerr);
     }
     else {
         /* .log_to's value is a file name. */
-        return make_shared<LogSink>(name, level, to);
+        return make_shared<TextLogSink>(name, level, new std::fstream(to), true);
     }
 }
 
