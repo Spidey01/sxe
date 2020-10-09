@@ -49,11 +49,5 @@ vulkan vulkan-hpp
 IF ERRORLEVEL 1 GOTO :EOF
 
 
-ECHO YAY
-GOTO :EOF
+ECHO Run ".\configure.cmd" to use the recommended cmake configuration.
 ENDLOCAL
-
-ECHO Running cmake
-@ECHO ON
-cmake -G "%PROJECT_BUILDSYSTEM%" -B "%PROJECT_BUILDDIR%" -S "%PROJECT_ROOT%" -DCMAKE_BUILD_TYPE=%PROJECT_BUILDTYPE% -DBUILD_SHARED_LIBS=ON -DBUILD_SXE_SDK=ON
-

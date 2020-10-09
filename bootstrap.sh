@@ -31,12 +31,5 @@ sudo apt install \
     libglbinding-dev \
     libvulkan-dev
 
-echo "Running cmake."
-cmake \
-    -G "${PROJECT_BUILDSYSTEM}" \
-    -B "${PROJECT_BUILDDIR}" \
-    -S "${PROJECT_ROOT}" \
-    -DCMAKE_BUILD_TYPE="${PROJECT_BUILDTYPE}" \
-    -DBUILD_SHARED_LIBS=ON \
-    -DBUILD_SXE_SDK=OFF
-
+echo 'Please do ". ./envsetup/envsetup.sh" to setup your environment.'
+echo 'Run ".\configure.sh" to use the recommended cmake configuration.'

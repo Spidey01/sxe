@@ -9,15 +9,18 @@ SxE is built using [cmake](https://cmake.org/) from an [envsetup](https://github
 
 Running the bootstrap.{cmd, sh} will setup dependencies, and launch the recommended cmake configuration. You can then run the build process.
 
-	windows> .\bootstrap.cmd
+	windows> CALL .\bootstrap.cmd
+	windows> .\configure.sh
 	windows> m
 
 	linux$ ./bootstrap.sh
 	linux$ . ./envsetup/envsetup.sh
+	linux$ ./configure.sh
 	linux$ m
 
 The bootstrap script will use several variables defined in envsetup.project.{cmd,sh}. Some can be overriden by creating an envsetup.local.{cmd,sh} script to override them when envsetup is first run. See platform notes in [Windows](Windows.md) and [Linux](Linux.md).
 
+The configure script will run cmake with the recommended configuration.
 
 ## Configuration
 
