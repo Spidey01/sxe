@@ -71,6 +71,7 @@ set(SxE_HEADERS
     include/sxe/common/NotificationManager.hpp
     include/sxe/common/Subsystem.hpp
     include/sxe/common/Utils.hpp
+    include/sxe/common/mutextypedefs.hpp
     include/sxe/common/stdtypedefs.hpp
     include/sxe/config/Settings.hpp
     include/sxe/config/SettingsEnvironment.hpp
