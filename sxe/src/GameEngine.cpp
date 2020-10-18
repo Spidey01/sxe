@@ -261,17 +261,21 @@ void GameEngine::update()
 
 void GameEngine::sxe_debug()
 {
-    /*
-     * Run the game with "sxe.debug=TRACE" or "sxe.debug=10" as a command line
-     * flag to enable this. Principally this is to allow debugging of early
-     * system init. Game implementations can just use the regular 'debug=true'
-     * or 'debug.things=values' method from command line or configuration file.
-     */
     int sxe_debug_level = Log::ASSERT;
+    string_type param;
+
     if (mCommandLineSettings) {
-        string_type param = mCommandLineSettings->getString("sxe.debug");
-        sxe_debug_level = sxe::logging::Log::stringToLevel(param);
+        param = mCommandLineSettings->getString("sxe.debug");
     }
+
+    if (param.empty() && mEnvironmentSettings) {
+        param = mEnvironmentSettings->getString("sxe.debug");
+        if (param.empty())
+            param = mEnvironmentSettings->getString("SXE_DEBUG");
+    }
+
+    if (!param.empty())
+        sxe_debug_level = sxe::logging::Log::stringToLevel(param);
 
     sxe::logging::Log::add(std::make_shared<sxe::logging::StandardOutputLogSink>("sxe.debug", sxe_debug_level));
 }

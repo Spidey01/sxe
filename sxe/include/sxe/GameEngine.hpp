@@ -147,8 +147,16 @@ namespace sxe {
          * Creates a log sink called "sxe.debug". By default log level is
          * ASSERT.
          * 
-         * Use the sxe.debug command line option to assign this a log level
-         * defined by Log::stringToLevel(). E.g. sxe.debug=TRACE or
+         * Principally this is to allow debugging of early system init. Game
+         * implementations can just use the regular 'debug=true' or
+         * 'debug.things=values' method from command line or configuration
+         * file.
+         * 
+         * Use the sxe.debug command line option to assign this a log level. An
+         * environment variable named "sxe.debug", or "SXE_DEBUG" will have the
+         * same effect.
+         * 
+         * Value is defined by Log::stringToLevel(). E.g. sxe.debug=TRACE or
          * sxe.debug=10.
          */
         void sxe_debug();
