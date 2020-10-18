@@ -22,6 +22,9 @@
  */
 
 #include "sxe/scene/SceneManager.hpp"
+#include <sxe/logging.hpp>
+
+using std::to_string;
 
 namespace sxe { namespace scene {
 
@@ -29,6 +32,8 @@ const SceneManager::string_type SceneManager::TAG = "SceneManager";
 
 SceneManager::SceneManager()
     : Subsystem(TAG)
+    , mEntityMutex()
+    , mEntities()
 {
 }
 
@@ -36,5 +41,38 @@ SceneManager::~SceneManager()
 {
 }
 
-// sxe::scene
+bool SceneManager::uninitialize()
+{
+    Log::xtrace(TAG, "uninitialize()");
+
+    lock_guard synchronized(mEntityMutex);
+
+    for (auto eptr : mEntities)
+        removeEntity(eptr);
+
+    return Subsystem::uninitialize();
+}
+
+void SceneManager::addEntity(Entity::shared_ptr entity)
+{
+    Log::test(TAG, "addEntity(): (uintptr_t)entity.get(): " + to_string((uintptr_t)entity.get()));
+
+    lock_guard synchronized(mEntityMutex);
+
+    entity->setSceneManager(this);
+
+    mEntities.push_back(entity);
+}
+
+void SceneManager::removeEntity(Entity::shared_ptr entity)
+{
+    Log::test(TAG, "removeEntity(): (uintptr_t)entity.get(): " + to_string((uintptr_t)entity.get()));
+
+    lock_guard synchronized(mEntityMutex);
+
+    entity->setSceneManager(nullptr);
+
+    mEntities.remove(entity);
+}
+
 } }

@@ -25,6 +25,8 @@
 
 #include <sxe/api.hpp>
 #include <sxe/common/Subsystem.hpp>
+#include <sxe/common/mutextypedefs.hpp>
+#include <sxe/scene/Entity.hpp>
 
 namespace sxe { namespace scene {
 
@@ -32,14 +34,33 @@ namespace sxe { namespace scene {
      */
     class SXE_PUBLIC SceneManager
         : public common::Subsystem
+        , public common::recursive_mutex_typedefs
     {
       public:
         SceneManager();
         virtual ~SceneManager();
 
+        bool uninitialize() override;
+
+        /** Add an Entity to the scene.
+         * 
+         * @param entity to enter the scene.
+         */
+        void addEntity(Entity::shared_ptr entity);
+
+        /** Remove an Entity to the scene.
+         * 
+         * @param entity to exit the scene.
+         */
+        void removeEntity(Entity::shared_ptr entity);
+
       protected:
       private:
         static const string_type TAG;
+
+        mutex_type mEntityMutex;
+
+        std::list<Entity::shared_ptr> mEntities;
     };
 } }
 
