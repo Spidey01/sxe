@@ -26,6 +26,7 @@
 #include <sxe/Game.hpp>
 #include <sxe/common/Utils.hpp>
 #include <sxe/config/Settings.hpp>
+#include <sxe/config/SettingsEnvironment.hpp>
 #include <sxe/config/SettingsFile.hpp>
 #include <sxe/config/SettingsMap.hpp>
 #include <sxe/config/SettingsXMLFile.hpp>
@@ -53,6 +54,7 @@ GameEngine::GameEngine()
     , mRuntimeSettings(std::make_unique<config::SettingsMap>())
     , mPlatformSettings(nullptr)
     , mSystemSettings(nullptr)
+    , mEnvironmentSettings(std::make_unique<config::SettingsEnvironment>())
     , mUserSettings(nullptr)
     , mCommandLineSettings(nullptr)
     , mPlatform()
@@ -75,6 +77,7 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
     , mPlatformSettings(std::move(settings))
     , mSystemSettings(nullptr)
     , mUserSettings(nullptr)
+    , mEnvironmentSettings(std::make_unique<config::SettingsEnvironment>())
     , mCommandLineSettings(std::move(args))
     , mPlatform(platform)
 {
@@ -122,6 +125,7 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
     if (mPlatformSettings != nullptr)      mRuntimeSettings->merge(*mPlatformSettings);
     if (mSystemSettings != nullptr)        mRuntimeSettings->merge(*mSystemSettings);
     if (mUserSettings != nullptr)          mRuntimeSettings->merge(*mUserSettings);
+    if (mEnvironmentSettings != nullptr)   mRuntimeSettings->merge(*mEnvironmentSettings);
     if (mCommandLineSettings != nullptr)   mRuntimeSettings->merge(*mCommandLineSettings);
 
     configure();

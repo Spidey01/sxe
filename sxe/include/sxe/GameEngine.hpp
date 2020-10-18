@@ -202,12 +202,11 @@ namespace sxe {
          * From lowest to highest priority, this will contain the following sources
          * of Settings data.
          *
-         * <ol>
-         *      <li>Platform settings.</li>
-         *      <li>System settings file.</li>
-         *      <li>User settings file.</li>
-         *      <li>Command line arguments</li>
-         * </ol>
+         * - Platform settings.
+         * - System settings file.
+         * - User settings file.
+         * - Environment variables.
+         * - Command line arguments
          */
         Settings_ptr mRuntimeSettings;
 
@@ -219,6 +218,9 @@ namespace sxe {
 
         /** User settings loaded from $XDG_CONFIG_HOME. */
         Settings_ptr mUserSettings;
+
+        /** Environment variables from SettingsEnvironment. */
+        Settings_ptr mEnvironmentSettings;
 
         /** Settings provided at the command line. */
         Settings_ptr mCommandLineSettings;
