@@ -9,6 +9,7 @@ The order in which Settings are merged is as follows:
   1. Platform settings passed to GameEngine's ctor.
   2. System settings loaded from XDG_CONFIG_DIRS.
   3. User settings loaded from XDG_CONFIG_HOME.
+  4. Environment variables.
   4. Command line settings passed to GameEngine's ctor.
 
 An artifact of this means a setting is a setting is a setting. Regardless of whether it was specified on the command line, in a configuration file, or some platform specific bundle of joy.
