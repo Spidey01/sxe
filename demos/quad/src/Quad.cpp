@@ -40,7 +40,8 @@ const string Quad::TAG = "Quad";
 const string Quad::MESH_RESOURCE_PATH = "quad.dat";
 
 Quad::Quad(GameEngine& engine)
-    : mGameEngine(engine)
+    : sxe::scene::Entity()
+    , mGameEngine(engine)
     , mInputFacet(engine.getInputManager())
 {
     Log::i(TAG, "Quad object created.");

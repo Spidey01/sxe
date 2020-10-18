@@ -24,6 +24,7 @@
  */
 
 #include <sxe/GameEngine.hpp>
+#include <sxe/scene/Entity.hpp>
 #include <sxe/input/InputFacet.hpp>
 
 #include <string>
@@ -31,7 +32,7 @@
 namespace demos {
 
     class Quad
-        // used to extend Entity.
+        : public sxe::scene::Entity
     {
       public:
 

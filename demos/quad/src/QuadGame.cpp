@@ -27,6 +27,7 @@
 #include <sxe/GameEngine.hpp>
 #include <sxe/input/InputManager.hpp>
 #include <sxe/logging.hpp>
+#include <sxe/scene/SceneManager.hpp>
 
 #include "Quad.h"
 
@@ -48,12 +49,10 @@ bool QuadGame::start()
     if (!sxe::Game::start())
         return false;
 
-    mQuad = new Quad(getGameEngine());
+    mQuad = std::make_shared<Quad>(getGameEngine());
 
-    #if 0 // 1.x
     /* Add our demo Quad to the scene. */
-    mGameEngine.getSceneManager().add(mQuad.getGraphicsFacet());
-    #endif
+    getGameEngine().getSceneManager().addEntity(mQuad);
 
     /* Bind ourself to handle the 'Q' key press. */
     KeyListener listener = std::bind(&QuadGame::onKey, this, std::placeholders::_1);
@@ -65,8 +64,7 @@ bool QuadGame::start()
 
 void QuadGame::stop()
 {
-    delete mQuad;
-    mQuad = nullptr;
+    mQuad.reset();
 
     sxe::Game::stop();
 }

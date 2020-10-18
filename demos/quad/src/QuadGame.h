@@ -41,7 +41,7 @@ namespace demos {
 
       private:
         static string_type TAG;
-        Quad* mQuad;
+        std::shared_ptr<Quad> mQuad;
         bool onKey(sxe::input::KeyEvent event);
     };
 }
