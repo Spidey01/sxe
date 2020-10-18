@@ -23,9 +23,10 @@
 
 #include "Quad.h"
 
+#include <sxe/graphics/VertexVertexMesh.hpp>
+#include <sxe/input/InputFacet.hpp>
 #include <sxe/logging.hpp>
 #include <sxe/resource/ResourceManager.hpp>
-#include <sxe/graphics/VertexVertexMesh.hpp>
 
 using std::string;
 using sxe::GameEngine;
@@ -42,9 +43,10 @@ const string Quad::MESH_RESOURCE_PATH = "quad.dat";
 Quad::Quad(GameEngine& engine)
     : sxe::scene::Entity()
     , mGameEngine(engine)
-    , mInputFacet(engine.getInputManager())
 {
     Log::i(TAG, "Quad object created.");
+
+    setInputFacet(std::make_shared<sxe::input::InputFacet>(engine.getInputManager()));
 
     /*
      * Setup our vertices to be rendered.

@@ -25,6 +25,12 @@
 
 #include <sxe/common/stdtypedefs.hpp>
 
+namespace sxe {
+  namespace input {
+    class InputFacet;
+  }
+}
+
 namespace sxe { namespace scene {
 
     class SceneManager;
@@ -47,9 +53,24 @@ namespace sxe { namespace scene {
          */
         void setSceneManager(SceneManager* mgr);
 
+        /** Component used for input.
+         */
+        using input_ptr = std::shared_ptr<input::InputFacet>;
+
+        /** Component used for Input.
+         * 
+         * @returns the input facet.
+         */
+        input_ptr getInputFacet() const;
+
+        /** Set the component used for input.
+         */
+        void setInputFacet(input_ptr input);
+
       private:
         static const string_type TAG;
         SceneManager* mSceneManager;
+        input_ptr mInputFacet;
     };
 } } 
 

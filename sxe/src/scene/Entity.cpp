@@ -32,6 +32,7 @@ const Entity::string_type Entity::TAG = "GameEngine";
 
 Entity::Entity()
     : mSceneManager(nullptr)
+    , mInputFacet(nullptr)
 {
 
 }
@@ -49,6 +50,16 @@ SceneManager* Entity::getSceneManager() const
 void Entity::setSceneManager(SceneManager* mgr)
 {
     mSceneManager = mgr;
+}
+
+Entity::input_ptr Entity::getInputFacet() const
+{
+    return mInputFacet;
+}
+
+void Entity::setInputFacet(input_ptr input)
+{
+    mInputFacet = input;
 }
 
 } } 

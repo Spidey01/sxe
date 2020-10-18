@@ -26,6 +26,7 @@
 
 #include <sxe/GameEngine.hpp>
 #include <sxe/input/InputManager.hpp>
+#include <sxe/input/InputFacet.hpp>
 #include <sxe/logging.hpp>
 #include <sxe/scene/SceneManager.hpp>
 

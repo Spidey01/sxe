@@ -25,7 +25,6 @@
 
 #include <sxe/GameEngine.hpp>
 #include <sxe/scene/Entity.hpp>
-#include <sxe/input/InputFacet.hpp>
 
 #include <string>
 
@@ -50,7 +49,6 @@ namespace demos {
         static const std::string MESH_RESOURCE_PATH;
 
         sxe::GameEngine& mGameEngine;
-        sxe::input::InputFacet mInputFacet;
     };
 }
 
