@@ -109,8 +109,23 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
         mResourceManager->initialize(*this);
 
     /*
+     * Because mEnvironmentSettings is not in precache mode: we need to
+     * manually cache settings documented in docs/Settings.md. Otherwise
+     * notifications won't be dispatched when we merge it into the final
+     * mRuntimeSettings!
+     */
+
+    if (mEnvironmentSettings != nullptr) {
+        auto& env = *reinterpret_cast<config::SettingsEnvironment*>(mEnvironmentSettings.get());
+        env.cacheEnvironment("debug");
+        env.cacheEnvironment("sxe.debug");
+        env.cacheEnvironment("sxe.graphics.api");
+    }
+
+    /*
      * Process the various sources of Settings.
      */
+
     if (mPlatformSettings != nullptr)      mRuntimeSettings->merge(*mPlatformSettings);
     if (mSystemSettings != nullptr)        mRuntimeSettings->merge(*mSystemSettings);
     if (mUserSettings != nullptr)          mRuntimeSettings->merge(*mUserSettings);

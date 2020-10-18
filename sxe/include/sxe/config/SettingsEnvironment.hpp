@@ -63,6 +63,10 @@ namespace sxe
              */
             void cacheEnvironment();
 
+            /** Cache specified key.
+             */
+            void cacheEnvironment(const string_type& key);
+
             /** Returns list of cached names.
              */
             KeyList keys() const override;

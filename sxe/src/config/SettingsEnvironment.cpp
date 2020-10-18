@@ -62,6 +62,12 @@ void SettingsEnvironment::cacheEnvironment()
     all_env(*this);
 }
 
+void SettingsEnvironment::cacheEnvironment(const string_type& key)
+{
+    if (contains(key))
+        mKeys.insert(key);
+}
+
 SettingsEnvironment::KeyList SettingsEnvironment::keys() const
 {
     KeyList r;

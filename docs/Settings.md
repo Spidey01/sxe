@@ -10,11 +10,13 @@ The order in which Settings are merged is as follows:
   2. System settings loaded from XDG_CONFIG_DIRS.
   3. User settings loaded from XDG_CONFIG_HOME.
   4. Environment variables.
-  4. Command line settings passed to GameEngine's ctor.
+  5. Command line settings passed to GameEngine's ctor.
 
 An artifact of this means a setting is a setting is a setting. Regardless of whether it was specified on the command line, in a configuration file, or some platform specific bundle of joy.
 
 Typically settings are namespaced by dots. Such that "quux.foo" and "quux.bar" suggest a relationship. Internally however all settings are a flat key/value pair.
+
+When Settings sources are merged into the "Runtime" settings: change notifications are triggered. For environment variables only those documented here will be dispatched.
 
 
 ## Special Settings
