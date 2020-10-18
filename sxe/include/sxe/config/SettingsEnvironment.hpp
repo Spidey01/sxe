@@ -43,15 +43,38 @@ namespace sxe
             : public Settings
         {
           public:
+
+            /** By default do not precache.
+             */
             SettingsEnvironment();
+
+            /** Initialize the settings.
+             * 
+             * @param cache when true: calls cacheEnvironment().
+             */
+            SettingsEnvironment(bool cache);
 
             virtual ~SettingsEnvironment() = default;
 
+            /** Cache all the keys.
+             * 
+             * The cache will be purged, and all currently set environment
+             * variables will be added to the key cache.
+             */
+            void cacheEnvironment();
+
+            /** Returns list of cached names.
+             */
             KeyList keys() const override;
+
             bool contains(const string_type& key) const override;
 
             string_type getString(const string_type& key) const override;
 
+            /** @copydoc Settings::setString().
+             * 
+             * Cache of keys will be updated.
+             */
             SettingsEnvironment& setString(const string_type& key, const string_type& value) override;
 
             void clear() override;
@@ -70,6 +93,7 @@ namespace sxe
 
             static string_type get_env(const string_type& var);
             static bool set_env(const string_type& var, const string_type& value);
+            static void all_env(SettingsEnvironment& self);
         };
 
     } // namespace config

@@ -23,6 +23,7 @@
 
 #include <sxe/config/SettingsEnvironment.hpp>
 #include <sxe/logging.hpp>
+#include <sxe/common/Utils.hpp>
 
 /*
  * Not all platforms do this the same way.
@@ -34,15 +35,32 @@
  * Some platforms like UWP apps do not have environment variables.
  */
 
+#if defined(__unix__) || defined(_GNU_SOURCE)
+/* for "char **environ" */
+#include <unistd.h>
+#endif
+
 namespace sxe {  namespace config {
 
 const SettingsEnvironment::string_type SettingsEnvironment::TAG = "SettingsEnvironment";
 
 SettingsEnvironment::SettingsEnvironment()
-    : mKeys()
+    : SettingsEnvironment(false)
 {
+
 }
 
+SettingsEnvironment::SettingsEnvironment(bool cache)
+    : mKeys()
+{
+    if (cache)
+        cacheEnvironment();
+}
+
+void SettingsEnvironment::cacheEnvironment()
+{
+    all_env(*this);
+}
 
 SettingsEnvironment::KeyList SettingsEnvironment::keys() const
 {
@@ -185,5 +203,42 @@ bool SettingsEnvironment::set_env(const string_type& var, const string_type& val
 #endif
 }
 
+void SettingsEnvironment::all_env(SettingsEnvironment& self)
+{
+    // to environ.
+    char** env = nullptr;
+
+    /*
+     * Non portable as hell if you have the typically key equal value (e.g. var=val) global environ pointer...
+     */
+
+#if defined(__unix__) || defined(_GNU_SOURCE)
+    env = environ;
+#elif defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+    env = _environ;
+#endif
+
+    if (env == nullptr)
+        return;
+
+
+    char *p = nullptr;
+    for (p=*env; *env != nullptr && p != nullptr; ++env, p=*env)
+    {
+        string_type kev = p;
+        Log::test(TAG, "parse: " + kev);
+
+        size_t equals = kev.find('=');
+
+        if (equals == string_type::npos) {
+            Log::w(TAG, "Cannot pre cache keys because the environ table is not in the common PC format.");
+            self.mKeys.clear();
+            break;
+        }
+
+        Log::test(TAG, "cache: " + kev.substr(0, equals));
+        self.mKeys.insert(kev.substr(0, equals));
+    }
+}
 
 } }
