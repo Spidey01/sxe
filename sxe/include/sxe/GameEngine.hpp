@@ -142,6 +142,17 @@ namespace sxe {
          */
         void update();
 
+        /** Bootstrap debugging.
+         * 
+         * Creates a log sink called "sxe.debug". By default log level is
+         * ASSERT.
+         * 
+         * Use the sxe.debug command line option to assign this a log level
+         * defined by Log::stringToLevel(). E.g. sxe.debug=TRACE or
+         * sxe.debug=10.
+         */
+        void sxe_debug();
+
         /* Load the settings files.
          *
          * XDG_CONFIG_DIRS will be searched for a system wide settings file.

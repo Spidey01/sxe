@@ -86,18 +86,7 @@ GameEngine::GameEngine(Game_ptr game, Settings_ptr&& args,
         throw std::invalid_argument(TAG + string_type("game parameter can't be nullptr!"));
     }
 
-    /*
-     * Run the game with "sxe.debug=TRACE" or "sxe.debug=10" as a command line
-     * flag to enable this. Principally this is to allow debugging of early
-     * system init. Game implementations can just use the regular 'debug=true'
-     * or 'debug.things=values' method from command line or configuration file.
-     */
-    int sxe_debug_level = Log::ASSERT;
-    if (mCommandLineSettings) {
-        string_type param = mCommandLineSettings->getString("sxe.debug");
-        sxe_debug_level = sxe::logging::Log::stringToLevel(param);
-    }
-    sxe::logging::Log::add(std::make_shared<sxe::logging::StandardOutputLogSink>("sxe.debug", sxe_debug_level));
+    sxe_debug();
 
     loadSettingsFiles();
 
@@ -270,6 +259,22 @@ void GameEngine::update()
     mGame->update();
 }
 
+void GameEngine::sxe_debug()
+{
+    /*
+     * Run the game with "sxe.debug=TRACE" or "sxe.debug=10" as a command line
+     * flag to enable this. Principally this is to allow debugging of early
+     * system init. Game implementations can just use the regular 'debug=true'
+     * or 'debug.things=values' method from command line or configuration file.
+     */
+    int sxe_debug_level = Log::ASSERT;
+    if (mCommandLineSettings) {
+        string_type param = mCommandLineSettings->getString("sxe.debug");
+        sxe_debug_level = sxe::logging::Log::stringToLevel(param);
+    }
+
+    sxe::logging::Log::add(std::make_shared<sxe::logging::StandardOutputLogSink>("sxe.debug", sxe_debug_level));
+}
 
 void GameEngine::loadSettingsFiles()
 {
