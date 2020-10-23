@@ -69,6 +69,9 @@ bool SceneManager::uninitialize()
 
 void SceneManager::update()
 {
+    if (mEntities.empty())
+        return;
+
     if (!mDrawingTechnique) {
         Log::d(TAG, "update(): lazy of initialization of mDrawingTechnique");
         mDrawingTechnique = getGameEngine().getDisplayManager().getTechnique();
