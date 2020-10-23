@@ -35,6 +35,7 @@ set(SxE_SOURCES
         src/gl/OpenGLVersion.cpp
         src/graphics/DisplayManager.cpp
         src/graphics/DisplayMode.cpp
+        src/graphics/DrawingTechnique.cpp
         src/graphics/FrameEndedListener.cpp
         src/graphics/FrameStartedListener.cpp
         src/graphics/GraphicsFacet.cpp
@@ -90,6 +91,7 @@ set(SxE_HEADERS
     include/sxe/gl/OpenGLVersion.hpp
     include/sxe/graphics/DisplayManager.hpp
     include/sxe/graphics/DisplayMode.hpp
+    include/sxe/graphics/DrawingTechnique.hpp
     include/sxe/graphics/FrameEndedListener.hpp
     include/sxe/graphics/FrameListener.hpp
     include/sxe/graphics/FrameStartedListener.hpp
