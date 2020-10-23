@@ -61,7 +61,7 @@ namespace sxe { namespace graphics {
              */
             VertexVertexMesh(std::istream& stream);
 
-            const vertex_vector vertices() const;
+            const vertex_vector& vertices() const;
 
           protected:
           private:

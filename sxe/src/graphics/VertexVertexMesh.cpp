@@ -68,7 +68,7 @@ VertexVertexMesh::VertexVertexMesh(istream& stream)
     }
 }
 
-const VertexVertexMesh::vertex_vector VertexVertexMesh::vertices() const
+const VertexVertexMesh::vertex_vector& VertexVertexMesh::vertices() const
 {
     return mVertices;
 }
