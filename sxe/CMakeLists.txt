@@ -208,6 +208,7 @@ endif()
 
 find_package(glfw3 REQUIRED)
 target_link_libraries(SxE PUBLIC glfw)
+target_compile_definitions(SxE PRIVATE GLFW_INCLUDE_NONE)
 
 find_package(ZLIB REQUIRED)
 target_link_libraries(SxE PUBLIC ZLIB::ZLIB)
