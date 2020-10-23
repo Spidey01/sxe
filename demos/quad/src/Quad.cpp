@@ -23,6 +23,7 @@
 
 #include "Quad.h"
 
+#include <sxe/graphics/GraphicsFacet.hpp>
 #include <sxe/graphics/VertexVertexMesh.hpp>
 #include <sxe/input/InputFacet.hpp>
 #include <sxe/logging.hpp>
@@ -64,11 +65,16 @@ Quad::Quad(GameEngine& engine)
 
         sxe::graphics::VertexVertexMesh mesh(*input);
 
-#if 0
-        mRenderData.setMesh(
-                            mGameEngine.getResourceManager().load(
-                                                                  MESH_RESOURCE_PATH).asVertexVertexMesh());
-#endif
+        // Copy with color info added.
+        sxe::graphics::GraphicsFacet::vertex_vector vertices;
+
+        for (sxe::graphics::Vertex v : mesh.vertices()) {
+            v.color = {0.5, 0.0, 0.5, 1.0};
+            vertices.push_back(v);
+        }
+
+        setGraphicsFacet(std::make_shared<sxe::graphics::GraphicsFacet>(vertices));
+
     } catch (std::exception& ex) {
         Log::wtf(TAG, "Failed loading " + MESH_RESOURCE_PATH, ex);
     }
