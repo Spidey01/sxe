@@ -23,8 +23,8 @@
  *	   distribution.
  */
 
-#include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 #include <sxe/api.hpp>
 
 namespace sxe { namespace graphics {
@@ -39,14 +39,18 @@ namespace sxe { namespace graphics {
      */
     class SXE_PUBLIC Vertex
     {
-        public:
-          /** Vertex position.
-           */
-          glm::vec3 pos;
+      public:
+        using position_type = glm::vec3;
 
-          /** Vertex color.
+        /** Vertex position.
            */
-          glm::vec3 color;
+        position_type pos;
+
+        using color_type = glm::vec4;
+
+        /** Vertex color.
+           */
+        color_type color;
     };
 
 } }

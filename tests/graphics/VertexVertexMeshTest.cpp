@@ -29,6 +29,7 @@ using std::endl;
 using std::string;
 using std::stringstream;
 using std::to_string;
+using sxe::graphics::Vertex;
 using sxe::graphics::VertexVertexMesh;
 
 static const string TAG = "VertexVertexMeshTest";
@@ -39,14 +40,13 @@ CPPUNIT_REGISTRY_ADD_TO_DEFAULT(TAG);
 void VertexVertexMeshTest::parse()
 {
     Log::xtrace(TAG, "parse()");
-using sxe::graphics::Vertex;
-    static const std::vector<sxe::graphics::Vertex> vertices = {
-        {{-0.5f, 0.5f, 0.0f}, {0.0f, 0.0f, 0.0f}},
-        {{-0.5f, -0.5f, 0.0f}, {0.0f, 0.0f, 0.0f}},
-        {{0.5f, -0.5f, 0.0f}, {0.0f, 0.0f, 0.0f}},
-        {{0.5f, -0.5f, 0.0f}, {0.0f, 0.0f, 0.0f}},
-        {{0.5f, 0.5f, 0.0f}, {0.0f, 0.0f, 0.0f}},
-        {{-0.5f, 0.5f, 0.0f}, {0.0f, 0.0f, 0.0f}},
+    static const std::vector<Vertex> vertices = {
+        {{-0.5f, 0.5f, 0.0f}, {0.0f, 0.0f, 0.0f, 0.0f}},
+        {{-0.5f, -0.5f, 0.0f}, {0.0f, 0.0f, 0.0f, 0.0f}},
+        {{0.5f, -0.5f, 0.0f}, {0.0f, 0.0f, 0.0f, 0.0f}},
+        {{0.5f, -0.5f, 0.0f}, {0.0f, 0.0f, 0.0f, 0.0f}},
+        {{0.5f, 0.5f, 0.0f}, {0.0f, 0.0f, 0.0f, 0.0f}},
+        {{-0.5f, 0.5f, 0.0f}, {0.0f, 0.0f, 0.0f, 0.0f}},
     };
 
     stringstream input;
