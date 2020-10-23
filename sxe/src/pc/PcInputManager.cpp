@@ -235,8 +235,9 @@ void PcInputManager::key_callback(GLFWwindow* window, int key, int scancode, int
               + " key: " + to_string(key) + " scancode: " + to_string(scancode)
               + " action: " + to_string(action) + " mods: " + to_string(mods));
 
+    const char* fromGlfw = glfwGetKeyName(key, scancode);
+    const char* friendly = fromGlfw == nullptr ? "(non printable)" : fromGlfw;
     string_type name;
-    const char* friendly = glfwGetKeyName(key, scancode);
     if (friendly != nullptr)
         name.append(friendly);
 
