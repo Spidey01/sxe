@@ -22,6 +22,9 @@
  */
 
 #include "sxe/scene/SceneManager.hpp"
+
+#include <sxe/GameEngine.hpp>
+#include <sxe/graphics/DisplayManager.hpp>
 #include <sxe/logging.hpp>
 
 using std::to_string;
@@ -34,11 +37,19 @@ SceneManager::SceneManager()
     : Subsystem(TAG)
     , mEntityMutex()
     , mEntities()
+    , mDrawingTechnique(nullptr)
 {
 }
 
 SceneManager::~SceneManager()
 {
+}
+
+bool SceneManager::initialize(GameEngine& engine)
+{
+    Log::xtrace(TAG, "initialize()");
+
+    return Subsystem::initialize(engine);
 }
 
 bool SceneManager::uninitialize()
@@ -50,7 +61,33 @@ bool SceneManager::uninitialize()
     for (auto eptr : mEntities)
         removeEntity(eptr);
 
+    mDrawingTechnique.reset();
+
     return Subsystem::uninitialize();
+}
+
+
+void SceneManager::update()
+{
+    if (!mDrawingTechnique) {
+        Log::d(TAG, "update(): lazy of initialization of mDrawingTechnique");
+        mDrawingTechnique = getGameEngine().getDisplayManager().getTechnique();
+
+        if (!mDrawingTechnique) {
+            Log::e(TAG, "update(): DisplayManager has no DrawingTechnique!");
+            return ;
+        }
+    }
+
+    lock_guard synchronized(mEntityMutex);
+
+    mDrawingTechnique->frameStarted();
+
+    for (Entity::shared_ptr entity : mEntities) {
+        mDrawingTechnique->draw(*entity->getGraphicsFacet());
+    }
+
+    mDrawingTechnique->frameEnded();
 }
 
 void SceneManager::addEntity(Entity::shared_ptr entity)

@@ -26,6 +26,7 @@
 #include <sxe/api.hpp>
 #include <sxe/common/Subsystem.hpp>
 #include <sxe/common/mutextypedefs.hpp>
+#include <sxe/graphics/DrawingTechnique.hpp>
 #include <sxe/scene/Entity.hpp>
 
 namespace sxe { namespace scene {
@@ -40,7 +41,10 @@ namespace sxe { namespace scene {
         SceneManager();
         virtual ~SceneManager();
 
+        bool initialize(GameEngine& engine) override;
         bool uninitialize() override;
+
+        void update() override;
 
         /** Add an Entity to the scene.
          * 
@@ -61,6 +65,8 @@ namespace sxe { namespace scene {
         mutex_type mEntityMutex;
 
         std::list<Entity::shared_ptr> mEntities;
+
+        graphics::DrawingTechnique::shared_ptr mDrawingTechnique;
     };
 } }
 
