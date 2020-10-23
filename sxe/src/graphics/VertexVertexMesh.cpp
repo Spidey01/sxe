@@ -39,10 +39,7 @@ const VertexVertexMesh::string_type VertexVertexMesh::TAG = "VertexVertexMesh";
 
 VertexVertexMesh::VertexVertexMesh(istream& stream)
 {
-    // a real vertex buffer would be nice.
-    // std::array<float, 3> buffer;
-
-    static std::regex pattern("\\s");
+    static std::regex pattern("\\s+");
 
     string_type line;
 
