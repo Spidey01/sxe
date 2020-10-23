@@ -28,6 +28,7 @@
 
 using std::istream;
 using std::stof;
+using std::to_string;
 using sxe::common::Utils::split_regex;
 using sxe::common::Utils::starts_with;
 using sxe::common::Utils::trim;
@@ -39,7 +40,7 @@ const VertexVertexMesh::string_type VertexVertexMesh::TAG = "VertexVertexMesh";
 VertexVertexMesh::VertexVertexMesh(istream& stream)
 {
     // a real vertex buffer would be nice.
-    std::array<float, 3> buffer;
+    // std::array<float, 3> buffer;
 
     static std::regex pattern("\\s");
 
@@ -59,10 +60,20 @@ VertexVertexMesh::VertexVertexMesh(istream& stream)
         }
 
         std::vector<string_type> vertices;
+        Vertex buffer;
         split_regex(std::back_inserter(vertices), line, pattern);
         for (size_t i = 0; i < vertices.size(); ++i) {
-            buffer[i] = stof(vertices[i]);
+            Log::test(TAG, "vertices[" + to_string(i) + "]: " + vertices[i]);
+            buffer.pos[i] = stof(vertices[i]);
         }
+
+        mVertices.push_back(buffer);
     }
 }
+
+const VertexVertexMesh::vertex_vector VertexVertexMesh::vertices() const
+{
+    return mVertices;
+}
+
 } }

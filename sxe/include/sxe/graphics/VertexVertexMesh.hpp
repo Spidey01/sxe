@@ -24,6 +24,7 @@
  */
 
 #include <sxe/api.hpp>
+#include <sxe/graphics/Vertex.hpp>
 
 namespace sxe { namespace graphics {
 
@@ -52,6 +53,7 @@ namespace sxe { namespace graphics {
             : public virtual common::stdtypedefs<VertexVertexMesh>
         {
           public:
+            using vertex_vector = std::vector<Vertex>;
 
             /** Loads the mesh from a stream.
              * 
@@ -59,9 +61,12 @@ namespace sxe { namespace graphics {
              */
             VertexVertexMesh(std::istream& stream);
 
+            const vertex_vector vertices() const;
+
           protected:
           private:
             static const string_type TAG;
+            vertex_vector mVertices;
         };
 } }
 

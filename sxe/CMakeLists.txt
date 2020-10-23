@@ -91,6 +91,7 @@ set(SxE_HEADERS
     include/sxe/graphics/FrameListener.hpp
     include/sxe/graphics/FrameStartedListener.hpp
     include/sxe/graphics/RenderingApi.hpp
+    include/sxe/graphics/Vertex.hpp
     include/sxe/graphics/VertexVertexMesh.hpp
     include/sxe/haveboost.hpp
     include/sxe/input/ConsoleInputManager.hpp

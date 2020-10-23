@@ -1,7 +1,7 @@
-#ifndef SXE_TESTS_GRAPHICS_VERTEXVERTEXMESHTEST__HPP
-#define SXE_TESTS_GRAPHICS_VERTEXVERTEXMESHTEST__HPP
+#ifndef SXE_GRAPHICS_VERTEX__HPP
+#define SXE_GRAPHICS_VERTEX__HPP
 /*-
- * Copyright (c) 2014-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
+ * Copyright (c) 2013-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied warranty.
  * In no event will the authors be held liable for any damages arising from the
@@ -23,21 +23,32 @@
  *	   distribution.
  */
 
-#include <cppunit/extensions/HelperMacros.h>
-#include <sxe/graphics/VertexVertexMesh.hpp>
+#include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
+#include <sxe/api.hpp>
 
-class VertexVertexMeshTest : public CPPUNIT_NS::TestFixture
-{
-    CPPUNIT_TEST_SUITE(VertexVertexMeshTest);
+namespace sxe { namespace graphics {
 
-    CPPUNIT_TEST(parse);
+    /** Structure for vertex data.
+     * 
+     * In SxE 1.0 this was simply VertexBuffer with a java.nio.Buffer style
+     * interface for packing buffers.
+     * 
+     * In SxE 2.0 this is a structure built on the OpenGL Mathematics library
+     * (glm).
+     */
+    class SXE_PUBLIC Vertex
+    {
+        public:
+          /** Vertex position.
+           */
+          glm::vec3 pos;
 
-    CPPUNIT_TEST_SUITE_END();
+          /** Vertex color.
+           */
+          glm::vec3 color;
+    };
 
-  protected:
-    void parse();
+} }
 
-  private:
-};
-
-#endif // SXE_TESTS_GRAPHICS_VERTEXVERTEXMESHTEST__HPP
+#endif SXE_GRAPHICS_VERTEX__HPP
