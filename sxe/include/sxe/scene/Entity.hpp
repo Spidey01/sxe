@@ -26,6 +26,9 @@
 #include <sxe/common/stdtypedefs.hpp>
 
 namespace sxe {
+  namespace graphics {
+    class GraphicsFacet;
+  }
   namespace input {
     class InputFacet;
   }
@@ -67,10 +70,25 @@ namespace sxe { namespace scene {
          */
         void setInputFacet(input_ptr input);
 
+        /** Component used for graphics.
+         */
+        using graphics_ptr = std::shared_ptr<graphics::GraphicsFacet>;
+
+        /** Component used for Graphics.
+         * 
+         * @returns the graphics facet.
+         */
+        graphics_ptr getGraphicsFacet() const;
+
+        /** Set the component used for graphics.
+         */
+        void setGraphicsFacet(graphics_ptr graphics);
+
       private:
         static const string_type TAG;
         SceneManager* mSceneManager;
         input_ptr mInputFacet;
+        graphics_ptr mGraphicsFacet;
     };
 } } 
 

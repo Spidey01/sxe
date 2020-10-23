@@ -21,58 +21,32 @@
  *	   distribution.
  */
 
-#include "sxe/scene/Entity.hpp"
-
 #include <sxe/graphics/GraphicsFacet.hpp>
-#include <sxe/input/InputFacet.hpp>
-#include <sxe/logging.hpp>
-#include <sxe/scene/SceneManager.hpp>
 
-namespace sxe { namespace scene {
+using string_type = sxe::graphics::GraphicsFacet::string_type;
+using vertex_vector = sxe::graphics::GraphicsFacet::vertex_vector;
 
-const Entity::string_type Entity::TAG = "GameEngine";
+namespace sxe { namespace graphics {
 
-Entity::Entity()
-    : mSceneManager(nullptr)
-    , mInputFacet(nullptr)
-    , mGraphicsFacet(nullptr)
+const string_type GraphicsFacet::TAG = "GraphicsFacet";
+
+GraphicsFacet::GraphicsFacet()
+    : mVertices()
 {
-
 }
 
-Entity::~Entity()
+GraphicsFacet::GraphicsFacet(const vertex_vector& vertices)
+    : mVertices(vertices)
 {
-
 }
 
-SceneManager* Entity::getSceneManager() const
+GraphicsFacet::~GraphicsFacet()
 {
-    return mSceneManager;
 }
 
-void Entity::setSceneManager(SceneManager* mgr)
+const vertex_vector& GraphicsFacet::verticesAsVector() const
 {
-    mSceneManager = mgr;
+    return mVertices;
 }
 
-Entity::input_ptr Entity::getInputFacet() const
-{
-    return mInputFacet;
-}
-
-void Entity::setInputFacet(input_ptr input)
-{
-    mInputFacet = input;
-}
-
-Entity::graphics_ptr Entity::getGraphicsFacet() const
-{
-    return mGraphicsFacet;
-}
-
-void Entity::setGraphicsFacet(graphics_ptr graphics)
-{
-    mGraphicsFacet = graphics;
-}
-
-} } 
+} }
