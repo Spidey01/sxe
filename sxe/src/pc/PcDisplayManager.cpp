@@ -126,6 +126,7 @@ void PcDisplayManager::update()
 {
     DisplayManager::update();
     glfwPollEvents();
+    glfwSwapBuffers(mWindow);
 }
 
 
