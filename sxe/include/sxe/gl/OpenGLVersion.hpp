@@ -70,6 +70,14 @@ namespace sxe
              * @returns a space - separated list of supported extensions to GL.
              */
             const char* extensions() const;
+
+            /** glGetIntegerv() for GL_MAJOR_VERSION.
+             */
+            int majorVersion() const;
+
+            /** glGetIntegerv() for GL_MINOR_VERSION.
+             */
+            int minorVersion() const;
         };
 
     } // namespace gl

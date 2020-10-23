@@ -57,5 +57,21 @@ namespace sxe
             return (const char*)::gl::glGetString(::gl::GL_EXTENSIONS);
         }
 
+        int OpenGLVersion::majorVersion() const
+        {
+            ::gl::GLint major = 0;
+            ::gl::glGetIntegerv(::gl::GL_MAJOR_VERSION, &major);
+
+            return (int)major;
+        }
+
+        int OpenGLVersion::minorVersion() const
+        {
+            ::gl::GLint minor = 0;
+            ::gl::glGetIntegerv(::gl::GL_MAJOR_VERSION, &minor);
+
+            return (int)minor;
+        }
+
     } // namespace gl
 } // namespace sxe
