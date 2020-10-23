@@ -32,6 +32,7 @@ set(SxE_SOURCES
         src/config/SettingsListener.cpp
         src/config/SettingsMap.cpp
         src/config/SettingsXMLFile.cpp
+        src/gl/OpenGLVersion.cpp
         src/graphics/DisplayManager.cpp
         src/graphics/DisplayMode.cpp
         src/graphics/FrameEndedListener.cpp
@@ -85,6 +86,7 @@ set(SxE_HEADERS
     include/sxe/dllexport.hpp
     include/sxe/dllimport.hpp
     include/sxe/filesystem.hpp
+    include/sxe/gl/OpenGLVersion.hpp
     include/sxe/graphics/DisplayManager.hpp
     include/sxe/graphics/DisplayMode.hpp
     include/sxe/graphics/FrameEndedListener.hpp

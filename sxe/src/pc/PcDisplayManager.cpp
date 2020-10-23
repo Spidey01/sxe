@@ -31,6 +31,7 @@
 #if SXE_HAVE_OPENGL
 #include <glbinding/gl/gl.h>
 #include <glbinding/glbinding.h>
+#include <sxe/gl/OpenGLVersion.hpp>
 #endif
 
 #include <GLFW/glfw3.h>
@@ -444,6 +445,15 @@ bool PcDisplayManager::createOpenGLContext()
 
     Log::xtrace(TAG, "glbinding::initialize()");
     glbinding::initialize(glfwGetProcAddress);
+
+    /* Debug info about the OpenGL context. */
+    sxe::gl::OpenGLVersion ver;
+
+    // XXX: will crash if any of these are nullptr for the platform.
+    Log::i(TAG, "OpenGL vendor: " + string_type(ver.vendor()));
+    Log::i(TAG, "OpenGL renderer: " + string_type(ver.renderer()));
+    Log::i(TAG, "OpenGL version: " + string_type(ver.version()));
+    Log::i(TAG, "GLSL version: " + string_type(ver.glslLanguageVersion()));
 
     return true;
 
