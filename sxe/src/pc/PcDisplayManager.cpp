@@ -31,12 +31,14 @@
 #if SXE_HAVE_OPENGL
 #include <glbinding/gl/gl.h>
 #include <glbinding/glbinding.h>
+#include <sxe/gl/ImmediateModeTechnique.hpp>
 #include <sxe/gl/OpenGLVersion.hpp>
 #endif
 
 #include <GLFW/glfw3.h>
 #include <sxe/logging.hpp>
 
+using std::make_shared;
 using std::runtime_error;
 using sxe::GameEngine;
 
@@ -454,6 +456,11 @@ bool PcDisplayManager::createOpenGLContext()
     Log::i(TAG, "OpenGL renderer: " + string_type(ver.renderer()));
     Log::i(TAG, "OpenGL version: " + string_type(ver.version()));
     Log::i(TAG, "GLSL version: " + string_type(ver.glslLanguageVersion()));
+
+    Log::d(TAG, "Enabling DrawingTechniques for OpenGL ES.");
+
+    Log::v(TAG, "Enabling ImmediateModeTechnique.");
+    mDrawingTechniques.push_back(make_shared<sxe::gl::ImmediateModeTechnique>());
 
     return true;
 
