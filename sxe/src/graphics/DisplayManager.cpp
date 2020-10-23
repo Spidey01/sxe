@@ -247,5 +247,15 @@ sxe::vk::Vulkan& DisplayManager::vulkan() const
     throw std::runtime_error("DisplayManager::vulkan(): there is no Vulkan.");
 }
 
+DrawingTechnique::shared_ptr DisplayManager::getTechnique() const
+{
+    if (mDrawingTechniques.empty()) {
+        Log::w(TAG, "getTechnique(): NO DRAWING TECHNIQUES!!!");
+        return nullptr;
+    }
+
+    return mDrawingTechniques.front();
+}
+
 } }
 

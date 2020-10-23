@@ -28,6 +28,7 @@
 #include <sxe/common/Subsystem.hpp>
 #include <sxe/config/Settings.hpp>
 #include <sxe/graphics/DisplayMode.hpp>
+#include <sxe/graphics/DrawingTechnique.hpp>
 #include <sxe/graphics/RenderingApi.hpp>
 #include <sxe/vk/Vulkan.hpp>
 
@@ -164,6 +165,10 @@ namespace sxe {  namespace graphics {
          */
         virtual sxe::vk::Vulkan& vulkan() const;
 
+        /** Get the technique for rendering.
+         */
+        DrawingTechnique::shared_ptr getTechnique() const;
+
       protected:
 
         /** nullptr unless we're Vulkanized.
@@ -179,6 +184,13 @@ namespace sxe {  namespace graphics {
          * on ','; and will warn if it is changed once this field has been set.
          */
         std::vector<string_type> mVulkanValidationLayers;
+
+        /** List of available drawing techniques.
+         * 
+         * Which techniques are available will depend on the RenderingApi, and
+         * what the runtime environment supports.
+         */
+        std::vector<DrawingTechnique::shared_ptr> mDrawingTechniques;
 
       private:
 
