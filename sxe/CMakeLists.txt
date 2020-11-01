@@ -32,15 +32,19 @@ set(SxE_SOURCES
         src/config/SettingsListener.cpp
         src/config/SettingsMap.cpp
         src/config/SettingsXMLFile.cpp
+        src/gl/FragmentShader.cpp
         src/gl/ImmediateModeTechnique.cpp
         src/gl/OpenGLVersion.cpp
+        src/gl/Shader.cpp
         src/gl/VertexArrayTechnique.cpp
+        src/gl/VertexShader.cpp
         src/graphics/DisplayManager.cpp
         src/graphics/DisplayMode.cpp
         src/graphics/DrawingTechnique.cpp
         src/graphics/FrameEndedListener.cpp
         src/graphics/FrameStartedListener.cpp
         src/graphics/GraphicsFacet.cpp
+        src/graphics/ShaderType.cpp
         src/graphics/VertexVertexMesh.cpp
         src/input/ConsoleInputManager.cpp
         src/input/InputCode.cpp
@@ -90,9 +94,12 @@ set(SxE_HEADERS
     include/sxe/dllexport.hpp
     include/sxe/dllimport.hpp
     include/sxe/filesystem.hpp
+    include/sxe/gl/FragmentShader.hpp
     include/sxe/gl/ImmediateModeTechnique.hpp
     include/sxe/gl/OpenGLVersion.hpp
+    include/sxe/gl/Shader.hpp
     include/sxe/gl/VertexArrayTechnique.hpp
+    include/sxe/gl/VertexShader.hpp
     include/sxe/graphics/DisplayManager.hpp
     include/sxe/graphics/DisplayMode.hpp
     include/sxe/graphics/DrawingTechnique.hpp
@@ -101,6 +108,7 @@ set(SxE_HEADERS
     include/sxe/graphics/FrameStartedListener.hpp
     include/sxe/graphics/GraphicsFacet.hpp
     include/sxe/graphics/RenderingApi.hpp
+    include/sxe/graphics/ShaderType.hpp
     include/sxe/graphics/Vertex.hpp
     include/sxe/graphics/VertexVertexMesh.hpp
     include/sxe/haveboost.hpp
