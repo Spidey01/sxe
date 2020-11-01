@@ -61,7 +61,7 @@ void ImmediateModeTechnique::draw(GraphicsFacet& facet)
     gl10::glBegin(gl10::GL_TRIANGLES);
     {
         for (const Vertex& vert : facet.verticesAsVector()) {
-            gl10::glColor3f(vert.color.r, vert.color.g, vert.color.b);
+            gl10::glColor4f(vert.color.r, vert.color.g, vert.color.b, vert.color.a);
             gl10::glVertex3f(vert.pos.x, vert.pos.y, vert.pos.y);
         }
     }
