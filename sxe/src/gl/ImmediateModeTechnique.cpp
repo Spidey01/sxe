@@ -30,45 +30,42 @@
 using sxe::graphics::Vertex;
 using sxe::graphics::GraphicsFacet;
 
-namespace sxe
+namespace sxe { namespace gl {
+
+const ImmediateModeTechnique::string_type ImmediateModeTechnique::TAG = "ImmediateModeTechnique";
+
+ImmediateModeTechnique::ImmediateModeTechnique()
+    : DrawingTechnique(TAG, "OpenGL[ES] legacy immediate mode.")
 {
-    namespace gl
+}
+
+ImmediateModeTechnique::~ImmediateModeTechnique()
+{
+}
+
+void ImmediateModeTechnique::frameStarted()
+{
+    DrawingTechnique::frameStarted();
+
+    gl10::glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    gl10::ClearBufferMask mask = gl10::ClearBufferMask::GL_COLOR_BUFFER_BIT | gl10::ClearBufferMask::GL_DEPTH_BUFFER_BIT | gl10::ClearBufferMask::GL_STENCIL_BUFFER_BIT;
+    gl10::glClear(mask);
+
+    gl10::glLoadIdentity();
+}
+
+void ImmediateModeTechnique::draw(GraphicsFacet& facet)
+{
+    DrawingTechnique::draw(facet);
+
+    gl10::glBegin(gl10::GL_TRIANGLES);
     {
-        const ImmediateModeTechnique::string_type ImmediateModeTechnique::TAG = "ImmediateModeTechnique";
-
-        ImmediateModeTechnique::ImmediateModeTechnique()
-            : DrawingTechnique(TAG, "OpenGL[ES] legacy immediate mode.")
-        {
+        for (const Vertex& vert : facet.verticesAsVector()) {
+            gl10::glColor3f(vert.color.r, vert.color.g, vert.color.b);
+            gl10::glVertex3f(vert.pos.x, vert.pos.y, vert.pos.y);
         }
+    }
+    gl10::glEnd();
+}
 
-        ImmediateModeTechnique::~ImmediateModeTechnique()
-        {
-        }
-
-        void ImmediateModeTechnique::frameStarted()
-        {
-            DrawingTechnique::frameStarted();
-
-            gl10::glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            gl10::ClearBufferMask mask = gl10::ClearBufferMask::GL_COLOR_BUFFER_BIT | gl10::ClearBufferMask::GL_DEPTH_BUFFER_BIT | gl10::ClearBufferMask::GL_STENCIL_BUFFER_BIT;
-            gl10::glClear(mask);
-
-            gl10::glLoadIdentity();
-        }
-
-        void ImmediateModeTechnique::draw(GraphicsFacet& facet)
-        {
-            DrawingTechnique::draw(facet);
-
-            gl10::glBegin(gl10::GL_TRIANGLES);
-            {
-                for (const Vertex& vert : facet.verticesAsVector()) {
-                    gl10::glColor3f(vert.color.r, vert.color.g, vert.color.b);
-                    gl10::glVertex3f(vert.pos.x, vert.pos.y, vert.pos.y);
-                }
-            }
-            gl10::glEnd();
-        }
-
-    } // namespace gl
-} // namespace sxe
+} }

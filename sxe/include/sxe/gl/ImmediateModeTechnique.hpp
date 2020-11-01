@@ -25,39 +25,38 @@
 
 #include <sxe/api.hpp>
 #include <sxe/graphics/DrawingTechnique.hpp>
+#include <sxe/graphics/GraphicsFacet.hpp>
 
-namespace sxe
-{
-    namespace gl
+namespace sxe { namespace gl {
+
+    /** Implements drawing technique with OpenGLES 1.0.
+     * 
+     * In virtually all cases you shouldn't use this technique. But it
+     * should work on anything that supports the early way of drawing via
+     * OpenGL.
+     */
+    class SXE_PUBLIC ImmediateModeTechnique
+        : public graphics::DrawingTechnique
     {
-        /** Implements drawing technique with OpenGLES 1.0.
-         * 
-         * In virtually all cases you shouldn't use this technique. But it
-         * should work on anything that supports the early way of drawing via
-         * OpenGL.
+      public:
+        ImmediateModeTechnique();
+        virtual ~ImmediateModeTechnique();
+
+        /** Per frame startup.
          */
-        class SXE_PUBLIC ImmediateModeTechnique
-            : public graphics::DrawingTechnique
-        {
-          public:
-            ImmediateModeTechnique();
-            virtual ~ImmediateModeTechnique();
+        void frameStarted() override;
 
-            /** Per frame startup.
-             */
-            void frameStarted() override;
+        /** Draw the graphics facet.
+         * 
+         * It is assumed that vertex information is in system memory, and
+         * suitable for use with GL_TRIANGLES.
+         */
+        void draw(graphics::GraphicsFacet& facet) override;
 
-            /** Draw the graphics facet.
-             * 
-             * It is assumed that vertex information is in system memory, and
-             * suitable for use with GL_TRIANGLES.
-             */
-            void draw(graphics::GraphicsFacet& facet) override;
+      private:
+        static const string_type TAG;
+    };
 
-          private:
-            static const string_type TAG;
-        };
-    } // namespace gl
-} // namespace sxe
+} }
 
 #endif // SXE_GL_IMMEDIATEMODETECHNIQUE__HPP

@@ -28,70 +28,68 @@
 #include <sxe/graphics/FrameListener.hpp>
 #include <sxe/graphics/GraphicsFacet.hpp>
 
-namespace sxe
-{
-    namespace graphics
-    {
-        /** Interface to drawing techniques.
-         * 
-         * Defines an interface for the SceneManager to draw the scene based on
-         * the DisplayManager's provided RenderingApi.
-         * 
-         * In SxE 2.0 this was renamed "DrawingTechnique" from
-         * "GraphicsTechnique".
-         */
-        class SXE_PUBLIC DrawingTechnique
-            : public common::stdtypedefs<DrawingTechnique>
-            , public virtual FrameListener
-        {
-          public:
-            DrawingTechnique(const string_type& name, const string_type& comment);
-            virtual ~DrawingTechnique();
+namespace sxe { namespace graphics {
 
-            /** Returns the name of this technique.
-             */
-            const string_type& name() const;
+  /** Interface to drawing techniques.
+   * 
+   * Defines an interface for the SceneManager to draw the scene based on
+   * the DisplayManager's provided RenderingApi.
+   * 
+   * In SxE 2.0 this was renamed "DrawingTechnique" from
+   * "GraphicsTechnique".
+   */
+  class SXE_PUBLIC DrawingTechnique
+      : public common::stdtypedefs<DrawingTechnique>
+      , public virtual FrameListener
+  {
+    public:
+      DrawingTechnique(const string_type& name, const string_type& comment);
+      virtual ~DrawingTechnique();
 
-            /** Returns the comment about this technique.
-             */
-            const string_type& comment() const;
+      /** Returns the name of this technique.
+       */
+      const string_type& name() const;
 
-            /** Get the log level.
-             * 
-             * By default the level is Log::TEST.
-             */
-            int logLevel() const;
+      /** Returns the comment about this technique.
+       */
+      const string_type& comment() const;
 
-            /** Set the log level.
-             */
-            void logLevel(int level);
+      /** Get the log level.
+       * 
+       * By default the level is Log::TEST.
+       */
+      int logLevel() const;
 
-            /** Called at the start of every frame by SceneManager.
-             * 
-             * Default implementation simple logs that name() started the frame.
-             */
-            virtual void frameStarted();
+      /** Set the log level.
+       */
+      void logLevel(int level);
 
-            /** Called to draw
-             * 
-             * Default implementation simple logs that name() started the draw.
-             */
-            virtual void draw(GraphicsFacet& facet);
+      /** Called at the start of every frame by SceneManager.
+       * 
+       * Default implementation simple logs that name() started the frame.
+       */
+      virtual void frameStarted();
 
-            /** Called at the end of every frame by SceneManager.
-             * 
-             * Default implementation simple logs that name() started the frame.
-             */
-            virtual void frameEnded();
+      /** Called to draw
+       * 
+       * Default implementation simple logs that name() started the draw.
+       */
+      virtual void draw(GraphicsFacet& facet);
 
-          protected:
-          private:
-            static const string_type TAG;
-            string_type mName;
-            string_type mComment;
-            int mLogLevel;
-        };
-    } // namespace graphics
-} // namespace sxe
+      /** Called at the end of every frame by SceneManager.
+       * 
+       * Default implementation simple logs that name() started the frame.
+       */
+      virtual void frameEnded();
 
-#endif // SXE_GRAPHICS_DRAWINGTECHNIQUE__HPP
+    protected:
+    private:
+      static const string_type TAG;
+      string_type mName;
+      string_type mComment;
+      int mLogLevel;
+    };
+
+  } }
+
+  #endif // SXE_GRAPHICS_DRAWINGTECHNIQUE__HPP

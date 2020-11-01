@@ -25,62 +25,58 @@
 
 #include <sxe/logging.hpp>
 
-namespace sxe
-{
-    namespace graphics
+namespace sxe { namespace graphics {
+
+    using string_type = DrawingTechnique::string_type;
+
+    const string_type DrawingTechnique::TAG = "DrawingTechnique";
+
+    DrawingTechnique::DrawingTechnique(const string_type& name, const string_type& comment)
+        : mName(name)
+        , mComment(comment)
+        , mLogLevel(Log::TEST)
     {
-        using string_type = DrawingTechnique::string_type;
+        Log::log(mLogLevel, TAG, "DrawingTechnique(): name: " + mName + " comment: " + mComment);
+    }
 
-        const string_type DrawingTechnique::TAG = "DrawingTechnique";
+    DrawingTechnique::~DrawingTechnique()
+    {
+        Log::log(mLogLevel, TAG, "~DrawingTechnique(): name: " + mName + " comment: " + mComment);
+    }
 
-        DrawingTechnique::DrawingTechnique(const string_type& name, const string_type& comment)
-            : mName(name)
-            , mComment(comment)
-            , mLogLevel(Log::TEST)
-        {
-            Log::log(mLogLevel, TAG, "DrawingTechnique(): name: " + mName + " comment: " + mComment);
-        }
+    const string_type& DrawingTechnique::name() const
+    {
+        return mName;
+    }
 
-        DrawingTechnique::~DrawingTechnique()
-        {
-            Log::log(mLogLevel, TAG, "~DrawingTechnique(): name: " + mName + " comment: " + mComment);
-        }
+    const string_type& DrawingTechnique::comment() const
+    {
+        return mComment;
+    }
 
-        const string_type& DrawingTechnique::name() const
-        {
-            return mName;
-        }
+    int DrawingTechnique::logLevel() const
+    {
+        return mLogLevel;
+    }
 
-        const string_type& DrawingTechnique::comment() const
-        {
-            return mComment;
-        }
+    void DrawingTechnique::logLevel(int level)
+    {
+        mLogLevel;
+    }
 
-        int DrawingTechnique::logLevel() const
-        {
-            return mLogLevel;
-        }
+    void DrawingTechnique::frameStarted()
+    {
+        Log::log(mLogLevel, TAG, "frameStarted(): name(): " + mName);
+    }
 
+    void DrawingTechnique::draw(GraphicsFacet& facet)
+    {
+        Log::log(mLogLevel, TAG, "draw(): name(): " + mName);
+    }
 
-        void DrawingTechnique::logLevel(int level)
-        {
-            mLogLevel;
-        }
+    void DrawingTechnique::frameEnded()
+    {
+        Log::log(mLogLevel, TAG, "frameEnded(): name(): " + mName);
+    }
 
-        void DrawingTechnique::frameStarted()
-        {
-            Log::log(mLogLevel, TAG, "frameStarted(): name(): " + mName);
-        }
-
-        void DrawingTechnique::draw(GraphicsFacet& facet)
-        {
-            Log::log(mLogLevel, TAG, "draw(): name(): " + mName);
-        }
-
-        void DrawingTechnique::frameEnded()
-        {
-            Log::log(mLogLevel, TAG, "frameEnded(): name(): " + mName);
-        }
-
-    } // namespace graphics
-} // namespace sxe
+} }
