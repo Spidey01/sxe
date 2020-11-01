@@ -32,6 +32,7 @@
 #include <glbinding/gl/gl.h>
 #include <glbinding/glbinding.h>
 #include <sxe/gl/ImmediateModeTechnique.hpp>
+#include <sxe/gl/VertexArrayTechnique.hpp>
 #include <sxe/gl/OpenGLVersion.hpp>
 #endif
 
@@ -460,6 +461,13 @@ bool PcDisplayManager::createOpenGLContext()
 
     Log::d(TAG, "Enabling DrawingTechniques for OpenGL ES.");
 
+    // OpenGL 1.1 / ES 1.
+    if (ver.majorVersion() > 1 && ver.minorVersion() > 0) {
+    Log::v(TAG, "Enabling VertexArrayTechnique");
+    mDrawingTechniques.push_back(make_shared<sxe::gl::VertexArrayTechnique>());
+    }
+
+    // OpenGL 1.0 / Stone age.
     Log::v(TAG, "Enabling ImmediateModeTechnique.");
     mDrawingTechniques.push_back(make_shared<sxe::gl::ImmediateModeTechnique>());
 

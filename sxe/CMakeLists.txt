@@ -34,6 +34,7 @@ set(SxE_SOURCES
         src/config/SettingsXMLFile.cpp
         src/gl/ImmediateModeTechnique.cpp
         src/gl/OpenGLVersion.cpp
+        src/gl/VertexArrayTechnique.cpp
         src/graphics/DisplayManager.cpp
         src/graphics/DisplayMode.cpp
         src/graphics/DrawingTechnique.cpp
@@ -91,6 +92,7 @@ set(SxE_HEADERS
     include/sxe/filesystem.hpp
     include/sxe/gl/ImmediateModeTechnique.hpp
     include/sxe/gl/OpenGLVersion.hpp
+    include/sxe/gl/VertexArrayTechnique.hpp
     include/sxe/graphics/DisplayManager.hpp
     include/sxe/graphics/DisplayMode.hpp
     include/sxe/graphics/DrawingTechnique.hpp
