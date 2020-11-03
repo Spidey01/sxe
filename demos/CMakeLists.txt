@@ -3,4 +3,5 @@
 add_subdirectory(diagterm)
 add_subdirectory(nulldemo)
 add_subdirectory(quad)
+add_subdirectory(rockblaster)
 
