@@ -1,5 +1,5 @@
-#ifndef SXE_DEMOS_ROCKBLASTERGAME__H
-#define SXE_DEMOS_ROCKBLASTERGAME__H
+#ifndef SXE_DEMOS_ROCKBLASTER_PLAYER__H
+#define SXE_DEMOS_ROCKBLASTER_PLAYER__H
 /*-
  * Copyright (c) 2020-current, Terry Mathew Poulin <BigBoss1964@gmail.com>
  *
@@ -23,36 +23,41 @@
  *	   distribution.
  */
 
-#include <sxe/Game.hpp>
+#include <sxe/common/stdtypedefs.hpp>
 #include <sxe/input/InputFacet.hpp>
-
-#include "Player.h"
+#include <sxe/input/InputManager.hpp>
+#include <sxe/input/KeyEvent.hpp>
 
 namespace demos {
 
-    /** Rock Blaster's sxe::Game implementation.
+    /** The player.
      */
-    class RockBlasterGame
-    : public sxe::Game
+    class Player
+        : public sxe::common::stdtypedefs<Player>
     {
       public:
-        RockBlasterGame();
-        virtual ~RockBlasterGame();
-        string_type getName() const override;
-        bool start() override;
-        void stop() override;
+        using KeyEvent = sxe::input::KeyEvent;
+        using InputCode = sxe::input::InputCode;
 
-      protected:
-        void updateGameThread() override;
+        Player();
+        ~Player();
+
+        /** Setup input for controlling the player.
+         * 
+         * @param controller the input manager.
+         */
+        bool setupInput(sxe::input::InputManager& controller);
+
+        bool onUpArrow(KeyEvent event);
+        bool onLeftArrow(KeyEvent event);
+        bool onRightArrow(KeyEvent event);
+        bool onSpaceBar(KeyEvent event);
 
       private:
         static const string_type TAG;
-        std::unique_ptr<demos::Player> mPlayer;
-        bool mShownIntro;
-        bool mReady;
 
-        bool onKeyEvent(sxe::input::KeyEvent event);
+        sxe::input::InputFacet::unique_ptr mInputFacet;
     };
 }
 
-#endif // SXE_DEMOS_ROCKBLASTERGAME__H
+#endif // SXE_DEMOS_ROCKBLASTER_PLAYER__H

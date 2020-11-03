@@ -26,11 +26,19 @@
 #include <sxe/GameEngine.hpp>
 #include <sxe/logging.hpp>
 
+using std::cout;
+using std::endl;
+using std::make_unique;
+using sxe::input::InputCode;
+
 namespace demos {
 
-RockBlasterGame::string_type RockBlasterGame::TAG = "RockBlasterGame";
+const RockBlasterGame::string_type RockBlasterGame::TAG = "RockBlasterGame";
 
 RockBlasterGame::RockBlasterGame()
+    : mPlayer(nullptr)
+    , mShownIntro(false)
+    , mReady(false)
 {
     Log::xtrace(TAG, "RockBlasterGame()");
 }
@@ -47,15 +55,80 @@ RockBlasterGame::string_type RockBlasterGame::getName() const
 
 bool RockBlasterGame::start()
 {
+    Log::xtrace(TAG, "start()");
+
     if (!sxe::Game::start())
         return false;
+
+    Log::v(TAG, "Binding global keys");
+    sxe::input::KeyListener inputCallback = std::bind(&RockBlasterGame::onKeyEvent, this, std::placeholders::_1);
+    getInputFacet().addKeyListener(InputCode::IC_ENTER, inputCallback);
+    getInputFacet().addKeyListener(InputCode::IC_ESCAPE, inputCallback);
+
+    Log::v(TAG, "Creating the Player.");
+    mPlayer = make_unique<demos::Player>();
 
     return true;
 }
 
 void RockBlasterGame::stop()
 {
+    Log::xtrace(TAG, "stop()");
+
+    mPlayer.reset();
+
     sxe::Game::stop();
+}
+
+void RockBlasterGame::updateGameThread()
+{
+    Game::updateGameThread();
+
+    if (getState() == State::STARTING) {
+        if (!mShownIntro) {
+            cout << "Press Enter to start the game." << endl;
+            mShownIntro = true;
+        }
+    }
+
+    if (getState() == State::RUNNING) {
+        if (!mReady && mPlayer) {
+            cout << "GET READY !!!" << endl;
+            mReady = mPlayer->setupInput(getInputFacet().manager());
+        }
+    }
+
+    // Unlikely to ever be reached.
+    if (getState() == State::STOPPING) {
+        if (mShownIntro) {
+            cout << "It's full of stars!" << endl;
+            mShownIntro = false;
+        }
+    }
+}
+
+bool RockBlasterGame::onKeyEvent(sxe::input::KeyEvent event)
+{
+    if (!event.isKeyUp())
+        return false;
+
+    if (event.getKeyCode() == InputCode::IC_ESCAPE) {
+        cout << "Goodbye!" << endl;
+        requestStop();
+        return true;
+    }
+
+    if (!event.isKeyUp())
+        return false;
+
+    if (getState() == State::STARTING) {
+        if (event.getKeyCode() == InputCode::IC_ENTER) {
+            setState(State::RUNNING);
+            return true;
+        }
+    }
+
+    return false;
 }
 
 }

@@ -5,6 +5,7 @@ project(rockblaster
     LANGUAGES CXX)
 
 add_executable(rockblaster
+    src/Player.cpp
     src/RockBlasterGame.cpp
     src/main.cpp)
 
