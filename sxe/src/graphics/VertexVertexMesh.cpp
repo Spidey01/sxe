@@ -73,4 +73,10 @@ const VertexVertexMesh::vertex_vector& VertexVertexMesh::vertices() const
     return mVertices;
 }
 
+void VertexVertexMesh::solidFill(const Vertex::color_type& color)
+{
+    for (Vertex& v : mVertices)
+        v.color = color;
+}
+
 } }

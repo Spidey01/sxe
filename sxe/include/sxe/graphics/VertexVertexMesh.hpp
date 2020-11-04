@@ -63,6 +63,9 @@ namespace sxe { namespace graphics {
 
             const vertex_vector& vertices() const;
 
+            /** Sets each Vertex::color to color. */
+            void solidFill(const Vertex::color_type& color);
+
           protected:
           private:
             static const string_type TAG;
