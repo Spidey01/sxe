@@ -23,17 +23,26 @@
 
 #include "Player.h"
 
+#include <sxe/graphics/VertexVertexMesh.hpp>
 #include <sxe/input/InputManager.hpp>
 #include <sxe/logging.hpp>
+#include <sxe/resource/ResourceHandle.hpp>
+#include <sxe/scene/SceneManager.hpp>
 
 using std::bind;
+using std::make_shared;
 using std::make_unique;
+using sxe::graphics::VertexVertexMesh;
+using sxe::resource::ResourceHandle;
 
 namespace demos {
 
 const Player::string_type Player::TAG = "Player";
 
 Player::Player()
+    : mEntity(make_shared<sxe::scene::Entity>())
+    , mInputFacet(nullptr)
+    , mGraphicsFacet(nullptr)
 {
     Log::xtrace(TAG, "Player()");
 }
@@ -43,18 +52,64 @@ Player::~Player()
     Log::xtrace(TAG, "~Player()");
 
     Log::v(TAG, "mInputFacet.reset()");
+    if (mEntity)
+        mEntity->setInputFacet(nullptr);
     mInputFacet.reset();
+}
+
+Player::Entity::shared_ptr Player::getEntity() const
+{
+    return mEntity;
+}
+
+bool Player::setupResources(sxe::resource::ResourceManager& loader)
+{
+    Log::xtrace(TAG, "setupResources()");
+
+    try {
+        Log::v(TAG, "Loading player.mesh");
+        ResourceHandle::unique_ptr res = loader.load(string_type("player.mesh"));
+        if (!res) {
+            Log::w(TAG, "ResourceManager::load() returned nullptr!");
+            return false;
+        }
+
+        Log::v(TAG, "Getting player.mesh vertices");
+        VertexVertexMesh::unique_ptr mesh = res->asVertexVertexMesh();
+        if (!mesh) {
+            Log::w(TAG, "ResourceHandle::asVertexVertexMesh() returned nullptr!");
+            return false;
+        }
+        if (mesh->vertices().empty()) {
+            Log::e(TAG, "No vertices loaded from player.mesh!");
+            return false;
+        }
+
+        mesh->solidFill({1, 1, 1, 1});
+
+        Log::v(TAG, "Setting up mGraphicsFacet.");
+        mGraphicsFacet = make_shared<sxe::graphics::GraphicsFacet>(mesh->vertices());
+        mEntity->setGraphicsFacet(mGraphicsFacet);
+    } catch (std::exception& ex) {
+        Log::e(TAG, "setupResources() failed", ex);
+        return false;
+    }
+
+    return true;
 }
 
 bool Player::setupInput(sxe::input::InputManager& controller)
 {
     Log::xtrace(TAG, "setupInput()");
 
-    mInputFacet = make_unique<sxe::input::InputFacet>(controller);
+    mInputFacet = make_shared<sxe::input::InputFacet>(controller);
+
     mInputFacet->addKeyListener(InputCode::IC_UP_ARROW, bind(&Player::onUpArrow, this, std::placeholders::_1));
     mInputFacet->addKeyListener(InputCode::IC_LEFT_ARROW, bind(&Player::onLeftArrow, this, std::placeholders::_1));
     mInputFacet->addKeyListener(InputCode::IC_RIGHT_ARROW, bind(&Player::onRightArrow, this, std::placeholders::_1));
     mInputFacet->addKeyListener(InputCode::IC_SPACE, bind(&Player::onSpaceBar, this, std::placeholders::_1));
+
+    mEntity->setInputFacet(mInputFacet);
 
     return true;
 }

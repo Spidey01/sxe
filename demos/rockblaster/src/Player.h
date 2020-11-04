@@ -24,9 +24,12 @@
  */
 
 #include <sxe/common/stdtypedefs.hpp>
+#include <sxe/graphics/GraphicsFacet.hpp>
 #include <sxe/input/InputFacet.hpp>
 #include <sxe/input/InputManager.hpp>
 #include <sxe/input/KeyEvent.hpp>
+#include <sxe/scene/Entity.hpp>
+#include <sxe/resource/ResourceManager.hpp>
 
 namespace demos {
 
@@ -38,9 +41,20 @@ namespace demos {
       public:
         using KeyEvent = sxe::input::KeyEvent;
         using InputCode = sxe::input::InputCode;
+        using Entity = sxe::scene::Entity;
 
         Player();
         ~Player();
+
+        /** Return the entity used for scene management.
+         */
+        sxe::scene::Entity::shared_ptr getEntity() const;
+
+        /** Setup resources for player.
+         * 
+         * @param laoder the resource manager.
+         */
+        bool setupResources(sxe::resource::ResourceManager& loader);
 
         /** Setup input for controlling the player.
          * 
@@ -55,8 +69,9 @@ namespace demos {
 
       private:
         static const string_type TAG;
-
-        sxe::input::InputFacet::unique_ptr mInputFacet;
+        Entity::shared_ptr mEntity;
+        sxe::input::InputFacet::shared_ptr mInputFacet;
+        sxe::graphics::GraphicsFacet::shared_ptr mGraphicsFacet;
     };
 }
 

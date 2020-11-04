@@ -25,6 +25,7 @@
 
 #include <sxe/GameEngine.hpp>
 #include <sxe/logging.hpp>
+#include <sxe/scene/SceneManager.hpp>
 
 using std::cout;
 using std::endl;
@@ -60,6 +61,11 @@ bool RockBlasterGame::start()
     if (!sxe::Game::start())
         return false;
 
+    Log::v(TAG, "Setting resources path");
+    /* Relative to $XDG_DATA_DIRS. */
+    string_type setting = getName() + ".resources.path";
+    getGameEngine().getSettings().setString(setting, getName());
+
     Log::v(TAG, "Binding global keys");
     sxe::input::KeyListener inputCallback = std::bind(&RockBlasterGame::onKeyEvent, this, std::placeholders::_1);
     getInputFacet().addKeyListener(InputCode::IC_ENTER, inputCallback);
@@ -94,7 +100,14 @@ void RockBlasterGame::updateGameThread()
     if (getState() == State::RUNNING) {
         if (!mReady && mPlayer) {
             cout << "GET READY !!!" << endl;
-            mReady = mPlayer->setupInput(getInputFacet().manager());
+
+            mReady = setupPlayer(*mPlayer.get());
+            if (!mReady) {
+                Log::wtf(TAG, "setupPlayer() failed!");
+                // NORETURN
+            }
+
+            cout << "GO, GO, GO, BLAST OFF !!!" << endl;
         }
     }
 
@@ -105,6 +118,25 @@ void RockBlasterGame::updateGameThread()
             mShownIntro = false;
         }
     }
+}
+
+bool RockBlasterGame::setupPlayer(demos::Player& player)
+{
+    Log::xtrace(TAG, "setupPlayer()");
+
+    if (!player.setupResources(getGameEngine().getResourceManager())) {
+        Log::e(TAG, "Failed to setup player resources!");
+        return false;
+    }
+
+    if (!player.setupInput(getInputFacet().manager())) {
+        Log::e(TAG, "Failed to setup player input!");
+        return false;
+    }
+
+    getGameEngine().getSceneManager().addEntity(mPlayer->getEntity());
+
+    return true;
 }
 
 bool RockBlasterGame::onKeyEvent(sxe::input::KeyEvent event)

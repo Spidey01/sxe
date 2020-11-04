@@ -1,0 +1,6 @@
+### A simple triangle.
+# X     # Y     # Z
+# Bring in the sides to make it more narrow.
+-0.75   -1.0    0.0
+ 0.75   -1.0    0.0
+ 0.0     1.0    0.0

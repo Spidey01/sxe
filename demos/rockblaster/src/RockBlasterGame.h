@@ -51,6 +51,14 @@ namespace demos {
         bool mShownIntro;
         bool mReady;
 
+        /** Setup the player instance.
+         * @returns true on success.
+         */
+        bool setupPlayer(demos::Player& player);
+
+        /** Handle global key bindings.
+         * @see sxe::input::KeyListener.
+         */
         bool onKeyEvent(sxe::input::KeyEvent event);
     };
 }
