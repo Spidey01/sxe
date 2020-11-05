@@ -35,6 +35,7 @@ set(SxE_SOURCES
         src/gl/FragmentShader.cpp
         src/gl/ImmediateModeTechnique.cpp
         src/gl/OpenGLVersion.cpp
+        src/gl/Program.cpp
         src/gl/Shader.cpp
         src/gl/VertexArrayTechnique.cpp
         src/gl/VertexShader.cpp
@@ -97,6 +98,7 @@ set(SxE_HEADERS
     include/sxe/gl/FragmentShader.hpp
     include/sxe/gl/ImmediateModeTechnique.hpp
     include/sxe/gl/OpenGLVersion.hpp
+    include/sxe/gl/Program.hpp
     include/sxe/gl/Shader.hpp
     include/sxe/gl/VertexArrayTechnique.hpp
     include/sxe/gl/VertexShader.hpp
