@@ -31,77 +31,88 @@
 
 namespace sxe { namespace gl {
 
-  /** Code common to all types of OpenGL shaders.
-   */
-  class SXE_PUBLIC Shader
-      : virtual public common::Initializable<std::istream>
-      , virtual public common::stdtypedefs<Shader>
-  {
-    public:
-      using ShaderType = sxe::graphics::ShaderType;
-      using istream = std::istream;
-      using ShaderId = gl20::GLuint;
-
-      /** Create an undefined shader.
-       */
-      Shader();
-      virtual ~Shader();
-
-      /** Create an uninitialized shader.
-       * 
-       * You must call initialize() with the shader source.
-       * 
-       * @param type what kind of shader.
-       */
-      Shader(ShaderType type);
-
-      /** Create and initialize a shader.
-       * 
-       * You must call initialize() with the shader source.
-       * 
-       * @param type what kind of shader.
-       * @param[in] source the shader's source.
-       * @throws runtime_error if initialize(source) fails.
-       */
-      Shader(ShaderType type, istream& source);
-
-      /** Create the shader.
-       * 
-       * @param[in] source the GLSL shader code to be compiled.
-       * @returns true on success.
-       */
-      bool initialize(istream& source) override;
-
-      /** Delete the shader.
-       */
-      bool uninitialize() override;
-
-      /** @returns the shader type.
-       */
-      ShaderType getType() const;
-
-      /** @returns the shader id.
-       */
-      ShaderId getId() const;
-
-      /** Calls glGetShaderInfoLog().
-       * @param maxLength maximum length of the log to get.
-       * @returns string_type built from glGetShaderInfoLog()'s result.
-       */
-      string_type getInfoLog(int maxLength) const;
-
-      /** Calls glGetShaderInfoLog().
-       * @returns getInfoLog() for the GL_INFO_LOG_LENGTH.
-       */
-      string_type getInfoLog() const;
-
-    protected:
-    private:
-      static const string_type TAG;
-      ShaderType mType;
-      ShaderId mId;
+    /** Code common to all types of OpenGL shaders.
+     */
+    class SXE_PUBLIC Shader
+        : virtual public common::Initializable<std::istream>
+        , virtual public common::stdtypedefs<Shader>
+    {
+      public:
+        using ShaderType = sxe::graphics::ShaderType;
+        using istream = std::istream;
+        using ShaderId = gl20::GLuint;
+  
+        /** Create an undefined shader.
+         */
+        Shader();
+        virtual ~Shader();
+  
+        /** Create an uninitialized shader.
+         * 
+         * You must call initialize() with the shader source.
+         * 
+         * @param type what kind of shader.
+         */
+        Shader(ShaderType type);
+  
+        /** Create and initialize a shader.
+         * 
+         * You must call initialize() with the shader source.
+         * 
+         * @param type what kind of shader.
+         * @param[in] source the shader's source.
+         * @throws runtime_error if initialize(source) fails.
+         */
+        Shader(ShaderType type, istream& source);
+  
+        /** Create the shader.
+         * 
+         * @param[in] source the GLSL shader code to be compiled.
+         * @returns true on success.
+         */
+        bool initialize(istream& source) override;
+  
+        /** Delete the shader.
+         */
+        bool uninitialize() override;
+  
+        /** @returns the shader type.
+         */
+        ShaderType getType() const;
+  
+        /** @returns the shader id.
+         */
+        ShaderId getId() const;
+  
+        /** Calls glGetShaderInfoLog().
+         * @param maxLength maximum length of the log to get.
+         * @returns string_type built from glGetShaderInfoLog()'s result.
+         */
+        string_type getInfoLog(int maxLength) const;
+  
+        /** Calls glGetShaderInfoLog().
+         * @returns getInfoLog() for the GL_INFO_LOG_LENGTH.
+         */
+        string_type getInfoLog() const;
+  
+        /** @returns the GL_INFO_LOG_LENGTH.
+         */
+        int getInfoLogLength() const;
+  
+        /** @returns the GL_COMPILE_STATUS.
+         */
+        bool getCompileStatus() const;
+  
+        /** @returns the GL_DELETE_STATUS.
+         */
+        bool getDeleteStatus() const;
+  
+      protected:
+      private:
+        static const string_type TAG;
+        ShaderType mType;
+        ShaderId mId;
     };
-
 } }
 
   #endif // SXE_GL_SHADER__HPP

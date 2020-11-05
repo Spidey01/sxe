@@ -114,9 +114,7 @@ bool Shader::initialize(istream& source)
 
     Log::v(TAG, "initialize(): compiling " + name);
     gl20::glCompileShader(mId);
-    gl20::GLint ok = false;
-    gl20::glGetShaderiv(mId, gl20::GL_COMPILE_STATUS, &ok);
-    if (!ok) {
+    if (!getCompileStatus()) {
         Log::e(TAG, "initialize(): failed compiling " + name + ": " + getInfoLog());
         gl20::glDeleteShader(mId);
         return false;
@@ -155,72 +153,30 @@ Shader::string_type Shader::getInfoLog(int maxLength) const
 
 Shader::string_type Shader::getInfoLog() const
 {
+    return getInfoLog(getInfoLogLength());
+}
+
+int Shader::getInfoLogLength() const
+{
     gl20::GLint length = 0;
     gl20::glGetShaderiv(getId(), gl20::GL_INFO_LOG_LENGTH, &length);
-    return getInfoLog(256);
+    return length;
 }
+
+bool Shader::getCompileStatus() const
+{
+    gl20::GLint success = 0;
+    gl20::glGetShaderiv(mId, gl20::GL_COMPILE_STATUS, &success);
+    return success;
+}
+
+bool Shader::getDeleteStatus() const
+{
+    gl20::GLint success = 0;
+    gl20::glGetShaderiv(mId, gl20::GL_DELETE_STATUS, &success);
+
+    return success;
+}
+
 
 } }
-
-#if 0 // notes 1.0
-public class Shader {
-    private static final String TAG = "Shader";
-    
-    private boolean mIsInitialized;
-    private int mShaderId;
-    private final String mSourceCode;
-
-    private final Type mType;
-
-
-    public void initialize(OpenGLES20 GL) {
-        if (mIsInitialized) return;
-
-        int type =
-            mType == Type.VERTEX ? OpenGLES20.GL_VERTEX_SHADER
-                                 : (mType == Type.FRAGMENT ? OpenGLES20.GL_FRAGMENT_SHADER : -1);
-        assert (type == OpenGLES20.GL_VERTEX_SHADER) || (type == OpenGLES20.GL_FRAGMENT_SHADER);
-
-        mShaderId = GL.glCreateShader(type);
-        if (mShaderId == 0) {
-            throw new RuntimeException("Failed creating shader: "+getInfoLog(GL));
-        }
-
-        GL.glShaderSource(mShaderId, mSourceCode);
-        GL.glCompileShader(mShaderId);
-        if (GL.glGetShaderiv(mShaderId, OpenGLES20.GL_COMPILE_STATUS) == OpenGLES20.GL_FALSE) {
-            String log = getInfoLog(GL);
-            GL.glDeleteShader(mShaderId);
-            throw new RuntimeException("Failed compiling shader: "+log);
-        }
-
-        mIsInitialized = true;
-    }
-
-
-    public void deinitialize(OpenGLES20 GL) {
-        check();
-        GL.glDeleteShader(mShaderId);
-        mIsInitialized = false;
-    }
-
-
-    private String getInfoLog(OpenGLES20 GL) {
-        /*
-         * Don't do this! It silences the log message from initialize(). 
-         * Just trust the OpenGL magic to cover this.
-         */
-        // check();
-        return GL.glGetShaderInfoLog(mShaderId);
-    }
-
-    private void check() {
-        if (!mIsInitialized) {
-            throw new IllegalStateException(TAG+" not yet fully initialized!");
-        }
-    }
-
-}
-
-
-#endif
