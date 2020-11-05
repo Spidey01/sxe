@@ -77,6 +77,36 @@ namespace sxe { namespace common {
       private:
     };
 
+    /** Specialization of Initializable for void. */
+    template <>
+    class Initializable<void>
+    {
+      public:
+        virtual bool initialize()
+        {
+            return true;
+        }
+
+        virtual bool reinitialize()
+        {
+            if (!uninitialize())
+                return false;
+            if (!initialize())
+                return false;
+            return true;
+        }
+
+        virtual bool uninitialize()
+        {
+            mIsInitialized = false;
+            return true;
+        }
+
+      protected:
+        bool mIsInitialized;
+
+      private:
+    };
 } }
 
 #endif // SXE_COMMON_INITIALIZABLE__HPP
