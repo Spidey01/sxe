@@ -74,6 +74,17 @@ Program::ProgramId Program::getId() const
     return mId;
 }
 
+Program::ProgramId Program::getProgram() const
+{
+    return mId;
+}
+
+void Program::useProgram()
+{
+    Log::test(TAG, "useProgram(): mId: " + to_string(mId));
+    gl20::glUseProgram(mId);
+}
+
 Program::string_type Program::getInfoLog(int maxLength) const
 {
     gl20::GLsizei maxIncludingNullTerminator = maxLength;
