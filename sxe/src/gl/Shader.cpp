@@ -100,6 +100,9 @@ bool Shader::initialize(istream& source)
         gl20::GLchar* buffer = new char[line.size() + 1];
         memset(buffer, '\0', length);
 
+        line.copy(buffer, line.size());
+        Log::test(TAG, " shader id: " + to_string(mId) + " line: " + to_string(1 + lines.size()) + ": " + line);
+
         lengths.push_back(length);
         lines.push_back(buffer);
     }
