@@ -29,21 +29,17 @@ namespace sxe { namespace common {
     class Initializable
     {
       public:
-
         Initializable()
             : mIsInitialized(false)
         {
         }
 
-
         virtual ~Initializable() = default;
-
 
         bool isInitialized() const
         {
             return mIsInitialized;
         }
-
 
         virtual bool initialize(E& data)
         {
@@ -51,7 +47,6 @@ namespace sxe { namespace common {
             mIsInitialized = true;
             return true;
         }
-
 
         virtual bool reinitialize(E& data)
         {
@@ -63,7 +58,6 @@ namespace sxe { namespace common {
             return true;
         }
 
-
         virtual bool uninitialize()
         {
             mIsInitialized = false;
@@ -71,7 +65,6 @@ namespace sxe { namespace common {
         }
 
       protected:
-
         bool mIsInitialized;
 
       private:
@@ -82,8 +75,21 @@ namespace sxe { namespace common {
     class Initializable<void>
     {
       public:
+        Initializable()
+            : mIsInitialized(false)
+        {
+        }
+
+        virtual ~Initializable() = default;
+
+        bool isInitialized() const
+        {
+            return mIsInitialized;
+        }
+
         virtual bool initialize()
         {
+            mIsInitialized = true;
             return true;
         }
 
