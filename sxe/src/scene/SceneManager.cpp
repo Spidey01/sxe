@@ -39,6 +39,7 @@ SceneManager::SceneManager()
     , mEntityMutex()
     , mEntities()
     , mWarnedNoTechnique(false)
+    , mLastDrawingTechniqueName("N/A")
     , mDrawingTechnique(nullptr)
 {
 }
@@ -93,6 +94,11 @@ void SceneManager::update()
             }
             return;
         }
+    }
+
+    if (mLastDrawingTechniqueName != mDrawingTechnique->name()) {
+        Log::d(TAG, "update(): mDrawingTechnique changed from " + mLastDrawingTechniqueName + " to " + mDrawingTechnique->name());
+        mLastDrawingTechniqueName = mDrawingTechnique->name();
     }
 
     mDrawingTechnique->frameStarted();

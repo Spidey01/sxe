@@ -71,6 +71,7 @@ namespace sxe { namespace scene {
         mutex_type mEntityMutex;
         std::list<Entity::shared_ptr> mEntities;
         bool mWarnedNoTechnique;
+        string_type mLastDrawingTechniqueName;
         graphics::DrawingTechnique::shared_ptr mDrawingTechnique;
     };
 } }
