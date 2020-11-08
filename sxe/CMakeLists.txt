@@ -95,6 +95,7 @@ set(SxE_HEADERS
     include/sxe/dllexport.hpp
     include/sxe/dllimport.hpp
     include/sxe/filesystem.hpp
+    include/sxe/gl/BufferObject.hpp
     include/sxe/gl/FragmentShader.hpp
     include/sxe/gl/ImmediateModeTechnique.hpp
     include/sxe/gl/OpenGLVersion.hpp
