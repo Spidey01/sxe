@@ -168,7 +168,7 @@ namespace sxe { namespace gl {
         void buffer(ptrdiff_t offset, size_type size, const void* data)
         {
             logging::Log::log(mLevel, mTag, "buffer(): mId: " + std::to_string(mId) + " offset: " + std::to_string(offset) + " size: " + std::to_string(size) + " (uintptr_t)data: " + std::to_string((uintptr_t)data));
-            bind()
+            bind();
             gl20::glBufferSubData(mTarget, offset, size, data);
         }
 
