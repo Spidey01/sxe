@@ -63,6 +63,7 @@ VertexVertexMesh::VertexVertexMesh(istream& stream)
             Log::test(TAG, "vertices[" + to_string(i) + "]: " + vertices[i]);
             buffer.pos[i] = stof(vertices[i]);
         }
+        buffer.pos.w = 1;
 
         mVertices.push_back(buffer);
     }

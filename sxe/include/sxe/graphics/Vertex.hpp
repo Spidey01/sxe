@@ -40,19 +40,22 @@ namespace sxe { namespace graphics {
     class SXE_PUBLIC Vertex
     {
       public:
-        using position_type = glm::vec3;
+        using vector = std::vector<Vertex>;
 
-        /** Vertex position.
-           */
+        using position_type = glm::vec4;
+        using position_vector = std::vector<position_type>;
+
+        /** Vertex position attribute.
+         */
         position_type pos;
 
         using color_type = glm::vec4;
+        using color_vector = std::vector<color_type>;
 
-        /** Vertex color.
-           */
+        /** Vertex color attribute.
+         */
         color_type color;
     };
-
 } }
 
 #endif SXE_GRAPHICS_VERTEX__HPP
