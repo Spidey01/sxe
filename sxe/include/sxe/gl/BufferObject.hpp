@@ -94,7 +94,7 @@ namespace sxe { namespace gl {
         {
             logging::Log::log(mLevel, mTag, "~BufferObject(): mId: " + std::to_string(mId) + " mAutomatic: " + std::to_string(mAutomatic));
 
-            if (mAutomatic)
+            if (mAutomatic && mIsInitialized)
                 uninitialize();
         }
 
@@ -221,6 +221,20 @@ namespace sxe { namespace gl {
         usage_type getUsage() const
         {
             return mUsage;
+        }
+
+        /** @returns whether automatic mode.
+         */
+        bool isAutomaticMode() const
+        {
+            return mAutomatic;
+        }
+
+        /** @returns whether manual mode.
+         */
+        bool isManualMode() const
+        {
+            return !mAutomatic;
         }
 
       private:
