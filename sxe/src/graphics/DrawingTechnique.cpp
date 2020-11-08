@@ -25,6 +25,8 @@
 
 #include <sxe/logging.hpp>
 
+using std::to_string;
+
 namespace sxe { namespace graphics {
 
     using string_type = DrawingTechnique::string_type;
@@ -35,6 +37,7 @@ namespace sxe { namespace graphics {
         : mName(name)
         , mComment(comment)
         , mLogLevel(Log::TEST)
+        , mClearColor(0.0f, 0.0f, 0.0f, 1.0f)
     {
         Log::log(mLogLevel, TAG, "DrawingTechnique(): name: " + mName + " comment: " + mComment);
     }
@@ -79,4 +82,25 @@ namespace sxe { namespace graphics {
         Log::log(mLogLevel, TAG, "frameEnded(): name(): " + mName);
     }
 
+    Vertex::color_type DrawingTechnique::clearColor() const
+    {
+        return mClearColor;
+    }
+
+    /** Get the color that should be used for clearing the frame.
+       */
+    void DrawingTechnique::clearColor(Vertex::color_type color)
+    {
+        std::stringstream ss;
+
+        ss
+            << std::hex << std::setw(2)
+            << "old: #" << mClearColor.r << mClearColor.g << mClearColor.b << mClearColor.a
+            << " "
+            << "new: #" << color.r << color.g << color.b << color.a;
+
+        Log::log(mLogLevel, TAG, "clearColor(): " + ss.str());
+
+        mClearColor = color;
+    }
 } }

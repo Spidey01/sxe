@@ -47,7 +47,8 @@ void ImmediateModeTechnique::frameStarted()
 {
     DrawingTechnique::frameStarted();
 
-    gl10::glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    auto cc = clearColor();
+    gl10::glClearColor(cc.r, cc.g, cc.b, cc.a);
     gl10::ClearBufferMask mask = gl10::ClearBufferMask::GL_COLOR_BUFFER_BIT | gl10::ClearBufferMask::GL_DEPTH_BUFFER_BIT | gl10::ClearBufferMask::GL_STENCIL_BUFFER_BIT;
     gl10::glClear(mask);
 

@@ -27,6 +27,7 @@
 #include <sxe/common/stdtypedefs.hpp>
 #include <sxe/graphics/FrameListener.hpp>
 #include <sxe/graphics/GraphicsFacet.hpp>
+#include <sxe/graphics/Vertex.hpp>
 
 namespace sxe { namespace graphics {
 
@@ -82,12 +83,23 @@ namespace sxe { namespace graphics {
        */
       virtual void frameEnded();
 
+      /** Get the color that should be used for clearing the frame.
+       * 
+       * @returns the color; default is black.
+       */
+      Vertex::color_type clearColor() const;
+
+      /** Get the color that should be used for clearing the frame.
+       */
+      void clearColor(Vertex::color_type color);
+
     protected:
     private:
       static const string_type TAG;
       string_type mName;
       string_type mComment;
       int mLogLevel;
+      Vertex::color_type mClearColor;
     };
 
   } }

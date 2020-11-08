@@ -47,7 +47,8 @@ void VertexArrayTechnique::frameStarted()
 {
     DrawingTechnique::frameStarted();
 
-    gl11::glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    auto cc = clearColor();
+    gl11::glClearColor(cc.r, cc.g, cc.b, cc.a);
     gl11::ClearBufferMask mask = gl11::ClearBufferMask::GL_COLOR_BUFFER_BIT | gl11::ClearBufferMask::GL_DEPTH_BUFFER_BIT | gl11::ClearBufferMask::GL_STENCIL_BUFFER_BIT;
     gl11::glClear(mask);
 
