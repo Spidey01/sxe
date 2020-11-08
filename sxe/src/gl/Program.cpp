@@ -163,5 +163,14 @@ bool Program::getDeleteStatus() const
     return success;
 }
 
+Program::AttributeIndex Program::getAttribLocation(const string_type& name)
+{
+    return gl20::glGetAttribLocation(mId, name.c_str());
+}
+
+void Program::bindAttribLocation(AttributeIndex index, const string_type& name)
+{
+    return gl20::glBindAttribLocation(mId, index, name.c_str());
+}
 
 } }

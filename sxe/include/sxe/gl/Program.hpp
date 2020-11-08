@@ -38,6 +38,7 @@ namespace sxe { namespace gl {
     {
       public:
         using ProgramId = gl20::GLuint;
+        using AttributeIndex = gl20::GLint;
 
         Program();
         virtual ~Program();
@@ -107,6 +108,19 @@ namespace sxe { namespace gl {
         /** @returns the GL_DELETE_STATUS.
          */
         bool getDeleteStatus() const;
+
+        /** Get attribute location for GLSL.
+         * @param name the name it's called in the shader.
+         * @returns the index.
+         */
+        AttributeIndex getAttribLocation(const string_type& name);
+
+        /** Bind  attribute location for GLSL.
+         * 
+         * @param index of the attribute id to bind.
+         * @param name the name it's called in the shader.
+         */
+        void bindAttribLocation(AttributeIndex index, const string_type& name);
 
       private:
         static const string_type TAG;
