@@ -50,3 +50,8 @@ Requests a specific graphics API.
   - OpenGLES
     + Use OpenGL (ES) rendering.
 
+### sxe.graphics.method
+
+Specifies by name the DrawingTechnique to be used.
+
+By default it is the first technique configured by a DisplayManager.

@@ -189,6 +189,9 @@ namespace sxe {  namespace graphics {
          * 
          * Which techniques are available will depend on the RenderingApi, and
          * what the runtime environment supports.
+         * 
+         * When sxe.graphics.method is changed: the matching technique will be
+         * swapped with the front().
          */
         std::vector<DrawingTechnique::shared_ptr> mDrawingTechniques;
 

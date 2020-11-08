@@ -253,8 +253,19 @@ sxe::vk::Vulkan& DisplayManager::vulkan() const
 DrawingTechnique::shared_ptr DisplayManager::getTechnique() const
 {
     if (mDrawingTechniques.empty()) {
-        Log::w(TAG, "getTechnique(): NO DRAWING TECHNIQUES!!!");
+        Log::w(TAG, "getTechnique(): NO DRAWING TECHNIQUES YET!!!");
         return nullptr;
+    }
+
+    string_type requested = getSettings().getString("sxe.graphics.method");
+
+    if (!requested.empty()) {
+        for (DrawingTechnique::shared_ptr ptr : mDrawingTechniques) {
+            if (!ptr)
+                Log::wtf(TAG, "Don't put nullptrs in mDrawingTechniques!");
+            if (ptr->name() == requested)
+                return ptr;
+        }
     }
 
     return mDrawingTechniques.front();

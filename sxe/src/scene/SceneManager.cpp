@@ -35,8 +35,10 @@ const SceneManager::string_type SceneManager::TAG = "SceneManager";
 
 SceneManager::SceneManager()
     : Subsystem(TAG)
+    , mOnChangedListenerId(SIZE_MAX)
     , mEntityMutex()
     , mEntities()
+    , mWarnedNoTechnique(false)
     , mDrawingTechnique(nullptr)
 {
 }
@@ -49,6 +51,10 @@ bool SceneManager::initialize(GameEngine& engine)
 {
     Log::xtrace(TAG, "initialize()");
 
+    auto listener = std::bind(&SceneManager::onSettingChanged, this, std::placeholders::_1);
+    mOnChangedListenerId = engine.getSettings().addChangeListener(listener, "sxe.graphics.method");
+    mWarnedNoTechnique = true;
+
     return Subsystem::initialize(engine);
 }
 
@@ -56,12 +62,14 @@ bool SceneManager::uninitialize()
 {
     Log::xtrace(TAG, "uninitialize()");
 
-    lock_guard synchronized(mEntityMutex);
+    getSettings().removeChangeListener(mOnChangedListenerId);
+    mOnChangedListenerId = SIZE_MAX;
 
     for (auto eptr : mEntities)
         removeEntity(eptr);
 
     mDrawingTechnique.reset();
+    mWarnedNoTechnique = false;
 
     return Subsystem::uninitialize();
 }
@@ -72,17 +80,20 @@ void SceneManager::update()
     if (mEntities.empty())
         return;
 
+    lock_guard synchronized(mEntityMutex);
+
     if (!mDrawingTechnique) {
         Log::d(TAG, "update(): lazy of initialization of mDrawingTechnique");
         mDrawingTechnique = getGameEngine().getDisplayManager().getTechnique();
 
         if (!mDrawingTechnique) {
-            Log::e(TAG, "update(): DisplayManager has no DrawingTechnique!");
-            return ;
+            if (!mWarnedNoTechnique) {
+                Log::w(TAG, "update(): DisplayManager has no DrawingTechnique!");
+                mWarnedNoTechnique = true;
+            }
+            return;
         }
     }
-
-    lock_guard synchronized(mEntityMutex);
 
     mDrawingTechnique->frameStarted();
 
@@ -91,6 +102,27 @@ void SceneManager::update()
     }
 
     mDrawingTechnique->frameEnded();
+}
+
+void SceneManager::onSettingChanged(string_type key)
+{
+    Log::xtrace(TAG, "onSettingChanged(): key: " + key);
+
+    config::Settings& settings = getSettings();
+
+    if (key == "sxe.graphics.method") {
+        lock_guard synchronized(mEntityMutex);
+
+        string_type name = settings.getString(key);
+
+        Log::v(TAG, "onSettingChanged(): mDrawingTechnique = " + name);
+        mDrawingTechnique = getGameEngine().getDisplayManager().getTechnique();
+        if (!mDrawingTechnique) {
+            Log::v(TAG, "onSettingChanged(): no drawing technique set");
+            return;
+        }
+        mWarnedNoTechnique = false;
+    }
 }
 
 void SceneManager::addEntity(Entity::shared_ptr entity)

@@ -213,16 +213,29 @@ bool PcDisplayManager::create()
 
     switch (renderingApi()) {
         case RenderingApi::Vulkan:
-            return createVulkanInstance();
+            if (!createVulkanInstance())
+                return false;
             break;
 
         case RenderingApi::OpenGLES:
-            return createOpenGLContext();
+            if (!createOpenGLContext())
+                return false;
             break;
 
         default:
             return false;
             break;
+    }
+
+    string_type how = getSettings().getString("sxe.graphics.method");
+    if (how.empty()) {
+    auto method = getTechnique();
+    if (method) {
+        Log::d(TAG, "create(): setting sxe.graphics.method to " + method->name());
+        getSettings().setString("sxe.graphics.method", method->name());
+    } else {
+        Log::w(TAG, "create(): configured no drawing techniques for sxe.graphics.method");
+    }
     }
 
     return true;

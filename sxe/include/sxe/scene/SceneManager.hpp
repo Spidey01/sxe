@@ -46,6 +46,12 @@ namespace sxe { namespace scene {
 
         void update() override;
 
+        /** Our settings listener.
+         * 
+         * @param key the setting that changed.
+         */
+        virtual void onSettingChanged(string_type key);
+
         /** Add an Entity to the scene.
          * 
          * @param entity to enter the scene.
@@ -61,11 +67,10 @@ namespace sxe { namespace scene {
       protected:
       private:
         static const string_type TAG;
-
+        config::Settings::SettingsManager::size_type mOnChangedListenerId;
         mutex_type mEntityMutex;
-
         std::list<Entity::shared_ptr> mEntities;
-
+        bool mWarnedNoTechnique;
         graphics::DrawingTechnique::shared_ptr mDrawingTechnique;
     };
 } }
