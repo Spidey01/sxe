@@ -96,9 +96,9 @@ bool Shader::initialize(istream& source)
     while (source) {
         std::getline(source, line);
 
-        auto length = static_cast<gl20::GLint>(line.size() + 1);
+        auto length = static_cast<gl20::GLint>(line.size());
         gl20::GLchar* buffer = new char[line.size() + 1];
-        memset(buffer, '\0', length);
+        memset(buffer, '\0', length + 1);
 
         line.copy(buffer, line.size());
         Log::test(TAG, " shader id: " + to_string(mId) + " line: " + to_string(1 + lines.size()) + ": " + line);
