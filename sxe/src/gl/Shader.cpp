@@ -96,6 +96,9 @@ bool Shader::initialize(istream& source)
     while (source) {
         std::getline(source, line);
 
+        // restore EOL otherwise #version .. runs together with next line.
+        line.append("\n");
+
         auto length = static_cast<gl20::GLint>(line.size());
         gl20::GLchar* buffer = new char[line.size() + 1];
         memset(buffer, '\0', length + 1);
@@ -121,6 +124,9 @@ bool Shader::initialize(istream& source)
         Log::e(TAG, "initialize(): failed compiling " + name + ": " + getInfoLog());
         gl20::glDeleteShader(mId);
         return false;
+    }
+    if (getInfoLogLength() > 0) {
+        Log::w(TAG, "initialize(): Y shader id " + to_string(mId) + ": " + getInfoLog());
     }
 
     return Initializable::initialize(source);
