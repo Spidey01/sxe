@@ -71,6 +71,9 @@ bool DisplayManager::initialize(GameEngine& engine)
     mFpsSettingKey = prefix + ".fps";
     mFullscreenSettingKey = prefix + ".fullscreen";
 
+    /* Start the counter from zero. */
+    mFrameCounter.update();
+
     return Subsystem::initialize(engine);
 }
 
