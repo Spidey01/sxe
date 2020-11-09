@@ -70,6 +70,7 @@ bool RockBlasterGame::start()
     sxe::input::KeyListener inputCallback = std::bind(&RockBlasterGame::onKeyEvent, this, std::placeholders::_1);
     getInputFacet().addKeyListener(InputCode::IC_ENTER, inputCallback);
     getInputFacet().addKeyListener(InputCode::IC_ESCAPE, inputCallback);
+    getInputFacet().addKeyListener(InputCode::IC_Q, inputCallback);
 
     Log::v(TAG, "Creating the Player.");
     mPlayer = make_unique<demos::Player>();
