@@ -111,7 +111,7 @@ LogSink::shared_ptr LoggingManager::makeLogSink(const string_type& name, const s
     }
     else {
         /* .log_to's value is a file name. */
-        return make_shared<TextLogSink>(name, level, new std::fstream(to), true);
+        return make_shared<TextLogSink>(name, level, new std::fstream(to, std::ios::out|std::ios::trunc), true);
     }
 }
 
