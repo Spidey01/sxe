@@ -241,7 +241,7 @@ void PcInputManager::key_callback(GLFWwindow* window, int key, int scancode, int
     if (friendly != nullptr)
         name.append(friendly);
 
-    bool isDown = action == GLFW_RELEASE ? true : false;
+    bool isDown = action == GLFW_RELEASE ? false : true;
 
     singleton->inject(KeyEvent(singleton, toSxE(key), friendly, isDown));
     // singleton->inject(toSxE(key), isDown);
