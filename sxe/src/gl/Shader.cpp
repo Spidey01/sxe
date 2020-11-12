@@ -90,32 +90,20 @@ bool Shader::initialize(istream& source)
     string_type name = typeName + " shader id " + to_string(mId);
 
     Log::v(TAG, "initialize(): sourcing " + name);
-    string_type line;
-    std::vector<gl20::GLint> lengths;
-    std::vector<gl20::GLchar*> lines;
-    while (source) {
-        std::getline(source, line);
 
-        // restore EOL otherwise #version .. runs together with next line.
-        line.append("\n");
+    /* 
+     * N.B. the GLSL compiler figures out lines itself, you just give it buffers
+     * to concatenate. And it gets uppity if you're wrong.
+     */
 
-        auto length = static_cast<gl20::GLint>(line.size());
-        gl20::GLchar* buffer = new char[line.size() + 1];
-        memset(buffer, '\0', length + 1);
+    std::stringstream ss;
+    ss << source.rdbuf();
+    const string_type buf = ss.str();
+    if (Log::isLoggable(TAG, Log::TEST))
+        Log::test(TAG, "shader source:\n" + buf);
+	char const * sourcePtr = buf.c_str();
 
-        line.copy(buffer, line.size());
-        Log::test(TAG, " shader id: " + to_string(mId) + " line: " + to_string(1 + lines.size()) + ": " + line);
-
-        lengths.push_back(length);
-        lines.push_back(buffer);
-    }
-    if (lengths.size() != lines.size())
-        throw std::logic_error("Shader::initialize(): didn't get the same number of lines and line lengths");
-    gl20::glShaderSource(mId, (gl20::GLsizei)lines.size(), &lines[0], &lengths[0]);
-    for (size_t i=0; i < lines.size(); ++i) {
-        gl20::GLchar *buffer = lines[i];
-        delete[] buffer;
-    }
+    gl20::glShaderSource(mId, 1, &sourcePtr, nullptr);
 
 
     Log::v(TAG, "initialize(): compiling " + name);
