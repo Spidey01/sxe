@@ -156,6 +156,9 @@ namespace sxe { namespace gl {
 
         /** Updates a subset of a buffer object's data store.
          * 
+         * This does not create data store. Therefore offset must be within the
+         * already buffered() range.
+         * 
          * @param offset Specifies the offset into the buffer object's data
          * store where data replacement will begin, measured in bytes.
          * 
