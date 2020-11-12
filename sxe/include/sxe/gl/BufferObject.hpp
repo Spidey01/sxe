@@ -138,6 +138,17 @@ namespace sxe { namespace gl {
             gl20::glBindBuffer(mTarget, mId);
         }
 
+        /** Creates and initializes buffer object with zeroed data.
+         * 
+         * @param size Specifies the size in bytes of the buffer object's new
+         * data store.
+         */
+        void buffer(size_t size)
+        {
+            std::vector<uint8_t> zeros(size, 0);
+            buffer(zeros.size(), &zeros[0]);
+        }
+
         /** Creates and initializes a buffer object's data store.
          * 
          * @param size Specifies the size in bytes of the buffer object's new
