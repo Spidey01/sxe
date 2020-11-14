@@ -31,17 +31,30 @@ namespace sxe { namespace graphics {
 const string_type GraphicsFacet::TAG = "GraphicsFacet";
 
 GraphicsFacet::GraphicsFacet()
-    : mVertices()
+    : mOnDraw()
+    , mVertices()
 {
 }
 
 GraphicsFacet::GraphicsFacet(const vertex_vector& vertices)
-    : mVertices(vertices)
+    : mOnDraw()
+    , mVertices(vertices)
+{
+}
+
+GraphicsFacet::GraphicsFacet(const vertex_vector& vertices, callable_type callback)
+    : mOnDraw(callback)
+    , mVertices(vertices)
 {
 }
 
 GraphicsFacet::~GraphicsFacet()
 {
+}
+
+GraphicsFacet::callable_type& GraphicsFacet::onDraw()
+{
+    return mOnDraw;
 }
 
 const vertex_vector& GraphicsFacet::verticesAsVector() const

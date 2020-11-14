@@ -36,6 +36,7 @@ namespace sxe { namespace graphics {
     {
       public:
         using vertex_vector = std::vector<Vertex>;
+        using callable_type = std::function<void(void)>;
 
         /** No data.
          */
@@ -47,6 +48,12 @@ namespace sxe { namespace graphics {
          */
         GraphicsFacet(const vertex_vector& data);
 
+        GraphicsFacet(const vertex_vector& data, callable_type callback);
+
+        /** @returns the callback for DrawingTechnique::draw().
+         */
+        callable_type& onDraw();
+
         /** Returns the vertices.
          * 
          * This is raw data packed loaded into standard system memory. I.e. for
@@ -56,7 +63,7 @@ namespace sxe { namespace graphics {
 
       private:
         static const string_type TAG;
-
+        callable_type mOnDraw;
         vertex_vector mVertices;
     };
 } }
