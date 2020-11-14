@@ -28,6 +28,7 @@
 #include <sxe/logging.hpp>
 
 using std::to_string;
+using sxe::graphics::Vertex;
 
 namespace sxe { namespace gl {
 
@@ -171,6 +172,35 @@ Program::AttributeIndex Program::getAttribLocation(const string_type& name)
 void Program::bindAttribLocation(AttributeIndex index, const string_type& name)
 {
     return gl20::glBindAttribLocation(mId, index, name.c_str());
+}
+
+void Program::vertexAttribPointer(gl20::GLuint index, gl20::GLint size, gl20::GLenum type, gl20::GLboolean normalized, gl20::GLsizei stride, const void* pointer)
+{
+    Log::test(TAG, "vertexAttribPointer(): mId: " + to_string(mId) + " index: " + to_string(index) + " size: " + to_string(size) + " type: " + to_string((int)type) + " normalized: " + to_string((bool)normalized) + " stride: " + to_string(stride) + " pointer: " + to_string((ptrdiff_t)pointer));
+
+    useProgram();
+
+    gl20::glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+}
+
+
+void Program::vertexPositionPointer(AttributeIndex index, ptrdiff_t offset, const Vertex::vector& data)
+{
+    Log::test(TAG, "vertexPositionPointer(): mId: " + to_string(mId) + " index: " + to_string(index) + " offset: " + to_string(offset) + " data.size(): " + to_string(data.size()));
+
+    gl20::GLint size = Vertex::position_type::length();
+    gl20::GLsizei stride = sizeof(Vertex);
+
+    size_t vertexOffset = offsetof(Vertex, pos) + offsetof(Vertex::position_type, x);
+    ptrdiff_t pointer = offset + vertexOffset;
+
+    vertexAttribPointer(index, size, gl20::GL_FLOAT, false, stride, (const void*)pointer);
+}
+
+void Program::vertexPositionPointer(const string_type& attrib, ptrdiff_t offset, const Vertex::vector& data)
+{
+    // TODO: make a map of these.
+    vertexPositionPointer(getAttribLocation(attrib), offset, data);
 }
 
 } }

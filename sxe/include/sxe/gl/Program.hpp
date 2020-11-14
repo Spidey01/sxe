@@ -27,6 +27,7 @@
 #include <sxe/api.hpp>
 #include <sxe/common/Initializable.hpp>
 #include <sxe/common/stdtypedefs.hpp>
+#include <sxe/graphics/Vertex.hpp>
 
 namespace sxe { namespace gl {
 
@@ -121,6 +122,48 @@ namespace sxe { namespace gl {
          * @param name the name it's called in the shader.
          */
         void bindAttribLocation(AttributeIndex index, const string_type& name);
+
+        /** Define an array of generic vertex attribute data.
+         * 
+         * @param index Specifies the index of the generic vertex attribute to
+         * be modified.
+         * 
+         * @param size Specifies the number of components per generic vertex
+         * attribute. The initial value is 4.
+         * 
+         * @param type Specifies the data type of each component in the array.
+         * 
+         * @param normalized Specifies whether fixed-point data values should
+         * be normalized (GL_TRUE) or converted directly as fixed-point values
+         * (GL_FALSE) when they are accessed.
+         * 
+         * @param stride Specifies the byte offset between consecutive generic
+         * vertex attributes. If stride is 0, the generic vertex attributes are
+         * understood to be tightly packed in the array. The initial value is
+         * 0.
+         * 
+         * @param pointer Specifies a offset of the first component of the
+         * first generic vertex attribute in the array in the data store of the
+         * buffer currently bound to the GL_ARRAY_BUFFER target. The initial
+         * value is 0.
+         */
+        void vertexAttribPointer(gl20::GLuint index, gl20::GLint size, gl20::GLenum type, gl20::GLboolean normalized, gl20::GLsizei stride, const void* pointer);
+
+        /** Does glVertexAttribPointer() for Vertex::pos for a vector of Vertex.
+         * 
+         * @param index the location.
+         * @param offset the offset into the currently bound VertexBufferObject.
+         * @param data a vector of Vertex data.
+         */
+        void vertexPositionPointer(AttributeIndex index, ptrdiff_t offset, const graphics::Vertex::vector& data);
+
+        /** Does glVertexAttribPointer() for Vertex::pos for a vector of Vertex.
+         * 
+         * @param attrib the location.
+         * @param offset the offset into the currently bound VertexBufferObject.
+         * @param data a vector of Vertex data.
+         */
+        void vertexPositionPointer(const string_type& attrib, ptrdiff_t offset, const graphics::Vertex::vector& data);
 
       private:
         static const string_type TAG;
