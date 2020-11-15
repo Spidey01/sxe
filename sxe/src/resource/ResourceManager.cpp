@@ -60,7 +60,8 @@ bool ResourceManager::initialize(GameEngine& engine)
     if (!Subsystem::initialize(engine))
         return false;
 
-    mPrefix = engine.getGame().lock()->getName() + ".resources";
+    string_type name = engine.getGame().lock()->getName();
+    mPrefix = name + ".resources";
 
     /*
      * First time setup normally catches this via SettingsListener when
@@ -73,6 +74,17 @@ bool ResourceManager::initialize(GameEngine& engine)
     }
 
     getSettingsListener().setFilter(mPrefix);
+
+    if (mSearchLocations.empty()) {
+        Log::i(TAG, "Adding default resource search locations.");
+
+        Log::d(TAG, "Default location: $XDG_RUNTIME_DIRS/" + name);
+        addResourceLocation(name);
+
+        Log::d(TAG, "Default location: $XDG_RUNTIME_DIRS/sxe");
+        addResourceLocation(string_type("sxe"));
+    }
+
 
     return true;
 }
