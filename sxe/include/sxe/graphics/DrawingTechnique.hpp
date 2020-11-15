@@ -28,6 +28,7 @@
 #include <sxe/graphics/FrameListener.hpp>
 #include <sxe/graphics/GraphicsFacet.hpp>
 #include <sxe/graphics/Vertex.hpp>
+#include <sxe/graphics/stdmathtypes.hpp>
 
 namespace sxe { namespace graphics {
 
@@ -41,6 +42,7 @@ namespace sxe { namespace graphics {
    */
   class SXE_PUBLIC DrawingTechnique
       : public common::stdtypedefs<DrawingTechnique>
+      , public graphics::stdmathtypes
       , public virtual FrameListener
   {
     public:
