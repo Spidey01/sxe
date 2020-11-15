@@ -115,6 +115,7 @@ set(SxE_HEADERS
     include/sxe/graphics/ShaderType.hpp
     include/sxe/graphics/Vertex.hpp
     include/sxe/graphics/VertexVertexMesh.hpp
+    include/sxe/graphics/stdmathtypes.hpp
     include/sxe/haveboost.hpp
     include/sxe/input/ConsoleInputManager.hpp
     include/sxe/input/InputCode.hpp
