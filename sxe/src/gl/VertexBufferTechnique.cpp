@@ -46,6 +46,8 @@ VertexBufferTechnique::VertexBufferTechnique(ResourceManager& resources)
     , mVBO(true)
 	, mPositionName("sxe_vertex_position")
     , mPositionIndex(0)
+    , mColorName("sxe_vertex_color")
+    , mColorIndex(1)
 	, mTransformName("sxe_transform")
     , mTransformIndex(-1)
 {
@@ -82,6 +84,12 @@ VertexBufferTechnique::VertexBufferTechnique(ResourceManager& resources)
         throw runtime_error(TAG + ": " + mPositionName + " is at location " + to_string(posIdx) + " but must be at location " + to_string(mPositionIndex));
     }
 
+    mProgram.bindAttribLocation(mColorIndex, mColorName);
+    auto clrIdx = mProgram.getAttribLocation(mColorName);
+    if (clrIdx != mColorIndex) {
+        throw runtime_error(TAG + ": " + mColorName + " is at location " + to_string(clrIdx) + " but must be at location " + to_string(mColorIndex));
+    }
+
     /*
      * Originally in 1.x we brutelly used 1 VBO per entity in the RenderData structure.
      * In 2.x we want a buffer pool, but are bootstrapping this code first.
@@ -112,6 +120,7 @@ void VertexBufferTechnique::frameStarted()
     mVBO.bind();
     mProgram.useProgram();
     gl20::glEnableVertexAttribArray(mPositionIndex);
+    gl20::glEnableVertexAttribArray(mColorIndex);
 }
 
 void VertexBufferTechnique::draw(GraphicsFacet& facet)
@@ -136,7 +145,8 @@ void VertexBufferTechnique::draw(GraphicsFacet& facet)
     mVBO.bind();
     ptrdiff_t offset = facet.getVertexBufferOffset();
 	mProgram.vertexPositionPointer(mPositionIndex, offset, vertices);
-    // TODO: color
+    mProgram.vertexColorPointer(mColorIndex, offset, vertices);
+
     if (mTransformIndex == -1) {
         mTransformIndex = mProgram.getUniformLocation(mTransformName);
         Log::v(TAG, "location of " + mTransformName + " is " + to_string(mTransformIndex));
@@ -150,6 +160,7 @@ void VertexBufferTechnique::frameEnded()
 {
     DrawingTechnique::frameEnded();
     gl20::glDisableVertexAttribArray(mPositionIndex);
+    gl20::glDisableVertexAttribArray(mColorIndex);
 }
 
 Shader::unique_ptr VertexBufferTechnique::loadShader(sxe::resource::ResourceManager& resources, const path_type& path, ShaderType type)

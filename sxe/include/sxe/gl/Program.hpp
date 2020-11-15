@@ -161,7 +161,7 @@ namespace sxe { namespace gl {
         /** Does glVertexAttribPointer() for Vertex::pos for a vector of Vertex.
          * 
          * @param index the location.
-         * @param offset the offset into the currently bound VertexBufferObject.
+         * @param offset the base offset into the currently bound VertexBufferObject.
          * @param data a vector of Vertex data.
          */
         void vertexPositionPointer(AttributeLocation index, ptrdiff_t offset, const graphics::Vertex::vector& data);
@@ -169,10 +169,26 @@ namespace sxe { namespace gl {
         /** Does glVertexAttribPointer() for Vertex::pos for a vector of Vertex.
          * 
          * @param attrib the location.
-         * @param offset the offset into the currently bound VertexBufferObject.
+         * @param offset the base offset into the currently bound VertexBufferObject.
          * @param data a vector of Vertex data.
          */
         void vertexPositionPointer(const string_type& attrib, ptrdiff_t offset, const graphics::Vertex::vector& data);
+
+        /** Does glVertexAttribPointer() for Vertex::color for a vector of Vertex.
+         * 
+         * @param index the location.
+         * @param offset the base offset into the currently bound VertexBufferObject.
+         * @param data a vector of Vertex data.
+         */
+        void vertexColorPointer(AttributeLocation index, ptrdiff_t offset, const graphics::Vertex::vector& data);
+
+        /** Does glVertexAttribPointer() for Vertex::color for a vector of Vertex.
+         * 
+         * @param attrib the location.
+         * @param offset the base offset into the currently bound VertexBufferObject.
+         * @param data a vector of Vertex data.
+         */
+        void vertexColorPointer(const string_type& attrib, ptrdiff_t offset, const graphics::Vertex::vector& data);
 
         /** Does glUniformMatrix4fv().
          * 

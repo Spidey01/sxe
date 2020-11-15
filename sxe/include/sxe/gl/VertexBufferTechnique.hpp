@@ -65,6 +65,8 @@ namespace sxe { namespace gl {
         VertexBufferObject mVBO; // until pools are operational.
         Program::string_type mPositionName;
         Program::AttributeLocation mPositionIndex;
+        Program::string_type mColorName;
+        Program::AttributeLocation mColorIndex;
         Program::string_type mTransformName;
         Program::UniformLocation mTransformIndex;
         std::vector<Shader::ShaderId> mShaderIds;
