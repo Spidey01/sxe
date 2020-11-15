@@ -28,6 +28,7 @@
 #include <sxe/common/Initializable.hpp>
 #include <sxe/common/stdtypedefs.hpp>
 #include <sxe/graphics/Vertex.hpp>
+#include <sxe/graphics/stdmathtypes.hpp>
 
 namespace sxe { namespace gl {
 
@@ -36,10 +37,12 @@ namespace sxe { namespace gl {
     class SXE_PUBLIC Program
       : virtual public common::Initializable<void>
       , virtual public common::stdtypedefs<Program>
+      , virtual public graphics::stdmathtypes
     {
       public:
         using ProgramId = gl20::GLuint;
-        using AttributeIndex = gl20::GLint;
+        using AttributeLocation = gl20::GLint;
+        using UniformLocation = gl20::GLint;
 
         Program();
         virtual ~Program();
@@ -110,18 +113,24 @@ namespace sxe { namespace gl {
          */
         bool getDeleteStatus() const;
 
+        /** Get uniform location for GLSL.
+         * @param name the name it's called in the shader.
+         * @returns the location, which is a separate index space than attributes.
+         */
+        UniformLocation getUniformLocation(const string_type& name);
+
         /** Get attribute location for GLSL.
          * @param name the name it's called in the shader.
-         * @returns the index.
+         * @returns the index, which is a separate index space than uniforms.
          */
-        AttributeIndex getAttribLocation(const string_type& name);
+        AttributeLocation getAttribLocation(const string_type& name);
 
         /** Bind  attribute location for GLSL.
          * 
          * @param index of the attribute id to bind.
          * @param name the name it's called in the shader.
          */
-        void bindAttribLocation(AttributeIndex index, const string_type& name);
+        void bindAttribLocation(AttributeLocation index, const string_type& name);
 
         /** Define an array of generic vertex attribute data.
          * 
@@ -155,7 +164,7 @@ namespace sxe { namespace gl {
          * @param offset the offset into the currently bound VertexBufferObject.
          * @param data a vector of Vertex data.
          */
-        void vertexPositionPointer(AttributeIndex index, ptrdiff_t offset, const graphics::Vertex::vector& data);
+        void vertexPositionPointer(AttributeLocation index, ptrdiff_t offset, const graphics::Vertex::vector& data);
 
         /** Does glVertexAttribPointer() for Vertex::pos for a vector of Vertex.
          * 
@@ -164,6 +173,17 @@ namespace sxe { namespace gl {
          * @param data a vector of Vertex data.
          */
         void vertexPositionPointer(const string_type& attrib, ptrdiff_t offset, const graphics::Vertex::vector& data);
+
+        /** Does glUniformMatrix4fv().
+         * 
+         * @param uniform the location of the uniform to send.
+         * @param matrix the value of a GLSL mat4.
+         */
+        void uniformMatrixPointer(UniformLocation uniform, const mat4& matrix);
+
+        /** @returns a string built from glGetActiveUniform().
+         */
+        string_type dumpUniform(UniformLocation location);
 
       private:
         static const string_type TAG;

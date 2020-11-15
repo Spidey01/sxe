@@ -164,12 +164,17 @@ bool Program::getDeleteStatus() const
     return success;
 }
 
-Program::AttributeIndex Program::getAttribLocation(const string_type& name)
+Program::UniformLocation Program::getUniformLocation(const string_type& name)
+{
+    return gl20::glGetUniformLocation(mId, name.c_str());
+}
+
+Program::AttributeLocation Program::getAttribLocation(const string_type& name)
 {
     return gl20::glGetAttribLocation(mId, name.c_str());
 }
 
-void Program::bindAttribLocation(AttributeIndex index, const string_type& name)
+void Program::bindAttribLocation(AttributeLocation index, const string_type& name)
 {
     return gl20::glBindAttribLocation(mId, index, name.c_str());
 }
@@ -184,7 +189,7 @@ void Program::vertexAttribPointer(gl20::GLuint index, gl20::GLint size, gl20::GL
 }
 
 
-void Program::vertexPositionPointer(AttributeIndex index, ptrdiff_t offset, const Vertex::vector& data)
+void Program::vertexPositionPointer(AttributeLocation index, ptrdiff_t offset, const Vertex::vector& data)
 {
     Log::test(TAG, "vertexPositionPointer(): mId: " + to_string(mId) + " index: " + to_string(index) + " offset: " + to_string(offset) + " data.size(): " + to_string(data.size()));
 
@@ -201,6 +206,33 @@ void Program::vertexPositionPointer(const string_type& attrib, ptrdiff_t offset,
 {
     // TODO: make a map of these.
     vertexPositionPointer(getAttribLocation(attrib), offset, data);
+}
+
+void Program::uniformMatrixPointer(UniformLocation uniform, const glm::mat4& matrix)
+{
+    useProgram();
+    gl20::glUniformMatrix4fv(uniform, 1, false, glm::value_ptr(matrix));
+}
+
+Program::string_type Program::dumpUniform(UniformLocation location)
+{
+    // Is there a spec or getter for max GLSL identifier?
+    std::vector<gl20::GLchar> buf(256);
+
+    gl20::GLsizei length = 0;
+    gl20::GLint size = 0;
+    gl20::GLenum type = gl20::GL_INVALID_ENUM;
+
+    gl20::glGetActiveUniform(
+        mId,
+        location,
+        buf.size(),
+        &length,
+        &size,
+        &type,
+        &buf[0]);
+
+    return string_type(&buf[0], length);
 }
 
 } }
