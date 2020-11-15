@@ -40,7 +40,7 @@ CPPUNIT_REGISTRY_ADD_TO_DEFAULT(TAG);
 void VertexVertexMeshTest::parse()
 {
     Log::xtrace(TAG, "parse()");
-    static const std::vector<Vertex> vertices = {
+    static const Vertex::vector vertices = {
         {{-0.5f, 0.5f, 0.0f, 0.0f}, {0.0f, 0.0f, 0.0f, 0.0f}},
         {{-0.5f, -0.5f, 0.0f, 0.0f}, {0.0f, 0.0f, 0.0f, 0.0f}},
         {{0.5f, -0.5f, 0.0f, 0.0f}, {0.0f, 0.0f, 0.0f, 0.0f}},

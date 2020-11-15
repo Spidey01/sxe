@@ -23,9 +23,8 @@
  *	   distribution.
  */
 
-#include <glm/vec3.hpp>
-#include <glm/vec4.hpp>
 #include <sxe/api.hpp>
+#include <sxe/graphics/stdmathtypes.hpp>
 
 namespace sxe { namespace graphics {
 
@@ -42,14 +41,17 @@ namespace sxe { namespace graphics {
       public:
         using vector = std::vector<Vertex>;
 
-        using position_type = glm::vec4;
+        // Vertex needs to be more C friendly than inheriting.
+        using vec4 = stdmathtypes::vec4;
+
+        using position_type = vec4;
         using position_vector = std::vector<position_type>;
 
         /** Vertex position attribute.
          */
         position_type pos;
 
-        using color_type = glm::vec4;
+        using color_type = vec4;
         using color_vector = std::vector<color_type>;
 
         /** Vertex color attribute.
