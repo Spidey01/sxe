@@ -28,6 +28,7 @@
 #include <sxe/input/InputFacet.hpp>
 #include <sxe/logging.hpp>
 #include <sxe/resource/ResourceManager.hpp>
+#include <sxe/scene/SceneManager.hpp>
 
 using std::string;
 using sxe::GameEngine;
@@ -73,7 +74,8 @@ Quad::Quad(GameEngine& engine)
             vertices.push_back(v);
         }
 
-        setGraphicsFacet(std::make_shared<sxe::graphics::GraphicsFacet>(vertices));
+        auto& sm = mGameEngine.getSceneManager();
+        setGraphicsFacet(std::make_shared<sxe::graphics::GraphicsFacet>(sm.camera(), vertices));
 
     } catch (std::exception& ex) {
         Log::wtf(TAG, "Failed loading " + MESH_RESOURCE_PATH, ex);

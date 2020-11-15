@@ -125,17 +125,22 @@ bool RockBlasterGame::setupPlayer(demos::Player& player)
 {
     Log::xtrace(TAG, "setupPlayer()");
 
-    if (!player.setupResources(getGameEngine().getResourceManager())) {
+    auto& resourceManager = getGameEngine().getResourceManager();
+    auto& sceneManager = getGameEngine().getSceneManager();
+    auto& inputManager = getInputFacet().manager();
+
+    if (!player.setupResources(resourceManager, sceneManager)) {
         Log::e(TAG, "Failed to setup player resources!");
         return false;
     }
 
-    if (!player.setupInput(getInputFacet().manager())) {
+    if (!player.setupInput(inputManager)) {
         Log::e(TAG, "Failed to setup player input!");
         return false;
     }
 
-    getGameEngine().getSceneManager().addEntity(mPlayer->getEntity());
+    sceneManager.addEntity(mPlayer->getEntity());
+
 
     return true;
 }

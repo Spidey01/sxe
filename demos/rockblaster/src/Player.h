@@ -28,8 +28,9 @@
 #include <sxe/input/InputFacet.hpp>
 #include <sxe/input/InputManager.hpp>
 #include <sxe/input/KeyEvent.hpp>
-#include <sxe/scene/Entity.hpp>
 #include <sxe/resource/ResourceManager.hpp>
+#include <sxe/scene/Entity.hpp>
+#include <sxe/scene/SceneManager.hpp>
 
 namespace demos {
 
@@ -37,6 +38,7 @@ namespace demos {
      */
     class Player
         : public sxe::common::stdtypedefs<Player>
+        , public sxe::graphics::stdmathtypes
     {
       public:
         using KeyEvent = sxe::input::KeyEvent;
@@ -52,9 +54,10 @@ namespace demos {
 
         /** Setup resources for player.
          * 
-         * @param laoder the resource manager.
+         * @param loader the resource manager.
+         * @param scene the scene manager.
          */
-        bool setupResources(sxe::resource::ResourceManager& loader);
+        bool setupResources(sxe::resource::ResourceManager& loader, sxe::scene::SceneManager& scene);
 
         /** Setup input for controlling the player.
          * 

@@ -62,7 +62,7 @@ Player::Entity::shared_ptr Player::getEntity() const
     return mEntity;
 }
 
-bool Player::setupResources(sxe::resource::ResourceManager& loader)
+bool Player::setupResources(sxe::resource::ResourceManager& loader, sxe::scene::SceneManager& scene)
 {
     Log::xtrace(TAG, "setupResources()");
 
@@ -88,7 +88,12 @@ bool Player::setupResources(sxe::resource::ResourceManager& loader)
         mesh->solidFill({1, 1, 1, 1});
 
         Log::v(TAG, "Setting up mGraphicsFacet.");
-        mGraphicsFacet = make_shared<sxe::graphics::GraphicsFacet>(mesh->vertices());
+        sxe::graphics::GraphicsFacet::callable_type onDrawCallback = std::bind(&Player::onDraw, this); 
+        mGraphicsFacet = make_shared<sxe::graphics::GraphicsFacet>(scene.camera(), mesh->vertices(), onDrawCallback);
+
+        vec2 scale(0.03f, 0.03f);
+        mGraphicsFacet->scaleModelMatrix(scale);
+
         mEntity->setGraphicsFacet(mGraphicsFacet);
     } catch (std::exception& ex) {
         Log::e(TAG, "setupResources() failed", ex);
