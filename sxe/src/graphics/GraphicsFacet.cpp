@@ -37,6 +37,7 @@ GraphicsFacet::GraphicsFacet()
     : mCamera(nullptr)
     , mOnDraw()
     , mVertices()
+    , mModelMatrix(1.0)
 {
 }
 
@@ -76,6 +77,48 @@ GraphicsFacet::callable_type& GraphicsFacet::onDraw()
 const vertex_vector& GraphicsFacet::verticesAsVector() const
 {
     return mVertices;
+}
+
+void GraphicsFacet::scaleModelMatrix(vec3 v)
+{
+    mModelMatrix = glm::scale(modelMatrix(), v);
+}
+
+void GraphicsFacet::scaleModelMatrix(vec2 v)
+{
+    vec3 scale(v.x, v.y, 1);
+    scaleModelMatrix(scale);
+}
+
+void GraphicsFacet::scaleModelMatrix(float scale)
+{
+    scaleModelMatrix(vec3(scale, scale, scale));
+}
+
+const GraphicsFacet::mat4& GraphicsFacet::modelMatrix() const
+{
+    return mModelMatrix;
+}
+
+GraphicsFacet::mat4 GraphicsFacet::viewMatrix() const
+{
+    if (mCamera)
+        return mCamera->view();
+
+    return mat4(1);
+}
+
+GraphicsFacet::mat4 GraphicsFacet::projectionMatrix() const
+{
+    if (mCamera)
+        return mCamera->projection();
+
+    return mat4(1);
+}
+
+GraphicsFacet::mat4 GraphicsFacet::transform() const
+{
+    return projectionMatrix() * viewMatrix() * modelMatrix();
 }
 
 } }

@@ -26,6 +26,8 @@
 #include <sxe/api.hpp>
 #include <sxe/common/stdtypedefs.hpp>
 #include <sxe/graphics/Vertex.hpp>
+#include <sxe/graphics/stdmathtypes.hpp>
+#include <sxe/scene/Camera.hpp>
 
 namespace sxe { namespace graphics {
 
@@ -33,6 +35,7 @@ namespace sxe { namespace graphics {
      */
     class SXE_PUBLIC GraphicsFacet
         : public common::stdtypedefs<GraphicsFacet>
+        , public graphics::stdmathtypes
     {
       public:
         using vertex_vector = std::vector<Vertex>;
@@ -73,11 +76,57 @@ namespace sxe { namespace graphics {
          */
         const vertex_vector& verticesAsVector() const;
 
+        /** Scale modelMatrix() accordingly.
+         * 
+         * @param v vector to scale by.
+         */
+        void scaleModelMatrix(vec3 v);
+
+        /** Scale modelMatrix() accordingly.
+         * 
+         * @param scale as if vec3.xy = scale.
+         */
+        void scaleModelMatrix(vec2 v);
+
+        /** Scale modelMatrix() accordingly.
+         * 
+         * @param scale as if vec3.xyz = scale.
+         */
+        void scaleModelMatrix(float scale);
+
+
+        /** @returns the model matrix.
+         * 
+         * Such that coordinates (0, 0, 0) are a vector relative to the models
+         * center.
+         */
+        const mat4& modelMatrix() const;
+
+        /** @returns the view matrix.
+         * 
+         * Such that the coordinates (0, 0, 0) are a vector relative to the world's center.
+         */
+        mat4 viewMatrix() const;
+
+        /** @returns the projection matrix.
+         * 
+         * Such that the coordinates (0, 0, 0) make you wonder what the camera is looking at.
+         */
+        mat4 projectionMatrix() const;
+
+        /** @returns the Model View Projection (MVP) matrix.
+         * 
+         * Such that multipying transform() by a vector position yields the
+         * screen position for rendering.
+         */
+        mat4 transform() const;
+
       private:
         static const string_type TAG;
         sxe::scene::Camera::shared_ptr mCamera;
         callable_type mOnDraw;
         vertex_vector mVertices;
+        mat4 mModelMatrix;
     };
 } }
 
