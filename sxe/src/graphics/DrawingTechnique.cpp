@@ -75,6 +75,10 @@ namespace sxe { namespace graphics {
     void DrawingTechnique::draw(GraphicsFacet& facet)
     {
         Log::log(mLogLevel, TAG, "draw(): name(): " + mName);
+
+        if (facet.onDraw()) {
+            (facet.onDraw())();
+        }
     }
 
     void DrawingTechnique::frameEnded()
