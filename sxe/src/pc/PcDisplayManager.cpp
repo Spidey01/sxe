@@ -32,12 +32,14 @@
 #include <glbinding/gl/gl.h>
 #include <glbinding/glbinding.h>
 #include <sxe/gl/ImmediateModeTechnique.hpp>
+#include <sxe/gl/VertexBufferTechnique.hpp>
 #include <sxe/gl/VertexArrayTechnique.hpp>
 #include <sxe/gl/OpenGLVersion.hpp>
 #endif
 
 #include <GLFW/glfw3.h>
 #include <sxe/logging.hpp>
+#include <sxe/resource/ResourceManager.hpp>
 
 using std::make_shared;
 using std::runtime_error;
@@ -473,6 +475,18 @@ bool PcDisplayManager::createOpenGLContext()
     Log::i(TAG, "GLSL version: " + string_type(ver.glslLanguageVersion()));
 
     Log::d(TAG, "Enabling DrawingTechniques for OpenGL ES.");
+
+    sxe::resource::ResourceManager& rm = getGameEngine().getResourceManager();
+
+    // OpenGL 2.0 / ES 2.
+    if (ver.majorVersion() > 2) {
+        Log::v(TAG, "Enabling VertexBufferTechnique");
+        try {
+            mDrawingTechniques.push_back(make_shared<sxe::gl::VertexBufferTechnique>(rm));
+        } catch (std::runtime_error& ex) {
+            Log::w(TAG, "exception creating VertexBufferTechnique", ex);
+        }
+    }
 
     // OpenGL 1.1 / ES 1.
     if (ver.majorVersion() > 1 && ver.minorVersion() > 0) {

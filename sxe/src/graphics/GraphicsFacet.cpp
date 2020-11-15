@@ -38,6 +38,8 @@ GraphicsFacet::GraphicsFacet()
     , mOnDraw()
     , mVertices()
     , mModelMatrix(1.0)
+    , mVertexBufferId(0)
+    , mVertexBufferOffset(0)
 {
 }
 
@@ -119,6 +121,26 @@ GraphicsFacet::mat4 GraphicsFacet::projectionMatrix() const
 GraphicsFacet::mat4 GraphicsFacet::transform() const
 {
     return projectionMatrix() * viewMatrix() * modelMatrix();
+}
+
+void GraphicsFacet::setVertexBufferId(buffer_id id)
+{
+    mVertexBufferId = id;
+}
+
+GraphicsFacet::buffer_id GraphicsFacet::getVertexBufferId() const
+{
+    return mVertexBufferId;
+}
+
+void GraphicsFacet::setVertexBufferOffset(ptrdiff_t offset)
+{
+    mVertexBufferOffset = offset;
+}
+
+ptrdiff_t GraphicsFacet::getVertexBufferOffset() const
+{
+    return mVertexBufferOffset;
 }
 
 } }

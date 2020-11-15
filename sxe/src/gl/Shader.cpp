@@ -62,6 +62,11 @@ bool Shader::initialize(istream& source)
 {
     Log::xtrace(TAG, "initialize()");
 
+    if (!source) {
+        Log::w(TAG, "initialize(): !source");
+        return false;
+    }
+
     gl20::GLenum type;
     switch (mType) {
         case ShaderType::Vertex:

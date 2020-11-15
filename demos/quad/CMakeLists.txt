@@ -16,6 +16,7 @@ target_link_libraries(quad PRIVATE SxE)
 
 install(FILES share/Quad.dat DESTINATION ${CMAKE_INSTALL_DATADIR}/QuadGame)
 install(FILES QuadGame.cfg DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/xdg)
+install(DIRECTORY ../../sxe/glsl DESTINATION ${CMAKE_INSTALL_DATADIR}/QuadGame)
 install(TARGETS quad
     EXPORT quadTargets
     RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"

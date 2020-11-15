@@ -105,6 +105,7 @@ set(SxE_HEADERS
     include/sxe/gl/Shader.hpp
     include/sxe/gl/VertexArrayTechnique.hpp
     include/sxe/gl/VertexBufferObject.hpp
+    include/sxe/gl/VertexBufferTechnique.hpp
     include/sxe/gl/VertexShader.hpp
     include/sxe/graphics/DisplayManager.hpp
     include/sxe/graphics/DisplayMode.hpp
@@ -149,6 +150,11 @@ set(SxE_HEADERS
     include/sxe/testing/NullDisplayManager.hpp
     include/sxe/testing/NullInputManager.hpp
     include/sxe/vk/Vulkan.hpp
+)
+
+set(SxE_GLSL_SHADERS
+    glsl/VertexBufferTechnique.vert
+    glsl/VertexBufferTechnique.frag
 )
 
 

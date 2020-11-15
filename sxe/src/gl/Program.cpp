@@ -130,11 +130,13 @@ bool Program::getLinkStatus() const
 
 void Program::attach(const Shader& shader)
 {
+    Log::xtrace(TAG, "attach(): shader.getId(): " + to_string(shader.getId()) + " mId: " + to_string(mId));
     gl20::glAttachShader(mId, shader.getId());
 }
 
 void Program::detach(const Shader& shader)
 {
+    Log::xtrace(TAG, "dettach(): shader.getId(): " + to_string(shader.getId()) + " mId: " + to_string(mId));
     gl20::glDetachShader(mId, shader.getId());
 }
 
@@ -196,8 +198,8 @@ void Program::vertexPositionPointer(AttributeLocation index, ptrdiff_t offset, c
     gl20::GLint size = Vertex::position_type::length();
     gl20::GLsizei stride = sizeof(Vertex);
 
-    size_t vertexOffset = offsetof(Vertex, pos) + offsetof(Vertex::position_type, x);
-    ptrdiff_t pointer = offset + vertexOffset;
+    size_t posOffset = offsetof(Vertex, pos) + offsetof(Vertex::position_type, x);
+    ptrdiff_t pointer = offset + posOffset;
 
     vertexAttribPointer(index, size, gl20::GL_FLOAT, false, stride, (const void*)pointer);
 }

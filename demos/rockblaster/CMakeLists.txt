@@ -15,6 +15,7 @@ target_include_directories(rockblaster PRIVATE SxE ${CMAKE_BINARY_DIR}/sxe/inclu
 target_link_libraries(rockblaster PRIVATE SxE)
 
 install(FILES content/player.mesh DESTINATION ${CMAKE_INSTALL_DATADIR}/RockBlasterGame)
+install(DIRECTORY ../../sxe/glsl DESTINATION ${CMAKE_INSTALL_DATADIR}/RockBlasterGame)
 
 install(TARGETS rockblaster
     EXPORT rockblasterTargets
