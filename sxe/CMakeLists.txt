@@ -38,6 +38,7 @@ set(SxE_SOURCES
         src/gl/Program.cpp
         src/gl/Shader.cpp
         src/gl/VertexArrayTechnique.cpp
+        src/gl/VertexBufferObject.cpp
         src/gl/VertexShader.cpp
         src/graphics/DisplayManager.cpp
         src/graphics/DisplayMode.cpp
@@ -103,6 +104,7 @@ set(SxE_HEADERS
     include/sxe/gl/Program.hpp
     include/sxe/gl/Shader.hpp
     include/sxe/gl/VertexArrayTechnique.hpp
+    include/sxe/gl/VertexBufferObject.hpp
     include/sxe/gl/VertexShader.hpp
     include/sxe/graphics/DisplayManager.hpp
     include/sxe/graphics/DisplayMode.hpp
