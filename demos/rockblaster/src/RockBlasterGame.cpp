@@ -24,7 +24,9 @@
 #include "RockBlasterGame.h"
 
 #include <sxe/GameEngine.hpp>
+#include <sxe/input/InputManager.hpp>
 #include <sxe/logging.hpp>
+#include <sxe/resource/ResourceManager.hpp>
 #include <sxe/scene/SceneManager.hpp>
 
 using std::cout;
@@ -96,6 +98,11 @@ void RockBlasterGame::updateGameThread()
             cout << "Press Enter to start the game." << endl;
             mShownIntro = true;
         }
+        if (getGameEngine().getSettings().getBool("auto")) {
+            cout << "Auto starting game" << endl;
+            setState(State::RUNNING);
+            return;
+    }
     }
 
     if (getState() == State::RUNNING) {
@@ -150,7 +157,7 @@ bool RockBlasterGame::onKeyEvent(sxe::input::KeyEvent event)
     if (!event.isKeyUp())
         return false;
 
-    if (event.getKeyCode() == InputCode::IC_ESCAPE) {
+    if (event.getKeyCode() == InputCode::IC_ESCAPE || event.getKeyCode() == InputCode::IC_Q) {
         cout << "Goodbye!" << endl;
         requestStop();
         return true;
