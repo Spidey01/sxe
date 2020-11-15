@@ -58,6 +58,7 @@ set(SxE_SOURCES
         src/pc/PcInputManager.cpp
         src/resource/ResourceHandle.cpp
         src/resource/ResourceManager.cpp
+        src/scene/Camera.cpp
         src/scene/Entity.cpp
         src/scene/SceneManager.cpp
         src/sys/FileSystem.cpp
@@ -133,6 +134,7 @@ set(SxE_HEADERS
     include/sxe/resource/basic_archive_istream.hpp
     include/sxe/resource/basic_archive_streambuf.hpp
     include/sxe/resource/basic_archive_typedefs.hpp
+    include/sxe/scene/Camera.hpp
     include/sxe/scene/Entity.hpp
     include/sxe/scene/SceneManager.hpp
     include/sxe/stdheaders.hpp

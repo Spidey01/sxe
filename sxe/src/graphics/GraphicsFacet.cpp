@@ -23,6 +23,9 @@
 
 #include <sxe/graphics/GraphicsFacet.hpp>
 
+#include <sxe/logging.hpp>
+
+using sxe::scene::Camera;
 using string_type = sxe::graphics::GraphicsFacet::string_type;
 using vertex_vector = sxe::graphics::GraphicsFacet::vertex_vector;
 
@@ -31,25 +34,38 @@ namespace sxe { namespace graphics {
 const string_type GraphicsFacet::TAG = "GraphicsFacet";
 
 GraphicsFacet::GraphicsFacet()
-    : mOnDraw()
+    : mCamera(nullptr)
+    , mOnDraw()
     , mVertices()
 {
 }
 
-GraphicsFacet::GraphicsFacet(const vertex_vector& vertices)
-    : mOnDraw()
-    , mVertices(vertices)
+GraphicsFacet::GraphicsFacet(Camera::shared_ptr camera, const vertex_vector& vertices, callable_type callback)
+    : GraphicsFacet(camera, vertices)
 {
+    mOnDraw = callback;
 }
 
-GraphicsFacet::GraphicsFacet(const vertex_vector& vertices, callable_type callback)
-    : mOnDraw(callback)
-    , mVertices(vertices)
+GraphicsFacet::GraphicsFacet(Camera::shared_ptr camera, const vertex_vector& vertices)
+    : GraphicsFacet()
 {
+    mCamera = camera;
+    mVertices = vertices;
 }
 
 GraphicsFacet::~GraphicsFacet()
 {
+}
+
+Camera::shared_ptr GraphicsFacet::getCamera() const
+{
+    return mCamera;
+}
+
+void GraphicsFacet::setCamera(Camera::shared_ptr camera)
+{
+    Log::d(TAG, "setCamera(): camera: " + std::to_string((uintptr_t)camera.get()) + " mCamera: " + std::to_string((uintptr_t)mCamera.get()));
+    mCamera = camera;
 }
 
 GraphicsFacet::callable_type& GraphicsFacet::onDraw()

@@ -41,6 +41,7 @@ SceneManager::SceneManager()
     , mWarnedNoTechnique(false)
     , mLastDrawingTechniqueName("N/A")
     , mDrawingTechnique(nullptr)
+    , mCamera(nullptr)
 {
 }
 
@@ -55,6 +56,7 @@ bool SceneManager::initialize(GameEngine& engine)
     auto listener = std::bind(&SceneManager::onSettingChanged, this, std::placeholders::_1);
     mOnChangedListenerId = engine.getSettings().addChangeListener(listener, "sxe.graphics.method");
     mWarnedNoTechnique = true;
+    mCamera = std::make_shared<Camera>();
 
     return Subsystem::initialize(engine);
 }
@@ -69,6 +71,7 @@ bool SceneManager::uninitialize()
     for (auto eptr : mEntities)
         removeEntity(eptr);
 
+    mCamera.reset();
     mDrawingTechnique.reset();
     mWarnedNoTechnique = false;
 
@@ -151,6 +154,11 @@ void SceneManager::removeEntity(Entity::shared_ptr entity)
     entity->setSceneManager(nullptr);
 
     mEntities.remove(entity);
+}
+
+Camera::shared_ptr SceneManager::camera() const
+{
+    return mCamera;
 }
 
 } }

@@ -45,10 +45,22 @@ namespace sxe { namespace graphics {
         ~GraphicsFacet();
 
         /** Populate vertex from system memory.
+         * 
+         * @param camera provides the ... matrix.
+         * @param data sequence of vertex data.
+         * @param callback the onDraw handler.
          */
-        GraphicsFacet(const vertex_vector& data);
+        GraphicsFacet(sxe::scene::Camera::shared_ptr camera, const vertex_vector& data, callable_type callback);
 
-        GraphicsFacet(const vertex_vector& data, callable_type callback);
+        GraphicsFacet(sxe::scene::Camera::shared_ptr camera,const vertex_vector& data);
+
+        /** Camera providing the view / projection matrices.
+         */
+        sxe::scene::Camera::shared_ptr getCamera() const;
+
+        /** Camera used to compute view / projection matrices.
+         */
+        void setCamera(sxe::scene::Camera::shared_ptr camera);
 
         /** @returns the callback for DrawingTechnique::draw().
          */
@@ -63,6 +75,7 @@ namespace sxe { namespace graphics {
 
       private:
         static const string_type TAG;
+        sxe::scene::Camera::shared_ptr mCamera;
         callable_type mOnDraw;
         vertex_vector mVertices;
     };
