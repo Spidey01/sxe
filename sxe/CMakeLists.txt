@@ -39,6 +39,7 @@ set(SxE_SOURCES
         src/gl/Shader.cpp
         src/gl/VertexArrayTechnique.cpp
         src/gl/VertexBufferObject.cpp
+        src/gl/VertexBufferTechnique.cpp
         src/gl/VertexShader.cpp
         src/graphics/DisplayManager.cpp
         src/graphics/DisplayMode.cpp
@@ -312,4 +313,5 @@ configure_file(config.hpp.in ${CONFIG_H_DIR}/sxe/config.hpp @ONLY)
 install(FILES ${CONFIG_H_DIR}/sxe/config.hpp DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/sxe)
 target_include_directories(SxE PRIVATE ${CONFIG_H_DIR})
 
-
+# GLSL Shaders.
+install(FILES ${SxE_GLSL_SHADERS} DESTINATION ${CMAKE_INSTALL_DATADIR}/sxe/glsl)
