@@ -27,6 +27,7 @@
 #include <sxe/common/Subsystem.hpp>
 #include <sxe/common/mutextypedefs.hpp>
 #include <sxe/graphics/DrawingTechnique.hpp>
+#include <sxe/scene/Camera.hpp>
 #include <sxe/scene/Entity.hpp>
 
 namespace sxe { namespace scene {
@@ -64,6 +65,10 @@ namespace sxe { namespace scene {
          */
         void removeEntity(Entity::shared_ptr entity);
 
+        /** Get the main camera for the scene.
+         */
+        Camera::shared_ptr camera() const;
+
       protected:
       private:
         static const string_type TAG;
@@ -73,6 +78,7 @@ namespace sxe { namespace scene {
         bool mWarnedNoTechnique;
         string_type mLastDrawingTechniqueName;
         graphics::DrawingTechnique::shared_ptr mDrawingTechnique;
+        Camera::shared_ptr mCamera;
     };
 } }
 
