@@ -29,6 +29,7 @@
 #include <sxe/logging/StandardErrorLogSink.hpp>
 #include <sxe/logging/StandardOutputLogSink.hpp>
 #include <sxe/logging/TextLogSink.hpp>
+#include <sxe/sys/Xdg.hpp>
 
 using std::invalid_argument;
 using std::make_shared;
@@ -111,7 +112,13 @@ LogSink::shared_ptr LoggingManager::makeLogSink(const string_type& name, const s
     }
     else {
         /* .log_to's value is a file name. */
-        return make_shared<TextLogSink>(name, level, new std::fstream(to, std::ios::out|std::ios::trunc), true);
+        string_type path;
+        if (to.size() > 0 && to.front() == '/') {
+            path = to;
+        } else {
+            path = (sxe::sys::Xdg().XDG_RUNTIME_DIR / to).string();
+        }
+        return make_shared<TextLogSink>(name, level, new std::fstream(path, std::ios::out|std::ios::trunc), true);
     }
 }
 
