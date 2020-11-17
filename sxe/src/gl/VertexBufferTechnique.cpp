@@ -44,6 +44,7 @@ VertexBufferTechnique::VertexBufferTechnique(ResourceManager& resources)
     : DrawingTechnique(TAG, "OpenGL[ES] 2.0 vertex buffer objects.")
     , mProgram()
     , mVBO(true)
+    , mNextOffset(0)
 	, mPositionName("sxe_vertex_position")
     , mPositionIndex(0)
     , mColorName("sxe_vertex_color")
@@ -136,9 +137,22 @@ void VertexBufferTechnique::draw(GraphicsFacet& facet)
     if (facet.getVertexBufferId() == 0) {
         Log::xtrace(TAG, "Uploading vertex data");
         facet.setVertexBufferId(mVBO.getId());
-        facet.setVertexBufferOffset(0);
-		// TODO: handle > 1; probably keep a next offset/bytes remaining.
-        mVBO.buffer(facet.getVertexBufferOffset(), sizeof(Vertex) * vertices.size(), &vertices[0]);
+        facet.setVertexBufferOffset(mNextOffset);
+
+        size_t length = sizeof(Vertex) * vertices.size();
+        size_t remaining = mVBO.size() - mNextOffset;
+        size_t lastOffset = mNextOffset;
+        size_t nextOffset = length + lastOffset;
+
+        if (nextOffset > remaining) {
+            Log::e(TAG, "draw(): VertexBufferObject will overflow by " + to_string((nextOffset - lastOffset) - remaining) + " bytes");
+            throw std::bad_alloc();
+        }
+
+        mVBO.buffer(facet.getVertexBufferOffset(), length, &vertices[0]);
+        mNextOffset += length;
+        remaining -= length;
+        Log::v(TAG, "buffered " + to_string(length) + " bytes; next offset " + to_string(mNextOffset) + " remaining bytes: " + to_string(remaining));
 	}
 
 

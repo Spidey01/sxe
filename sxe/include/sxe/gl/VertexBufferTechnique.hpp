@@ -63,6 +63,7 @@ namespace sxe { namespace gl {
         static const string_type TAG;
         Program mProgram;
         VertexBufferObject mVBO; // until pools are operational.
+        size_t mNextOffset;
         Program::string_type mPositionName;
         Program::AttributeLocation mPositionIndex;
         Program::string_type mColorName;
