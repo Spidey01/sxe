@@ -26,7 +26,6 @@
 #include <sxe/api.hpp>
 #include <sxe/gl/Program.hpp>
 #include <sxe/gl/Shader.hpp>
-#include <sxe/gl/VertexArrayObject.hpp>
 #include <sxe/gl/VertexBufferObject.hpp>
 #include <sxe/graphics/DrawingTechnique.hpp>
 #include <sxe/graphics/GraphicsFacet.hpp>

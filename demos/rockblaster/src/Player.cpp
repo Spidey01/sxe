@@ -163,4 +163,10 @@ bool Player::onSpaceBar(KeyEvent event)
     return true;
 }
 
+void Player::onDraw()
+{
+    Log::test(TAG, "onDraw()");
+
+}
+
 }
