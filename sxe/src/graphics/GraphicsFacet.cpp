@@ -38,6 +38,8 @@ GraphicsFacet::GraphicsFacet()
     , mOnDraw()
     , mVertices()
     , mModelMatrix(1.0)
+    , mPosition(0, 0, 0)
+    , mOrientationMatrix(1.0f)
     , mVertexBufferId(0)
     , mVertexBufferOffset(0)
 {
@@ -58,6 +60,21 @@ GraphicsFacet::GraphicsFacet(Camera::shared_ptr camera, const vertex_vector& ver
 
 GraphicsFacet::~GraphicsFacet()
 {
+}
+
+GraphicsFacet::vec3& GraphicsFacet::position()
+{
+    return mPosition;
+}
+
+void GraphicsFacet::rotate(float angle, const vec3& axis)
+{
+    mOrientationMatrix = glm::rotate(mOrientationMatrix, glm::radians(angle), axis);
+}
+
+void GraphicsFacet::rotateDegrees(float angle, const vec3& axis)
+{
+    rotate(glm::degrees(angle), axis);
 }
 
 Camera::shared_ptr GraphicsFacet::getCamera() const
@@ -104,10 +121,9 @@ const GraphicsFacet::mat4& GraphicsFacet::modelMatrix() const
 
 GraphicsFacet::mat4 GraphicsFacet::viewMatrix() const
 {
-    if (mCamera)
-        return mCamera->view();
+    mat4 view = mCamera ? mCamera->view() : mat4(1);
 
-    return mat4(1);
+    return glm::translate(view, mPosition);
 }
 
 GraphicsFacet::mat4 GraphicsFacet::projectionMatrix() const
@@ -118,9 +134,14 @@ GraphicsFacet::mat4 GraphicsFacet::projectionMatrix() const
     return mat4(1);
 }
 
+GraphicsFacet::mat4 GraphicsFacet::orientationMatrix() const
+{
+    return mOrientationMatrix;
+}
+
 GraphicsFacet::mat4 GraphicsFacet::transform() const
 {
-    return projectionMatrix() * viewMatrix() * modelMatrix();
+    return projectionMatrix() * viewMatrix() * modelMatrix() * orientationMatrix();
 }
 
 void GraphicsFacet::setVertexBufferId(buffer_id id)

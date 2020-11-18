@@ -57,6 +57,24 @@ namespace sxe { namespace graphics {
 
         GraphicsFacet(sxe::scene::Camera::shared_ptr camera,const vertex_vector& data);
 
+        /** Position to translate by.
+         */
+        vec3& position();
+
+        /** Modifies the orientation matrix.
+         * 
+         * @param angle in radians.
+         * @param axis to rotate.
+         */
+        void rotate(float angle, const vec3& axis);
+
+        /** Modifies the orientation matrix.
+         * 
+         * @param angle in degrees.
+         * @param axis to rotate.
+         */
+        void rotateDegrees(float angle, const vec3& axis);
+
         /** Camera providing the view / projection matrices.
          */
         sxe::scene::Camera::shared_ptr getCamera() const;
@@ -94,7 +112,6 @@ namespace sxe { namespace graphics {
          */
         void scaleModelMatrix(float scale);
 
-
         /** @returns the model matrix.
          * 
          * Such that coordinates (0, 0, 0) are a vector relative to the models
@@ -113,6 +130,10 @@ namespace sxe { namespace graphics {
          * Such that the coordinates (0, 0, 0) make you wonder what the camera is looking at.
          */
         mat4 projectionMatrix() const;
+
+        /** @returns blah.
+         */
+        mat4 orientationMatrix() const;
 
         /** @returns the Model View Projection (MVP) matrix.
          * 
@@ -162,6 +183,8 @@ namespace sxe { namespace graphics {
         callable_type mOnDraw;
         vertex_vector mVertices;
         mat4 mModelMatrix;
+        vec3 mPosition;
+        mat4 mOrientationMatrix;
         buffer_id mVertexBufferId;
         ptrdiff_t mVertexBufferOffset;
     };
