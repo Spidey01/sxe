@@ -96,10 +96,13 @@ VertexBufferTechnique::VertexBufferTechnique(ResourceManager& resources)
      * In 2.x we want a buffer pool, but are bootstrapping this code first.
      * For now: just allocate 1 VBO big enough for the demos until work can proceed.
      */
-    // Note to self: on Centauri I can allocate up to 2023 MiB, but it takes 3 seconds to allocate, zero, and buffer. 256 MiB takes ~1 second.
+    // Note to self:
+    // - On Centauri: I can allocate up to 2023 MiB, but it takes 3 seconds to allocate, zero, and buffer. 256 MiB takes ~1 second.
+    // - On Stark: I can allocate up to 511 MiB, which takes ~1 second to allocate, zero, and buffer.
     size_t size = 64 * (1024 * 1024); // 64MiB;
 	Log::d(TAG, "Allocating " + to_string(size) + " bytes of VBO.");
     mVBO.buffer(size);
+	Log::d(TAG, "Allocated " + to_string(mVBO.size()) + " bytes of VBO.");
 }
 
 VertexBufferTechnique::~VertexBufferTechnique()
