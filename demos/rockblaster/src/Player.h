@@ -70,6 +70,8 @@ namespace demos {
         bool onRightArrow(KeyEvent event);
         bool onSpaceBar(KeyEvent event);
 
+        void onDraw();
+
       private:
         static const string_type TAG;
         Entity::shared_ptr mEntity;
