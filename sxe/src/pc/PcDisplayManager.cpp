@@ -29,6 +29,8 @@
 #endif
 
 #if SXE_HAVE_OPENGL
+#include <glbinding-aux/debug.h>
+#include <glbinding/Function.h>
 #include <glbinding/gl/gl.h>
 #include <glbinding/glbinding.h>
 #include <sxe/gl/ImmediateModeTechnique.hpp>
@@ -464,6 +466,25 @@ bool PcDisplayManager::createOpenGLContext()
 
     Log::xtrace(TAG, "glbinding::initialize()");
     glbinding::initialize(glfwGetProcAddress);
+
+    glbinding::aux::enableGetErrorCallback();
+    glbinding::setCallbackMask(glbinding::CallbackMask::All);
+
+    glbinding::setAfterCallback([](const glbinding::FunctionCall& call) {
+        std::stringstream msg;
+        msg << call.function->name() << "(";
+        for (unsigned i = 0; i < call.parameters.size(); ++i) {
+            msg << call.parameters[i].get();
+            if (i < call.parameters.size() - 1)
+                msg << ", ";
+        }
+        msg << ")";
+
+        if (call.returnValue)
+            msg << " -> " << call.returnValue.get();
+
+        Log::test("glbinding", msg.str());
+    });
 
     /* Debug info about the OpenGL context. */
     sxe::gl::OpenGLVersion ver;

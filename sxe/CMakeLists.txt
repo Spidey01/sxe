@@ -265,7 +265,7 @@ endif (Vulkan_FOUND)
 find_package(glbinding)
 if (glbinding_FOUND)
     set(SXE_HAVE_OPENGL ON)
-    target_link_libraries(SxE PUBLIC glbinding::glbinding)
+    target_link_libraries(SxE PUBLIC glbinding::glbinding glbinding::glbinding-aux)
 endif (glbinding_FOUND)
 
 
