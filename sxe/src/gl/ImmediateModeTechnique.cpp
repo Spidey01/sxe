@@ -59,11 +59,19 @@ void ImmediateModeTechnique::draw(GraphicsFacet& facet)
 {
     DrawingTechnique::draw(facet);
 
+    gl10::glMatrixMode(gl10::GL_MODELVIEW);
+    mat4 modelView = facet.viewMatrix() * facet.modelMatrix() * facet.orientationMatrix();
+    gl10::glLoadMatrixf(glm::value_ptr(modelView));
+
+    gl10::glMatrixMode(gl10::GL_PROJECTION);
+    mat4 projection = facet.projectionMatrix();
+    gl10::glLoadMatrixf(glm::value_ptr(projection));
+
     gl10::glBegin(gl10::GL_TRIANGLES);
     {
         for (const Vertex& vert : facet.verticesAsVector()) {
             gl10::glColor4f(vert.color.r, vert.color.g, vert.color.b, vert.color.a);
-            gl10::glVertex3f(vert.pos.x, vert.pos.y, vert.pos.y);
+            gl10::glVertex3f(vert.pos.x, vert.pos.y, vert.pos.z);
         }
     }
     gl10::glEnd();
