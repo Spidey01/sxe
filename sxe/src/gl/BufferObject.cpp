@@ -68,7 +68,7 @@ void BufferObject::bind()
 
 void BufferObject::allocate(size_type size, const void* data)
 {
-    log("allocate(): id(): " + std::to_string(id()) + " size: " + std::to_string(size) + " (uintptr_t)data: " + std::to_string((uintptr_t)data));
+    log("allocate(): size: " + std::to_string(size) + " (uintptr_t)data: " + std::to_string((uintptr_t)data));
     this->size(size);
     bind();
     gl20::glBufferData(mTarget, size, data, mUsage);
@@ -76,14 +76,14 @@ void BufferObject::allocate(size_type size, const void* data)
 
 void BufferObject::buffer(difference_type offset, size_type size, const void* data)
 {
-    log("buffer(): id(): " + std::to_string(id()) + " offset: " + std::to_string(offset) + " size: " + std::to_string(size) + " (uintptr_t)data: " + std::to_string((uintptr_t)data));
+    log("buffer(): offset: " + std::to_string(offset) + " size: " + std::to_string(size) + " (uintptr_t)data: " + std::to_string((uintptr_t)data));
     bind();
     gl20::glBufferSubData(mTarget, offset, size, data);
 }
 
 void* BufferObject::map(MapType access)
 {
-    log("map(): id(): " + std::to_string(id()) + " access: " + std::to_string((int)access));
+    log("map(): access: " + std::to_string((int)access));
     gl20::GLenum glAccess;
 
     switch (access) {
@@ -107,7 +107,7 @@ void* BufferObject::map(MapType access)
 
 bool BufferObject::unmap()
 {
-    log("unmap(): id(): " + std::to_string(id()));
+    log("unmap()");
     bind();
     return gl20::glUnmapBuffer(mTarget) == gl20::GL_TRUE;
 }

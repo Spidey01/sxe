@@ -32,8 +32,9 @@ namespace sxe { namespace graphics {
 
 MemoryBuffer::MemoryBuffer(buffer_id defaultId, int level, const string_type& tag)
     : mId(defaultId)
-    , mTag(tag)
     , mLevel(level)
+    , mBaseTag(tag)
+    , mTag(mBaseTag + ":" + to_string(mId))
     , mSize(0)
 {
     log("MemoryBuffer()");
@@ -76,6 +77,7 @@ void MemoryBuffer::id(buffer_id bid)
 {
     log("id(): new id: " + to_string(bid) + " old id: " + to_string(mId));
     mId = bid;
+    mTag = mBaseTag + ":" + to_string(mId);
 }
 
 void MemoryBuffer::size(size_type nbytes)
@@ -92,6 +94,16 @@ void MemoryBuffer::level(int level)
 int MemoryBuffer::level() const
 {
     return mLevel;
+}
+
+const MemoryBuffer::string_type& MemoryBuffer::tag() const
+{
+    return mTag;
+}
+
+const MemoryBuffer::string_type& MemoryBuffer::baseTag() const
+{
+    return mBaseTag;
 }
 
 void MemoryBuffer::log(const string_type& message)
