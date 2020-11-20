@@ -64,8 +64,6 @@ namespace sxe { namespace gl {
         static const string_type TAG;
         Program mProgram;
         BufferObjectPool mMemoryPool;
-        BufferObjectPool::buffer_ptr mNextBuffer;
-        size_t mNextOffset;
         Program::string_type mPositionName;
         Program::AttributeLocation mPositionIndex;
         Program::string_type mColorName;

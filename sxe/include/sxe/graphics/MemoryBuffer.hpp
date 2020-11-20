@@ -194,8 +194,6 @@ namespace sxe { namespace graphics {
          */
         virtual bool unmap() = 0;
 
-        // maybe map in const/non const ver that use ro/rw ?
-
         /** Set the log level.
          */
         void level(int level);

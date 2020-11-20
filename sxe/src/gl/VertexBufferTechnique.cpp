@@ -44,8 +44,6 @@ VertexBufferTechnique::VertexBufferTechnique(ResourceManager& resources)
     : DrawingTechnique(TAG, "OpenGL[ES] 2.0 vertex buffer objects.")
     , mProgram()
     , mMemoryPool(64 * (1024 * 1024)) // 64MiB;
-    , mNextBuffer(mMemoryPool.allocate())
-    , mNextOffset(0)
 	, mPositionName("sxe_vertex_position")
     , mPositionIndex(0)
     , mColorName("sxe_vertex_color")
@@ -101,27 +99,13 @@ VertexBufferTechnique::~VertexBufferTechnique()
 void VertexBufferTechnique::buffer(GraphicsFacet& facet)
 {
     Log::xtrace(TAG, "buffer()");
-    if (!mNextBuffer)
-        throw std::logic_error(TAG + "::buffer(): mNextBuffer is nullptr");
-
-    facet.setVertexBufferId(mNextBuffer->id());
-    facet.setVertexBufferOffset(mNextOffset);
 
     const GraphicsFacet::vertex_vector& vertices = facet.verticesAsVector();
     size_t length = sizeof(Vertex) * vertices.size();
-    size_t remaining = mNextBuffer->size() - mNextOffset;
-    size_t lastOffset = mNextOffset;
-    size_t nextOffset = length + lastOffset;
 
-    if (nextOffset > remaining) {
-        Log::e(TAG, "draw(): VertexBufferObject will overflow by " + to_string((nextOffset - lastOffset) - remaining) + " bytes");
-        throw std::bad_alloc();
-    }
-
-    mNextBuffer->buffer(facet.getVertexBufferOffset(), length, &vertices[0]);
-    mNextOffset += length;
-    remaining -= length;
-    Log::v(TAG, "buffered " + to_string(length) + " bytes; next offset " + to_string(mNextOffset) + " remaining bytes: " + to_string(remaining));
+    graphics::MemoryPool::Segment seg = mMemoryPool.buffer(length, &vertices[0]);
+    facet.setVertexBufferId(seg.buffer->id());
+    facet.setVertexBufferOffset(seg.offset);
 }
 
 void VertexBufferTechnique::frameStarted()
@@ -145,10 +129,6 @@ void VertexBufferTechnique::draw(GraphicsFacet& facet)
 
     const GraphicsFacet::vertex_vector& vertices = facet.verticesAsVector();
 
-    // Starting with the old design we don't get multi vbo
-    // old design ugly was one VBO per mesh.
-    // working towards new pool of array buffer.
-	// for starts: 1 VBO, multi mesh; then work on pool API.
     if (facet.getVertexBufferId() == 0) {
         buffer(facet);
 	}

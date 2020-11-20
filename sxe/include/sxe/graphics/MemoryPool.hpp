@@ -42,6 +42,25 @@ namespace sxe { namespace graphics {
         using buffer_id = MemoryBuffer::buffer_id;
         using buffer_list = std::list<MemoryBuffer::shared_ptr>;
 
+        /** Defines a segment of the memory pool.
+         * 
+         */
+        struct Segment
+        {
+            /** Buffer containing this segment.
+             */
+            buffer_ptr buffer;
+
+            /** Offset into buffer to beginning of this segment.
+             */
+            size_type offset;
+
+            /** Length of this segmeant.
+             */
+            size_type length;
+        };
+
+
         /** Create a new memory pool with no buffers.
          * 
          * @param unit the allocation unit, how memory each MemoryBuffer should
@@ -69,11 +88,6 @@ namespace sxe { namespace graphics {
          */
         size_type unit() const;
 
-        /** @returns the list of buffers.
-         */
-        const buffer_list& buffers() const;
-        buffer_list& buffers();
-
         /** @returns number of buffers in this pool.
          */
         size_type count() const;
@@ -100,6 +114,17 @@ namespace sxe { namespace graphics {
          */
         void deallocate(buffer_ptr ptr);
 
+        /** Buffer data to the pool.
+         * 
+         * Finds an available buffer with at least length bytes remaining. If
+         * no buffer exists: allocate() will be called to create one.
+         * 
+         * @returns a Segment describing the buffer.
+         * 
+         * @throws bad_alloc if allocate() fails.
+         */
+        Segment buffer(size_type length, const void* data);
+
       protected:
 
         /** Validate buffer.
@@ -123,7 +148,7 @@ namespace sxe { namespace graphics {
         pool_id mId;
         size_type mUnit;
         buffer_list mBuffers;
-        
+        std::deque<Segment> mSegments;
     };
 } }
 

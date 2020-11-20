@@ -36,7 +36,6 @@ const MemoryPool::string_type MemoryPool::TAG = "MemoryPool";
 MemoryPool::MemoryPool(size_type unit)
     : mId((uintptr_t)this)
     , mUnit(unit)
-    , mBuffers()
 {
 
 }
@@ -62,16 +61,6 @@ MemoryPool::size_type MemoryPool::unit() const
     return mUnit;
 }
 
-const MemoryPool::buffer_list& MemoryPool::buffers() const
-{
-    return mBuffers;
-}
-
-MemoryPool::buffer_list& MemoryPool::buffers()
-{
-    return mBuffers;
-}
-
 MemoryPool::size_type MemoryPool::count() const
 {
     return mBuffers.size();
@@ -84,11 +73,11 @@ MemoryPool::size_type MemoryPool::size() const
 
 MemoryPool::buffer_ptr MemoryPool::get(buffer_id which)
 {
-    for (buffer_ptr ptr : mBuffers) {
-        validate(ptr);
+    for (Segment& seg : mSegments) {
+        validate(seg.buffer);
 
-        if (ptr->id() == which)
-            return ptr;
+        if (seg.buffer->id() == which)
+            return seg.buffer;
     }
 
     Log::v(TAG, "get(): buffer " + to_string(which) + " not found");
@@ -105,7 +94,12 @@ MemoryPool::buffer_ptr MemoryPool::allocate()
         ptr->pool(mId);
         ptr->reserve(mUnit);
         validate(ptr);
-        mBuffers.push_back(ptr);
+
+        Segment segment;
+        segment.buffer = ptr;
+        segment.length = 0;
+        segment.offset = 0;
+        mSegments.push_back(segment);
     }
 
     return ptr;
@@ -115,7 +109,11 @@ void MemoryPool::deallocate(buffer_ptr ptr)
 {
     Log::xtrace(TAG, "deallocate(): ptr->id(): " + string_type(ptr ? to_string(ptr->id()) : " -- nullptr!"));
 
-    mBuffers.erase(std::remove(mBuffers.begin(), mBuffers.end(), ptr), mBuffers.end());
+    for (auto seg = mSegments.begin(); seg != mSegments.end(); ++seg) {
+        if (seg->buffer == ptr) {
+            seg = mSegments.erase(seg);
+        }
+    }
 }
 
 void MemoryPool::validate(buffer_ptr ptr)
@@ -126,4 +124,79 @@ void MemoryPool::validate(buffer_ptr ptr)
     if (ptr->pool() != mId)
         throw logic_error("buffer " + to_string(ptr->id()) + " is in pool " + to_string(mId) + " but is owned by pool " + to_string(ptr->pool()));
 }
+
+MemoryPool::Segment MemoryPool::buffer(size_type length, const void* data)
+{
+    Log::xtrace(TAG, "buffer(): length: " + to_string(length) + " (uintptr_t)data: " + to_string((intptr_t)data));
+    Segment segment;
+
+    segment.buffer = nullptr;
+    segment.offset = 0;
+    segment.length = 0;
+
+    buffer_id skip = 0;
+
+    Log::test(TAG, "--------");
+    for (auto seg = mSegments.rbegin(); seg != mSegments.rend(); ++seg) {
+        validate(seg->buffer);
+        Log::e(TAG, "seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
+        Log::e(TAG, "seg->offset: " + to_string(seg->offset));
+        Log::e(TAG, "seg->length: " + to_string(seg->length));
+
+        if (seg->buffer->id() == skip) {
+            Log::e(TAG, "seg: skipping, buffer " + to_string(seg->buffer->id()) + " already full");
+            continue;
+        }
+
+        // size_type nextOffset = segment.length + seg->offset;
+        size_type nextOffset = segment.length + seg->length + seg->offset;
+        size_type remaining = seg->buffer->size() - nextOffset;
+        Log::e(TAG, "next offset: " + to_string(nextOffset));
+        Log::e(TAG, "remaining " + to_string(remaining));
+
+        if (remaining >= length) {
+            Log::e(TAG, "Using this segment.");
+            segment.buffer = seg->buffer;
+            segment.offset = nextOffset;
+            segment.length = length;
+
+            /* First segment into new/empty buffer */
+            if (seg->length == 0) {
+                Log::e(TAG, "Update first segment of buffer");
+                *seg = segment;
+                Log::e(TAG, "seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
+                Log::e(TAG, "seg->offset: " + to_string(seg->offset));
+                Log::e(TAG, "seg->length: " + to_string(seg->length));
+
+                break;
+            }
+
+            mSegments.push_back(segment);
+        } else {
+            /* To next buffer's first eg. */
+            skip = seg->buffer->id();
+        }
+    }
+    Log::test(TAG, "--------");
+
+    if (!segment.buffer) {
+        Log::v(TAG, "New buffer + segment required.");
+        segment.buffer = allocate();
+        segment.length = length;
+        segment.offset = 0;
+        assert(mSegments.back().buffer == segment.buffer);
+        mSegments.back() = segment;
+    }
+
+    if (!segment.buffer) 
+        throw std::bad_alloc();
+
+    segment.buffer->buffer(segment.offset, segment.length, data);
+    size_type next = segment.length + segment.offset;
+    size_type remaining = segment.buffer->size() - next;
+    Log::e(TAG, "buffered " + to_string(length) + " bytes; next offset " + to_string(next) + " remaining bytes: " + to_string(remaining));
+
+    return segment;
+}
+
 } }
