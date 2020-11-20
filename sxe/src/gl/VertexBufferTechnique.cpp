@@ -110,6 +110,30 @@ VertexBufferTechnique::~VertexBufferTechnique()
     mProgram.uninitialize();
 }
 
+void VertexBufferTechnique::buffer(GraphicsFacet& facet)
+{
+    Log::xtrace(TAG, "buffer()");
+
+    facet.setVertexBufferId(mVBO.id());
+    facet.setVertexBufferOffset(mNextOffset);
+
+    const GraphicsFacet::vertex_vector& vertices = facet.verticesAsVector();
+    size_t length = sizeof(Vertex) * vertices.size();
+    size_t remaining = mVBO.size() - mNextOffset;
+    size_t lastOffset = mNextOffset;
+    size_t nextOffset = length + lastOffset;
+
+    if (nextOffset > remaining) {
+        Log::e(TAG, "draw(): VertexBufferObject will overflow by " + to_string((nextOffset - lastOffset) - remaining) + " bytes");
+        throw std::bad_alloc();
+    }
+
+    mVBO.buffer(facet.getVertexBufferOffset(), length, &vertices[0]);
+    mNextOffset += length;
+    remaining -= length;
+    Log::v(TAG, "buffered " + to_string(length) + " bytes; next offset " + to_string(mNextOffset) + " remaining bytes: " + to_string(remaining));
+}
+
 void VertexBufferTechnique::frameStarted()
 {
     DrawingTechnique::frameStarted();
@@ -137,24 +161,7 @@ void VertexBufferTechnique::draw(GraphicsFacet& facet)
     // working towards new pool of array buffer.
 	// for starts: 1 VBO, multi mesh; then work on pool API.
     if (facet.getVertexBufferId() == 0) {
-        Log::xtrace(TAG, "Uploading vertex data");
-        facet.setVertexBufferId(mVBO.id());
-        facet.setVertexBufferOffset(mNextOffset);
-
-        size_t length = sizeof(Vertex) * vertices.size();
-        size_t remaining = mVBO.size() - mNextOffset;
-        size_t lastOffset = mNextOffset;
-        size_t nextOffset = length + lastOffset;
-
-        if (nextOffset > remaining) {
-            Log::e(TAG, "draw(): VertexBufferObject will overflow by " + to_string((nextOffset - lastOffset) - remaining) + " bytes");
-            throw std::bad_alloc();
-        }
-
-        mVBO.buffer(facet.getVertexBufferOffset(), length, &vertices[0]);
-        mNextOffset += length;
-        remaining -= length;
-        Log::v(TAG, "buffered " + to_string(length) + " bytes; next offset " + to_string(mNextOffset) + " remaining bytes: " + to_string(remaining));
+        buffer(facet);
 	}
 
 

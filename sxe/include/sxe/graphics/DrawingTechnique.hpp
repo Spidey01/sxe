@@ -67,6 +67,10 @@ namespace sxe { namespace graphics {
        */
       void logLevel(int level);
 
+      /** Called to prepare facet for draw().
+       */
+      virtual void buffer(GraphicsFacet& facet);
+
       /** Called at the start of every frame by SceneManager.
        * 
        * Default implementation simple logs that name() started the frame.

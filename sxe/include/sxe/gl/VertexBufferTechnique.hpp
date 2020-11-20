@@ -54,6 +54,7 @@ namespace sxe { namespace gl {
          */
         VertexBufferTechnique(sxe::resource::ResourceManager& resources);
         virtual ~VertexBufferTechnique();
+        void buffer(graphics::GraphicsFacet& facet) override;
         void frameStarted() override;
         void draw(graphics::GraphicsFacet& facet) override;
         void frameEnded() override;
