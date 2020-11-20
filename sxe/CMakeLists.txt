@@ -50,6 +50,7 @@ set(SxE_SOURCES
         src/graphics/GraphicsFacet.cpp
         src/graphics/MemoryBuffer.cpp
         src/graphics/ShaderType.cpp
+        src/graphics/SystemMemory.cpp
         src/graphics/VertexVertexMesh.cpp
         src/input/ConsoleInputManager.cpp
         src/input/InputCode.cpp
@@ -120,6 +121,7 @@ set(SxE_HEADERS
     include/sxe/graphics/MemoryBuffer.hpp
     include/sxe/graphics/RenderingApi.hpp
     include/sxe/graphics/ShaderType.hpp
+    include/sxe/graphics/SystemMemory.hpp
     include/sxe/graphics/Vertex.hpp
     include/sxe/graphics/VertexVertexMesh.hpp
     include/sxe/graphics/stdmathtypes.hpp
