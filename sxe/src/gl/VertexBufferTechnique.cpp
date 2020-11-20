@@ -43,7 +43,7 @@ const VertexBufferTechnique::string_type VertexBufferTechnique::TAG = "VertexBuf
 VertexBufferTechnique::VertexBufferTechnique(ResourceManager& resources)
     : DrawingTechnique(TAG, "OpenGL[ES] 2.0 vertex buffer objects.")
     , mProgram()
-    , mVBO(true)
+    , mVBO()
     , mNextOffset(0)
 	, mPositionName("sxe_vertex_position")
     , mPositionIndex(0)
@@ -101,14 +101,13 @@ VertexBufferTechnique::VertexBufferTechnique(ResourceManager& resources)
     // - On Stark: I can allocate up to 511 MiB, which takes ~1 second to allocate, zero, and buffer.
     size_t size = 64 * (1024 * 1024); // 64MiB;
 	Log::d(TAG, "Allocating " + to_string(size) + " bytes of VBO.");
-    mVBO.buffer(size);
+    mVBO.reserve(size);
 	Log::d(TAG, "Allocated " + to_string(mVBO.size()) + " bytes of VBO.");
 }
 
 VertexBufferTechnique::~VertexBufferTechnique()
 {
     mProgram.uninitialize();
-	mVBO.uninitialize();
 }
 
 void VertexBufferTechnique::frameStarted()
@@ -139,7 +138,7 @@ void VertexBufferTechnique::draw(GraphicsFacet& facet)
 	// for starts: 1 VBO, multi mesh; then work on pool API.
     if (facet.getVertexBufferId() == 0) {
         Log::xtrace(TAG, "Uploading vertex data");
-        facet.setVertexBufferId(mVBO.getId());
+        facet.setVertexBufferId(mVBO.id());
         facet.setVertexBufferOffset(mNextOffset);
 
         size_t length = sizeof(Vertex) * vertices.size();

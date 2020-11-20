@@ -23,23 +23,19 @@
  *	   distribution.
  */
 
-#include <glbinding/gl20/types.h>
 #include <sxe/api.hpp>
-#include <sxe/common/Initializable.hpp>
-#include <sxe/common/stdtypedefs.hpp>
 #include <sxe/gl/BufferObject.hpp>
-#include <sxe/graphics/Vertex.hpp>
 
 namespace sxe { namespace gl {
 
     /** Class encapsulating an OpenGL Vertex Buffer Object (VBO).
      */
     class SXE_PUBLIC VertexBufferObject
-        : virtual public BufferObject<VertexBufferObject>
+        : public BufferObject
     {
       public:
-        VertexBufferObject(bool automatic);
-        VertexBufferObject(bool automatic, target_type target, usage_type usage, int level);
+        VertexBufferObject();
+        VertexBufferObject(target_type target, usage_type usage, int level);
         virtual ~VertexBufferObject();
 
       private:

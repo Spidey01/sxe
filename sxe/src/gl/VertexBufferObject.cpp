@@ -32,20 +32,20 @@ namespace sxe { namespace gl {
 
 const VertexBufferObject::string_type VertexBufferObject::TAG = "VertexBufferObject";
 
-VertexBufferObject::VertexBufferObject(bool automatic)
-    : VertexBufferObject(automatic, gl20::GL_ARRAY_BUFFER, gl20::GL_STATIC_DRAW, Log::TEST)
+VertexBufferObject::VertexBufferObject()
+    : VertexBufferObject(gl20::GL_ARRAY_BUFFER, gl20::GL_STATIC_DRAW, Log::TEST)
 {
 }
 
-VertexBufferObject::VertexBufferObject(bool automatic, target_type target, usage_type usage, int level)
-    : BufferObject(automatic, target, usage, TAG, level)
+VertexBufferObject::VertexBufferObject(target_type target, usage_type usage, int level)
+    : BufferObject(target, usage, level, TAG)
 {
-    Log::test(TAG, "VertexBufferObject(): automatic: " + to_string(isAutomaticMode()) + " target: " + to_string((int)getTarget()) + " usage: " + to_string((int)getUsage()));
+    log("VertexBufferObject(): target: " + to_string((int)getTarget()) + " usage: " + to_string((int)getUsage()));
 }
 
 VertexBufferObject::~VertexBufferObject()
 {
-    Log::test(TAG, "~VertexBufferObject(): automatic: " + to_string(isAutomaticMode()) + " target: " + to_string((int)getTarget()) + " usage: " + to_string((int)getUsage()));
+    log("~VertexBufferObject(): target: " + to_string((int)getTarget()) + " usage: " + to_string((int)getUsage()));
 }
 
 } }
