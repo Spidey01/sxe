@@ -43,7 +43,8 @@ const VertexBufferTechnique::string_type VertexBufferTechnique::TAG = "VertexBuf
 VertexBufferTechnique::VertexBufferTechnique(ResourceManager& resources)
     : DrawingTechnique(TAG, "OpenGL[ES] 2.0 vertex buffer objects.")
     , mProgram()
-    , mVBO()
+    , mMemoryPool(64 * (1024 * 1024)) // 64MiB;
+    , mNextBuffer(mMemoryPool.allocate())
     , mNextOffset(0)
 	, mPositionName("sxe_vertex_position")
     , mPositionIndex(0)
@@ -90,19 +91,6 @@ VertexBufferTechnique::VertexBufferTechnique(ResourceManager& resources)
     if (clrIdx != mColorIndex) {
         throw runtime_error(TAG + ": " + mColorName + " is at location " + to_string(clrIdx) + " but must be at location " + to_string(mColorIndex));
     }
-
-    /*
-     * Originally in 1.x we brutelly used 1 VBO per entity in the RenderData structure.
-     * In 2.x we want a buffer pool, but are bootstrapping this code first.
-     * For now: just allocate 1 VBO big enough for the demos until work can proceed.
-     */
-    // Note to self:
-    // - On Centauri: I can allocate up to 2023 MiB, but it takes 3 seconds to allocate, zero, and buffer. 256 MiB takes ~1 second.
-    // - On Stark: I can allocate up to 511 MiB, which takes ~1 second to allocate, zero, and buffer.
-    size_t size = 64 * (1024 * 1024); // 64MiB;
-	Log::d(TAG, "Allocating " + to_string(size) + " bytes of VBO.");
-    mVBO.reserve(size);
-	Log::d(TAG, "Allocated " + to_string(mVBO.size()) + " bytes of VBO.");
 }
 
 VertexBufferTechnique::~VertexBufferTechnique()
@@ -113,13 +101,15 @@ VertexBufferTechnique::~VertexBufferTechnique()
 void VertexBufferTechnique::buffer(GraphicsFacet& facet)
 {
     Log::xtrace(TAG, "buffer()");
+    if (!mNextBuffer)
+        throw std::logic_error(TAG + "::buffer(): mNextBuffer is nullptr");
 
-    facet.setVertexBufferId(mVBO.id());
+    facet.setVertexBufferId(mNextBuffer->id());
     facet.setVertexBufferOffset(mNextOffset);
 
     const GraphicsFacet::vertex_vector& vertices = facet.verticesAsVector();
     size_t length = sizeof(Vertex) * vertices.size();
-    size_t remaining = mVBO.size() - mNextOffset;
+    size_t remaining = mNextBuffer->size() - mNextOffset;
     size_t lastOffset = mNextOffset;
     size_t nextOffset = length + lastOffset;
 
@@ -128,7 +118,7 @@ void VertexBufferTechnique::buffer(GraphicsFacet& facet)
         throw std::bad_alloc();
     }
 
-    mVBO.buffer(facet.getVertexBufferOffset(), length, &vertices[0]);
+    mNextBuffer->buffer(facet.getVertexBufferOffset(), length, &vertices[0]);
     mNextOffset += length;
     remaining -= length;
     Log::v(TAG, "buffered " + to_string(length) + " bytes; next offset " + to_string(mNextOffset) + " remaining bytes: " + to_string(remaining));
@@ -144,7 +134,6 @@ void VertexBufferTechnique::frameStarted()
 
     gl20::glLoadIdentity();
 
-    mVBO.bind();
     mProgram.useProgram();
     gl20::glEnableVertexAttribArray(mPositionIndex);
     gl20::glEnableVertexAttribArray(mColorIndex);
@@ -164,8 +153,9 @@ void VertexBufferTechnique::draw(GraphicsFacet& facet)
         buffer(facet);
 	}
 
+    auto vbo = mMemoryPool.get(facet.getVertexBufferId());
+    vbo->bind();
 
-    mVBO.bind();
     ptrdiff_t offset = facet.getVertexBufferOffset();
 	mProgram.vertexPositionPointer(mPositionIndex, offset, vertices);
     mProgram.vertexColorPointer(mColorIndex, offset, vertices);

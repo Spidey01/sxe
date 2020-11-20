@@ -24,6 +24,7 @@
  */
 
 #include <sxe/api.hpp>
+#include <sxe/gl/BufferObjectPool.hpp>
 #include <sxe/gl/Program.hpp>
 #include <sxe/gl/Shader.hpp>
 #include <sxe/gl/VertexBufferObject.hpp>
@@ -62,7 +63,8 @@ namespace sxe { namespace gl {
       private:
         static const string_type TAG;
         Program mProgram;
-        VertexBufferObject mVBO; // until pools are operational.
+        BufferObjectPool mMemoryPool;
+        BufferObjectPool::buffer_ptr mNextBuffer;
         size_t mNextOffset;
         Program::string_type mPositionName;
         Program::AttributeLocation mPositionIndex;
