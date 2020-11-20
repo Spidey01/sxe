@@ -55,6 +55,7 @@ namespace sxe { namespace graphics {
 
         virtual ~SystemMemory();
 
+        void bind() override;
         void allocate(size_type size, const void* pointer) override;
         void buffer(difference_type offset, size_type size, const void* data) override;
         void* map(MapType access) override;

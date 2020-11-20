@@ -49,6 +49,11 @@ SystemMemory::~SystemMemory()
     }
 }
 
+void SystemMemory::bind()
+{
+    log("bind(): id(): " + std::to_string(id()));
+}
+
 void SystemMemory::allocate(size_type size, const void* pointer)
 {
     log("allocate(): size: " + std::to_string(size) + " (uintptr_t)pointer: " + std::to_string((uintptr_t)pointer));

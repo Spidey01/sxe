@@ -66,7 +66,7 @@ namespace sxe { namespace gl {
 
         /** Bind the buffer object for use.
          */
-        void bind();
+        void bind() override;
 
         virtual void allocate(size_type size, const void* data) override;
         

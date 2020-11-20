@@ -81,6 +81,12 @@ namespace sxe { namespace graphics {
          */
         buffer_id id() const;
 
+        /** Make the buffer active for rendering.
+         * 
+         * For backends like OpenGL, do glBindBuffer().
+         */
+        virtual void bind() = 0;
+
         /** Size of buffered data.
          * 
          * @returns size in bytes.
