@@ -53,6 +53,7 @@ namespace sxe { namespace graphics {
         using size_type = size_t;
         using difference_type = ptrdiff_t;
         using buffer_id = unsigned int;
+        using pool_id = uintptr_t;
 
         /** Initialize a buffer.
          * 
@@ -73,6 +74,14 @@ namespace sxe { namespace graphics {
          * object. In manual mode: it's your job to manually uninitialize().
          */
         virtual ~MemoryBuffer();
+
+        /** @returns the id of the owning pool, or zero if there is no pool.
+         */
+        pool_id pool() const;
+
+        /** Sets the pool id.
+         */
+        void pool(pool_id owner);
 
         /** @returns the id of this buffer.
          * 
@@ -227,6 +236,7 @@ namespace sxe { namespace graphics {
         string_type mBaseTag;
         string_type mTag;
         size_type mSize;
+        pool_id mPoolId;
     };
 } }
 

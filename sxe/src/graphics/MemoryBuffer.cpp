@@ -36,6 +36,7 @@ MemoryBuffer::MemoryBuffer(buffer_id defaultId, int level, const string_type& ta
     , mBaseTag(tag)
     , mTag(mBaseTag + ":" + to_string(mId))
     , mSize(0)
+    , mPoolId(0)
 {
     log("MemoryBuffer()");
 }
@@ -48,6 +49,17 @@ MemoryBuffer::MemoryBuffer(const string_type& tag)
 MemoryBuffer::~MemoryBuffer()
 {
     log("~MemoryBuffer(): mId: " + std::to_string(mId) + " mSize: " + to_string(mSize));
+}
+
+MemoryBuffer::pool_id MemoryBuffer::pool() const
+{
+    return mPoolId;    
+}
+
+void MemoryBuffer::pool(pool_id owner)
+{
+    log("pool(): owner: " + to_string(owner) + " (old) mPoolId: " + to_string(mPoolId));
+    mPoolId = owner;
 }
 
 MemoryBuffer::buffer_id MemoryBuffer::id() const
