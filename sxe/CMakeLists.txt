@@ -33,6 +33,7 @@ set(SxE_SOURCES
         src/config/SettingsMap.cpp
         src/config/SettingsXMLFile.cpp
         src/gl/BufferObject.cpp
+        src/gl/BufferObjectPool.cpp
         src/gl/FragmentShader.cpp
         src/gl/ImmediateModeTechnique.cpp
         src/gl/OpenGLVersion.cpp
@@ -49,8 +50,10 @@ set(SxE_SOURCES
         src/graphics/FrameStartedListener.cpp
         src/graphics/GraphicsFacet.cpp
         src/graphics/MemoryBuffer.cpp
+        src/graphics/MemoryPool.cpp
         src/graphics/ShaderType.cpp
         src/graphics/SystemMemory.cpp
+        src/graphics/SystemMemoryPool.cpp
         src/graphics/VertexVertexMesh.cpp
         src/input/ConsoleInputManager.cpp
         src/input/InputCode.cpp
@@ -102,6 +105,7 @@ set(SxE_HEADERS
     include/sxe/dllimport.hpp
     include/sxe/filesystem.hpp
     include/sxe/gl/BufferObject.hpp
+    include/sxe/gl/BufferObjectPool.hpp
     include/sxe/gl/FragmentShader.hpp
     include/sxe/gl/ImmediateModeTechnique.hpp
     include/sxe/gl/OpenGLVersion.hpp
@@ -119,9 +123,11 @@ set(SxE_HEADERS
     include/sxe/graphics/FrameStartedListener.hpp
     include/sxe/graphics/GraphicsFacet.hpp
     include/sxe/graphics/MemoryBuffer.hpp
+    include/sxe/graphics/MemoryPool.hpp
     include/sxe/graphics/RenderingApi.hpp
     include/sxe/graphics/ShaderType.hpp
     include/sxe/graphics/SystemMemory.hpp
+    include/sxe/graphics/SystemMemoryPool.hpp
     include/sxe/graphics/Vertex.hpp
     include/sxe/graphics/VertexVertexMesh.hpp
     include/sxe/graphics/stdmathtypes.hpp
