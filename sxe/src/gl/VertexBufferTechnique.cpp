@@ -104,8 +104,7 @@ void VertexBufferTechnique::buffer(GraphicsFacet& facet)
     size_t length = sizeof(Vertex) * vertices.size();
 
     graphics::MemoryPool::Segment seg = mMemoryPool.buffer(length, &vertices[0]);
-    facet.setVertexBufferId(seg.buffer->id());
-    facet.setVertexBufferOffset(seg.offset);
+    facet.setSegment(seg);
 }
 
 void VertexBufferTechnique::frameStarted()
@@ -129,14 +128,16 @@ void VertexBufferTechnique::draw(GraphicsFacet& facet)
 
     const GraphicsFacet::vertex_vector& vertices = facet.verticesAsVector();
 
-    if (facet.getVertexBufferId() == 0) {
+    if (facet.getSegment().buffer == nullptr) {
         buffer(facet);
 	}
 
-    auto vbo = mMemoryPool.get(facet.getVertexBufferId());
-    vbo->bind();
+    graphics::MemoryPool::Segment& segment = facet.getSegment();
+    if (!segment.buffer)
+        throw std::logic_error(TAG + "::draw(): facet.getSegment().buffer == nullptr.");
+    segment.buffer->bind();
 
-    ptrdiff_t offset = facet.getVertexBufferOffset();
+    ptrdiff_t offset = segment.offset;
 	mProgram.vertexPositionPointer(mPositionIndex, offset, vertices);
     mProgram.vertexColorPointer(mColorIndex, offset, vertices);
 

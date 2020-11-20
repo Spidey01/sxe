@@ -41,8 +41,7 @@ GraphicsFacet::GraphicsFacet()
     , mModelMatrix(1.0)
     , mPosition(0, 0, 0)
     , mOrientationMatrix(1.0f)
-    , mVertexBufferId(0)
-    , mVertexBufferOffset(0)
+    , mSegment({nullptr, 0, 0})
 {
 }
 
@@ -145,24 +144,14 @@ GraphicsFacet::mat4 GraphicsFacet::transform() const
     return projectionMatrix() * viewMatrix() * modelMatrix() * orientationMatrix();
 }
 
-void GraphicsFacet::setVertexBufferId(buffer_id id)
+MemoryPool::Segment& GraphicsFacet::getSegment()
 {
-    mVertexBufferId = id;
+    return mSegment;
 }
 
-GraphicsFacet::buffer_id GraphicsFacet::getVertexBufferId() const
+void GraphicsFacet::setSegment(const MemoryPool::Segment& segment)
 {
-    return mVertexBufferId;
-}
-
-void GraphicsFacet::setVertexBufferOffset(ptrdiff_t offset)
-{
-    mVertexBufferOffset = offset;
-}
-
-ptrdiff_t GraphicsFacet::getVertexBufferOffset() const
-{
-    return mVertexBufferOffset;
+    mSegment = segment;
 }
 
 } }

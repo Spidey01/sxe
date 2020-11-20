@@ -25,6 +25,7 @@
 
 #include <sxe/api.hpp>
 #include <sxe/common/stdtypedefs.hpp>
+#include <sxe/graphics/MemoryPool.hpp>
 #include <sxe/graphics/Vertex.hpp>
 #include <sxe/graphics/stdmathtypes.hpp>
 #include <sxe/scene/Camera.hpp>
@@ -142,40 +143,19 @@ namespace sxe { namespace graphics {
          */
         mat4 transform() const;
 
+        /** Gets the associated MemoryPool.
+         */
+        MemoryPool::Segment& getSegment();
+
+        /** Sets the MemoryPool Segment.
+         * 
+         * Utilized by DrawingTechniques to upload vertex information through a
+         * MemoryPool.
+         */
+        void setSegment(const MemoryPool::Segment& segment);
+
         /** Type for identification of graphics buffers, e.g. VBOs.
          */
-        using buffer_id = unsigned int;
-
-        /** Set the vertex buffer id.
-         * 
-         * Used by DrawingTechniques that utilize Vertex Buffer Objects (VBOs)
-         * to upload vertex information to the GPU.
-         */
-        void setVertexBufferId(buffer_id id);
-
-        /** Get the vertex buffer id.
-         * 
-         * By default this is 0 until setVertexBufferId() has been called.
-         * 
-         * @returns the buffer id.
-         */
-        buffer_id getVertexBufferId() const;
-
-        /** Set the offset into the vertex buffer.
-         * 
-         * Used by DrawingTechniques that utilize Vertex Buffer Objects (VBOs)
-         * to upload vertex information to the GPU. I.e. a VBO that contains
-         * vertices for multiple GraphicFacets.
-         */
-        void setVertexBufferOffset(ptrdiff_t offset);
-
-        /** Get the offset into the vertex buffer.
-         * 
-         * By default this is 0 until setVertexBufferOffset() has been called.
-         * 
-         * @returns the offset into vertex buffer.
-         */
-        ptrdiff_t getVertexBufferOffset() const;
 
       private:
         static const string_type TAG;
@@ -185,8 +165,7 @@ namespace sxe { namespace graphics {
         mat4 mModelMatrix;
         vec3 mPosition;
         mat4 mOrientationMatrix;
-        buffer_id mVertexBufferId;
-        ptrdiff_t mVertexBufferOffset;
+        MemoryPool::Segment mSegment;
     };
 } }
 
