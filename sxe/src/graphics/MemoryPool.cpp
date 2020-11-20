@@ -139,34 +139,34 @@ MemoryPool::Segment MemoryPool::buffer(size_type length, const void* data)
     Log::test(TAG, "--------");
     for (auto seg = mSegments.rbegin(); seg != mSegments.rend(); ++seg) {
         validate(seg->buffer);
-        Log::e(TAG, "seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
-        Log::e(TAG, "seg->offset: " + to_string(seg->offset));
-        Log::e(TAG, "seg->length: " + to_string(seg->length));
+        Log::xtrace(TAG, "seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
+        Log::xtrace(TAG, "seg->offset: " + to_string(seg->offset));
+        Log::xtrace(TAG, "seg->length: " + to_string(seg->length));
 
         if (seg->buffer->id() == skip) {
-            Log::e(TAG, "seg: skipping, buffer " + to_string(seg->buffer->id()) + " already full");
+            Log::v(TAG, "seg: skipping, buffer " + to_string(seg->buffer->id()) + " already full");
             continue;
         }
 
         // size_type nextOffset = segment.length + seg->offset;
         size_type nextOffset = segment.length + seg->length + seg->offset;
         size_type remaining = seg->buffer->size() - nextOffset;
-        Log::e(TAG, "next offset: " + to_string(nextOffset));
-        Log::e(TAG, "remaining " + to_string(remaining));
+        Log::v(TAG, "next offset: " + to_string(nextOffset));
+        Log::v(TAG, "remaining " + to_string(remaining));
 
         if (remaining >= length) {
-            Log::e(TAG, "Using this segment.");
+            Log::v(TAG, "Using this segment.");
             segment.buffer = seg->buffer;
             segment.offset = nextOffset;
             segment.length = length;
 
             /* First segment into new/empty buffer */
             if (seg->length == 0) {
-                Log::e(TAG, "Update first segment of buffer");
+                Log::v(TAG, "Update first segment of buffer");
                 *seg = segment;
-                Log::e(TAG, "seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
-                Log::e(TAG, "seg->offset: " + to_string(seg->offset));
-                Log::e(TAG, "seg->length: " + to_string(seg->length));
+                Log::xtrace(TAG, "seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
+                Log::xtrace(TAG, "seg->offset: " + to_string(seg->offset));
+                Log::xtrace(TAG, "seg->length: " + to_string(seg->length));
 
                 break;
             }
@@ -194,7 +194,7 @@ MemoryPool::Segment MemoryPool::buffer(size_type length, const void* data)
     segment.buffer->buffer(segment.offset, segment.length, data);
     size_type next = segment.length + segment.offset;
     size_type remaining = segment.buffer->size() - next;
-    Log::e(TAG, "buffered " + to_string(length) + " bytes; next offset " + to_string(next) + " remaining bytes: " + to_string(remaining));
+    Log::d(TAG, "buffered " + to_string(length) + " bytes; next offset " + to_string(next) + " remaining bytes: " + to_string(remaining));
 
     return segment;
 }
