@@ -25,8 +25,9 @@
 
 #include <sxe/logging.hpp>
 
-using sxe::scene::Camera;
+using std::to_string;
 using string_type = sxe::graphics::GraphicsFacet::string_type;
+using sxe::scene::Camera;
 using vertex_vector = sxe::graphics::GraphicsFacet::vertex_vector;
 
 namespace sxe { namespace graphics {
@@ -84,7 +85,7 @@ Camera::shared_ptr GraphicsFacet::getCamera() const
 
 void GraphicsFacet::setCamera(Camera::shared_ptr camera)
 {
-    Log::d(TAG, "setCamera(): camera: " + std::to_string((uintptr_t)camera.get()) + " mCamera: " + std::to_string((uintptr_t)mCamera.get()));
+    Log::d(TAG, "setCamera(): camera: " + to_string((uintptr_t)camera.get()) + " mCamera: " + to_string((uintptr_t)mCamera.get()));
     mCamera = camera;
 }
 
