@@ -30,8 +30,10 @@
 #include <sxe/scene/SceneManager.hpp>
 
 using std::bind;
+using std::logic_error;
 using std::make_shared;
 using std::make_unique;
+using std::to_string;
 using sxe::graphics::VertexVertexMesh;
 using sxe::resource::ResourceHandle;
 
@@ -39,10 +41,17 @@ namespace demos {
 
 const Player::string_type Player::TAG = "Player";
 
+static int instance_count = 0;
 Player::Player()
     : mEntity(make_shared<sxe::scene::Entity>())
     , mInputFacet(nullptr)
     , mGraphicsFacet(nullptr)
+    , mLastOnDraw(clock_type::now())
+    , mLastThink(clock_type::now())
+    , mSpeed(0)
+    , mBoosting(false)
+    , mHeading(0)
+    , mYawRate(15.0f)
 {
     Log::xtrace(TAG, "Player()");
 }
@@ -85,7 +94,7 @@ bool Player::setupResources(sxe::resource::ResourceManager& loader, sxe::scene::
             return false;
         }
 
-        mesh->solidFill({1, 1, 1, 1});
+        mesh->solidFill({0, 1, 0, 1});
 
         Log::v(TAG, "Setting up mGraphicsFacet.");
         sxe::graphics::GraphicsFacet::callable_type onDrawCallback = std::bind(&Player::onDraw, this); 
@@ -122,21 +131,25 @@ bool Player::setupInput(sxe::input::InputManager& controller)
 bool Player::onUpArrow(KeyEvent event)
 {
     Log::xtrace(TAG, "onUpArrow(): event.toString(): " + event.toString());
-    if (!event.isKeyUp())
-        return false;
 
-    std::cout << "AHEAD, FULL!" << std::endl;
+    if (event.isKeyUp()) {
+        mBoosting = false;
+        return true;
+    }
 
+    mBoosting = true;
     return true;
 }
 
 bool Player::onLeftArrow(KeyEvent event)
 {
     Log::xtrace(TAG, "onLeftArrow(): event.toString(): " + event.toString());
-    if (!event.isKeyUp())
-        return false;
 
-    std::cout << "HARD TO PORT!" << std::endl;
+    yaw(-mYawRate);
+    mGraphicsFacet->rotate(mYawRate, vec3(0, 0, 1));
+
+    vec3 dir = direction(mHeading);
+    Log::xtrace(TAG, "heading " + to_string(mHeading) + " degrees; direction: " + sxe::graphics::vec_to_string(dir));
 
     return true;
 }
@@ -144,10 +157,12 @@ bool Player::onLeftArrow(KeyEvent event)
 bool Player::onRightArrow(KeyEvent event)
 {
     Log::xtrace(TAG, "onRightArrow(): event.toString(): " + event.toString());
-    if (!event.isKeyUp())
-        return false;
 
-    std::cout << "HARD TO STARBOARD!" << std::endl;
+    yaw(+mYawRate);
+    mGraphicsFacet->rotate(-mYawRate, vec3(0, 0, 1));
+
+    vec3 dir = direction(mHeading);
+    Log::xtrace(TAG, "heading " + to_string(mHeading) + " degrees; direction: " + sxe::graphics::vec_to_string(dir));
 
     return true;
 }
@@ -167,6 +182,99 @@ void Player::onDraw()
 {
     Log::test(TAG, "onDraw()");
 
+    /* Scale by time rather than framerate. */
+    time_point now = clock_type::now();
+    auto delta = std::chrono::duration_cast<std::chrono::milliseconds>(now - mLastOnDraw);
+    mLastOnDraw = now;
+
+    float velocity = static_cast<float>(delta.count()) * (0.0000002f * speed());
+    vec3& pos = position();
+    vec3 dir = direction(mHeading);
+
+    if (velocity > 0) {
+        Log::xtrace(TAG, "pos: " + sxe::graphics::vec_to_string(pos) + " + dir: " + sxe::graphics::vec_to_string(dir) + " * vel: " + to_string(velocity));
+    }
+    pos += dir * velocity;
+
+    /* Flying off the screen should wrap. */
+
+    if (pos.y > 1.0f)
+        pos.y = -1.0f;
+    if (pos.y < -1.0f)
+        pos.y = 1.0;
+
+    if (pos.x > 1.0f)
+        pos.x = -1.0f;
+    if (pos.x < -1.0f)
+        pos.x = 1.0;
+}
+
+void Player::think()
+{
+    Log::test(TAG, "think()");
+
+    /*
+     * Boosters acellerate by 100 units per tick. Natural decay is in 25 units
+     * per tick.
+     * 
+     * Technically this should be influnced by time for the same reasons that
+     * rendering is.
+     */
+
+    if (mBoosting) {
+        mSpeed += 100;
+    } else if (mSpeed > 0) {
+        mSpeed -= 25;
+    }
+
+    /* Not to infinity and meyond. */
+    if (mSpeed > 10000)
+        mSpeed = 10000;
+
+    if (mSpeed > 0)
+        Log::xtrace(TAG, "think(): speed: " + to_string(speed()) + " boosting: " + to_string(mBoosting));
+}
+
+int Player::speed() const
+{
+    return mSpeed;
+}
+
+void Player::speed(int vel)
+{
+    mSpeed = vel;
+}
+
+Player::vec3& Player::position() const
+{
+    if (!mGraphicsFacet) {
+        Log::wtf(TAG, "position() called before graphics facet constructed.");
+    }
+    return mGraphicsFacet->position();
+}
+
+Player::vec3 Player::direction(float heading) const
+{
+    // X axis: radians, or the +/- differences will confuse you.
+    float x = sin(glm::radians(heading));
+
+    // Y axis: radians, ditto.
+    float y = cos(glm::radians(heading));
+
+    // Z axis: unmodified -- this game is 2D.
+    float z = 0.0f;
+
+    return vec3(x, y, z);
+}
+
+void Player::yaw(float offset)
+{
+    mHeading += offset;
+
+    if (mHeading >= 360.0f)
+        mHeading -= 360.0f;
+    if (mHeading <= -360.0f)
+        mHeading += 360.0f;
 }
 
 }

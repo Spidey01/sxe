@@ -102,7 +102,7 @@ void RockBlasterGame::updateGameThread()
             cout << "Auto starting game" << endl;
             setState(State::RUNNING);
             return;
-    }
+        }
     }
 
     if (getState() == State::RUNNING) {
@@ -117,6 +117,8 @@ void RockBlasterGame::updateGameThread()
 
             cout << "GO, GO, GO, BLAST OFF !!!" << endl;
         }
+
+        mPlayer->think();
     }
 
     // Unlikely to ever be reached.
@@ -147,7 +149,6 @@ bool RockBlasterGame::setupPlayer(demos::Player& player)
     }
 
     sceneManager.addEntity(mPlayer->getEntity());
-
 
     return true;
 }
