@@ -56,6 +56,14 @@ Xdg::Xdg()
      * SxE 2.x switches to ; for Windows.
      */
     char sep = Platform().isWindows() ? ';' : ':';
+    path defaultSdkRoot;
+    if (Platform().isWindows()) {
+        // CMake default install path.
+        p = getenv("ProgramFiles(x86)");
+        if (p != nullptr) {
+            defaultSdkRoot = p;
+        }
+    }
 
     p = getenv("XDG_DATA_DIRS");
     if (p != nullptr) {
@@ -65,6 +73,8 @@ Xdg::Xdg()
         Log::test("Xdg", "XDG_DATA_DIRS=nullptr, defaulting");
         XDG_DATA_DIRS.push_back("/usr/local/share");
         XDG_DATA_DIRS.push_back("/usr/share");
+        if (!defaultSdkRoot.empty())
+            XDG_DATA_DIRS.push_back(defaultSdkRoot / "SXE_SDK" / "share");
     }
 
     p = getenv("XDG_CONFIG_HOME");
@@ -79,6 +89,8 @@ Xdg::Xdg()
         split<>(std::back_inserter(XDG_CONFIG_DIRS), string(p), sep);
     } else {
         XDG_CONFIG_DIRS.push_back("/etc/xdg");
+        if (!defaultSdkRoot.empty())
+            XDG_CONFIG_DIRS.push_back(defaultSdkRoot / "etc" / "xdg");
     }
 
     p = getenv("XDG_CACHE_HOME");
