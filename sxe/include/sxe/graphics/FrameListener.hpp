@@ -25,17 +25,12 @@
 
 #include <sxe/api.hpp>
 
-#include <sxe/graphics/FrameStartedListener.hpp>
-#include <sxe/graphics/FrameEndedListener.hpp>
-
 namespace sxe {  namespace graphics {
 
     /** Listen for when frames are rendered.
      *
      */
-    class SXE_PUBLIC FrameListener : public FrameStartedListener, public FrameEndedListener
-    {
-    };
+    using FrameListener = std::function<void(void)>;
 
 } }
 

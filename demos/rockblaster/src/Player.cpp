@@ -97,7 +97,7 @@ bool Player::setupResources(sxe::resource::ResourceManager& loader, sxe::scene::
         mesh->solidFill({0, 1, 0, 1});
 
         Log::v(TAG, "Setting up mGraphicsFacet.");
-        sxe::graphics::GraphicsFacet::callable_type onDrawCallback = std::bind(&Player::onDraw, this); 
+        sxe::graphics::FrameListener onDrawCallback = std::bind(&Player::onDraw, this); 
         mGraphicsFacet = make_shared<sxe::graphics::GraphicsFacet>(scene.camera(), mesh->vertices(), onDrawCallback);
 
         vec2 scale(0.03f, 0.03f);

@@ -28,6 +28,7 @@
 #include <sxe/graphics/MemoryPool.hpp>
 #include <sxe/graphics/Vertex.hpp>
 #include <sxe/graphics/stdmathtypes.hpp>
+#include <sxe/graphics/FrameListener.hpp>
 #include <sxe/scene/Camera.hpp>
 
 namespace sxe { namespace graphics {
@@ -40,7 +41,6 @@ namespace sxe { namespace graphics {
     {
       public:
         using vertex_vector = std::vector<Vertex>;
-        using callable_type = std::function<void(void)>;
 
         /** No data.
          */
@@ -54,7 +54,7 @@ namespace sxe { namespace graphics {
          * @param data sequence of vertex data.
          * @param callback the onDraw handler.
          */
-        GraphicsFacet(sxe::scene::Camera::shared_ptr camera, const vertex_vector& data, callable_type callback);
+        GraphicsFacet(sxe::scene::Camera::shared_ptr camera, const vertex_vector& data, FrameListener callback);
 
         GraphicsFacet(sxe::scene::Camera::shared_ptr camera,const vertex_vector& data);
 
@@ -86,7 +86,7 @@ namespace sxe { namespace graphics {
 
         /** @returns the callback for DrawingTechnique::draw().
          */
-        callable_type& onDraw();
+        FrameListener& onDraw();
 
         /** Returns the vertices.
          * 
@@ -160,7 +160,7 @@ namespace sxe { namespace graphics {
       private:
         static const string_type TAG;
         sxe::scene::Camera::shared_ptr mCamera;
-        callable_type mOnDraw;
+        FrameListener mOnDraw;
         vertex_vector mVertices;
         mat4 mModelMatrix;
         vec3 mPosition;

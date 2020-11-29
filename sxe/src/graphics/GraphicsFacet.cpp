@@ -45,10 +45,10 @@ GraphicsFacet::GraphicsFacet()
 {
 }
 
-GraphicsFacet::GraphicsFacet(Camera::shared_ptr camera, const vertex_vector& vertices, callable_type callback)
+GraphicsFacet::GraphicsFacet(Camera::shared_ptr camera, const vertex_vector& vertices, FrameListener frameListener)
     : GraphicsFacet(camera, vertices)
 {
-    mOnDraw = callback;
+    mOnDraw = frameListener;
 }
 
 GraphicsFacet::GraphicsFacet(Camera::shared_ptr camera, const vertex_vector& vertices)
@@ -88,7 +88,7 @@ void GraphicsFacet::setCamera(Camera::shared_ptr camera)
     mCamera = camera;
 }
 
-GraphicsFacet::callable_type& GraphicsFacet::onDraw()
+FrameListener& GraphicsFacet::onDraw()
 {
     return mOnDraw;
 }
