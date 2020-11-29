@@ -87,6 +87,13 @@ namespace sxe { namespace input {
          */
         bool addKeyListener(InputCode code, KeyListener action);
 
+        /** Binds a KeyListener for any key code.
+         *
+         * @param action callback to take action on code.
+         * @returns true on success.
+         */
+        bool addKeyListener(KeyListener action);
+
         /** Unbinds KeyListeners for this code.
          *
          * @param code the InputCode to unbind.

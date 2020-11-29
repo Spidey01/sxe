@@ -87,6 +87,11 @@ bool InputFacet::addKeyListener(InputCode code, KeyListener action)
     return true;
 }
 
+bool InputFacet::addKeyListener(KeyListener action)
+{
+    return addKeyListener(InputCode::IC_ANYKEY, action);
+}
+
 
 void InputFacet::removeKeyListener(InputCode code)
 {
