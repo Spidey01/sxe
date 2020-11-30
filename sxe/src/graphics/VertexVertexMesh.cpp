@@ -23,8 +23,9 @@
 
 #include "sxe/graphics/VertexVertexMesh.hpp"
 
-#include <sxe/logging.hpp>
 #include <sxe/common/Utils.hpp>
+#include <sxe/graphics/MemoryBuffer.hpp>
+#include <sxe/logging.hpp>
 
 using std::istream;
 using std::stof;
@@ -78,6 +79,16 @@ void VertexVertexMesh::solidFill(const Vertex::color_type& color)
 {
     for (Vertex& v : mVertices)
         v.color = color;
+}
+
+bool VertexVertexMesh::resourceFilter(std::istream& input, sxe::graphics::MemoryBuffer& buffer)
+{
+    VertexVertexMesh mesh(input);
+
+    size_t length = sizeof(Vertex) * mesh.mVertices.size();
+    buffer.allocate(length, &mesh.mVertices[0]);
+
+    return true;
 }
 
 } }

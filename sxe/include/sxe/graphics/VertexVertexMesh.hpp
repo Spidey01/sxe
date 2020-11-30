@@ -27,6 +27,7 @@
 #include <sxe/graphics/Vertex.hpp>
 
 namespace sxe { namespace graphics {
+        class MemoryBuffer;
 
         /** Simple vertex-vertex mesh implementation.
          *
@@ -65,6 +66,8 @@ namespace sxe { namespace graphics {
 
             /** Sets each Vertex::color to color. */
             void solidFill(const Vertex::color_type& color);
+
+            static bool resourceFilter(std::istream& input, sxe::graphics::MemoryBuffer& buffer);
 
           protected:
           private:
