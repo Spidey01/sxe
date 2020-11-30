@@ -62,6 +62,7 @@ set(SxE_SOURCES
         src/pc/PcConfiguration.cpp
         src/pc/PcDisplayManager.cpp
         src/pc/PcInputManager.cpp
+        src/resource/ResourceFacet.cpp
         src/resource/ResourceHandle.cpp
         src/resource/ResourceManager.cpp
         src/scene/Camera.cpp
@@ -141,6 +142,7 @@ set(SxE_HEADERS
     include/sxe/pc/PcDisplayManager.hpp
     include/sxe/pc/PcInputManager.hpp
     include/sxe/resource/ArchiveStream.hpp
+    include/sxe/resource/ResourceFacet.hpp
     include/sxe/resource/ResourceHandle.hpp
     include/sxe/resource/ResourceManager.hpp
     include/sxe/resource/basic_archive_istream.hpp

@@ -26,6 +26,7 @@
 #include <sxe/graphics/GraphicsFacet.hpp>
 #include <sxe/input/InputFacet.hpp>
 #include <sxe/logging.hpp>
+#include <sxe/resource/ResourceFacet.hpp>
 #include <sxe/scene/SceneManager.hpp>
 
 namespace sxe { namespace scene {
@@ -36,6 +37,7 @@ Entity::Entity()
     : mSceneManager(nullptr)
     , mInputFacet(nullptr)
     , mGraphicsFacet(nullptr)
+    , mResourceFacet(nullptr)
 {
 
 }
@@ -63,6 +65,16 @@ Entity::input_ptr Entity::getInputFacet() const
 void Entity::setInputFacet(input_ptr input)
 {
     mInputFacet = input;
+}
+
+Entity::resource_ptr Entity::getResourceFacet() const
+{
+    return mResourceFacet;
+}
+
+void Entity::setResourceFacet(resource_ptr resource)
+{
+    mResourceFacet = resource;
 }
 
 Entity::graphics_ptr Entity::getGraphicsFacet() const

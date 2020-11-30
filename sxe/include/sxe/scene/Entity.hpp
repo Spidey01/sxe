@@ -32,6 +32,9 @@ namespace sxe {
   namespace input {
     class InputFacet;
   }
+  namespace resource {
+    class ResourceFacet;
+  }
 }
 
 namespace sxe { namespace scene {
@@ -70,6 +73,20 @@ namespace sxe { namespace scene {
          */
         void setInputFacet(input_ptr input);
 
+        /** Component used for resource.
+         */
+        using resource_ptr = std::shared_ptr<resource::ResourceFacet>;
+
+        /** Component used for Resource.
+         * 
+         * @returns the resource facet.
+         */
+        resource_ptr getResourceFacet() const;
+
+        /** Set the component used for resource.
+         */
+        void setResourceFacet(resource_ptr resource);
+
         /** Component used for graphics.
          */
         using graphics_ptr = std::shared_ptr<graphics::GraphicsFacet>;
@@ -89,6 +106,7 @@ namespace sxe { namespace scene {
         SceneManager* mSceneManager;
         input_ptr mInputFacet;
         graphics_ptr mGraphicsFacet;
+        resource_ptr mResourceFacet;
     };
 } } 
 
