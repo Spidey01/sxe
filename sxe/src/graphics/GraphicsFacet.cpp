@@ -25,6 +25,7 @@
 
 #include <sxe/logging.hpp>
 
+using std::runtime_error;
 using std::to_string;
 using string_type = sxe::graphics::GraphicsFacet::string_type;
 using sxe::scene::Camera;
@@ -35,27 +36,38 @@ namespace sxe { namespace graphics {
 const string_type GraphicsFacet::TAG = "GraphicsFacet";
 
 GraphicsFacet::GraphicsFacet()
-    : mCamera(nullptr)
-    , mOnDraw()
-    , mVertices()
+    : mData()
     , mModelMatrix(1.0)
     , mPosition(0, 0, 0)
     , mOrientationMatrix(1.0f)
+    , mCamera(nullptr)
+    , mOnDraw()
     , mSegment({nullptr, 0, 0})
 {
 }
 
-GraphicsFacet::GraphicsFacet(Camera::shared_ptr camera, const vertex_vector& vertices, FrameListener frameListener)
-    : GraphicsFacet(camera, vertices)
-{
-    mOnDraw = frameListener;
-}
-
-GraphicsFacet::GraphicsFacet(Camera::shared_ptr camera, const vertex_vector& vertices)
+GraphicsFacet::GraphicsFacet(const vertex_vector& vertices)
     : GraphicsFacet()
 {
-    mCamera = camera;
-    mVertices = vertices;
+    Log::xtrace(TAG, "GraphicsFacet(): vertices.size(): " + to_string(vertices.size()));
+
+    size_t length = sizeof(vertex_vector::value_type) * vertices.size();
+    mData.allocate(length, &vertices[0]);
+}
+
+GraphicsFacet::GraphicsFacet(MemoryBuffer& data)
+    : GraphicsFacet()
+{
+    Log::xtrace(TAG, "GraphicsFacet(): data.size(): " + to_string(data.size()));
+    mData.allocate(data.size(), data.map(MemoryBuffer::ReadOnlyMapping));
+    data.unmap();
+}
+
+GraphicsFacet::GraphicsFacet(uint8_t* data, size_t length)
+    : GraphicsFacet()
+{
+    Log::xtrace(TAG, "GraphicsFacet(): (uintptr_t)data: " + to_string((uintptr_t)data) + " length: " + to_string(length));
+    mData.allocate(length, data);
 }
 
 GraphicsFacet::~GraphicsFacet()
@@ -88,14 +100,37 @@ void GraphicsFacet::setCamera(Camera::shared_ptr camera)
     mCamera = camera;
 }
 
-FrameListener& GraphicsFacet::onDraw()
+void GraphicsFacet::setFrameListener(FrameListener listener)
 {
-    return mOnDraw;
+    mFrameListener = listener;
 }
 
-const vertex_vector& GraphicsFacet::verticesAsVector() const
+FrameListener& GraphicsFacet::getFrameListener()
 {
-    return mVertices;
+    return mFrameListener;
+}
+
+void GraphicsFacet::onDraw()
+{
+    if (mFrameListener)
+        mFrameListener();
+}
+
+vertex_vector GraphicsFacet::verticesAsVector()
+{
+    vertex_vector vertices;
+
+    Vertex* ptr = mData.map_ptr<Vertex>(MemoryBuffer::ReadOnlyMapping);
+    if (!ptr)
+        throw runtime_error(TAG + "::verticesAsVector(): mData.map_ptr<Vertex> returned nullptr!");
+
+    for (size_t i = 0; i < mData.size(); ++i, ++ptr) {
+        vertices.push_back(*ptr);
+    }
+
+    mData.unmap();
+
+    return vertices;
 }
 
 void GraphicsFacet::scaleModelMatrix(vec3 v)

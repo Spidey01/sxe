@@ -59,7 +59,7 @@ void VertexArrayTechnique::draw(GraphicsFacet& facet)
 {
     DrawingTechnique::draw(facet);
 
-    const GraphicsFacet::vertex_vector& vertices = facet.verticesAsVector();
+    const GraphicsFacet::vertex_vector vertices = facet.verticesAsVector();
 
     gl11::glEnableClientState(gl11::GL_VERTEX_ARRAY);
     gl11::glEnableClientState(gl11::GL_COLOR_ARRAY);

@@ -25,10 +25,12 @@
 
 #include <sxe/api.hpp>
 #include <sxe/common/stdtypedefs.hpp>
+#include <sxe/graphics/FrameListener.hpp>
+#include <sxe/graphics/MemoryBuffer.hpp>
 #include <sxe/graphics/MemoryPool.hpp>
+#include <sxe/graphics/SystemMemory.hpp>
 #include <sxe/graphics/Vertex.hpp>
 #include <sxe/graphics/stdmathtypes.hpp>
-#include <sxe/graphics/FrameListener.hpp>
 #include <sxe/scene/Camera.hpp>
 
 namespace sxe { namespace graphics {
@@ -48,15 +50,23 @@ namespace sxe { namespace graphics {
 
         ~GraphicsFacet();
 
-        /** Populate vertex from system memory.
+        /** Populate vertex data from vertex_vector.
          * 
-         * @param camera provides the ... matrix.
-         * @param data sequence of vertex data.
-         * @param callback the onDraw handler.
+         * @param vertices[in] sequence of vertex data.
          */
-        GraphicsFacet(sxe::scene::Camera::shared_ptr camera, const vertex_vector& data, FrameListener callback);
+        GraphicsFacet(const vertex_vector& vertices);
 
-        GraphicsFacet(sxe::scene::Camera::shared_ptr camera,const vertex_vector& data);
+        /** Populate vertex data from a mappable MemoryBuffer.
+         * 
+         * @param data[in] a buffer containing the data; must support map().
+         */
+        GraphicsFacet(MemoryBuffer& data);
+
+        /** Populate vertex data from a raw pointer.
+         * @param data[in] vertices.
+         * @param length in bytes.
+         */
+        GraphicsFacet(uint8_t* data, size_t length);
 
         /** Position to translate by.
          */
@@ -84,16 +94,29 @@ namespace sxe { namespace graphics {
          */
         void setCamera(sxe::scene::Camera::shared_ptr camera);
 
-        /** @returns the callback for DrawingTechnique::draw().
+        /** Set the FrameListener for onDraw().
          */
-        FrameListener& onDraw();
+        void setFrameListener(FrameListener listener);
+
+        /** Get the FrameListener for onDraw().
+         */
+        FrameListener& getFrameListener();
+
+        /** Executes the FrameListener.
+         * 
+         * If no frame listener is attached this is a harmless no-op.
+         */
+        void onDraw();
+
+        /** Returns the vertices
+         */
+        // MemoryBuffer& verticesAsBuffer() const;
 
         /** Returns the vertices.
          * 
-         * This is raw data packed loaded into standard system memory. I.e. for
-         * packing into a vertex buffer.
+         * This is raw data copied from standard system memory.
          */
-        const vertex_vector& verticesAsVector() const;
+        vertex_vector verticesAsVector();
 
         /** Scale modelMatrix() accordingly.
          * 
@@ -154,17 +177,15 @@ namespace sxe { namespace graphics {
          */
         void setSegment(const MemoryPool::Segment& segment);
 
-        /** Type for identification of graphics buffers, e.g. VBOs.
-         */
-
       private:
         static const string_type TAG;
-        sxe::scene::Camera::shared_ptr mCamera;
-        FrameListener mOnDraw;
-        vertex_vector mVertices;
+        SystemMemory mData;
+        FrameListener mFrameListener;
         mat4 mModelMatrix;
         vec3 mPosition;
         mat4 mOrientationMatrix;
+        sxe::scene::Camera::shared_ptr mCamera;
+        FrameListener mOnDraw;
         MemoryPool::Segment mSegment;
     };
 } }

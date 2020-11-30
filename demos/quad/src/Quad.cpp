@@ -74,8 +74,8 @@ Quad::Quad(GameEngine& engine)
             vertices.push_back(v);
         }
 
-        auto& sm = mGameEngine.getSceneManager();
-        setGraphicsFacet(std::make_shared<sxe::graphics::GraphicsFacet>(sm.camera(), vertices));
+        setGraphicsFacet(std::make_shared<sxe::graphics::GraphicsFacet>(vertices));
+        getGraphicsFacet()->setCamera(mGameEngine.getSceneManager().camera());
 
     } catch (std::exception& ex) {
         Log::wtf(TAG, "Failed loading " + MESH_RESOURCE_PATH, ex);

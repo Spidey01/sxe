@@ -100,7 +100,7 @@ void VertexBufferTechnique::buffer(GraphicsFacet& facet)
 {
     Log::xtrace(TAG, "buffer()");
 
-    const GraphicsFacet::vertex_vector& vertices = facet.verticesAsVector();
+    const GraphicsFacet::vertex_vector vertices = facet.verticesAsVector();
     size_t length = sizeof(Vertex) * vertices.size();
 
     graphics::MemoryPool::Segment seg = mMemoryPool.buffer(length, &vertices[0]);
