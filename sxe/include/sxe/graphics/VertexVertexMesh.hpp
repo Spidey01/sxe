@@ -64,6 +64,14 @@ namespace sxe { namespace graphics {
 
             const vertex_vector& vertices() const;
 
+            /** Sets the default Vertex::color for the ctor.
+             * 
+             * The vertex description format doesn't do colors. As such this
+             * will be used when creating the vertices(). By default the value
+             * is white.
+             */
+            static void setDefaultFill(const Vertex::color_type& color);
+
             /** Sets each Vertex::color to color. */
             void solidFill(const Vertex::color_type& color);
 
@@ -72,6 +80,7 @@ namespace sxe { namespace graphics {
           protected:
           private:
             static const string_type TAG;
+            static Vertex::color_type sDefaultColor;
             vertex_vector mVertices;
         };
 } }

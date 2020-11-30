@@ -37,6 +37,7 @@ using sxe::common::Utils::trim;
 namespace sxe { namespace graphics {
 
 const VertexVertexMesh::string_type VertexVertexMesh::TAG = "VertexVertexMesh";
+Vertex::color_type VertexVertexMesh::sDefaultColor(1.0f, 1.0f, 1.0f, 1.0f);
 
 VertexVertexMesh::VertexVertexMesh(istream& stream)
 {
@@ -65,6 +66,7 @@ VertexVertexMesh::VertexVertexMesh(istream& stream)
             buffer.pos[i] = stof(vertices[i]);
         }
         buffer.pos.w = 1;
+        buffer.color = sDefaultColor;
 
         mVertices.push_back(buffer);
     }
@@ -73,6 +75,12 @@ VertexVertexMesh::VertexVertexMesh(istream& stream)
 const VertexVertexMesh::vertex_vector& VertexVertexMesh::vertices() const
 {
     return mVertices;
+}
+
+void VertexVertexMesh::setDefaultFill(const Vertex::color_type& color)
+{
+    Log::xtrace(TAG, "setDefaultFill(): color: " + sxe::graphics::vec_to_string(color));
+    sDefaultColor = color;
 }
 
 void VertexVertexMesh::solidFill(const Vertex::color_type& color)
