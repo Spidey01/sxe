@@ -59,6 +59,14 @@ void VertexArrayTechnique::draw(GraphicsFacet& facet)
 {
     DrawingTechnique::draw(facet);
 
+    gl11::glMatrixMode(gl11::GL_MODELVIEW);
+    mat4 modelView = facet.viewMatrix() * facet.modelMatrix() * facet.orientationMatrix();
+    gl11::glLoadMatrixf(glm::value_ptr(modelView));
+
+    gl11::glMatrixMode(gl11::GL_PROJECTION);
+    mat4 projection = facet.projectionMatrix();
+    gl11::glLoadMatrixf(glm::value_ptr(projection));
+
     gl11::glEnableClientState(gl11::GL_VERTEX_ARRAY);
     gl11::glEnableClientState(gl11::GL_COLOR_ARRAY);
 
