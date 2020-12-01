@@ -116,21 +116,9 @@ void GraphicsFacet::onDraw()
         mFrameListener();
 }
 
-vertex_vector GraphicsFacet::verticesAsVector()
+SystemMemory& GraphicsFacet::vertices()
 {
-    vertex_vector vertices;
-
-    Vertex* ptr = mData.map_ptr<Vertex>(MemoryBuffer::ReadOnlyMapping);
-    if (!ptr)
-        throw runtime_error(TAG + "::verticesAsVector(): mData.map_ptr<Vertex> returned nullptr!");
-
-    for (size_t i = 0; i < mData.size(); ++i, ++ptr) {
-        vertices.push_back(*ptr);
-    }
-
-    mData.unmap();
-
-    return vertices;
+    return mData;
 }
 
 void GraphicsFacet::scaleModelMatrix(vec3 v)

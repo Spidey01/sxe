@@ -186,6 +186,17 @@ namespace sxe { namespace graphics {
             return (T*)map(usage);
         }
 
+        /** Returns the length of the map_ptr<>.
+         * 
+         * I.e. size() / sizeof the mapped type. You usually want this to be
+         * Vertex.
+         */
+        template <class T>
+        size_t map_length()
+        {
+          return size() / sizeof(T);
+        }
+
         /** Unmap the buffer..
          * 
          * Dereferencing pointers returned by map() after unmap() are undefined. Don't do it.

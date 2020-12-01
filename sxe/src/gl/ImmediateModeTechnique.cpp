@@ -69,10 +69,15 @@ void ImmediateModeTechnique::draw(GraphicsFacet& facet)
 
     gl10::glBegin(gl10::GL_TRIANGLES);
     {
-        for (const Vertex& vert : facet.verticesAsVector()) {
+        graphics::SystemMemory& buffer = facet.vertices();
+        Vertex* vertices = buffer.map_ptr<Vertex>(graphics::MemoryBuffer::ReadOnlyMapping);
+        size_t length = buffer.map_length<Vertex>();
+        for (size_t i = 0; i < length; ++i) {
+            const Vertex& vert = vertices[i];
             gl10::glColor4f(vert.color.r, vert.color.g, vert.color.b, vert.color.a);
             gl10::glVertex3f(vert.pos.x, vert.pos.y, vert.pos.z);
         }
+        buffer.unmap();
     }
     gl10::glEnd();
 }

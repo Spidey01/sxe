@@ -108,15 +108,15 @@ namespace sxe { namespace graphics {
          */
         void onDraw();
 
-        /** Returns the vertices
-         */
-        // MemoryBuffer& verticesAsBuffer() const;
-
-        /** Returns the vertices.
+        /** Returns the vertices from system memory.
          * 
-         * This is raw data copied from standard system memory.
+         * This is a tightly packed buffer of Vertex structures. Such that
+         * map_ptr<Vertex>() can be used to get a pointer to the data.
+         * 
+         * In most cases: you should only use this to populate a pool of
+         * graphics memory, and record the segment with setSegment().
          */
-        vertex_vector verticesAsVector();
+        SystemMemory& vertices();
 
         /** Scale modelMatrix() accordingly.
          * 

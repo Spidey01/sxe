@@ -210,6 +210,24 @@ void Program::vertexPositionPointer(const string_type& attrib, ptrdiff_t offset,
     vertexPositionPointer(getAttribLocation(attrib), offset, data);
 }
 
+void Program::vertexPositionPointer(AttributeLocation index, const graphics::MemoryPool::Segment& segment)
+{
+    Log::test(TAG, "vertexPositionPointer(): mId: " + to_string(mId) + " index: " + to_string(index) + " segment.buffer.id(): " + to_string(segment.buffer->id()));
+
+    gl20::GLint size = Vertex::position_type::length();
+    gl20::GLsizei stride = sizeof(Vertex);
+
+    size_t posOffset = offsetof(Vertex, pos) + offsetof(Vertex::position_type, x);
+    ptrdiff_t pointer = segment.offset + posOffset;
+
+    vertexAttribPointer(index, size, gl20::GL_FLOAT, false, stride, (const void*)pointer);
+}
+
+void Program::vertexPositionPointer(const string_type& attrib, const graphics::MemoryPool::Segment& segment)
+{
+    return vertexPositionPointer(getAttribLocation(attrib), segment);
+}
+
 void Program::vertexColorPointer(AttributeLocation index, ptrdiff_t offset, const graphics::Vertex::vector& data)
 {
     Log::test(TAG, "vertexColorPointer(): mId: " + to_string(mId) + " index: " + to_string(index) + " offset: " + to_string(offset) + " data.size(): " + to_string(data.size()));
@@ -227,6 +245,24 @@ void Program::vertexColorPointer(const string_type& attrib, ptrdiff_t offset, co
 {
     // TODO: make a map of these.
     vertexColorPointer(getAttribLocation(attrib), offset, data);
+}
+
+void Program::vertexColorPointer(AttributeLocation index, const graphics::MemoryPool::Segment& segment)
+{
+    Log::test(TAG, "vertexColorPointer(): mId: " + to_string(mId) + " index: " + to_string(index) + " segment.buffer.id(): " + to_string(segment.buffer->id()));
+
+    gl20::GLint size = Vertex::position_type::length();
+    gl20::GLsizei stride = sizeof(Vertex);
+
+    size_t colorOffset = offsetof(Vertex, color) + offsetof(Vertex::color_type, r);
+    ptrdiff_t pointer = segment.offset + colorOffset;
+
+    vertexAttribPointer(index, size, gl20::GL_FLOAT, false, stride, (const void*)pointer);
+}
+
+void Program::vertexColorPointer(const string_type& attrib, const graphics::MemoryPool::Segment& segment)
+{
+    return vertexColorPointer(getAttribLocation(attrib), segment);
 }
 
 void Program::uniformMatrixPointer(UniformLocation uniform, const glm::mat4& matrix)

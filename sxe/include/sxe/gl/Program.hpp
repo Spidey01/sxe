@@ -27,6 +27,7 @@
 #include <sxe/api.hpp>
 #include <sxe/common/Initializable.hpp>
 #include <sxe/common/stdtypedefs.hpp>
+#include <sxe/graphics/MemoryPool.hpp>
 #include <sxe/graphics/Vertex.hpp>
 #include <sxe/graphics/stdmathtypes.hpp>
 
@@ -174,6 +175,20 @@ namespace sxe { namespace gl {
          */
         void vertexPositionPointer(const string_type& attrib, ptrdiff_t offset, const graphics::Vertex::vector& data);
 
+        /** Does glVertexAttribPointer() for Vertex::pos for a MemoryPool::Segment of Vertex.
+         * 
+         * @param index the location.
+         * @param segment the buffer details.
+         */
+        void vertexPositionPointer(AttributeLocation index, const graphics::MemoryPool::Segment& segment);
+
+        /** Does glVertexAttribPointer() for Vertex::pos for a MemoryPool::Segment of Vertex.
+         * 
+         * @param attrib the location.
+         * @param segment the buffer details.
+         */
+        void vertexPositionPointer(const string_type& attrib, const graphics::MemoryPool::Segment& segment);
+
         /** Does glVertexAttribPointer() for Vertex::color for a vector of Vertex.
          * 
          * @param index the location.
@@ -189,6 +204,20 @@ namespace sxe { namespace gl {
          * @param data a vector of Vertex data.
          */
         void vertexColorPointer(const string_type& attrib, ptrdiff_t offset, const graphics::Vertex::vector& data);
+
+        /** Does glVertexAttribPointer() for Vertex::color for a MemoryPool::Segment of Vertex.
+         * 
+         * @param index the location.
+         * @param segment the buffer details.
+         */
+        void vertexColorPointer(AttributeLocation index, const graphics::MemoryPool::Segment& segment);
+
+        /** Does glVertexAttribPointer() for Vertex::color for a MemoryPool::Segment of Vertex.
+         * 
+         * @param attrib the location.
+         * @param segment the buffer details.
+         */
+        void vertexColorPointer(const string_type& attrib, const graphics::MemoryPool::Segment& segment);
 
         /** Does glUniformMatrix4fv().
          * 

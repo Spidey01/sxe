@@ -100,10 +100,12 @@ void VertexBufferTechnique::buffer(GraphicsFacet& facet)
 {
     Log::xtrace(TAG, "buffer()");
 
-    const GraphicsFacet::vertex_vector vertices = facet.verticesAsVector();
-    size_t length = sizeof(Vertex) * vertices.size();
+    using graphics::SystemMemory;
 
-    graphics::MemoryPool::Segment seg = mMemoryPool.buffer(length, &vertices[0]);
+    SystemMemory& ram = facet.vertices();
+    Vertex* vertices = ram.map_ptr<Vertex>(SystemMemory::ReadOnlyMapping);
+    graphics::MemoryPool::Segment seg = mMemoryPool.buffer(ram.size(), &vertices[0]);
+    ram.unmap();
     facet.setSegment(seg);
 }
 
@@ -126,7 +128,8 @@ void VertexBufferTechnique::draw(GraphicsFacet& facet)
 {
     DrawingTechnique::draw(facet);
 
-    const GraphicsFacet::vertex_vector& vertices = facet.verticesAsVector();
+    graphics::SystemMemory& data = facet.vertices();
+    Vertex* vertices = data.map_ptr<Vertex>(graphics::SystemMemory::ReadOnlyMapping);
 
     if (facet.getSegment().buffer == nullptr) {
         buffer(facet);
@@ -138,8 +141,8 @@ void VertexBufferTechnique::draw(GraphicsFacet& facet)
     segment.buffer->bind();
 
     ptrdiff_t offset = segment.offset;
-	mProgram.vertexPositionPointer(mPositionIndex, offset, vertices);
-    mProgram.vertexColorPointer(mColorIndex, offset, vertices);
+    mProgram.vertexPositionPointer(mPositionIndex, segment);
+    mProgram.vertexColorPointer(mColorIndex, segment);
 
     if (mTransformIndex == -1) {
         mTransformIndex = mProgram.getUniformLocation(mTransformName);
@@ -147,7 +150,8 @@ void VertexBufferTechnique::draw(GraphicsFacet& facet)
     }
     mProgram.uniformMatrixPointer(mTransformIndex, facet.transform());
     
-    gl20::glDrawArrays(gl20::GL_TRIANGLES, 0, (gl20::GLsizei)vertices.size());
+    gl20::glDrawArrays(gl20::GL_TRIANGLES, 0, (gl20::GLsizei)segment.length / sizeof(Vertex));
+    data.unmap();
 }
 
 void VertexBufferTechnique::frameEnded()
