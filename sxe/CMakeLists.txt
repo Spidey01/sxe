@@ -49,7 +49,9 @@ set(SxE_SOURCES
         src/graphics/GraphicsFacet.cpp
         src/graphics/MemoryBuffer.cpp
         src/graphics/MemoryPool.cpp
+        src/graphics/RenderableObject.cpp
         src/graphics/ShaderType.cpp
+        src/graphics/Sprite.cpp
         src/graphics/SystemMemory.cpp
         src/graphics/SystemMemoryPool.cpp
         src/graphics/VertexVertexMesh.cpp
@@ -121,8 +123,10 @@ set(SxE_HEADERS
     include/sxe/graphics/GraphicsFacet.hpp
     include/sxe/graphics/MemoryBuffer.hpp
     include/sxe/graphics/MemoryPool.hpp
+    include/sxe/graphics/RenderableObject.hpp
     include/sxe/graphics/RenderingApi.hpp
     include/sxe/graphics/ShaderType.hpp
+    include/sxe/graphics/Sprite.hpp
     include/sxe/graphics/SystemMemory.hpp
     include/sxe/graphics/SystemMemoryPool.hpp
     include/sxe/graphics/Vertex.hpp
