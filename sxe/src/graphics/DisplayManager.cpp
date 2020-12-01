@@ -223,10 +223,13 @@ RenderingApi DisplayManager::renderingApi() const
     else if (fromConfig == "OpenGLES")
         return RenderingApi::OpenGLES;
 
+    if (supportsOpenGL())
+        return RenderingApi::OpenGLES;
+
     if (supportsVulkan())
         return RenderingApi::Vulkan;
 
-    return RenderingApi::OpenGLES;
+    return RenderingApi::Unknown;
 }
 
 
