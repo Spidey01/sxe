@@ -75,7 +75,7 @@ bool RockBlasterGame::start()
     getInputFacet().addKeyListener(InputCode::IC_Q, inputCallback);
 
     Log::v(TAG, "Creating the Player.");
-    mPlayer = make_unique<demos::Player>();
+    mPlayer = make_unique<demos::Player>(getGameEngine());
 
     return true;
 }
@@ -134,14 +134,8 @@ bool RockBlasterGame::setupPlayer(demos::Player& player)
 {
     Log::xtrace(TAG, "setupPlayer()");
 
-    auto& resourceManager = getGameEngine().getResourceManager();
     auto& sceneManager = getGameEngine().getSceneManager();
     auto& inputManager = getInputFacet().manager();
-
-    if (!player.setupResources(resourceManager, sceneManager)) {
-        Log::e(TAG, "Failed to setup player resources!");
-        return false;
-    }
 
     if (!player.setupInput(inputManager)) {
         Log::e(TAG, "Failed to setup player input!");

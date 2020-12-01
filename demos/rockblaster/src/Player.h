@@ -23,15 +23,11 @@
  *	   distribution.
  */
 
-#include <sxe/common/stdtypedefs.hpp>
-#include <sxe/graphics/GraphicsFacet.hpp>
-#include <sxe/graphics/stdmathtypes.hpp>
-#include <sxe/input/InputFacet.hpp>
 #include <sxe/input/InputManager.hpp>
 #include <sxe/input/KeyEvent.hpp>
 #include <sxe/resource/ResourceManager.hpp>
-#include <sxe/scene/Entity.hpp>
 #include <sxe/scene/SceneManager.hpp>
+#include <sxe/graphics/Sprite.hpp>
 
 namespace demos {
 
@@ -46,19 +42,12 @@ namespace demos {
         using InputCode = sxe::input::InputCode;
         using Entity = sxe::scene::Entity;
 
-        Player();
+        Player(sxe::GameEngine& engine);
         ~Player();
 
         /** Return the entity used for scene management.
          */
         sxe::scene::Entity::shared_ptr getEntity() const;
-
-        /** Setup resources for player.
-         * 
-         * @param loader the resource manager.
-         * @param scene the scene manager.
-         */
-        bool setupResources(sxe::resource::ResourceManager& loader, sxe::scene::SceneManager& scene);
 
         /** Setup input for controlling the player.
          * 
@@ -111,9 +100,7 @@ namespace demos {
 
       private:
         static const string_type TAG;
-        Entity::shared_ptr mEntity;
-        sxe::input::InputFacet::shared_ptr mInputFacet;
-        sxe::graphics::GraphicsFacet::shared_ptr mGraphicsFacet;
+        mutable sxe::graphics::Sprite mSprite;
 
         using clock_type = std::chrono::steady_clock;
         using time_point = clock_type::time_point;

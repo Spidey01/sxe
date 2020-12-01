@@ -42,10 +42,8 @@ namespace demos {
 const Player::string_type Player::TAG = "Player";
 
 static int instance_count = 0;
-Player::Player()
-    : mEntity(make_shared<sxe::scene::Entity>())
-    , mInputFacet(nullptr)
-    , mGraphicsFacet(nullptr)
+Player::Player(sxe::GameEngine& engine)
+    : mSprite(engine, "player.mesh", &VertexVertexMesh::resourceFilter, std::bind(&Player::onDraw, this), {})
     , mLastOnDraw(clock_type::now())
     , mLastThink(clock_type::now())
     , mSpeed(0)
@@ -54,77 +52,35 @@ Player::Player()
     , mYawRate(15.0f)
 {
     Log::xtrace(TAG, "Player()");
+
+    vec2 scale(0.03f, 0.03f);
+    mSprite.graphics()->scaleModelMatrix(scale);
 }
 
 Player::~Player()
 {
     Log::xtrace(TAG, "~Player()");
-
-    Log::v(TAG, "mInputFacet.reset()");
-    if (mEntity)
-        mEntity->setInputFacet(nullptr);
-    mInputFacet.reset();
 }
 
 Player::Entity::shared_ptr Player::getEntity() const
 {
-    return mEntity;
-}
-
-bool Player::setupResources(sxe::resource::ResourceManager& loader, sxe::scene::SceneManager& scene)
-{
-    Log::xtrace(TAG, "setupResources()");
-
-    try {
-        Log::v(TAG, "Loading player.mesh");
-        ResourceHandle::unique_ptr res = loader.load(string_type("player.mesh"));
-        if (!res) {
-            Log::w(TAG, "ResourceManager::load() returned nullptr!");
-            return false;
-        }
-
-        Log::v(TAG, "Getting player.mesh vertices");
-        VertexVertexMesh::unique_ptr mesh = res->asVertexVertexMesh();
-        if (!mesh) {
-            Log::w(TAG, "ResourceHandle::asVertexVertexMesh() returned nullptr!");
-            return false;
-        }
-        if (mesh->vertices().empty()) {
-            Log::e(TAG, "No vertices loaded from player.mesh!");
-            return false;
-        }
-
-        mesh->solidFill({0, 1, 0, 1});
-
-        Log::v(TAG, "Setting up mGraphicsFacet.");
-        mGraphicsFacet = make_shared<sxe::graphics::GraphicsFacet>(mesh->vertices());
-        mGraphicsFacet->setFrameListener(std::bind(&Player::onDraw, this)); 
-        mGraphicsFacet->setCamera(scene.camera());
-
-        vec2 scale(0.03f, 0.03f);
-        mGraphicsFacet->scaleModelMatrix(scale);
-
-        mEntity->setGraphicsFacet(mGraphicsFacet);
-    } catch (std::exception& ex) {
-        Log::e(TAG, "setupResources() failed", ex);
-        return false;
-    }
-
-    return true;
+    return mSprite.entity();
 }
 
 bool Player::setupInput(sxe::input::InputManager& controller)
 {
     Log::xtrace(TAG, "setupInput()");
 
-    mInputFacet = make_shared<sxe::input::InputFacet>(controller);
+    sxe::input::InputFacet::shared_ptr input = mSprite.input();
+    if (!input) {
+        Log::e(TAG, "setupInput(): no input manager!");
+        return false;
+    }
 
-    mInputFacet->addKeyListener(InputCode::IC_UP_ARROW, bind(&Player::onUpArrow, this, std::placeholders::_1));
-    mInputFacet->addKeyListener(InputCode::IC_LEFT_ARROW, bind(&Player::onLeftArrow, this, std::placeholders::_1));
-    mInputFacet->addKeyListener(InputCode::IC_RIGHT_ARROW, bind(&Player::onRightArrow, this, std::placeholders::_1));
-    mInputFacet->addKeyListener(InputCode::IC_SPACE, bind(&Player::onSpaceBar, this, std::placeholders::_1));
-
-    mEntity->setInputFacet(mInputFacet);
+    input->addKeyListener(InputCode::IC_UP_ARROW, bind(&Player::onUpArrow, this, std::placeholders::_1));
+    input->addKeyListener(InputCode::IC_LEFT_ARROW, bind(&Player::onLeftArrow, this, std::placeholders::_1));
+    input->addKeyListener(InputCode::IC_RIGHT_ARROW, bind(&Player::onRightArrow, this, std::placeholders::_1));
+    input->addKeyListener(InputCode::IC_SPACE, bind(&Player::onSpaceBar, this, std::placeholders::_1));
 
     return true;
 }
@@ -147,7 +103,7 @@ bool Player::onLeftArrow(KeyEvent event)
     Log::xtrace(TAG, "onLeftArrow(): event.toString(): " + event.toString());
 
     yaw(-mYawRate);
-    mGraphicsFacet->rotate(mYawRate, vec3(0, 0, 1));
+    mSprite.graphics()->rotate(mYawRate, vec3(0, 0, 1));
 
     vec3 dir = direction(mHeading);
     Log::xtrace(TAG, "heading " + to_string(mHeading) + " degrees; direction: " + sxe::graphics::vec_to_string(dir));
@@ -160,7 +116,7 @@ bool Player::onRightArrow(KeyEvent event)
     Log::xtrace(TAG, "onRightArrow(): event.toString(): " + event.toString());
 
     yaw(+mYawRate);
-    mGraphicsFacet->rotate(-mYawRate, vec3(0, 0, 1));
+    mSprite.graphics()->rotate(-mYawRate, vec3(0, 0, 1));
 
     vec3 dir = direction(mHeading);
     Log::xtrace(TAG, "heading " + to_string(mHeading) + " degrees; direction: " + sxe::graphics::vec_to_string(dir));
@@ -248,10 +204,7 @@ void Player::speed(int vel)
 
 Player::vec3& Player::position() const
 {
-    if (!mGraphicsFacet) {
-        Log::wtf(TAG, "position() called before graphics facet constructed.");
-    }
-    return mGraphicsFacet->position();
+    return mSprite.graphics()->position();
 }
 
 Player::vec3 Player::direction(float heading) const
