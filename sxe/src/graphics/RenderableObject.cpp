@@ -72,7 +72,11 @@ RenderableObject::RenderableObject(GameEngine& system,
 
 RenderableObject::~RenderableObject()
 {
-
+    sxe::scene::SceneManager *sm = mEntity->getSceneManager();
+    if (sm) {
+        Log::xtrace(TAG, "~RenderableObject(): removing entity from scene.");
+        sm->removeEntity(mEntity);
+    }
 }
 
 GameEngine& RenderableObject::engine() const
