@@ -39,12 +39,12 @@ Entity::Entity()
     , mGraphicsFacet(nullptr)
     , mResourceFacet(nullptr)
 {
-
+    Log::xtrace(TAG, "Entity()");
 }
 
 Entity::~Entity()
 {
-
+    Log::xtrace(TAG, "~Entity()");
 }
 
 SceneManager* Entity::getSceneManager() const

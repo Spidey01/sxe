@@ -39,12 +39,12 @@ const ResourceFacet::string_type ResourceFacet::TAG = "ResourceFacet";
 ResourceFacet::ResourceFacet(ResourceManager& manager)
     : mResourceManager(manager)
 {
-
+    Log::xtrace(TAG, "ResourceFacet()");
 }
 
 ResourceFacet::~ResourceFacet()
 {
-
+    Log::xtrace(TAG, "~ResourceFacet()");
 }
 
 bool ResourceFacet::load(const string_type& resource, MemoryBuffer& buffer)

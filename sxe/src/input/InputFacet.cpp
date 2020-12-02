@@ -68,7 +68,7 @@ InputFacet::~InputFacet()
     }
 
     mIdMap.clear();
-
+    Log::xtrace(TAG, "~InputFacet(): returning");
 }
 
 

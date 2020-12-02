@@ -72,6 +72,7 @@ GraphicsFacet::GraphicsFacet(uint8_t* data, size_t length)
 
 GraphicsFacet::~GraphicsFacet()
 {
+    Log::xtrace(TAG, "~GraphicsFacet()");
 }
 
 GraphicsFacet::vec3& GraphicsFacet::position()
