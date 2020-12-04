@@ -68,6 +68,11 @@ namespace sxe { namespace graphics {
         (void)facet;
     }
 
+    void DrawingTechnique::unbuffer(GraphicsFacet& facet)
+    {
+        Log::log(mLogLevel, TAG, "unbuffer(): name(): " + mName);
+        (void)facet;
+    }
 
     void DrawingTechnique::logLevel(int level)
     {

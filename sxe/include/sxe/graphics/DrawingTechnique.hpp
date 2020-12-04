@@ -71,6 +71,10 @@ namespace sxe { namespace graphics {
        */
       virtual void buffer(GraphicsFacet& facet);
 
+      /** Call to release resources associated with the facet.
+       */
+      virtual void unbuffer(GraphicsFacet& facet);
+
       /** Called at the start of every frame by SceneManager.
        * 
        * Default implementation simple logs that name() started the frame.
