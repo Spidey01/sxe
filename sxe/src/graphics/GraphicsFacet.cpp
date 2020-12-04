@@ -33,6 +33,8 @@ using vertex_vector = sxe::graphics::GraphicsFacet::vertex_vector;
 
 namespace sxe { namespace graphics {
 
+static const MemoryPool::Segment EmptySegment = {nullptr, 0, 0};
+
 const string_type GraphicsFacet::TAG = "GraphicsFacet";
 
 GraphicsFacet::GraphicsFacet()
@@ -42,7 +44,7 @@ GraphicsFacet::GraphicsFacet()
     , mOrientationMatrix(1.0f)
     , mCamera(nullptr)
     , mOnDraw()
-    , mSegment({nullptr, 0, 0})
+    , mSegment(EmptySegment)
 {
 }
 
@@ -176,6 +178,11 @@ MemoryPool::Segment& GraphicsFacet::getSegment()
 void GraphicsFacet::setSegment(const MemoryPool::Segment& segment)
 {
     mSegment = segment;
+}
+
+void GraphicsFacet::clearSegment()
+{
+    mSegment = EmptySegment;
 }
 
 } }

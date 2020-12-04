@@ -177,6 +177,10 @@ namespace sxe { namespace graphics {
          */
         void setSegment(const MemoryPool::Segment& segment);
 
+        /** Resets to the empty segment.
+         */
+        void clearSegment();
+
       private:
         static const string_type TAG;
         SystemMemory mData;
