@@ -111,11 +111,30 @@ void MemoryPool::deallocate(buffer_ptr ptr)
 
     for (auto seg = mSegments.begin(); seg != mSegments.end(); ++seg) {
         if (seg->buffer == ptr) {
+            Log::xtrace(TAG, "deallocate(): seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
+            Log::xtrace(TAG, "deallocate(): seg->offset: " + to_string(seg->offset));
+            Log::xtrace(TAG, "deallocate(): seg->length: " + to_string(seg->length));
             seg = mSegments.erase(seg);
         }
     }
 }
 
+void MemoryPool::deallocate(Segment& segment)
+{
+    for (auto seg = mSegments.begin(); seg != mSegments.end(); ++seg) {
+        if (seg->buffer != segment.buffer)
+            continue;
+        if (seg->length != segment.length)
+            continue;
+        if (seg->offset != segment.offset)
+            continue;
+        Log::xtrace(TAG, "deallocate(): seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
+        Log::xtrace(TAG, "deallocate(): seg->offset: " + to_string(seg->offset));
+        Log::xtrace(TAG, "deallocate(): seg->length: " + to_string(seg->length));
+        mSegments.erase(seg);
+        return;
+    }
+}
 void MemoryPool::validate(buffer_ptr ptr)
 {
     if (!ptr)
@@ -136,12 +155,13 @@ MemoryPool::Segment MemoryPool::buffer(size_type length, const void* data)
 
     buffer_id skip = 0;
 
+    // XXX: needs to cover holes, e.g. segment right would be overwritten.
     Log::test(TAG, "--------");
     for (auto seg = mSegments.rbegin(); seg != mSegments.rend(); ++seg) {
         validate(seg->buffer);
-        Log::xtrace(TAG, "seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
-        Log::xtrace(TAG, "seg->offset: " + to_string(seg->offset));
-        Log::xtrace(TAG, "seg->length: " + to_string(seg->length));
+        Log::xtrace(TAG, "buffer(): seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
+        Log::xtrace(TAG, "buffer(): seg->offset: " + to_string(seg->offset));
+        Log::xtrace(TAG, "buffer(): seg->length: " + to_string(seg->length));
 
         if (seg->buffer->id() == skip) {
             Log::v(TAG, "seg: skipping, buffer " + to_string(seg->buffer->id()) + " already full");

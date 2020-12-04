@@ -114,6 +114,16 @@ namespace sxe { namespace graphics {
          */
         void deallocate(buffer_ptr ptr);
 
+        /** Dellocates a segment of the pool.
+         * 
+         * This removes the allocated Segments. When the last Segment
+         * referencing a buffer is removed, the MemoryBuffer is no longer part
+         * of the pool.
+         * 
+         * @param segment the segment to dellocate.
+         */
+        void deallocate(Segment& segment);
+
         /** Buffer data to the pool.
          * 
          * Finds an available buffer with at least length bytes remaining. If
