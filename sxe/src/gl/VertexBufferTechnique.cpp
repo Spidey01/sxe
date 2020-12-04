@@ -27,14 +27,18 @@
 #include <sxe/logging.hpp>
 #include <sxe/resource/ResourceManager.hpp>
 
+using std::invalid_argument;
 using std::to_string;
 using std::runtime_error;
 using sxe::graphics::GraphicsFacet;
+using sxe::graphics::MemoryBuffer;
+using sxe::graphics::MemoryPool;
+using sxe::graphics::ShaderType;
+using sxe::graphics::SystemMemory;
 using sxe::graphics::Vertex;
+using sxe::graphics::shaderTypeToString;
 using sxe::resource::ResourceHandle;
 using sxe::resource::ResourceManager;
-using sxe::graphics::ShaderType;
-using sxe::graphics::shaderTypeToString;
 
 namespace sxe { namespace gl {
 
@@ -98,15 +102,31 @@ VertexBufferTechnique::~VertexBufferTechnique()
 
 void VertexBufferTechnique::buffer(GraphicsFacet& facet)
 {
-    Log::xtrace(TAG, "buffer()");
-
-    using graphics::SystemMemory;
+    DrawingTechnique::buffer(facet);
 
     SystemMemory& ram = facet.vertices();
     Vertex* vertices = ram.map_ptr<Vertex>(SystemMemory::ReadOnlyMapping);
     graphics::MemoryPool::Segment seg = mMemoryPool.buffer(ram.size(), &vertices[0]);
     ram.unmap();
     facet.setSegment(seg);
+}
+
+void VertexBufferTechnique::unbuffer(GraphicsFacet& facet)
+{
+    DrawingTechnique::unbuffer(facet);
+
+    MemoryPool::Segment& seg = facet.getSegment();
+    MemoryBuffer::shared_ptr buffer = seg.buffer;
+
+    if (buffer) {
+        if (buffer->pool() != mMemoryPool.id())
+            throw invalid_argument(TAG + "::unbuffer(): facet.getSegment().buffer->pool() is not ours.");
+        mMemoryPool.deallocate(seg);
+    } else {
+        Log::w(TAG, "unbuffer(): facet.getSegment().buffer == nullptr");
+    }
+
+    facet.clearSegment();
 }
 
 void VertexBufferTechnique::frameStarted()
