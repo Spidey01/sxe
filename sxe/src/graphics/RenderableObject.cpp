@@ -58,10 +58,12 @@ RenderableObject::RenderableObject(GameEngine& system,
     mEntity->getResourceFacet()->load(resource, resourceFilter.value_or(&ResourceFacet::filter), buffer);
 
     Log::test(TAG, "Creating graphics");
-    mEntity->setGraphicsFacet(make_shared<GraphicsFacet>(buffer));
-    mEntity->getGraphicsFacet()->setCamera(mEntity->getSceneManager()->camera());
+    GraphicsFacet::shared_ptr gfx = make_shared<GraphicsFacet>(buffer);
+    mEntity->setGraphicsFacet(gfx);
+    gfx->setCamera(mEntity->getSceneManager()->camera());
     if (frameListener.has_value())
-        mEntity->getGraphicsFacet()->setFrameListener(frameListener.value());
+        gfx->setFrameListener(frameListener.value());
+    mGameEngine.getSceneManager().prepare(*gfx);
 
     Log::test(TAG, "Creating input");
     if (keyListener)

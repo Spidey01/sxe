@@ -27,6 +27,7 @@
 #include <sxe/common/Subsystem.hpp>
 #include <sxe/common/mutextypedefs.hpp>
 #include <sxe/graphics/DrawingTechnique.hpp>
+#include <sxe/graphics/GraphicsFacet.hpp>
 #include <sxe/scene/Camera.hpp>
 #include <sxe/scene/Entity.hpp>
 
@@ -52,6 +53,12 @@ namespace sxe { namespace scene {
          * @param key the setting that changed.
          */
         virtual void onSettingChanged(string_type key);
+
+        /** Prepare for rendering without adding to the scene.
+         * 
+         * @param facet passed to DrawingTechnique::buffer().
+         */
+        bool prepare(graphics::GraphicsFacet& facet);
 
         /** Add an Entity to the scene.
          * 

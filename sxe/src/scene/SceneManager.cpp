@@ -28,6 +28,8 @@
 #include <sxe/logging.hpp>
 
 using std::to_string;
+using sxe::graphics::DrawingTechnique;
+using sxe::graphics::GraphicsFacet;
 
 namespace sxe { namespace scene {
 
@@ -134,6 +136,20 @@ void SceneManager::onSettingChanged(string_type key)
     }
 }
 
+bool SceneManager::prepare(GraphicsFacet& facet)
+{
+    Log::xtrace(TAG, "prepare()");
+
+    if (mDrawingTechnique) {
+        if (facet.getSegment().buffer != nullptr) {
+            Log::w(TAG, "prepare(): GraphicsFacet already had a Segment with a buffer_ptr set.");
+        }
+        mDrawingTechnique->buffer(facet);
+    }
+
+    return true;
+}
+
 void SceneManager::addEntity(Entity::shared_ptr entity)
 {
     Log::test(TAG, "addEntity(): (uintptr_t)entity.get(): " + to_string((uintptr_t)entity.get()));
@@ -141,6 +157,13 @@ void SceneManager::addEntity(Entity::shared_ptr entity)
     lock_guard synchronized(mEntityMutex);
 
     entity->setSceneManager(this);
+
+    GraphicsFacet::shared_ptr gfx = entity->getGraphicsFacet();
+    if (gfx) {
+        // XXX: getting bad_alloc because !glIsBuffer if we call prepare here.
+    } else {
+        Log::w(TAG, "addEntity(): no GraphicsFacet for (uintptr_t)entity.get(): " + to_string((uintptr_t)entity.get()));
+    }
 
     mEntities.push_back(entity);
 }
@@ -150,6 +173,15 @@ void SceneManager::removeEntity(Entity::shared_ptr entity)
     Log::test(TAG, "removeEntity(): (uintptr_t)entity.get(): " + to_string((uintptr_t)entity.get()));
 
     lock_guard synchronized(mEntityMutex);
+
+    GraphicsFacet::shared_ptr gfx = entity->getGraphicsFacet();
+    if (gfx) {
+        Log::v(TAG, "removeEntity(): unbuffering");
+        if (mDrawingTechnique)
+            mDrawingTechnique->unbuffer(*gfx);
+    } else {
+        Log::w(TAG, "removeEntity(): no GraphicsFacet for (uintptr_t)entity.get(): " + to_string((uintptr_t)entity.get()));
+    }
 
     entity->setSceneManager(nullptr);
 
