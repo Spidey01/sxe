@@ -70,6 +70,9 @@ set(SxE_SOURCES
         src/scene/Camera.cpp
         src/scene/Entity.cpp
         src/scene/SceneManager.cpp
+        src/sum/Adler32.cpp
+        src/sum/CRC32.cpp
+        src/sum/Checksum.cpp
         src/sys/FileSystem.cpp
         src/sys/Platform.cpp
         src/sys/Xdg.cpp
@@ -88,6 +91,9 @@ set(SxE_HEADERS
     include/sxe/cmds/EchoCommand.hpp
     include/sxe/cmds/QuitCommand.hpp
     include/sxe/cmds/SetCommand.hpp
+    include/sxe/common/Adler32.hpp
+    include/sxe/common/CRC32.hpp
+    include/sxe/common/Checksum.hpp
     include/sxe/common/Initializable.hpp
     include/sxe/common/NotificationManager.hpp
     include/sxe/common/Subsystem.hpp

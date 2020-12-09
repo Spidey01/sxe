@@ -7,8 +7,8 @@ add_executable(sxe-test-runner
     common/NotificationManagerTest.cpp
     common/SubsystemTest.cpp
     common/UtilsTest.cpp
-    config/SettingsExpanderTest.cpp
     config/SettingsEnvironmentTest.cpp
+    config/SettingsExpanderTest.cpp
     config/SettingsFileTest.cpp
     config/SettingsFixture.cpp
     config/SettingsListenerTest.cpp
@@ -20,6 +20,8 @@ add_executable(sxe-test-runner
     input/InputFacetTest.cpp
     input/InputManagerTest.cpp
     resource/ArchiveStreamTest.cpp
+    sum/Adler32Test.cpp
+    sum/CRC32Test.cpp
     sys/PlatformTest.cpp
     sys/XdgTest.cpp
     main.cpp)
