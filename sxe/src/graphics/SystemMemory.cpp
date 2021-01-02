@@ -71,7 +71,6 @@ void SystemMemory::buffer(difference_type offset, size_type size, const void* da
 {
     log("buffer(): offset: " + std::to_string(offset) + " size: " + std::to_string(size) + " (uintptr_t)data: " + std::to_string((uintptr_t)data));
     memcpy(mBuffer + offset, data, size);
-    this->size(size);
 }
 
 void* SystemMemory::map(MapType access)
