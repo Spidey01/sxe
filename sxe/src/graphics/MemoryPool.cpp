@@ -109,12 +109,16 @@ void MemoryPool::deallocate(buffer_ptr ptr)
 {
     Log::xtrace(TAG, "deallocate(): ptr->id(): " + string_type(ptr ? to_string(ptr->id()) : " -- nullptr!"));
 
-    for (auto seg = mSegments.begin(); seg != mSegments.end(); ++seg) {
+    auto seg = mSegments.begin();
+    while (seg != mSegments.end())
+    {
         if (seg->buffer == ptr) {
             Log::xtrace(TAG, "deallocate(): seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
             Log::xtrace(TAG, "deallocate(): seg->offset: " + to_string(seg->offset));
             Log::xtrace(TAG, "deallocate(): seg->length: " + to_string(seg->length));
             seg = mSegments.erase(seg);
+        } else {
+            seg++;
         }
     }
 }
@@ -135,6 +139,7 @@ void MemoryPool::deallocate(Segment& segment)
         return;
     }
 }
+
 void MemoryPool::validate(buffer_ptr ptr)
 {
     if (!ptr)
