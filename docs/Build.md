@@ -49,7 +49,7 @@ Indicates that the build is a software development kit that will be used to buil
 
 Assumes bootstrap.cmd was used. Meaning that vcpkg was used to install dependencies, which should be bundled with the SXE_SDK package for ease of development.
 
-The Vulkan SDK and Microsoft Visual C++ compiler must be installed, and are not part of SXE_SDK.
+The Microsoft Visual C++ compiler and associated Windows SDKs must be installed, and are not part of SXE_SDK.
 
 See [platform notes](Windows.md) for more information.
 

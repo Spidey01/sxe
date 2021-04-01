@@ -13,3 +13,9 @@ If you don't like the result than open your Developer Command Prompt (or what ha
 If you only installed the command line build tools instead of the IDE, vswhere won't tell envsetup.project.cmd where to find the compiler.
 
 This can lead to weird and crazy things happening when building from the prompt. Open a Developer Command Prompt before setting up the SxE development environment.
+
+## Vulkan SDK
+
+The SDK can be built with or without Vulkan support. To enable support you must have the Vulkan SDK installed before bootstrapping SxE.
+
+Setting the [sxe.graphics.api setting](Settings.md) to Vulkan without support compiled in will likely lead to a crash on startup.
