@@ -266,12 +266,10 @@ find_package(ZLIB REQUIRED)
 target_link_libraries(SxE PUBLIC ZLIB::ZLIB)
 
 
-# Cmake's bundled FindLibArchive.cmake wants LibArchive_*.
 find_package(LibArchive)
 if (LibArchive_FOUND)
     set(SXE_HAVE_LIBARCHIVE ON)
-    # XXX what about when not vendor libs?
-    target_link_libraries(SxE PUBLIC ${LibArchive_LIBRARIES})
+    target_link_libraries(SxE PUBLIC LibArchive::LibArchive)
 endif (LibArchive_FOUND)
 
 find_package(Vulkan)
