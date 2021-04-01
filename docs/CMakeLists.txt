@@ -5,7 +5,7 @@ include(GNUInstallDirs)
 
 find_package(Doxygen)
 
-if (DOXYGEN_FOUND)
+if (DOXYGEN_FOUND AND BUILD_DOCS)
     set(DOXYGEN_PROJECT_BRIEF "My experimentation in developing a game engine.")
     set(DOXYGEN_PROJECT_NAME "SxE")
     set(DOXYGEN_EXTRACT_ALL YES)
@@ -20,9 +20,10 @@ if (DOXYGEN_FOUND)
         Build.md
         Linux.md
         Windows.md
-        Settings.md)
+        Settings.md
+        ALL)
 
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html
             DESTINATION ${CMAKE_INSTALL_DOCDIR})
 
-endif (DOXYGEN_FOUND)
+endif (DOXYGEN_FOUND AND BUILD_DOCS)
