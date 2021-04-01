@@ -49,11 +49,17 @@ SET PROJECT_TOOLCHAIN=msc%VisualStudioVersion%
 :LOCATE_VULKAN
 @REM The Vulkan SDK from LunarG defines VK_SDK_PATH and VULKAN_SDK as the root of the files.
 @REM It also adds its bin directory to Path.
-IF NOT DEFINED VULKAN_SDK (
-  @ECHO Please install https://vulkan.lunarg.com/sdk/home#sdk/downloadConfirm/latest/windows/vulkan-sdk.exe and try again in a new %ComSpec%.
-  @GOTO :eof
-)
+IF NOT DEFINED VULKAN_SDK ( GOTO :LIVE_LONG_AND_PROPOSER ) ELSE ( GOTO :DONE_VULKAN )
 
+:LIVE_LONG_AND_PROPOSER
+	ECHO VULKAN_SDK is not defined. SxE SDK is normally built with Vulkan support.
+	ECHO Please install https://vulkan.lunarg.com/sdk/home#sdk/downloadConfirm/latest/windows/vulkan-sdk.exe and try again in a new %ComSpec%.
+	SET /P SXE_SDK_WITHOUT_VULKAN_SDK="Continue without Vulkan SDK? (Y/N)? "
+	ECHO SXE_SDK_WITHOUT_VULKAN_SDK = '%SXE_SDK_WITHOUT_VULKAN_SDK%'
+	IF /I "%SXE_SDK_WITHOUT_VULKAN_SDK%" == "Y" ( GOTO :DONE_VULKAN ) ELSE ( GOTO :EOF )
+
+:DONE_VULKAN
+	SET SXE_SDK_WITHOUT_VULKAN_SDK=
 
 :SET_VARS
 
