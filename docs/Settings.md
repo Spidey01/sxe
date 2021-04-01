@@ -18,7 +18,6 @@ Typically settings are namespaced by dots. Such that "quux.foo" and "quux.bar" s
 
 When Settings sources are merged into the "Runtime" settings: change notifications are triggered. For environment variables only those documented here will be dispatched.
 
-
 ## Special Settings
 
 ### debug
@@ -26,11 +25,11 @@ When Settings sources are merged into the "Runtime" settings: change notificatio
 Boolean setting that works as a shortcut to general logging.
 
 debug=true is equal to:
-  - debug.log_to=debug.log
-  - debug.log_level=DEBUG
+
+- debug.log_to=debug.log
+- debug.log_level=DEBUG
 
 This will be initialized when the LoggingManager creates the LogSinks.
-
 
 ### sxe.debug
 
@@ -40,15 +39,14 @@ Value is an enum value as per sxe::logging::Level; either the integeral value or
 
 When set: GameEngine will create a LogSink for standard output with the specified default log level, and the name "sxe.debug". It will be done before any other initialization begins.
 
-
 ### sxe.graphics.api
 
 Requests a specific graphics API.
 
-  - Vulkan
-    + Use Vulkan rendering if possible.
-  - OpenGLES
-    + Use OpenGL (ES) rendering.
+- Vulkan
+  - Use Vulkan rendering if possible.
+- OpenGLES
+  - Use OpenGL (ES) rendering.
 
 ### sxe.graphics.method
 
