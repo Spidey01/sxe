@@ -52,18 +52,18 @@ namespace sxe { namespace graphics {
 
         /** Populate vertex data from vertex_vector.
          * 
-         * @param vertices[in] sequence of vertex data.
+         * @param[in] vertices sequence of vertex data.
          */
         GraphicsFacet(const vertex_vector& vertices);
 
         /** Populate vertex data from a mappable MemoryBuffer.
          * 
-         * @param data[in] a buffer containing the data; must support map().
+         * @param[in] data a buffer containing the data; must support map().
          */
         GraphicsFacet(MemoryBuffer& data);
 
         /** Populate vertex data from a raw pointer.
-         * @param data[in] vertices.
+         * @param[in] data vertices.
          * @param length in bytes.
          */
         GraphicsFacet(uint8_t* data, size_t length);

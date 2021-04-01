@@ -35,10 +35,9 @@ namespace sxe { namespace testing {
 
         /** Creates a NULL Display.
          *
-         * @param GL implementation of OpenGL to utilize.
          * @param answer whether to succeed or fail operations.
          */
-        NullDisplayManager(/*OpenGL GL,*/ bool answer);
+        NullDisplayManager(bool answer);
 
         bool create() override;
         void destroy() override;

@@ -75,7 +75,7 @@ namespace sxe
 
             string_type getString(const string_type& key) const override;
 
-            /** @copydoc Settings::setString().
+            /** @copydoc Settings::setString()
              * 
              * Cache of keys will be updated.
              */

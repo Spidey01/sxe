@@ -56,7 +56,7 @@ namespace sxe { namespace resource {
          * Calls load() with our default filter() function.
          * 
          * @param resource what to load.
-         * @param buffer[out] stores the data.
+         * @param[out] buffer stores the data.
          * @returns true on success.
          */
         bool load(const string_type& resource, sxe::graphics::MemoryBuffer& buffer);
@@ -66,8 +66,8 @@ namespace sxe { namespace resource {
          * Effectively loads resource as an input stream, and uses filter to buffer the data.
          * 
          * @param resource what to load.
-         * @param filter[in] how to consume the stream.
-         * @param buffer[out] stores the data.
+         * @param[in] filter how to consume the stream.
+         * @param[out] buffer stores the data.
          * @returns true on success.
          */
         bool load(const string_type& resource, Filter& filter, sxe::graphics::MemoryBuffer& buffer);
@@ -75,8 +75,8 @@ namespace sxe { namespace resource {
         /** Default resource filter.
          * 
          * Bytes in, bytes out.
-         * @param input[in] the byte stream to buffer.
-         * @param buffer[out] stores the bytes.
+         * @param[in] input the byte stream to buffer.
+         * @param[out] buffer stores the bytes.
          * @returns true on success.
          */
         static bool filter(std::istream& input, sxe::graphics::MemoryBuffer& buffer);

@@ -126,7 +126,7 @@ namespace sxe { namespace graphics {
          * @param size Specifies the size in bytes of the buffer object's new
          * data store.
          * 
-         * @param data Specifies a pointer to data that will be copied into the
+         * @param[in] pointer Specifies a pointer to data that will be copied into the
          * data store for initialization, or nullptr if no data is to be copied.
          */
         virtual void allocate(size_type size, const void* pointer) = 0;

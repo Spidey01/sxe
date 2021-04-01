@@ -37,7 +37,7 @@ namespace sxe { namespace graphics {
          * Blank lines and comment lines are ignored.
          *
          * Here is an example file:
-         * <samp><pre>
+         * <pre>
          *      // Let bottom triangle.
          *      -0.5 0.5 0
          *      -0.5 -0.5 0
@@ -48,7 +48,7 @@ namespace sxe { namespace graphics {
          *      -0.5 0.5 0
          *      -- blargle
          *      ; narble
-         * </pre></samp>
+         * </pre>
          */
         class SXE_PUBLIC VertexVertexMesh
             : public virtual common::stdtypedefs<VertexVertexMesh>
