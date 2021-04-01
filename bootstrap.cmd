@@ -1,4 +1,4 @@
-@ECHO OFF
+@ECHO on
 
 ECHO Bootstrapping SXE SDK.
 
@@ -43,8 +43,11 @@ libarchive ^
 glfw3 ^
 cppunit ^
 boost-filesystem boost-optional boost-property-tree ^
-glbinding ^
-vulkan vulkan-hpp
+glbinding
+
+IF DEFINED VULKAN_SDK (
+	vcpkg install --triplet %PROJECT_TARGET_TRIPLET% vulkan vulkan-hpp
+)
 
 IF ERRORLEVEL 1 GOTO :EOF
 
