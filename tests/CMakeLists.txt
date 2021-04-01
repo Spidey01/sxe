@@ -35,19 +35,12 @@ target_link_libraries(sxe-test-runner PRIVATE SxE)
 
 
 # cppunit doesn't really do cmake.
-
-find_path(CppUnit_INCLUDE_DIR cppunit/Test.h)
-if (MSVC AND BUILD_SHARED_LIBS)
-    find_library(CppUnit_LIBRARY cppunit_dll)
-else()
-    find_library(CppUnit_LIBRARY cppunit)
-endif()
+# this is how vcpkg says use its version.
+find_package(CppUnit CONFIG REQUIRED)
+target_link_libraries(sxe-test-runner PRIVATE CppUnit)
 
 message(DEBUG "CppUnit_INCLUDE_DIR:${CppUnit_INCLUDE_DIR}")
 message(DEBUG "CppUnit_LIBRARY:${CppUnit_LIBRARY}")
-
-target_include_directories(sxe-test-runner PRIVATE ${CppUnit_INCLUDE_DIR})
-target_link_libraries(sxe-test-runner PRIVATE ${CppUnit_LIBRARY})
 
 # Test assets to include in $datarootdir/sxe/
 install(FILES sxe/test.txt sxe/test.zip DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/sxe)
