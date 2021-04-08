@@ -63,7 +63,28 @@ MemoryPool::size_type MemoryPool::unit() const
 
 MemoryPool::size_type MemoryPool::count() const
 {
-    return mBuffers.size();
+    if (mSegments.empty())
+        return 0;
+    if (!mSegments.front().buffer)
+        return 0;
+
+    size_type found = 1;
+    buffer_id lbid = mSegments.front().buffer->id();
+
+    for (const Segment& seg : mSegments) {
+        if (!seg.buffer) {
+            Log::w(TAG, "bad buffer in mSegments; Segment::id: " + to_string(seg.id));
+            continue;
+        }
+        buffer_id id = seg.buffer->id();
+
+        if (id != lbid) {
+            found += 1;
+            lbid = id;
+        }
+    }
+
+    return found;
 }
 
 MemoryPool::size_type MemoryPool::size() const

@@ -157,7 +157,6 @@ namespace sxe { namespace graphics {
         static const string_type TAG;
         pool_id mId;
         size_type mUnit;
-        buffer_list mBuffers;
         std::deque<Segment> mSegments;
     };
 } }
