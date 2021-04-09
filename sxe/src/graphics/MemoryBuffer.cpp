@@ -26,6 +26,7 @@
 #include <sxe/logging.hpp>
 
 using std::to_string;
+using std::stringstream;
 using sxe::logging::Log;
 
 namespace sxe { namespace graphics {
@@ -96,6 +97,19 @@ void MemoryBuffer::size(size_type nbytes)
 {
     log("size(): nbytes: " + to_string(nbytes) + " old mSize: " + to_string(mSize));
     mSize = nbytes;
+}
+
+MemoryBuffer::string_type MemoryBuffer::to_log_string() const
+{
+    stringstream ss;
+
+    ss << "MemoryBuffer:{"
+       << " id: " << id() << ','
+       << " pool: " << pool() << ','
+       << " size: " << size()
+       << " }";
+
+    return ss.str();
 }
 
 void MemoryBuffer::level(int level)

@@ -205,6 +205,10 @@ namespace sxe { namespace graphics {
          */
         virtual bool unmap() = 0;
 
+        /** @returns a string suitable for logging this buffer's info.
+         */
+        string_type to_log_string() const;
+
         /** Set the log level.
          */
         void level(int level);
