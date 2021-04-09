@@ -27,6 +27,7 @@
 
 using std::invalid_argument;
 using std::logic_error;
+using std::stringstream;
 using std::to_string;
 
 namespace sxe { namespace graphics {
@@ -36,6 +37,7 @@ const MemoryPool::string_type MemoryPool::TAG = "MemoryPool";
 MemoryPool::MemoryPool(size_type unit)
     : mId((uintptr_t)this)
     , mUnit(unit)
+    , mSegments()
 {
 
 }
@@ -115,12 +117,8 @@ MemoryPool::buffer_ptr MemoryPool::allocate()
         ptr->pool(mId);
         ptr->reserve(mUnit);
         validate(ptr);
-
-        Segment segment;
-        segment.buffer = ptr;
-        segment.length = 0;
-        segment.offset = 0;
-        mSegments.push_back(segment);
+        /* mSegmentsList places new items on the front not the back. */
+        mSegments.emplace_front(ptr);
     }
 
     return ptr;
@@ -134,9 +132,7 @@ void MemoryPool::deallocate(buffer_ptr ptr)
     while (seg != mSegments.end())
     {
         if (seg->buffer == ptr) {
-            Log::xtrace(TAG, "deallocate(): seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
-            Log::xtrace(TAG, "deallocate(): seg->offset: " + to_string(seg->offset));
-            Log::xtrace(TAG, "deallocate(): seg->length: " + to_string(seg->length));
+            Log::xtrace(TAG, "deallocate(): erase " + seg->to_log_string());
             seg = mSegments.erase(seg);
         } else {
             seg++;
@@ -147,15 +143,15 @@ void MemoryPool::deallocate(buffer_ptr ptr)
 void MemoryPool::deallocate(Segment& segment)
 {
     for (auto seg = mSegments.begin(); seg != mSegments.end(); ++seg) {
+        if (seg->id != segment.id)
+            continue;
         if (seg->buffer != segment.buffer)
             continue;
         if (seg->length != segment.length)
             continue;
         if (seg->offset != segment.offset)
             continue;
-        Log::xtrace(TAG, "deallocate(): seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
-        Log::xtrace(TAG, "deallocate(): seg->offset: " + to_string(seg->offset));
-        Log::xtrace(TAG, "deallocate(): seg->length: " + to_string(seg->length));
+        Log::xtrace(TAG, "deallocate(): erase " + seg->to_log_string());
         mSegments.erase(seg);
         return;
     }
@@ -173,76 +169,105 @@ void MemoryPool::validate(buffer_ptr ptr)
 MemoryPool::Segment MemoryPool::buffer(size_type length, const void* data)
 {
     Log::xtrace(TAG, "buffer(): length: " + to_string(length) + " (uintptr_t)data: " + to_string((intptr_t)data));
-    Segment segment;
 
-    segment.buffer = nullptr;
-    segment.offset = 0;
-    segment.length = 0;
+    SegmentsList::iterator seg = mSegments.end();
 
-    buffer_id skip = 0;
+    /* Remember: list is ordered last to first! */
 
-    // XXX: needs to cover holes, e.g. segment right would be overwritten.
-    Log::test(TAG, "--------");
-    for (auto seg = mSegments.rbegin(); seg != mSegments.rend(); ++seg) {
+    Log::test(TAG, "buffer(): -------- Start Checking for for available space in current buffers --------");
+    logSegmentsList(mSegments, Log::TEST);
+    for (seg = mSegments.begin(); seg != mSegments.end(); ++seg) {
         validate(seg->buffer);
-        Log::xtrace(TAG, "buffer(): seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
-        Log::xtrace(TAG, "buffer(): seg->offset: " + to_string(seg->offset));
-        Log::xtrace(TAG, "buffer(): seg->length: " + to_string(seg->length));
+        string_type info = seg->to_log_string();
+        Log::test(TAG, "buffer(): check " + info);
 
-        if (seg->buffer->id() == skip) {
-            Log::v(TAG, "seg: skipping, buffer " + to_string(seg->buffer->id()) + " already full");
-            continue;
+        /* The first segment of new buffer. */
+        if (seg->length == 0) {
+            Log::test(TAG, "FIRST");
+            break;
         }
 
-        // size_type nextOffset = segment.length + seg->offset;
-        size_type nextOffset = segment.length + seg->length + seg->offset;
-        size_type remaining = seg->buffer->size() - nextOffset;
-        Log::v(TAG, "next offset: " + to_string(nextOffset));
-        Log::v(TAG, "remaining " + to_string(remaining));
-
-        if (remaining >= length) {
-            Log::v(TAG, "Using this segment.");
-            segment.buffer = seg->buffer;
-            segment.offset = nextOffset;
-            segment.length = length;
-
-            /* First segment into new/empty buffer */
-            if (seg->length == 0) {
-                Log::v(TAG, "Update first segment of buffer");
-                *seg = segment;
-                Log::xtrace(TAG, "seg->buffer: id: " + to_string(seg->buffer->id()) + " size: " + to_string(seg->buffer->size()));
-                Log::xtrace(TAG, "seg->offset: " + to_string(seg->offset));
-                Log::xtrace(TAG, "seg->length: " + to_string(seg->length));
-
-                break;
-            }
-
-            mSegments.push_back(segment);
-        } else {
-            /* To next buffer's first eg. */
-            skip = seg->buffer->id();
+        size_type r = remaining(seg->buffer);
+        Log::test(TAG, "buffer() check remaining: " + to_string(r));
+        if (r >= length) {
+            Log::xtrace(TAG, "buffer(): insert before " + info);
+            seg = addNewSegment(seg);
+            seg->length = length;
+            break;
         }
     }
-    Log::test(TAG, "--------");
+    Log::test(TAG, "buffer(): -------- End Checking for for available space in current buffers --------");
 
-    if (!segment.buffer) {
-        Log::v(TAG, "New buffer + segment required.");
-        segment.buffer = allocate();
-        segment.length = length;
-        segment.offset = 0;
-        assert(mSegments.back().buffer == segment.buffer);
-        mSegments.back() = segment;
+    if (seg == mSegments.end()) {
+        Log::xtrace(TAG, "buffer(): allocating new Segment");
+        Log::v(TAG, "buffer(): mSegments.size(): " + to_string(mSegments.size()));
+
+        Log::xtrace(TAG, "buffer(): allocating new Segment requires allocating new buffer");
+        if (!allocate()) {
+            Log::e(TAG, "buffer(): allocate() failed!");
+            throw std::bad_alloc();
+        }
+        seg = mSegments.begin();
     }
 
-    if (!segment.buffer) 
-        throw std::bad_alloc();
-
-    segment.buffer->buffer(segment.offset, segment.length, data);
-    size_type next = segment.length + segment.offset;
-    size_type remaining = segment.buffer->size() - next;
-    Log::d(TAG, "buffered " + to_string(length) + " bytes; next offset " + to_string(next) + " remaining bytes: " + to_string(remaining));
-
-    return segment;
+    bufferSegment(seg, length, data);
+    Log::test(TAG, "buffer(): --- Start mSegments -- ");
+    logSegmentsList(mSegments, Log::TEST);
+    Log::test(TAG, "buffer(): --- End mSegments -- ");
+    return *seg;
 }
 
-} }
+MemoryPool::size_type MemoryPool::remaining(buffer_ptr buffer)
+{
+    validate(buffer);
+
+    // FIXME: this is returning based on last allocation in segments, so it
+    // fails the holepunch_segments() test case by causing a new buffer
+    // allocation.
+    for (auto pos = mSegments.begin(); pos != mSegments.end(); ++pos) {
+        validate(pos->buffer);
+        if (pos->buffer->id() != buffer->id())
+            continue;
+        return pos->buffer->size() - (pos->length + pos->offset);
+    }
+
+    return buffer->size();
+}
+
+void MemoryPool::logSegmentsList(SegmentsList& list, int level)
+{
+    if (!Log::isLoggable(TAG, level))
+        return;
+
+    size_t i = 0;
+    for (auto seg = list.begin(); seg != list.end(); ++seg) {
+        validate(seg->buffer);
+        Log::test(TAG, "SegmentsList " + to_string(i) + ": " + seg->to_log_string());
+        i++;
+    }
+}
+
+void MemoryPool::bufferSegment(SegmentsList::iterator seg, size_type length, const void* data)
+{
+    Log::xtrace(TAG, "bufferSegment(): in seg: " + seg->to_log_string() + " length: " + to_string(length) + " (uintptr_t)data: " + to_string((uintptr_t)data));
+
+    if (!seg->buffer)
+        throw std::bad_alloc();
+    validate(seg->buffer);
+
+    seg->length = length;
+
+    seg->buffer->bind();
+    seg->buffer->buffer(seg->offset, seg->length, data);
+    Log::xtrace(TAG, "bufferSegment(): out seg: " + seg->to_log_string());
+}
+
+MemoryPool::SegmentsList::iterator MemoryPool::addNewSegment(SegmentsList::iterator pos)
+{
+    Log::xtrace(TAG, "addNewSegment(): pos: " + pos->to_log_string());
+
+    MemorySegment seg(pos->buffer, pos->offset + pos->length, 0);
+
+    return mSegments.insert(pos, std::move(seg));
+}
+    } }

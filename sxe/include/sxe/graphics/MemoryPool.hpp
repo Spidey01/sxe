@@ -26,6 +26,7 @@
 #include <sxe/api.hpp>
 #include <sxe/common/stdtypedefs.hpp>
 #include <sxe/graphics/MemoryBuffer.hpp>
+#include <sxe/graphics/MemorySegment.hpp>
 
 namespace sxe { namespace graphics {
 
@@ -42,24 +43,8 @@ namespace sxe { namespace graphics {
         using buffer_id = MemoryBuffer::buffer_id;
         using buffer_list = std::list<MemoryBuffer::shared_ptr>;
 
-        /** Defines a segment of the memory pool.
-         * 
-         */
-        struct Segment
-        {
-            /** Buffer containing this segment.
-             */
-            buffer_ptr buffer;
-
-            /** Offset into buffer to beginning of this segment.
-             */
-            size_type offset;
-
-            /** Length of this segmeant.
-             */
-            size_type length;
-        };
-
+        // For compat until other code updated. E.g. GraphicsFacet.
+        using Segment = MemorySegment;
 
         /** Create a new memory pool with no buffers.
          * 
@@ -116,24 +101,24 @@ namespace sxe { namespace graphics {
 
         /** Dellocates a segment of the pool.
          * 
-         * This removes the allocated Segments. When the last Segment
-         * referencing a buffer is removed, the MemoryBuffer is no longer part
-         * of the pool.
+         * This removes the allocated MemorySegments. When the last
+         * MemorySegment referencing a buffer is removed, the MemoryBuffer is
+         * no longer part of the pool.
          * 
          * @param segment the segment to dellocate.
          */
-        void deallocate(Segment& segment);
+        void deallocate(MemorySegment& segment);
 
         /** Buffer data to the pool.
          * 
          * Finds an available buffer with at least length bytes remaining. If
          * no buffer exists: allocate() will be called to create one.
          * 
-         * @returns a Segment describing the buffer.
+         * @returns a MemorySegment describing the buffer.
          * 
          * @throws bad_alloc if allocate() fails.
          */
-        Segment buffer(size_type length, const void* data);
+        MemorySegment buffer(size_type length, const void* data);
 
       protected:
 
@@ -153,11 +138,38 @@ namespace sxe { namespace graphics {
          */
         virtual buffer_ptr create() = 0;
 
+        /** Our idea of remaining space.
+         * 
+         * @returns number of bytes remaining in buffer, according to mSegments.
+         */
+        size_type remaining(buffer_ptr buffer);
+
       private:
         static const string_type TAG;
         pool_id mId;
         size_type mUnit;
-        std::deque<Segment> mSegments;
+        using SegmentsList = std::list<MemorySegment>;
+        SegmentsList mSegments;
+
+        void logSegmentsList(SegmentsList& segments, int level);
+
+        /** Buffers the data into the specified segment.
+         * 
+         * @param seg the segment to use.
+         * @param length data length in bytes.
+         * @param data upload to segment's buffer.
+         * @throws bad_alloc if there is no buffer.
+         */
+        void bufferSegment(SegmentsList::iterator seg, size_type length, const void* data);
+
+        /** Adds a new segment with length zero.
+         * 
+         * Commits a new segment at position using the same buffer as pos.
+         * 
+         * @param pos buffer for the new segment, and inserted before pos.
+         * @returns iterator to the new segment.
+         */
+        SegmentsList::iterator addNewSegment(SegmentsList::iterator pos);
     };
 } }
 

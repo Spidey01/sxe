@@ -49,6 +49,7 @@ set(SxE_SOURCES
         src/graphics/GraphicsFacet.cpp
         src/graphics/MemoryBuffer.cpp
         src/graphics/MemoryPool.cpp
+        src/graphics/MemorySegment.cpp
         src/graphics/RenderableObject.cpp
         src/graphics/ShaderType.cpp
         src/graphics/Sprite.cpp
@@ -129,6 +130,7 @@ set(SxE_HEADERS
     include/sxe/graphics/GraphicsFacet.hpp
     include/sxe/graphics/MemoryBuffer.hpp
     include/sxe/graphics/MemoryPool.hpp
+    include/sxe/graphics/MemorySegment.hpp
     include/sxe/graphics/RenderableObject.hpp
     include/sxe/graphics/RenderingApi.hpp
     include/sxe/graphics/ShaderType.hpp

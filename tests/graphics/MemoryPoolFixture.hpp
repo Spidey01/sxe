@@ -37,6 +37,7 @@ class MemoryPoolFixture : public CPPUNIT_NS::TestFixture
     CPPUNIT_TEST(one_segment);
     CPPUNIT_TEST(multiple_segments);
     CPPUNIT_TEST(holepunch_segments);
+    CPPUNIT_TEST(two_buffers);
     CPPUNIT_TEST_SUITE_END();
 
   protected:
@@ -48,7 +49,7 @@ class MemoryPoolFixture : public CPPUNIT_NS::TestFixture
 
     void log_segment(const MemoryPool::Segment& seg, const std::string& name)
     {
-        Log::d(mTag, name + ": seg.length: " + to_string(seg.length) + " seg.offset: " + to_string(seg.offset) + " seg.buffer.get(): " + to_string((uintptr_t)seg.buffer.get()));
+        Log::d(mTag, name + ": seg.id: " + to_string(seg.id) + " seg.length: " + to_string(seg.length) + " seg.offset: " + to_string(seg.offset) + " seg.buffer.get(): " + to_string((uintptr_t)seg.buffer.get()));
         Log::v(mTag, name + ": seg.buffer->id(): " + to_string(seg.buffer->id()) + " seg.buffer->pool(): " + to_string(seg.buffer->pool()) + " seg.buffer->size(): " + to_string(seg.buffer->size()));
     }
 
@@ -133,17 +134,20 @@ class MemoryPoolFixture : public CPPUNIT_NS::TestFixture
         MemoryPool::size_type lastOffset = 0;
         constexpr auto MaxId = std::numeric_limits<MemoryPool::buffer_id>::max();
         MemoryPool::buffer_id lastId = MaxId;
+        MemoryPool::size_type lastSegId = 0;
 
         for (size_t bytes = 0; bytes < MaxBytes; value++, bytes += ChunkSize) {
             memset(&data[0], value, ChunkSize);
             MemoryPool::Segment seg = mPool->buffer(ChunkSize, &data[0]);
             Log::test(TAG, "bytes: " + to_string(bytes) + "/" + to_string(MaxBytes) + " value: " + to_string(value)
-                      + " seg.length: " + to_string(seg.length) + " seg.offset: " + to_string(seg.offset) + " seg.buffer->id(): " + to_string(seg.buffer->id())
+                      + " seg.id: " + to_string(seg.id) + " seg.length: " + to_string(seg.length) + " seg.offset: " + to_string(seg.offset) + " seg.buffer->id(): " + to_string(seg.buffer->id())
                       + " lastOffset: " + to_string(lastOffset) + " lastId: " + to_string(lastId));
 
             CPPUNIT_ASSERT(seg.length == ChunkSize);
 
             CPPUNIT_ASSERT(seg.buffer != nullptr);
+
+            CPPUNIT_ASSERT(seg.id > 0);
 
             /* Segment offsets are 0 every mUnit size, not global to the pool. */
             if (seg.buffer->id() != lastId) {
@@ -158,6 +162,7 @@ class MemoryPoolFixture : public CPPUNIT_NS::TestFixture
 
             lastOffset = seg.offset;
             lastId = seg.buffer->id();
+            lastSegId = seg.id;
         }
     }
 
@@ -211,6 +216,7 @@ class MemoryPoolFixture : public CPPUNIT_NS::TestFixture
         Log::d(mTag, "Turn seg3 into a hole.");
         mPool->deallocate(seg3);
 
+        Log::d(mTag, "Fill the seg3 hole (first half).");
         memset(&data[0], 5, data.size());
         MemoryPool::Segment fill = mPool->buffer(length / 2, &data[0]);
         log_segment(fill, "fill");
@@ -219,6 +225,7 @@ class MemoryPoolFixture : public CPPUNIT_NS::TestFixture
         CPPUNIT_ASSERT(fill.length == length / 2);
         CPPUNIT_ASSERT(fill.buffer->id() == seg1.buffer->id());
 
+        Log::d(mTag, "Fill the seg3 hole (second half).");
         memset(&data[0], 6, data.size());
         MemoryPool::Segment fillY = mPool->buffer(length / 2, &data[0]);
         log_segment(fillY, "fillY");
@@ -227,6 +234,51 @@ class MemoryPoolFixture : public CPPUNIT_NS::TestFixture
         CPPUNIT_ASSERT(fillY.length == length / 2);
         CPPUNIT_ASSERT(fillY.buffer->id() == seg1.buffer->id());
     }
+
+    void two_buffers()
+    {
+        Log::xtrace(mTag, "two_buffers()");
+
+        size_t part = 4;
+        size_t length = mUnit / part;
+        int value = 0;
+        std::vector<uint8_t> data(length);
+        std::vector<MemorySegment> segments;
+
+        while (mPool->count() != 3) {
+            memset(&data[0], value, data.size());
+            value++;
+            MemoryPool::Segment seg = mPool->buffer(length, &data[0]);
+            Log::test(TAG, "two_buffers(): segments += " + seg.to_log_string());
+            segments.push_back(seg);
+        }
+
+        Log::test(TAG, "Logging segments");
+        for (const MemorySegment& seg : segments) {
+            Log::test(TAG, seg.to_log_string());
+        }
+
+        Log::test(TAG, "Evaluating segments");
+        for (size_t i = 0; i < segments.size(); ++i) {
+            MemorySegment& seg = segments.at(i);
+            Log::test(TAG, " seg: " + seg.to_log_string());
+            CPPUNIT_ASSERT(seg.length = length);
+            CPPUNIT_ASSERT(seg.offset % length == 0);
+            if (i > 0) {
+                MemorySegment& pseg = segments.at(i - 1);
+                Log::test(TAG, "pseg: " + seg.to_log_string());
+
+                CPPUNIT_ASSERT(seg.id != pseg.id);
+                if (i % part == 0) {
+                    CPPUNIT_ASSERT(seg.buffer->id() != pseg.buffer->id());
+                } else {
+                    CPPUNIT_ASSERT(seg.buffer->id() == pseg.buffer->id());
+                }
+            }
+        }
+
+    }
+
 };
 
 #endif // SXE_TESTS_GRAPHICS_MEMORYPOOLFIXTURE__HPP
