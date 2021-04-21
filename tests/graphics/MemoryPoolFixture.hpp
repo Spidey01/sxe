@@ -230,7 +230,7 @@ class MemoryPoolFixture : public CPPUNIT_NS::TestFixture
         MemoryPool::Segment fillY = mPool->buffer(length / 2, &data[0]);
         log_segment(fillY, "fillY");
         log_buffer(fillY.buffer, "fillY.buffer", fillY.buffer->size());
-        CPPUNIT_ASSERT(fillY.offset == offset3);
+        CPPUNIT_ASSERT(fillY.offset == offset3 + fill.length);
         CPPUNIT_ASSERT(fillY.length == length / 2);
         CPPUNIT_ASSERT(fillY.buffer->id() == seg1.buffer->id());
     }
