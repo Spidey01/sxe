@@ -176,26 +176,7 @@ MemoryPool::Segment MemoryPool::buffer(size_type length, const void* data)
 
     Log::test(TAG, "buffer(): -------- Start Checking for for available space in current buffers --------");
     logSegmentsList(mSegments, Log::TEST);
-    for (seg = mSegments.begin(); seg != mSegments.end(); ++seg) {
-        validate(seg->buffer);
-        string_type info = seg->to_log_string();
-        Log::test(TAG, "buffer(): check " + info);
-
-        /* The first segment of new buffer. */
-        if (seg->length == 0) {
-            Log::test(TAG, "FIRST");
-            break;
-        }
-
-        size_type r = remaining(seg->buffer);
-        Log::test(TAG, "buffer() check remaining: " + to_string(r));
-        if (r >= length) {
-            Log::xtrace(TAG, "buffer(): insert before " + info);
-            seg = addNewSegment(seg);
-            seg->length = length;
-            break;
-        }
-    }
+    seg = findFreeSpace(length);
     Log::test(TAG, "buffer(): -------- End Checking for for available space in current buffers --------");
 
     if (seg == mSegments.end()) {
@@ -208,6 +189,11 @@ MemoryPool::Segment MemoryPool::buffer(size_type length, const void* data)
             throw std::bad_alloc();
         }
         seg = mSegments.begin();
+    } else if (seg->length > 0) {
+        /* seg->length 0 is special because newly allocated buffers start with segment length 0, offset 0. */
+        validate(seg->buffer);
+        Log::xtrace(TAG, "buffer(): allocating new Segment after " + seg->to_log_string());
+        seg = addNewSegment(seg, 0);
     }
 
     bufferSegment(seg, length, data);
@@ -221,17 +207,16 @@ MemoryPool::size_type MemoryPool::remaining(buffer_ptr buffer)
 {
     validate(buffer);
 
-    // FIXME: this is returning based on last allocation in segments, so it
-    // fails the holepunch_segments() test case by causing a new buffer
-    // allocation.
-    for (auto pos = mSegments.begin(); pos != mSegments.end(); ++pos) {
+    size_type bytes = buffer->size();
+
+    for (auto pos = findSegment(buffer); pos != mSegments.end(); ++pos) {
         validate(pos->buffer);
         if (pos->buffer->id() != buffer->id())
             continue;
-        return pos->buffer->size() - (pos->length + pos->offset);
+        bytes -= pos->length;
     }
 
-    return buffer->size();
+    return bytes;
 }
 
 void MemoryPool::logSegmentsList(SegmentsList& list, int level)
@@ -245,6 +230,71 @@ void MemoryPool::logSegmentsList(SegmentsList& list, int level)
         Log::test(TAG, "SegmentsList " + to_string(i) + ": " + seg->to_log_string());
         i++;
     }
+}
+
+MemoryPool::SegmentsList::iterator MemoryPool::findSegment(buffer_ptr buffer)
+{
+    return findSegment(buffer, 0);
+}
+
+MemoryPool::SegmentsList::iterator MemoryPool::findSegment(buffer_ptr buffer, size_type offset)
+{
+    Log::xtrace(TAG, "find(): buffer: " + buffer->to_log_string() + " offset: " + to_string(offset));
+
+    validate(buffer);
+
+    for (SegmentsList::iterator it = mSegments.begin(); it != mSegments.end(); ++it) {
+        validate(it->buffer);
+
+        if (it->buffer->id() != buffer->id())
+            continue;
+
+        if (it->offset == offset)
+            return it;
+    }
+
+    return mSegments.end();
+}
+
+MemoryPool::SegmentsList::iterator MemoryPool::findFreeSpace(size_type length)
+{
+    buffer_id bid = 0;
+    size_type pos = 0;
+    size_type last_span = 0;
+
+    for (auto it = mSegments.begin(); it != mSegments.end(); ++it) {
+        validate(it->buffer);
+        Log::v(TAG, "findFreeSpace(): " + it->to_log_string());
+
+        if (it->buffer->id() != bid) {
+            pos = 0;
+            bid = it->buffer->id();
+
+            if (it->offset == 0) {
+                /* Unallocated after first entry in buffer.*/
+                Log::test(TAG, "findFreeSpace(): start of " + it->buffer->to_log_string());
+                return it;
+            }
+        }
+        size_type span = it->offset + it->length;
+        Log::test(TAG, "findFreeSpace(): span: " + to_string(span) + " last_span: " + to_string(last_span));
+        if (length + span <= it->buffer->size()) {
+            Log::test(TAG, "findFreeSpace(): starts after " + it->to_log_string());
+            if (it != mSegments.begin()) {
+                auto next = std::prev(it);
+                if (next->offset == span) {
+                    Log::test(TAG, "findFreeSpace(): but would overflow into " + next->to_log_string());
+                    continue;
+                }
+                Log::test(TAG, "findFreeSpace(): followed by " + next->to_log_string());
+            }
+            return it;
+        }
+        last_span = span;
+    }
+
+    Log::test(TAG, "findFreeSpace(): nada");
+    return mSegments.end();
 }
 
 void MemoryPool::bufferSegment(SegmentsList::iterator seg, size_type length, const void* data)
@@ -270,4 +320,14 @@ MemoryPool::SegmentsList::iterator MemoryPool::addNewSegment(SegmentsList::itera
 
     return mSegments.insert(pos, std::move(seg));
 }
-    } }
+
+MemoryPool::SegmentsList::iterator MemoryPool::addNewSegment(SegmentsList::iterator pos, size_type length)
+{
+    Log::xtrace(TAG, "addNewSegment(): pos: " + pos->to_log_string() + " length: " + to_string(length));
+
+    MemorySegment seg(pos->buffer, pos->offset + pos->length, length);
+
+    return mSegments.insert(pos, std::move(seg));
+}
+
+} }

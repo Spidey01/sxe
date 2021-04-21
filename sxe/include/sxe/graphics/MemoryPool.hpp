@@ -153,6 +153,28 @@ namespace sxe { namespace graphics {
 
         void logSegmentsList(SegmentsList& segments, int level);
 
+        /** Find first MemorySegment from buffer.
+         * I.e. the buffer's mSegments entry with offset 0.
+         * 
+         * @returns findSegment(buffer, 0).
+         */
+        SegmentsList::iterator findSegment(buffer_ptr buffer);
+
+        /** Find MemorySegment from buffer offset.
+         * 
+         * @param buffer the buffer to find.
+         * @param offset the position in buffer to find.
+         * 
+         * @returns Position of specified segment or mSegments.end().
+         */
+        SegmentsList::iterator findSegment(buffer_ptr buffer, size_type offset);
+
+        /** Find start of free space.
+         * 
+         * @returns position after which a segment of length can be inserted, or mSegments.end().
+         */
+        SegmentsList::iterator findFreeSpace(size_type length);
+
         /** Buffers the data into the specified segment.
          * 
          * @param seg the segment to use.
@@ -170,6 +192,16 @@ namespace sxe { namespace graphics {
          * @returns iterator to the new segment.
          */
         SegmentsList::iterator addNewSegment(SegmentsList::iterator pos);
+
+        /** Adds a new segment with specified length.
+         * 
+         * Commits a new segment at position using the same buffer as pos.
+         * 
+         * @param pos buffer for the new segment, and inserted before pos.
+         * @param length the length of the new MemorySegment.
+         * @returns iterator to the new segment.
+         */
+        SegmentsList::iterator addNewSegment(SegmentsList::iterator pos, size_type length);
     };
 } }
 
