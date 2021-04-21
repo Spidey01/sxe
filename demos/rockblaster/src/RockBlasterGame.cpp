@@ -118,7 +118,8 @@ void RockBlasterGame::updateGameThread()
             cout << "GO, GO, GO, BLAST OFF !!!" << endl;
         }
 
-        mPlayer->think();
+        if (mPlayer)
+            mPlayer->think();
     }
 
     // Unlikely to ever be reached.
