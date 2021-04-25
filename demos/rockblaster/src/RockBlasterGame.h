@@ -48,6 +48,7 @@ namespace demos {
       private:
         static const string_type TAG;
         std::unique_ptr<demos::Player> mPlayer;
+        size_t mMaxRocks;
         bool mShownIntro;
         bool mReady;
 

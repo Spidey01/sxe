@@ -34,12 +34,17 @@ using std::endl;
 using std::make_unique;
 using sxe::input::InputCode;
 
+/* Modest hardware can probably handle thousands but good look fitting that on screen. */
+constexpr size_t InsaneMaxRocks = 100;
+constexpr size_t DefaultMaxRocks = 12;
+
 namespace demos {
 
 const RockBlasterGame::string_type RockBlasterGame::TAG = "RockBlasterGame";
 
 RockBlasterGame::RockBlasterGame()
-    : mPlayer(nullptr)
+    , mPlayer(nullptr)
+    , mMaxRocks(DefaultMaxRocks)
     , mShownIntro(false)
     , mReady(false)
 {
@@ -67,6 +72,15 @@ bool RockBlasterGame::start()
     /* Relative to $XDG_DATA_DIRS. */
     string_type setting = getName() + ".resources.path";
     getGameEngine().getSettings().setString(setting, getName());
+
+    mMaxRocks = getGameEngine().getSettings().getInt("maxrocks");
+    if (mMaxRocks > InsaneMaxRocks) {
+        Log::e(TAG, to_string(mMaxRocks) + " is an insane amount of rocks, you blaster!");
+    }
+    if (mMaxRocks == 0 || mMaxRocks > InsaneMaxRocks) {
+        Log::w(TAG, "Forcing maxrocks=" + to_string(DefaultMaxRocks));
+        mMaxRocks = DefaultMaxRocks;
+    }
 
     Log::v(TAG, "Binding global keys");
     sxe::input::KeyListener inputCallback = std::bind(&RockBlasterGame::onKeyEvent, this, std::placeholders::_1);
