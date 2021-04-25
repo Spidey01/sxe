@@ -89,9 +89,9 @@ void RockBlasterGame::stop()
     sxe::Game::stop();
 }
 
-void RockBlasterGame::updateGameThread()
+void RockBlasterGame::updateMainThread()
 {
-    Game::updateGameThread();
+    Game::updateMainThread();
 
     if (getState() == State::STARTING) {
         if (!mShownIntro) {
@@ -122,7 +122,6 @@ void RockBlasterGame::updateGameThread()
             mPlayer->think();
     }
 
-    // Unlikely to ever be reached.
     if (getState() == State::STOPPING) {
         if (mShownIntro) {
             cout << "It's full of stars!" << endl;

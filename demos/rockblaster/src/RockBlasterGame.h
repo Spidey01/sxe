@@ -43,7 +43,7 @@ namespace demos {
         void stop() override;
 
       protected:
-        void updateGameThread() override;
+        void updateMainThread() override;
 
       private:
         static const string_type TAG;
