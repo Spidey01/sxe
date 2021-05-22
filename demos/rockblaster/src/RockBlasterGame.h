@@ -27,6 +27,7 @@
 #include <sxe/input/InputFacet.hpp>
 
 #include "Player.h"
+#include "Rock.h"
 
 namespace demos {
 
@@ -47,10 +48,22 @@ namespace demos {
 
       private:
         static const string_type TAG;
+        std::random_device mRandomDevice;
+        std::default_random_engine mRandomEngine;
+        std::uniform_int_distribution<int> mRockHeadingDistribution;
+        std::uniform_int_distribution<int> mRockSpeedDistribution;
+        std::uniform_real_distribution<float> mRockPositionDistribution;
         std::unique_ptr<demos::Player> mPlayer;
+        using RockVector = std::vector<std::unique_ptr<demos::Rock>>;
+        RockVector mRocks;
         size_t mMaxRocks;
         bool mShownIntro;
         bool mReady;
+
+        /** Setup the rock instance.
+         * @returns true on success.
+         */
+        bool setupRock(demos::Rock& rock);
 
         /** Setup the player instance.
          * @returns true on success.

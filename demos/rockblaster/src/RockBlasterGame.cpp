@@ -32,6 +32,7 @@
 using std::cout;
 using std::endl;
 using std::make_unique;
+using std::to_string;
 using sxe::input::InputCode;
 
 /* Modest hardware can probably handle thousands but good look fitting that on screen. */
@@ -43,6 +44,11 @@ namespace demos {
 const RockBlasterGame::string_type RockBlasterGame::TAG = "RockBlasterGame";
 
 RockBlasterGame::RockBlasterGame()
+    : mRandomDevice()
+    , mRandomEngine(mRandomDevice())
+    , mRockHeadingDistribution(1, 360)
+    , mRockSpeedDistribution(100, 500)
+    , mRockPositionDistribution(-1.0f, 1.0f)
     , mPlayer(nullptr)
     , mMaxRocks(DefaultMaxRocks)
     , mShownIntro(false)
@@ -99,6 +105,7 @@ void RockBlasterGame::stop()
     Log::xtrace(TAG, "stop()");
 
     mPlayer.reset();
+    mRocks.clear();
 
     sxe::Game::stop();
 }
@@ -129,6 +136,13 @@ void RockBlasterGame::updateMainThread()
                 // NORETURN
             }
 
+            Log::v(TAG, "Creating the Rocks.");
+            for (size_t i = 0; i < mMaxRocks; ++i) {
+                Log::xtrace(TAG, "Creating rock " + to_string(i) + " to the scene");
+                mRocks.emplace_back(make_unique<demos::Rock>(getGameEngine()));
+                setupRock(*mRocks[i]);
+            }
+
             cout << "GO, GO, GO, BLAST OFF !!!" << endl;
         }
 
@@ -142,6 +156,30 @@ void RockBlasterGame::updateMainThread()
             mShownIntro = false;
         }
     }
+}
+
+bool RockBlasterGame::setupRock(demos::Rock& rock)
+{
+    Log::xtrace(TAG, "setupRock()");
+
+    float x = mRockPositionDistribution(mRandomEngine);
+    float y = mRockPositionDistribution(mRandomEngine);
+
+    /* Make sure starting positon isn't too close to player stat position 0,0. */
+    while (x > -0.1f && x < 0.1f)
+        x = mRockPositionDistribution(mRandomEngine);
+    while (y > -0.1f && y < 0.1f)
+        y = mRockPositionDistribution(mRandomEngine);
+
+    rock.position().x = x;
+    rock.position().y = y;
+
+    rock.yaw(static_cast<float>(mRockHeadingDistribution(mRandomEngine)));
+    rock.speed(mRockSpeedDistribution(mRandomEngine));
+
+    getGameEngine().getSceneManager().addEntity(rock.getEntity());
+
+    return true;
 }
 
 bool RockBlasterGame::setupPlayer(demos::Player& player)
