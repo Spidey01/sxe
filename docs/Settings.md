@@ -20,6 +20,10 @@ When Settings sources are merged into the "Runtime" settings: change notificatio
 
 ## Special Settings
 
+Some settings are predefined by the engine. Typically these are prefixed with "sxe" or "GAMENAME".
+
+Settings prefixed with GAMENAME use the value of Game::getName(). Thus if your Game implementation returns "foobar" then subtitute "foobar" for "GAMENAME" in the below.
+
 ### debug
 
 Boolean setting that works as a shortcut to general logging.
@@ -53,3 +57,27 @@ Requests a specific graphics API.
 Specifies by name the DrawingTechnique to be used.
 
 By default it is the first technique configured by a DisplayManager.
+
+### GAMENAME.mode
+
+String setting defining the Display Mode. Expressed as "{height} x {width} x {bit depth} @{refresh}".
+
+Both height and width are required when specifying a Display Mode. The bit depth and refresh rate are optional: when undefined the engine reserves the right to of undefined behavior.
+
+White space between field markers (x, @) is optional and will be ignored by the Display Mode parser.
+
+### Examples
+
+- "GAMENAME.mode=640 x 480 x 32 @60"
+- GAMENAME.mode=1280x720x32@60
+- "GAMENAME.mode=1920x1080
+
+### GAMENAME.fullscreen
+
+Boolean setting indicating if the game should run in fullscreen (true) or windowed (false) mode.
+
+On PCs this tries to creates a fullscreen window and set the monitor to GAMENAME.mode.
+
+### GAMENAME.fps
+
+Boolean setting that toggles tracking Frames Per Second.
