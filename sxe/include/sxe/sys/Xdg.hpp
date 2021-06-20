@@ -32,7 +32,9 @@ namespace sxe { namespace sys {
     {
       public:
 
-        using list = std::vector<FileSystem::path>;
+        using string = sxe::sys::FileSystem::string;
+        using path = sxe::sys::FileSystem::path;
+        using list = std::vector<path>;
 
         Xdg();
 
@@ -42,19 +44,19 @@ namespace sxe { namespace sys {
          * with the application.  If you use the Gradle application plugin like the
          * demos do, this is taken care of for you.
          */
-        FileSystem::path APP_HOME;
+        path APP_HOME;
 
         /** What passes for the user's home directory.
          *
          * @see sxe::sys::FileSystem.
          */
-        FileSystem::path HOME;
+        path HOME;
 
         /** Alias for HOME. */
-        FileSystem::path USER_DIR;
+        path USER_DIR;
 
         /** Base directory for user-specific data files. */
-        FileSystem::path XDG_DATA_HOME;
+        path XDG_DATA_HOME;
 
         /** Preference-ordered set of base directories to search for data files. 
          *
@@ -63,7 +65,7 @@ namespace sxe { namespace sys {
         list XDG_DATA_DIRS;
 
         /** Base directory for user specific configuration files. */
-        FileSystem::path XDG_CONFIG_HOME;
+        path XDG_CONFIG_HOME;
 
         /** Preference-ordered set of base directories to search for configuration files.
          *
@@ -72,29 +74,29 @@ namespace sxe { namespace sys {
         list XDG_CONFIG_DIRS;
 
         /** Base directory for user specific non-essential data files. */
-        FileSystem::path XDG_CACHE_HOME;
+        path XDG_CACHE_HOME;
 
         /** Base directory for user-specific non-essential runtime files and other file objects.
          *
          * There is no default value. So this likely will be null.
          */
-        FileSystem::path XDG_RUNTIME_DIR;
+        path XDG_RUNTIME_DIR;
 
 
-        FileSystem::path getDataHomeDir(const std::string& relative) const;
-        FileSystem::path getDataHomeDir(const FileSystem::path& relative) const;
+        path getDataHomeDir(const string& relative) const;
+        path getDataHomeDir(const path& relative) const;
 
-        FileSystem::path getConfigHomeDir(const std::string& relative) const;
-        FileSystem::path getConfigHomeDir(const FileSystem::path& relative) const;
+        path getConfigHomeDir(const string& relative) const;
+        path getConfigHomeDir(const path& relative) const;
 
-        FileSystem::path getCacheDir(const std::string& relative) const;
-        FileSystem::path getCacheDir(const FileSystem::path& relative) const;
+        path getCacheDir(const string& relative) const;
+        path getCacheDir(const path& relative) const;
 
-        FileSystem::path getDataDir(const std::string& relative) const;
-        FileSystem::path getDataDir(const FileSystem::path& relative) const;
+        path getDataDir(const string& relative) const;
+        path getDataDir(const path& relative) const;
 
-        FileSystem::path getConfigDir(const std::string& relative) const;
-        FileSystem::path getConfigDir(const FileSystem::path& relative) const;
+        path getConfigDir(const string& relative) const;
+        path getConfigDir(const path& relative) const;
 
     };
 

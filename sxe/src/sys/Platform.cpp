@@ -41,7 +41,7 @@ Platform::Platform()
 }
 
 
-Platform::Platform(const string& name)
+Platform::Platform(const std::string& name)
     : mName(name)
 {
 }

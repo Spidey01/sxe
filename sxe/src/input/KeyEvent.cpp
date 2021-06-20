@@ -38,7 +38,7 @@ KeyEvent::KeyEvent()
 }
 
 
-KeyEvent::KeyEvent(InputManager* source, InputCode keyCode, const string& keyName, bool isDown)
+KeyEvent::KeyEvent(InputManager* source, InputCode keyCode, const std::string& keyName, bool isDown)
     : mSource(source)
     , mKeyCode(keyCode)
     , mKeyName(keyName)
@@ -86,7 +86,7 @@ string KeyEvent::toString() const
 }
 
 
-KeyEvent::operator string() const
+KeyEvent::operator std::string() const
 {
     return std::to_string(mKeyCode.code());
 }

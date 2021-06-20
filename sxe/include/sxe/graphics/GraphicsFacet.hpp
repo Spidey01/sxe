@@ -126,7 +126,7 @@ namespace sxe { namespace graphics {
 
         /** Scale modelMatrix() accordingly.
          * 
-         * @param scale as if vec3.xy = scale.
+         * @param v scale as if vec3.xy = scale.
          */
         void scaleModelMatrix(vec2 v);
 

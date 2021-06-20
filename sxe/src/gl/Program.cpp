@@ -191,7 +191,7 @@ void Program::vertexAttribPointer(gl20::GLuint index, gl20::GLint size, gl20::GL
 }
 
 
-void Program::vertexPositionPointer(AttributeLocation index, ptrdiff_t offset, const Vertex::vector& data)
+void Program::vertexPositionPointer(AttributeLocation index, ptrdiff_t offset, const graphics::Vertex::vector& data)
 {
     Log::test(TAG, "vertexPositionPointer(): mId: " + to_string(mId) + " index: " + to_string(index) + " offset: " + to_string(offset) + " data.size(): " + to_string(data.size()));
 
@@ -204,7 +204,7 @@ void Program::vertexPositionPointer(AttributeLocation index, ptrdiff_t offset, c
     vertexAttribPointer(index, size, gl20::GL_FLOAT, false, stride, (const void*)pointer);
 }
 
-void Program::vertexPositionPointer(const string_type& attrib, ptrdiff_t offset, const Vertex::vector& data)
+void Program::vertexPositionPointer(const string_type& attrib, ptrdiff_t offset, const graphics::Vertex::vector& data)
 {
     // TODO: make a map of these.
     vertexPositionPointer(getAttribLocation(attrib), offset, data);
@@ -241,7 +241,7 @@ void Program::vertexColorPointer(AttributeLocation index, ptrdiff_t offset, cons
     vertexAttribPointer(index, size, gl20::GL_FLOAT, false, stride, (const void*)pointer);
 }
 
-void Program::vertexColorPointer(const string_type& attrib, ptrdiff_t offset, const Vertex::vector& data)
+void Program::vertexColorPointer(const string_type& attrib, ptrdiff_t offset, const graphics::Vertex::vector& data)
 {
     // TODO: make a map of these.
     vertexColorPointer(getAttribLocation(attrib), offset, data);
