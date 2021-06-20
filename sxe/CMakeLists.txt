@@ -131,6 +131,7 @@ set(SxE_HEADERS
     include/sxe/graphics/MemoryBuffer.hpp
     include/sxe/graphics/MemoryPool.hpp
     include/sxe/graphics/MemorySegment.hpp
+    include/sxe/graphics/Rectangle.hpp
     include/sxe/graphics/RenderableObject.hpp
     include/sxe/graphics/RenderingApi.hpp
     include/sxe/graphics/ShaderType.hpp
