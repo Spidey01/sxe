@@ -139,3 +139,46 @@ void RectangleTest::assignment()
     CPPUNIT_ASSERT_NO_THROW_MESSAGE("float assigned from int action", r1 = ir1);
     CPPUNIT_ASSERT_MESSAGE("float assigned from int tested", r1 == ir1);
 }
+
+void RectangleTest::area()
+{
+    Log::xtrace(TAG, "area()");
+
+    sxe::graphics::irect r = { 1, 1, 200, 400 };
+    const int Area = r.height * r.width;
+    CPPUNIT_ASSERT_MESSAGE("Rectangles have an Area == height*width.", r.area() == Area);
+}
+
+void RectangleTest::perimeter()
+{
+    Log::xtrace(TAG, "perimeter()");
+
+    sxe::graphics::irect r = { 1, 1, 200, 400 };
+    const int Perimeter = 2 * (r.height + r.width);
+    CPPUNIT_ASSERT_MESSAGE("Rectangles have an Perimeter == 2 * (height + width).", r.perimeter() == Perimeter);
+}
+
+void RectangleTest::is_square()
+{
+    Log::xtrace(TAG, "is_square()");
+
+    sxe::graphics::rect sq = { 1.0f, 1.0f, 400.0f, 400.0f };
+    sxe::graphics::rect r = { 1.0f, 1.0f, 200.0f, 400.0f };
+    CPPUNIT_ASSERT(sq.is_square() == true);
+    CPPUNIT_ASSERT(r.is_square() == false);
+
+    sxe::graphics::rect dsq = { 1.0, 1.0, 400.0, 400.0 };
+    sxe::graphics::rect dr = { 1.0, 1.0, 200.0, 400.0 };
+    CPPUNIT_ASSERT(dsq.is_square() == true);
+    CPPUNIT_ASSERT(dr.is_square() == false);
+
+    sxe::graphics::irect isq = { 1, 1, 400, 400 };
+    sxe::graphics::irect ir = { 1, 1, 200, 400 };
+    CPPUNIT_ASSERT(isq.is_square() == true);
+    CPPUNIT_ASSERT(ir.is_square() == false);
+
+    sxe::graphics::urect usq = { 1, 1, 400, 400 };
+    sxe::graphics::irect ur = { 1, 1, 200, 400 };
+    CPPUNIT_ASSERT(usq.is_square() == true);
+    CPPUNIT_ASSERT(ur.is_square() == false);
+}

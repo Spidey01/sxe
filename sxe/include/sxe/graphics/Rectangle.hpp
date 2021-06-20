@@ -59,6 +59,18 @@ namespace sxe
 
             template <typename U>
             constexpr Rectangle<T>& operator=(const Rectangle<U>& value);
+
+            /** @returns the area of the Rectangle.
+             */
+            constexpr T area() const;
+
+            /** @returns the perimeter of the Rectangle.
+             */
+            constexpr T perimeter() const;
+
+            /** @returns true if Rectangle is a square.
+             */
+            constexpr bool is_square() const;
         };
 
         typedef Rectangle<float> rect;
@@ -122,6 +134,24 @@ namespace sxe
         constexpr bool operator!=(const Rectangle<T>& lhs, const Rectangle<U>& rhs)
         {
             return !(lhs == rhs);
+        }
+
+        template <typename T>
+        constexpr T Rectangle<T>::area() const
+        {
+            return height * width;
+        }
+
+        template <typename T>
+        constexpr T Rectangle<T>::perimeter() const
+        {
+            return 2 * (width + height);
+        }
+
+        template <typename T>
+        constexpr bool Rectangle<T>::is_square() const
+        {
+            return height == width;
         }
 
     } // namespace graphics
