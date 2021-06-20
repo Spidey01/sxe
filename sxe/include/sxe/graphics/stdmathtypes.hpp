@@ -30,6 +30,7 @@
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
 #include <sxe/api.hpp>
+#include <sxe/graphics/Rectangle.hpp>
 #include <sxe/stdheaders.hpp>
 
 namespace sxe { namespace graphics {
@@ -55,6 +56,10 @@ namespace sxe { namespace graphics {
         /** 4 x 4 matrix.
          */
         using mat4 = glm::mat4;
+
+        /* A simple rectangle.
+         */
+        using rect = sxe::graphics::rect;
     };
 
     /** Simple string representation of a vector type.
