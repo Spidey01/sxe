@@ -4,3 +4,5 @@ rdemo                   run demo.
 itest                   install test runner.
 irtest                  install and run test runner.
 rtest                   run test runner.
+ci                      cd PROJECT_DISTDIR
+cpushi                  pushd PROJECT_DISTDIR
