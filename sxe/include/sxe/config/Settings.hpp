@@ -90,30 +90,35 @@ namespace sxe {  namespace config {
 
         /** Get key as a bool value.
          *
+         * @param key the setting to get.
          * @return the value of key or false if not set.
          */
         virtual bool getBool(const string_type& key) const;
 
         /** Get key as a float value.
          *
+         * @param key the setting to get.
          * @return the value of key or 0 if not set.
          */
         float getFloat(const string_type& key) const;
 
         /** Get key as a int value.
          *
+         * @param key the setting to get.
          * @return the value of key or 0 if not set.
          */
         int getInt(const string_type& key) const;
 
         /** Get key as a long value.
          *
+         * @param key the setting to get.
          * @return the value of key or 0 if not set.
          */
         long getLong(const string_type& key) const;
 
         /** Get key as a const string_type& value.
          *
+         * @param key the setting to get.
          * @return the value of key or "" if not set.
          */
         virtual string_type getString(const string_type& key) const = 0;
