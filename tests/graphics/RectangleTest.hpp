@@ -37,6 +37,7 @@ class RectangleTest : public CPPUNIT_NS::TestFixture
     CPPUNIT_TEST(area);
     CPPUNIT_TEST(perimeter);
     CPPUNIT_TEST(is_square);
+    CPPUNIT_TEST(intersections);
 
     CPPUNIT_TEST_SUITE_END();
 
@@ -49,6 +50,7 @@ class RectangleTest : public CPPUNIT_NS::TestFixture
     void area();
     void perimeter();
     void is_square();
+    void intersections();
 
   private:
 };

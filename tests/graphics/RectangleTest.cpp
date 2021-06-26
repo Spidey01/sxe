@@ -182,3 +182,60 @@ void RectangleTest::is_square()
     CPPUNIT_ASSERT(usq.is_square() == true);
     CPPUNIT_ASSERT(ur.is_square() == false);
 }
+
+void RectangleTest::intersections()
+{
+    Log::xtrace(TAG, "intersections()");
+
+    sxe::graphics::rect r1 = {20.5f, 30.5f, 40.5f, 60.5f};
+    sxe::graphics::rect r2 = {0.0f, 0.0f, 40.5f, 60.5f};
+    sxe::graphics::rect r3 = {20.5f, 30.5f, 40.5f, 60.5f};
+    sxe::graphics::rect r4 = r1.intersected(r2);
+
+    Log::test(TAG, "r1: " + sxe::graphics::rectangle_to_string(r1));
+    Log::test(TAG, "r2: " + sxe::graphics::rectangle_to_string(r2));
+    Log::test(TAG, "r3: " + sxe::graphics::rectangle_to_string(r3));
+    Log::test(TAG, "r4: " + sxe::graphics::rectangle_to_string(r4));
+
+    CPPUNIT_ASSERT_MESSAGE("Rectangle<float> r1 intersects r2", r1.intersects(r2) == true);
+    CPPUNIT_ASSERT_MESSAGE("Rectangle<float> r1 intersected with r2 is r3", r3 == r4);
+
+    sxe::graphics::drect dr1 = {20.5, 30.5, 40.5, 60.5};
+    sxe::graphics::drect dr2 = {0.0, 0.0, 40.5, 60.5};
+    sxe::graphics::drect dr3 = {20.5, 30.5, 40.5, 60.5};
+    sxe::graphics::drect dr4 = dr1.intersected(dr2);
+
+    Log::test(TAG, "dr1: " + sxe::graphics::rectangle_to_string(dr1));
+    Log::test(TAG, "dr2: " + sxe::graphics::rectangle_to_string(dr2));
+    Log::test(TAG, "dr3: " + sxe::graphics::rectangle_to_string(dr3));
+    Log::test(TAG, "dr4: " + sxe::graphics::rectangle_to_string(dr4));
+
+    CPPUNIT_ASSERT_MESSAGE("Rectangle<double> dr1 intersects dr2", dr1.intersects(dr2) == true);
+    CPPUNIT_ASSERT_MESSAGE("Rectangle<double> dr1 intersected with dr2 is dr3", dr3 == dr4);
+
+    sxe::graphics::irect ir1 = {0, 0, 1920, 1080};
+    sxe::graphics::irect ir2 = {640, 360, 1920, 1080};
+    sxe::graphics::irect ir3 = {0, 360, 1920, 1080};
+    sxe::graphics::irect ir4 = ir1.intersected(ir2);
+
+    Log::test(TAG, "ir1: " + sxe::graphics::rectangle_to_string(ir1));
+    Log::test(TAG, "ir2: " + sxe::graphics::rectangle_to_string(ir2));
+    Log::test(TAG, "ir3: " + sxe::graphics::rectangle_to_string(ir3));
+    Log::test(TAG, "ir4: " + sxe::graphics::rectangle_to_string(ir4));
+
+    CPPUNIT_ASSERT_MESSAGE("Rectangle<int> ir1 intersects ir2", ir1.intersects(ir2) == true);
+    CPPUNIT_ASSERT_MESSAGE("Rectangle<int> ir1 intersected with ir2 is ir3", ir3 == ir4);
+
+    sxe::graphics::urect ur1 = {0, 0, 1920, 1080};
+    sxe::graphics::urect ur2 = {640, 360, 1920, 1080};
+    sxe::graphics::urect ur3 = {0, 360, 1920, 1080};
+    sxe::graphics::urect ur4 = ur1.intersected(ur2);
+
+    Log::test(TAG, "ur1: " + sxe::graphics::rectangle_to_string(ur1));
+    Log::test(TAG, "ur2: " + sxe::graphics::rectangle_to_string(ur2));
+    Log::test(TAG, "ur3: " + sxe::graphics::rectangle_to_string(ur3));
+    Log::test(TAG, "ur4: " + sxe::graphics::rectangle_to_string(ur4));
+
+    CPPUNIT_ASSERT_MESSAGE("Rectangle<unsigned int> ur1 intersects ur2", ur1.intersects(ur2) == true);
+    CPPUNIT_ASSERT_MESSAGE("Rectangle<unsigned int> ur1 intersected with ur2 is ur3", ur3 == ur4);
+}

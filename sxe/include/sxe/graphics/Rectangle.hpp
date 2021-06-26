@@ -80,6 +80,13 @@ namespace sxe
             template<typename U>
             constexpr bool intersects(const Rectangle<U>& r);
 
+            /** Determines the intersecting rectangle.
+             * 
+             * @param r the other rectangle.
+             * @returns Rectangle describing the intersected portion.
+             */
+            template <typename U>
+            constexpr Rectangle<T> intersected(const Rectangle<U>& r);
         };
 
         typedef Rectangle<float> rect;
@@ -197,6 +204,51 @@ namespace sxe
                    y < r.y + r.height &&
                    y + height > r.y;
         }
+
+        template <typename T>
+        template <typename U>
+        constexpr Rectangle<T> Rectangle<T>::intersected(const Rectangle<U>& r)
+        {
+            typename T l1 = x;
+            typename T r1 = x;
+            if (width - x + 1 < 0)
+                l1 = width;
+            else
+                r1 = width;
+
+            typename T l2 = x;
+            typename T r2 = x;
+            if (r.width - r.x + 1 < 0)
+                l2 = r.width;
+            else
+                r2 = r.width;
+
+            if (l1 > r2 || l2 > r1)
+                return Rectangle<T>();
+
+            typename T t1 = y;
+            typename T b1 = y;
+            if (height - y + 1 < 0)
+                t1 = height;
+            else
+                b1 = height;
+            typename T t2 = r.y;
+            typename T b2 = r.y;
+            if (r.height - r.y + 1 < 0)
+                t2 = r.height;
+            else
+                b2 = r.height;
+            if (t1 > b2 || t2 > b1)
+                return Rectangle<T>();
+
+            Rectangle<T> tmp;
+            tmp.x = std::max(l1, l2);
+            tmp.width = std::min(r1, r2);
+            tmp.y = std::max(t1, t2);
+            tmp.height = std::min(b1, b2);
+            return tmp;
+        }
+
     } // namespace graphics
 } // namespace sxe
 
