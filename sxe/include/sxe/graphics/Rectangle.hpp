@@ -71,12 +71,46 @@ namespace sxe
             /** @returns true if Rectangle is a square.
              */
             constexpr bool is_square() const;
+
+            /** Tests if the rectangle intersects (overlaps) with this rectangle.
+             * 
+             * @param r the other rectangle.
+             * @returns true if r intersects with this rectangle.
+             */
+            template<typename U>
+            constexpr bool intersects(const Rectangle<U>& r);
+
         };
 
         typedef Rectangle<float> rect;
         typedef Rectangle<double> drect;
         typedef Rectangle<int> irect;
         typedef Rectangle<unsigned int> urect;
+
+        /** Simple string representation of a rectangle type.
+         */
+        template <typename T, typename string_type = std::string>
+        string_type rectangle_to_string(const Rectangle<T>& r)
+        {
+            string_type s;
+
+            s
+                .append("{")
+                .append("x: ")
+                .append(std::to_string(r.x))
+                .append(",")
+                .append("y: ")
+                .append(std::to_string(r.y))
+                .append(",")
+                .append("width: ")
+                .append(std::to_string(r.width))
+                .append(",")
+                .append("height: ")
+                .append(std::to_string(r.height))
+                .append("}");
+
+            return s;
+        }
 
         template <typename T>
         constexpr Rectangle<T>::Rectangle()
@@ -154,6 +188,15 @@ namespace sxe
             return height == width;
         }
 
+        template <typename T>
+        template < typename U>
+        constexpr bool Rectangle<T>::intersects(const Rectangle<U>& r)
+        {
+            return x < r.x + r.width &&
+                   x + width > r.x &&
+                   y < r.y + r.height &&
+                   y + height > r.y;
+        }
     } // namespace graphics
 } // namespace sxe
 
