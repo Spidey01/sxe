@@ -43,17 +43,24 @@ const Player::string_type Player::TAG = "Player";
 
 static int instance_count = 0;
 Player::Player(sxe::GameEngine& engine)
-    : mSprite(engine, "player.mesh", &VertexVertexMesh::resourceFilter, std::bind(&Player::onDraw, this), {})
+    : mSprite(engine, engine.getSettings().getString("Player.resource"), &VertexVertexMesh::resourceFilter, std::bind(&Player::onDraw, this), {})
     , mLastOnDraw(clock_type::now())
     , mLastThink(clock_type::now())
+    , mScaleFactor(engine.getSettings().getFloat("Player.scale"))
     , mSpeed(0)
     , mBoosting(false)
     , mHeading(0)
-    , mYawRate(15.0f)
+    , mYawRate(engine.getSettings().getFloat("Player.yaw_rate"))
+    , mVelocityMultiplier(engine.getSettings().getFloat("Player.velocity_multiplier"))
+    , mBoostAccelerationRate(engine.getSettings().getInt("Player.boost_acceleration_rate"))
+    , mBoostDecelerationRate(engine.getSettings().getInt("Player.boost_deceleration_rate"))
+    , mBoostSpeedLimit(engine.getSettings().getInt("Player.boost_speed_limit"))
 {
     Log::xtrace(TAG, "Player()");
 
-    vec2 scale(0.03f, 0.03f);
+    if (!mScaleFactor)
+        Log::w(TAG, "No Player.scale - invsibile space ship!");
+    vec2 scale(mScaleFactor, mScaleFactor);
     mSprite.graphics()->scaleModelMatrix(scale);
 }
 
@@ -144,7 +151,7 @@ void Player::onDraw()
     auto delta = std::chrono::duration_cast<std::chrono::milliseconds>(now - mLastOnDraw);
     mLastOnDraw = now;
 
-    float velocity = static_cast<float>(delta.count()) * (0.0000002f * speed());
+    float velocity = static_cast<float>(delta.count()) * (mVelocityMultiplier * speed());
     vec3& pos = position();
     vec3 dir = direction(mHeading);
 
@@ -179,14 +186,14 @@ void Player::think()
      */
 
     if (mBoosting) {
-        mSpeed += 100;
+        mSpeed += mBoostAccelerationRate;
     } else if (mSpeed > 0) {
-        mSpeed -= 25;
+        mSpeed -= mBoostDecelerationRate;
     }
 
     /* Not to infinity and meyond. */
-    if (mSpeed > 10000)
-        mSpeed = 10000;
+    if (mSpeed > mBoostSpeedLimit)
+        mSpeed = mBoostSpeedLimit;
 
     if (mSpeed > 0)
         Log::xtrace(TAG, "think(): speed: " + to_string(speed()) + " boosting: " + to_string(mBoosting));

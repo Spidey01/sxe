@@ -38,15 +38,19 @@ namespace demos {
 const Rock::string_type Rock::TAG = "Rock";
 
 Rock::Rock(sxe::GameEngine& engine)
-    : mSprite(engine, "bigrock.mesh", &VertexVertexMesh::resourceFilter, std::bind(&Rock::onDraw, this), {})
+    : mSprite(engine, engine.getSettings().getString("Rock.resource"), &VertexVertexMesh::resourceFilter, std::bind(&Rock::onDraw, this), {})
     , mLastOnDraw(clock_type::now())
     , mLastThink(clock_type::now())
     , mSpeed(0)
     , mHeading(0)
+    , mVelocityMultiplier(engine.getSettings().getFloat("Rock.velocity_multiplier"))
 {
     Log::xtrace(TAG, "Rock()");
 
-    vec2 scale(0.08, 0.08);
+    double rockScale = engine.getSettings().getFloat("Rock.scale");
+    if (!rockScale)
+        Log::w(TAG, "No Rock.scale - invisible rocks");
+    vec2 scale(rockScale, rockScale);
     mSprite.graphics()->scaleModelMatrix(scale);
 }
 
@@ -69,7 +73,7 @@ void Rock::onDraw()
     auto delta = std::chrono::duration_cast<std::chrono::milliseconds>(now - mLastOnDraw);
     mLastOnDraw = now;
 
-    float velocity = static_cast<float>(delta.count()) * (0.0000002f * speed());
+    float velocity = static_cast<float>(delta.count()) * (mVelocityMultiplier * speed());
     vec3& pos = position();
     vec3 dir = direction(mHeading);
 

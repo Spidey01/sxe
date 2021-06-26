@@ -108,6 +108,12 @@ namespace demos {
         time_point mLastOnDraw;
         time_point mLastThink;
 
+        /** Scale factor for our Sprite's model matrix.
+         *
+         * Initialized from Player.scale setting.
+         */
+        float mScaleFactor;
+
         /** How fast the ship is moving in units.
          */
         std::atomic_int mSpeed;
@@ -123,6 +129,26 @@ namespace demos {
         /** How much the heading changes (yaws) on input.
          */
         float mYawRate;
+
+        /** Ship's velocity multiplier.
+         * 
+         * Used by onDraw() when computing the player's velocity based on boost
+         * speed and time since mLastOnDraw.
+         */
+        float mVelocityMultiplier;
+
+        /** Speed gain in units per tick.
+         */
+        int mBoostAccelerationRate;
+
+        /** Natural decay rate of in units per tick.
+         */
+        int mBoostDecelerationRate;
+
+        /** Max speed of the booster in units per tick.
+         */
+        int mBoostSpeedLimit;
+
     };
 }
 

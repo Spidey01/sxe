@@ -100,6 +100,13 @@ namespace demos {
         /** Rock's heading in degrees.
          */
         float mHeading;
+
+        /** Rock's velocity multiplier.
+         * 
+         * Used by onDraw() when computing the rock's velocity based on boost
+         * speed and time since mLastOnDraw.
+         */
+        float mVelocityMultiplier;
     };
 }
 
