@@ -382,6 +382,13 @@ std::weak_ptr<Game> GameEngine::getGame() const
 }
 
 
+GameEngine::string_type GameEngine::getGameName() const
+{
+    if (!mGame)
+        throw std::logic_error("getGameName() called while mGame == nullptr -- did you call GameEngine's ctor yet?");
+    return mGame->getName();
+}
+
 
 config::Settings& GameEngine::getSettings() const
 {

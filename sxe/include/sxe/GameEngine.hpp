@@ -192,6 +192,10 @@ namespace sxe {
 
         std::weak_ptr<Game> getGame() const;
 
+        /** @returns the Game::getName().
+         */
+        string_type getGameName() const;
+
         /** Accessor for settings.
          *
          * @returns runtime settings.
