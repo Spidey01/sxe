@@ -25,29 +25,23 @@
 
 #include <sxe/input/InputManager.hpp>
 #include <sxe/input/KeyEvent.hpp>
-#include <sxe/resource/ResourceManager.hpp>
-#include <sxe/scene/SceneManager.hpp>
-#include <sxe/graphics/Sprite.hpp>
 
-namespace demos {
+#include "./GameObject.h"
+
+namespace demos
+{
 
     /** The player.
      */
     class Player
-        : public sxe::common::stdtypedefs<Player>
-        , public sxe::graphics::stdmathtypes
+        : public demos::GameObject
     {
       public:
         using KeyEvent = sxe::input::KeyEvent;
         using InputCode = sxe::input::InputCode;
-        using Entity = sxe::scene::Entity;
 
         Player(sxe::GameEngine& engine);
         ~Player();
-
-        /** Return the entity used for scene management.
-         */
-        sxe::scene::Entity::shared_ptr getEntity() const;
 
         /** Setup input for controlling the player.
          * 
@@ -60,82 +54,16 @@ namespace demos {
         bool onRightArrow(KeyEvent event);
         bool onSpaceBar(KeyEvent event);
 
-        /** Called everyime the scene updates.
-         */
-        void onDraw();
-
         /** Called everyime the game world updates.
          */
-        void think();
-
-        /** Returns the current speed in units.
-         */
-        int speed() const;
-
-        /** Sets the current speed.
-         * 
-         * @param vel the absolute speed in units.
-         */
-        void speed(int vel);
-
-        /** Ship's position. Modify it to move.
-         */
-        vec3& position() const;
-
-        /** Ship's direction of movement.
-         * 
-         * @param heading in degrees.
-         * 
-         * @returns vector that can be added to ships position to move in
-         * direction.
-         */
-        vec3 direction(float heading) const;
-
-        /** Yaw the ship.
-         * 
-         * @param offset degree of yaw: positive offsets point the nose to the
-         * right; negative to the left.
-         */
-        void yaw(float offset);
+        void think() override;
 
       private:
         static const string_type TAG;
-        mutable sxe::graphics::Sprite mSprite;
-
-        using clock_type = std::chrono::steady_clock;
-        using time_point = clock_type::time_point;
-
-        time_point mLastOnDraw;
-        time_point mLastThink;
-
-        /** Scale factor for our Sprite's model matrix.
-         *
-         * Initialized from Player.scale setting.
-         */
-        float mScaleFactor;
-
-        /** How fast the ship is moving in units.
-         */
-        std::atomic_int mSpeed;
 
         /** True if the ship's engines are on.
          */
         std::atomic_bool mBoosting;
-
-        /** Ship's heading in degrees.
-         */
-        float mHeading;
-
-        /** How much the heading changes (yaws) on input.
-         */
-        float mYawRate;
-
-        /** Ship's velocity multiplier.
-         * 
-         * Used by onDraw() when computing the player's velocity based on boost
-         * speed and time since mLastOnDraw.
-         */
-        float mVelocityMultiplier;
 
         /** Speed gain in units per tick.
          */
@@ -149,7 +77,10 @@ namespace demos {
          */
         int mBoostSpeedLimit;
 
+        /** How much the heading changes (yaws) on input.
+         */
+        float mYawRate;
     };
-}
+} // namespace demos
 
 #endif // SXE_DEMOS_ROCKBLASTER_PLAYER__H

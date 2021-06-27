@@ -43,35 +43,19 @@ const Player::string_type Player::TAG = "Player";
 
 static int instance_count = 0;
 Player::Player(sxe::GameEngine& engine)
-    : mSprite(engine, engine.getSettings().getString("Player.resource"), &VertexVertexMesh::resourceFilter, std::bind(&Player::onDraw, this), {})
-    , mLastOnDraw(clock_type::now())
-    , mLastThink(clock_type::now())
-    , mScaleFactor(engine.getSettings().getFloat("Player.scale"))
-    , mSpeed(0)
+    : GameObject(engine, TAG)
     , mBoosting(false)
-    , mHeading(0)
-    , mYawRate(engine.getSettings().getFloat("Player.yaw_rate"))
-    , mVelocityMultiplier(engine.getSettings().getFloat("Player.velocity_multiplier"))
     , mBoostAccelerationRate(engine.getSettings().getInt("Player.boost_acceleration_rate"))
     , mBoostDecelerationRate(engine.getSettings().getInt("Player.boost_deceleration_rate"))
     , mBoostSpeedLimit(engine.getSettings().getInt("Player.boost_speed_limit"))
+    , mYawRate(engine.getSettings().getFloat("Player.yaw_rate"))
 {
     Log::xtrace(TAG, "Player()");
-
-    if (!mScaleFactor)
-        Log::w(TAG, "No Player.scale - invsibile space ship!");
-    vec2 scale(mScaleFactor, mScaleFactor);
-    mSprite.graphics()->scaleModelMatrix(scale);
 }
 
 Player::~Player()
 {
     Log::xtrace(TAG, "~Player()");
-}
-
-Player::Entity::shared_ptr Player::getEntity() const
-{
-    return mSprite.entity();
 }
 
 bool Player::setupInput(sxe::input::InputManager& controller)
@@ -142,39 +126,9 @@ bool Player::onSpaceBar(KeyEvent event)
     return true;
 }
 
-void Player::onDraw()
-{
-    Log::test(TAG, "onDraw()");
-
-    /* Scale by time rather than framerate. */
-    time_point now = clock_type::now();
-    auto delta = std::chrono::duration_cast<std::chrono::milliseconds>(now - mLastOnDraw);
-    mLastOnDraw = now;
-
-    float velocity = static_cast<float>(delta.count()) * (mVelocityMultiplier * speed());
-    vec3& pos = position();
-    vec3 dir = direction(mHeading);
-
-    if (velocity > 0) {
-        Log::xtrace(TAG, "pos: " + sxe::graphics::vec_to_string(pos) + " + dir: " + sxe::graphics::vec_to_string(dir) + " * vel: " + to_string(velocity));
-    }
-    pos += dir * velocity;
-
-    /* Flying off the screen should wrap. */
-
-    if (pos.y > 1.0f)
-        pos.y = -1.0f;
-    if (pos.y < -1.0f)
-        pos.y = 1.0;
-
-    if (pos.x > 1.0f)
-        pos.x = -1.0f;
-    if (pos.x < -1.0f)
-        pos.x = 1.0;
-}
-
 void Player::think()
 {
+    GameObject::think();
     Log::test(TAG, "think()");
 
     /*
@@ -197,45 +151,6 @@ void Player::think()
 
     if (mSpeed > 0)
         Log::xtrace(TAG, "think(): speed: " + to_string(speed()) + " boosting: " + to_string(mBoosting));
-}
-
-int Player::speed() const
-{
-    return mSpeed;
-}
-
-void Player::speed(int vel)
-{
-    mSpeed = vel;
-}
-
-Player::vec3& Player::position() const
-{
-    return mSprite.graphics()->position();
-}
-
-Player::vec3 Player::direction(float heading) const
-{
-    // X axis: radians, or the +/- differences will confuse you.
-    float x = sin(glm::radians(heading));
-
-    // Y axis: radians, ditto.
-    float y = cos(glm::radians(heading));
-
-    // Z axis: unmodified -- this game is 2D.
-    float z = 0.0f;
-
-    return vec3(x, y, z);
-}
-
-void Player::yaw(float offset)
-{
-    mHeading += offset;
-
-    if (mHeading >= 360.0f)
-        mHeading -= 360.0f;
-    if (mHeading <= -360.0f)
-        mHeading += 360.0f;
 }
 
 }

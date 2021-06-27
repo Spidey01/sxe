@@ -5,9 +5,10 @@ project(rockblaster
     LANGUAGES CXX)
 
 add_executable(rockblaster
+    src/GameObject.cpp
     src/Player.cpp
-    src/RockBlasterGame.cpp
     src/Rock.cpp
+    src/RockBlasterGame.cpp
     src/main.cpp)
 
 set_property(TARGET rockblaster PROPERTY CXX_STANDARD 17)
