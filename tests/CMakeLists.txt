@@ -7,6 +7,7 @@ add_executable(sxe-test-runner
     common/NotificationManagerTest.cpp
     common/SubsystemTest.cpp
     common/UtilsTest.cpp
+    config/SettingsAdapterTest.cpp
     config/SettingsEnvironmentTest.cpp
     config/SettingsExpanderTest.cpp
     config/SettingsFileTest.cpp
