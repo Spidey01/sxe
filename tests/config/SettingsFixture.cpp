@@ -43,6 +43,7 @@ void SettingsFixture::strings()
     Log::xtrace(TAG, "strings()");
 
     settings_ptr s = make_settings();
+    CPPUNIT_ASSERT_MESSAGE("make_settings() returned nullptr", s != nullptr);
 
     static const string key = "hello";
     static const string value = "world";
@@ -60,6 +61,7 @@ void SettingsFixture::booleans()
     Log::xtrace(TAG, "booleans()");
 
     settings_ptr s = make_settings();
+    CPPUNIT_ASSERT_MESSAGE("make_settings() returned nullptr", s != nullptr);
 
     static const string key = " George Boole";
 
@@ -76,6 +78,7 @@ void SettingsFixture::integers()
     Log::xtrace(TAG, "integers()");
 
     settings_ptr s = make_settings();
+    CPPUNIT_ASSERT_MESSAGE("make_settings() returned nullptr", s != nullptr);
 
     static const string int_key = "signed int";
     static const int int_value = 12345;
@@ -104,6 +107,7 @@ void SettingsFixture::floatingpoints()
     Log::xtrace(TAG, "floatingpoints()");
 
     settings_ptr s = make_settings();
+    CPPUNIT_ASSERT_MESSAGE("make_settings() returned nullptr", s != nullptr);
 
     static const string float_key = "floatingpoint";
     static const float float_value = 2.45f;
@@ -125,6 +129,7 @@ void SettingsFixture::keys()
     Log::xtrace(TAG, "keys()");
 
     settings_ptr s = make_settings();
+    CPPUNIT_ASSERT_MESSAGE("make_settings() returned nullptr", s != nullptr);
 
     Settings::KeyList keys = s->keys();
 
@@ -153,6 +158,7 @@ void SettingsFixture::merge()
 
     settings_ptr parent = make_settings();
     settings_ptr child = make_settings();
+    CPPUNIT_ASSERT_MESSAGE("make_settings() returned nullptr", parent != nullptr && child != nullptr);
 
     parent->setString("k1", "one");
     child->setString("k2", "two");
@@ -169,6 +175,7 @@ void SettingsFixture::anykeynotifications()
     Log::xtrace(TAG, "anykeynotifications()");
 
     settings_ptr s = make_settings();
+    CPPUNIT_ASSERT_MESSAGE("make_settings() returned nullptr", s != nullptr);
 
     bool notified = false;
 
@@ -200,6 +207,7 @@ void SettingsFixture::specifickeynotifications()
     Log::xtrace(TAG, "specifickeynotifications()");
 
     settings_ptr s = make_settings();
+    CPPUNIT_ASSERT_MESSAGE("make_settings() returned nullptr", s != nullptr);
     bool notified = false;
 
     Settings::OnChangedListener listener = [&notified](const string& key) -> void
