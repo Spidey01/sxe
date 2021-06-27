@@ -23,6 +23,8 @@
 
 #include "GameObject.h"
 
+#include <sxe/Game.hpp>
+#include <sxe/GameEngine.hpp>
 #include <sxe/graphics/VertexVertexMesh.hpp>
 #include <sxe/logging.hpp>
 #include <sxe/resource/ResourceHandle.hpp>
@@ -40,13 +42,14 @@ namespace demos
 
     GameObject::GameObject(sxe::GameEngine& engine, const string_type& name)
         : mName(name)
-        , mSprite(engine, engine.getSettings().getString(mName + ".resource"), &VertexVertexMesh::resourceFilter, std::bind(&GameObject::onDraw, this), {})
-        , mScaleFactor(engine.getSettings().getFloat(mName + ".scale"))
+        , mSettings(engine.getSettings(), {engine.getGameName() + string_type(".") + mName, mName})
+        , mSprite(engine, mSettings.getString("resource"), &VertexVertexMesh::resourceFilter, std::bind(&GameObject::onDraw, this), {})
+        , mScaleFactor(mSettings.getFloat("scale"))
         , mLastOnDraw(clock_type::now())
         , mLastThink(clock_type::now())
         , mSpeed(0)
         , mHeading(0)
-        , mVelocityMultiplier(engine.getSettings().getFloat(mName + ".velocity_multiplier"))
+        , mVelocityMultiplier(mSettings.getFloat("velocity_multiplier"))
     {
         if (!mScaleFactor)
             Log::w(TAG, mName + "No scale setting - invisible object!");

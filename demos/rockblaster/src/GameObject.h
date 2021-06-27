@@ -23,6 +23,7 @@
  *	   distribution.
  */
 
+#include <sxe/config/SettingsAdapter.hpp>
 #include <sxe/graphics/Sprite.hpp>
 #include <sxe/resource/ResourceManager.hpp>
 #include <sxe/scene/SceneManager.hpp>
@@ -95,6 +96,13 @@ namespace demos
         /** Object's name from the ctor.
          */
         string_type mName;
+
+        /** Allows easy access to settings.
+         * 
+         * Configured with the prefixes {Game::getName()}.{mName} and {mName}
+         * for ease of use.
+         */
+        sxe::config::SettingsAdapter mSettings;
 
         /** Sprite used for rendering the object.
          */

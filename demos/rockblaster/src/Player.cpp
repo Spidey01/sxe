@@ -45,10 +45,10 @@ static int instance_count = 0;
 Player::Player(sxe::GameEngine& engine)
     : GameObject(engine, TAG)
     , mBoosting(false)
-    , mBoostAccelerationRate(engine.getSettings().getInt("Player.boost_acceleration_rate"))
-    , mBoostDecelerationRate(engine.getSettings().getInt("Player.boost_deceleration_rate"))
-    , mBoostSpeedLimit(engine.getSettings().getInt("Player.boost_speed_limit"))
-    , mYawRate(engine.getSettings().getFloat("Player.yaw_rate"))
+    , mBoostAccelerationRate(mSettings.getInt("boost_acceleration_rate"))
+    , mBoostDecelerationRate(mSettings.getInt("boost_deceleration_rate"))
+    , mBoostSpeedLimit(mSettings.getInt("boost_speed_limit"))
+    , mYawRate(mSettings.getFloat("yaw_rate"))
 {
     Log::xtrace(TAG, "Player()");
 }
